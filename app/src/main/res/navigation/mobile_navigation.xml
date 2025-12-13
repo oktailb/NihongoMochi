@@ -23,6 +23,9 @@
             android:id="@+id/action_nav_home_to_nav_dictionary"
             app:destination="@id/nav_dictionary" />
         <action
+            android:id="@+id/action_nav_home_to_nav_options"
+            app:destination="@id/nav_settings" />
+        <action
             android:id="@+id/action_nav_home_to_nav_results"
             app:destination="@id/nav_results" />
         <action
@@ -53,6 +56,12 @@
         android:name="org.oktail.kanjimori.ui.dictionary.DictionaryFragment"
         android:label="Dictionnaire"
         tools:layout="@layout/fragment_dictionary" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="org.oktail.kanjimori.ui.settings.SettingsFragment"
+        android:label="Options"
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_results"
