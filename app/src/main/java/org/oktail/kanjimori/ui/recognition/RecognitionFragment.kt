@@ -67,10 +67,31 @@ class RecognitionFragment : Fragment() {
         val allKanji = loadAllKanji()
 
         for (info in levelInfos) {
-            val kanjiForLevel = getKanjiForLevel(info.xmlName, allKanji)
-            val masteryPercentage = calculateMasteryPercentage(kanjiForLevel)
+            val charactersForLevel = when (info.xmlName) {
+                "Hiragana" -> loadCharacters(R.xml.hiragana)
+                "Katakana" -> loadCharacters(R.xml.katakana)
+                else -> getKanjiForLevel(info.xmlName, allKanji)
+            }
+            val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
             updateButtonText(info, masteryPercentage)
         }
+    }
+
+    private fun loadCharacters(resourceId: Int): List<String> {
+        val characterList = mutableListOf<String>()
+        val parser = resources.getXml(resourceId)
+        try {
+            var eventType = parser.eventType
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG && parser.name == "character") {
+                    characterList.add(parser.nextText())
+                }
+                eventType = parser.next()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return characterList
     }
 
     private fun loadAllKanji(): Map<String, String> {
@@ -122,16 +143,16 @@ class RecognitionFragment : Fragment() {
         }
     }
 
-    private fun calculateMasteryPercentage(kanjiList: List<String>): Double {
-        if (kanjiList.isEmpty()) return 0.0
+    private fun calculateMasteryPercentage(characterList: List<String>): Double {
+        if (characterList.isEmpty()) return 0.0
 
-        val totalMasteryPoints = kanjiList.sumOf { kanji ->
-            val score = ScoreManager.getScore(requireContext(), kanji)
+        val totalMasteryPoints = characterList.sumOf { character ->
+            val score = ScoreManager.getScore(requireContext(), character)
             val balance = score.successes - score.failures
             balance.coerceIn(0, 10).toDouble()
         }
 
-        val maxPossiblePoints = kanjiList.size * 10.0
+        val maxPossiblePoints = characterList.size * 10.0
         if (maxPossiblePoints == 0.0) return 0.0
 
         return (totalMasteryPoints / maxPossiblePoints) * 100
@@ -145,7 +166,13 @@ class RecognitionFragment : Fragment() {
 
     private fun setupClickListeners() {
         for (info in levelInfos) {
-            info.button.setOnClickListener { navigateToRecap(info.xmlName) }
+            info.button.setOnClickListener { 
+                when (info.xmlName) {
+                    "Hiragana" -> findNavController().navigate(R.id.action_nav_recognition_to_nav_hiragana)
+                    "Katakana" -> findNavController().navigate(R.id.action_nav_recognition_to_nav_katakana)
+                    else -> navigateToRecap(info.xmlName)
+                }
+            }
         }
     }
 

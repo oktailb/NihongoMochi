@@ -41,7 +41,45 @@
         <action
             android:id="@+id/action_nav_recognition_to_game_recap"
             app:destination="@id/nav_game_recap" />
+        <action
+            android:id="@+id/action_nav_recognition_to_nav_hiragana"
+            app:destination="@id/nav_hiragana" />
+        <action
+            android:id="@+id/action_nav_recognition_to_nav_katakana"
+            app:destination="@id/nav_katakana" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_hiragana"
+        android:name="org.oktail.kanjimori.ui.gojuon.HiraganaFragment"
+        android:label="@string/level_hiragana"
+        tools:layout="@layout/fragment_hiragana">
+        <action
+            android:id="@+id/action_nav_hiragana_to_hiragana_quiz"
+            app:destination="@id/hiragana_quiz_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/hiragana_quiz_fragment"
+        android:name="org.oktail.kanjimori.ui.gojuon.HiraganaQuizFragment"
+        android:label="Hiragana Quiz"
+        tools:layout="@layout/fragment_hiragana_quiz" />
+
+    <fragment
+        android:id="@+id/nav_katakana"
+        android:name="org.oktail.kanjimori.ui.gojuon.KatakanaFragment"
+        android:label="@string/level_katakana"
+        tools:layout="@layout/fragment_katakana">
+        <action
+            android:id="@+id/action_nav_katakana_to_katakana_quiz"
+            app:destination="@id/katakana_quiz_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/katakana_quiz_fragment"
+        android:name="org.oktail.kanjimori.ui.gojuon.KatakanaQuizFragment"
+        android:label="Katakana Quiz"
+        tools:layout="@layout/fragment_katakana_quiz" />
 
     <fragment
         android:id="@+id/nav_reading"

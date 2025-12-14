@@ -1,7 +1,6 @@
 package org.oktail.kanjimori.data
 
 import android.content.Context
-import org.oktail.kanjimori.ui.gamerecap.KanjiScore
 
 object ScoreManager {
 

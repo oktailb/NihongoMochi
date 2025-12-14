@@ -53,14 +53,14 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                tools:text="Hiragana\n0%" />
+                tools:text="Hiragana" />
 
             <Button
                 android:id="@+id/button_katakana"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
-                tools:text="Katakana\n0%" />
+                tools:text="Katakana" />
         </GridLayout>
 
         <!-- Japanese Language Proficiency Test -->

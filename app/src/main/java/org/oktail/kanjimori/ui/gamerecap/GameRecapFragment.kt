@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.oktail.kanjimori.R
+import org.oktail.kanjimori.data.KanjiScore
 import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.databinding.FragmentGameRecapBinding
 import org.xmlpull.v1.XmlPullParser
-
-data class KanjiScore(val successes: Int, val failures: Int)
 
 class GameRecapFragment : Fragment() {
 
