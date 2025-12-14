@@ -1,5 +1,7 @@
 package org.oktail.kanjimori.ui.about
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +30,30 @@ class AboutFragment : Fragment() {
         binding.textDate.text = currentDate
 
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.layoutIssueTracker.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/oktailb/KanjiMori/issues"))
+            startActivity(intent)
+        }
+
+        binding.layoutPatreon.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.patreon.com/Oktail"))
+            startActivity(intent)
+        }
+
+        binding.layoutTipeee.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://en.tipeee.com/lecoq-vincent"))
+            startActivity(intent)
+        }
+
+        binding.layoutKanjiData.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/davidluzgouveia/kanji-data"))
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {

@@ -114,4 +114,9 @@
     <string name="title_home">Kanji Mori</string>
     <string name="title_game_recap">Récapitulatif du jeu</string>
 
+    <!-- About Screen -->
+    <string name="about_retribution">Rétribution</string>
+    <string name="about_patreon">Soutenez-moi sur Patreon</string>
+    <string name="about_tipeee">Faire un don sur Tipeee</string>
+
 </resources>
