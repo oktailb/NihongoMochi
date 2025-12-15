@@ -17,11 +17,7 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private val languages = listOf(
-        LanguageItem("fr_FR", "Français (France)", R.drawable.flag_fr_fr),
-        LanguageItem("en_GB", "English (UK)", R.drawable.flag_en_gb),
-        LanguageItem("pt_BR", "Português (Brasil)", R.drawable.flag_pt_br)
-    )
+    private lateinit var languages: List<LanguageItem>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +30,18 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        languages = listOf(
+            LanguageItem("fr_FR", getString(R.string.language_fr_fr), R.drawable.flag_fr_fr),
+            LanguageItem("en_GB", getString(R.string.language_en_gb), R.drawable.flag_en_gb),
+            LanguageItem("it_IT", getString(R.string.language_it_it), R.drawable.flag_it),
+            LanguageItem("de_DE", getString(R.string.language_de_de), R.drawable.flag_de),
+            LanguageItem("es_SP", getString(R.string.language_es_sp), R.drawable.flag_es),
+            LanguageItem("bn_BN", getString(R.string.language_bn_bn), R.drawable.flag_bn),
+            LanguageItem("th", getString(R.string.language_th), R.drawable.flag_th_th),
+            LanguageItem("ar_AR", getString(R.string.language_ar_ar), R.drawable.flag_sa_sa),
+            LanguageItem("pt_BR", getString(R.string.language_pt_br), R.drawable.flag_pt_br)
+        )
 
         val adapter = LanguageAdapter(requireContext(), languages)
         binding.spinnerLanguage.adapter = adapter

@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Résultats"
+                android:text="@string/results_title"
                 android:textSize="34sp"
                 android:layout_marginBottom="16dp"/>
 
@@ -45,16 +45,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Reconnaissance"
+                        android:text="@string/results_recognition_title"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp"/>
 
                     <!-- Hiragana -->
                     <TextView
+                        android:id="@+id/title_recognition_hiragana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hiraganas"
+                        android:text="@string/results_hiragana"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -67,17 +68,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_hiragana"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Katakana -->
                     <TextView
+                        android:id="@+id/title_recognition_katakana"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Katakanas"
+                        android:text="@string/results_katakana"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -91,17 +87,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_katakana"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- JLPT N5 -->
                     <TextView
+                        android:id="@+id/title_recognition_n5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="JLPT N5"
+                        android:text="@string/results_jlpt_n5"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -115,17 +106,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_n5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- JLPT N4 -->
                     <TextView
+                        android:id="@+id/title_recognition_n4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="JLPT N4"
+                        android:text="@string/results_jlpt_n4"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -139,17 +125,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_n4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- JLPT N3 -->
                     <TextView
+                        android:id="@+id/title_recognition_n3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="JLPT N3"
+                        android:text="@string/results_jlpt_n3"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -163,17 +144,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_n3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- JLPT N2 -->
                     <TextView
+                        android:id="@+id/title_recognition_n2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="JLPT N2"
+                        android:text="@string/results_jlpt_n2"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -187,17 +163,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_n2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- JLPT N1 -->
                     <TextView
+                        android:id="@+id/title_recognition_n1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="JLPT N1"
+                        android:text="@string/results_jlpt_n1"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -211,17 +182,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_n1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 1 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 1"
+                        android:text="@string/results_grade_1"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -235,17 +201,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 2 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 2"
+                        android:text="@string/results_grade_2"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -259,17 +220,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 3 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 3"
+                        android:text="@string/results_grade_3"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -283,17 +239,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 4 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 4"
+                        android:text="@string/results_grade_4"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -307,17 +258,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 5 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 5"
+                        android:text="@string/results_grade_5"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -331,17 +277,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Grade 6 -->
                     <TextView
+                        android:id="@+id/title_recognition_grade6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grade 6"
+                        android:text="@string/results_grade_6"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -355,17 +296,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_grade6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- College (Grade 7-9) -->
                     <TextView
+                        android:id="@+id/title_recognition_college"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Collège"
+                        android:text="@string/results_college"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -379,17 +315,12 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <TextView
-                        android:id="@+id/text_recognition_progress_college"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
-
                     <!-- Lycee (Grade 10-12) -->
                     <TextView
+                        android:id="@+id/title_recognition_lycee"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lycée"
+                        android:text="@string/results_high_school"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_marginTop="16dp"/>
@@ -402,12 +333,6 @@
                         android:layout_marginTop="8dp"
                         android:max="100"
                         android:progress="0" />
-
-                    <TextView
-                        android:id="@+id/text_recognition_progress_lycee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0% de maîtrise" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -427,9 +352,10 @@
                      android:padding="16dp">
 
                      <TextView
+                         android:id="@+id/title_reading"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="Lecture"
+                         android:text="@string/results_reading_title"
                          android:textSize="20sp"
                          android:textStyle="bold" />
 
@@ -447,17 +373,11 @@
                          android:layout_height="wrap_content"
                          android:orientation="horizontal"
                          android:layout_marginTop="4dp">
-                         <TextView
-                             android:id="@+id/text_reading_progress"
-                             android:layout_width="0dp"
-                             android:layout_weight="1"
-                             android:layout_height="wrap_content"
-                             android:text="0% de maîtrise" />
                           <TextView
                              android:id="@+id/text_reading_total"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:text="Total: 0" />
+                             android:text="@string/results_total_count" />
                      </LinearLayout>
                  </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -477,9 +397,10 @@
                      android:padding="16dp">
 
                      <TextView
+                         android:id="@+id/title_writing"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="Écriture"
+                         android:text="@string/results_writing_title"
                          android:textSize="20sp"
                          android:textStyle="bold" />
 
@@ -497,17 +418,11 @@
                          android:layout_height="wrap_content"
                          android:orientation="horizontal"
                          android:layout_marginTop="4dp">
-                         <TextView
-                             android:id="@+id/text_writing_progress"
-                             android:layout_width="0dp"
-                             android:layout_weight="1"
-                             android:layout_height="wrap_content"
-                             android:text="0% de maîtrise" />
                           <TextView
                              android:id="@+id/text_writing_total"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:text="Total: 0" />
+                             android:text="@string/results_total_count" />
                      </LinearLayout>
                  </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -530,7 +445,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Backup"
+            android:text="@string/results_backup"
             app:icon="@android:drawable/ic_menu_upload"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginEnd="4dp"/>
@@ -540,7 +455,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Restore"
+            android:text="@string/results_restore"
             app:icon="@android:drawable/ic_menu_save"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginStart="4dp"
@@ -551,7 +466,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sync"
+            android:text="@string/results_sync"
             app:icon="@android:drawable/ic_popup_sync"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginStart="4dp"/>

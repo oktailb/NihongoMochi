@@ -151,63 +151,63 @@ class ResultsFragment : Fragment() {
         when (info.name) {
             "Hiragana" -> {
                 binding.progressRecognitionHiragana.progress = percentageInt
-                binding.textRecognitionProgressHiragana.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionHiragana.text = getString(R.string.results_hiragana, percentageInt)
             }
             "Katakana" -> {
                 binding.progressRecognitionKatakana.progress = percentageInt
-                binding.textRecognitionProgressKatakana.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionKatakana.text = getString(R.string.results_katakana, percentageInt)
             }
             "JLPT N5" -> {
                 binding.progressRecognitionN5.progress = percentageInt
-                binding.textRecognitionProgressN5.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionN5.text = getString(R.string.results_jlpt_n5, percentageInt)
             }
             "JLPT N4" -> {
                 binding.progressRecognitionN4.progress = percentageInt
-                binding.textRecognitionProgressN4.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionN4.text = getString(R.string.results_jlpt_n4, percentageInt)
             }
             "JLPT N3" -> {
                 binding.progressRecognitionN3.progress = percentageInt
-                binding.textRecognitionProgressN3.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionN3.text = getString(R.string.results_jlpt_n3, percentageInt)
             }
             "JLPT N2" -> {
                 binding.progressRecognitionN2.progress = percentageInt
-                binding.textRecognitionProgressN2.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionN2.text = getString(R.string.results_jlpt_n2, percentageInt)
             }
             "JLPT N1" -> {
                 binding.progressRecognitionN1.progress = percentageInt
-                binding.textRecognitionProgressN1.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionN1.text = getString(R.string.results_jlpt_n1, percentageInt)
             }
             "Grade 1" -> {
                 binding.progressRecognitionGrade1.progress = percentageInt
-                binding.textRecognitionProgressGrade1.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade1.text = getString(R.string.results_grade_1, percentageInt)
             }
             "Grade 2" -> {
                 binding.progressRecognitionGrade2.progress = percentageInt
-                binding.textRecognitionProgressGrade2.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade2.text = getString(R.string.results_grade_2, percentageInt)
             }
             "Grade 3" -> {
                 binding.progressRecognitionGrade3.progress = percentageInt
-                binding.textRecognitionProgressGrade3.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade3.text = getString(R.string.results_grade_3, percentageInt)
             }
             "Grade 4" -> {
                 binding.progressRecognitionGrade4.progress = percentageInt
-                binding.textRecognitionProgressGrade4.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade4.text = getString(R.string.results_grade_4, percentageInt)
             }
             "Grade 5" -> {
                 binding.progressRecognitionGrade5.progress = percentageInt
-                binding.textRecognitionProgressGrade5.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade5.text = getString(R.string.results_grade_5, percentageInt)
             }
             "Grade 6" -> {
                 binding.progressRecognitionGrade6.progress = percentageInt
-                binding.textRecognitionProgressGrade6.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionGrade6.text = getString(R.string.results_grade_6, percentageInt)
             }
             "Collège" -> {
                 binding.progressRecognitionCollege.progress = percentageInt
-                binding.textRecognitionProgressCollege.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionCollege.text = getString(R.string.results_college, percentageInt)
             }
             "Lycée" -> {
                 binding.progressRecognitionLycee.progress = percentageInt
-                binding.textRecognitionProgressLycee.text = "$percentageInt% de maîtrise"
+                binding.titleRecognitionLycee.text = getString(R.string.results_high_school, percentageInt)
             }
         }
     }
