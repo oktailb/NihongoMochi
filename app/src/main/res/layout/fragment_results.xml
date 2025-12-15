@@ -47,10 +47,19 @@
                         android:layout_height="wrap_content"
                         android:text="Reconnaissance"
                         android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <!-- Hiragana -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hiraganas"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <ProgressBar
-                        android:id="@+id/progress_recognition"
+                        android:id="@+id/progress_recognition_hiragana"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -58,23 +67,348 @@
                         android:max="100"
                         android:progress="0" />
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/text_recognition_progress_hiragana"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Katakana -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Katakanas"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_katakana"
+                        style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="4dp">
-                        <TextView
-                            android:id="@+id/text_recognition_progress"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="0% de maîtrise" />
-                         <TextView
-                            android:id="@+id/text_recognition_total"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Total: 0" />
-                    </LinearLayout>
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_katakana"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- JLPT N5 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JLPT N5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_n5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_n5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- JLPT N4 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JLPT N4"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_n4"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_n4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- JLPT N3 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JLPT N3"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_n3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_n3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- JLPT N2 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JLPT N2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_n2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_n2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- JLPT N1 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JLPT N1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_n1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_n1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 1 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 2 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 3 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 3"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 4 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 4"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade4"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 5 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 5"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Grade 6 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grade 6"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_grade6"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_grade6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- College (Grade 7-9) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Collège"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_college"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_college"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
+                    <!-- Lycee (Grade 10-12) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lycée"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_recognition_lycee"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <TextView
+                        android:id="@+id/text_recognition_progress_lycee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% de maîtrise" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -98,7 +432,7 @@
                          android:text="Lecture"
                          android:textSize="20sp"
                          android:textStyle="bold" />
-                    
+
                      <ProgressBar
                          android:id="@+id/progress_reading"
                          style="?android:attr/progressBarStyleHorizontal"
@@ -148,7 +482,7 @@
                          android:text="Écriture"
                          android:textSize="20sp"
                          android:textStyle="bold" />
-                    
+
                      <ProgressBar
                          android:id="@+id/progress_writing_results"
                          style="?android:attr/progressBarStyleHorizontal"
