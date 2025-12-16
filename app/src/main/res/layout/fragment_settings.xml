@@ -161,12 +161,14 @@
             android:id="@+id/button_text_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/leaf_green"
             android:text="Text Color" />
 
         <Button
             android:id="@+id/button_background_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/leaf_green"
             android:text="Background Color" />
 
         <!-- Réinitialiser le tutoriel -->

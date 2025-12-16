@@ -85,30 +85,35 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N5\n0%" />
             <Button
                 android:id="@+id/button_reading_n4"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N4\n0%" />
             <Button
                 android:id="@+id/button_reading_n3"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N3\n0%" />
             <Button
                 android:id="@+id/button_reading_n2"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N2\n0%" />
             <Button
                 android:id="@+id/button_reading_n1"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N1\n0%" />
         </GridLayout>
 
@@ -141,48 +146,56 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="1000\n0%" />
             <Button
                 android:id="@+id/button_words_2000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="2000\n0%" />
             <Button
                 android:id="@+id/button_words_3000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="3000\n0%" />
             <Button
                 android:id="@+id/button_words_4000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="4000\n0%" />
             <Button
                 android:id="@+id/button_words_5000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="5000\n0%" />
             <Button
                 android:id="@+id/button_words_6000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="6000\n0%" />
             <Button
                 android:id="@+id/button_words_7000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="7000\n0%" />
             <Button
                 android:id="@+id/button_words_8000"
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="8000\n0%" />
 
         </GridLayout>
@@ -216,6 +229,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/button_modify"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/leaf_green"
                 android:text="@string/reading_user_list"/>
 
             <Button
@@ -224,6 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="@string/reading_modify_button"
+                android:backgroundTint="@color/leaf_green"
                 android:drawableEnd="@android:drawable/ic_menu_edit" />
 
         </RelativeLayout>

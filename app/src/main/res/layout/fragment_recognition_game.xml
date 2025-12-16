@@ -87,6 +87,7 @@
         android:id="@+id/card_kanji"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/grid_answers"
@@ -122,6 +123,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:minLines="3"
+            android:backgroundTint="@color/leaf_green"
             tools:text="Option 1\nOption 1b\nOption 1c" />
 
         <Button
@@ -131,6 +133,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:minLines="3"
+            android:backgroundTint="@color/leaf_green"
             tools:text="Option 2" />
 
         <Button
@@ -140,6 +143,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:minLines="3"
+            android:backgroundTint="@color/leaf_green"
             tools:text="Option 3" />
 
         <Button
@@ -149,6 +153,7 @@
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             android:minLines="3"
+            android:backgroundTint="@color/leaf_green"
             tools:text="Option 4" />
 
     </GridLayout>

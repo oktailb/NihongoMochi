@@ -53,6 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Hiragana" />
 
             <Button
@@ -60,6 +61,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Katakana" />
         </GridLayout>
 
@@ -92,6 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N5\n0%" />
 
             <Button
@@ -99,6 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N4\n0%" />
 
             <Button
@@ -106,6 +110,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N3\n0%" />
 
             <Button
@@ -113,6 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N2\n0%" />
 
             <Button
@@ -120,6 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="N1\n0%" />
         </GridLayout>
 
@@ -152,6 +159,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 1\n0%" />
 
             <Button
@@ -159,6 +167,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 2\n0%" />
 
             <Button
@@ -166,6 +175,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 3\n0%" />
 
             <Button
@@ -173,6 +183,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 4\n0%" />
 
             <Button
@@ -180,6 +191,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 5\n0%" />
 
             <Button
@@ -187,6 +199,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Classe 6\n0%" />
         </GridLayout>
 
@@ -219,6 +232,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Test 4\n0%" />
 
             <Button
@@ -226,6 +240,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Test 3\n0%" />
 
             <Button
@@ -233,6 +248,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Test Pre-2\n0%" />
 
             <Button
@@ -240,6 +256,7 @@
                 android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:backgroundTint="@color/leaf_green"
                 tools:text="Test 2\n0%" />
         </GridLayout>
 
