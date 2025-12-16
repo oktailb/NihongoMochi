@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0F7FA"
+    android:background="@color/home_background"
     tools:context=".ui.settings.SettingsFragment">
 
     <LinearLayout
@@ -59,7 +59,7 @@
                 android:text="@string/settings_pronunciation_hiragana" />
         </RadioGroup>
 
-        <!-- Liste d'utilisateurs par défaut -->
+        <!-- Liste d\'utilisateurs par défaut -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- Vitesse d'animation -->
+        <!-- Vitesse d\'animation -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -156,6 +156,18 @@
                 android:layout_centerVertical="true"
                 android:src="@android:drawable/ic_menu_edit" />
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/button_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text Color" />
+
+        <Button
+            android:id="@+id/button_background_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Background Color" />
 
         <!-- Réinitialiser le tutoriel -->
 

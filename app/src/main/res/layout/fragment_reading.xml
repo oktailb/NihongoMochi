@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0F7FA"
+    android:background="@color/home_background"
     tools:context=".ui.reading.ReadingFragment">
 
     <LinearLayout
@@ -187,7 +187,7 @@
 
         </GridLayout>
 
-        <!-- Liste de l'utilisateurs / listes d'étude -->
+        <!-- Liste de l\'utilisateurs / listes d\'étude -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
