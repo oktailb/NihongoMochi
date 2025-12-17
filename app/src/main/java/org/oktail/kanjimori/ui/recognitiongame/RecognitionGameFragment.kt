@@ -232,24 +232,21 @@ class RecognitionGameFragment : Fragment() {
     }
 
     private fun generateAnswers(correctKanji: KanjiDetail): List<String> {
-        correctAnswer = if (gameMode == "meaning") {
-            correctKanji.meanings.firstOrNull() ?: ""
-        } else {
-            if (readingMode == "common") {
-                correctKanji.readings.maxByOrNull { it.frequency }?.value
+        val correctButtonText: String
+        if (gameMode == "meaning") {
+            correctAnswer = correctKanji.meanings.firstOrNull() ?: ""
+            correctButtonText = correctKanji.meanings.take(3).joinToString("\n")
+        } else { // reading mode
+            val readings = if (readingMode == "common") {
+                correctKanji.readings.sortedByDescending { it.frequency }
             } else {
-                correctKanji.readings.shuffled().firstOrNull()?.value
+                correctKanji.readings.shuffled()
             }
-        } ?: ""
+            correctAnswer = readings.firstOrNull()?.value ?: ""
+            correctButtonText = readings.take(3).map { it.value }.joinToString("\n")
+        }
 
         if (correctAnswer.isEmpty()) return listOf("", "", "", "")
-
-        // Get up to 3 meanings for the correct answer button
-        val correctButtonText = if (gameMode == "meaning") {
-            correctKanji.meanings.take(3).joinToString("\n")
-        } else {
-            correctAnswer
-        }
 
         val incorrectPool = allKanjiDetailsXml
             .asSequence()
@@ -258,7 +255,7 @@ class RecognitionGameFragment : Fragment() {
                 if (gameMode == "meaning") {
                     detail.meanings.take(3).joinToString("\n")
                 } else {
-                    detail.readings.shuffled().firstOrNull()?.value ?: ""
+                    detail.readings.shuffled().take(3).map { it.value }.joinToString("\n")
                 }
             }
             .filter { it.isNotEmpty() }
@@ -271,7 +268,8 @@ class RecognitionGameFragment : Fragment() {
     }
 
     private fun onAnswerClicked(button: Button) {
-        val isCorrect = button.text.lines().firstOrNull() == correctAnswer
+        val selectedAnswers = button.text.lines()
+        val isCorrect = selectedAnswers.any { it == correctAnswer }
 
         ScoreManager.saveScore(requireContext(), currentKanji.character, isCorrect)
 
