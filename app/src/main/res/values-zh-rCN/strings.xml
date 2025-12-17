@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kanji Mori</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_transform">Transform</string>
+    <string name="menu_reflow">Reflow</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="lorem_ipsum_title">Lorem Ipsum</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
+        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+        type specimen book.
+    </string>
+    <string name="fab_content_description">Represents a view to invoke an action</string>
+    <string name="image_view_item_transform_content_description">Represents an image view in the
+        item
+    </string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">选项</string>
+    <string name="settings_language">语言</string>
+    <string name="settings_pronunciation">发音</string>
+    <string name="settings_pronunciation_roman">罗马字母</string>
+    <string name="settings_pronunciation_hiragana">日语平假名</string>
+    <string name="settings_default_user_list">默认用户列表</string>
+    <string name="settings_add_wrong_answers">自动添加错误答案</string>
+    <string name="settings_remove_good_answers">自动删除10/10单词</string>
+    <string name="settings_keyboard">键盘</string>
+    <string name="settings_keyboard_system">系统</string>
+    <string name="settings_keyboard_integrated">集成</string>
+    <string name="settings_text_size">文本大小</string>
+    <string name="settings_animation_speed">动画速度</string>
+    <string name="settings_theme">主题(浅色/深色)</string>
+    <string name="settings_reset_tutorial">重置教程</string>
+    <string name="settings_send_bug_report">发送错误报告</string>
+
+    <!-- Game Recap Screen -->
+    <string name="game_recap_title">识别游戏</string>
+    <string name="game_recap_meaning">意思</string>
+    <string name="game_recap_reading">阅读</string>
+    <string name="game_recap_common_pronunciations">常见发音</string>
+    <string name="game_recap_random_pronunciations">随机发音</string>
+    <string name="game_recap_play">玩</string>
+
+    <!-- Recognition Screen -->
+    <string name="recognition_title">見覚え</string>
+    <string name="recognition_subtitle">选择一组汉字并学习识别它们的基本含义。</string>
+    <string name="recognition_fundamentals">基础</string>
+    <string name="recognition_jlpt">日语能力测试</string>
+    <string name="recognition_primary_school">小学(Jōyō 1..1006)</string>
+    <string name="recognition_high_school">高中(Jōyō 1007..2136)</string>
+
+    <!-- Writing Screen -->
+    <string name="writing_title">書き方</string>
+    <string name="writing_subtitle">选择一组单词并学习如何书写它们。</string>
+    <string name="writing_kanji_tree">汉字树</string>
+    <string name="writing_kanji_tree_subtitle">如果你还没有学过什么:\n(在相关游戏中10/10)</string>
+    <string name="writing_kanji_tree_ignore">忽略</string>
+    <string name="writing_kanji_tree_include">无论如何都包括它们</string>
+    <string name="writing_find_words">查找单词</string>
+    <string name="writing_most_used_words">最常用的单词</string>
+    <string name="writing_find_kanji">查找汉字</string>
+    <string name="writing_lists">列表</string>
+    <string name="writing_user_lists">用户列表/学习列表</string>
+
+    <!-- Reading Screen -->
+    <string name="reading_title">読み方</string>
+    <string name="reading_subtitle">选择一组单词并学习它们的发音。</string>
+    <string name="reading_kanji_tree_subtitle">如果单词包含你还没有学过的汉字:\n(在识别游戏中10/10)</string>
+    <string name="reading_user_list">用户列表</string>
+    <string name="reading_modify_button">修改</string>
+    <string name="reading_kanji_solo">单个汉字</string>
+    <string name="reading_simple_words">简单单词</string>
+    <string name="reading_compound_words">复合词</string>
+
+    <!-- Navigation Drawer -->
+    <string name="menu_recognition">识别</string>
+    <string name="menu_reading">阅读</string>
+    <string name="menu_writing">写作</string>
+    <string name="menu_dictionary">字典</string>
+    <string name="menu_results">结果</string>
+    <string name="menu_about">关于</string>
+
+    <!-- Level/Button Names -->
+    <string name="level_n5">N5</string>
+    <string name="level_n4">N4</string>
+    <string name="level_n3">N3</string>
+    <string name="level_n2">N2</string>
+    <string name="level_n1">N1</string>
+    <string name="level_class_1">1级</string>
+    <string name="level_class_2">2级</string>
+    <string name="level_class_3">3级</string>
+    <string name="level_class_4">4级</string>
+    <string name="level_class_5">5级</string>
+    <string name="level_class_6">6级</string>
+    <string name="level_high_school_1">4级测试</string>
+    <string name="level_high_school_2">3级测试</string>
+    <string name="level_high_school_3">准2级测试</string>
+    <string name="level_high_school_4">2级测试</string>
+    <string name="level_hiragana">平假名</string>
+    <string name="level_katakana">片假名</string>
+
+    <!-- Home Screen -->
+    <string name="home_recognition_subtitle">学习识别汉字并记住它们的基本含义。</string>
+    <string name="home_reading_subtitle">学习如何阅读整个单词以及如何在不同上下文中发音</string>
+    <string name="home_writing_subtitle">练习书写单词并将汉字刻入你的记忆中。</string>
+
+    <!-- Toolbar Titles -->
+    <string name="title_home">Kanji Mori</string>
+    <string name="title_game_recap">游戏回顾</string>
+
+    <!-- About Screen -->
+    <string name="about_retribution">报应</string>
+    <string name="about_patreon">在Patreon上支持我</string>
+    <string name="about_tipeee">在Tipeee上捐赠</string>
+    <string name="my_image_description">下一页按钮</string>
+
+    <!-- Results Screen -->
+    <string name="results_title">结果</string>
+    <string name="results_recognition_title">识别</string>
+    <string name="results_hiragana">平假名 - %1$d%%</string>
+    <string name="results_katakana">片假名 - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_grade_1">1年级 - %1$d%%</string>
+    <string name="results_grade_2">2年级 - %1$d%%</string>
+    <string name="results_grade_3">3年级 - %1$d%%</string>
+    <string name="results_grade_4">4年级 - %1$d%%</string>
+    <string name="results_grade_5">5年级 - %1$d%%</string>
+    <string name="results_grade_6">6年级 - %1$d%%</string>
+    <string name="results_college">大学 - %1$d%%</string>
+    <string name="results_high_school">高中 - %1$d%%</string>
+    <string name="results_reading_title">阅读 - %1$d%%</string>
+    <string name="results_total_count">总计: %1$d</string>
+    <string name="results_writing_title">写作 - %1$d%%</string>
+    <string name="results_backup">备份</string>
+    <string name="results_restore">恢复</string>
+    <string name="results_sync">同步</string>
+
+    <!-- Word List Screen -->
+    <string name="mode_revise">修改</string>
+    <string name="options">选项</string>
+    <string name="word_type_all">全部</string>
+    <string name="word_type_wa">日语(和)</string>
+    <string name="word_type_ko">专有名词(固)</string>
+    <string name="word_type_gai">外来词(外)</string>
+    <string name="word_type_kon">混合(混)</string>
+    <string name="word_type_kan">中日文(漢)</string>
+    <string name="word_type_kigo">符号(記号)</string>
+
+    <!-- Language Names -->
+    <string name="language_fr_fr">Français (France)</string>
+    <string name="language_en_gb">English (UK)</string>
+    <string name="language_it_it">Italiano</string>
+    <string name="language_de_de">Deutsch (DE)</string>
+    <string name="language_es_sp">Español (España)</string>
+    <string name="language_bn_bn">Bengali</string>
+    <string name="language_th">Thai</string>
+    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
+    <string name="language_pt_br">Português (Portugal)</string>
+    <string name="language_zh_cn">简体中文</string>
+
+</resources>

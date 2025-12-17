@@ -41,7 +41,11 @@ class SettingsFragment : Fragment() {
             LanguageItem("bn_BN", getString(R.string.language_bn_bn), R.drawable.flag_bn),
             LanguageItem("th", getString(R.string.language_th), R.drawable.flag_th_th),
             LanguageItem("ar_AR", getString(R.string.language_ar_ar), R.drawable.flag_sa_sa),
-            LanguageItem("pt_BR", getString(R.string.language_pt_br), R.drawable.flag_pt_br)
+            LanguageItem("pt_BR", getString(R.string.language_pt_br), R.drawable.flag_pt_br),
+            LanguageItem("ko_KR", getString(R.string.language_ko_kr), R.drawable.flag_kr),
+            LanguageItem("ru_RU", getString(R.string.language_ru_ru), R.drawable.flag_ru),
+            LanguageItem("in_ID", getString(R.string.language_in_id), R.drawable.flag_id),
+            LanguageItem("zh_CN", getString(R.string.language_zh_cn), R.drawable.flag_cn)
         )
 
         val adapter = LanguageAdapter(requireContext(), languages)

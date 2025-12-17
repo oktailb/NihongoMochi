@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">كانجي موري</string>
+    <string name="navigation_drawer_open">افتح قائمة التنقل</string>
+    <string name="navigation_drawer_close">أغلق قائمة التنقل</string>
+    <string name="nav_header_title">أندرويد ستوديو</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">رأس التنقل</string>
+    <string name="action_settings">الإعدادات</string>
+
+    <string name="menu_transform">تحويل</string>
+    <string name="menu_reflow">إعادة تدفق</string>
+    <string name="menu_slideshow">عرض الشرائح</string>
+    <string name="menu_settings">الإعدادات</string>
+
+    <string name="lorem_ipsum_title">لوريم إيبسوم</string>
+    <string name="lorem_ipsum">لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو النص الشكلي القياسي في الصناعة منذ القرن الخامس عشر، عندما أخذ طابع غير معروف لوحة من النوع وخلطها لإنشاء كتاب عينة.</string>
+    <string name="fab_content_description">يمثل عرضًا لاستدعاء إجراء</string>
+    <string name="image_view_item_transform_content_description">يمثل عرض صورة في العنصر</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">خيارات</string>
+    <string name="settings_language">لغة</string>
+    <string name="settings_pronunciation">النطق</string>
+    <string name="settings_pronunciation_roman">الأبجدية الرومانية</string>
+    <string name="settings_pronunciation_hiragana">هيراغانا اليابانية</string>
+    <string name="settings_default_user_list">قائمة المستخدم الافتراضية</string>
+    <string name="settings_add_wrong_answers">أضف الإجابات الخاطئة تلقائيًا</string>
+    <string name="settings_remove_good_answers">أزل الكلمات 10/10 تلقائيًا</string>
+    <string name="settings_keyboard">لوحة المفاتيح</string>
+    <string name="settings_keyboard_system">النظام</string>
+    <string name="settings_keyboard_integrated">متكامل</string>
+    <string name="settings_text_size">حجم الخط</string>
+    <string name="settings_animation_speed">سرعة الحركة</string>
+    <string name="settings_theme">المظهر (فاتح/داكن)</string>
+    <string name="settings_reset_tutorial">إعادة تعيين البرنامج التعليمي</string>
+    <string name="settings_send_bug_report">إرسال تقرير خطأ</string>
+
+    <!-- Game Recap Screen -->
+    <string name="game_recap_title">لعبة التعرف</string>
+    <string name="game_recap_meaning">المعنى</string>
+    <string name="game_recap_reading">القراءة</string>
+    <string name="game_recap_common_pronunciations">النطق الشائع</string>
+    <string name="game_recap_random_pronunciations">النطق العشوائي</string>
+    <string name="game_recap_play">لعب</string>
+
+    <!-- Recognition Screen -->
+    <string name="recognition_title">見覚え</string>
+    <string name="recognition_subtitle">اختر مجموعة من الكانجي وتعلم كيفية التعرف على معانيها الأساسية المختلفة</string>
+    <string name="recognition_fundamentals">الأساسيات</string>
+    <string name="recognition_jlpt">اختبار إتقان اللغة اليابانية</string>
+    <string name="recognition_primary_school">المدرسة الابتدائية (جويو 1..1006)</string>
+    <string name="recognition_high_school">المدرسة الثانوية (جويو 1007..2136)</string>
+
+    <!-- Writing Screen -->
+    <string name="writing_title">書き方</string>
+    <string name="writing_subtitle">اختر مجموعة من الكلمات وتعلم كيفية كتابتها.</string>
+    <string name="writing_kanji_tree">شجرة الكانجي</string>
+    <string name="writing_kanji_tree_subtitle">إذا لم تكن قد تعلمت شيئًا بعد:
+(10/10 في اللعبة ذات الصلة)</string>
+    <string name="writing_kanji_tree_ignore">تجاهل</string>
+    <string name="writing_kanji_tree_include">قم بتضمينها على أي حال</string>
+    <string name="writing_find_words">ابحث عن كلمات</string>
+    <string name="writing_most_used_words">الكلمات الأكثر استخدامًا</string>
+    <string name="writing_find_kanji">ابحث عن كانجي</string>
+    <string name="writing_lists">القوائم</string>
+    <string name="writing_user_lists">قائمة المستخدم / قوائم الدراسة</string>
+
+    <!-- Reading Screen -->
+    <string name="reading_title">読み方</string>
+    <string name="reading_subtitle">اختر مجموعة من الكلمات وتعلم نطقها.</string>
+    <string name="reading_kanji_tree_subtitle">إذا كانت الكلمة تحتوي على كانجي لم تتعلمه بعد:
+(10/10 في لعبة التعرف)</string>
+    <string name="reading_user_list">قائمة المستخدم</string>
+    <string name="reading_modify_button">تعديل</string>
+    <string name="reading_kanji_solo">كانجي وحده</string>
+    <string name="reading_simple_words">كلمات بسيطة</string>
+    <string name="reading_compound_words">كلمات مركبة</string>
+
+    <!-- Navigation Drawer -->
+    <string name="menu_recognition">التعرف</string>
+    <string name="menu_reading">القراءة</string>
+    <string name="menu_writing">الكتابة</string>
+    <string name="menu_dictionary">القاموس</string>
+    <string name="menu_results">النتائج</string>
+    <string name="menu_about">حول</string>
+
+    <!-- Level/Button Names -->
+    <string name="level_n5">N5</string>
+    <string name="level_n4">N4</string>
+    <string name="level_n3">N3</string>
+    <string name="level_n2">N2</string>
+    <string name="level_n1">N1</string>
+    <string name="level_class_1">الفصل 1</string>
+    <string name="level_class_2">الفصل 2</string>
+    <string name="level_class_3">الفصل 3</string>
+    <string name="level_class_4">الفصل 4</string>
+    <string name="level_class_5">الفصل 5</string>
+    <string name="level_class_6">الفصل 6</string>
+    <string name="level_high_school_1">اختبار 4</string>
+    <string name="level_high_school_2">اختبار 3</string>
+    <string name="level_high_school_3">اختبار ما قبل 2</string>
+    <string name="level_high_school_4">اختبار 2</string>
+    <string name="level_hiragana">هيراغانا</string>
+    <string name="level_katakana">كاتاكانا</string>
+
+    <!-- Home Screen -->
+    <string name="home_recognition_subtitle">تعلم كيفية التعرف على الكانجي وتذكر معانيها الأساسية.</string>
+    <string name="home_reading_subtitle">تعلم قراءة الكلمات الكاملة وكيفية نطقها في سياقات مختلفة</string>
+    <string name="home_writing_subtitle">تدرب على كتابة الكلمات وحفر الكانجي في ذاكرتك.</string>
+
+    <!-- Toolbar Titles -->
+    <string name="title_home">كانجي موري</string>
+    <string name="title_game_recap">ملخص اللعبة</string>
+
+    <!-- About Screen -->
+    <string name="about_retribution">القصاص</string>
+    <string name="about_patreon">ادعمني على Patreon</string>
+    <string name="about_tipeee">تبرع على Tipeee</string>
+    <string name="my_image_description">زر الصفحة التالية</string>
+
+    <!-- Results Screen -->
+    <string name="results_title">النتائج</string>
+    <string name="results_recognition_title">التعرف</string>
+    <string name="results_hiragana">هيراغانا - %1$d%%</string>
+    <string name="results_katakana">كاتاكانا - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_grade_1">الصف 1 - %1$d%%</string>
+    <string name="results_grade_2">الصف 2 - %1$d%%</string>
+    <string name="results_grade_3">الصف 3 - %1$d%%</string>
+    <string name="results_grade_4">الصف 4 - %1$d%%</string>
+    <string name="results_grade_5">الصف 5 - %1$d%%</string>
+    <string name="results_grade_6">الصف 6 - %1$d%%</string>
+    <string name="results_college">الكلية - %1$d%%</string>
+    <string name="results_high_school">المدرسة الثانوية - %1$d%%</string>
+    <string name="results_reading_title">القراءة - %1$d%%</string>
+    <string name="results_total_count">المجموع: %1$d</string>
+    <string name="results_writing_title">الكتابة - %1$d%%</string>
+    <string name="results_backup">نسخ احتياطي</string>
+    <string name="results_restore">استعادة</string>
+    <string name="results_sync">مزامنة</string>
+
+    <!-- Word List Screen -->
+    <string name="mode_revise">مراجعة</string>
+    <string name="options">خيارات</string>
+    <string name="word_type_all">الكل</string>
+    <string name="word_type_wa">ياباني (和)</string>
+    <string name="word_type_ko">اسم علم (固)</string>
+    <string name="word_type_gai">أجنبي (外)</string>
+    <string name="word_type_kon">مختلط (混)</string>
+    <string name="word_type_kan">صيني-ياباني (漢)</string>
+    <string name="word_type_kigo">رمز (記号)</string>
+
+    <!-- Language Names -->
+    <string name="language_fr_fr">Français (France)</string>
+    <string name="language_en_gb">English (UK)</string>
+    <string name="language_it_it">Italiano</string>
+    <string name="language_de_de">Deutsch (DE)</string>
+    <string name="language_es_sp">Español (España)</string>
+    <string name="language_bn_bn">Bengali</string>
+    <string name="language_th">Thai</string>
+    <string name="language_ar_ar">العربية (المملكة العربية السعودية)</string>
+    <string name="language_pt_br">Português (Portugal)</string>
+</resources>
