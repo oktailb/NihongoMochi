@@ -151,6 +151,13 @@
     <!-- Word List Screen -->
     <string name="mode_revise">Réviser</string>
     <string name="options">Options</string>
+    <string name="word_type_all">Tous</string>
+    <string name="word_type_wa">Japonais (和)</string>
+    <string name="word_type_ko">Nom propre (固)</string>
+    <string name="word_type_gai">Étranger (外)</string>
+    <string name="word_type_kon">Mixte (混)</string>
+    <string name="word_type_kan">Sino-japonais (漢)</string>
+    <string name="word_type_kigo">Symbole (記号)</string>
 
     <!-- Language Names -->
     <string name="language_fr_fr">Français (France)</string>

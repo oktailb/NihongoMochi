@@ -57,9 +57,16 @@ class RecognitionGameFragment : Fragment() {
         gameMode = args.gameMode
         readingMode = args.readingMode
         val level = args.level
+        val customWordList = args.customWordList?.toList() ?: emptyList()
 
         loadAllKanjiDetails()
-        val kanjiForLevel = loadKanjiForLevel(level)
+
+        val kanjiForLevel = if (customWordList.isNotEmpty()) {
+            customWordList
+        } else {
+            loadKanjiForLevel(level)
+        }
+
         allKanjiDetails.clear()
         allKanjiDetails.addAll(allKanjiDetailsXml.filter { kanjiForLevel.contains(it.character) && it.meanings.isNotEmpty() })
         allKanjiDetails.shuffle()

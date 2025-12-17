@@ -148,6 +148,10 @@
         <argument
             android:name="readingMode"
             app:argType="string" />
+        <argument
+            android:name="customWordList"
+            app:argType="string[]"
+            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -158,6 +162,9 @@
         <argument
             android:name="wordList"
             app:argType="string" />
+        <action
+            android:id="@+id/action_nav_word_list_to_nav_recognition_game"
+            app:destination="@id/nav_recognition_game" />
     </fragment>
 
 </navigation>
