@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <words>
-    <word rank="1" phonetics="ノ" type="和">の</word>
-    <word rank="2" phonetics="ニ" type="和">に</word>
-    <word rank="3" phonetics="テ" type="和">て</word>
-    <word rank="4" phonetics="ハ" type="和">は</word>
-    <word rank="5" phonetics="ダ" type="和">だ</word>
-    <word rank="6" phonetics="ヲ" type="和">を</word>
-    <word rank="7" phonetics="タ" type="和">た</word>
     <word rank="8" phonetics="スル" type="和">為る</word>
-    <word rank="9" phonetics="ガ" type="和">が</word>
-    <word rank="10" phonetics="ト" type="和">と</word>
-    <word rank="11" phonetics="デ" type="和">で</word>
-    <word rank="12" phonetics="モ" type="和">も</word>
     <word rank="13" phonetics="イル" type="和">居る</word>
     <word rank="14" phonetics="マス" type="和">ます</word>
-    <word rank="15" phonetics="ノ" type="和">の</word>
     <word rank="16" phonetics="アル" type="和">有る</word>
     <word rank="17" phonetics="デス" type="和">です</word>
     <word rank="18" phonetics="イウ" type="和">言う</word>
@@ -25,26 +13,19 @@
     <word rank="23" phonetics="イチ" type="漢">一</word>
     <word rank="24" phonetics="ナイ" type="和">無い</word>
     <word rank="25" phonetics="カラ" type="和">から</word>
-    <word rank="26" phonetics="ガ" type="和">が</word>
-    <word rank="27" phonetics="カ" type="和">か</word>
     <word rank="28" phonetics="ニ" type="漢">二</word>
     <word rank="29" phonetics="ソノ" type="和">其の</word>
     <word rank="30" phonetics="ヨウ" type="漢">様</word>
-    <word rank="31" phonetics="カ" type="和">か</word>
     <word rank="32" phonetics="サン" type="漢">三</word>
     <word rank="33" phonetics="ジュウ" type="漢">十</word>
-    <word rank="34" phonetics="ズ" type="和">ず</word>
     <word rank="35" phonetics="コノ" type="和">此の</word>
     <word rank="36" phonetics="モノ" type="和">物</word>
     <word rank="37" phonetics="テキ" type="漢">的</word>
     <word rank="38" phonetics="ソレ" type="和">其れ</word>
     <word rank="39" phonetics="オ" type="和">御</word>
-    <word rank="40" phonetics="ト" type="和">と</word>
-    <word rank="41" phonetics="ヤ" type="和">や</word>
     <word rank="42" phonetics="ネン" type="漢">年</word>
     <word rank="43" phonetics="クル" type="和">来る</word>
     <word rank="44" phonetics="ゴ" type="漢">五</word>
-    <word rank="45" phonetics="バ" type="和">ば</word>
     <word rank="46" phonetics="オモウ" type="和">思う</word>
     <word rank="47" phonetics="ミル" type="和">見る</word>
     <word rank="48" phonetics="イク" type="和">行く</word>
@@ -56,9 +37,7 @@
     <word rank="54" phonetics="ワタクシ" type="和">私</word>
     <word rank="55" phonetics="カラ" type="和">から</word>
     <word rank="56" phonetics="ナド" type="和">など</word>
-    <word rank="57" phonetics="ネ" type="和">ね</word>
     <word rank="58" phonetics="ラレル" type="和">られる</word>
-    <word rank="59" phonetics="ヨ" type="和">よ</word>
     <word rank="60" phonetics="サン" type="和">さん</word>
     <word rank="61" phonetics="ヨル" type="和">因る</word>
     <word rank="62" phonetics="ナニ" type="和">何</word>
@@ -102,7 +81,6 @@
     <word rank="100" phonetics="モツ" type="和">持つ</word>
     <word rank="101" phonetics="カレ" type="和">彼</word>
     <word rank="102" phonetics="ヤル" type="和">遣る</word>
-    <word rank="103" phonetics="テン" type="記号">．</word>
     <word rank="104" phonetics="トウ" type="漢">等</word>
     <word rank="105" phonetics="ワカル" type="和">分かる</word>
     <word rank="106" phonetics="ニチ" type="漢">日</word>
@@ -692,7 +670,6 @@
     <word rank="690" phonetics="ヤク" type="漢">役</word>
     <word rank="691" phonetics="ケイヤク" type="漢">契約</word>
     <word rank="692" phonetics="ヨテイ" type="漢">予定</word>
-    <word rank="693" phonetics="■■" type="固">■■</word>
     <word rank="694" phonetics="バン" type="漢">番</word>
     <word rank="695" phonetics="ダイヒョウ" type="漢">代表</word>
     <word rank="696" phonetics="ナサル" type="和">為さる</word>

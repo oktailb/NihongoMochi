@@ -115,7 +115,7 @@ class WordListFragment : Fragment() {
 
             val chip = Chip(context).apply {
                 text = word
-                textSize = 24f
+                textSize = 18f
                 chipBackgroundColor = android.content.res.ColorStateList.valueOf(calculateColor(score))
                 setTextColor(Color.BLACK)
 
