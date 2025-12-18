@@ -146,6 +146,9 @@
         <argument
             android:name="level"
             app:argType="string" />
+        <action
+            android:id="@+id/action_writing_recap_to_writing_game"
+            app:destination="@id/nav_writing_game" />
     </fragment>
 
     <fragment
@@ -170,6 +173,16 @@
             app:argType="string[]"
             app:nullable="true"
             android:defaultValue="@null"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_writing_game"
+        android:name="org.oktail.kanjimori.ui.writinggame.WritingGameFragment"
+        android:label="Writing Game"
+        tools:layout="@layout/fragment_writing_game">
+        <argument
+            android:name="level"
+            app:argType="string" />
     </fragment>
 
     <fragment

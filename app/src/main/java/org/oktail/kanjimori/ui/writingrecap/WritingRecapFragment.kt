@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.KanjiScore
@@ -41,8 +42,10 @@ class WritingRecapFragment : Fragment() {
 
         kanjiList = loadKanjiForLevel(level)
 
-        // Button Play is disabled in XML, but we can ensure it here or set a listener for later
-        binding.buttonPlay.isEnabled = false
+        binding.buttonPlay.setOnClickListener {
+            val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level)
+            findNavController().navigate(action)
+        }
 
         binding.buttonNextPage.setOnClickListener {
             if ((currentPage + 1) * pageSize < kanjiList.size) {
@@ -69,8 +72,11 @@ class WritingRecapFragment : Fragment() {
             binding.textStats.text = ""
             binding.gridKanji.removeAllViews()
             binding.textPagination.text = "0..0 / 0"
+            binding.buttonPlay.isEnabled = false
             return
         }
+
+        binding.buttonPlay.isEnabled = true
 
         // --- Process all Kanjis in one go ---
         val scoreBuckets = (0..10).associateWith { 0 }.toMutableMap()
