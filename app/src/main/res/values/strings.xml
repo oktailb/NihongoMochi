@@ -51,7 +51,7 @@
     <string name="game_recap_play">Jouer</string>
 
     <!-- Game Writing Screen -->
-    <string name="game_writing_label_meaning">Sens</string>
+    <string name="game_writing_label_meaning">Signification</string>
     <string name="game_writing_label_reading">Lecture</string>
     <string name="enter_your_answer">Entrez votre réponse</string>
     <string name="submit">Envoyer</string>
@@ -69,7 +69,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
-    <string name="writing_game_recap_title">Jeu d'écriture</string>
+    <string name="writing_game_recap_title">Jeu d\'écriture</string>
     <string name="writing_subtitle">Choisis un groupe de mots et apprends à les écrire.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">Si vous n’avez pas encore appris quelque chose :\n(10/10 dans le jeu concerné)</string>
