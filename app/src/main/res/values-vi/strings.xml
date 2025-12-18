@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kanji Mori</string>
+    <string name="navigation_drawer_open">Mở ngăn điều hướng</string>
+    <string name="navigation_drawer_close">Đóng ngăn điều hướng</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Tiêu đề điều hướng</string>
+    <string name="action_settings">Cài đặt</string>
+
+    <string name="menu_transform">Biến đổi</string>
+    <string name="menu_reflow">Reflow</string>
+    <string name="menu_slideshow">Trình chiếu</string>
+    <string name="menu_settings">Cài đặt</string>
+
+    <string name="lorem_ipsum_title">Lorem Ipsum</string>
+    <string name="lorem_ipsum">Lorem Ipsum chỉ đơn giản là văn bản giữ chỗ của ngành in ấn và dàn trang. Lorem Ipsum đã trở thành văn bản giữ chỗ tiêu chuẩn của ngành kể từ những năm 1500, khi một nhà in không xác định lấy một khay chữ và xáo trộn nó để tạo thành một cuốn sách mẫu chữ.</string>
+    <string name="fab_content_description">Đại diện cho một chế độ xem để gọi một hành động</string>
+    <string name="image_view_item_transform_content_description">Đại diện cho một chế độ xem hình ảnh trong mục</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Tùy chọn</string>
+    <string name="settings_language">Ngôn ngữ</string>
+    <string name="settings_pronunciation">Phát âm</string>
+    <string name="settings_pronunciation_roman">Bảng chữ cái La Mã</string>
+    <string name="settings_pronunciation_hiragana">Hiragana tiếng Nhật</string>
+    <string name="settings_default_user_list">Danh sách người dùng mặc định</string>
+    <string name="settings_add_wrong_answers">Tự động thêm câu trả lời sai</string>
+    <string name="settings_remove_good_answers">Tự động xóa 10/10 từ</string>
+    <string name="settings_keyboard">Bàn phím</string>
+    <string name="settings_keyboard_system">Hệ thống</string>
+    <string name="settings_keyboard_integrated">Tích hợp</string>
+    <string name="settings_text_size">Cỡ chữ</string>
+    <string name="settings_animation_speed">Tốc độ hoạt ảnh</string>
+    <string name="settings_theme">Chủ đề (Sáng/Tối)</string>
+    <string name="settings_reset_tutorial">Đặt lại hướng dẫn</string>
+    <string name="settings_send_bug_report">Gửi báo cáo lỗi</string>
+
+    <!-- Game Recap Screen -->
+    <string name="game_recap_title">Trò chơi nhận dạng</string>
+    <string name="game_recap_meaning">Ý nghĩa</string>
+    <string name="game_recap_reading">Đọc</string>
+    <string name="game_recap_common_pronunciations">Phát âm phổ biến</string>
+    <string name="game_recap_random_pronunciations">Phát âm ngẫu nhiên</string>
+    <string name="game_recap_play">Chơi</string>
+
+    <!-- Game Writing Screen -->
+    <string name="game_writing_label_meaning">Ý nghĩa</string>
+    <string name="game_writing_label_reading">Đọc</string>
+    <string name="enter_your_answer">Nhập câu trả lời của bạn</string>
+    <string name="submit">Gửi</string>
+    <string name="game_writing_correction">Sửa</string>
+    <string name="game_writing_on">ON</string>
+    <string name="game_writing_kun">KUN</string>
+
+    <!-- Recognition Screen -->
+    <string name="recognition_title">見覚え</string>
+    <string name="recognition_subtitle">Chọn một nhóm kanji và học cách nhận biết các ý nghĩa cơ bản khác nhau của chúng</string>
+    <string name="recognition_fundamentals">Cơ bản</string>
+    <string name="recognition_jlpt">Kỳ thi năng lực tiếng Nhật</string>
+    <string name="recognition_primary_school">Trường tiểu học (Jōyō 1..1006)</string>
+    <string name="recognition_high_school">Trường trung học (Jōyō 1007..2136)</string>
+
+    <!-- Writing Screen -->
+    <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Trò chơi viết</string>
+    <string name="writing_subtitle">Chọn một nhóm từ và học cách viết chúng.</string>
+    <string name="writing_kanji_tree">Cây Kanji</string>
+    <string name="writing_kanji_tree_subtitle">Nếu bạn chưa học điều gì đó:\n(10/10 trong trò chơi liên quan)</string>
+    <string name="writing_kanji_tree_ignore">Bỏ qua</string>
+    <string name="writing_kanji_tree_include">bao gồm cả chúng</string>
+    <string name="writing_find_words">Tìm từ</string>
+    <string name="writing_most_used_words">Các từ được sử dụng nhiều nhất</string>
+    <string name="writing_find_kanji">Tìm một Kanji</string>
+    <string name="writing_lists">Danh sách</string>
+    <string name="writing_user_lists">Danh sách người dùng / danh sách học</string>
+
+    <!-- Reading Screen -->
+    <string name="reading_title">読み方</string>
+    <string name="reading_subtitle">Chọn một nhóm từ và học cách phát âm của chúng.</string>
+    <string name="reading_kanji_tree_subtitle">Nếu từ đó chứa kanji bạn chưa học:\n(10/10 trong trò chơi nhận dạng)</string>
+    <string name="reading_user_list">Danh sách người dùng</string>
+    <string name="reading_modify_button">Sửa đổi</string>
+    <string name="reading_kanji_solo">Chỉ Kanji</string>
+    <string name="reading_simple_words">Từ đơn giản</string>
+    <string name="reading_compound_words">Từ ghép</string>
+    <string name="reading_ignore_known_words">Bỏ qua các từ đã biết hoàn hảo</string>
+
+    <!-- Navigation Drawer -->
+    <string name="menu_recognition">Nhận dạng</string>
+    <string name="menu_reading">Đọc</string>
+    <string name="menu_writing">Viết</string>
+    <string name="menu_dictionary">Từ điển</string>
+    <string name="menu_results">Kết quả</string>
+    <string name="menu_about">Về</string>
+
+    <!-- Level/Button Names -->
+    <string name="level_n5">N5</string>
+    <string name="level_n4">N4</string>
+    <string name="level_n3">N3</string>
+    <string name="level_n2">N2</string>
+    <string name="level_n1">N1</string>
+    <string name="level_class_1">Lớp 1</string>
+    <string name="level_class_2">Lớp 2</string>
+    <string name="level_class_3">Lớp 3</string>
+    <string name="level_class_4">Lớp 4</string>
+    <string name="level_class_5">Lớp 5</string>
+    <string name="level_class_6">Lớp 6</string>
+    <string name="level_high_school_1">Bài kiểm tra 4</string>
+    <string name="level_high_school_2">Bài kiểm tra 3</string>
+    <string name="level_high_school_3">Bài kiểm tra Pre-2</string>
+    <string name="level_high_school_4">Bài kiểm tra 2</string>
+    <string name="level_hiragana">Hiragana</string>
+    <string name="level_katakana">Katakana</string>
+
+    <!-- Home Screen -->
+    <string name="home_recognition_subtitle">Học cách nhận biết kanji và ghi nhớ ý nghĩa cơ bản của chúng.</string>
+    <string name="home_reading_subtitle">Học cách đọc toàn bộ từ và cách phát âm chúng trong các ngữ cảnh khác nhau</string>
+    <string name="home_writing_subtitle">Luyện viết từ và ghi nhớ kanji vào bộ nhớ của bạn.</string>
+
+    <!-- Toolbar Titles -->
+    <string name="title_home">Kanji Mori</string>
+    <string name="title_game_recap">Tóm tắt trò chơi</string>
+
+    <!-- About Screen -->
+    <string name="about_retribution">Quả báo</string>
+    <string name="about_patreon">Hỗ trợ tôi trên Patreon</string>
+    <string name="about_tipeee">Quyên góp trên Tipeee</string>
+    <string name="my_image_description">Nút trang tiếp theo</string>
+
+    <!-- Results Screen -->
+    <string name="results_title">Kết quả</string>
+    <string name="results_recognition_title">Nhận dạng</string>
+    <string name="results_hiragana">Hiragana - %1$d%%</string>
+    <string name="results_katakana">Katakana - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_grade_1">Lớp 1 - %1$d%%</string>
+    <string name="results_grade_2">Lớp 2 - %1$d%%</string>
+    <string name="results_grade_3">Lớp 3 - %1$d%%</string>
+    <string name="results_grade_4">Lớp 4 - %1$d%%</string>
+    <string name="results_grade_5">Lớp 5 - %1$d%%</string>
+    <string name="results_grade_6">Lớp 6 - %1$d%%</string>
+    <string name="results_college">Cao đẳng - %1$d%%</string>
+    <string name="results_high_school">Trung học - %1$d%%</string>
+    <string name="results_reading_title">Đọc</string>
+    <string name="results_total_count">Tổng: %1$d</string>
+    <string name="results_most_frequent_words">%1$d từ thường gặp nhất - %2$d%%</string>
+    <string name="results_writing_title">Viết</string>
+    <string name="results_backup">Sao lưu</string>
+    <string name="results_restore">Khôi phục</string>
+    <string name="results_sync">Đồng bộ hóa</string>
+
+    <!-- Word List Screen -->
+    <string name="mode_revise">Sửa lại</string>
+    <string name="options">Tùy chọn</string>
+    <string name="word_type_all">Tất cả</string>
+    <string name="word_type_wa">Tiếng Nhật (和)</string>
+    <string name="word_type_ko">Tên riêng (固)</string>
+    <string name="word_type_gai">Nước ngoài (外)</string>
+    <string name="word_type_kon">Hỗn hợp (混)</string>
+    <string name="word_type_kan">Tiếng Trung-Nhật (漢)</string>
+    <string name="word_type_kigo">Biểu tượng (記号)</string>
+
+    <!-- Language Names -->
+    <string name="language_fr_fr">Français (France)</string>
+    <string name="language_en_gb">English (UK)</string>
+    <string name="language_it_it">Italiano</string>
+    <string name="language_de_de">Deutsch (DE)</string>
+    <string name="language_es_sp">Español (España)</string>
+    <string name="language_bn_bn">Bengali</string>
+    <string name="language_th">Thai</string>
+    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
+    <string name="language_pt_br">Português (Portugal)</string>
+    <string name="language_ko_kr">한국어</string>
+    <string name="language_ru_ru">Русский</string>
+    <string name="language_in_id">Bahasa Indonesia</string>
+    <string name="language_zh_cn">简体中文</string>
+
+</resources>
