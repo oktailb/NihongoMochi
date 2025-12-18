@@ -90,7 +90,8 @@ class ReadingFragment : Fragment() {
         binding.buttonWords6000.text = "6000\n${words6000Percentage.toInt()}%"
         binding.buttonWords7000.text = "7000\n${words7000Percentage.toInt()}%"
         binding.buttonWords8000.text = "8000\n${words8000Percentage.toInt()}%"
-        binding.buttonUserList.text = "Liste de l'utilisateur\n${userListPercentage.toInt()}%"
+        val userListText = getString(R.string.reading_user_list)
+        binding.buttonUserList.text = "$userListText\n${userListPercentage.toInt()}%"
     }
 
     private fun setupClickListeners() {

@@ -80,6 +80,7 @@
     <string name="reading_kanji_solo">Отдельные кандзи</string>
     <string name="reading_simple_words">Простые слова</string>
     <string name="reading_compound_words">Сложные слова</string>
+    <string name="reading_ignore_known_words">Игнорировать хорошо известные слова</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">Распознавание</string>
