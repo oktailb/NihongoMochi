@@ -141,9 +141,10 @@
     <string name="results_grade_6">เกรด 6 - %1$d%%</string>
     <string name="results_college">วิทยาลัย - %1$d%%</string>
     <string name="results_high_school">โรงเรียนมัธยม - %1$d%%</string>
-    <string name="results_reading_title">การอ่าน - %1$d%%</string>
+    <string name="results_reading_title">การอ่าน</string>
     <string name="results_total_count">ทั้งหมด: %1$d</string>
-    <string name="results_writing_title">การเขียน - %1$d%%</string>
+    <string name="results_most_frequent_words">%1$d คำที่ใช้บ่อยที่สุด - %2$d%%</string>
+    <string name="results_writing_title">การเขียน</string>
     <string name="results_backup">สำรอง</string>
     <string name="results_restore">กู้คืน</string>
     <string name="results_sync">ซิงค์</string>

@@ -74,6 +74,7 @@
     <string name="reading_kanji_solo">Kanji solo</string>
     <string name="reading_simple_words">Palabras simples</string>
     <string name="reading_compound_words">Palabras compuestas</string>
+    <string name="reading_ignore_known_words">Ignorar palabras perfectamente conocidas</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">Reconocimiento</string>
@@ -135,9 +136,10 @@
     <string name="results_grade_6">Grado 6 - %1$d%%</string>
     <string name="results_college">Universidad - %1$d%%</string>
     <string name="results_high_school">Escuela secundaria - %1$d%%</string>
-    <string name="results_reading_title">Lectura - %1$d%%</string>
+    <string name="results_reading_title">Lectura</string>
     <string name="results_total_count">Total: %1$d</string>
-    <string name="results_writing_title">Escritura - %1$d%%</string>
+    <string name="results_most_frequent_words">%1$d palabras más frecuentes - %2$d%%</string>
+    <string name="results_writing_title">Escritura</string>
     <string name="results_backup">Copia de seguridad</string>
     <string name="results_restore">Restaurar</string>
     <string name="results_sync">Sincronizar</string>

@@ -80,6 +80,7 @@
     <string name="reading_kanji_solo">Kanji seul</string>
     <string name="reading_simple_words">Mots simples</string>
     <string name="reading_compound_words">Mots composés</string>
+    <string name="reading_ignore_known_words">Ignorer les mots parfaitement connus</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">Reconnaissance</string>
@@ -143,6 +144,7 @@
     <string name="results_high_school">Lycée - %1$d%%</string>
     <string name="results_reading_title">Lecture</string>
     <string name="results_total_count">Total: %1$d</string>
+    <string name="results_most_frequent_words">%1$d mots les plus fréquents - %2$d%%</string>
     <string name="results_writing_title">Écriture</string>
     <string name="results_backup">Backup</string>
     <string name="results_restore">Restore</string>

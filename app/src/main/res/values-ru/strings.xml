@@ -141,9 +141,10 @@
     <string name="results_grade_6">Класс 6 - %1$d%%</string>
     <string name="results_college">Колледж - %1$d%%</string>
     <string name="results_high_school">Средняя школа - %1$d%%</string>
-    <string name="results_reading_title">Чтение - %1$d%%</string>
+    <string name="results_reading_title">Чтение</string>
     <string name="results_total_count">Всего: %1$d</string>
-    <string name="results_writing_title">Письмо - %1$d%%</string>
+    <string name="results_most_frequent_words">%1$d наиболее часто используемых слов - %2$d%%</string>
+    <string name="results_writing_title">Письмо</string>
     <string name="results_backup">Резервное копирование</string>
     <string name="results_restore">Восстановить</string>
     <string name="results_sync">Синхронизация</string>

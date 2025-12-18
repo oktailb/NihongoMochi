@@ -141,9 +141,10 @@
     <string name="results_grade_6">6학년 - %1$d%%</string>
     <string name="results_college">대학 - %1$d%%</string>
     <string name="results_high_school">고등학교 - %1$d%%</string>
-    <string name="results_reading_title">읽기 - %1$d%%</string>
+    <string name="results_reading_title">읽기</string>
     <string name="results_total_count">총계: %1$d</string>
-    <string name="results_writing_title">쓰기 - %1$d%%</string>
+    <string name="results_most_frequent_words">%1$d 가장 많이 사용된 단어 - %2$d%%</string>
+    <string name="results_writing_title">쓰기</string>
     <string name="results_backup">백업</string>
     <string name="results_restore">복원</string>
     <string name="results_sync">동기화</string>

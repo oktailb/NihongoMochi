@@ -76,6 +76,7 @@
     <string name="reading_kanji_solo">কাঞ্জি একা</string>
     <string name="reading_simple_words">সহজ শব্দ</string>
     <string name="reading_compound_words">যৌগিক শব্দ</string>
+    <string name="reading_ignore_known_words">পুরোপুরি পরিচিত শব্দ উপেক্ষা করুন</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">স্বীকৃতি</string>
@@ -137,9 +138,10 @@
     <string name="results_grade_6">গ্রেড ৬ - %1$d%%</string>
     <string name="results_college">কলেজ - %1$d%%</string>
     <string name="results_high_school">উচ্চ বিদ্যালয় - %1$d%%</string>
-    <string name="results_reading_title">পড়া - %1$d%%</string>
+    <string name="results_reading_title">পড়া</string>
     <string name="results_total_count">মোট: %1$d</string>
-    <string name="results_writing_title">লেখা - %1$d%%</string>
+    <string name="results_most_frequent_words">%1$d সর্বাধিক ব্যবহৃত শব্দ - %2$d%%</string>
+    <string name="results_writing_title">লেখা</string>
     <string name="results_backup">ব্যাকআপ</string>
     <string name="results_restore">পুনরুদ্ধার</string>
     <string name="results_sync">সিঙ্ক</string>
