@@ -46,7 +46,7 @@ class SettingsFragment : Fragment() {
             LanguageItem("ru_RU", getString(R.string.language_ru_ru), R.drawable.flag_ru),
             LanguageItem("in_ID", getString(R.string.language_in_id), R.drawable.flag_id),
             LanguageItem("zh_CN", getString(R.string.language_zh_cn), R.drawable.flag_cn),
-            LanguageItem("vi_VN", getString(R.string.language_vi_vn), R.drawable.flag_fr_fr) // Placeholder flag
+            LanguageItem("vi_VN", getString(R.string.language_vi_vn), R.drawable.flag_vn)
         )
 
         val adapter = LanguageAdapter(requireContext(), languages)
