@@ -12,6 +12,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentKatakanaQuizBinding
 import org.xmlpull.v1.XmlPullParser
 
@@ -115,7 +116,7 @@ class KatakanaQuizFragment : Fragment() {
         val selectedAnswer = selectedButton.text.toString()
         val isCorrect = selectedAnswer == currentQuestion.phonetics
 
-        ScoreManager.saveScore(requireContext(), currentQuestion.value, isCorrect)
+        ScoreManager.saveScore(requireContext(), currentQuestion.value, isCorrect, ScoreType.RECOGNITION)
 
         if (isCorrect) {
             selectedButton.setBackgroundColor(Color.GREEN)

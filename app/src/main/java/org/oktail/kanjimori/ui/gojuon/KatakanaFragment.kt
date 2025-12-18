@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.KanjiScore
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentKatakanaBinding
 import org.xmlpull.v1.XmlPullParser
 
@@ -46,7 +47,7 @@ class KatakanaFragment : Fragment() {
         for ((_, charactersInLine) in katakanaByLine) {
             // Add character TextViews
             for (katakana in charactersInLine) {
-                val score = ScoreManager.getScore(requireContext(), katakana.value)
+                val score = ScoreManager.getScore(requireContext(), katakana.value, ScoreType.RECOGNITION)
                 val textView = TextView(context).apply {
                     text = katakana.value
                     textSize = 24f

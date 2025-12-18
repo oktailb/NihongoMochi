@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.databinding.FragmentReadingBinding
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 
 class ReadingFragment : Fragment() {
 
@@ -57,7 +58,7 @@ class ReadingFragment : Fragment() {
     }
 
     private fun calculateUserListPercentage() {
-        val scores = ScoreManager.getAllScores(requireContext())
+        val scores = ScoreManager.getAllScores(requireContext(), ScoreType.READING)
         if (scores.isEmpty()) {
             userListPercentage = 0.0
             return

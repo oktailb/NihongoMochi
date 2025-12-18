@@ -95,7 +95,11 @@
         android:id="@+id/nav_writing"
         android:name="org.oktail.kanjimori.ui.writing.WritingFragment"
         android:label="@string/menu_writing"
-        tools:layout="@layout/fragment_writing" />
+        tools:layout="@layout/fragment_writing">
+        <action
+            android:id="@+id/action_nav_writing_to_writing_recap"
+            app:destination="@id/nav_writing_recap" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_dictionary"
@@ -132,6 +136,16 @@
         <action
             android:id="@+id/action_game_recap_to_recognition_game"
             app:destination="@id/nav_recognition_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_writing_recap"
+        android:name="org.oktail.kanjimori.ui.writingrecap.WritingRecapFragment"
+        android:label="@string/title_game_recap"
+        tools:layout="@layout/fragment_writing_recap">
+        <argument
+            android:name="level"
+            app:argType="string" />
     </fragment>
 
     <fragment

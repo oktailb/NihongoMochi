@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.KanjiScore
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentHiraganaBinding
 import org.xmlpull.v1.XmlPullParser
 
@@ -46,7 +47,7 @@ class HiraganaFragment : Fragment() {
         for ((_, charactersInLine) in hiraganaByLine) {
             // Add character TextViews
             for (hiragana in charactersInLine) {
-                val score = ScoreManager.getScore(requireContext(), hiragana.value)
+                val score = ScoreManager.getScore(requireContext(), hiragana.value, ScoreType.RECOGNITION)
                 val textView = TextView(context).apply {
                     text = hiragana.value
                     textSize = 24f

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentRecognitionBinding
 import org.xmlpull.v1.XmlPullParser
 
@@ -147,7 +148,7 @@ class RecognitionFragment : Fragment() {
         if (characterList.isEmpty()) return 0.0
 
         val totalMasteryPoints = characterList.sumOf { character ->
-            val score = ScoreManager.getScore(requireContext(), character)
+            val score = ScoreManager.getScore(requireContext(), character, ScoreType.RECOGNITION)
             val balance = score.successes - score.failures
             balance.coerceIn(0, 10).toDouble()
         }

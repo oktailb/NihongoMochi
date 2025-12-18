@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
+import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentRecognitionGameBinding
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
@@ -278,7 +279,7 @@ class RecognitionGameFragment : Fragment() {
         val selectedAnswers = button.text.lines()
         val isCorrect = selectedAnswers.any { it == correctAnswer }
 
-        ScoreManager.saveScore(requireContext(), currentKanji.character, isCorrect)
+        ScoreManager.saveScore(requireContext(), currentKanji.character, isCorrect, ScoreType.RECOGNITION)
 
         if (isCorrect) {
             button.setBackgroundColor(Color.GREEN)

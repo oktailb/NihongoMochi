@@ -1,4 +1,4 @@
-package org.oktail.kanjimori.ui.gamerecap
+package org.oktail.kanjimori.ui.writingrecap
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,22 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.KanjiScore
 import org.oktail.kanjimori.data.ScoreManager
-import org.oktail.kanjimori.data.ScoreManager.ScoreType
-import org.oktail.kanjimori.databinding.FragmentGameRecapBinding
+import org.oktail.kanjimori.databinding.FragmentWritingRecapBinding
 import org.xmlpull.v1.XmlPullParser
 
-class GameRecapFragment : Fragment() {
+class WritingRecapFragment : Fragment() {
 
-    private var _binding: FragmentGameRecapBinding? = null
+    private var _binding: FragmentWritingRecapBinding? = null
     private val binding get() = _binding!!
-    private val args: GameRecapFragmentArgs by navArgs()
+    private val args: WritingRecapFragmentArgs by navArgs()
 
     private var kanjiList: List<String> = emptyList()
     private var currentPage = 0
@@ -32,7 +29,7 @@ class GameRecapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGameRecapBinding.inflate(inflater, container, false)
+        _binding = FragmentWritingRecapBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -44,24 +41,8 @@ class GameRecapFragment : Fragment() {
 
         kanjiList = loadKanjiForLevel(level)
 
-        binding.radioGroupGameMode.setOnCheckedChangeListener { _, checkedId ->
-            binding.radioGroupReadingOptions.isVisible = checkedId == R.id.radio_button_reading
-        }
-
-        binding.buttonPlay.setOnClickListener {
-            val selectedModeId = binding.radioGroupGameMode.checkedRadioButtonId
-            val gameMode = if (selectedModeId == R.id.radio_button_reading) "reading" else "meaning"
-
-            val selectedReadingOptionId = binding.radioGroupReadingOptions.checkedRadioButtonId
-            val readingMode = if (selectedReadingOptionId == R.id.radio_button_random) "random" else "common"
-
-            val bundle = Bundle().apply {
-                putString("level", level)
-                putString("gameMode", gameMode)
-                putString("readingMode", readingMode)
-            }
-            findNavController().navigate(R.id.action_game_recap_to_recognition_game, bundle)
-        }
+        // Button Play is disabled in XML, but we can ensure it here or set a listener for later
+        binding.buttonPlay.isEnabled = false
 
         binding.buttonNextPage.setOnClickListener {
             if ((currentPage + 1) * pageSize < kanjiList.size) {
@@ -94,7 +75,7 @@ class GameRecapFragment : Fragment() {
         // --- Process all Kanjis in one go ---
         val scoreBuckets = (0..10).associateWith { 0 }.toMutableMap()
         var newKanjis = 0
-        val kanjiScores = kanjiList.map { ScoreManager.getScore(requireContext(), it, ScoreType.RECOGNITION) }
+        val kanjiScores = kanjiList.map { ScoreManager.getScore(requireContext(), it, ScoreManager.ScoreType.WRITING) }
 
         for (score in kanjiScores) {
             if (score.successes == 0 && score.failures == 0) {
