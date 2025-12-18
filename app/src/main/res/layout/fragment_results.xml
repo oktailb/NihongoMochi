@@ -464,64 +464,200 @@
 
             <!-- ================= ECRITURE ================= -->
             <com.google.android.material.card.MaterialCardView
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 app:cardElevation="4dp"
-                 app:cardCornerRadius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
                 android:background="@color/white"
-                 android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp">
 
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:orientation="vertical"
-                     android:background="@color/white"
-                     android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:padding="16dp">
 
-                     <!-- Main Header Writing -->
-                     <LinearLayout
-                         android:id="@+id/header_writing_main"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:orientation="horizontal"
-                         android:gravity="center_vertical"
-                         android:clickable="true"
-                         android:focusable="true"
-                         android:background="?attr/selectableItemBackground">
-                         <TextView
-                             android:id="@+id/title_writing"
-                             android:layout_width="0dp"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:text="@string/results_writing_title"
-                             android:textSize="20sp"
-                             android:textStyle="bold" />
-                         <ImageView
-                             android:id="@+id/arrow_writing_main"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:src="@android:drawable/arrow_down_float"
-                             app:tint="@android:color/black"/>
-                     </LinearLayout>
+                    <!-- Main Header Writing -->
+                    <LinearLayout
+                        android:id="@+id/header_writing_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
+                        <TextView
+                            android:id="@+id/title_writing"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/results_writing_title"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/arrow_writing_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@android:drawable/arrow_down_float"
+                            app:tint="@android:color/black"/>
+                    </LinearLayout>
 
-                     <!-- Writing Content Container -->
-                     <LinearLayout
-                         android:id="@+id/container_writing_main"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:layout_marginTop="4dp"/>
 
-                         <LinearLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="wrap_content"
-                             android:orientation="horizontal"
-                             android:background="@color/white"
-                             android:layout_marginTop="4dp"/>
-                     </LinearLayout>
+                    <!-- Writing Content Container -->
+                    <LinearLayout
+                        android:id="@+id/container_writing_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                 </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress_writing_total"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="@android:color/darker_gray"
+                            android:max="100"
+                            android:progress="0" />
+
+                        <!-- Writing User List -->
+                        <TextView
+                            android:id="@+id/title_writing_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/writing_user_lists"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"/>
+                        <ProgressBar
+                            android:id="@+id/progress_writing_user"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:backgroundTint="@android:color/darker_gray"
+                            android:max="100"
+                            android:progress="0" />
+
+                        <!-- SUB-SECTION: JLPT -->
+                        <LinearLayout
+                            android:id="@+id/header_writing_jlpt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="16dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="JLPT (N5 - N1)"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+                            <ImageView
+                                android:id="@+id/arrow_writing_jlpt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@android:drawable/arrow_down_float"
+                                app:tint="@android:color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/container_writing_jlpt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- JLPT Items (N5 to N1) -->
+                            <TextView android:id="@+id/title_writing_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                        </LinearLayout>
+
+                        <!-- SUB-SECTION: ECOLE -->
+                        <LinearLayout
+                            android:id="@+id/header_writing_school"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="16dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Scolaire (Grades / Lycée)"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+                            <ImageView
+                                android:id="@+id/arrow_writing_school"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@android:drawable/arrow_down_float"
+                                app:tint="@android:color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/container_writing_school"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- School Items -->
+                            <TextView android:id="@+id/title_writing_grade1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_grade2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_grade3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_grade4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_grade5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_grade6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_6" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_college" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_college" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_college" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+
+                            <TextView android:id="@+id/title_writing_lycee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_high_school" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                            <ProgressBar android:id="@+id/progress_writing_lycee" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                        </LinearLayout>
+
+                    </LinearLayout> <!-- End Writing Content Container -->
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
         </LinearLayout>
     </ScrollView>
 

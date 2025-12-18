@@ -48,6 +48,10 @@ class ResultsFragment : Fragment() {
         // Reading Sub-sections
         setupCollapsibleSection(binding.headerReadingJlpt, binding.arrowReadingJlpt, binding.containerReadingJlpt, "reading_jlpt_expanded")
         setupCollapsibleSection(binding.headerReadingFreq, binding.arrowReadingFreq, binding.containerReadingFreq, "reading_freq_expanded")
+
+        // Writing Sub-sections
+        setupCollapsibleSection(binding.headerWritingJlpt, binding.arrowWritingJlpt, binding.containerWritingJlpt, "writing_jlpt_expanded")
+        setupCollapsibleSection(binding.headerWritingSchool, binding.arrowWritingSchool, binding.containerWritingSchool, "writing_school_expanded")
     }
 
     private fun setupCollapsibleSection(header: View, arrow: ImageView, container: ViewGroup, preferenceKey: String) {
@@ -75,10 +79,10 @@ class ResultsFragment : Fragment() {
 
         for (info in levelInfos) {
             // Determine score type for calculation
-            val scoreType = if (info.name.startsWith("Reading")) {
-                ScoreManager.ScoreType.READING
-            } else {
-                ScoreManager.ScoreType.RECOGNITION
+            val scoreType = when {
+                info.name.startsWith("Reading") -> ScoreManager.ScoreType.READING
+                info.name.startsWith("Writing") -> ScoreManager.ScoreType.WRITING
+                else -> ScoreManager.ScoreType.RECOGNITION
             }
 
             val charactersForLevel = when {
@@ -87,25 +91,25 @@ class ResultsFragment : Fragment() {
                 info.xmlName.startsWith("bccwj_wordlist_") -> loadWordsFromXml(info.xmlName)
                 else -> getKanjiForLevel(info.xmlName, allKanji)
             }
-            
+
             // For user list, we calculate differently: mastered vs encountered
             val percentage = if (info.xmlName == "user_list") {
-                calculateUserListPercentage()
+                calculateUserListPercentage(scoreType)
             } else {
                 calculateMasteryPercentage(charactersForLevel, scoreType)
             }
-            
+
             updateCategoryUI(info, percentage)
         }
     }
 
-    private fun calculateUserListPercentage(): Double {
-        val scores = ScoreManager.getAllScores(requireContext(), ScoreManager.ScoreType.READING)
+    private fun calculateUserListPercentage(scoreType: ScoreManager.ScoreType): Double {
+        val scores = ScoreManager.getAllScores(requireContext(), scoreType)
         if (scores.isEmpty()) return 0.0
 
         val totalEncountered = scores.size
         val mastered = scores.count { (_, score) -> (score.successes - score.failures) >= 10 }
-        
+
         return if (totalEncountered > 0) {
             (mastered.toDouble() / totalEncountered.toDouble()) * 100.0
         } else {
@@ -143,7 +147,21 @@ class ResultsFragment : Fragment() {
             LevelInfo("Reading 5000", "bccwj_wordlist_5000"),
             LevelInfo("Reading 6000", "bccwj_wordlist_6000"),
             LevelInfo("Reading 7000", "bccwj_wordlist_7000"),
-            LevelInfo("Reading 8000", "bccwj_wordlist_8000")
+            LevelInfo("Reading 8000", "bccwj_wordlist_8000"),
+            LevelInfo("Writing User", "user_list"),
+            LevelInfo("Writing JLPT N5", "N5"),
+            LevelInfo("Writing JLPT N4", "N4"),
+            LevelInfo("Writing JLPT N3", "N3"),
+            LevelInfo("Writing JLPT N2", "N2"),
+            LevelInfo("Writing JLPT N1", "N1"),
+            LevelInfo("Writing Grade 1", "Grade 1"),
+            LevelInfo("Writing Grade 2", "Grade 2"),
+            LevelInfo("Writing Grade 3", "Grade 3"),
+            LevelInfo("Writing Grade 4", "Grade 4"),
+            LevelInfo("Writing Grade 5", "Grade 5"),
+            LevelInfo("Writing Grade 6", "Grade 6"),
+            LevelInfo("Writing Collège", "Grade 7"),
+            LevelInfo("Writing Lycée", "Grade 8")
         )
     }
 
@@ -366,6 +384,62 @@ class ResultsFragment : Fragment() {
             "Reading 8000" -> {
                 binding.progressReading8000.progress = percentageInt
                 binding.titleReading8000.text = "8000 mots les plus fréquents - $percentageInt%"
+            }
+            "Writing User" -> {
+                binding.progressWritingUser.progress = percentageInt
+                binding.titleWritingUser.text = getString(R.string.writing_user_lists) + " - $percentageInt%"
+            }
+            "Writing JLPT N5" -> {
+                binding.progressWritingN5.progress = percentageInt
+                binding.titleWritingN5.text = getString(R.string.results_jlpt_n5, percentageInt)
+            }
+            "Writing JLPT N4" -> {
+                binding.progressWritingN4.progress = percentageInt
+                binding.titleWritingN4.text = getString(R.string.results_jlpt_n4, percentageInt)
+            }
+            "Writing JLPT N3" -> {
+                binding.progressWritingN3.progress = percentageInt
+                binding.titleWritingN3.text = getString(R.string.results_jlpt_n3, percentageInt)
+            }
+            "Writing JLPT N2" -> {
+                binding.progressWritingN2.progress = percentageInt
+                binding.titleWritingN2.text = getString(R.string.results_jlpt_n2, percentageInt)
+            }
+            "Writing JLPT N1" -> {
+                binding.progressWritingN1.progress = percentageInt
+                binding.titleWritingN1.text = getString(R.string.results_jlpt_n1, percentageInt)
+            }
+            "Writing Grade 1" -> {
+                binding.progressWritingGrade1.progress = percentageInt
+                binding.titleWritingGrade1.text = getString(R.string.results_grade_1, percentageInt)
+            }
+            "Writing Grade 2" -> {
+                binding.progressWritingGrade2.progress = percentageInt
+                binding.titleWritingGrade2.text = getString(R.string.results_grade_2, percentageInt)
+            }
+            "Writing Grade 3" -> {
+                binding.progressWritingGrade3.progress = percentageInt
+                binding.titleWritingGrade3.text = getString(R.string.results_grade_3, percentageInt)
+            }
+            "Writing Grade 4" -> {
+                binding.progressWritingGrade4.progress = percentageInt
+                binding.titleWritingGrade4.text = getString(R.string.results_grade_4, percentageInt)
+            }
+            "Writing Grade 5" -> {
+                binding.progressWritingGrade5.progress = percentageInt
+                binding.titleWritingGrade5.text = getString(R.string.results_grade_5, percentageInt)
+            }
+            "Writing Grade 6" -> {
+                binding.progressWritingGrade6.progress = percentageInt
+                binding.titleWritingGrade6.text = getString(R.string.results_grade_6, percentageInt)
+            }
+            "Writing Collège" -> {
+                binding.progressWritingCollege.progress = percentageInt
+                binding.titleWritingCollege.text = getString(R.string.results_college, percentageInt)
+            }
+            "Writing Lycée" -> {
+                binding.progressWritingLycee.progress = percentageInt
+                binding.titleWritingLycee.text = getString(R.string.results_high_school, percentageInt)
             }
         }
     }
