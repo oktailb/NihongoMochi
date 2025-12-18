@@ -168,7 +168,7 @@
 
         </GridLayout>
 
-        <!-- Liste de l\'utilisateurs / listes d\'étude -->
+        <!-- Liste de l'utilisateurs / listes d'étude -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,29 +187,12 @@
                 android:src="@android:drawable/ic_dialog_info" />
         </RelativeLayout>
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/button_user_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/button_user_list"
-                android:layout_width="0dp"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/button_modify"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/leaf_green"
-                tools:text="Liste de l'utilisateur\n0%" />
-
-            <Button
-                android:id="@+id/button_modify"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="@string/reading_modify_button"
-                android:backgroundTint="@color/leaf_green"
-                android:drawableEnd="@android:drawable/ic_menu_edit" />
-
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/leaf_green"
+            tools:text="Liste de l'utilisateur\n0%" />
 
     </LinearLayout>
 </ScrollView>
