@@ -87,9 +87,10 @@ class WritingGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val level = args.level
+        val kanjiList = args.kanjiList?.toList()
 
         loadAllKanjiDetails()
-        val kanjiForLevel = loadKanjiForLevel(level)
+        val kanjiForLevel = kanjiList ?: level?.let { loadKanjiForLevel(it) } ?: emptyList()
 
         allKanjiDetails.clear()
         allKanjiDetails.addAll(allKanjiDetailsXml.filter { kanjiForLevel.contains(it.character) })

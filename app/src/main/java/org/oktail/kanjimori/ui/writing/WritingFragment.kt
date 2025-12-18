@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.oktail.kanjimori.R
+import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.databinding.FragmentWritingBinding
 
 data class LevelInfo(val button: Button, val xmlName: String, val stringResId: Int)
@@ -18,6 +19,7 @@ class WritingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var levelInfos: List<LevelInfo>
+    private var userListPercentage = 0.0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,6 +35,12 @@ class WritingFragment : Fragment() {
 
         initializeLevelInfos()
         setupClickListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        calculateUserListPercentage()
+        updateButtonText()
     }
 
     private fun initializeLevelInfos() {
@@ -55,9 +63,39 @@ class WritingFragment : Fragment() {
         )
     }
 
+    private fun calculateUserListPercentage() {
+        val scores = ScoreManager.getAllScores(requireContext(), ScoreManager.ScoreType.WRITING)
+        if (scores.isEmpty()) {
+            userListPercentage = 0.0
+            return
+        }
+        val totalEncountered = scores.size
+        val mastered = scores.count { (_, score) -> (score.successes - score.failures) >= 10 }
+
+        userListPercentage = if (totalEncountered > 0) {
+            (mastered.toDouble() / totalEncountered.toDouble()) * 100.0
+        } else {
+            0.0
+        }
+    }
+
+    private fun updateButtonText() {
+        for (info in levelInfos) {
+            // The text for these buttons is not updated with a percentage for now.
+        }
+        val userListText = getString(R.string.reading_user_list)
+        binding.buttonUserList.text = "$userListText\n${userListPercentage.toInt()}%"
+    }
+
+
     private fun setupClickListeners() {
         for (info in levelInfos) {
             info.button.setOnClickListener { navigateToRecap(info.xmlName) }
+        }
+
+        binding.buttonUserList.setOnClickListener {
+            val action = WritingFragmentDirections.actionNavWritingToWritingRecap("user_custom_list")
+            findNavController().navigate(action)
         }
     }
 

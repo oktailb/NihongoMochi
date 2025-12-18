@@ -43,8 +43,13 @@ class WritingRecapFragment : Fragment() {
         kanjiList = loadKanjiForLevel(level)
 
         binding.buttonPlay.setOnClickListener {
-            val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level)
-            findNavController().navigate(action)
+            if (level == "user_custom_list") {
+                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(null, kanjiList.toTypedArray())
+                findNavController().navigate(action)
+            } else {
+                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level, null)
+                findNavController().navigate(action)
+            }
         }
 
         binding.buttonNextPage.setOnClickListener {
@@ -64,6 +69,8 @@ class WritingRecapFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // Refresh the list in case mastery has changed
+        kanjiList = loadKanjiForLevel(args.level)
         updateUi()
     }
 
@@ -113,6 +120,10 @@ class WritingRecapFragment : Fragment() {
     }
 
     private fun loadKanjiForLevel(levelName: String): List<String> {
+        if (levelName == "user_custom_list") {
+            return loadUserListKanji()
+        }
+
         val allKanji = mutableMapOf<String, String>()
         val levelKanjiIds = mutableListOf<String>()
         val parser = resources.getXml(R.xml.kanji_levels)
@@ -138,6 +149,11 @@ class WritingRecapFragment : Fragment() {
         }
 
         return levelKanjiIds.mapNotNull { allKanji[it] }
+    }
+
+    private fun loadUserListKanji(): List<String> {
+        val scores = ScoreManager.getAllScores(requireContext(), ScoreManager.ScoreType.WRITING)
+        return scores.filter { (_, score) -> (score.successes - score.failures) < 10 }.keys.toList()
     }
 
     private fun parseKanjiIdsForLevel(parser: XmlPullParser, levelKanjiIds: MutableList<String>) {
