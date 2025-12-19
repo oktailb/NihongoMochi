@@ -13,7 +13,7 @@
     <color name="app_background">#E0F7FA</color> <!-- Light Cyan -->
     <color name="text_color">#263238</color> <!-- Blue Grey 900 -->
     <color name="button_background">#4DB6AC</color> <!-- Teal 400 -->
-    <color name="button_text">@color/white</color>
+    <color name="button_text">@color/black</color>
     <color name="card_background">@color/white</color>
     <color name="card_text">@color/black</color>
     

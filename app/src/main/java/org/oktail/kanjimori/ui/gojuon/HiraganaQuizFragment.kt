@@ -131,9 +131,9 @@ class HiraganaQuizFragment : Fragment() {
 
         answerButtons.zip(answerOptions).forEach { (button, answerText) ->
             button.text = answerText
-            button.setBackgroundColor(Color.LTGRAY)
+            button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_background))
             button.isEnabled = true
-            
+
             if (currentDirection == QuestionDirection.REVERSE) {
                 // Button shows Kana
                 button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)

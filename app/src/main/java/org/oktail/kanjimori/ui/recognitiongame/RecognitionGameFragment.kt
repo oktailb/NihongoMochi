@@ -322,7 +322,7 @@ class RecognitionGameFragment : Fragment() {
 
         answerButtons.zip(answers).forEach { (button, answerText) ->
             button.text = answerText
-            button.setBackgroundColor(Color.LTGRAY)
+            button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_background))
             button.isEnabled = true
             
             if (currentDirection == QuestionDirection.REVERSE) {
