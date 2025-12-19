@@ -42,6 +42,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/radio_group_pronunciation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -87,36 +88,6 @@
             android:textColor="@color/black"
             android:text="@string/settings_remove_good_answers" />
 
-        <!-- Clavier -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/settings_keyboard"
-            android:textSize="18sp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio_keyboard_system"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:textColor="@color/black"
-                android:text="@string/settings_keyboard_system" />
-
-            <RadioButton
-                android:id="@+id/radio_keyboard_integrated"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:textColor="@color/black"
-                android:text="@string/settings_keyboard_integrated" />
-        </RadioGroup>
-
         <!-- Taille du texte -->
         <TextView
             android:layout_width="wrap_content"
@@ -125,10 +96,28 @@
             android:text="@string/settings_text_size"
             android:textSize="18sp" />
 
-        <SeekBar
-            android:id="@+id/seekbar_text_size"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/seekbar_text_size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/text_text_size_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:gravity="end"
+                android:textColor="@color/black"
+                tools:text="1.0x" />
+        </LinearLayout>
+
 
         <!-- Vitesse d'animation -->
         <TextView
@@ -138,10 +127,27 @@
             android:text="@string/settings_animation_speed"
             android:textSize="18sp" />
 
-        <SeekBar
-            android:id="@+id/seekbar_animation_speed"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/seekbar_animation_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/text_animation_speed_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:gravity="end"
+                android:textColor="@color/black"
+                tools:text="1.0x" />
+        </LinearLayout>
 
         <!-- Thème -->
         <RelativeLayout

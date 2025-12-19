@@ -1,17 +1,26 @@
 package org.oktail.kanjimori.ui.settings
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.RadioGroup
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.databinding.FragmentSettingsBinding
+
+const val TEXT_SIZE_PREF_KEY = "TextSize"
+const val ANIMATION_SPEED_PREF_KEY = "AnimationSpeed"
+const val PRONUNCIATION_PREF_KEY = "Pronunciation"
+const val ADD_WRONG_ANSWERS_PREF_KEY = "AddWrongAnswers"
+const val REMOVE_GOOD_ANSWERS_PREF_KEY = "RemoveGoodAnswers"
 
 class SettingsFragment : Fragment() {
 
@@ -19,6 +28,7 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var languages: List<LanguageItem>
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +42,16 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+
+        setupLanguageSpinner()
+        setupPronunciationRadioGroup()
+        setupDefaultUserListCheckboxes()
+        setupTextSizeSeekBar()
+        setupAnimationSpeedSeekBar()
+    }
+
+    private fun setupLanguageSpinner() {
         languages = listOf(
             LanguageItem("fr_FR", getString(R.string.language_fr_fr), R.drawable.flag_fr_fr),
             LanguageItem("en_GB", getString(R.string.language_en_gb), R.drawable.flag_en_gb),
@@ -69,13 +89,86 @@ class SettingsFragment : Fragment() {
         }
     }
 
+    private fun setupPronunciationRadioGroup() {
+        val savedPronunciation = sharedPreferences.getString(PRONUNCIATION_PREF_KEY, "Hiragana")
+        if (savedPronunciation == "Roman") {
+            binding.radioGroupPronunciation.check(R.id.radio_roman_alphabet)
+        } else {
+            binding.radioGroupPronunciation.check(R.id.radio_hiragana)
+        }
+
+        binding.radioGroupPronunciation.setOnCheckedChangeListener { _, checkedId ->
+            val pronunciation = if (checkedId == R.id.radio_roman_alphabet) "Roman" else "Hiragana"
+            sharedPreferences.edit().putString(PRONUNCIATION_PREF_KEY, pronunciation).apply()
+        }
+    }
+
+    private fun setupDefaultUserListCheckboxes() {
+        binding.checkboxAddWrongAnswers.isChecked = sharedPreferences.getBoolean(ADD_WRONG_ANSWERS_PREF_KEY, true)
+        binding.checkboxRemoveGoodAnswers.isChecked = sharedPreferences.getBoolean(REMOVE_GOOD_ANSWERS_PREF_KEY, true)
+
+        binding.checkboxAddWrongAnswers.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences.edit().putBoolean(ADD_WRONG_ANSWERS_PREF_KEY, isChecked).apply()
+        }
+
+        binding.checkboxRemoveGoodAnswers.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences.edit().putBoolean(REMOVE_GOOD_ANSWERS_PREF_KEY, isChecked).apply()
+        }
+    }
+
+    private fun setupTextSizeSeekBar() {
+        // Range from 0.1 to 4.0. We'll use a range of 0-39 in the SeekBar
+        binding.seekbarTextSize.max = 39
+        
+        // Load saved value, default to 1.0f (which corresponds to progress 9)
+        val savedTextSize = sharedPreferences.getFloat(TEXT_SIZE_PREF_KEY, 1.0f)
+        binding.seekbarTextSize.progress = ((savedTextSize * 10) - 1).toInt().coerceIn(0, 39)
+        binding.textTextSizeValue.text = "%.1fx".format(savedTextSize)
+
+        binding.seekbarTextSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val newTextSize = (progress + 1) / 10.0f
+                binding.textTextSizeValue.text = "%.1fx".format(newTextSize)
+                if (fromUser) {
+                    sharedPreferences.edit().putFloat(TEXT_SIZE_PREF_KEY, newTextSize).apply()
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+    }
+    
+    private fun setupAnimationSpeedSeekBar() {
+        // Range from 0.1 to 4.0. We'll use a range of 0-39 in the SeekBar
+        binding.seekbarAnimationSpeed.max = 39
+        
+        // Load saved value, default to 1.0f (which corresponds to progress 9)
+        val savedAnimationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+        binding.seekbarAnimationSpeed.progress = ((savedAnimationSpeed * 10) - 1).toInt().coerceIn(0, 39)
+        binding.textAnimationSpeedValue.text = "%.1fx".format(savedAnimationSpeed)
+
+        binding.seekbarAnimationSpeed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val newAnimationSpeed = (progress + 1) / 10.0f
+                binding.textAnimationSpeedValue.text = "%.1fx".format(newAnimationSpeed)
+                if (fromUser) {
+                    sharedPreferences.edit().putFloat(ANIMATION_SPEED_PREF_KEY, newAnimationSpeed).apply()
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+    }
+
     private fun getCurrentAppLocale(): String {
-        val sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         return sharedPreferences.getString("AppLocale", "fr_FR")!!
     }
 
     private fun setAppLocale(localeCode: String) {
-        val sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         sharedPreferences.edit().putString("AppLocale", localeCode).apply()
 
         val localeTag = localeCode.replace('_', '-')
