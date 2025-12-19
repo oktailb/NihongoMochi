@@ -1,10 +1,13 @@
 package org.oktail.kanjimori.data
 
 import android.content.Context
+import org.oktail.kanjimori.ui.settings.ADD_WRONG_ANSWERS_PREF_KEY
+import org.oktail.kanjimori.ui.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
 
 object ScoreManager {
 
     private const val PREFS_NAME = "KanjiMoriScores"
+    private const val USER_LIST_PREFS_NAME = "KanjiMoriUserLists"
 
     enum class ScoreType {
         RECOGNITION, // Default, raw key
@@ -24,6 +27,41 @@ object ScoreManager {
 
         editor.putString(actualKey, "$newSuccesses-$newFailures")
         editor.apply()
+
+        // Handle user list based on settings
+        val settingsPrefs = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        val shouldAddWrongAnswers = settingsPrefs.getBoolean(ADD_WRONG_ANSWERS_PREF_KEY, true)
+        val shouldRemoveGoodAnswers = settingsPrefs.getBoolean(REMOVE_GOOD_ANSWERS_PREF_KEY, true)
+
+        if (!wasCorrect && shouldAddWrongAnswers) {
+            addToUserList(context, key)
+        } else if (wasCorrect && shouldRemoveGoodAnswers) {
+            // Check if the word is mastered (balance of 10)
+            val balance = newSuccesses - newFailures
+            if (balance >= 10) {
+                removeFromUserList(context, key)
+            }
+        }
+    }
+
+    private fun addToUserList(context: Context, key: String) {
+        val userListPrefs = context.getSharedPreferences(USER_LIST_PREFS_NAME, Context.MODE_PRIVATE)
+        val listName = "Default" // Assuming a default list for now
+        val currentList = userListPrefs.getStringSet(listName, mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+        
+        currentList.add(key)
+        
+        userListPrefs.edit().putStringSet(listName, currentList).apply()
+    }
+
+    private fun removeFromUserList(context: Context, key: String) {
+        val userListPrefs = context.getSharedPreferences(USER_LIST_PREFS_NAME, Context.MODE_PRIVATE)
+        val listName = "Default"
+        val currentList = userListPrefs.getStringSet(listName, mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+
+        currentList.remove(key)
+
+        userListPrefs.edit().putStringSet(listName, currentList).apply()
     }
 
     fun getScore(context: Context, key: String, type: ScoreType): KanjiScore {
