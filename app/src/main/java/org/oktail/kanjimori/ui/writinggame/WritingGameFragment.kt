@@ -184,7 +184,7 @@ class WritingGameFragment : Fragment() {
         if (isAnswerProcessing) return
         isAnswerProcessing = true
 
-        val userAnswer = binding.editTextAnswer.text.toString().trim()
+        val userAnswer = binding.editTextAnswer.text.toString()
         val isCorrect = if (currentQuestionType == QuestionType.MEANING) {
             checkMeaning(userAnswer)
         } else {
@@ -268,15 +268,27 @@ class WritingGameFragment : Fragment() {
         updateProgressBar()
     }
 
-    private fun unaccent(s: String): String {
-        val temp = Normalizer.normalize(s, Normalizer.Form.NFD)
-        return "\\p{InCombiningDiacriticalMarks}+".toRegex().replace(temp, "")
+    private fun normalizeForComparison(input: String, isReading: Boolean): String {
+        var normalized = input.lowercase()
+
+        // For meanings, also remove accents
+        if (!isReading) {
+            normalized = Normalizer.normalize(normalized, Normalizer.Form.NFD)
+                .replace("\\p{InCombiningDiacriticalMarks}+".toRegex(), "")
+        }
+
+        // For readings, convert everything to Hiragana
+        if (isReading) {
+            normalized = katakanaToHiragana(normalized)
+        }
+
+        // Remove common punctuation and spaces
+        return normalized.replace(Regex("[.\\s-]"), "")
     }
 
     private fun checkMeaning(answer: String): Boolean {
-        val normalizedAnswer = unaccent(answer)
-        // is the answer contained in any of the meanings (case insensitive, accent insensitive)
-        return currentKanji.meanings.any { unaccent(it).equals(normalizedAnswer, ignoreCase = true) }
+        val normalizedAnswer = normalizeForComparison(answer, isReading = false)
+        return currentKanji.meanings.any { normalizeForComparison(it, isReading = false) == normalizedAnswer }
     }
     
     // Converts hiragana characters to katakana
@@ -302,13 +314,8 @@ class WritingGameFragment : Fragment() {
     }
 
     private fun checkReading(answer: String): Boolean {
-        // Normalize everything to hiragana for comparison
-        val normalizedAnswer = katakanaToHiragana(answer)
-        
-        return currentKanji.readings.any { 
-            val normalizedReading = katakanaToHiragana(it.value)
-            normalizedReading == normalizedAnswer 
-        }
+        val normalizedAnswer = normalizeForComparison(answer, isReading = true)
+        return currentKanji.readings.any { normalizeForComparison(it.value, isReading = true) == normalizedAnswer }
     }
 
     private fun updateProgressBar() {
