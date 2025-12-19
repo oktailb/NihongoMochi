@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,9 @@ import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentHiraganaQuizBinding
 import org.xmlpull.v1.XmlPullParser
 
-enum class GameStatus { NOT_ANSWERED, CORRECT, INCORRECT }
+enum class GameStatus { NOT_ANSWERED, PARTIAL, CORRECT, INCORRECT }
+enum class QuestionDirection { NORMAL, REVERSE } // NORMAL: Kana -> Romaji, REVERSE: Romaji -> Kana
+data class HiraganaProgress(var normalSolved: Boolean = false, var reverseSolved: Boolean = false)
 
 class HiraganaQuizFragment : Fragment() {
 
@@ -27,10 +30,12 @@ class HiraganaQuizFragment : Fragment() {
     private var currentHiraganaSet = mutableListOf<HiraganaCharacter>()
     private var revisionList = mutableListOf<HiraganaCharacter>()
     private val hiraganaStatus = mutableMapOf<HiraganaCharacter, GameStatus>()
+    private val hiraganaProgress = mutableMapOf<HiraganaCharacter, HiraganaProgress>()
     private var hiraganaListPosition = 0
     private lateinit var currentQuestion: HiraganaCharacter
     private val answerButtons: MutableList<Button> = mutableListOf()
     private val progressIndicators: MutableList<ImageView> = mutableListOf()
+    private var currentDirection: QuestionDirection = QuestionDirection.NORMAL
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,6 +72,7 @@ class HiraganaQuizFragment : Fragment() {
     private fun startNewSet() {
         revisionList.clear()
         hiraganaStatus.clear()
+        hiraganaProgress.clear()
 
         if (hiraganaListPosition >= allHiragana.size) {
             parentFragmentManager.popBackStack()
@@ -79,7 +85,10 @@ class HiraganaQuizFragment : Fragment() {
         currentHiraganaSet.clear()
         currentHiraganaSet.addAll(nextSet)
         revisionList.addAll(nextSet)
-        currentHiraganaSet.forEach { hiraganaStatus[it] = GameStatus.NOT_ANSWERED }
+        currentHiraganaSet.forEach { 
+            hiraganaStatus[it] = GameStatus.NOT_ANSWERED
+            hiraganaProgress[it] = HiraganaProgress()
+        }
 
         updateProgressBar()
         displayQuestion()
@@ -92,38 +101,91 @@ class HiraganaQuizFragment : Fragment() {
         }
 
         currentQuestion = revisionList.random()
-        binding.textHiraganaCharacter.text = currentQuestion.value
+        val progress = hiraganaProgress[currentQuestion]!!
 
-        val answerOptions = generateAnswerOptions(currentQuestion.phonetics)
+        // Determine direction
+        currentDirection = when {
+            !progress.normalSolved && !progress.reverseSolved -> if (Math.random() < 0.5) QuestionDirection.NORMAL else QuestionDirection.REVERSE
+            !progress.normalSolved -> QuestionDirection.NORMAL
+            else -> QuestionDirection.REVERSE
+        }
+
+        if (currentDirection == QuestionDirection.NORMAL) {
+            // Standard: Show Kana, guess Romaji
+            binding.textHiraganaCharacter.text = currentQuestion.value
+            binding.textHiraganaCharacter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120f)
+        } else {
+            // Reverse: Show Romaji, guess Kana
+            binding.textHiraganaCharacter.text = currentQuestion.phonetics
+            // Adjust text size for Romaji (usually 2-3 chars max, but "shi" etc.)
+            binding.textHiraganaCharacter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 80f)
+        }
+
+        val answerOptions = generateAnswerOptions(currentQuestion)
 
         answerButtons.zip(answerOptions).forEach { (button, answerText) ->
             button.text = answerText
             button.setBackgroundColor(Color.LTGRAY)
             button.isEnabled = true
+            
+            if (currentDirection == QuestionDirection.REVERSE) {
+                // Button shows Kana
+                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)
+            } else {
+                // Button shows Romaji
+                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+            }
         }
     }
 
-    private fun generateAnswerOptions(correctAnswer: String): List<String> {
-        val incorrectAnswers = allHiragana
-            .map { it.phonetics }
-            .distinct()
-            .filter { it != correctAnswer }
-            .shuffled()
-            .take(3)
-
-        return (incorrectAnswers + correctAnswer).shuffled()
+    private fun generateAnswerOptions(correct: HiraganaCharacter): List<String> {
+        if (currentDirection == QuestionDirection.NORMAL) {
+            // Generate Romaji answers
+            val correctAnswer = correct.phonetics
+            val incorrectAnswers = allHiragana
+                .map { it.phonetics }
+                .distinct()
+                .filter { it != correctAnswer }
+                .shuffled()
+                .take(3)
+            return (incorrectAnswers + correctAnswer).shuffled()
+        } else {
+            // Generate Kana answers (REVERSE)
+            val correctAnswer = correct.value
+            val incorrectAnswers = allHiragana
+                .map { it.value }
+                .distinct()
+                .filter { it != correctAnswer }
+                .shuffled()
+                .take(3)
+            return (incorrectAnswers + correctAnswer).shuffled()
+        }
     }
 
     private fun onAnswerSelected(selectedButton: Button) {
         val selectedAnswer = selectedButton.text.toString()
-        val isCorrect = selectedAnswer == currentQuestion.phonetics
+        val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
+             selectedAnswer == currentQuestion.phonetics
+        } else {
+             selectedAnswer == currentQuestion.value
+        }
 
         ScoreManager.saveScore(requireContext(), currentQuestion.value, isCorrect, ScoreType.RECOGNITION)
 
         if (isCorrect) {
             selectedButton.setBackgroundColor(Color.GREEN)
-            hiraganaStatus[currentQuestion] = GameStatus.CORRECT
-            revisionList.remove(currentQuestion)
+            
+            val progress = hiraganaProgress[currentQuestion]!!
+            if (currentDirection == QuestionDirection.NORMAL) progress.normalSolved = true
+            else progress.reverseSolved = true
+
+            if (progress.normalSolved && progress.reverseSolved) {
+                hiraganaStatus[currentQuestion] = GameStatus.CORRECT
+                revisionList.remove(currentQuestion)
+            } else {
+                hiraganaStatus[currentQuestion] = GameStatus.PARTIAL
+                selectedButton.setBackgroundColor(Color.parseColor("#FFA500")) // Orange
+            }
         } else {
             selectedButton.setBackgroundColor(Color.RED)
             hiraganaStatus[currentQuestion] = GameStatus.INCORRECT
@@ -145,9 +207,16 @@ class HiraganaQuizFragment : Fragment() {
                 val status = hiraganaStatus[hiragana]
                 val indicator = progressIndicators[i]
                 indicator.visibility = View.VISIBLE
+                
+                indicator.clearColorFilter()
+                
                 when (status) {
                     GameStatus.CORRECT -> indicator.setImageResource(android.R.drawable.presence_online)
                     GameStatus.INCORRECT -> indicator.setImageResource(android.R.drawable.ic_delete)
+                    GameStatus.PARTIAL -> {
+                         indicator.setImageResource(android.R.drawable.ic_menu_recent_history)
+                         indicator.setColorFilter(Color.parseColor("#FFA500"))
+                    }
                     else -> indicator.setImageResource(android.R.drawable.checkbox_off_background)
                 }
             } else {

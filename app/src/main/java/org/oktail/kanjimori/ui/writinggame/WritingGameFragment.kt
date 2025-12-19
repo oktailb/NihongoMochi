@@ -86,11 +86,11 @@ class WritingGameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val level = args.level
-        val kanjiList = args.kanjiList?.toList()
+        // Fix: Handle nullable args.level
+        val level = args.level ?: ""
 
         loadAllKanjiDetails()
-        val kanjiForLevel = kanjiList ?: level?.let { loadKanjiForLevel(it) } ?: emptyList()
+        val kanjiForLevel = loadKanjiForLevel(level)
 
         allKanjiDetails.clear()
         allKanjiDetails.addAll(allKanjiDetailsXml.filter { kanjiForLevel.contains(it.character) })
@@ -234,7 +234,7 @@ class WritingGameFragment : Fragment() {
                 binding.textCorrectionSimple.visibility = View.GONE
                 binding.layoutReadingsColumns.visibility = View.VISIBLE
                 
-                val onReadings = currentKanji.readings.filter { it.type == "on" }.joinToString("\n") { it.value }
+                val onReadings = currentKanji.readings.filter { it.type == "on" }.joinToString("\n") { hiraganaToKatakana(it.value) }
                 val kunReadings = currentKanji.readings.filter { it.type == "kun" }.joinToString("\n") { it.value }
                 
                 binding.textReadingsOn.text = if (onReadings.isNotEmpty()) onReadings else "-"
@@ -267,6 +267,17 @@ class WritingGameFragment : Fragment() {
         val normalizedAnswer = unaccent(answer)
         // is the answer contained in any of the meanings (case insensitive, accent insensitive)
         return currentKanji.meanings.any { unaccent(it).equals(normalizedAnswer, ignoreCase = true) }
+    }
+    
+    // Converts hiragana characters to katakana
+    private fun hiraganaToKatakana(s: String): String {
+        return s.map { c ->
+            if (c in '\u3041'..'\u3096') {
+                (c + 0x60)
+            } else {
+                c
+            }
+        }.joinToString("")
     }
     
     // Converts katakana characters to hiragana

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,8 @@ import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentKatakanaQuizBinding
 import org.xmlpull.v1.XmlPullParser
 
+data class KatakanaProgress(var normalSolved: Boolean = false, var reverseSolved: Boolean = false)
+
 class KatakanaQuizFragment : Fragment() {
 
     private var _binding: FragmentKatakanaQuizBinding? = null
@@ -25,10 +28,12 @@ class KatakanaQuizFragment : Fragment() {
     private var currentKatakanaSet = mutableListOf<KatakanaCharacter>()
     private var revisionList = mutableListOf<KatakanaCharacter>()
     private val katakanaStatus = mutableMapOf<KatakanaCharacter, GameStatus>()
+    private val katakanaProgress = mutableMapOf<KatakanaCharacter, KatakanaProgress>()
     private var katakanaListPosition = 0
     private lateinit var currentQuestion: KatakanaCharacter
     private val answerButtons: MutableList<Button> = mutableListOf()
     private val progressIndicators: MutableList<ImageView> = mutableListOf()
+    private var currentDirection: QuestionDirection = QuestionDirection.NORMAL
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +70,7 @@ class KatakanaQuizFragment : Fragment() {
     private fun startNewSet() {
         revisionList.clear()
         katakanaStatus.clear()
+        katakanaProgress.clear()
 
         if (katakanaListPosition >= allKatakana.size) {
             parentFragmentManager.popBackStack()
@@ -77,7 +83,10 @@ class KatakanaQuizFragment : Fragment() {
         currentKatakanaSet.clear()
         currentKatakanaSet.addAll(nextSet)
         revisionList.addAll(nextSet)
-        currentKatakanaSet.forEach { katakanaStatus[it] = GameStatus.NOT_ANSWERED }
+        currentKatakanaSet.forEach { 
+            katakanaStatus[it] = GameStatus.NOT_ANSWERED
+            katakanaProgress[it] = KatakanaProgress()
+        }
 
         updateProgressBar()
         displayQuestion()
@@ -90,38 +99,91 @@ class KatakanaQuizFragment : Fragment() {
         }
 
         currentQuestion = revisionList.random()
-        binding.textKatakanaCharacter.text = currentQuestion.value
+        val progress = katakanaProgress[currentQuestion]!!
 
-        val answerOptions = generateAnswerOptions(currentQuestion.phonetics)
+        // Determine direction
+        currentDirection = when {
+            !progress.normalSolved && !progress.reverseSolved -> if (Math.random() < 0.5) QuestionDirection.NORMAL else QuestionDirection.REVERSE
+            !progress.normalSolved -> QuestionDirection.NORMAL
+            else -> QuestionDirection.REVERSE
+        }
+
+        if (currentDirection == QuestionDirection.NORMAL) {
+            // Standard: Show Kana, guess Romaji
+            binding.textKatakanaCharacter.text = currentQuestion.value
+            binding.textKatakanaCharacter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 120f)
+        } else {
+            // Reverse: Show Romaji, guess Kana
+            binding.textKatakanaCharacter.text = currentQuestion.phonetics
+            // Adjust text size for Romaji
+            binding.textKatakanaCharacter.setTextSize(TypedValue.COMPLEX_UNIT_SP, 80f)
+        }
+
+        val answerOptions = generateAnswerOptions(currentQuestion)
 
         answerButtons.zip(answerOptions).forEach { (button, answerText) ->
             button.text = answerText
             button.setBackgroundColor(Color.LTGRAY)
             button.isEnabled = true
+            
+            if (currentDirection == QuestionDirection.REVERSE) {
+                // Button shows Kana
+                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)
+            } else {
+                // Button shows Romaji
+                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+            }
         }
     }
 
-    private fun generateAnswerOptions(correctAnswer: String): List<String> {
-        val incorrectAnswers = allKatakana
-            .map { it.phonetics }
-            .distinct()
-            .filter { it != correctAnswer }
-            .shuffled()
-            .take(3)
-
-        return (incorrectAnswers + correctAnswer).shuffled()
+    private fun generateAnswerOptions(correct: KatakanaCharacter): List<String> {
+        if (currentDirection == QuestionDirection.NORMAL) {
+            // Generate Romaji answers
+            val correctAnswer = correct.phonetics
+            val incorrectAnswers = allKatakana
+                .map { it.phonetics }
+                .distinct()
+                .filter { it != correctAnswer }
+                .shuffled()
+                .take(3)
+            return (incorrectAnswers + correctAnswer).shuffled()
+        } else {
+            // Generate Kana answers (REVERSE)
+            val correctAnswer = correct.value
+            val incorrectAnswers = allKatakana
+                .map { it.value }
+                .distinct()
+                .filter { it != correctAnswer }
+                .shuffled()
+                .take(3)
+            return (incorrectAnswers + correctAnswer).shuffled()
+        }
     }
 
     private fun onAnswerSelected(selectedButton: Button) {
         val selectedAnswer = selectedButton.text.toString()
-        val isCorrect = selectedAnswer == currentQuestion.phonetics
+        val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
+             selectedAnswer == currentQuestion.phonetics
+        } else {
+             selectedAnswer == currentQuestion.value
+        }
 
         ScoreManager.saveScore(requireContext(), currentQuestion.value, isCorrect, ScoreType.RECOGNITION)
 
         if (isCorrect) {
             selectedButton.setBackgroundColor(Color.GREEN)
-            katakanaStatus[currentQuestion] = GameStatus.CORRECT
-            revisionList.remove(currentQuestion)
+            
+            val progress = katakanaProgress[currentQuestion]!!
+            if (currentDirection == QuestionDirection.NORMAL) progress.normalSolved = true
+            else progress.reverseSolved = true
+
+            if (progress.normalSolved && progress.reverseSolved) {
+                katakanaStatus[currentQuestion] = GameStatus.CORRECT
+                revisionList.remove(currentQuestion)
+            } else {
+                katakanaStatus[currentQuestion] = GameStatus.PARTIAL
+                selectedButton.setBackgroundColor(Color.parseColor("#FFA500")) // Orange
+            }
         } else {
             selectedButton.setBackgroundColor(Color.RED)
             katakanaStatus[currentQuestion] = GameStatus.INCORRECT
@@ -143,9 +205,16 @@ class KatakanaQuizFragment : Fragment() {
                 val status = katakanaStatus[katakana]
                 val indicator = progressIndicators[i]
                 indicator.visibility = View.VISIBLE
+                
+                indicator.clearColorFilter()
+                
                 when (status) {
                     GameStatus.CORRECT -> indicator.setImageResource(android.R.drawable.presence_online)
                     GameStatus.INCORRECT -> indicator.setImageResource(android.R.drawable.ic_delete)
+                    GameStatus.PARTIAL -> {
+                         indicator.setImageResource(android.R.drawable.ic_menu_recent_history)
+                         indicator.setColorFilter(Color.parseColor("#FFA500"))
+                    }
                     else -> indicator.setImageResource(android.R.drawable.checkbox_off_background)
                 }
             } else {

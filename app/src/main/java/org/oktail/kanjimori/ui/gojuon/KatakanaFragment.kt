@@ -136,5 +136,3 @@ class KatakanaFragment : Fragment() {
         _binding = null
     }
 }
-
-data class KatakanaCharacter(val value: String, val line: Int, val phonetics: String)

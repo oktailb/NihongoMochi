@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">Liste d\'utilisateurs par défaut</string>
     <string name="settings_add_wrong_answers">Ajoute automatiquement les mauvaises réponses</string>
     <string name="settings_remove_good_answers">Enlève automatiquement les mots 10/10</string>
-    <string name="settings_keyboard">Clavier</string>
-    <string name="settings_keyboard_system">Système</string>
-    <string name="settings_keyboard_integrated">Intégré</string>
     <string name="settings_text_size">Taille du texte</string>
     <string name="settings_animation_speed">Vitesse d\'animation</string>
     <string name="settings_theme">Thème (Clair/Sombre)</string>
