@@ -78,8 +78,8 @@ class WordListFragment : Fragment() {
         }
 
         binding.buttonPlay.setOnClickListener {
-            val ignoreKnown = binding.checkboxIgnoreKnown.isChecked
-            val action = WordListFragmentDirections.actionNavWordListToNavWordQuiz(wordListName, ignoreKnown)
+            val customWordList = displayedWords.map { it.text }.toTypedArray()
+            val action = WordListFragmentDirections.actionNavWordListToNavWordQuiz(customWordList)
             findNavController().navigate(action)
         }
     }
@@ -88,13 +88,6 @@ class WordListFragment : Fragment() {
         binding.checkboxKanjiOnly.setOnCheckedChangeListener { _, _ -> applyFilters() }
         binding.checkboxSimpleWords.setOnCheckedChangeListener { _, _ -> applyFilters() }
         binding.checkboxCompoundWords.setOnCheckedChangeListener { _, _ -> applyFilters() }
-        // We do NOT call applyFilters for the ignore_known checkbox, as it affects the quiz, not the list display?
-        // Or should it also affect the list display?
-        // User request: "qui sur le meme modele que les autres checkboxes filtrera la liste des mots qui apparaitront dans le quizz"
-        // It says "filtrera la liste des mots qui apparaitront dans le quizz". It doesn't explicitly say it should hide them from the list view,
-        // but typically filters affect the view. Let's make it affect the view too for consistency, or at least be available for the 'Play' button.
-        // If I filter them out from displayedWords, they won't be seen.
-        // Let's assume it should behave like other filters and update the list too, so the user sees what they will quiz.
         binding.checkboxIgnoreKnown.setOnCheckedChangeListener { _, _ -> applyFilters() }
 
         wordTypes.clear()
@@ -214,19 +207,8 @@ class WordListFragment : Fragment() {
         if (listName == "user_custom_list") {
             val scores = ScoreManager.getAllScores(requireContext(), ScoreManager.ScoreType.READING)
             return scores.mapNotNull { (word, score) ->
-                // For user list, we might want to show everything and let filters do the job,
-                // OR only show what is strictly in the "to learn" pile.
-                // The previous implementation filtered < 10 here.
-                // But if we want to toggle "ignore known", we should probably load everything encountered?
-                // However, the user list definition earlier was "un mot sort de la liste si il atteinds le score maximal".
-                // So strictly speaking, mastered words are NOT in the user list.
-                // So "ignore known" on the user list might be redundant or always true.
-                // Let's keep the definition: words < 10.
-                if ((score.successes - score.failures) < 10) {
-                    WordItem(word, "")
-                } else {
-                    null
-                }
+                // For user list, we always load words. Filtering is done in applyFilters.
+                WordItem(word, "")
             }
         }
 

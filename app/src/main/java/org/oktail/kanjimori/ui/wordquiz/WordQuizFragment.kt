@@ -45,9 +45,8 @@ class WordQuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val wordListName = args.wordList
-        val ignoreKnown = args.ignoreKnownWords
-        loadWords(wordListName, ignoreKnown)
+        val customWordList = args.customWordList
+        loadWords(customWordList)
 
         if (allWords.isNotEmpty()) {
             startNewSet()
@@ -82,75 +81,47 @@ class WordQuizFragment : Fragment() {
         displayQuestion()
     }
 
-    private fun loadWords(listName: String, ignoreKnown: Boolean) {
-        // Special case for user custom list
-        if (listName == "user_custom_list") {
-             val scores = ScoreManager.getAllScores(requireContext(), ScoreManager.ScoreType.READING)
-             val allKnownWords = mutableMapOf<String, String>()
-             val listsToScan = listOf(
-                 "bccwj_wordlist_1000", "bccwj_wordlist_2000", "bccwj_wordlist_3000", 
-                 "bccwj_wordlist_4000", "bccwj_wordlist_5000", "bccwj_wordlist_6000", 
-                 "bccwj_wordlist_7000", "bccwj_wordlist_8000"
-             )
-             
-             for (list in listsToScan) {
-                 val resourceId = resources.getIdentifier(list, "xml", requireContext().packageName)
-                 if (resourceId != 0) {
-                     val parser = resources.getXml(resourceId)
-                     try {
-                         var eventType = parser.eventType
-                         while (eventType != XmlPullParser.END_DOCUMENT) {
-                            if (eventType == XmlPullParser.START_TAG && parser.name == "word") {
-                                val phonetics = parser.getAttributeValue(null, "phonetics") ?: ""
-                                val text = parser.nextText()
-                                if (phonetics.isNotEmpty()) {
-                                    allKnownWords[text] = phonetics
-                                }
-                            }
-                            eventType = parser.next()
-                         }
-                     } catch (e: Exception) {
-                         // Ignore
-                     }
-                 }
-             }
-             
-             scores.forEach { (wordText, score) ->
-                 if ((score.successes - score.failures) < 10) {
-                     val phonetics = allKnownWords[wordText]
-                     if (phonetics != null) {
-                        allWords.add(Word(wordText, phonetics))
-                     }
-                 }
-             }
-             allWords.shuffle()
-             return
-        }
+    private fun loadWords(customWordList: Array<String>?) {
+        if (customWordList == null) return
 
-        val resourceId = resources.getIdentifier(listName, "xml", requireContext().packageName)
-        if (resourceId == 0) return
-
-        val parser = resources.getXml(resourceId)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "word") {
-                    val phonetics = parser.getAttributeValue(null, "phonetics") ?: ""
-                    val text = parser.nextText()
-                    if (phonetics.isNotEmpty()) {
-                        val score = ScoreManager.getScore(requireContext(), text, ScoreManager.ScoreType.READING)
-                        val isKnown = (score.successes - score.failures) >= 10
-                        if (!ignoreKnown || !isKnown) {
-                            allWords.add(Word(text, phonetics))
-                        }
+        // Build a temporary map of all known words to their phonetics
+        val allKnownWords = mutableMapOf<String, String>()
+        val listsToScan = listOf(
+            "bccwj_wordlist_1000", "bccwj_wordlist_2000", "bccwj_wordlist_3000", 
+            "bccwj_wordlist_4000", "bccwj_wordlist_5000", "bccwj_wordlist_6000", 
+            "bccwj_wordlist_7000", "bccwj_wordlist_8000"
+        )
+        
+        for (list in listsToScan) {
+            val resourceId = resources.getIdentifier(list, "xml", requireContext().packageName)
+            if (resourceId != 0) {
+                val parser = resources.getXml(resourceId)
+                try {
+                    var eventType = parser.eventType
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                       if (eventType == XmlPullParser.START_TAG && parser.name == "word") {
+                           val phonetics = parser.getAttributeValue(null, "phonetics") ?: ""
+                           val text = parser.nextText()
+                           if (phonetics.isNotEmpty()) {
+                               allKnownWords[text] = phonetics
+                           }
+                       }
+                       eventType = parser.next()
                     }
+                } catch (e: Exception) {
+                    // Ignore
                 }
-                eventType = parser.next()
             }
-            allWords.shuffle()
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
+
+        // Now, build the allWords list from the custom list, looking up phonetics
+        for (wordText in customWordList) {
+            val phonetics = allKnownWords[wordText]
+            if (phonetics != null) {
+                allWords.add(Word(wordText, phonetics))
+            }
+        }
+        allWords.shuffle()
     }
 
     private fun displayQuestion() {

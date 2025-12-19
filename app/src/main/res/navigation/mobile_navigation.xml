@@ -210,12 +210,10 @@
         android:label="Word Quiz"
         tools:layout="@layout/fragment_word_quiz">
         <argument
-            android:name="wordList"
-            app:argType="string" />
-        <argument
-            android:name="ignoreKnownWords"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:name="customWordList"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 
 </navigation>
