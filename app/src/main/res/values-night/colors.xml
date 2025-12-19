@@ -8,17 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Night Theme: "Autumn Night" -->
-    <color name="app_background_night">#011627</color> <!-- Dark Night Blue -->
-    <color name="text_color_night">#D6D6D6</color> <!-- Silvery Grey -->
-    <color name="button_background_night">#FF6D00</color> <!-- Dark Orange -->
-    <color name="button_text_night">@color/text_color_night</color>
-    <color name="card_background_night">@color/white</color>
-    <color name="card_text_night">@color/black</color>
+    <!-- App Theme Colors (Night) -->
+    <color name="app_background">#011627</color> <!-- Dark Night Blue -->
+    <color name="text_color">#D6D6D6</color> <!-- Silvery Grey -->
+    <color name="button_background">#FF6D00</color> <!-- Dark Orange -->
+    <color name="button_text">@color/text_color</color>
+    <color name="card_background">#1E2A38</color> <!-- Dark Blue Grey for cards -->
+    <color name="card_text">@color/text_color</color>
 
-    <!-- Old colors (to be removed or migrated) -->
-    <color name="app_background">#121212</color>
-    <color name="text_color">@color/black</color>
+    <!-- Legacy/Fallback colors -->
     <color name="home_background">#E0F7FA</color>
     <color name="leaf_green">#8BC34A</color>
     <color name="android_green">#3DDC84</color>
@@ -38,7 +36,7 @@
     <color name="answer_incorrect">#D32F2F</color> <!-- Red 700 -->
     <color name="answer_neutral">#FFB74D</color> <!-- Orange 300 -->
 
-    <!-- Avatar Palette (Identical to day for now, but defined to avoid crashes if referenced) -->
+    <!-- Avatar Palette (Defined to avoid crashes if referenced) -->
     <color name="orange_100">#FFE0B2</color>
     <color name="orange_200">#FFCC80</color>
     <color name="orange_900">#E65100</color>

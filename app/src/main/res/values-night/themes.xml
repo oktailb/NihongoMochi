@@ -2,17 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.KanjiMori" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/button_background_night</item>
+        <item name="colorPrimary">@color/button_background</item>
         <item name="colorPrimaryVariant">@color/blue_700</item>
-        <item name="colorOnPrimary">@color/button_text_night</item>
+        <item name="colorOnPrimary">@color/button_text</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/button_background_night</item>
+        <item name="colorSecondary">@color/button_background</item>
         <item name="colorSecondaryVariant">@color/leaf_green</item>
-        <item name="colorOnSecondary">@color/button_text_night</item>
+        <item name="colorOnSecondary">@color/button_text</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@color/app_background_night</item>
-        <item name="android:textColor">@color/text_color_night</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
 </resources>

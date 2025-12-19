@@ -9,19 +9,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Day Theme: "Misty Forest" -->
-    <color name="app_background_day">#E0F7FA</color> <!-- Light Cyan -->
-    <color name="text_color_day">#263238</color> <!-- Blue Grey 900 -->
-    <color name="button_background_day">#4DB6AC</color> <!-- Teal 400 -->
-    <color name="button_text_day">@color/white</color>
-    <color name="card_background_day">@color/white</color>
-    <color name="card_text_day">@color/black</color>
+    <!-- App Theme Colors (Day) -->
+    <color name="app_background">#E0F7FA</color> <!-- Light Cyan -->
+    <color name="text_color">#263238</color> <!-- Blue Grey 900 -->
+    <color name="button_background">#4DB6AC</color> <!-- Teal 400 -->
+    <color name="button_text">@color/white</color>
+    <color name="card_background">@color/white</color>
+    <color name="card_text">@color/black</color>
     
-    <!-- Old colors (to be removed or migrated) -->
-    <color name="turquoise_200">#FF9800</color> <!-- Fallback for day theme -->
-    <color name="turquoise_700">#F57C00</color> <!-- Fallback for day theme -->
-    <color name="app_background">#F5F5F5</color>
-    <color name="text_color">#000000</color>
+    <!-- Legacy/Fallback colors -->
+    <color name="turquoise_200">#FF9800</color>
+    <color name="turquoise_700">#F57C00</color>
     <color name="home_background">#E0F7FA</color>
     <color name="leaf_green">#8BC34A</color>
     <color name="android_green">#3DDC84</color>

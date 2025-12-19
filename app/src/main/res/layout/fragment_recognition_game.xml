@@ -87,7 +87,7 @@
         android:id="@+id/card_kanji"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        app:cardBackgroundColor="@color/card_background_day"
+        app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/grid_answers"
@@ -101,7 +101,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="120sp"
-            android:textColor="@color/card_text_day"
+            android:textColor="@color/card_text"
             tools:text="天" />
 
     </com.google.android.material.card.MaterialCardView>
