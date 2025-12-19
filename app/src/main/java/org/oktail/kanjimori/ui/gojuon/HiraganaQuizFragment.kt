@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
@@ -178,7 +179,7 @@ class HiraganaQuizFragment : Fragment() {
         ScoreManager.saveScore(requireContext(), currentQuestion.value, isCorrect, ScoreType.RECOGNITION)
 
         if (isCorrect) {
-            selectedButton.setBackgroundColor(Color.GREEN)
+            selectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_correct))
             
             val progress = hiraganaProgress[currentQuestion]!!
             if (currentDirection == QuestionDirection.NORMAL) progress.normalSolved = true
@@ -189,10 +190,10 @@ class HiraganaQuizFragment : Fragment() {
                 revisionList.remove(currentQuestion)
             } else {
                 hiraganaStatus[currentQuestion] = GameStatus.PARTIAL
-                selectedButton.setBackgroundColor(Color.parseColor("#FFA500")) // Orange
+                selectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_neutral))
             }
         } else {
-            selectedButton.setBackgroundColor(Color.RED)
+            selectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_incorrect))
             hiraganaStatus[currentQuestion] = GameStatus.INCORRECT
         }
 
@@ -223,7 +224,7 @@ class HiraganaQuizFragment : Fragment() {
                     GameStatus.INCORRECT -> indicator.setImageResource(android.R.drawable.ic_delete)
                     GameStatus.PARTIAL -> {
                          indicator.setImageResource(android.R.drawable.ic_menu_recent_history)
-                         indicator.setColorFilter(Color.parseColor("#FFA500"))
+                         indicator.setColorFilter(ContextCompat.getColor(requireContext(), R.color.answer_neutral))
                     }
                     else -> indicator.setImageResource(android.R.drawable.checkbox_off_background)
                 }

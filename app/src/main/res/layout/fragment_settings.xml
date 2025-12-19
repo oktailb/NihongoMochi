@@ -163,12 +163,12 @@
                 android:text="@string/settings_theme"
                 android:textSize="18sp" />
 
-            <ImageView
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_theme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@android:drawable/ic_menu_edit" />
+                android:layout_centerVertical="true" />
         </RelativeLayout>
 
         <Button

@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -159,7 +160,7 @@ class WritingGameFragment : Fragment() {
         // Ensure editable state
         binding.editTextAnswer.isEnabled = true
         binding.buttonSubmitAnswer.isEnabled = true
-        binding.buttonSubmitAnswer.setBackgroundColor(resources.getColor(R.color.leaf_green, null))
+        binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.leaf_green))
         binding.layoutCorrectionFeedback.visibility = View.INVISIBLE
 
         // Determine question type based on what is missing
@@ -203,12 +204,12 @@ class WritingGameFragment : Fragment() {
 
             if (progress.meaningSolved && progress.readingSolved) {
                 // Fully solved
-                binding.buttonSubmitAnswer.setBackgroundColor(Color.GREEN)
+                binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_correct))
                 kanjiStatus[currentKanji] = GameStatus.CORRECT
                 revisionList.remove(currentKanji)
             } else {
                 // Partially solved
-                binding.buttonSubmitAnswer.setBackgroundColor(Color.parseColor("#FFA500")) // Orange
+                binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_neutral))
                 kanjiStatus[currentKanji] = GameStatus.PARTIAL
             }
 
@@ -220,7 +221,7 @@ class WritingGameFragment : Fragment() {
             }, delay)
 
         } else {
-            binding.buttonSubmitAnswer.setBackgroundColor(Color.RED)
+            binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_incorrect))
             kanjiStatus[currentKanji] = GameStatus.INCORRECT
 
             // Setup Correction Feedback
@@ -339,7 +340,7 @@ class WritingGameFragment : Fragment() {
                     GameStatus.PARTIAL -> {
                         // Use a clock icon to symbolize "in progress" / hourglass, tinted Orange
                         indicator.setImageResource(android.R.drawable.ic_menu_recent_history)
-                        indicator.setColorFilter(Color.parseColor("#FFA500"))
+                        indicator.setColorFilter(ContextCompat.getColor(requireContext(), R.color.answer_neutral))
                     }
                     else -> indicator.setImageResource(android.R.drawable.checkbox_off_background)
                 }

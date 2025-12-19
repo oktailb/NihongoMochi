@@ -10,4 +10,60 @@
     <color name="text_color">@color/black</color>
     <color name="home_background">#E0F7FA</color>
     <color name="leaf_green">#8BC34A</color>
+    <color name="android_green">#3DDC84</color>
+
+    <!-- Extracted UI Colors (Dark Theme) -->
+    <color name="nav_header_background">#00796B</color> <!-- Slightly darker teal -->
+    <color name="nav_header_gradient_start">#004D40</color>
+    <color name="nav_header_gradient_center">#00695C</color>
+    <color name="nav_header_gradient_end">#004D40</color>
+
+    <color name="correction_background">#B71C1C</color> <!-- Darker red background for error -->
+    <color name="correction_text_color">@color/white</color>
+    <color name="correction_label_color">#FF8A80</color> <!-- Lighter red for label text -->
+    
+    <!-- Game Colors -->
+    <color name="answer_correct">@color/leaf_green</color>
+    <color name="answer_incorrect">#D32F2F</color> <!-- Red 700 -->
+    <color name="answer_neutral">#FFB74D</color> <!-- Orange 300 -->
+
+    <!-- Avatar Palette (Identical to day for now, but defined to avoid crashes if referenced) -->
+    <color name="orange_100">#FFE0B2</color>
+    <color name="orange_200">#FFCC80</color>
+    <color name="orange_900">#E65100</color>
+    <color name="yellow_400">#FFEE58</color>
+    <color name="yellow_500">#FFEB3B</color>
+    <color name="yellow_800">#F9A825</color>
+    <color name="yellow_900">#F57F17</color>
+    <color name="yellow_accent_100">#FFFF8D</color>
+    <color name="amber_700">#F4B400</color>
+    <color name="orange_gold">#F2A600</color>
+    <color name="orange_deep">#EE8100</color>
+    <color name="blue_indigo">#2A56C6</color>
+    <color name="blue_dark_indigo">#1C3AA9</color>
+    <color name="blue_accent_200">#448AFF</color>
+    <color name="light_blue_a100">#80D8FF</color>
+    <color name="cyan_700">#0097A7</color>
+    <color name="cyan_800">#00838F</color>
+    <color name="cyan_a100">#84FFFF</color>
+    <color name="teal_a100">#A7FFEB</color>
+    <color name="teal_a400">#1DE9B6</color>
+    <color name="teal_a700">#00BFA5</color>
+    <color name="green_dark">#055524</color>
+    <color name="green_a100">#B9F6CA</color>
+    <color name="light_green_700">#689F38</color>
+    <color name="brown_400">#8D6E63</color>
+    <color name="brown_600">#6D4C41</color>
+    <color name="brown_700">#5D4037</color>
+    <color name="red_a100">#FF8A80</color>
+    <color name="deep_orange_500">#FF5722</color>
+    <color name="deep_orange_a700">#DD2C00</color>
+    <color name="pink_a100">#FF80AB</color>
+    <color name="deep_purple_a100">#B388FF</color>
+    <color name="indigo_a100">#8C9EFF</color>
+    <color name="grey_300">#C2C2C2</color>
+    <color name="grey_500">#848484</color>
+    <color name="grey_700">#646464</color>
+    <color name="grey_dark">#444444</color>
+    <color name="blue_grey_100">#CFD8DC</color>
 </resources>

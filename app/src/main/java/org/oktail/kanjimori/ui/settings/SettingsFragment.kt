@@ -2,12 +2,12 @@ package org.oktail.kanjimori.ui.settings
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.RadioGroup
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatDelegate
@@ -21,6 +21,7 @@ const val ANIMATION_SPEED_PREF_KEY = "AnimationSpeed"
 const val PRONUNCIATION_PREF_KEY = "Pronunciation"
 const val ADD_WRONG_ANSWERS_PREF_KEY = "AddWrongAnswers"
 const val REMOVE_GOOD_ANSWERS_PREF_KEY = "RemoveGoodAnswers"
+const val THEME_PREF_KEY = "Theme"
 
 class SettingsFragment : Fragment() {
 
@@ -49,6 +50,7 @@ class SettingsFragment : Fragment() {
         setupDefaultUserListCheckboxes()
         setupTextSizeSeekBar()
         setupAnimationSpeedSeekBar()
+        setupThemeSwitch()
     }
 
     private fun setupLanguageSpinner() {
@@ -162,6 +164,21 @@ class SettingsFragment : Fragment() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+    }
+
+    private fun setupThemeSwitch() {
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        binding.switchTheme.isChecked = currentNightMode == Configuration.UI_MODE_NIGHT_YES
+
+        binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            val mode = if (isChecked) {
+                AppCompatDelegate.MODE_NIGHT_YES
+            } else {
+                AppCompatDelegate.MODE_NIGHT_NO
+            }
+            AppCompatDelegate.setDefaultNightMode(mode)
+            sharedPreferences.edit().putString(THEME_PREF_KEY, if(isChecked) "dark" else "light").apply()
+        }
     }
 
     private fun getCurrentAppLocale(): String {

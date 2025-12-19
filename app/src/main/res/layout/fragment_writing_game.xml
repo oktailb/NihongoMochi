@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0F7FA"
+    android:background="@color/home_background"
     tools:context=".ui.writinggame.WritingGameFragment">
 
     <!-- Progress Bar -->
@@ -78,7 +78,7 @@
         android:id="@+id/card_kanji"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/input_layout"
@@ -93,7 +93,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="100sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/black"
             tools:text="天" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -128,7 +128,7 @@
             android:maxLines="1"
             android:imeOptions="actionDone"
             android:textAlignment="center"
-            android:textColor="#000000"/>
+            android:textColor="@color/text_color"/>
 
         <Button
             android:id="@+id/button_submit_answer"
@@ -147,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:cardBackgroundColor="#FFCDD2"
+        app:cardBackgroundColor="@color/correction_background"
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
         app:contentPadding="16dp"
@@ -171,7 +171,7 @@
                 android:text="@string/game_writing_correction"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="@android:color/holo_red_dark"
+                android:textColor="@color/correction_label_color"
                 android:layout_marginBottom="8dp"/>
 
             <!-- Single text view for simple meaning correction -->
@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:textColor="@android:color/black"
+                android:textColor="@color/correction_text_color"
                 android:gravity="center"
                 tools:text="Ciel, Paradis"
                 android:visibility="gone"/>
@@ -207,12 +207,12 @@
                         android:layout_height="wrap_content"
                         android:text="@string/game_writing_on"
                         android:textStyle="bold"
-                        android:textColor="@android:color/holo_red_dark"/>
+                        android:textColor="@color/correction_label_color"/>
                     <TextView
                         android:id="@+id/text_readings_on"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/correction_text_color"
                         tools:text="TEN\nAMA"/>
                 </LinearLayout>
 
@@ -228,12 +228,12 @@
                         android:layout_height="wrap_content"
                         android:text="@string/game_writing_kun"
                         android:textStyle="bold"
-                        android:textColor="@android:color/holo_red_dark"/>
+                        android:textColor="@color/correction_label_color"/>
                     <TextView
                         android:id="@+id/text_readings_kun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/correction_text_color"
                         tools:text="ama\nsora"/>
                 </LinearLayout>
 
