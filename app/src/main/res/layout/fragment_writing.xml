@@ -248,13 +248,6 @@
                 android:text="Test 2\n0%" />
         </GridLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/writing_lists"
-            android:textSize="22sp" />
-
         <!-- Liste de l'utilisateurs -->
         <RelativeLayout
             android:layout_width="match_parent"
