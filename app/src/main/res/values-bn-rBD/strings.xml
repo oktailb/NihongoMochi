@@ -27,9 +27,6 @@
     <string name="settings_default_user_list">ডিফল্ট ব্যবহারকারী তালিকা</string>
     <string name="settings_add_wrong_answers">ভুল উত্তরগুলি স্বয়ংক্রিয়ভাবে যোগ করুন</string>
     <string name="settings_remove_good_answers">১০/১০ শব্দগুলি স্বয়ংক্রিয়ভাবে সরান</string>
-    <string name="settings_keyboard">কীবোর্ড</string>
-    <string name="settings_keyboard_system">সিস্টেম</string>
-    <string name="settings_keyboard_integrated">সমন্বিত</string>
     <string name="settings_text_size">পাঠ্যের আকার</string>
     <string name="settings_animation_speed">অ্যানিমেশন গতি</string>
     <string name="settings_theme">থিম (হালকা/অন্ধকার)</string>

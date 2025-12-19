@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">Daftar pengguna default</string>
     <string name="settings_add_wrong_answers">Tambahkan jawaban yang salah secara otomatis</string>
     <string name="settings_remove_good_answers">Hapus kata 10/10 secara otomatis</string>
-    <string name="settings_keyboard">Papan ketik</string>
-    <string name="settings_keyboard_system">Sistem</string>
-    <string name="settings_keyboard_integrated">Terintegrasi</string>
     <string name="settings_text_size">Ukuran teks</string>
     <string name="settings_animation_speed">Kecepatan animasi</string>
     <string name="settings_theme">Tema (Terang/Gelap)</string>

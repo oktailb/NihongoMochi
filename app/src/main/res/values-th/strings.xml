@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">รายการผู้ใช้เริ่มต้น</string>
     <string name="settings_add_wrong_answers">เพิ่มคำตอบที่ผิดโดยอัตโนมัติ</string>
     <string name="settings_remove_good_answers">ลบคำ 10/10 โดยอัตโนมัติ</string>
-    <string name="settings_keyboard">แป้นพิมพ์</string>
-    <string name="settings_keyboard_system">ระบบ</string>
-    <string name="settings_keyboard_integrated">แบบบูรณาการ</string>
     <string name="settings_text_size">ขนาดตัวอักษร</string>
     <string name="settings_animation_speed">ความเร็วของแอนิเมชั่น</string>
     <string name="settings_theme">ธีม (สว่าง/มืด)</string>

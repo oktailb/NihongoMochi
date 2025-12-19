@@ -27,9 +27,6 @@
     <string name="settings_default_user_list">Lista de usuarios predeterminada</string>
     <string name="settings_add_wrong_answers">Añadir respuestas incorrectas automáticamente</string>
     <string name="settings_remove_good_answers">Eliminar palabras 10/10 automáticamente</string>
-    <string name="settings_keyboard">Teclado</string>
-    <string name="settings_keyboard_system">Sistema</string>
-    <string name="settings_keyboard_integrated">Integrado</string>
     <string name="settings_text_size">Tamaño del texto</string>
     <string name="settings_animation_speed">Velocidad de la animación</string>
     <string name="settings_theme">Tema (Claro/Oscuro)</string>

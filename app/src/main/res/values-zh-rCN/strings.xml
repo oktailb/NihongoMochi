@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">默认用户列表</string>
     <string name="settings_add_wrong_answers">自动添加错误答案</string>
     <string name="settings_remove_good_answers">自动删除10/10单词</string>
-    <string name="settings_keyboard">键盘</string>
-    <string name="settings_keyboard_system">系统</string>
-    <string name="settings_keyboard_integrated">集成</string>
     <string name="settings_text_size">文本大小</string>
     <string name="settings_animation_speed">动画速度</string>
     <string name="settings_theme">主题(浅色/深色)</string>

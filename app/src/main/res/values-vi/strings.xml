@@ -27,9 +27,6 @@
     <string name="settings_default_user_list">Danh sách người dùng mặc định</string>
     <string name="settings_add_wrong_answers">Tự động thêm câu trả lời sai</string>
     <string name="settings_remove_good_answers">Tự động xóa 10/10 từ</string>
-    <string name="settings_keyboard">Bàn phím</string>
-    <string name="settings_keyboard_system">Hệ thống</string>
-    <string name="settings_keyboard_integrated">Tích hợp</string>
     <string name="settings_text_size">Cỡ chữ</string>
     <string name="settings_animation_speed">Tốc độ hoạt ảnh</string>
     <string name="settings_theme">Chủ đề (Sáng/Tối)</string>

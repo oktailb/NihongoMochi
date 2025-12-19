@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">Lista de utilizadores por defeito</string>
     <string name="settings_add_wrong_answers">Adicionar automaticamente respostas erradas</string>
     <string name="settings_remove_good_answers">Remover automaticamente palavras 10/10</string>
-    <string name="settings_keyboard">Teclado</string>
-    <string name="settings_keyboard_system">Sistema</string>
-    <string name="settings_keyboard_integrated">Integrado</string>
     <string name="settings_text_size">Tamanho do texto</string>
     <string name="settings_animation_speed">Velocidade da animação</string>
     <string name="settings_theme">Tema (Claro/Escuro)</string>

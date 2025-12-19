@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">Список пользователей по умолчанию</string>
     <string name="settings_add_wrong_answers">Автоматически добавлять неправильные ответы</string>
     <string name="settings_remove_good_answers">Автоматически удалять слова 10/10</string>
-    <string name="settings_keyboard">Клавиатура</string>
-    <string name="settings_keyboard_system">Система</string>
-    <string name="settings_keyboard_integrated">Интегрированная</string>
     <string name="settings_text_size">Размер текста</string>
     <string name="settings_animation_speed">Скорость анимации</string>
     <string name="settings_theme">Тема (Светлая/Темная)</string>

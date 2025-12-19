@@ -33,9 +33,6 @@
     <string name="settings_default_user_list">Default user list</string>
     <string name="settings_add_wrong_answers">Automatically add wrong answers</string>
     <string name="settings_remove_good_answers">Automatically remove 10/10 words</string>
-    <string name="settings_keyboard">Keyboard</string>
-    <string name="settings_keyboard_system">System</string>
-    <string name="settings_keyboard_integrated">Integrated</string>
     <string name="settings_text_size">Text size</string>
     <string name="settings_animation_speed">Animation speed</string>
     <string name="settings_theme">Theme (Light/Dark)</string>
