@@ -1,5 +1,7 @@
 package org.oktail.kanjimori.ui.recognitiongame
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
@@ -19,6 +21,7 @@ import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentRecognitionGameBinding
+import org.oktail.kanjimori.ui.settings.ANIMATION_SPEED_PREF_KEY
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
@@ -47,6 +50,7 @@ class RecognitionGameFragment : Fragment() {
     private lateinit var gameMode: String
     private lateinit var readingMode: String
     private var currentDirection: QuestionDirection = QuestionDirection.NORMAL
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +58,7 @@ class RecognitionGameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRecognitionGameBinding.inflate(inflater, container, false)
+        sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         return binding.root
     }
 
@@ -413,9 +418,12 @@ class RecognitionGameFragment : Fragment() {
         val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
         answerButtons.forEach { it.isEnabled = false }
 
+        val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+        val delay = (1000 * animationSpeed).toLong()
+
         Handler(Looper.getMainLooper()).postDelayed({
             displayQuestion()
-        }, 1000)
+        }, delay)
     }
 
     private fun updateProgressBar() {

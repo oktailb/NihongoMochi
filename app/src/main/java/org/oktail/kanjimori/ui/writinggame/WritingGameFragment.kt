@@ -1,5 +1,7 @@
 package org.oktail.kanjimori.ui.writinggame
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
@@ -20,6 +22,7 @@ import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentWritingGameBinding
+import org.oktail.kanjimori.ui.settings.ANIMATION_SPEED_PREF_KEY
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
@@ -48,6 +51,7 @@ class WritingGameFragment : Fragment() {
     private lateinit var currentKanji: KanjiDetail
     private var currentQuestionType: QuestionType = QuestionType.MEANING
     private var isAnswerProcessing = false
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val textWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -80,13 +84,13 @@ class WritingGameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWritingGameBinding.inflate(inflater, container, false)
+        sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Fix: Handle nullable args.level
         val level = args.level ?: ""
 
         loadAllKanjiDetails()
@@ -208,9 +212,12 @@ class WritingGameFragment : Fragment() {
                 kanjiStatus[currentKanji] = GameStatus.PARTIAL
             }
 
+            val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+            val delay = (1000 * animationSpeed).toLong()
+            
             Handler(Looper.getMainLooper()).postDelayed({
                 displayQuestion()
-            }, 1000)
+            }, delay)
 
         } else {
             binding.buttonSubmitAnswer.setBackgroundColor(Color.RED)
@@ -250,9 +257,12 @@ class WritingGameFragment : Fragment() {
             
             binding.layoutCorrectionFeedback.visibility = View.VISIBLE
 
+            val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+            val finalDelay = (delayMs * animationSpeed).toLong()
+
             Handler(Looper.getMainLooper()).postDelayed({
                 displayQuestion()
-            }, delayMs)
+            }, finalDelay)
         }
 
         updateProgressBar()

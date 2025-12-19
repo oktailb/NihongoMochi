@@ -1,5 +1,7 @@
 package org.oktail.kanjimori.ui.gojuon
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -15,6 +17,7 @@ import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.data.ScoreManager.ScoreType
 import org.oktail.kanjimori.databinding.FragmentKatakanaQuizBinding
+import org.oktail.kanjimori.ui.settings.ANIMATION_SPEED_PREF_KEY
 import org.xmlpull.v1.XmlPullParser
 
 data class KatakanaProgress(var normalSolved: Boolean = false, var reverseSolved: Boolean = false)
@@ -34,6 +37,7 @@ class KatakanaQuizFragment : Fragment() {
     private val answerButtons: MutableList<Button> = mutableListOf()
     private val progressIndicators: MutableList<ImageView> = mutableListOf()
     private var currentDirection: QuestionDirection = QuestionDirection.NORMAL
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +45,7 @@ class KatakanaQuizFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentKatakanaQuizBinding.inflate(inflater, container, false)
+        sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         return binding.root
     }
 
@@ -193,9 +198,12 @@ class KatakanaQuizFragment : Fragment() {
 
         answerButtons.forEach { it.isEnabled = false }
 
+        val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+        val delay = (1000 * animationSpeed).toLong()
+
         Handler(Looper.getMainLooper()).postDelayed({
             displayQuestion()
-        }, 1000)
+        }, delay)
     }
 
     private fun updateProgressBar() {
