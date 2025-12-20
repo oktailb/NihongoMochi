@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/home_background"
+    android:background="?android:attr/windowBackground"
     tools:context=".ui.results.ResultsFragment">
 
     <ScrollView
@@ -27,14 +27,13 @@
                  android:layout_height="wrap_content"
                  app:cardElevation="4dp"
                  app:cardCornerRadius="8dp"
-                 android:background="@color/white"
+                 app:cardBackgroundColor="@color/card_background"
                  android:layout_marginBottom="16dp">
 
                  <LinearLayout
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:orientation="vertical"
-                     android:background="@color/white"
                      android:padding="16dp">
 
                      <!-- Main Header Recognition -->
@@ -54,20 +53,20 @@
                              android:layout_weight="1"
                              android:text="@string/results_recognition_title"
                              android:textSize="20sp"
-                             android:textStyle="bold" />
+                             android:textStyle="bold"
+                             android:textColor="@color/card_text"/>
                          <ImageView
                              android:id="@+id/arrow_recognition_main"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:src="@android:drawable/arrow_down_float"
-                             app:tint="@android:color/black"/>
+                             app:tint="?android:attr/textColorPrimary"/>
                      </LinearLayout>
 
                      <LinearLayout
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:orientation="horizontal"
-                         android:background="@color/white"
                          android:layout_marginTop="4dp"/>
 
                      <!-- Recognition Content Container -->
@@ -83,7 +82,6 @@
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"
                              android:layout_marginTop="8dp"
-                             android:backgroundTint="@android:color/darker_gray"
                              android:max="100"
                              android:progress="0" />
 
@@ -104,13 +102,14 @@
                                 android:layout_weight="1"
                                 android:text="Kanas (Hiragana / Katakana)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_recognition_kanas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -126,14 +125,14 @@
                                 android:text="@string/results_hiragana"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:layout_marginTop="8dp"/>
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/card_text"/>
                             <ProgressBar
                                 android:id="@+id/progress_recognition_hiragana"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:backgroundTint="@android:color/darker_gray"
                                 android:max="100"
                                 android:progress="0" />
 
@@ -144,14 +143,14 @@
                                 android:text="@string/results_katakana"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:layout_marginTop="8dp"/>
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/card_text"/>
                             <ProgressBar
                                 android:id="@+id/progress_recognition_katakana"
                                 style="?android:attr/progressBarStyleHorizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:backgroundTint="@android:color/darker_gray"
                                 android:max="100"
                                 android:progress="0" />
                         </LinearLayout>
@@ -173,13 +172,14 @@
                                 android:layout_weight="1"
                                 android:text="JLPT (N5 - N1)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_recognition_jlpt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -189,20 +189,20 @@
                             android:orientation="vertical">
 
                             <!-- JLPT Items (N5 to N1) -->
-                            <TextView android:id="@+id/title_recognition_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                         <!-- SUB-SECTION: ECOLE -->
@@ -222,13 +222,14 @@
                                 android:layout_weight="1"
                                 android:text="Scolaire (Grades / Lycée)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_recognition_school"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -238,29 +239,29 @@
                             android:orientation="vertical">
 
                             <!-- School Items -->
-                            <TextView android:id="@+id/title_recognition_grade1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_grade2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_grade3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_grade4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_grade5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_grade6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_6" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_grade6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_grade6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_6" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_grade6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_college" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_college" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_college" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_college" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_college" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_college" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_recognition_lycee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_high_school" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_recognition_lycee" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_recognition_lycee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_high_school" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_recognition_lycee" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                     </LinearLayout> <!-- End Recognition Content Container -->
@@ -273,14 +274,13 @@
                  android:layout_height="wrap_content"
                  app:cardElevation="4dp"
                  app:cardCornerRadius="8dp"
-                android:background="@color/white"
+                 app:cardBackgroundColor="@color/card_background"
                  android:layout_marginBottom="16dp">
 
                  <LinearLayout
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:orientation="vertical"
-                     android:background="@color/white"
                      android:padding="16dp">
 
                      <!-- Main Header Reading -->
@@ -300,20 +300,20 @@
                              android:layout_weight="1"
                              android:text="@string/results_reading_title"
                              android:textSize="20sp"
-                             android:textStyle="bold" />
+                             android:textStyle="bold"
+                             android:textColor="@color/card_text"/>
                          <ImageView
                              android:id="@+id/arrow_reading_main"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:src="@android:drawable/arrow_down_float"
-                             app:tint="@android:color/black"/>
+                             app:tint="?android:attr/textColorPrimary"/>
                      </LinearLayout>
 
                      <LinearLayout
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:orientation="horizontal"
-                         android:background="@color/white"
                          android:layout_marginTop="4dp"/>
 
                      <LinearLayout
@@ -328,7 +328,6 @@
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"
                              android:layout_marginTop="8dp"
-                             android:backgroundTint="@android:color/darker_gray"
                              android:max="100"
                              android:progress="0" />
 
@@ -340,14 +339,14 @@
                             android:text="@string/reading_user_list"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:layout_marginTop="16dp"/>
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/card_text"/>
                         <ProgressBar
                             android:id="@+id/progress_reading_user"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:backgroundTint="@android:color/darker_gray"
                             android:max="100"
                             android:progress="0" />
 
@@ -368,13 +367,14 @@
                                 android:layout_weight="1"
                                 android:text="JLPT (N5 - N1)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_reading_jlpt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -384,20 +384,20 @@
                             android:orientation="vertical">
 
                             <!-- Reading JLPT Items -->
-                            <TextView android:id="@+id/title_reading_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                         <!-- SUB-SECTION: FREQUENCY -->
@@ -417,13 +417,14 @@
                                 android:layout_weight="1"
                                 android:text="Fréquence"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_reading_freq"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -433,29 +434,29 @@
                             android:orientation="vertical">
 
                             <!-- Words 1000 - 8000 -->
-                            <TextView android:id="@+id/title_reading_1000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_1000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_1000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_1000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_2000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_2000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_2000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_2000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_3000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_3000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_3000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_3000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_4000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_4000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_4000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_4000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_5000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_5000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_5000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_5000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_6000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_6000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_6000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_6000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_7000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_7000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_7000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="7000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_7000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_reading_8000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_reading_8000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_reading_8000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8000 mots les plus fréquents" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_reading_8000" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                      </LinearLayout>
@@ -468,14 +469,13 @@
                 android:layout_height="wrap_content"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp"
-                android:background="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@color/white"
                     android:padding="16dp">
 
                     <!-- Main Header Writing -->
@@ -495,20 +495,20 @@
                             android:layout_weight="1"
                             android:text="@string/results_writing_title"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/card_text"/>
                         <ImageView
                             android:id="@+id/arrow_writing_main"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@android:drawable/arrow_down_float"
-                            app:tint="@android:color/black"/>
+                            app:tint="?android:attr/textColorPrimary"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:background="@color/white"
                         android:layout_marginTop="4dp"/>
 
                     <!-- Writing Content Container -->
@@ -524,7 +524,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:backgroundTint="@android:color/darker_gray"
                             android:max="100"
                             android:progress="0" />
 
@@ -536,14 +535,14 @@
                             android:text="@string/writing_user_lists"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:layout_marginTop="16dp"/>
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/card_text"/>
                         <ProgressBar
                             android:id="@+id/progress_writing_user"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:backgroundTint="@android:color/darker_gray"
                             android:max="100"
                             android:progress="0" />
 
@@ -565,13 +564,14 @@
                                 android:layout_weight="1"
                                 android:text="JLPT (N5 - N1)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_writing_jlpt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -581,20 +581,20 @@
                             android:orientation="vertical">
 
                             <!-- JLPT Items (N5 to N1) -->
-                            <TextView android:id="@+id/title_writing_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_n5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_n5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_n4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_n4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_n3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_n3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_n2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_n2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_n1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_jlpt_n1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_n1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                         <!-- SUB-SECTION: ECOLE -->
@@ -614,13 +614,14 @@
                                 android:layout_weight="1"
                                 android:text="Scolaire (Grades / Lycée)"
                                 android:textSize="18sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold"
+                                android:textColor="@color/card_text"/>
                             <ImageView
                                 android:id="@+id/arrow_writing_school"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@android:drawable/arrow_down_float"
-                                app:tint="@android:color/black"/>
+                                app:tint="?android:attr/textColorPrimary"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -630,29 +631,29 @@
                             android:orientation="vertical">
 
                             <!-- School Items -->
-                            <TextView android:id="@+id/title_writing_grade1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_1" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_grade2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_2" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_grade3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_3" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade3" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_grade4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_4" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade4" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_grade5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_5" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade5" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_grade6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_6" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_grade6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_grade6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_grade_6" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_grade6" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_college" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_college" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_college" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_college" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_college" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_college" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
 
-                            <TextView android:id="@+id/title_writing_lycee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_high_school" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                            <ProgressBar android:id="@+id/progress_writing_lycee" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:backgroundTint="@android:color/darker_gray" android:max="100" android:progress="0" />
+                            <TextView android:id="@+id/title_writing_lycee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/results_high_school" android:textSize="16sp" android:textStyle="bold" android:layout_marginTop="8dp" android:textColor="@color/card_text"/>
+                            <ProgressBar android:id="@+id/progress_writing_lycee" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:max="100" android:progress="0" />
                         </LinearLayout>
 
                     </LinearLayout> <!-- End Writing Content Container -->

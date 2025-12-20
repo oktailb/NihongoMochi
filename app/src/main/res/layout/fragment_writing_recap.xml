@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/home_background"
+    android:background="?android:attr/windowBackground"
     tools:context=".ui.writingrecap.WritingRecapFragment">
 
     <TextView
@@ -67,7 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_media_previous"
-                android:contentDescription="@string/my_image_description" />
+                android:contentDescription="@string/my_image_description"
+                app:tint="?android:attr/textColorPrimary"/>
 
             <TextView
                 android:id="@+id/text_pagination"
@@ -82,7 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_media_next"
-                android:contentDescription="@string/my_image_description" />
+                android:contentDescription="@string/my_image_description"
+                app:tint="?android:attr/textColorPrimary"/>
         </LinearLayout>
 
         <Button
@@ -91,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/leaf_green"
+            android:backgroundTint="?attr/colorSecondary"
             android:text="@string/game_recap_play"
             android:enabled="false" />
 

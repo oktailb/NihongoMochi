@@ -99,6 +99,7 @@ class WritingRecapFragment : Fragment() {
                 text = kanjiCharacter
                 textSize = 24f
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
+                setTextColor(Color.BLACK) // Force black text for readability
                 setBackgroundColor(calculateColor(score))
                 val params = android.widget.GridLayout.LayoutParams().apply {
                     width = 0
