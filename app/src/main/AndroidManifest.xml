@@ -6,11 +6,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/kanjimori_icon"
+        android:icon="@mipmap/nihongomochi"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/kanjimori_icon"
+        android:roundIcon="@mipmap/nihongomochi"
         android:supportsRtl="true"
         android:theme="@style/Theme.KanjiMori">
+        
+        <meta-data android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/game_services_project_id" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -673,35 +673,27 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
-            android:id="@+id/button_backup"
+            android:id="@+id/button_sign_in"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/results_backup"
-            app:icon="@android:drawable/ic_menu_upload"
+            android:text="Se connecter"
+            android:visibility="gone"
+            app:icon="@android:drawable/ic_menu_add"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginEnd="4dp"/>
 
         <Button
-            android:id="@+id/button_restore"
+            android:id="@+id/button_achievements"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/results_restore"
-            app:icon="@android:drawable/ic_menu_save"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"/>
-
-        <Button
-            android:id="@+id/button_sync"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/results_sync"
-            app:icon="@android:drawable/ic_popup_sync"
+            android:text="Succès"
+            android:visibility="gone"
+            app:icon="@android:drawable/btn_star"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_marginStart="4dp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

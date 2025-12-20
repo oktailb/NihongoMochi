@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Kanji Mori"
+rootProject.name = "Nihongo Mochi"
 include(":app")

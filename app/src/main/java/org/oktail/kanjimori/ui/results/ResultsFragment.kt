@@ -1,13 +1,20 @@
 package org.oktail.kanjimori.ui.results
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.google.android.gms.games.AchievementsClient
+import com.google.android.gms.games.GamesSignInClient
+import com.google.android.gms.games.PlayGames
 import org.oktail.kanjimori.R
 import org.oktail.kanjimori.data.ScoreManager
 import org.oktail.kanjimori.databinding.FragmentResultsBinding
@@ -17,6 +24,17 @@ class ResultsFragment : Fragment() {
 
     private var _binding: FragmentResultsBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var gamesSignInClient: GamesSignInClient
+    private lateinit var achievementsClient: AchievementsClient
+
+    private val achievementsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            Log.d("ResultsFragment", "Achievements activity returned OK.")
+        } else {
+            Log.d("ResultsFragment", "Achievements activity returned with code: ${result.resultCode}")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,8 +48,54 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        gamesSignInClient = PlayGames.getGamesSignInClient(requireActivity())
+        achievementsClient = PlayGames.getAchievementsClient(requireActivity())
+
         setupCollapsibleSections()
         updateAllPercentages()
+
+        binding.buttonSignIn.setOnClickListener { signInManually() }
+        binding.buttonAchievements.setOnClickListener { showAchievements() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkSignInStatus()
+    }
+
+    private fun checkSignInStatus() {
+        gamesSignInClient.isAuthenticated.addOnCompleteListener { isAuthenticatedTask ->
+            val isAuthenticated = isAuthenticatedTask.isSuccessful && isAuthenticatedTask.result.isAuthenticated
+            updateSignInUI(isAuthenticated)
+        }
+    }
+
+    private fun updateSignInUI(isSignedIn: Boolean) {
+        if (isSignedIn) {
+            binding.buttonSignIn.visibility = View.GONE
+            binding.buttonAchievements.visibility = View.VISIBLE
+        } else {
+            binding.buttonSignIn.visibility = View.VISIBLE
+            binding.buttonAchievements.visibility = View.GONE
+        }
+    }
+
+    private fun signInManually() {
+        gamesSignInClient.signIn().addOnCompleteListener {
+            if (it.isSuccessful) {
+                Log.d("ResultsFragment", "Manual sign-in successful")
+                updateSignInUI(it.result.isAuthenticated)
+            } else {
+                Log.e("ResultsFragment", "Manual sign-in failed", it.exception)
+                updateSignInUI(false)
+            }
+        }
+    }
+
+    private fun showAchievements() {
+        achievementsClient.achievementsIntent.addOnSuccessListener { intent ->
+            achievementsLauncher.launch(intent)
+        }
     }
 
     private fun setupCollapsibleSections() {
