@@ -111,7 +111,7 @@
         android:id="@+id/grid_answers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="12dp"
         android:columnCount="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +123,7 @@
             android:layout_height="120dp"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
+            android:layout_margin="8dp"
             android:minLines="3"
             android:backgroundTint="?attr/colorSecondary"
             tools:text="Option 1\nOption 1b\nOption 1c" />
@@ -133,6 +134,7 @@
             android:layout_height="120dp"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
+            android:layout_margin="8dp"
             android:minLines="3"
             android:backgroundTint="?attr/colorSecondary"
             tools:text="Option 2" />
@@ -143,6 +145,7 @@
             android:layout_height="120dp"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
+            android:layout_margin="8dp"
             android:minLines="3"
             android:backgroundTint="?attr/colorSecondary"
             tools:text="Option 3" />
@@ -153,6 +156,7 @@
             android:layout_height="120dp"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
+            android:layout_margin="8dp"
             android:minLines="3"
             android:backgroundTint="?attr/colorSecondary"
             tools:text="Option 4" />
