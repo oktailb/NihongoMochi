@@ -105,7 +105,21 @@
         android:id="@+id/nav_dictionary"
         android:name="org.nihongo.mochi.ui.dictionary.DictionaryFragment"
         android:label="@string/menu_dictionary"
-        tools:layout="@layout/fragment_dictionary" />
+        tools:layout="@layout/fragment_dictionary">
+        <action
+            android:id="@+id/action_dictionary_to_kanji_detail"
+            app:destination="@id/nav_kanji_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_kanji_detail"
+        android:name="org.nihongo.mochi.ui.dictionary.KanjiDetailFragment"
+        android:label="Kanji Detail"
+        tools:layout="@layout/fragment_kanji_detail">
+        <argument
+            android:name="kanjiId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_settings"
