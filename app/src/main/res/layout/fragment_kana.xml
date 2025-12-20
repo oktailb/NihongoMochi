@@ -18,34 +18,69 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Kana Title" />
 
-    <ScrollView
+    <GridLayout
+        android:id="@+id/grid_kana"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_play_quiz"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:columnCount="5"
+        app:layout_constraintTop_toBottomOf="@id/text_level_title"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_controls"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_level_title">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <GridLayout
-            android:id="@+id/grid_kana"
+    <LinearLayout
+        android:id="@+id/bottom_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/pagination_controls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="5" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    </ScrollView>
+            <ImageView
+                android:id="@+id/button_prev_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_previous"
+                android:contentDescription="@string/my_image_description"
+                app:tint="?android:attr/textColorPrimary"/>
 
-    <Button
-        android:id="@+id/button_play_quiz"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="?attr/colorSecondary"
-        android:text="@string/game_recap_play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/text_pagination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                tools:text="1..5 / 15" />
+
+            <ImageView
+                android:id="@+id/button_next_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_next"
+                android:contentDescription="@string/my_image_description"
+                app:tint="?android:attr/textColorPrimary"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_play_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="?attr/colorSecondary"
+            android:text="@string/game_recap_play" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
