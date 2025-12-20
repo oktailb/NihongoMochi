@@ -81,7 +81,7 @@
     <string name="reading_kanji_solo">Chỉ Kanji</string>
     <string name="reading_simple_words">Từ đơn giản</string>
     <string name="reading_compound_words">Từ ghép</string>
-    <string name="reading_ignore_known_words">Bỏ qua các từ đã biết hoàn hảo</string>
+    <string name="reading_ignore_known_words">Bỏ qua các từ đã biết hoàn toàn</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">Nhận dạng</string>
@@ -124,6 +124,16 @@
     <string name="about_patreon">Hỗ trợ tôi trên Patreon</string>
     <string name="about_tipeee">Quyên góp trên Tipeee</string>
     <string name="my_image_description">Nút trang tiếp theo</string>
+    <string name="about_version_info">Thông tin phiên bản</string>
+    <string name="about_version_label">Phiên bản:</string>
+    <string name="about_date_label">Ngày:</string>
+    <string name="about_issue_tracker">Theo dõi vấn đề,\nCác vấn đề đã biết và các tính năng đã lên kế hoạch</string>
+    <string name="about_credits">Tín dụng</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Thiết kế, lập trình, v.v.</string>
+    <string name="about_pedagogical_content">Nội dung sư phạm tiếng Nhật</string>
+    <string name="about_kanji_data_credit">Dữ liệu Kanji của David Gouveia</string>
+    <string name="about_header_picture_credit">Ảnh tiêu đề của Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Kết quả</string>
@@ -176,5 +186,5 @@
     <string name="language_ru_ru">Русский</string>
     <string name="language_in_id">Bahasa Indonesia</string>
     <string name="language_zh_cn">简体中文</string>
-
+    <string name="language_vi_vn">Tiếng Việt</string>
 </resources>

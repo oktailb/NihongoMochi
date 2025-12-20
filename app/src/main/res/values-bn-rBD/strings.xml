@@ -60,6 +60,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">লেখার খেলা</string>
     <string name="writing_subtitle">শব্দের একটি গ্রুপ চয়ন করুন এবং সেগুলি লিখতে শিখুন।</string>
     <string name="writing_kanji_tree">কাঞ্জি ট্রি</string>
     <string name="writing_kanji_tree_subtitle">যদি আপনি এখনও কিছু না শিখে থাকেন:
@@ -125,6 +126,16 @@
     <string name="about_patreon">Patreon-এ আমাকে সমর্থন করুন</string>
     <string name="about_tipeee">Tipeee-তে দান করুন</string>
     <string name="my_image_description">পরবর্তী পৃষ্ঠা বোতাম</string>
+    <string name="about_version_info">সংস্করণ তথ্য</string>
+    <string name="about_version_label">সংস্করণ:</string>
+    <string name="about_date_label">তারিখ:</string>
+    <string name="about_issue_tracker">সমস্যা ট্র্যাকার,\nজ্ঞাত সমস্যা এবং পরিকল্পিত বৈশিষ্ট্য</string>
+    <string name="about_credits">কৃতিত্ব</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">ডিজাইন, প্রোগ্রামিং, ইত্যাদি</string>
+    <string name="about_pedagogical_content">জাপানি শিক্ষাগত বিষয়বস্তু</string>
+    <string name="about_kanji_data_credit">ডেভিড গউভিয়ার কাঞ্জি ডেটা</string>
+    <string name="about_header_picture_credit">চার্লস নোলসের হেডার ছবি</string>
 
     <!-- Results Screen -->
     <string name="results_title">ফলাফল</string>

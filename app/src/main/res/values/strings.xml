@@ -130,6 +130,16 @@
     <string name="about_patreon">Soutenez-moi sur Patreon</string>
     <string name="about_tipeee">Faire un don sur Tipeee</string>
     <string name="my_image_description">Next page button</string>
+    <string name="about_version_info">Information de la version</string>
+    <string name="about_version_label">Version :</string>
+    <string name="about_date_label">Date :</string>
+    <string name="about_issue_tracker">Rapports de bug ou demandes</string>
+    <string name="about_credits">Crédits</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Design, programming, etc.</string>
+    <string name="about_pedagogical_content">Japanese pedagogical content</string>
+    <string name="about_kanji_data_credit">Données Kanji: David Gouveia</string>
+    <string name="about_header_picture_credit">Photo: Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Résultats</string>

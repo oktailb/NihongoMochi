@@ -29,11 +29,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "org.oktail.kanjimori"
+        applicationId = "org.nihongo.mochi"
         minSdk = 28
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.4.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,6 +58,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">เกมการเขียน</string>
     <string name="writing_subtitle">เลือกกลุ่มคำและเรียนรู้วิธีการเขียน</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">หากคุณยังไม่ได้เรียนรู้อะไร:\n(10/10 ในเกมที่เกี่ยวข้อง)</string>
@@ -86,6 +87,7 @@
     <string name="reading_kanji_solo">คันจิเท่านั้น</string>
     <string name="reading_simple_words">คำง่ายๆ</string>
     <string name="reading_compound_words">คำประสม</string>
+    <string name="reading_ignore_known_words">ข้ามคำที่รู้ดีแล้ว</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">การจดจำ</string>
@@ -128,6 +130,16 @@
     <string name="about_patreon">สนับสนุนฉันบน Patreon</string>
     <string name="about_tipeee">บริจาคบน Tipeee</string>
     <string name="my_image_description">ปุ่มหน้าถัดไป</string>
+    <string name="about_version_info">ข้อมูลเวอร์ชัน</string>
+    <string name="about_version_label">เวอร์ชัน:</string>
+    <string name="about_date_label">วันที่:</string>
+    <string name="about_issue_tracker">ตัวติดตามปัญหา,\nปัญหาที่ทราบและคุณสมบัติที่วางแผนไว้</string>
+    <string name="about_credits">เครดิต</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">การออกแบบ, การเขียนโปรแกรม, ฯลฯ</string>
+    <string name="about_pedagogical_content">เนื้อหาการสอนภาษาญี่ปุ่น</string>
+    <string name="about_kanji_data_credit">ข้อมูลคันจิโดย David Gouveia</string>
+    <string name="about_header_picture_credit">รูปภาพส่วนหัวโดย Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">ผลลัพธ์</string>

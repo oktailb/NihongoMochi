@@ -22,12 +22,13 @@
                 android:id="@+id/imageView4"
                 android:layout_width="96dp"
                 android:layout_height="match_parent"
-                android:src="@mipmap/nihongomochi" />
+                android:src="@mipmap/nihongomochi"
+                android:contentDescription="@string/app_name" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" À propos"
+                android:text="@string/menu_about"
                 android:textSize="34sp" />
 
         </LinearLayout>
@@ -36,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Information de la version"
+            android:text="@string/about_version_info"
             android:textSize="22sp" />
 
         <TableLayout
@@ -45,20 +46,12 @@
             android:layout_marginTop="8dp">
 
             <TableRow>
-                <TextView android:text="Type :" android:paddingEnd="8dp"/>
-                <TextView android:text="Régulier" />
+                <TextView android:text="@string/about_version_label" android:paddingEnd="8dp"/>
+                <TextView android:id="@+id/text_version" tools:text="@string/about_version_number" />
             </TableRow>
             <TableRow>
-                <TextView android:text="Beta :" android:paddingEnd="8dp"/>
-                <TextView android:text="Non" />
-            </TableRow>
-            <TableRow>
-                <TextView android:text="Version :" android:paddingEnd="8dp"/>
-                <TextView android:text="1.0.0" />
-            </TableRow>
-            <TableRow>
-                <TextView android:text="Date :" android:paddingEnd="8dp"/>
-                <TextView android:id="@+id/text_date" android:text="" />
+                <TextView android:text="@string/about_date_label" android:paddingEnd="8dp"/>
+                <TextView android:id="@+id/text_date" tools:text="2023-10-27" />
             </TableRow>
         </TableLayout>
 
@@ -74,39 +67,40 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Traqueur d'incidents,\nProblèmes connus et fonctionnalités prévues"
+                android:text="@string/about_issue_tracker"
                 android:textSize="18sp" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_menu_send"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"/>
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Crédits"
+            android:text="@string/about_credits"
             android:textSize="22sp" />
 
         <!-- Patreon -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LECOQ Vincent"
+                android:text="@string/about_author_name"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Design, programming, etc." />
+                android:text="@string/about_author_role" />
         </LinearLayout>
 
         <RelativeLayout
@@ -130,7 +124,8 @@
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_menu_send"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"/>
         </RelativeLayout>
 
         <!-- Tipeee -->
@@ -155,7 +150,8 @@
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_menu_send"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"/>
         </RelativeLayout>
 
         <!-- LECOQ Vincent -->
@@ -164,19 +160,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  "
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Japanese pedagogical content" />
+                android:text="@string/about_pedagogical_content"
+                android:layout_marginTop="16dp" />
         </LinearLayout>
 
         <RelativeLayout
@@ -190,20 +181,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Données Kanji par David Gouveia"
+                android:text="@string/about_kanji_data_credit"
                 android:textSize="18sp" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_menu_send"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layout_header_picture"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
@@ -212,7 +204,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Header picture by Charles Knowles"
+                android:text="@string/about_header_picture_credit"
                 android:textSize="18sp" />
 
             <ImageView
@@ -220,7 +212,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@android:drawable/ic_menu_send" />
+                android:src="@android:drawable/ic_menu_send"
+                android:contentDescription="@null"/>
         </RelativeLayout>
 
     </LinearLayout>

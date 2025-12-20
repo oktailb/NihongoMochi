@@ -11,6 +11,7 @@ import org.nihongo.mochi.databinding.FragmentAboutBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import org.nihongo.mochi.BuildConfig
 
 class AboutFragment : Fragment() {
 
@@ -28,6 +29,7 @@ class AboutFragment : Fragment() {
         val sdf = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault())
         val currentDate = sdf.format(Date())
         binding.textDate.text = currentDate
+        binding.textVersion.text = BuildConfig.VERSION_NAME
 
         return root
     }

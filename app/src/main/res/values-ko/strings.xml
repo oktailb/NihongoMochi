@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">쓰기 게임</string>
     <string name="writing_subtitle">단어 그룹을 선택하고 쓰는 법을 배웁니다.</string>
     <string name="writing_kanji_tree">한자 트리</string>
     <string name="writing_kanji_tree_subtitle">아직 배우지 않은 것이 있다면:\n(관련 게임에서 10/10)</string>
@@ -86,6 +87,7 @@
     <string name="reading_kanji_solo">단독 한자</string>
     <string name="reading_simple_words">간단한 단어</string>
     <string name="reading_compound_words">복합어</string>
+    <string name="reading_ignore_known_words">완벽하게 알려진 단어 무시</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">인식</string>
@@ -128,6 +130,16 @@
     <string name="about_patreon">Patreon에서 저를 후원해주세요</string>
     <string name="about_tipeee">Tipeee에서 기부하기</string>
     <string name="my_image_description">다음 페이지 버튼</string>
+    <string name="about_version_info">버전 정보</string>
+    <string name="about_version_label">버전:</string>
+    <string name="about_date_label">날짜:</string>
+    <string name="about_issue_tracker">이슈 트래커,\n알려진 문제 및 계획된 기능</string>
+    <string name="about_credits">크레딧</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">디자인, 프로그래밍 등</string>
+    <string name="about_pedagogical_content">일본어 교육 콘텐츠</string>
+    <string name="about_kanji_data_credit">한자 데이터: David Gouveia</string>
+    <string name="about_header_picture_credit">헤더 사진: Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">결과</string>

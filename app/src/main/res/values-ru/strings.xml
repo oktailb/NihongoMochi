@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Игра в письмо</string>
     <string name="writing_subtitle">Выберите группу слов и научитесь их писать.</string>
     <string name="writing_kanji_tree">Дерево кандзи</string>
     <string name="writing_kanji_tree_subtitle">Если вы еще не выучили что-то:\n(10/10 в соответствующей игре)</string>
@@ -129,6 +130,16 @@
     <string name="about_patreon">Поддержите меня на Patreon</string>
     <string name="about_tipeee">Пожертвовать на Tipeee</string>
     <string name="my_image_description">Кнопка следующей страницы</string>
+    <string name="about_version_info">Информация о версии</string>
+    <string name="about_version_label">Версия:</string>
+    <string name="about_date_label">Дата:</string>
+    <string name="about_issue_tracker">Трекер проблем,\nИзвестные проблемы и запланированные функции</string>
+    <string name="about_credits">Кредиты</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Дизайн, программирование и т.д.</string>
+    <string name="about_pedagogical_content">Японский педагогический контент</string>
+    <string name="about_kanji_data_credit">Данные кандзи от David Gouveia</string>
+    <string name="about_header_picture_credit">Заглавное изображение от Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Результаты</string>

@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">写作游戏</string>
     <string name="writing_subtitle">选择一组单词并学习如何书写它们。</string>
     <string name="writing_kanji_tree">汉字树</string>
     <string name="writing_kanji_tree_subtitle">如果你还没有学过什么:\n(在相关游戏中10/10)</string>
@@ -86,6 +87,7 @@
     <string name="reading_kanji_solo">单个汉字</string>
     <string name="reading_simple_words">简单单词</string>
     <string name="reading_compound_words">复合词</string>
+    <string name="reading_ignore_known_words">忽略已完全掌握的单词</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">识别</string>
@@ -128,6 +130,16 @@
     <string name="about_patreon">在Patreon上支持我</string>
     <string name="about_tipeee">在Tipeee上捐赠</string>
     <string name="my_image_description">下一页按钮</string>
+    <string name="about_version_info">版本信息</string>
+    <string name="about_version_label">版本:</string>
+    <string name="about_date_label">日期:</string>
+    <string name="about_issue_tracker">问题追踪,\n已知问题和计划功能</string>
+    <string name="about_credits">致谢</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">设计，编程等</string>
+    <string name="about_pedagogical_content">日语教学内容</string>
+    <string name="about_kanji_data_credit">汉字数据来自 David Gouveia</string>
+    <string name="about_header_picture_credit">头部图片来自 Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">结果</string>

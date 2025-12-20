@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Jogo de escrita</string>
     <string name="writing_subtitle">Escolha um grupo de palavras e aprenda a escrevê-las.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">Se ainda não aprendeu algo:\n(10/10 no jogo relevante)</string>
@@ -86,6 +87,7 @@
     <string name="reading_kanji_solo">Apenas Kanji</string>
     <string name="reading_simple_words">Palavras simples</string>
     <string name="reading_compound_words">Palavras compostas</string>
+    <string name="reading_ignore_known_words">Ignorar palavras perfeitamente conhecidas</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">Reconhecimento</string>
@@ -128,6 +130,16 @@
     <string name="about_patreon">Apoie-me no Patreon</string>
     <string name="about_tipeee">Doar no Tipeee</string>
     <string name="my_image_description">Botão da página seguinte</string>
+    <string name="about_version_info">Informação da versão</string>
+    <string name="about_version_label">Versão:</string>
+    <string name="about_date_label">Data:</string>
+    <string name="about_issue_tracker">Rastreador de problemas,\nProblemas conhecidos e funcionalidades planeadas</string>
+    <string name="about_credits">Créditos</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Design, programação, etc.</string>
+    <string name="about_pedagogical_content">Conteúdo pedagógico japonês</string>
+    <string name="about_kanji_data_credit">Dados Kanji por David Gouveia</string>
+    <string name="about_header_picture_credit">Imagem de cabeçalho por Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Resultados</string>

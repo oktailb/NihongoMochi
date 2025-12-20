@@ -60,6 +60,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Juego de escritura</string>
     <string name="writing_subtitle">Elige un grupo de palabras y aprende a escribirlas.</string>
     <string name="writing_kanji_tree">Árbol de Kanji</string>
     <string name="writing_kanji_tree_subtitle">Si aún no has aprendido algo:\n(10/10 en el juego correspondiente)</string>
@@ -123,6 +124,16 @@
     <string name="about_patreon">Apóyame en Patreon</string>
     <string name="about_tipeee">Dona en Tipeee</string>
     <string name="my_image_description">Botón de página siguiente</string>
+    <string name="about_version_info">Información de la versión</string>
+    <string name="about_version_label">Versión:</string>
+    <string name="about_date_label">Fecha:</string>
+    <string name="about_issue_tracker">Rastreador de problemas,\nProblemas conocidos y funciones planificadas</string>
+    <string name="about_credits">Créditos</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Diseño, programación, etc.</string>
+    <string name="about_pedagogical_content">Contenido pedagógico japonés</string>
+    <string name="about_kanji_data_credit">Datos de Kanji por David Gouveia</string>
+    <string name="about_header_picture_credit">Imagen de cabecera por Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Resultados</string>

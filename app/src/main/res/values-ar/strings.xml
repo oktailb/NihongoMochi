@@ -60,6 +60,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">لعبة الكتابة</string>
     <string name="writing_subtitle">اختر مجموعة من الكلمات وتعلم كيفية كتابتها.</string>
     <string name="writing_kanji_tree">شجرة الكانجي</string>
     <string name="writing_kanji_tree_subtitle">إذا لم تكن قد تعلمت شيئًا بعد:
@@ -82,7 +83,7 @@
     <string name="reading_kanji_solo">كانجي وحده</string>
     <string name="reading_simple_words">كلمات بسيطة</string>
     <string name="reading_compound_words">كلمات مركبة</string>
-    <string name="reading_ignore_known_words">تجاهل الكلمات المعروفة تمامًا</string>
+    <string name="reading_ignore_known_words">تجاهل الكلمات المعروفة تماماً</string>
 
     <!-- Navigation Drawer -->
     <string name="menu_recognition">التعرف</string>
@@ -125,6 +126,16 @@
     <string name="about_patreon">ادعمني على Patreon</string>
     <string name="about_tipeee">تبرع على Tipeee</string>
     <string name="my_image_description">زر الصفحة التالية</string>
+    <string name="about_version_info">معلومات الإصدار</string>
+    <string name="about_version_label">الإصدار:</string>
+    <string name="about_date_label">التاريخ:</string>
+    <string name="about_issue_tracker">متتبع المشكلات،\nالمشكلات المعروفة والميزات المخطط لها</string>
+    <string name="about_credits">الاعتمادات</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">التصميم، البرمجة، إلخ.</string>
+    <string name="about_pedagogical_content">المحتوى التربوي الياباني</string>
+    <string name="about_kanji_data_credit">بيانات الكانجي بواسطة David Gouveia</string>
+    <string name="about_header_picture_credit">صورة الغلاف بواسطة Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">النتائج</string>

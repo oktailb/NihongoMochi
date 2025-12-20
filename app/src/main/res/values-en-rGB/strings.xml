@@ -66,6 +66,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Writing Game</string>
     <string name="writing_subtitle">Choose a group of words and learn how to write them.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">If you haven\'t learned something yet:\n(10/10 in the relevant game)</string>
@@ -129,6 +130,16 @@
     <string name="about_patreon">Support me on Patreon</string>
     <string name="about_tipeee">Donate on Tipeee</string>
     <string name="my_image_description">Next page button</string>
+    <string name="about_version_info">Version Information</string>
+    <string name="about_version_label">Version:</string>
+    <string name="about_date_label">Date:</string>
+    <string name="about_issue_tracker">Issue tracker,\nKnown issues and planned features</string>
+    <string name="about_credits">Credits</string>
+    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_role">Design, programming, etc.</string>
+    <string name="about_pedagogical_content">Japanese pedagogical content</string>
+    <string name="about_kanji_data_credit">Kanji data by David Gouveia</string>
+    <string name="about_header_picture_credit">Header picture by Charles Knowles</string>
 
     <!-- Results Screen -->
     <string name="results_title">Results</string>
@@ -177,5 +188,9 @@
     <string name="language_th">Thai</string>
     <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
     <string name="language_pt_br">Português (Portugal)</string>
+    <string name="language_ko_kr">한국어</string>
+    <string name="language_ru_ru">Русский</string>
+    <string name="language_in_id">Bahasa Indonesia</string>
+    <string name="language_zh_cn">简体中文</string>
     <string name="language_vi_vn">Tiếng Việt</string>
 </resources>
