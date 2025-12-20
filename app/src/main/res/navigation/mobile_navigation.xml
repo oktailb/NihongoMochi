@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="org.oktail.kanjimori.ui.home.HomeFragment"
+        android:name="org.nihongo.mochi.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/nav_recognition"
-        android:name="org.oktail.kanjimori.ui.recognition.RecognitionFragment"
+        android:name="org.nihongo.mochi.ui.recognition.RecognitionFragment"
         android:label="@string/menu_recognition"
         tools:layout="@layout/fragment_recognition">
         <action
@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/nav_hiragana"
-        android:name="org.oktail.kanjimori.ui.gojuon.HiraganaFragment"
+        android:name="org.nihongo.mochi.ui.gojuon.HiraganaFragment"
         android:label="@string/level_hiragana"
         tools:layout="@layout/fragment_kana">
         <action
@@ -61,13 +61,13 @@
 
     <fragment
         android:id="@+id/hiragana_quiz_fragment"
-        android:name="org.oktail.kanjimori.ui.gojuon.HiraganaQuizFragment"
+        android:name="org.nihongo.mochi.ui.gojuon.HiraganaQuizFragment"
         android:label="Hiragana Quiz"
         tools:layout="@layout/fragment_kana_quiz" />
 
     <fragment
         android:id="@+id/nav_katakana"
-        android:name="org.oktail.kanjimori.ui.gojuon.KatakanaFragment"
+        android:name="org.nihongo.mochi.ui.gojuon.KatakanaFragment"
         android:label="@string/level_katakana"
         tools:layout="@layout/fragment_kana">
         <action
@@ -77,13 +77,13 @@
 
     <fragment
         android:id="@+id/katakana_quiz_fragment"
-        android:name="org.oktail.kanjimori.ui.gojuon.KatakanaQuizFragment"
+        android:name="org.nihongo.mochi.ui.gojuon.KatakanaQuizFragment"
         android:label="Katakana Quiz"
         tools:layout="@layout/fragment_kana_quiz" />
 
     <fragment
         android:id="@+id/nav_reading"
-        android:name="org.oktail.kanjimori.ui.reading.ReadingFragment"
+        android:name="org.nihongo.mochi.ui.reading.ReadingFragment"
         android:label="@string/menu_reading"
         tools:layout="@layout/fragment_reading">
         <action
@@ -93,7 +93,7 @@
 
     <fragment
         android:id="@+id/nav_writing"
-        android:name="org.oktail.kanjimori.ui.writing.WritingFragment"
+        android:name="org.nihongo.mochi.ui.writing.WritingFragment"
         android:label="@string/menu_writing"
         tools:layout="@layout/fragment_writing">
         <action
@@ -103,31 +103,31 @@
 
     <fragment
         android:id="@+id/nav_dictionary"
-        android:name="org.oktail.kanjimori.ui.dictionary.DictionaryFragment"
+        android:name="org.nihongo.mochi.ui.dictionary.DictionaryFragment"
         android:label="@string/menu_dictionary"
         tools:layout="@layout/fragment_dictionary" />
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="org.oktail.kanjimori.ui.settings.SettingsFragment"
+        android:name="org.nihongo.mochi.ui.settings.SettingsFragment"
         android:label="@string/settings_title"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_results"
-        android:name="org.oktail.kanjimori.ui.results.ResultsFragment"
+        android:name="org.nihongo.mochi.ui.results.ResultsFragment"
         android:label="@string/menu_results"
         tools:layout="@layout/fragment_results" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="org.oktail.kanjimori.ui.about.AboutFragment"
+        android:name="org.nihongo.mochi.ui.about.AboutFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/nav_game_recap"
-        android:name="org.oktail.kanjimori.ui.gamerecap.GameRecapFragment"
+        android:name="org.nihongo.mochi.ui.gamerecap.GameRecapFragment"
         android:label="@string/title_game_recap"
         tools:layout="@layout/fragment_game_recap">
         <argument
@@ -140,7 +140,7 @@
 
     <fragment
         android:id="@+id/nav_writing_recap"
-        android:name="org.oktail.kanjimori.ui.writingrecap.WritingRecapFragment"
+        android:name="org.nihongo.mochi.ui.writingrecap.WritingRecapFragment"
         android:label="@string/title_game_recap"
         tools:layout="@layout/fragment_writing_recap">
         <argument
@@ -153,7 +153,7 @@
 
     <fragment
         android:id="@+id/nav_recognition_game"
-        android:name="org.oktail.kanjimori.ui.recognitiongame.RecognitionGameFragment"
+        android:name="org.nihongo.mochi.ui.recognitiongame.RecognitionGameFragment"
         android:label="@string/game_recap_title"
         tools:layout="@layout/fragment_recognition_game">
         <argument
@@ -177,7 +177,7 @@
 
     <fragment
         android:id="@+id/nav_writing_game"
-        android:name="org.oktail.kanjimori.ui.writinggame.WritingGameFragment"
+        android:name="org.nihongo.mochi.ui.writinggame.WritingGameFragment"
         android:label="Writing Game"
         tools:layout="@layout/fragment_writing_game">
         <argument
@@ -193,7 +193,7 @@
 
     <fragment
         android:id="@+id/nav_word_list"
-        android:name="org.oktail.kanjimori.ui.wordlist.WordListFragment"
+        android:name="org.nihongo.mochi.ui.wordlist.WordListFragment"
         android:label="Word List"
         tools:layout="@layout/fragment_word_list">
         <argument
@@ -206,7 +206,7 @@
 
     <fragment
         android:id="@+id/nav_word_quiz"
-        android:name="org.oktail.kanjimori.ui.wordquiz.WordQuizFragment"
+        android:name="org.nihongo.mochi.ui.wordquiz.WordQuizFragment"
         android:label="Word Quiz"
         tools:layout="@layout/fragment_word_quiz">
         <argument
