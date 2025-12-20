@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kanji Mori</string>
+    <string name="app_name">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -122,7 +122,7 @@
     <string name="home_writing_subtitle">Entraînez-vous à écrire des mots et à graver le kanji dans votre mémoire.</string>
 
     <!-- Toolbar Titles -->
-    <string name="title_home">Kanji Mori</string>
+    <string name="title_home">Nihongo Mochi</string>
     <string name="title_game_recap">Récapitulatif du jeu</string>
 
     <!-- About Screen -->
