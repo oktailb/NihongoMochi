@@ -26,6 +26,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">选项</string>
+    <string name="settings_category_general">常规</string>
+    <string name="settings_category_learning">学习</string>
+    <string name="settings_category_interface">界面</string>
     <string name="settings_language">语言</string>
     <string name="settings_pronunciation">发音</string>
     <string name="settings_pronunciation_roman">罗马字母</string>
@@ -126,6 +129,12 @@
     <string name="title_game_recap">游戏回顾</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">信息</string>
+    <string name="about_category_credits">制作人员</string>
+    <string name="about_category_resources">资源</string>
+    <string name="about_design_dev">设计与开发</string>
+    <string name="about_pedagogical">教学内容</string>
+    <string name="about_coming_soon">(即将推出)</string>
     <string name="about_retribution">报应</string>
     <string name="about_patreon">在Patreon上支持我</string>
     <string name="about_tipeee">在Tipeee上捐赠</string>
@@ -140,6 +149,7 @@
     <string name="about_pedagogical_content">日语教学内容</string>
     <string name="about_kanji_data_credit">汉字数据来自 David Gouveia</string>
     <string name="about_header_picture_credit">头部图片来自 Charles Knowles</string>
+    <string name="about_rate_app">评价应用</string>
 
     <!-- Results Screen -->
     <string name="results_title">结果</string>

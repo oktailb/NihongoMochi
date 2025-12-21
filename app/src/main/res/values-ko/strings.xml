@@ -26,6 +26,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">옵션</string>
+    <string name="settings_category_general">일반</string>
+    <string name="settings_category_learning">학습</string>
+    <string name="settings_category_interface">인터페이스</string>
     <string name="settings_language">언어</string>
     <string name="settings_pronunciation">발음</string>
     <string name="settings_pronunciation_roman">로마자</string>
@@ -126,6 +129,12 @@
     <string name="title_game_recap">게임 요약</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">정보</string>
+    <string name="about_category_credits">크레딧</string>
+    <string name="about_category_resources">리소스</string>
+    <string name="about_design_dev">디자인 및 개발</string>
+    <string name="about_pedagogical">교육 콘텐츠</string>
+    <string name="about_coming_soon">(곧 출시 예정)</string>
     <string name="about_retribution">보복</string>
     <string name="about_patreon">Patreon에서 저를 후원해주세요</string>
     <string name="about_tipeee">Tipeee에서 기부하기</string>
@@ -140,6 +149,7 @@
     <string name="about_pedagogical_content">일본어 교육 콘텐츠</string>
     <string name="about_kanji_data_credit">한자 데이터: David Gouveia</string>
     <string name="about_header_picture_credit">헤더 사진: Charles Knowles</string>
+    <string name="about_rate_app">앱 평가</string>
 
     <!-- Results Screen -->
     <string name="results_title">결과</string>

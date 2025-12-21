@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">خيارات</string>
+    <string name="settings_category_general">عام</string>
+    <string name="settings_category_learning">التعلم</string>
+    <string name="settings_category_interface">الواجهة</string>
     <string name="settings_language">لغة</string>
     <string name="settings_pronunciation">النطق</string>
     <string name="settings_pronunciation_roman">الأبجدية الرومانية</string>
@@ -122,6 +125,12 @@
     <string name="title_game_recap">ملخص اللعبة</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">معلومات</string>
+    <string name="about_category_credits">الاعتمادات</string>
+    <string name="about_category_resources">الموارد</string>
+    <string name="about_design_dev">التصميم والتطوير</string>
+    <string name="about_pedagogical">المحتوى التربوي</string>
+    <string name="about_coming_soon">(قريباً)</string>
     <string name="about_retribution">القصاص</string>
     <string name="about_patreon">ادعمني على Patreon</string>
     <string name="about_tipeee">تبرع على Tipeee</string>
@@ -136,6 +145,7 @@
     <string name="about_pedagogical_content">المحتوى التربوي الياباني</string>
     <string name="about_kanji_data_credit">بيانات الكانجي بواسطة David Gouveia</string>
     <string name="about_header_picture_credit">صورة الغلاف بواسطة Charles Knowles</string>
+    <string name="about_rate_app">قيم التطبيق</string>
 
     <!-- Results Screen -->
     <string name="results_title">النتائج</string>

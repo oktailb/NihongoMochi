@@ -26,6 +26,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Opsi</string>
+    <string name="settings_category_general">Umum</string>
+    <string name="settings_category_learning">Pembelajaran</string>
+    <string name="settings_category_interface">Antarmuka</string>
     <string name="settings_language">Bahasa</string>
     <string name="settings_pronunciation">Pelafalan</string>
     <string name="settings_pronunciation_roman">Alfabet Romawi</string>
@@ -126,6 +129,12 @@
     <string name="title_game_recap">Rekap Game</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">Informasi</string>
+    <string name="about_category_credits">Kredit</string>
+    <string name="about_category_resources">Sumber Daya</string>
+    <string name="about_design_dev">Desain &amp; Pengembangan</string>
+    <string name="about_pedagogical">Konten Pedagogis</string>
+    <string name="about_coming_soon">(Segera hadir)</string>
     <string name="about_retribution">Retribusi</string>
     <string name="about_patreon">Dukung saya di Patreon</string>
     <string name="about_tipeee">Donasi di Tipeee</string>
@@ -140,6 +149,7 @@
     <string name="about_pedagogical_content">Konten pedagogis Jepang</string>
     <string name="about_kanji_data_credit">Data Kanji oleh David Gouveia</string>
     <string name="about_header_picture_credit">Gambar header oleh Charles Knowles</string>
+    <string name="about_rate_app">Beri nilai aplikasi</string>
 
     <!-- Results Screen -->
     <string name="results_title">Hasil</string>

@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Tùy chọn</string>
+    <string name="settings_category_general">Chung</string>
+    <string name="settings_category_learning">Học tập</string>
+    <string name="settings_category_interface">Giao diện</string>
     <string name="settings_language">Ngôn ngữ</string>
     <string name="settings_pronunciation">Phát âm</string>
     <string name="settings_pronunciation_roman">Bảng chữ cái La Mã</string>
@@ -120,6 +123,12 @@
     <string name="title_game_recap">Tóm tắt trò chơi</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">Thông tin</string>
+    <string name="about_category_credits">Tín dụng</string>
+    <string name="about_category_resources">Tài nguyên</string>
+    <string name="about_design_dev">Thiết kế &amp; Phát triển</string>
+    <string name="about_pedagogical">Nội dung sư phạm</string>
+    <string name="about_coming_soon">(Sắp có)</string>
     <string name="about_retribution">Quả báo</string>
     <string name="about_patreon">Hỗ trợ tôi trên Patreon</string>
     <string name="about_tipeee">Quyên góp trên Tipeee</string>
@@ -134,6 +143,7 @@
     <string name="about_pedagogical_content">Nội dung sư phạm tiếng Nhật</string>
     <string name="about_kanji_data_credit">Dữ liệu Kanji của David Gouveia</string>
     <string name="about_header_picture_credit">Ảnh tiêu đề của Charles Knowles</string>
+    <string name="about_rate_app">Đánh giá ứng dụng</string>
 
     <!-- Results Screen -->
     <string name="results_title">Kết quả</string>

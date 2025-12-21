@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Opciones</string>
+    <string name="settings_category_general">General</string>
+    <string name="settings_category_learning">Aprendizaje</string>
+    <string name="settings_category_interface">Interfaz</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_pronunciation">Pronunciación</string>
     <string name="settings_pronunciation_roman">Alfabeto romano</string>
@@ -120,6 +123,12 @@
     <string name="title_game_recap">Resumen del juego</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">Información</string>
+    <string name="about_category_credits">Créditos</string>
+    <string name="about_category_resources">Recursos</string>
+    <string name="about_design_dev">Diseño y Desarrollo</string>
+    <string name="about_pedagogical">Contenido Pedagógico</string>
+    <string name="about_coming_soon">(Próximamente)</string>
     <string name="about_retribution">Retribución</string>
     <string name="about_patreon">Apóyame en Patreon</string>
     <string name="about_tipeee">Dona en Tipeee</string>
@@ -134,6 +143,7 @@
     <string name="about_pedagogical_content">Contenido pedagógico japonés</string>
     <string name="about_kanji_data_credit">Datos de Kanji por David Gouveia</string>
     <string name="about_header_picture_credit">Imagen de cabecera por Charles Knowles</string>
+    <string name="about_rate_app">Calificar la aplicación</string>
 
     <!-- Results Screen -->
     <string name="results_title">Resultados</string>

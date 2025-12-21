@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Optionen</string>
+    <string name="settings_category_general">Allgemein</string>
+    <string name="settings_category_learning">Lernen</string>
+    <string name="settings_category_interface">Schnittstelle</string>
     <string name="settings_language">Sprache</string>
     <string name="settings_pronunciation">Aussprache</string>
     <string name="settings_pronunciation_roman">Römisches Alphabet</string>
@@ -120,6 +123,12 @@
     <string name="title_game_recap">Spielzusammenfassung</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">Informationen</string>
+    <string name="about_category_credits">Credits</string>
+    <string name="about_category_resources">Ressourcen</string>
+    <string name="about_design_dev">Design &amp; Entwicklung</string>
+    <string name="about_pedagogical">Pädagogischer Inhalt</string>
+    <string name="about_coming_soon">(Kommt bald)</string>
     <string name="about_retribution">Vergeltung</string>
     <string name="about_patreon">Unterstützen Sie mich auf Patreon</string>
     <string name="about_tipeee">Spenden Sie auf Tipeee</string>
@@ -134,6 +143,7 @@
     <string name="about_pedagogical_content">Japanischer pädagogischer Inhalt</string>
     <string name="about_kanji_data_credit">Kanji-Daten von David Gouveia</string>
     <string name="about_header_picture_credit">Header-Bild von Charles Knowles</string>
+    <string name="about_rate_app">Bewerten Sie die App</string>
 
     <!-- Results Screen -->
     <string name="results_title">Ergebnisse</string>

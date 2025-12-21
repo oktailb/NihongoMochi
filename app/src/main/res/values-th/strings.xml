@@ -26,6 +26,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">ตัวเลือก</string>
+    <string name="settings_category_general">ทั่วไป</string>
+    <string name="settings_category_learning">การเรียนรู้</string>
+    <string name="settings_category_interface">อินเทอร์เฟซ</string>
     <string name="settings_language">ภาษา</string>
     <string name="settings_pronunciation">การออกเสียง</string>
     <string name="settings_pronunciation_roman">ตัวอักษรโรมัน</string>
@@ -59,8 +62,8 @@
     <!-- Recognition Screen -->
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">เลือกกลุ่มของคันจิและเรียนรู้ที่จะจดจำความหมายพื้นฐานที่แตกต่างกัน</string>
-    <string name="recognition_fundamentals">Fundamentals</string>
-    <string name="recognition_jlpt">Japanese Language Proficiency Test</string>
+    <string name="recognition_fundamentals">พื้นฐาน</string>
+    <string name="recognition_jlpt">การสอบวัดระดับภาษาญี่ปุ่น</string>
     <string name="recognition_primary_school">โรงเรียนประถมศึกษา (Jōyō 1..1006)</string>
     <string name="recognition_high_school">โรงเรียนมัธยม (Jōyō 1007..2136)</string>
 
@@ -68,7 +71,7 @@
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">เกมการเขียน</string>
     <string name="writing_subtitle">เลือกกลุ่มคำและเรียนรู้วิธีการเขียน</string>
-    <string name="writing_kanji_tree">Kanji Tree</string>
+    <string name="writing_kanji_tree">ต้นไม้คันจิ</string>
     <string name="writing_kanji_tree_subtitle">หากคุณยังไม่ได้เรียนรู้อะไร:\n(10/10 ในเกมที่เกี่ยวข้อง)</string>
     <string name="writing_kanji_tree_ignore">ไม่สนใจ</string>
     <string name="writing_kanji_tree_include">รวมไว้ด้วย</string>
@@ -126,6 +129,12 @@
     <string name="title_game_recap">สรุปเกม</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">ข้อมูล</string>
+    <string name="about_category_credits">เครดิต</string>
+    <string name="about_category_resources">ทรัพยากร</string>
+    <string name="about_design_dev">การออกแบบและการพัฒนา</string>
+    <string name="about_pedagogical">เนื้อหาการสอน</string>
+    <string name="about_coming_soon">(เร็วๆ นี้)</string>
     <string name="about_retribution">การตอบแทน</string>
     <string name="about_patreon">สนับสนุนฉันบน Patreon</string>
     <string name="about_tipeee">บริจาคบน Tipeee</string>
@@ -140,6 +149,7 @@
     <string name="about_pedagogical_content">เนื้อหาการสอนภาษาญี่ปุ่น</string>
     <string name="about_kanji_data_credit">ข้อมูลคันจิโดย David Gouveia</string>
     <string name="about_header_picture_credit">รูปภาพส่วนหัวโดย Charles Knowles</string>
+    <string name="about_rate_app">ให้คะแนนแอป</string>
 
     <!-- Results Screen -->
     <string name="results_title">ผลลัพธ์</string>

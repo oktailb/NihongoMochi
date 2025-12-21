@@ -20,6 +20,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">বিকল্প</string>
+    <string name="settings_category_general">সাধারণ</string>
+    <string name="settings_category_learning">শেখা</string>
+    <string name="settings_category_interface">ইন্টারফেস</string>
     <string name="settings_language">ভাষা</string>
     <string name="settings_pronunciation">উচ্চারণ</string>
     <string name="settings_pronunciation_roman">রোমান বর্ণমালা</string>
@@ -122,6 +125,12 @@
     <string name="title_game_recap">খেলার সারসংক্ষেপ</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">তথ্য</string>
+    <string name="about_category_credits">ক্রেডিট</string>
+    <string name="about_category_resources">সম্পদ</string>
+    <string name="about_design_dev">ডিজাইন এবং বিকাশ</string>
+    <string name="about_pedagogical">শিক্ষাগত বিষয়বস্তু</string>
+    <string name="about_coming_soon">(শীঘ্রই আসছে)</string>
     <string name="about_retribution">প্রতিদান</string>
     <string name="about_patreon">Patreon-এ আমাকে সমর্থন করুন</string>
     <string name="about_tipeee">Tipeee-তে দান করুন</string>
@@ -136,6 +145,7 @@
     <string name="about_pedagogical_content">জাপানি শিক্ষাগত বিষয়বস্তু</string>
     <string name="about_kanji_data_credit">ডেভিড গউভিয়ার কাঞ্জি ডেটা</string>
     <string name="about_header_picture_credit">চার্লস নোলসের হেডার ছবি</string>
+    <string name="about_rate_app">অ্যাপটিকে রেট দিন</string>
 
     <!-- Results Screen -->
     <string name="results_title">ফলাফল</string>

@@ -26,6 +26,9 @@
 
     <!-- Settings Screen -->
     <string name="settings_title">Параметры</string>
+    <string name="settings_category_general">Общие</string>
+    <string name="settings_category_learning">Обучение</string>
+    <string name="settings_category_interface">Интерфейс</string>
     <string name="settings_language">Язык</string>
     <string name="settings_pronunciation">Произношение</string>
     <string name="settings_pronunciation_roman">Римский алфавит</string>
@@ -126,6 +129,12 @@
     <string name="title_game_recap">Итоги игры</string>
 
     <!-- About Screen -->
+    <string name="about_category_informations">Информация</string>
+    <string name="about_category_credits">Кредиты</string>
+    <string name="about_category_resources">Ресурсы</string>
+    <string name="about_design_dev">Дизайн и разработка</string>
+    <string name="about_pedagogical">Педагогический контент</string>
+    <string name="about_coming_soon">(Скоро)</string>
     <string name="about_retribution">Возмездие</string>
     <string name="about_patreon">Поддержите меня на Patreon</string>
     <string name="about_tipeee">Пожертвовать на Tipeee</string>
@@ -140,6 +149,7 @@
     <string name="about_pedagogical_content">Японский педагогический контент</string>
     <string name="about_kanji_data_credit">Данные кандзи от David Gouveia</string>
     <string name="about_header_picture_credit">Заглавное изображение от Charles Knowles</string>
+    <string name="about_rate_app">Оценить приложение</string>
 
     <!-- Results Screen -->
     <string name="results_title">Результаты</string>
