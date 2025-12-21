@@ -19,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:autofillHints="false"
             android:hint="Rechercher (kanji, lecture, traits)"
             android:imeOptions="actionSearch"
             android:inputType="text"
@@ -50,6 +51,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:autofillHints="false"
             android:hint="#" />
             
         <CheckBox

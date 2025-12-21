@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanjiDetailBinding
 import org.nihongo.mochi.databinding.ItemReadingBinding
-import org.nihongo.mochi.ui.writinggame.RomajiToKana
 import org.xmlpull.v1.XmlPullParser
 
 class KanjiDetailFragment : Fragment() {
