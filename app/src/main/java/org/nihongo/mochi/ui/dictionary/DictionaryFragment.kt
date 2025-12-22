@@ -11,7 +11,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -88,56 +87,51 @@ class DictionaryFragment : Fragment() {
         binding.buttonDrawSearch.setOnClickListener {
             DrawingDialogFragment().show(parentFragmentManager, "DrawingDialog")
         }
-        
+
         binding.buttonClearDrawing.setOnClickListener {
             viewModel.clearDrawingFilter()
             applyFilters()
         }
-        
-        binding.buttonApplyFilters.setOnClickListener {
-            applyFilters()
-        }
-        
+
+        // Hide the apply filters button as search is now reactive
+        binding.buttonApplyFilters.visibility = View.GONE
+
         binding.radioGroupSearchMode.setOnCheckedChangeListener { _, checkedId ->
             viewModel.searchMode = if (checkedId == R.id.radio_mode_reading) SearchMode.READING else SearchMode.MEANING
+            applyFilters()
         }
-        
-        binding.editSearch.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+
+        binding.editStrokeCount.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
                 applyFilters()
-                true
-            } else false
-        }
-        binding.editStrokeCount.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                applyFilters()
-                true
-            } else false
-        }
-        
+            }
+        })
+
         setupTextWatcher()
     }
-    
+
     private fun setupTextWatcher() {
         binding.editSearch.removeTextChangedListener(textWatcher)
         textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            
+
             override fun afterTextChanged(s: Editable?) {
-                if (s == null || viewModel.searchMode != SearchMode.READING) return
-                
-                val input = s.toString()
-                val replacement = RomajiToKana.checkReplacement(input)
-                if (replacement != null) {
-                    val (suffixLen, kana) = replacement
-                    val start = input.length - suffixLen
-                    val end = input.length
-                    
+                if (s != null && viewModel.searchMode == SearchMode.READING) {
                     binding.editSearch.removeTextChangedListener(this)
-                    s.replace(start, end, kana)
+                    val input = s.toString()
+                    val replacement = RomajiToKana.checkReplacement(input)
+                    if (replacement != null) {
+                        val (suffixLen, kana) = replacement
+                        val start = input.length - suffixLen
+                        val end = input.length
+                        s.replace(start, end, kana)
+                    }
                     binding.editSearch.addTextChangedListener(this)
                 }
+                applyFilters()
             }
         }
         binding.editSearch.addTextChangedListener(textWatcher)
@@ -178,7 +172,7 @@ class DictionaryFragment : Fragment() {
             if (viewModel.searchMode == SearchMode.READING) {
                  val cleanQuery = query.replace(".", "")
                  filteredList = filteredList.filter { item ->
-                     item.readings.any { it.replace(".", "").lowercase().contains(cleanQuery) }
+                     item.readings.any { it.text.replace(".", "").lowercase().contains(cleanQuery) }
                  }
             } else { // MEANING
                  filteredList = filteredList.filter { item ->
@@ -221,7 +215,7 @@ class DictionaryFragment : Fragment() {
             var currentId: String? = null
             var currentCharacter: String? = null
             var currentStrokes = 0
-            val currentReadings = mutableListOf<String>()
+            val currentReadings = mutableListOf<ReadingInfo>()
 
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 when(eventType) {
@@ -239,8 +233,9 @@ class DictionaryFragment : Fragment() {
                                 } catch (e: Exception) { /* Ignore */ }
                             }
                             "reading" -> {
+                                val type = parser.getAttributeValue(null, "type") ?: "unknown"
                                 val r = parser.nextText()
-                                if (r.isNotEmpty()) currentReadings.add(r)
+                                if (r.isNotEmpty()) currentReadings.add(ReadingInfo(r, type))
                             }
                         }
                     }
@@ -350,10 +345,12 @@ class DictionaryFragment : Fragment() {
         textWatcher = null
     }
 
+    data class ReadingInfo(val text: String, val type: String)
+
     data class DictionaryItem(
         val id: String,
         val character: String,
-        val readings: List<String>,
+        val readings: List<ReadingInfo>,
         val strokeCount: Int,
         val meanings: MutableList<String>
     )
@@ -376,12 +373,35 @@ class DictionaryFragment : Fragment() {
             val binding = ItemDictionaryBinding.bind(holder.itemView)
             binding.root.setOnClickListener { onItemClick(item) }
             binding.textKanji.text = item.character
-            binding.textReading.text = item.readings.joinToString(", ")
+            
+            val onReadings = item.readings.filter { it.type == "on" }.map { hiraganaToKatakana(it.text) }
+            val kunReadings = item.readings.filter { it.type == "kun" }.map { it.text }
+            
+            val sb = StringBuilder()
+            if (onReadings.isNotEmpty()) {
+                sb.append("On: ").append(onReadings.joinToString(", "))
+            }
+            if (kunReadings.isNotEmpty()) {
+                if (sb.isNotEmpty()) sb.append("  ")
+                sb.append("Kun: ").append(kunReadings.joinToString(", "))
+            }
+            binding.textReading.text = sb.toString()
+            
             binding.textMeanings.text = item.meanings.joinToString(", ")
             binding.textId.visibility = View.GONE // Hide the ID field
             binding.textStrokeCount.text = item.strokeCount.toString()
         }
 
         override fun getItemCount() = list.size
+        
+        private fun hiraganaToKatakana(s: String): String {
+            return s.map { c ->
+                if (c in '\u3041'..'\u3096') {
+                    (c + 0x60)
+                } else {
+                    c
+                }
+            }.joinToString("")
+        }
     }
 }
