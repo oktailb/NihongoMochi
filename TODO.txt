@@ -1,5 +1,10 @@
 Bug Fixes:
-  - quiz seems reset when orientation change
+  - quiz seems reset when orientation change - Done
+
+Features:
+ - Grammar section with typical JLTP exercises
+ - Grammar lessons and specific exercises
+ - Kanji search by drawing
 
 Ideas:
   - Japanese translation -> allows japanese to learn another language ?
