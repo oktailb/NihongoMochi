@@ -1,10 +1,15 @@
 Bug Fixes:
   - quiz seems reset when orientation change - Done
 
+Data:
+ - find Grade 7 kanji
+ - parse https://www.kanshudo.com/kanji/ to obtain components
+  curl -s 'https://www.kanshudo.com/kanji/%E4%BB%B2' | grep -2 Components | tail -1 | tr '<>' '\n\n' | grep -v \; | grep -v = | grep -v \/
+
 Features:
  - Grammar section with typical JLTP exercises
  - Grammar lessons and specific exercises
- - Kanji search by drawing
+ - Kanji search by drawing - Done
 
 Ideas:
   - Japanese translation -> allows japanese to learn another language ?

@@ -1,5 +1,10 @@
 package org.nihongo.mochi.ui.dictionary
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,10 +13,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.mlkit.vision.digitalink.Ink
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -20,17 +27,16 @@ import org.nihongo.mochi.databinding.FragmentDictionaryBinding
 import org.nihongo.mochi.databinding.ItemDictionaryBinding
 import org.nihongo.mochi.ui.writinggame.RomajiToKana
 import org.xmlpull.v1.XmlPullParser
+import kotlin.math.max
+import kotlin.math.min
 
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: DictionaryViewModel by activityViewModels()
     private lateinit var adapter: DictionaryAdapter
-    
-    // Full database in memory
-    private val allKanjiList = mutableListOf<DictionaryItem>()
-    // Helper map to merge data
-    private val kanjiDataMap = mutableMapOf<String, DictionaryItem>()
+    private var textWatcher: TextWatcher? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,32 +51,82 @@ class DictionaryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = DictionaryAdapter { item ->
-            // On Item Click
             val action = DictionaryFragmentDirections.actionDictionaryToKanjiDetail(item.id)
             findNavController().navigate(action)
         }
-        
+
         binding.recyclerDictionary.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerDictionary.adapter = adapter
 
-        // Setup search listeners
-        binding.buttonSearch.setOnClickListener { performSearch() }
+        setupFilterListeners()
+        observeDrawingResults()
+
+        if (!viewModel.isDataLoaded) {
+            viewLifecycleOwner.lifecycleScope.launch {
+                loadDictionaryData()
+                viewModel.isDataLoaded = true
+                applyFilters()
+            }
+        } else {
+            restoreUIState()
+        }
+    }
+
+    private fun restoreUIState() {
+        binding.editSearch.setText(viewModel.textQuery)
+        binding.editStrokeCount.setText(viewModel.strokeQuery)
+        binding.checkExactMatch.isChecked = viewModel.exactMatch
+        binding.radioGroupSearchMode.check(
+            if (viewModel.searchMode == SearchMode.READING) R.id.radio_mode_reading else R.id.radio_mode_meaning
+        )
+        adapter.submitList(viewModel.lastResults)
+        updateDrawingThumbnail()
+        binding.textResultCount.text = "${viewModel.lastResults.size} résultats"
+    }
+
+    private fun setupFilterListeners() {
+        binding.buttonDrawSearch.setOnClickListener {
+            DrawingDialogFragment().show(parentFragmentManager, "DrawingDialog")
+        }
+        
+        binding.buttonClearDrawing.setOnClickListener {
+            viewModel.clearDrawingFilter()
+            applyFilters()
+        }
+        
+        binding.buttonApplyFilters.setOnClickListener {
+            applyFilters()
+        }
+        
+        binding.radioGroupSearchMode.setOnCheckedChangeListener { _, checkedId ->
+            viewModel.searchMode = if (checkedId == R.id.radio_mode_reading) SearchMode.READING else SearchMode.MEANING
+        }
         
         binding.editSearch.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                performSearch()
+                applyFilters()
                 true
-            } else {
-                false
-            }
+            } else false
         }
-
-        // Live search and romaji to kana conversion
-        binding.editSearch.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) { 
-                if (s == null) return
+        binding.editStrokeCount.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                applyFilters()
+                true
+            } else false
+        }
+        
+        setupTextWatcher()
+    }
+    
+    private fun setupTextWatcher() {
+        binding.editSearch.removeTextChangedListener(textWatcher)
+        textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            
+            override fun afterTextChanged(s: Editable?) {
+                if (s == null || viewModel.searchMode != SearchMode.READING) return
                 
-                // Attempt Romaji -> Kana conversion
                 val input = s.toString()
                 val replacement = RomajiToKana.checkReplacement(input)
                 if (replacement != null) {
@@ -78,45 +134,84 @@ class DictionaryFragment : Fragment() {
                     val start = input.length - suffixLen
                     val end = input.length
                     
-                    // Prevent infinite loop by removing listener during modification
                     binding.editSearch.removeTextChangedListener(this)
                     s.replace(start, end, kana)
                     binding.editSearch.addTextChangedListener(this)
-                    
-                    // Since we modified text, the cursor might need adjustment, but usually replace handles it ok.
-                    // If we wanted, we could trigger search here for "live search" experience
                 }
             }
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-        
-        // Load data in background
-        viewLifecycleOwner.lifecycleScope.launch {
-            loadDictionaryData()
+        }
+        binding.editSearch.addTextChangedListener(textWatcher)
+    }
+    
+    private fun observeDrawingResults() {
+        viewModel.recognitionResults.observe(viewLifecycleOwner) { candidates ->
+            if (candidates != null) {
+                viewModel.drawingCandidates = candidates
+                applyFilters() // Apply drawing filter immediately
+            }
         }
     }
 
-    private suspend fun loadDictionaryData() = withContext(Dispatchers.IO) {
-        kanjiDataMap.clear()
-        allKanjiList.clear()
+    private fun applyFilters() {
+        // Update ViewModel with current UI state before filtering
+        viewModel.textQuery = binding.editSearch.text.toString()
+        viewModel.strokeQuery = binding.editStrokeCount.text.toString()
+        viewModel.exactMatch = binding.checkExactMatch.isChecked
         
-        // 1. Parse kanji_details.xml
-        parseKanjiDetails()
-        
-        // 2. Parse meanings.xml
-        parseMeanings()
+        var filteredList = viewModel.allKanjiList.toList()
 
-        // 3. Flatten to list
-        allKanjiList.addAll(kanjiDataMap.values)
-        
-        // Sort by ID or other criteria if needed? For now, keep order or random.
-        // allKanjiList.sortBy { it.id.toIntOrNull() }
-        
-        // Initial state: empty list
-        withContext(Dispatchers.Main) {
-             adapter.submitList(emptyList())
+        // 1. Drawing filter
+        viewModel.drawingCandidates?.let { candidates ->
+            val candidateSet = candidates.toSet()
+            filteredList = filteredList.filter { candidateSet.contains(it.character) }
         }
+
+        // 2. Stroke count filter
+        val strokeCount = viewModel.strokeQuery.toIntOrNull()
+        if (strokeCount != null) {
+            filteredList = filteredList.filter { it.strokeCount == strokeCount }
+        }
+
+        // 3. Text filter
+        val query = viewModel.textQuery.trim().lowercase()
+        if (query.isNotEmpty()) {
+            if (viewModel.searchMode == SearchMode.READING) {
+                 val cleanQuery = query.replace(".", "")
+                 filteredList = filteredList.filter { item ->
+                     item.readings.any { it.replace(".", "").lowercase().contains(cleanQuery) }
+                 }
+            } else { // MEANING
+                 filteredList = filteredList.filter { item ->
+                     item.meanings.any { it.lowercase().contains(query) }
+                 }
+            }
+        }
+        
+        // Update UI
+        viewModel.lastResults = filteredList
+        adapter.submitList(filteredList)
+        binding.textResultCount.text = "${filteredList.size} résultats"
+        updateDrawingThumbnail()
+    }
+    
+    private fun updateDrawingThumbnail() {
+        if (viewModel.lastInk != null) {
+            binding.cardDrawingThumbnail.visibility = View.VISIBLE
+            binding.buttonClearDrawing.visibility = View.VISIBLE
+            val bitmap = renderInkToBitmap(viewModel.lastInk!!, 100)
+            binding.imageDrawingThumbnail.setImageBitmap(bitmap)
+        } else {
+            binding.cardDrawingThumbnail.visibility = View.GONE
+            binding.buttonClearDrawing.visibility = View.GONE
+        }
+    }
+    
+    // --- Data Loading ---
+    private suspend fun loadDictionaryData() = withContext(Dispatchers.IO) {
+        if (viewModel.isDataLoaded) return@withContext
+        parseKanjiDetails()
+        parseMeanings()
+        viewModel.allKanjiList.addAll(viewModel.kanjiDataMap.values.sortedBy { it.id.toIntOrNull() ?: 0 })
     }
 
     private fun parseKanjiDetails() {
@@ -127,36 +222,39 @@ class DictionaryFragment : Fragment() {
             var currentCharacter: String? = null
             var currentStrokes = 0
             val currentReadings = mutableListOf<String>()
-            
+
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG) {
-                    when (parser.name) {
-                        "kanji" -> {
-                            currentId = parser.getAttributeValue(null, "id")
-                            currentCharacter = parser.getAttributeValue(null, "character")
-                            currentReadings.clear()
-                            currentStrokes = 0
-                        }
-                        "strokes" -> {
-                            try {
-                                currentStrokes = parser.nextText().toInt()
-                            } catch (e: Exception) { }
-                        }
-                        "reading" -> {
-                            val r = parser.nextText()
-                            if (r.isNotEmpty()) currentReadings.add(r)
+                when(eventType) {
+                    XmlPullParser.START_TAG -> {
+                        when (parser.name) {
+                            "kanji" -> {
+                                currentId = parser.getAttributeValue(null, "id")
+                                currentCharacter = parser.getAttributeValue(null, "character")
+                                currentReadings.clear()
+                                currentStrokes = 0
+                            }
+                            "strokes" -> {
+                                try {
+                                    currentStrokes = parser.nextText().toInt()
+                                } catch (e: Exception) { /* Ignore */ }
+                            }
+                            "reading" -> {
+                                val r = parser.nextText()
+                                if (r.isNotEmpty()) currentReadings.add(r)
+                            }
                         }
                     }
-                } else if (eventType == XmlPullParser.END_TAG) {
-                    if (parser.name == "kanji" && currentId != null && currentCharacter != null) {
-                        val item = DictionaryItem(
-                            id = currentId,
-                            character = currentCharacter,
-                            readings = ArrayList(currentReadings),
-                            strokeCount = currentStrokes,
-                            meanings = mutableListOf()
-                        )
-                        kanjiDataMap[currentId] = item
+                    XmlPullParser.END_TAG -> {
+                         if (parser.name == "kanji" && currentId != null && currentCharacter != null) {
+                            val item = DictionaryItem(
+                                id = currentId,
+                                character = currentCharacter,
+                                readings = ArrayList(currentReadings),
+                                strokeCount = currentStrokes,
+                                meanings = mutableListOf()
+                            )
+                            viewModel.kanjiDataMap[currentId] = item
+                        }
                     }
                 }
                 eventType = parser.next()
@@ -167,23 +265,18 @@ class DictionaryFragment : Fragment() {
     }
 
     private fun parseMeanings() {
-        // resources.getXml(R.xml.meanings) will automatically pick the localized version
-        // e.g., values-fr/meanings.xml if locale is French
         val parser = resources.getXml(R.xml.meanings)
         try {
             var eventType = parser.eventType
             var currentId: String? = null
-            
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
                     when (parser.name) {
-                        "kanji" -> {
-                            currentId = parser.getAttributeValue(null, "id")
-                        }
+                        "kanji" -> currentId = parser.getAttributeValue(null, "id")
                         "meaning" -> {
                             val meaning = parser.nextText()
                             if (currentId != null && meaning.isNotEmpty()) {
-                                kanjiDataMap[currentId]?.meanings?.add(meaning)
+                                viewModel.kanjiDataMap[currentId]?.meanings?.add(meaning)
                             }
                         }
                     }
@@ -194,62 +287,78 @@ class DictionaryFragment : Fragment() {
             e.printStackTrace()
         }
     }
+    
+    private fun renderInkToBitmap(ink: Ink, targetSize: Int): Bitmap {
+        val bitmap = Bitmap.createBitmap(targetSize, targetSize, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        canvas.drawColor(Color.TRANSPARENT)
 
-    private fun performSearch() {
-        val rawQuery = binding.editSearch.text.toString().trim().lowercase()
-        val strokeStr = binding.editStrokeCount.text.toString().trim()
-        val exactMatch = binding.checkExactMatch.isChecked
-        
-        // If query and strokes are empty, do nothing or clear list
-        if (rawQuery.isEmpty() && strokeStr.isEmpty()) {
-            adapter.submitList(emptyList())
-            return
-        }
+        var minX = Float.MAX_VALUE
+        var minY = Float.MAX_VALUE
+        var maxX = Float.MIN_VALUE
+        var maxY = Float.MIN_VALUE
+        if (ink.strokes.isEmpty()) return bitmap
 
-        // Clean query by removing periods/dots to handle readings like "hito.tsu" matched by "hitotsu"
-        val cleanQuery = rawQuery.replace(".", "")
-
-        val strokeCount = strokeStr.toIntOrNull()
-
-        val filtered = allKanjiList.filter { item ->
-            // Stroke filter
-            val matchStroke = if (strokeCount == null) true else item.strokeCount == strokeCount
-            
-            // Text filter
-            val matchQuery = if (cleanQuery.isEmpty()) true else {
-                if (exactMatch) {
-                     item.character == rawQuery
-                } else {
-                     item.character.contains(rawQuery, ignoreCase = true) ||
-                     item.readings.any { 
-                         // Check reading with and without dots
-                         val cleanReading = it.replace(".", "").lowercase()
-                         cleanReading.contains(cleanQuery)
-                     } ||
-                     item.meanings.any { it.contains(rawQuery, ignoreCase = true) }
-                }
+        for (stroke in ink.strokes) {
+            for (point in stroke.points) {
+                minX = min(minX, point.x)
+                minY = min(minY, point.y)
+                maxX = max(maxX, point.x)
+                maxY = max(maxY, point.y)
             }
-            
-            matchStroke && matchQuery
         }
-        
-        adapter.submitList(filtered)
+
+        val drawingWidth = maxX - minX
+        val drawingHeight = maxY - minY
+        if (drawingWidth <= 0 || drawingHeight <= 0) return bitmap
+
+        val margin = targetSize * 0.1f
+        val effectiveSize = targetSize - (2 * margin)
+        val scale = min(effectiveSize / drawingWidth, effectiveSize / drawingHeight)
+
+        val dx = -minX * scale + margin
+        val dy = -minY * scale + margin
+
+        canvas.translate(dx, dy)
+        canvas.scale(scale, scale)
+
+        val paint = Paint().apply {
+            color = Color.BLACK
+            isAntiAlias = true
+            strokeWidth = 3f / scale // Keep stroke width constant regardless of scale
+            style = Paint.Style.STROKE
+            strokeJoin = Paint.Join.ROUND
+            strokeCap = Paint.Cap.ROUND
+        }
+
+        for (stroke in ink.strokes) {
+            val path = Path()
+            if (stroke.points.isNotEmpty()) {
+                path.moveTo(stroke.points[0].x, stroke.points[0].y)
+                for (i in 1 until stroke.points.size) {
+                    path.lineTo(stroke.points[i].x, stroke.points[i].y)
+                }
+                canvas.drawPath(path, paint)
+            }
+        }
+        return bitmap
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        textWatcher = null
     }
 
     data class DictionaryItem(
-        val id: String, 
-        val character: String, 
-        val readings: List<String>, 
+        val id: String,
+        val character: String,
+        val readings: List<String>,
         val strokeCount: Int,
         val meanings: MutableList<String>
     )
 
-    class DictionaryAdapter(private val onItemClick: (DictionaryItem) -> Unit) : RecyclerView.Adapter<DictionaryAdapter.ViewHolder>() {
+    class DictionaryAdapter(private val onItemClick: (DictionaryItem) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private var list: List<DictionaryItem> = emptyList()
 
         fun submitList(newList: List<DictionaryItem>) {
@@ -257,31 +366,22 @@ class DictionaryFragment : Fragment() {
             notifyDataSetChanged()
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val binding = ItemDictionaryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return ViewHolder(binding, onItemClick)
+            return object : RecyclerView.ViewHolder(binding.root){}
         }
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bind(list[position])
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            val item = list[position]
+            val binding = ItemDictionaryBinding.bind(holder.itemView)
+            binding.root.setOnClickListener { onItemClick(item) }
+            binding.textKanji.text = item.character
+            binding.textReading.text = item.readings.joinToString(", ")
+            binding.textMeanings.text = item.meanings.joinToString(", ")
+            binding.textId.visibility = View.GONE // Hide the ID field
+            binding.textStrokeCount.text = item.strokeCount.toString()
         }
 
         override fun getItemCount() = list.size
-
-        class ViewHolder(private val binding: ItemDictionaryBinding, private val onClick: (DictionaryItem) -> Unit) : RecyclerView.ViewHolder(binding.root) {
-            fun bind(item: DictionaryItem) {
-                binding.root.setOnClickListener { onClick(item) }
-                binding.textKanji.text = item.character
-                
-                // Format readings
-                binding.textReading.text = item.readings.take(4).joinToString(", ")
-                
-                // Format meanings
-                binding.textMeanings.text = item.meanings.take(3).joinToString(", ")
-
-                binding.textId.text = "ID: ${item.id}"
-                binding.textStrokeCount.text = "${item.strokeCount}"
-            }
-        }
     }
 }

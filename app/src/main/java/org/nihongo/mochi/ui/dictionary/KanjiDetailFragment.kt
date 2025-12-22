@@ -22,6 +22,8 @@ class KanjiDetailFragment : Fragment() {
     private var kanjiId: String? = null
     private var kanjiCharacter: String? = null
     private var kanjiStrokes: Int = 0
+    private var jlptLevel: String? = null
+    private var schoolGrade: String? = null
     private var kanjiMeanings = mutableListOf<String>()
     private var kanjiReadings = mutableListOf<ReadingItem>()
 
@@ -44,6 +46,9 @@ class KanjiDetailFragment : Fragment() {
         
         binding.textKanjiLarge.text = kanjiCharacter
         binding.textMeanings.text = kanjiMeanings.joinToString(", ")
+        binding.textJlpt.text = jlptLevel ?: "-"
+        binding.textGrade.text = schoolGrade ?: "-"
+        binding.textStrokes.text = kanjiStrokes.toString()
         
         // Setup Reading Lists
         val onReadings = kanjiReadings.filter { it.type == "on" }
@@ -97,11 +102,15 @@ class KanjiDetailFragment : Fragment() {
     private fun loadKanjiDetails() {
         if (kanjiId == null) return
 
+        kanjiReadings.clear()
+        kanjiMeanings.clear()
+
         // Load basic details and readings
         val parser = resources.getXml(R.xml.kanji_details)
         try {
             var eventType = parser.eventType
             var isTarget = false
+            var inReadings = false
             
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
@@ -116,16 +125,26 @@ class KanjiDetailFragment : Fragment() {
                     } else if (isTarget) {
                         when (parser.name) {
                             "strokes" -> kanjiStrokes = parser.nextText().toIntOrNull() ?: 0
+                            "jlpt_level" -> jlptLevel = parser.nextText()
+                            "school_grade" -> schoolGrade = parser.nextText()
+                            "readings" -> inReadings = true
                             "reading" -> {
-                                val type = parser.getAttributeValue(null, "type")
-                                val freq = parser.getAttributeValue(null, "frequency")?.toIntOrNull() ?: 0
-                                val text = parser.nextText()
-                                kanjiReadings.add(ReadingItem(type, text, freq))
+                                if (inReadings) {
+                                    val type = parser.getAttributeValue(null, "type")
+                                    val freq = parser.getAttributeValue(null, "frequency")?.toIntOrNull() ?: 0
+                                    val text = parser.nextText()
+                                    kanjiReadings.add(ReadingItem(type, text, freq))
+                                }
                             }
                         }
                     }
-                } else if (eventType == XmlPullParser.END_TAG && parser.name == "kanji" && isTarget) {
-                    break
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    if (parser.name == "kanji" && isTarget) {
+                        break
+                    }
+                    if (parser.name == "readings") {
+                        inReadings = false
+                    }
                 }
                 eventType = parser.next()
             }

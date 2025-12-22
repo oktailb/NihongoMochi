@@ -48,8 +48,24 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+            
+            // Exclude dev-only XML file from release builds
+            packaging {
+                resources.excludes.add("res/xml/bccwj_wordlist.xml")
+            }
         }
     }
+    
+    // Reduce APK size for debug builds by only including necessary native libs
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("x86_64", "arm64-v8a") // For modern emulators and phones
+            isUniversalApk = false
+        }
+    }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -74,6 +90,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation("com.google.android.gms:play-services-games-v2:21.0.0")
+    implementation("com.google.mlkit:digital-ink-recognition:18.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
