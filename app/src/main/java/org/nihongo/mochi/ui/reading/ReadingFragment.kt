@@ -81,6 +81,26 @@ class ReadingFragment : Fragment() {
     }
 
     private fun setupClickListeners() {
+        binding.buttonReadingN5.setOnClickListener {
+            val action = ReadingFragmentDirections.actionNavReadingToWordList("jlpt_wordlist_n5")
+            findNavController().navigate(action)
+        }
+        binding.buttonReadingN4.setOnClickListener {
+            val action = ReadingFragmentDirections.actionNavReadingToWordList("jlpt_wordlist_n4")
+            findNavController().navigate(action)
+        }
+        binding.buttonReadingN3.setOnClickListener {
+            val action = ReadingFragmentDirections.actionNavReadingToWordList("jlpt_wordlist_n3")
+            findNavController().navigate(action)
+        }
+        binding.buttonReadingN2.setOnClickListener {
+            val action = ReadingFragmentDirections.actionNavReadingToWordList("jlpt_wordlist_n2")
+            findNavController().navigate(action)
+        }
+        binding.buttonReadingN1.setOnClickListener {
+            val action = ReadingFragmentDirections.actionNavReadingToWordList("jlpt_wordlist_n1")
+            findNavController().navigate(action)
+        }
         binding.buttonWords1000.setOnClickListener {
             val action = ReadingFragmentDirections.actionNavReadingToWordList("bccwj_wordlist_1000")
             findNavController().navigate(action)
