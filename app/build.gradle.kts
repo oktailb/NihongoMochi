@@ -93,6 +93,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation("com.google.android.gms:play-services-games-v2:21.0.0")
     implementation("com.google.mlkit:digital-ink-recognition:18.1.0")
+    implementation(libs.flexbox)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

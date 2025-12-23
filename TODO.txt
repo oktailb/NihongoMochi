@@ -3,8 +3,7 @@ Bug Fixes:
 
 Data:
  - find Grade 7 kanji
- - parse https://www.kanshudo.com/kanji/ to obtain components
-  curl -s 'https://www.kanshudo.com/kanji/%E4%BB%B2' | grep -2 Components | tail -1 | tr '<>' '\n\n' | grep -v \; | grep -v = | grep -v \/
+ - parse https://www.kanshudo.com/kanji/ to obtain components - In progress
 
 Features:
  - Grammar section with typical JLTP exercises

@@ -5,13 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanjiDetailBinding
+import org.nihongo.mochi.databinding.ItemExampleBinding
 import org.nihongo.mochi.databinding.ItemReadingBinding
 import org.xmlpull.v1.XmlPullParser
+import java.util.HashSet
 
 class KanjiDetailFragment : Fragment() {
 
@@ -28,6 +38,7 @@ class KanjiDetailFragment : Fragment() {
     private var kanjiReadings = mutableListOf<ReadingItem>()
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
+    data class ExampleItem(val word: String, val reading: String)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,6 +67,8 @@ class KanjiDetailFragment : Fragment() {
         
         setupReadingAdapter(binding.recyclerOnReadings, onReadings, isOn = true)
         setupReadingAdapter(binding.recyclerKunReadings, kunReadings, isOn = false)
+
+        loadExamples()
     }
 
     private fun setupReadingAdapter(recyclerView: RecyclerView, readings: List<ReadingItem>, isOn: Boolean) {
@@ -76,11 +89,6 @@ class KanjiDetailFragment : Fragment() {
     
     class ReadingViewHolder(private val binding: ItemReadingBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ReadingItem, isOn: Boolean) {
-            // For On readings, we typically use Katakana. For Kun, Hiragana.
-            // The XML seems to provide Hiragana for both usually, or we might want to convert.
-            // The RomajiToKana class converts to Hiragana.
-            // Let's assume input is Hiragana from XML.
-            
             var text = item.reading
             if (isOn) {
                 text = hiraganaToKatakana(text)
@@ -96,6 +104,34 @@ class KanjiDetailFragment : Fragment() {
                     c
                 }
             }.joinToString("")
+        }
+    }
+
+    private fun setupExampleAdapter(recyclerView: RecyclerView, examples: List<ExampleItem>) {
+        val layoutManager = FlexboxLayoutManager(context)
+        layoutManager.flexDirection = FlexDirection.ROW
+        layoutManager.flexWrap = FlexWrap.WRAP
+        layoutManager.justifyContent = JustifyContent.FLEX_START
+        recyclerView.layoutManager = layoutManager
+        
+        recyclerView.adapter = object : RecyclerView.Adapter<ExampleViewHolder>() {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
+                val binding = ItemExampleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return ExampleViewHolder(binding)
+            }
+
+            override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
+                holder.bind(examples[position])
+            }
+
+            override fun getItemCount() = examples.size
+        }
+    }
+
+    class ExampleViewHolder(private val binding: ItemExampleBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: ExampleItem) {
+            binding.textExampleWord.text = item.word
+            binding.textExampleReading.text = item.reading
         }
     }
 
@@ -174,6 +210,84 @@ class KanjiDetailFragment : Fragment() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun loadExamples() {
+        if (kanjiCharacter == null) return
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val withOkurigana = mutableListOf<ExampleItem>()
+            val withoutOkurigana = mutableListOf<ExampleItem>()
+            val seenWords = HashSet<String>()
+            
+            val resourcesToCheck = listOf(
+                R.xml.jlpt_wordlist_n5, R.xml.jlpt_wordlist_n4, R.xml.jlpt_wordlist_n3, 
+                R.xml.jlpt_wordlist_n2, R.xml.jlpt_wordlist_n1,
+                R.xml.bccwj_wordlist_1000, R.xml.bccwj_wordlist_2000, R.xml.bccwj_wordlist_3000,
+                R.xml.bccwj_wordlist_4000, R.xml.bccwj_wordlist_5000, R.xml.bccwj_wordlist_6000,
+                R.xml.bccwj_wordlist_7000, R.xml.bccwj_wordlist_8000
+            )
+            
+            val targetKanji = kanjiCharacter!!
+            
+            for (resId in resourcesToCheck) {
+                // We want 5 examples max. If we have 5 with Okurigana (priority), we can probably stop scanning heavily.
+                if (withOkurigana.size >= 10) break 
+
+                try {
+                    val parser = resources.getXml(resId)
+                    var eventType = parser.eventType
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG && parser.name == "word") {
+                            val reading = parser.getAttributeValue(null, "phonetics")
+                            val word = parser.nextText()
+                            
+                            if (word != null && reading != null && !seenWords.contains(word) && word.contains(targetKanji) && word.length > 1) {
+                                seenWords.add(word)
+                                val cleanReading = removeOkurigana(word, reading)
+                                val item = ExampleItem(word, cleanReading)
+                                
+                                val hasKana = word.any { isKana(it) }
+                                if (hasKana) {
+                                    withOkurigana.add(item)
+                                } else {
+                                    withoutOkurigana.add(item)
+                                }
+                            }
+                        }
+                        eventType = parser.next()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            
+            val combined = (withOkurigana + withoutOkurigana).take(5)
+            
+            withContext(Dispatchers.Main) {
+                setupExampleAdapter(binding.recyclerExamples, combined)
+            }
+        }
+    }
+
+    private fun removeOkurigana(word: String, reading: String): String {
+        var wIndex = word.length - 1
+        var rIndex = reading.length - 1
+        while (wIndex >= 0 && rIndex >= 0) {
+            val wChar = word[wIndex]
+            val rChar = reading[rIndex]
+            if (isKana(wChar) && wChar == rChar) {
+                wIndex--
+                rIndex--
+            } else {
+                break
+            }
+        }
+        return if (rIndex < 0) "" else reading.substring(0, rIndex + 1)
+    }
+
+    private fun isKana(c: Char): Boolean {
+        return c in '\u3040'..'\u309F' || c in '\u30A0'..'\u30FF'
     }
 
     override fun onDestroyView() {
