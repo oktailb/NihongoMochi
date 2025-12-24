@@ -1,11 +1,16 @@
 package org.nihongo.mochi.ui.dictionary
 
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,11 +39,14 @@ class KanjiDetailFragment : Fragment() {
     private var kanjiStrokes: Int = 0
     private var jlptLevel: String? = null
     private var schoolGrade: String? = null
+    private var kanjiStructure: String? = null
     private var kanjiMeanings = mutableListOf<String>()
     private var kanjiReadings = mutableListOf<ReadingItem>()
+    private var kanjiComponents = mutableListOf<ComponentItem>()
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
     data class ExampleItem(val word: String, val reading: String)
+    data class ComponentItem(val character: String, val kanjiRef: String?)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,6 +69,8 @@ class KanjiDetailFragment : Fragment() {
         binding.textGrade.text = schoolGrade ?: "-"
         binding.textStrokes.text = kanjiStrokes.toString()
         
+        setupComponents()
+        
         // Setup Reading Lists
         val onReadings = kanjiReadings.filter { it.type == "on" }
         val kunReadings = kanjiReadings.filter { it.type == "kun" }
@@ -69,6 +79,102 @@ class KanjiDetailFragment : Fragment() {
         setupReadingAdapter(binding.recyclerKunReadings, kunReadings, isOn = false)
 
         loadExamples()
+    }
+
+    private fun setupComponents() {
+        if (kanjiComponents.isEmpty()) {
+            binding.layoutComponentsContainer.visibility = View.GONE
+            return
+        }
+        
+        binding.layoutComponentsContainer.visibility = View.VISIBLE
+        binding.textStructure.text = kanjiStructure ?: ""
+        
+        binding.layoutComponentsList.removeAllViews()
+        
+        // Resolve default text color from theme (android:textColor)
+        val typedValue = TypedValue()
+        context?.theme?.resolveAttribute(android.R.attr.textColor, typedValue, true)
+        val defaultTextColor = typedValue.data
+        
+        for (component in kanjiComponents) {
+            val componentLayout = LinearLayout(context)
+            componentLayout.orientation = LinearLayout.VERTICAL
+            componentLayout.gravity = Gravity.CENTER_HORIZONTAL
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            layoutParams.setMargins(16, 0, 16, 0)
+            componentLayout.layoutParams = layoutParams
+
+            // Main Char
+            val tvChar = TextView(context)
+            tvChar.text = component.character
+            tvChar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32f)
+            tvChar.setTextColor(defaultTextColor)
+            tvChar.gravity = Gravity.CENTER
+            componentLayout.addView(tvChar)
+
+            // Ref Char (if different)
+            if (!component.kanjiRef.isNullOrEmpty() && component.kanjiRef != component.character) {
+                val tvRef = TextView(context)
+                tvRef.text = "(${component.kanjiRef})"
+                tvRef.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
+                tvRef.setTextColor(defaultTextColor)
+                tvRef.gravity = Gravity.CENTER
+                componentLayout.addView(tvRef)
+            }
+
+            // Click listener
+            if (!component.kanjiRef.isNullOrEmpty()) {
+                val outValue = TypedValue()
+                context?.theme?.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                componentLayout.setBackgroundResource(outValue.resourceId)
+                
+                componentLayout.isClickable = true
+                componentLayout.setOnClickListener {
+                    navigateToKanji(component.kanjiRef)
+                }
+            }
+
+            binding.layoutComponentsList.addView(componentLayout)
+        }
+    }
+
+    private fun navigateToKanji(character: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val id = findKanjiIdByCharacter(character)
+            withContext(Dispatchers.Main) {
+                if (id != null) {
+                    val bundle = Bundle().apply { putString("kanjiId", id) }
+                    try {
+                        findNavController().navigate(R.id.nav_kanji_detail, bundle)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun findKanjiIdByCharacter(character: String): String? {
+        val parser = resources.getXml(R.xml.kanji_details)
+        try {
+            var eventType = parser.eventType
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG && parser.name == "kanji") {
+                    val c = parser.getAttributeValue(null, "character")
+                    if (c == character) {
+                        return parser.getAttributeValue(null, "id")
+                    }
+                }
+                eventType = parser.next()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return null
     }
 
     private fun setupReadingAdapter(recyclerView: RecyclerView, readings: List<ReadingItem>, isOn: Boolean) {
@@ -140,6 +246,8 @@ class KanjiDetailFragment : Fragment() {
 
         kanjiReadings.clear()
         kanjiMeanings.clear()
+        kanjiComponents.clear()
+        kanjiStructure = null
 
         // Load basic details and readings
         val parser = resources.getXml(R.xml.kanji_details)
@@ -170,6 +278,18 @@ class KanjiDetailFragment : Fragment() {
                                     val freq = parser.getAttributeValue(null, "frequency")?.toIntOrNull() ?: 0
                                     val text = parser.nextText()
                                     kanjiReadings.add(ReadingItem(type, text, freq))
+                                }
+                            }
+                            "components" -> {
+                                kanjiStructure = parser.getAttributeValue(null, "structure")
+                            }
+                            "component" -> {
+                                val ref = parser.getAttributeValue(null, "kanji_ref")
+                                val rawText = parser.nextText()
+                                val cleanText = rawText?.trim() ?: ""
+                                val displayText = if (cleanText.isNotEmpty()) cleanText else ref ?: ""
+                                if (displayText.isNotEmpty()) {
+                                    kanjiComponents.add(ComponentItem(displayText, ref))
                                 }
                             }
                         }
@@ -231,7 +351,6 @@ class KanjiDetailFragment : Fragment() {
             val targetKanji = kanjiCharacter!!
             
             for (resId in resourcesToCheck) {
-                // We want 5 examples max. If we have 5 with Okurigana (priority), we can probably stop scanning heavily.
                 if (withOkurigana.size >= 10) break 
 
                 try {
