@@ -213,4 +213,7 @@
     <string name="dictionary_results_count_format">%1$d 个结果</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
+    
+    <!-- Kanji Details Screen -->
+    <string name="kanji_detail_components">组件</string>
 </resources>

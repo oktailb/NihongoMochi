@@ -208,4 +208,7 @@
     <string name="dictionary_results_count_format">%1$d ফলাফল</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
+    
+    <!-- Kanji Details Screen -->
+    <string name="kanji_detail_components">উপাদান</string>
 </resources>
