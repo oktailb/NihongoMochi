@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.chip.Chip
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentWordListBinding
@@ -35,7 +36,7 @@ class WordListFragment : Fragment() {
     private var displayedWords: List<WordItem> = emptyList()
     private var currentPage = 0
     private val pageSize = 80
-    private val allKanjiDetailsXml = mutableListOf<KanjiDetail>()
+    private val allKanjiDetails = mutableListOf<KanjiDetail>()
     private val wordTypes = mutableListOf<Pair<String, String>>()
 
     override fun onCreateView(
@@ -175,7 +176,7 @@ class WordListFragment : Fragment() {
         for (i in startIndex until endIndex) {
             val word = displayedWords[i]
             val score = wordScores[i]
-            val kanjiDetail = allKanjiDetailsXml.firstOrNull { it.character == word.text }
+            val kanjiDetail = allKanjiDetails.firstOrNull { it.character == word.text }
 
             val chip = Chip(context).apply {
                 text = word.text
@@ -230,41 +231,28 @@ class WordListFragment : Fragment() {
     }
 
     private fun loadAllKanjiDetails() {
+        // Load meanings from XML (Legacy)
         val meanings = loadMeanings()
-        val parser = resources.getXml(R.xml.kanji_details)
-
-        try {
-            var eventType = parser.eventType
-            var currentKanjiDetail: KanjiDetail? = null
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                when (eventType) {
-                    XmlPullParser.START_TAG -> {
-                        if (parser.name == "kanji") {
-                            val id = parser.getAttributeValue(null, "id")
-                            val character = parser.getAttributeValue(null, "character")
-                            if (id != null && character != null) {
-                                val kanjiMeanings = meanings[id] ?: emptyList()
-                                currentKanjiDetail = KanjiDetail(id, character, kanjiMeanings, mutableListOf())
-                                allKanjiDetailsXml.add(currentKanjiDetail)
-                            }
-                        } else if (parser.name == "reading" && currentKanjiDetail != null) {
-                            val type = parser.getAttributeValue(null, "type")
-                            val frequency = parser.getAttributeValue(null, "frequency").toInt()
-                            val value = parser.nextText()
-                            (currentKanjiDetail.readings as MutableList).add(Reading(value, type, frequency))
-                        }
-                    }
-                    XmlPullParser.END_TAG -> {
-                        if (parser.name == "kanji") {
-                            currentKanjiDetail = null
-                        }
-                    }
-                }
-                eventType = parser.next()
+        
+        // Load details from Shared Repository (JSON)
+        val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
+        
+        allKanjiDetails.clear()
+        
+        for (entry in allKanjiEntries) {
+            val id = entry.id
+            val character = entry.character
+            val kanjiMeanings = meanings[id] ?: emptyList()
+            
+            // Map JSON readings to UI Readings
+            val readingsList = mutableListOf<Reading>()
+            entry.readings?.reading?.forEach { readingEntry ->
+                 val freq = readingEntry.frequency?.toIntOrNull() ?: 0
+                 readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            
+            val kanjiDetail = KanjiDetail(id, character, kanjiMeanings, readingsList)
+            allKanjiDetails.add(kanjiDetail)
         }
     }
 
@@ -295,7 +283,7 @@ class WordListFragment : Fragment() {
                 eventType = parser.next()
             }
         } catch (e: Resources.NotFoundException) {
-            Log.e("WordListFragment", "meanings.xml not found for current locale. Fallback should occur.", e)
+            Log.e("WordListFragment", "meanings.xml not found.", e)
         } catch (e: XmlPullParserException) {
             Log.e("WordListFragment", "Error parsing meanings.xml", e)
         } catch (e: IOException) {

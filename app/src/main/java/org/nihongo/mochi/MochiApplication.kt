@@ -8,8 +8,16 @@ import org.nihongo.mochi.domain.kana.AndroidResourceLoader
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.RomajiToKana
+import org.nihongo.mochi.domain.kanji.KanjiRepository
 
 class MochiApplication : Application() {
+
+    companion object {
+        lateinit var kanaRepository: KanaRepository
+            private set
+        lateinit var kanjiRepository: KanjiRepository
+            private set
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -21,10 +29,13 @@ class MochiApplication : Application() {
         
         ScoreManager.init(scoresSettings, userListSettings, appSettings)
 
-        // Init Kana Domain
+        // Init Domain Repositories
         val resourceLoader = AndroidResourceLoader(this)
-        val kanaRepository = KanaRepository(resourceLoader)
         
+        kanaRepository = KanaRepository(resourceLoader)
+        kanjiRepository = KanjiRepository(resourceLoader)
+        
+        // Init Services depending on repositories
         KanaToRomaji.init(kanaRepository)
         RomajiToKana.init(kanaRepository)
     }

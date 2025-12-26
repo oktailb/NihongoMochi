@@ -3,9 +3,9 @@ package org.nihongo.mochi.ui.recognitiongame
 import androidx.lifecycle.ViewModel
 import org.nihongo.mochi.ui.game.GameStatus
 import org.nihongo.mochi.ui.game.KanjiDetail
+import org.nihongo.mochi.ui.game.KanjiProgress
 import org.nihongo.mochi.ui.game.Reading
 
-data class KanjiProgress(var normalSolved: Boolean = false, var reverseSolved: Boolean = false)
 enum class QuestionDirection { NORMAL, REVERSE }
 
 class RecognitionGameViewModel : ViewModel() {

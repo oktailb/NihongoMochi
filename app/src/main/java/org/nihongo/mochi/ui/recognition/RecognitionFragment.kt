@@ -7,16 +7,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentRecognitionBinding
-import org.nihongo.mochi.domain.kana.AndroidResourceLoader
-import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
-import org.xmlpull.v1.XmlPullParser
 
-data class LevelInfo(val button: Button, val xmlName: String, val stringResId: Int)
+data class LevelInfo(val button: Button, val levelKey: String, val stringResId: Int)
 
 class RecognitionFragment : Fragment() {
 
@@ -24,11 +22,6 @@ class RecognitionFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var levelInfos: List<LevelInfo>
-    
-    // Lazy init of repository
-    private val kanaRepository by lazy {
-        KanaRepository(AndroidResourceLoader(requireContext()))
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +44,9 @@ class RecognitionFragment : Fragment() {
     }
 
     private fun initializeLevelInfos() {
+        // levelKey maps to what we will ask the repository.
+        // For XML legacy, it was the "name" attribute in kanji_levels.xml.
+        // For JSON, we will adapt in getKanjiForLevel.
         levelInfos = listOf(
             LevelInfo(binding.buttonN5, "N5", R.string.level_n5),
             LevelInfo(binding.buttonN4, "N4", R.string.level_n4),
@@ -63,6 +59,8 @@ class RecognitionFragment : Fragment() {
             LevelInfo(binding.buttonClass4, "Grade 4", R.string.level_class_4),
             LevelInfo(binding.buttonClass5, "Grade 5", R.string.level_class_5),
             LevelInfo(binding.buttonClass6, "Grade 6", R.string.level_class_6),
+            // Mapping for higher grades might need adjustment depending on JSON content.
+            // Assuming continuity 7, 8, 9, 10 for middle/high school.
             LevelInfo(binding.buttonTest4, "Grade 7", R.string.level_high_school_1),
             LevelInfo(binding.buttonTest3, "Grade 8", R.string.level_high_school_2),
             LevelInfo(binding.buttonTestPre2, "Grade 9", R.string.level_high_school_3),
@@ -73,90 +71,34 @@ class RecognitionFragment : Fragment() {
     }
 
     private fun updateAllButtonPercentages() {
-        val allKanji = loadAllKanji()
-
         for (info in levelInfos) {
-            val charactersForLevel = when (info.xmlName) {
-                "Hiragana" -> loadKanaCharacters(KanaType.HIRAGANA)
-                "Katakana" -> loadKanaCharacters(KanaType.KATAKANA)
-                else -> getKanjiForLevel(info.xmlName, allKanji)
-            }
+            val charactersForLevel = getCharactersForLevel(info.levelKey)
             val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
             updateButtonText(info, masteryPercentage)
         }
     }
     
-    private fun loadKanaCharacters(type: KanaType): List<String> {
-        return kanaRepository.getKanaEntries(type).map { it.character }
+    private fun getCharactersForLevel(levelKey: String): List<String> {
+        return when (levelKey) {
+            "Hiragana" -> MochiApplication.kanaRepository.getKanaEntries(KanaType.HIRAGANA).map { it.character }
+            "Katakana" -> MochiApplication.kanaRepository.getKanaEntries(KanaType.KATAKANA).map { it.character }
+            else -> getKanjiCharactersForLevel(levelKey)
+        }
     }
 
-    // Keep XML loader only for Kanji until they are migrated
-    private fun loadCharacters(resourceId: Int): List<String> {
-        // This method is now only for legacy calls if any, or can be removed if unused.
-        // But since we removed R.xml.hiragana, we should not use this for kana.
-        val characterList = mutableListOf<String>()
-        val parser = resources.getXml(resourceId)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "character") {
-                    characterList.add(parser.nextText())
-                }
-                eventType = parser.next()
+    private fun getKanjiCharactersForLevel(levelKey: String): List<String> {
+        // Map UI levelKey to JSON properties
+        val (type, value) = when {
+            levelKey.startsWith("N") -> "jlpt" to levelKey
+            levelKey.startsWith("Grade ") -> {
+                val grade = levelKey.removePrefix("Grade ")
+                "grade" to grade
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+             // For "Grade 7" -> "7" etc. assuming JSON has 7 for college
+            else -> return emptyList()
         }
-        return characterList
-    }
-
-    private fun loadAllKanji(): Map<String, String> {
-        val allKanji = mutableMapOf<String, String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "kanji") {
-                    val id = parser.getAttributeValue(null, "id")
-                    val character = parser.nextText()
-                    if (id != null) {
-                        allKanji[id] = character
-                    }
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return allKanji
-    }
-
-    private fun getKanjiForLevel(levelName: String, allKanji: Map<String, String>): List<String> {
-        val levelKanjiIds = mutableListOf<String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "level" && parser.getAttributeValue(null, "name") == levelName) {
-                    parseKanjiIdsForLevel(parser, levelKanjiIds)
-                    break // Exit after finding the level
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return levelKanjiIds.mapNotNull { allKanji[it] }
-    }
-
-    private fun parseKanjiIdsForLevel(parser: XmlPullParser, levelKanjiIds: MutableList<String>) {
-        var eventType = parser.eventType
-        while (eventType != XmlPullParser.END_TAG || parser.name != "level") {
-            if (eventType == XmlPullParser.START_TAG && parser.name == "kanji_id") {
-                levelKanjiIds.add(parser.nextText())
-            }
-            eventType = parser.next()
-        }
+        
+        return MochiApplication.kanjiRepository.getKanjiByLevel(type, value).map { it.character }
     }
 
     private fun calculateMasteryPercentage(characterList: List<String>): Double {
@@ -183,17 +125,19 @@ class RecognitionFragment : Fragment() {
     private fun setupClickListeners() {
         for (info in levelInfos) {
             info.button.setOnClickListener { 
-                when (info.xmlName) {
+                when (info.levelKey) {
                     "Hiragana" -> findNavController().navigate(R.id.action_nav_recognition_to_nav_hiragana)
                     "Katakana" -> findNavController().navigate(R.id.action_nav_recognition_to_nav_katakana)
-                    else -> navigateToRecap(info.xmlName)
+                    else -> navigateToRecap(info.levelKey)
                 }
             }
         }
     }
 
-    private fun navigateToRecap(levelXmlName: String) {
-        val bundle = Bundle().apply { putString("level", levelXmlName) }
+    private fun navigateToRecap(levelKey: String) {
+        // We pass the levelKey (e.g., "N5", "Grade 1") to the next fragment.
+        // The GameRecapFragment will also need to be updated to use the repository.
+        val bundle = Bundle().apply { putString("level", levelKey) }
         findNavController().navigate(R.id.action_nav_recognition_to_game_recap, bundle)
     }
 

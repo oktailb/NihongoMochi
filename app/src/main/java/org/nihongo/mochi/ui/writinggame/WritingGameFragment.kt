@@ -19,20 +19,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentWritingGameBinding
+import org.nihongo.mochi.domain.kana.RomajiToKana
+import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.nihongo.mochi.ui.game.GameStatus
 import org.nihongo.mochi.ui.game.KanjiDetail
+import org.nihongo.mochi.ui.game.KanjiProgress
 import org.nihongo.mochi.ui.game.Reading
-import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import java.io.IOException
 import java.text.Normalizer
 import kotlin.math.max
-import org.nihongo.mochi.domain.kana.RomajiToKana
 
 class WritingGameFragment : Fragment() {
 
@@ -105,17 +107,19 @@ class WritingGameFragment : Fragment() {
         val level = args.level ?: ""
 
         loadAllKanjiDetails()
-        val kanjiForLevel = loadKanjiForLevel(level)
+        val kanjiCharsForLevel = loadKanjiCharsForLevel(level)
 
         viewModel.allKanjiDetails.clear()
-        viewModel.allKanjiDetails.addAll(viewModel.allKanjiDetailsXml.filter { kanjiForLevel.contains(it.character) })
+        viewModel.allKanjiDetails.addAll(
+            viewModel.allKanjiDetailsXml.filter { kanjiCharsForLevel.contains(it.character) }
+        )
         viewModel.allKanjiDetails.shuffle()
         viewModel.kanjiListPosition = 0
 
         if (viewModel.allKanjiDetails.isNotEmpty()) {
             startNewSet()
         } else {
-            Log.e("WritingGameFragment", "No kanji loaded for level: $level. Check XML files.")
+            Log.e("WritingGameFragment", "No kanji loaded for level: $level.")
             findNavController().popBackStack()
         }
     }
@@ -415,44 +419,20 @@ class WritingGameFragment : Fragment() {
         }
     }
 
-    // --- Loading Data (Similar to RecognitionGameFragment) ---
+    // --- Loading Data (Migrated to use Shared Repository) ---
 
-    private fun loadKanjiForLevel(levelName: String): List<String> {
-        val allKanji = mutableMapOf<String, String>()
-        val levelKanjiIds = mutableListOf<String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG) {
-                    if (parser.name == "kanji") {
-                        val id = parser.getAttributeValue(null, "id")
-                        val character = parser.nextText()
-                        if (id != null) {
-                            allKanji[id] = character
-                        }
-                    } else if (parser.name == "level" && parser.getAttributeValue(null, "name") == levelName) {
-                        parseKanjiIdsForLevel(parser, levelKanjiIds)
-                    }
-                }
-                eventType = parser.next()
+    private fun loadKanjiCharsForLevel(levelName: String): List<String> {
+        val (type, value) = when {
+            levelName.startsWith("N") -> "jlpt" to levelName
+            levelName.startsWith("Grade ") -> {
+                val grade = levelName.removePrefix("Grade ")
+                "grade" to grade
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            // Add custom mapping if needed
+            else -> return emptyList()
         }
-
-        return levelKanjiIds.mapNotNull { allKanji[it] }
-    }
-
-    private fun parseKanjiIdsForLevel(parser: XmlPullParser, levelKanjiIds: MutableList<String>) {
-        var eventType = parser.eventType
-        while (eventType != XmlPullParser.END_TAG || parser.name != "level") {
-            if (eventType == XmlPullParser.START_TAG && parser.name == "kanji_id") {
-                levelKanjiIds.add(parser.nextText())
-            }
-            eventType = parser.next()
-        }
+        
+        return MochiApplication.kanjiRepository.getKanjiByLevel(type, value).map { it.character }
     }
 
     private fun loadMeanings(): Map<String, List<String>> {
@@ -493,40 +473,26 @@ class WritingGameFragment : Fragment() {
 
     private fun loadAllKanjiDetails() {
         val meanings = loadMeanings()
-        val parser = resources.getXml(R.xml.kanji_details)
-
-        try {
-            var eventType = parser.eventType
-            var currentKanjiDetail: KanjiDetail? = null
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                when (eventType) {
-                    XmlPullParser.START_TAG -> {
-                        if (parser.name == "kanji") {
-                            val id = parser.getAttributeValue(null, "id")
-                            val character = parser.getAttributeValue(null, "character")
-                            if (id != null && character != null) {
-                                val kanjiMeanings = meanings[id] ?: emptyList()
-                                currentKanjiDetail = KanjiDetail(id, character, kanjiMeanings, mutableListOf())
-                                viewModel.allKanjiDetailsXml.add(currentKanjiDetail)
-                            }
-                        } else if (parser.name == "reading" && currentKanjiDetail != null) {
-                            val type = parser.getAttributeValue(null, "type")
-                            val frequency = parser.getAttributeValue(null, "frequency").toInt()
-                            val value = parser.nextText()
-                            (currentKanjiDetail.readings as MutableList).add(Reading(value, type, frequency))
-                        }
-                    }
-                    XmlPullParser.END_TAG -> {
-                        if (parser.name == "kanji") {
-                            currentKanjiDetail = null
-                        }
-                    }
-                }
-                eventType = parser.next()
+        
+        // Load details from Shared Repository (JSON)
+        val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
+        
+        viewModel.allKanjiDetailsXml.clear()
+        
+        for (entry in allKanjiEntries) {
+            val id = entry.id
+            val character = entry.character
+            val kanjiMeanings = meanings[id] ?: emptyList()
+            
+            // Map JSON readings to UI Readings
+            val readingsList = mutableListOf<Reading>()
+            entry.readings?.reading?.forEach { readingEntry ->
+                 val freq = readingEntry.frequency?.toIntOrNull() ?: 0
+                 readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            
+            val kanjiDetail = KanjiDetail(id, character, kanjiMeanings, readingsList)
+            viewModel.allKanjiDetailsXml.add(kanjiDetail)
         }
     }
 

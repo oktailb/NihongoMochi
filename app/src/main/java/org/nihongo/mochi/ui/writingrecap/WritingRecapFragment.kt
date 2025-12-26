@@ -10,11 +10,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentWritingRecapBinding
+import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.ui.ScoreUiUtils
-import org.xmlpull.v1.XmlPullParser
 
 class WritingRecapFragment : Fragment() {
 
@@ -22,9 +23,7 @@ class WritingRecapFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: WritingRecapFragmentArgs by navArgs()
 
-    private var kanjiList: List<String> = emptyList()
-    // Map character -> ID for navigation
-    private var kanjiIdMap: MutableMap<String, String> = mutableMapOf()
+    private var kanjiList: List<KanjiEntry> = emptyList()
     private var currentPage = 0
     private val pageSize = 80 // 8 columns * 10 rows
 
@@ -47,7 +46,8 @@ class WritingRecapFragment : Fragment() {
 
         binding.buttonPlay.setOnClickListener {
             if (level == "user_custom_list") {
-                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(null, kanjiList.toTypedArray())
+                val characters = kanjiList.map { it.character }.toTypedArray()
+                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(null, characters)
                 findNavController().navigate(action)
             } else {
                 val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level, null)
@@ -72,7 +72,10 @@ class WritingRecapFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        kanjiList = loadKanjiForLevel(args.level)
+        // Reload list in case scores changed (for user list)
+        if (args.level == "user_custom_list") {
+            kanjiList = loadKanjiForLevel(args.level)
+        }
         updateUi()
     }
 
@@ -86,32 +89,23 @@ class WritingRecapFragment : Fragment() {
 
         binding.buttonPlay.isEnabled = true
 
-        val kanjiScores = kanjiList.map { ScoreManager.getScore(it, ScoreManager.ScoreType.WRITING) }
-
         val startIndex = currentPage * pageSize
         val endIndex = (startIndex + pageSize).coerceAtMost(kanjiList.size)
 
         binding.gridKanji.removeAllViews()
         for (i in startIndex until endIndex) {
-            val kanjiCharacter = kanjiList[i]
-            val score = kanjiScores[i]
+            val kanjiEntry = kanjiList[i]
+            val score = ScoreManager.getScore(kanjiEntry.character, ScoreManager.ScoreType.WRITING)
 
             val textView = TextView(context).apply {
-                text = kanjiCharacter
+                text = kanjiEntry.character
                 textSize = 24f
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
                 
-                // Use default text color from theme (usually handled by attribute, but here explicitly using attribute is complex programmatically)
-                // A safe bet is using standard color resource or obtaining from theme.
-                // Assuming R.color.primary_text or similar exists or we can resolve ?android:attr/textColorPrimary
                 val typedValue = TypedValue()
                 context.theme.resolveAttribute(android.R.attr.textColorPrimary, typedValue, true)
                 setTextColor(ContextCompat.getColor(context, typedValue.resourceId))
 
-                // Using ScoreManager color logic but ensuring it matches theme somewhat?
-                // Actually score colors are semantic (Red/Green/Orange/Gray).
-                // Let's assume ScoreManager returns appropriate colors, or use resources if needed.
-                // For background, we use the score color.
                 setBackgroundColor(ScoreUiUtils.getScoreColor(requireContext(), score))
                 
                 val params = android.widget.GridLayout.LayoutParams().apply {
@@ -122,13 +116,9 @@ class WritingRecapFragment : Fragment() {
                 }
                 layoutParams = params
                 
-                // Add click listener
                 setOnClickListener {
-                    val id = kanjiIdMap[kanjiCharacter]
-                    if (id != null) {
-                        val action = WritingRecapFragmentDirections.actionWritingRecapToKanjiDetail(id)
-                        findNavController().navigate(action)
-                    }
+                    val action = WritingRecapFragmentDirections.actionWritingRecapToKanjiDetail(kanjiEntry.id)
+                    findNavController().navigate(action)
                 }
             }
             binding.gridKanji.addView(textView)
@@ -141,73 +131,25 @@ class WritingRecapFragment : Fragment() {
         binding.buttonNextPage.alpha = if (endIndex < kanjiList.size) 1.0f else 0.5f
     }
 
-    private fun loadKanjiForLevel(levelName: String): List<String> {
+    private fun loadKanjiForLevel(levelName: String): List<KanjiEntry> {
         if (levelName == "user_custom_list") {
-            return loadUserListKanji()
+            val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.WRITING)
+            val userKanjiChars = scores.filter { (_, score) -> (score.successes - score.failures) < 10 }.keys
+            // We need the full KanjiEntry, not just the character. So we get them from the repo.
+            val allKanji = MochiApplication.kanjiRepository.getAllKanji()
+            return allKanji.filter { userKanjiChars.contains(it.character) }
         }
 
-        val allKanji = mutableMapOf<String, String>()
-        val levelKanjiIds = mutableListOf<String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-        kanjiIdMap.clear()
-
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG) {
-                    if (parser.name == "kanji") {
-                        val id = parser.getAttributeValue(null, "id")
-                        val character = parser.nextText()
-                        if (id != null) {
-                            allKanji[id] = character
-                            kanjiIdMap[character] = id
-                        }
-                    } else if (parser.name == "level" && parser.getAttributeValue(null, "name") == levelName) {
-                        parseKanjiIdsForLevel(parser, levelKanjiIds)
-                    }
-                }
-                eventType = parser.next()
+        val (type, value) = when {
+            levelName.startsWith("N") -> "jlpt" to levelName
+            levelName.startsWith("Grade ") -> {
+                val grade = levelName.removePrefix("Grade ")
+                "grade" to grade
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            else -> return emptyList()
         }
-
-        return levelKanjiIds.mapNotNull { allKanji[it] }
-    }
-
-    private fun loadUserListKanji(): List<String> {
-        populateFullKanjiMap()
-        val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.WRITING)
-        return scores.filter { (_, score) -> (score.successes - score.failures) < 10 }.keys.toList()
-    }
-    
-    private fun populateFullKanjiMap() {
-        if (kanjiIdMap.isNotEmpty()) return 
         
-        val parser = resources.getXml(R.xml.kanji_levels)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "kanji") {
-                    val id = parser.getAttributeValue(null, "id")
-                    val character = parser.nextText()
-                    if (id != null) {
-                        kanjiIdMap[character] = id
-                    }
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) { e.printStackTrace() }
-    }
-
-    private fun parseKanjiIdsForLevel(parser: XmlPullParser, levelKanjiIds: MutableList<String>) {
-        var eventType = parser.eventType
-        while (eventType != XmlPullParser.END_TAG || parser.name != "level") {
-            if (eventType == XmlPullParser.START_TAG && parser.name == "kanji_id") {
-                levelKanjiIds.add(parser.nextText())
-            }
-            eventType = parser.next()
-        }
+        return MochiApplication.kanjiRepository.getKanjiByLevel(type, value)
     }
 
     override fun onDestroyView() {

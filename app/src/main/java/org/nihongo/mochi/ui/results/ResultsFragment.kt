@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,11 +21,10 @@ import com.google.android.gms.games.SnapshotsClient
 import com.google.android.gms.games.snapshot.Snapshot
 import com.google.android.gms.games.snapshot.SnapshotMetadataChange
 import com.google.android.gms.tasks.Task
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentResultsBinding
-import org.nihongo.mochi.domain.kana.AndroidResourceLoader
-import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.xmlpull.v1.XmlPullParser
 import java.io.IOException
@@ -40,11 +40,6 @@ class ResultsFragment : Fragment() {
 
     private val RC_SAVED_GAMES = 9009
     private var mCurrentSaveName = "NihongoMochiSnapshot"
-    
-    // Lazy init of repository
-    private val kanaRepository by lazy {
-        KanaRepository(AndroidResourceLoader(requireContext()))
-    }
 
     private val achievementsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -259,7 +254,6 @@ class ResultsFragment : Fragment() {
     }
 
     private fun updateAllPercentages() {
-        val allKanji = loadAllKanji()
         val levelInfos = initializeLevelInfos()
 
         for (info in levelInfos) {
@@ -270,12 +264,7 @@ class ResultsFragment : Fragment() {
                 else -> ScoreManager.ScoreType.RECOGNITION
             }
 
-            val charactersForLevel = when {
-                info.xmlName == "Hiragana" -> loadKanaCharacters(KanaType.HIRAGANA)
-                info.xmlName == "Katakana" -> loadKanaCharacters(KanaType.KATAKANA)
-                info.xmlName.startsWith("bccwj_wordlist_") -> loadWordsFromXml(info.xmlName)
-                else -> getKanjiForLevel(info.xmlName, allKanji)
-            }
+            val charactersForLevel = getCharactersForLevel(info.xmlName, scoreType)
 
             // For user list, we calculate differently: mastered vs encountered
             val percentage = if (info.xmlName == "user_list") {
@@ -288,8 +277,24 @@ class ResultsFragment : Fragment() {
         }
     }
     
-    private fun loadKanaCharacters(type: KanaType): List<String> {
-        return kanaRepository.getKanaEntries(type).map { it.character }
+    private fun getCharactersForLevel(levelKey: String, scoreType: ScoreManager.ScoreType): List<String> {
+        return when {
+            levelKey == "Hiragana" -> MochiApplication.kanaRepository.getKanaEntries(KanaType.HIRAGANA).map { it.character }
+            levelKey == "Katakana" -> MochiApplication.kanaRepository.getKanaEntries(KanaType.KATAKANA).map { it.character }
+            levelKey.startsWith("bccwj_wordlist_") -> loadWordsFromXml(levelKey)
+            else -> {
+                val (type, value) = when {
+                    levelKey.startsWith("reading_") -> {
+                        val cleanKey = levelKey.removePrefix("reading_")
+                        if (cleanKey.startsWith("N")) "jlpt" to cleanKey else "" to ""
+                    }
+                    levelKey.startsWith("N") -> "jlpt" to levelKey
+                    levelKey.startsWith("Grade") -> "grade" to levelKey.removePrefix("Grade ")
+                    else -> "" to ""
+                }
+                if(type.isNotEmpty()) MochiApplication.kanjiRepository.getKanjiByLevel(type, value).map { it.character } else emptyList()
+            }
+        }
     }
 
     private fun calculateUserListPercentage(scoreType: ScoreManager.ScoreType): Double {
@@ -354,23 +359,6 @@ class ResultsFragment : Fragment() {
         )
     }
 
-    private fun loadCharacters(resourceId: Int): List<String> {
-        val characterList = mutableListOf<String>()
-        val parser = resources.getXml(resourceId)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "character") {
-                    characterList.add(parser.nextText())
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return characterList
-    }
-
     private fun loadWordsFromXml(fileName: String): List<String> {
         val wordList = mutableListOf<String>()
         val resourceId = resources.getIdentifier(fileName, "xml", requireContext().packageName)
@@ -389,55 +377,6 @@ class ResultsFragment : Fragment() {
             e.printStackTrace()
         }
         return wordList
-    }
-
-    private fun loadAllKanji(): Map<String, String> {
-        val allKanji = mutableMapOf<String, String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "kanji") {
-                    val id = parser.getAttributeValue(null, "id")
-                    val character = parser.nextText()
-                    if (id != null) {
-                        allKanji[id] = character
-                    }
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return allKanji
-    }
-
-    private fun getKanjiForLevel(levelName: String, allKanji: Map<String, String>): List<String> {
-        val levelKanjiIds = mutableListOf<String>()
-        val parser = resources.getXml(R.xml.kanji_levels)
-        try {
-            var eventType = parser.eventType
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG && parser.name == "level" && parser.getAttributeValue(null, "name") == levelName) {
-                    parseKanjiIdsForLevel(parser, levelKanjiIds)
-                    break // Exit after finding the level
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return levelKanjiIds.mapNotNull { allKanji[it] }
-    }
-
-    private fun parseKanjiIdsForLevel(parser: XmlPullParser, levelKanjiIds: MutableList<String>) {
-        var eventType = parser.eventType
-        while (eventType != XmlPullParser.END_TAG || parser.name != "level") {
-            if (eventType == XmlPullParser.START_TAG && parser.name == "kanji_id") {
-                levelKanjiIds.add(parser.nextText())
-            }
-            eventType = parser.next()
-        }
     }
 
     private fun calculateMasteryPercentage(characterList: List<String>, scoreType: ScoreManager.ScoreType): Double {

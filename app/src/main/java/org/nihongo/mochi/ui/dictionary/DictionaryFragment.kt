@@ -21,10 +21,12 @@ import com.google.mlkit.vision.digitalink.Ink
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentDictionaryBinding
 import org.nihongo.mochi.databinding.ItemDictionaryBinding
 import org.nihongo.mochi.domain.kana.RomajiToKana
+import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.xmlpull.v1.XmlPullParser
 import kotlin.math.max
 import kotlin.math.min
@@ -203,59 +205,30 @@ class DictionaryFragment : Fragment() {
     // --- Data Loading ---
     private suspend fun loadDictionaryData() = withContext(Dispatchers.IO) {
         if (viewModel.isDataLoaded) return@withContext
-        parseKanjiDetails()
+        loadKanjiDetailsFromRepo()
         parseMeanings()
         viewModel.allKanjiList.addAll(viewModel.kanjiDataMap.values.sortedBy { it.id.toIntOrNull() ?: 0 })
     }
 
-    private fun parseKanjiDetails() {
-        val parser = resources.getXml(R.xml.kanji_details)
-        try {
-            var eventType = parser.eventType
-            var currentId: String? = null
-            var currentCharacter: String? = null
-            var currentStrokes = 0
-            val currentReadings = mutableListOf<ReadingInfo>()
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                when(eventType) {
-                    XmlPullParser.START_TAG -> {
-                        when (parser.name) {
-                            "kanji" -> {
-                                currentId = parser.getAttributeValue(null, "id")
-                                currentCharacter = parser.getAttributeValue(null, "character")
-                                currentReadings.clear()
-                                currentStrokes = 0
-                            }
-                            "strokes" -> {
-                                try {
-                                    currentStrokes = parser.nextText().toInt()
-                                } catch (e: Exception) { /* Ignore */ }
-                            }
-                            "reading" -> {
-                                val type = parser.getAttributeValue(null, "type") ?: "unknown"
-                                val r = parser.nextText()
-                                if (r.isNotEmpty()) currentReadings.add(ReadingInfo(r, type))
-                            }
-                        }
-                    }
-                    XmlPullParser.END_TAG -> {
-                         if (parser.name == "kanji" && currentId != null && currentCharacter != null) {
-                            val item = DictionaryItem(
-                                id = currentId,
-                                character = currentCharacter,
-                                readings = ArrayList(currentReadings),
-                                strokeCount = currentStrokes,
-                                meanings = mutableListOf()
-                            )
-                            viewModel.kanjiDataMap[currentId] = item
-                        }
-                    }
-                }
-                eventType = parser.next()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+    private fun loadKanjiDetailsFromRepo() {
+        // Use Shared Repository instead of XML
+        val allKanji = MochiApplication.kanjiRepository.getAllKanji()
+        
+        for (kanjiEntry in allKanji) {
+            val readings = kanjiEntry.readings?.reading?.map { 
+                ReadingInfo(it.value, it.type)
+            } ?: emptyList()
+            
+            val strokes = kanjiEntry.strokes?.toIntOrNull() ?: 0
+            
+            val item = DictionaryItem(
+                id = kanjiEntry.id,
+                character = kanjiEntry.character,
+                readings = readings,
+                strokeCount = strokes,
+                meanings = mutableListOf()
+            )
+            viewModel.kanjiDataMap[kanjiEntry.id] = item
         }
     }
 

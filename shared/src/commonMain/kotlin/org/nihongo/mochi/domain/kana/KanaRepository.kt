@@ -8,8 +8,8 @@ class KanaRepository(private val resourceLoader: ResourceLoader) {
 
     fun getKanaEntries(type: KanaType): List<KanaEntry> {
         val fileName = when (type) {
-            KanaType.HIRAGANA -> "hiragana.json"
-            KanaType.KATAKANA -> "katakana.json"
+            KanaType.HIRAGANA -> "kana/hiragana.json"
+            KanaType.KATAKANA -> "kana/katakana.json"
         }
         
         val jsonString = resourceLoader.loadJson(fileName)
