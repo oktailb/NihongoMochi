@@ -18,15 +18,11 @@ import org.nihongo.mochi.data.ScoreManager
 class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
-        ScoreManager.decayScores()
+        val decayed = ScoreManager.decayScores()
         
-        // We only send a notification if the decay actually happened.
-        // But ScoreManager.decayScores doesn't return info on whether something decayed.
-        // For simplicity, we can assume this worker runs once a week, so we send the notification.
-        // Or we could run it daily and check if we should notify.
-        // Given the requirement "pusher une notification", let's send it.
-        
-        sendNotification()
+        if (decayed) {
+            sendNotification()
+        }
         
         return Result.success()
     }

@@ -147,7 +147,8 @@ object ScoreManager : ScoreRepository {
         }.toMap()
     }
 
-    override fun decayScores() {
+    override fun decayScores(): Boolean {
+        var anyScoreDecayed = false
         val currentTime = Clock.System.now().toEpochMilliseconds()
         val ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000L
 
@@ -163,12 +164,14 @@ object ScoreManager : ScoreRepository {
                     if (currentTime - lastDate > ONE_WEEK_MS && successes > 0) {
                         successes /= 2
                         scoresSettings.putString(key, "$successes-$failures-$currentTime")
+                        anyScoreDecayed = true
                     }
                 } catch (e: Exception) {
                     // Ignore
                 }
             }
         }
+        return anyScoreDecayed
     }
 
     override fun getAllDataJson(): String {
