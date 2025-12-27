@@ -1,18 +1,18 @@
 package org.nihongo.mochi.ui.writingrecap
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentWritingRecapBinding
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.ui.ScoreUiUtils
@@ -25,7 +25,7 @@ class WritingRecapFragment : Fragment() {
 
     private var kanjiList: List<KanjiEntry> = emptyList()
     private var currentPage = 0
-    private val pageSize = 80 // 8 columns * 10 rows
+    private val pageSize = 80
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,22 +39,25 @@ class WritingRecapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.textGameTitle.text = getString(R.string.title_game_recap)
+
         val level = args.level
         binding.textLevelTitle.text = level
 
+        // Load Kanji list for the level
         kanjiList = loadKanjiForLevel(level)
+        
+        // Initial UI Update
+        updateUi()
 
         binding.buttonPlay.setOnClickListener {
-            if (level == "user_custom_list") {
-                val characters = kanjiList.map { it.character }.toTypedArray()
-                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(null, characters)
-                findNavController().navigate(action)
-            } else {
-                val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level, null)
-                findNavController().navigate(action)
-            }
+            val action = WritingRecapFragmentDirections.actionWritingRecapToWritingGame(level, null)
+            findNavController().navigate(action)
         }
+        
+        binding.buttonPlay.isEnabled = true
 
+        // Pagination controls
         binding.buttonNextPage.setOnClickListener {
             if ((currentPage + 1) * pageSize < kanjiList.size) {
                 currentPage++
@@ -72,10 +75,6 @@ class WritingRecapFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Reload list in case scores changed (for user list)
-        if (args.level == "user_custom_list") {
-            kanjiList = loadKanjiForLevel(args.level)
-        }
         updateUi()
     }
 
@@ -83,11 +82,8 @@ class WritingRecapFragment : Fragment() {
         if (kanjiList.isEmpty()) {
             binding.gridKanji.removeAllViews()
             binding.textPagination.text = "0..0 / 0"
-            binding.buttonPlay.isEnabled = false
             return
         }
-
-        binding.buttonPlay.isEnabled = true
 
         val startIndex = currentPage * pageSize
         val endIndex = (startIndex + pageSize).coerceAtMost(kanjiList.size)
@@ -95,19 +91,15 @@ class WritingRecapFragment : Fragment() {
         binding.gridKanji.removeAllViews()
         for (i in startIndex until endIndex) {
             val kanjiEntry = kanjiList[i]
-            val score = ScoreManager.getScore(kanjiEntry.character, ScoreManager.ScoreType.WRITING)
+            // Use WRITING score type here
+            val score = ScoreManager.getScore(kanjiEntry.character, ScoreType.WRITING)
 
             val textView = TextView(context).apply {
                 text = kanjiEntry.character
                 textSize = 24f
                 textAlignment = View.TEXT_ALIGNMENT_CENTER
-                
-                val typedValue = TypedValue()
-                context.theme.resolveAttribute(android.R.attr.textColorPrimary, typedValue, true)
-                setTextColor(ContextCompat.getColor(context, typedValue.resourceId))
-
+                setTextColor(Color.BLACK)
                 setBackgroundColor(ScoreUiUtils.getScoreColor(requireContext(), score))
-                
                 val params = android.widget.GridLayout.LayoutParams().apply {
                     width = 0
                     height = android.widget.GridLayout.LayoutParams.WRAP_CONTENT
@@ -116,6 +108,7 @@ class WritingRecapFragment : Fragment() {
                 }
                 layoutParams = params
                 
+                // Add click listener to see details
                 setOnClickListener {
                     val action = WritingRecapFragmentDirections.actionWritingRecapToKanjiDetail(kanjiEntry.id)
                     findNavController().navigate(action)
@@ -131,19 +124,11 @@ class WritingRecapFragment : Fragment() {
         binding.buttonNextPage.alpha = if (endIndex < kanjiList.size) 1.0f else 0.5f
     }
 
-    private fun loadKanjiForLevel(levelName: String): List<KanjiEntry> {
-        if (levelName == "user_custom_list") {
-            val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.WRITING)
-            val userKanjiChars = scores.filter { (_, score) -> (score.successes - score.failures) < 10 }.keys
-            // We need the full KanjiEntry, not just the character. So we get them from the repo.
-            val allKanji = MochiApplication.kanjiRepository.getAllKanji()
-            return allKanji.filter { userKanjiChars.contains(it.character) }
-        }
-
+    private fun loadKanjiForLevel(levelKey: String): List<KanjiEntry> {
         val (type, value) = when {
-            levelName.startsWith("N") -> "jlpt" to levelName
-            levelName.startsWith("Grade ") -> {
-                val grade = levelName.removePrefix("Grade ")
+            levelKey.startsWith("N") -> "jlpt" to levelKey
+            levelKey.startsWith("Grade ") -> {
+                val grade = levelKey.removePrefix("Grade ")
                 "grade" to grade
             }
             else -> return emptyList()

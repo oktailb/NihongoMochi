@@ -26,10 +26,10 @@ import org.nihongo.mochi.databinding.FragmentRecognitionGameBinding
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
-import org.nihongo.mochi.ui.game.GameStatus
-import org.nihongo.mochi.ui.game.KanjiDetail
-import org.nihongo.mochi.ui.game.KanjiProgress
-import org.nihongo.mochi.ui.game.Reading
+import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.KanjiDetail
+import org.nihongo.mochi.domain.models.KanjiProgress
+import org.nihongo.mochi.domain.models.Reading
 import java.io.IOException
 import java.util.Locale
 

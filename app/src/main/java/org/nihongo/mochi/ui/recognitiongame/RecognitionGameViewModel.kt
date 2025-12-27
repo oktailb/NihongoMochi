@@ -1,10 +1,9 @@
 package org.nihongo.mochi.ui.recognitiongame
 
 import androidx.lifecycle.ViewModel
-import org.nihongo.mochi.ui.game.GameStatus
-import org.nihongo.mochi.ui.game.KanjiDetail
-import org.nihongo.mochi.ui.game.KanjiProgress
-import org.nihongo.mochi.ui.game.Reading
+import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.KanjiDetail
+import org.nihongo.mochi.domain.models.KanjiProgress
 
 enum class QuestionDirection { NORMAL, REVERSE }
 

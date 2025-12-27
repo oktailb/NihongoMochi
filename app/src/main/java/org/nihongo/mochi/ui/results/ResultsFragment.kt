@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.SnapshotsClient
 import com.google.android.gms.games.snapshot.Snapshot
+import com.google.android.gms.games.snapshot.SnapshotMetadata
 import com.google.android.gms.games.snapshot.SnapshotMetadataChange
 import com.google.android.gms.tasks.Task
 import org.nihongo.mochi.MochiApplication
@@ -54,7 +56,13 @@ class ResultsFragment : Fragment() {
             val intent = result.data!!
             if (intent.hasExtra(SnapshotsClient.EXTRA_SNAPSHOT_METADATA)) {
                 // Load a snapshot.
-                val snapshotMetadata = intent.getParcelableExtra<com.google.android.gms.games.snapshot.SnapshotMetadata>(SnapshotsClient.EXTRA_SNAPSHOT_METADATA)
+                val snapshotMetadata = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    intent.getParcelableExtra(SnapshotsClient.EXTRA_SNAPSHOT_METADATA, SnapshotMetadata::class.java)
+                } else {
+                    @Suppress("DEPRECATION")
+                    intent.getParcelableExtra(SnapshotsClient.EXTRA_SNAPSHOT_METADATA)
+                }
+                
                 if (snapshotMetadata != null) {
                     mCurrentSaveName = snapshotMetadata.uniqueName
                     loadSnapshot()

@@ -18,9 +18,8 @@ import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentWordListBinding
 import org.nihongo.mochi.ui.ScoreUiUtils
-import org.nihongo.mochi.ui.game.KanjiDetail
-import org.nihongo.mochi.ui.game.Reading
-import java.io.IOException
+import org.nihongo.mochi.domain.models.KanjiDetail
+import org.nihongo.mochi.domain.models.Reading
 import java.util.Locale
 
 data class WordItem(val text: String, val type: String)

@@ -21,10 +21,10 @@ import org.nihongo.mochi.databinding.FragmentKanaQuizBinding
 import org.nihongo.mochi.domain.kana.AndroidResourceLoader
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
-import org.nihongo.mochi.ui.game.GameStatus
-import org.nihongo.mochi.ui.game.KanaCharacter
-import org.nihongo.mochi.ui.game.KanaProgress
-import org.nihongo.mochi.ui.game.KanaQuestionDirection
+import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.KanaCharacter
+import org.nihongo.mochi.domain.models.KanaProgress
+import org.nihongo.mochi.domain.models.KanaQuestionDirection
 
 abstract class BaseKanaQuizFragment : Fragment() {
 

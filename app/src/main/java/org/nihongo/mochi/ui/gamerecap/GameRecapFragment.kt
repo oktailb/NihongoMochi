@@ -58,12 +58,8 @@ class GameRecapFragment : Fragment() {
             val selectedReadingOptionId = binding.radioGroupReadingOptions.checkedRadioButtonId
             val readingMode = if (selectedReadingOptionId == R.id.radio_button_random) "random" else "common"
 
-            val bundle = Bundle().apply {
-                putString("level", levelKey)
-                putString("gameMode", gameMode)
-                putString("readingMode", readingMode)
-            }
-            findNavController().navigate(R.id.action_game_recap_to_recognition_game, bundle)
+            val action = GameRecapFragmentDirections.actionGameRecapToRecognitionGame(levelKey, gameMode, readingMode, null)
+            findNavController().navigate(action)
         }
 
         binding.buttonNextPage.setOnClickListener {

@@ -1,8 +1,8 @@
 package org.nihongo.mochi.ui.wordquiz
 
 import androidx.lifecycle.ViewModel
-import org.nihongo.mochi.ui.game.GameStatus
-import org.nihongo.mochi.ui.game.Word
+import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.Word
 
 class WordQuizViewModel : ViewModel() {
     var isGameInitialized = false
