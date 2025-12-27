@@ -1,5 +1,31 @@
-Bug Fixes:
-  - quiz seems reset when orientation change - Done
+Refactoring:
+
+1. La logique de "Tour de Jeu" (Answer & Scoring)
+Actuellement, vos fragments (RecognitionGameFragment, WritingGameFragment, etc.) gèrent eux-mêmes :
+• La vérification de la réponse (comparaison de strings).
+• L'appel à ScoreManager.saveScore.
+• La génération des "distracteurs" (mauvaises réponses) pour les QCM (generateAnswers).
+Action : Tout cela doit aller dans l'Engine.
+• Le Fragment devrait juste appeler viewModel.submitAnswer(text) ou viewModel.onOptionClicked(index).
+• L'Engine calcule le résultat, met à jour le score, et expose un état AnswerResult (Correct/Incorrect + la bonne réponse) que le Fragment observe pour afficher les couleurs/feedback.
+2. Le Chargement des Données (Repositories)
+Les fragments appellent directement MochiApplication.kanjiRepository... ou ScoreManager.getScore... dans initializeGame ou updateAllPercentages.
+Action :
+• Déplacer le chargement initial (filtrage par niveau, chargement du JSON) dans l'init ou une méthode loadLevel(level) de l'Engine.
+• L'Engine expose directement la liste des items prêts à jouer.
+3. Les Calculs de Statistiques (ResultsFragment)
+ResultsFragment contient beaucoup de logique métier :
+• calculateMasteryPercentage
+• calculateUserListPercentage
+• La boucle sur initializeLevelInfos qui agrège les scores.
+Action : Créer un StatisticsEngine dans shared.
+• Il exposerait une liste de LevelProgress(title, percentage) toute prête.
+• Le Fragment ne ferait qu'itérer sur cette liste pour mettre à jour ses barres de progression.
+4. Formatage de texte (Presentation Logic)
+Des fonctions comme hiraganaToKatakana ou getFormattedReadings (dans RecognitionGameFragment) sont de la pure logique de transformation de données.
+Action :
+• hiraganaToKatakana -> À déplacer dans un utilitaire KanaUtils dans shared.
+• getFormattedReadings -> Le ViewModel/Engine devrait exposer directement le displayString prêt à être affiché dans le TextView.
 
 Data:
  - find Grade 7 kanji
@@ -9,10 +35,6 @@ Features:
  - Grammar section with typical JLTP exercises
  - Grammar lessons and specific exercises
  - Kanji search by drawing - Done
-
-Ideas:
-  - Japanese translation -> allows japanese to learn another language ?
-  - 2 translations areas : interface and meanings
 
 Games:
   - Tetris : achieve words from selected level in Kana to make blocks disappear
