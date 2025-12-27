@@ -43,9 +43,9 @@ object MeaningEntryListSerializer : KSerializer<List<String>> {
         val element = input.decodeJsonElement()
 
         return if (element is JsonArray) {
-            input.json.decodeFromJsonElement(listSerializer, element)
+            element.mapNotNull { (it as? JsonPrimitive)?.content }
         } else if (element is JsonPrimitive) { // It's a single string
-            listOf(input.json.decodeFromJsonElement(String.serializer(), element))
+            listOf(element.content)
         } else {
             emptyList()
         }

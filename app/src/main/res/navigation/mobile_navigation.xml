@@ -119,6 +119,9 @@
         <argument
             android:name="kanjiId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_kanji_detail_to_kanji_detail"
+            app:destination="@id/nav_kanji_detail" />
     </fragment>
 
     <fragment

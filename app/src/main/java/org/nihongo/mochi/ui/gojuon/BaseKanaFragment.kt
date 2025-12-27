@@ -15,6 +15,7 @@ import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentKanaBinding
 import org.nihongo.mochi.domain.kana.AndroidResourceLoader
+import org.nihongo.mochi.domain.kana.KanaEntry
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.ui.ScoreUiUtils
 
@@ -25,7 +26,7 @@ abstract class BaseKanaFragment : Fragment() {
 
     abstract val kanaType: KanaFragmentType
 
-    private var charactersByLine: Map<Int, List<KanaCharacter>> = emptyMap()
+    private var charactersByLine: Map<Int, List<KanaEntry>> = emptyMap()
     private var lineKeys: List<Int> = emptyList()
     private var currentPage = 0
     private var pageSize = 16 // Default to portrait
@@ -52,7 +53,7 @@ abstract class BaseKanaFragment : Fragment() {
         val orientation = resources.configuration.orientation
         pageSize = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 8 else 16
 
-        val allCharacters = loadKana(kanaType.domainType)
+        val allCharacters = kanaRepository.getKanaEntries(kanaType.domainType)
         charactersByLine = allCharacters.groupBy { it.line }.toSortedMap()
         lineKeys = charactersByLine.keys.toList()
 
@@ -107,9 +108,9 @@ abstract class BaseKanaFragment : Fragment() {
         for (lineKey in linesToShow) {
             val charsInLine = charactersByLine[lineKey] ?: continue
             for (kana in charsInLine) {
-                val score = ScoreManager.getScore(kana.value, ScoreManager.ScoreType.RECOGNITION)
+                val score = ScoreManager.getScore(kana.character, ScoreManager.ScoreType.RECOGNITION)
                 val textView = TextView(context).apply {
-                    text = kana.value
+                    text = kana.character
                     textSize = 24f
                     textAlignment = View.TEXT_ALIGNMENT_CENTER
                     setTextColor(Color.BLACK)
@@ -146,12 +147,6 @@ abstract class BaseKanaFragment : Fragment() {
         binding.buttonNextPage.alpha = if (currentPage < totalPages - 1) 1.0f else 0.5f
     }
 
-    private fun loadKana(type: org.nihongo.mochi.domain.kana.KanaType): List<KanaCharacter> {
-        return kanaRepository.getKanaEntries(type).map { entry ->
-            KanaCharacter(entry.character, entry.line, entry.romaji)
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -162,5 +157,3 @@ enum class KanaFragmentType(val domainType: org.nihongo.mochi.domain.kana.KanaTy
     HIRAGANA(org.nihongo.mochi.domain.kana.KanaType.HIRAGANA, R.string.level_hiragana, R.id.action_nav_hiragana_to_hiragana_quiz),
     KATAKANA(org.nihongo.mochi.domain.kana.KanaType.KATAKANA, R.string.level_katakana, R.id.action_nav_katakana_to_katakana_quiz)
 }
-
-data class KanaCharacter(val value: String, val line: Int, val phonetics: String)

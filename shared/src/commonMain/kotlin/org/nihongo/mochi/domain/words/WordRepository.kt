@@ -26,6 +26,7 @@ class WordRepository(private val resourceLoader: ResourceLoader) {
     
     private val json = Json { ignoreUnknownKeys = true }
     private val cachedWords = mutableMapOf<String, List<WordEntry>>()
+    private var allWordsCache: List<WordEntry>? = null
 
     private val allKnownLists = listOf(
         "bccwj_wordlist_1000", "bccwj_wordlist_2000", "bccwj_wordlist_3000", 
@@ -56,10 +57,18 @@ class WordRepository(private val resourceLoader: ResourceLoader) {
     }
 
     fun getAllWordEntries(): List<WordEntry> {
+        if (allWordsCache != null) {
+            return allWordsCache!!
+        }
         val allEntries = mutableListOf<WordEntry>()
         for (listName in allKnownLists) {
             allEntries.addAll(getWordEntriesForLevel(listName))
         }
+        allWordsCache = allEntries
         return allEntries
+    }
+
+    fun getWordsContainingKanji(kanji: String): List<WordEntry> {
+        return getAllWordEntries().filter { it.text.contains(kanji) }
     }
 }

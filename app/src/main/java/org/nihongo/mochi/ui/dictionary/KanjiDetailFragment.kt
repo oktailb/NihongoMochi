@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.dictionary
 
+import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -26,7 +27,6 @@ import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanjiDetailBinding
 import org.nihongo.mochi.databinding.ItemExampleBinding
 import org.nihongo.mochi.databinding.ItemReadingBinding
-import java.util.Locale
 
 class KanjiDetailFragment : Fragment() {
 
@@ -43,6 +43,7 @@ class KanjiDetailFragment : Fragment() {
     private var kanjiMeanings = mutableListOf<String>()
     private var kanjiReadings = mutableListOf<ReadingItem>()
     private var kanjiComponents = mutableListOf<ComponentItem>()
+    private var exampleWords = mutableListOf<ExampleItem>()
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
     data class ExampleItem(val word: String, val reading: String)
@@ -60,21 +61,21 @@ class KanjiDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         kanjiId = args.kanjiId
-        
+
         loadKanjiDetails()
-        
+
         binding.textKanjiLarge.text = kanjiCharacter
         binding.textMeanings.text = kanjiMeanings.joinToString(", ")
         binding.textJlpt.text = jlptLevel ?: "-"
         binding.textGrade.text = schoolGrade ?: "-"
         binding.textStrokes.text = kanjiStrokes.toString()
-        
+
         setupComponents()
-        
+
         // Setup Reading Lists
         val onReadings = kanjiReadings.filter { it.type == "on" }
         val kunReadings = kanjiReadings.filter { it.type == "kun" }
-        
+
         setupReadingAdapter(binding.recyclerOnReadings, onReadings, isOn = true)
         setupReadingAdapter(binding.recyclerKunReadings, kunReadings, isOn = false)
 
@@ -86,17 +87,17 @@ class KanjiDetailFragment : Fragment() {
             binding.layoutComponentsContainer.visibility = View.GONE
             return
         }
-        
+
         binding.layoutComponentsContainer.visibility = View.VISIBLE
         binding.textStructure.text = kanjiStructure ?: ""
-        
+
         binding.layoutComponentsList.removeAllViews()
-        
+
         // Resolve default text color from theme (android:textColor)
         val typedValue = TypedValue()
         context?.theme?.resolveAttribute(android.R.attr.textColor, typedValue, true)
         val defaultTextColor = typedValue.data
-        
+
         for (component in kanjiComponents) {
             val componentLayout = LinearLayout(context)
             componentLayout.orientation = LinearLayout.VERTICAL
@@ -131,7 +132,7 @@ class KanjiDetailFragment : Fragment() {
                 val outValue = TypedValue()
                 context?.theme?.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
                 componentLayout.setBackgroundResource(outValue.resourceId)
-                
+
                 componentLayout.isClickable = true
                 componentLayout.setOnClickListener {
                     navigateToKanji(component.kanjiRef!!)
@@ -148,8 +149,8 @@ class KanjiDetailFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 if (id != null) {
                     try {
-                        val action = DictionaryFragmentDirections.actionDictionaryToKanjiDetail(id)
-                        findNavController().navigate(action)
+                        val bundle = Bundle().apply { putString("kanjiId", id) }
+                        findNavController().navigate(R.id.action_kanji_detail_to_kanji_detail, bundle)
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
@@ -178,7 +179,7 @@ class KanjiDetailFragment : Fragment() {
             override fun getItemCount() = readings.size
         }
     }
-    
+
     class ReadingViewHolder(private val binding: ItemReadingBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ReadingItem, isOn: Boolean) {
             var text = item.reading
@@ -187,7 +188,7 @@ class KanjiDetailFragment : Fragment() {
             }
             binding.textReadingValue.text = text
         }
-        
+
         private fun hiraganaToKatakana(s: String): String {
             return s.map { c ->
                 if (c in '\u3041'..'\u3096') {
@@ -205,7 +206,7 @@ class KanjiDetailFragment : Fragment() {
         layoutManager.flexWrap = FlexWrap.WRAP
         layoutManager.justifyContent = JustifyContent.FLEX_START
         recyclerView.layoutManager = layoutManager
-        
+
         recyclerView.adapter = object : RecyclerView.Adapter<ExampleViewHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
                 val binding = ItemExampleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -242,25 +243,38 @@ class KanjiDetailFragment : Fragment() {
             kanjiStrokes = entry.strokes?.toIntOrNull() ?: 0
             jlptLevel = entry.jlptLevel
             schoolGrade = entry.schoolGrade
-            
+
             entry.readings?.reading?.forEach { r ->
                 val freq = r.frequency?.toIntOrNull() ?: 0
                 kanjiReadings.add(ReadingItem(r.type, r.value, freq))
             }
-            
+
+            kanjiStructure = entry.components?.structure
+            entry.components?.component?.forEach { c ->
+                val character = c.text ?: c.kanjiRef ?: ""
+                kanjiComponents.add(ComponentItem(character, c.kanjiRef))
+            }
+
             // Load Meanings from the new repository
-            val locale = Locale.getDefault().toString()
+            val sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+            val locale = sharedPreferences.getString("AppLocale", "en_GB")!!
             val meanings = MochiApplication.meaningRepository.getMeanings(locale)
             kanjiMeanings.addAll(meanings[id] ?: emptyList())
         }
     }
 
     private fun loadExamples() {
-        // Examples loading logic... usually from a word dictionary or similar.
-        // If it was using kanji_details.xml for examples, it needs migration too.
-        // Checking previous code... it didn't seem to implement loadExamples in the snippet provided.
-        // Assuming it's empty or implemented elsewhere. 
-        // If examples were in XML, we need to handle that.
+        val character = kanjiCharacter ?: return
+        lifecycleScope.launch(Dispatchers.IO) {
+            val words = MochiApplication.wordRepository.getWordsContainingKanji(character)
+            exampleWords.clear()
+            exampleWords.addAll(words.map { ExampleItem(it.text, it.phonetics) })
+            withContext(Dispatchers.Main) {
+                if(isAdded) {
+                   setupExampleAdapter(binding.recyclerExamples, exampleWords)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

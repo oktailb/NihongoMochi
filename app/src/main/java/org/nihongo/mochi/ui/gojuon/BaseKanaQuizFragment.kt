@@ -114,31 +114,7 @@ abstract class BaseKanaQuizFragment : Fragment() {
 
     private fun loadKana(type: org.nihongo.mochi.domain.kana.KanaType): List<KanaCharacter> {
         return kanaRepository.getKanaEntries(type).map { entry ->
-            // Map shared KanaEntry to local KanaCharacter
-            // Note: KanaEntry has 'type' field which is HIRAGANA/KATAKANA, 
-            // but here we need 'category' (gojuon, dakuon, yoon) which was previously in XML.
-            // We need to infer category from line number or character properties, or update JSON to include category.
-            // For now, let's infer category based on line number or content.
-            
-            // Assuming the JSON structure doesn't have 'category' yet, we can try to deduce it or default to 'gojuon'.
-            // Actually, the previous XML parser logic read "type" attribute as category (gojuon, dakuon, handakuon, yoon).
-            // The JSON I generated earlier only has "type": "HIRAGANA"/"KATAKANA".
-            // We need to enrich the JSON or deduce category.
-            
-            val category = deduceCategory(entry.line, entry.romaji)
-            KanaCharacter(entry.character, entry.romaji, category)
-        }
-    }
-    
-    private fun deduceCategory(line: Int, romaji: String): String {
-        // Simple heuristic based on line number from standard gojuon tables
-        // Lines 1-10 (a, ka, sa, ta, na, ha, ma, ya, ra, wa) + n are Gojuon
-        // Lines 12-16 (ga, za, da, ba, pa) are Dakuon/Handakuon
-        // Lines 17+ (kya, etc) are Yoon
-        return when {
-            line <= 11 -> "gojuon"
-            line <= 16 -> if (romaji.startsWith("p")) "handakuon" else "dakuon"
-            else -> "yoon"
+            KanaCharacter(entry.character, entry.romaji, entry.category)
         }
     }
 

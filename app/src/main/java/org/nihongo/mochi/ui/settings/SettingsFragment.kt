@@ -53,21 +53,21 @@ class SettingsFragment : Fragment() {
 
     private fun setupLanguageSpinner() {
         languages = listOf(
-            LanguageItem("en_GB", getString(R.string.language_en_gb), R.drawable.flag_en_gb),
-            LanguageItem("fr_FR", getString(R.string.language_fr_fr), R.drawable.flag_fr_fr),
-            LanguageItem("it_IT", getString(R.string.language_it_it), R.drawable.flag_it),
+            LanguageItem("ar_SA", getString(R.string.language_ar_ar), R.drawable.flag_sa_sa),
+            LanguageItem("bn_BD", getString(R.string.language_bn_bn), R.drawable.flag_bn),
             LanguageItem("de_DE", getString(R.string.language_de_de), R.drawable.flag_de),
-            LanguageItem("es_SP", getString(R.string.language_es_sp), R.drawable.flag_es),
-            LanguageItem("bn_BN", getString(R.string.language_bn_bn), R.drawable.flag_bn),
-            LanguageItem("th", getString(R.string.language_th), R.drawable.flag_th_th),
-            LanguageItem("ar_AR", getString(R.string.language_ar_ar), R.drawable.flag_sa_sa),
-            LanguageItem("pt_BR", getString(R.string.language_pt_br), R.drawable.flag_pt_br),
-            LanguageItem("ko_KR", getString(R.string.language_ko_kr), R.drawable.flag_kr),
-            LanguageItem("ru_RU", getString(R.string.language_ru_ru), R.drawable.flag_ru),
+            LanguageItem("en_GB", getString(R.string.language_en_gb), R.drawable.flag_en_gb),
+            LanguageItem("es_ES", getString(R.string.language_es_sp), R.drawable.flag_es),
+            LanguageItem("fr_FR", getString(R.string.language_fr_fr), R.drawable.flag_fr_fr),
             LanguageItem("in_ID", getString(R.string.language_in_id), R.drawable.flag_id),
+            LanguageItem("it_IT", getString(R.string.language_it_it), R.drawable.flag_it),
+            LanguageItem("ko_KR", getString(R.string.language_ko_kr), R.drawable.flag_kr),
+            LanguageItem("pt_BR", getString(R.string.language_pt_br), R.drawable.flag_pt_br),
+            LanguageItem("ru_RU", getString(R.string.language_ru_ru), R.drawable.flag_ru),
+            LanguageItem("th_TH", getString(R.string.language_th), R.drawable.flag_th_th),
+            LanguageItem("vi_VN", getString(R.string.language_vi_vn), R.drawable.flag_vn),
             LanguageItem("zh_CN", getString(R.string.language_zh_cn), R.drawable.flag_cn),
-            LanguageItem("vi_VN", getString(R.string.language_vi_vn), R.drawable.flag_vn)
-        )
+            )
 
         val adapter = LanguageAdapter(requireContext(), languages)
         binding.spinnerLanguage.adapter = adapter

@@ -8,7 +8,14 @@ data class KanaEntry(
     val romaji: String,
     val type: KanaType,
     val line: Int = 0
-)
+) {
+    val category: String
+        get() = when {
+            line <= 11 -> "gojuon"
+            line <= 16 -> if (romaji.startsWith("p")) "handakuon" else "dakuon"
+            else -> "yoon"
+        }
+}
 
 enum class KanaType {
     HIRAGANA,

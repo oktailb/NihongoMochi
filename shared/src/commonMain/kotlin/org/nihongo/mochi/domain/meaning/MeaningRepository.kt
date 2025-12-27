@@ -16,9 +16,8 @@ class MeaningRepository(private val resourceLoader: ResourceLoader) {
 
         return try {
             val jsonString = resourceLoader.loadJson(fileName)
-            // If resource loader returns empty object string for missing file, handle it
             if (jsonString == "{}") throw Exception("File not found or empty: $fileName")
-            
+
             val root = json.decodeFromString<MeaningRoot>(jsonString)
             val meaningsMap = root.meanings.kanji.associate { it.id to it.meaning }
             cachedMeanings[locale] = meaningsMap
@@ -26,8 +25,7 @@ class MeaningRepository(private val resourceLoader: ResourceLoader) {
         } catch (e: Exception) {
             println("Error parsing meaning list for $locale (file: $fileName): ${e.message}")
             // Fallback to english (GB) if the locale is not found
-            // We use "en_GB" which corresponds to "meanings-en-rGB.json" via getFileName
-            if (locale != "en_GB" && locale != "en-GB" && locale != "en") {
+            if (locale != "en_GB") {
                 getMeanings("en_GB")
             } else {
                 emptyMap()
@@ -36,14 +34,16 @@ class MeaningRepository(private val resourceLoader: ResourceLoader) {
     }
 
     private fun getFileName(locale: String): String {
-        // Convert "en_GB" or "en-GB" to "en-rGB"
-        // Convert "fr_FR" to "fr-rFR"
-        val parts = locale.replace("-", "_").split("_")
-        val formattedSuffix = if (parts.size >= 2) {
-            "${parts[0]}-r${parts[1]}"
-        } else {
-            locale
+        // Standard Android locale format is lang_REGION (e.g., fr_FR, en_GB)
+        // File format seems to be meanings_lang_rREGION.json (e.g., meanings_fr_rFR.json)
+        
+        val parts = locale.split("_")
+        // Check if it matches lang_REGION pattern (e.g. fr_FR) to insert the 'r' prefix
+        if (parts.size == 2 && parts[1].length == 2 && parts[1][0].isUpperCase()) {
+             return "meanings/meanings_${parts[0]}_r${parts[1]}.json"
         }
-        return "meanings/meanings-$formattedSuffix.json"
+        
+        // Default or fallback if format doesn't match expected pattern or is already formatted
+        return "meanings/meanings_${locale}.json"
     }
 }
