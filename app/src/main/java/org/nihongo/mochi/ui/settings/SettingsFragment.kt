@@ -1,7 +1,5 @@
 package org.nihongo.mochi.ui.settings
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,22 +10,18 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentSettingsBinding
-import org.nihongo.mochi.settings.ADD_WRONG_ANSWERS_PREF_KEY
-import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
-import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
-import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
-import org.nihongo.mochi.settings.TEXT_SIZE_PREF_KEY
-import org.nihongo.mochi.settings.THEME_PREF_KEY
 
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+    
+    private val settingsRepository get() = MochiApplication.settingsRepository
 
     private lateinit var languages: List<LanguageItem>
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +34,6 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
 
         setupLanguageSpinner()
         setupPronunciationRadioGroup()
@@ -72,7 +64,7 @@ class SettingsFragment : Fragment() {
         val adapter = LanguageAdapter(requireContext(), languages)
         binding.spinnerLanguage.adapter = adapter
 
-        val currentLangCode = getCurrentAppLocale()
+        val currentLangCode = settingsRepository.getAppLocale()
         val currentLangIndex = languages.indexOfFirst { it.code == currentLangCode }.takeIf { it != -1 } ?: 0
         binding.spinnerLanguage.setSelection(currentLangIndex, false)
 
@@ -80,7 +72,7 @@ class SettingsFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedLanguage = languages[position]
 
-                if (selectedLanguage.code != getCurrentAppLocale()) {
+                if (selectedLanguage.code != settingsRepository.getAppLocale()) {
                     setAppLocale(selectedLanguage.code)
                 }
             }
@@ -90,7 +82,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setupPronunciationRadioGroup() {
-        val savedPronunciation = sharedPreferences.getString(PRONUNCIATION_PREF_KEY, "Hiragana")
+        val savedPronunciation = settingsRepository.getPronunciation()
         if (savedPronunciation == "Roman") {
             binding.radioGroupPronunciation.check(R.id.radio_roman_alphabet)
         } else {
@@ -99,29 +91,27 @@ class SettingsFragment : Fragment() {
 
         binding.radioGroupPronunciation.setOnCheckedChangeListener { _, checkedId ->
             val pronunciation = if (checkedId == R.id.radio_roman_alphabet) "Roman" else "Hiragana"
-            sharedPreferences.edit().putString(PRONUNCIATION_PREF_KEY, pronunciation).apply()
+            settingsRepository.setPronunciation(pronunciation)
         }
     }
 
     private fun setupDefaultUserListCheckboxes() {
-        binding.checkboxAddWrongAnswers.isChecked = sharedPreferences.getBoolean(ADD_WRONG_ANSWERS_PREF_KEY, true)
-        binding.checkboxRemoveGoodAnswers.isChecked = sharedPreferences.getBoolean(REMOVE_GOOD_ANSWERS_PREF_KEY, true)
+        binding.checkboxAddWrongAnswers.isChecked = settingsRepository.shouldAddWrongAnswers()
+        binding.checkboxRemoveGoodAnswers.isChecked = settingsRepository.shouldRemoveGoodAnswers()
 
         binding.checkboxAddWrongAnswers.setOnCheckedChangeListener { _, isChecked ->
-            sharedPreferences.edit().putBoolean(ADD_WRONG_ANSWERS_PREF_KEY, isChecked).apply()
+            settingsRepository.setAddWrongAnswers(isChecked)
         }
 
         binding.checkboxRemoveGoodAnswers.setOnCheckedChangeListener { _, isChecked ->
-            sharedPreferences.edit().putBoolean(REMOVE_GOOD_ANSWERS_PREF_KEY, isChecked).apply()
+            settingsRepository.setRemoveGoodAnswers(isChecked)
         }
     }
 
     private fun setupTextSizeSeekBar() {
-        // Range from 0.1 to 4.0. We'll use a range of 0-39 in the SeekBar
         binding.seekbarTextSize.max = 39
         
-        // Load saved value, default to 1.0f (which corresponds to progress 9)
-        val savedTextSize = sharedPreferences.getFloat(TEXT_SIZE_PREF_KEY, 1.0f)
+        val savedTextSize = settingsRepository.getTextSize()
         binding.seekbarTextSize.progress = ((savedTextSize * 10) - 1).toInt().coerceIn(0, 39)
         binding.textTextSizeValue.text = "%.1fx".format(savedTextSize)
 
@@ -130,7 +120,7 @@ class SettingsFragment : Fragment() {
                 val newTextSize = (progress + 1) / 10.0f
                 binding.textTextSizeValue.text = "%.1fx".format(newTextSize)
                 if (fromUser) {
-                    sharedPreferences.edit().putFloat(TEXT_SIZE_PREF_KEY, newTextSize).apply()
+                    settingsRepository.setTextSize(newTextSize)
                 }
             }
 
@@ -141,11 +131,9 @@ class SettingsFragment : Fragment() {
     }
     
     private fun setupAnimationSpeedSeekBar() {
-        // Range from 0.1 to 4.0. We'll use a range of 0-39 in the SeekBar
         binding.seekbarAnimationSpeed.max = 39
         
-        // Load saved value, default to 1.0f (which corresponds to progress 9)
-        val savedAnimationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+        val savedAnimationSpeed = settingsRepository.getAnimationSpeed()
         binding.seekbarAnimationSpeed.progress = ((savedAnimationSpeed * 10) - 1).toInt().coerceIn(0, 39)
         binding.textAnimationSpeedValue.text = "%.1fx".format(savedAnimationSpeed)
 
@@ -154,7 +142,7 @@ class SettingsFragment : Fragment() {
                 val newAnimationSpeed = (progress + 1) / 10.0f
                 binding.textAnimationSpeedValue.text = "%.1fx".format(newAnimationSpeed)
                 if (fromUser) {
-                    sharedPreferences.edit().putFloat(ANIMATION_SPEED_PREF_KEY, newAnimationSpeed).apply()
+                    settingsRepository.setAnimationSpeed(newAnimationSpeed)
                 }
             }
 
@@ -175,16 +163,12 @@ class SettingsFragment : Fragment() {
                 AppCompatDelegate.MODE_NIGHT_NO
             }
             AppCompatDelegate.setDefaultNightMode(mode)
-            sharedPreferences.edit().putString(THEME_PREF_KEY, if(isChecked) "dark" else "light").apply()
+            settingsRepository.setTheme(if(isChecked) "dark" else "light")
         }
     }
 
-    private fun getCurrentAppLocale(): String {
-        return sharedPreferences.getString("AppLocale", "en_GB")!!
-    }
-
     private fun setAppLocale(localeCode: String) {
-        sharedPreferences.edit().putString("AppLocale", localeCode).apply()
+        settingsRepository.setAppLocale(localeCode)
 
         val localeTag = localeCode.replace('_', '-')
         val appLocale = LocaleListCompat.forLanguageTags(localeTag)

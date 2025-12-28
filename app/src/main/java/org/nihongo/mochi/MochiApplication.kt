@@ -10,6 +10,7 @@ import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.RomajiToKana
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordRepository
 
 class MochiApplication : Application() {
@@ -23,6 +24,8 @@ class MochiApplication : Application() {
             private set
         lateinit var meaningRepository: MeaningRepository
             private set
+        lateinit var settingsRepository: SettingsRepository
+            private set
     }
 
     override fun onCreate() {
@@ -31,9 +34,12 @@ class MochiApplication : Application() {
         // Init Settings
         val scoresSettings = SharedPreferencesSettings(getSharedPreferences("scores", Context.MODE_PRIVATE))
         val userListSettings = SharedPreferencesSettings(getSharedPreferences("user_lists", Context.MODE_PRIVATE))
-        val appSettings = SharedPreferencesSettings(getSharedPreferences("settings", Context.MODE_PRIVATE))
+        // Changed "settings" to "AppSettings" to match previous Android implementation and share data
+        val appSettings = SharedPreferencesSettings(getSharedPreferences("AppSettings", Context.MODE_PRIVATE))
         
         ScoreManager.init(scoresSettings, userListSettings, appSettings)
+        
+        settingsRepository = SettingsRepository(appSettings)
 
         // Init Domain Repositories
         val resourceLoader = AndroidResourceLoader(this)

@@ -162,7 +162,7 @@ class RecognitionGameFragment : Fragment() {
     }
 
     private fun loadAllKanjiDetails() {
-        val locale = Locale.getDefault().toString()
+        val locale = MochiApplication.settingsRepository.getAppLocale()
         val meanings = MochiApplication.meaningRepository.getMeanings(locale)
         val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
         

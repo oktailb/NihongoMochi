@@ -333,7 +333,7 @@ class WritingGameFragment : Fragment() {
     }
 
     private fun loadMeanings(): Map<String, List<String>> {
-        val locale = Locale.getDefault().toString()
+        val locale = MochiApplication.settingsRepository.getAppLocale()
         return MochiApplication.meaningRepository.getMeanings(locale)
     }
 
