@@ -1,4 +1,4 @@
-package org.nihongo.mochi.ui.writing
+package org.nihongo.mochi.domain.statistics
 
 import androidx.lifecycle.ViewModel
 import org.nihongo.mochi.data.ScoreManager

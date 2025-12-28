@@ -6,15 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentReadingBinding
+import org.nihongo.mochi.domain.statistics.ReadingViewModel
 
 class ReadingFragment : Fragment() {
 
     private var _binding: FragmentReadingBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ReadingViewModel by viewModels()
+    
+    private val viewModel: ReadingViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                ReadingViewModel()
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

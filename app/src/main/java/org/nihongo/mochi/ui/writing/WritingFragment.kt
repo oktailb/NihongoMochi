@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentWritingBinding
+import org.nihongo.mochi.domain.statistics.WritingViewModel
 
 data class LevelInfo(val button: Button, val xmlName: String, val stringResId: Int)
 
@@ -17,7 +20,14 @@ class WritingFragment : Fragment() {
 
     private var _binding: FragmentWritingBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: WritingViewModel by viewModels()
+    
+    private val viewModel: WritingViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                WritingViewModel()
+            }
+        }
+    }
 
     private lateinit var levelInfos: List<LevelInfo>
 
