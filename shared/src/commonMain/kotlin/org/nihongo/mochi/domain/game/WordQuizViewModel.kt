@@ -37,10 +37,6 @@ class WordQuizViewModel : ViewModel() {
         get() = engine.currentWord
         set(value) { engine.currentWord = value }
 
-    var correctAnswer: String
-        get() = engine.correctAnswer
-        set(value) { engine.correctAnswer = value }
-
     var currentAnswers: List<String>
         get() = engine.currentAnswers
         set(value) { engine.currentAnswers = value }
@@ -48,10 +44,4 @@ class WordQuizViewModel : ViewModel() {
     // UI Specific State
     var areButtonsEnabled = true
     var buttonColors = mutableListOf<Int>() // Store color resource IDs
-
-    fun resetState() {
-        engine.resetState()
-        areButtonsEnabled = true
-        buttonColors.clear()
-    }
 }
