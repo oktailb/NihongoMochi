@@ -12,10 +12,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentKanaBinding
-import org.nihongo.mochi.domain.kana.AndroidResourceLoader
 import org.nihongo.mochi.domain.kana.KanaEntry
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.presentation.ScorePresentationUtils
@@ -32,10 +32,8 @@ abstract class BaseKanaFragment : Fragment() {
     private var currentPage = 0
     private var pageSize = 16 // Default to portrait
     
-    // Lazy init of repository
-    private val kanaRepository by lazy { 
-        KanaRepository(AndroidResourceLoader(requireContext()))
-    }
+    // Injected repository using Koin
+    private val kanaRepository: KanaRepository by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,

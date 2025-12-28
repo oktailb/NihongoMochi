@@ -21,12 +21,14 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.google.android.gms.games.SnapshotsClient
 import com.google.android.gms.games.snapshot.SnapshotMetadata
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentResultsBinding
 import org.nihongo.mochi.domain.statistics.LevelProgress
 import org.nihongo.mochi.domain.statistics.ResultsViewModel
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.services.AndroidCloudSaveService
 
 class ResultsFragment : Fragment() {
@@ -34,6 +36,8 @@ class ResultsFragment : Fragment() {
     private var _binding: FragmentResultsBinding? = null
     private val binding get() = _binding!!
     
+    private val levelContentProvider: LevelContentProvider by inject()
+
     // We maintain these references here if needed for direct calls, 
     // but primarily they are injected into the ViewModel.
     // However, StatisticsEngine is used directly in updateAllPercentages.
@@ -45,7 +49,7 @@ class ResultsFragment : Fragment() {
             initializer {
                 // Instantiate dependencies
                 androidCloudSaveService = AndroidCloudSaveService(requireActivity())
-                statisticsEngine = StatisticsEngine(MochiApplication.levelContentProvider)
+                statisticsEngine = StatisticsEngine(get())
                 
                 ResultsViewModel(androidCloudSaveService, statisticsEngine)
             }
@@ -108,7 +112,7 @@ class ResultsFragment : Fragment() {
         // It was instantiated in the factory, but that local variable might not be set 
         // if the VM was restored. So we must ensure it's initialized here too.
         if (!::statisticsEngine.isInitialized) {
-             statisticsEngine = StatisticsEngine(MochiApplication.levelContentProvider)
+             statisticsEngine = StatisticsEngine(levelContentProvider)
         }
         if (!::androidCloudSaveService.isInitialized) {
             androidCloudSaveService = AndroidCloudSaveService(requireActivity())

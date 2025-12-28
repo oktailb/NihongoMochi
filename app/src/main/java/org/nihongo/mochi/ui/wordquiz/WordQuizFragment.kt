@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreManager.ScoreType
@@ -24,6 +24,7 @@ import org.nihongo.mochi.databinding.FragmentWordQuizBinding
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.Word
+import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
 
@@ -33,6 +34,8 @@ class WordQuizFragment : Fragment() {
     private val binding get() = _binding!!
     private val args: WordQuizFragmentArgs by navArgs()
     private val viewModel: WordQuizViewModel by viewModels()
+
+    private val wordRepository: WordRepository by inject()
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -71,7 +74,7 @@ class WordQuizFragment : Fragment() {
             // Since customWordList is just strings, we might miss phonetics unless we look them up
             // For now, let's assume we can fetch them or create simple objects
             // Optimized approach: Fetch all entries and filter
-            val allEntries = MochiApplication.wordRepository.getAllWordEntries()
+            val allEntries = wordRepository.getAllWordEntries()
             allEntries.filter { customWordList.contains(it.text) }.map { Word(it.text, it.phonetics) }
         } else {
              // Fallback or empty

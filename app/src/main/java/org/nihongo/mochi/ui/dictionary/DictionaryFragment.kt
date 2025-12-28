@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.mlkit.vision.digitalink.Ink
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.get
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentDictionaryBinding
 import org.nihongo.mochi.databinding.ItemDictionaryBinding
@@ -52,9 +52,9 @@ class DictionaryFragment : Fragment() {
             initializer {
                 DictionaryViewModel(
                     handwritingRecognizer = androidRecognizer,
-                    kanjiRepository = MochiApplication.kanjiRepository,
-                    meaningRepository = MochiApplication.meaningRepository,
-                    settingsRepository = MochiApplication.settingsRepository
+                    kanjiRepository = get(),
+                    meaningRepository = get(),
+                    settingsRepository = get()
                 )
             }
         }

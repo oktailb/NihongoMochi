@@ -1,6 +1,5 @@
 package org.nihongo.mochi.ui.dictionary
 
-import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -22,17 +21,26 @@ import com.google.android.flexbox.JustifyContent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanjiDetailBinding
 import org.nihongo.mochi.databinding.ItemExampleBinding
 import org.nihongo.mochi.databinding.ItemReadingBinding
+import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.words.WordRepository
 
 class KanjiDetailFragment : Fragment() {
 
     private var _binding: FragmentKanjiDetailBinding? = null
     private val binding get() = _binding!!
     private val args: KanjiDetailFragmentArgs by navArgs()
+
+    private val kanjiRepository: KanjiRepository by inject()
+    private val meaningRepository: MeaningRepository by inject()
+    private val wordRepository: WordRepository by inject()
+    private val settingsRepository: SettingsRepository by inject()
 
     private var kanjiId: String? = null
     private var kanjiCharacter: String? = null
@@ -160,7 +168,7 @@ class KanjiDetailFragment : Fragment() {
     }
 
     private fun findKanjiIdByCharacter(character: String): String? {
-        val entry = MochiApplication.kanjiRepository.getKanjiByCharacter(character)
+        val entry = kanjiRepository.getKanjiByCharacter(character)
         return entry?.id
     }
 
@@ -237,7 +245,7 @@ class KanjiDetailFragment : Fragment() {
         kanjiStructure = null
 
         // Load details from Shared Repository (JSON)
-        val entry = MochiApplication.kanjiRepository.getKanjiById(id)
+        val entry = kanjiRepository.getKanjiById(id)
         if (entry != null) {
             kanjiCharacter = entry.character
             kanjiStrokes = entry.strokes?.toIntOrNull() ?: 0
@@ -256,9 +264,8 @@ class KanjiDetailFragment : Fragment() {
             }
 
             // Load Meanings from the new repository
-            val sharedPreferences = requireActivity().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
-            val locale = sharedPreferences.getString("AppLocale", "en_GB")!!
-            val meanings = MochiApplication.meaningRepository.getMeanings(locale)
+            val locale = settingsRepository.getAppLocale()
+            val meanings = meaningRepository.getMeanings(locale)
             kanjiMeanings.addAll(meanings[id] ?: emptyList())
         }
     }
@@ -266,7 +273,7 @@ class KanjiDetailFragment : Fragment() {
     private fun loadExamples() {
         val character = kanjiCharacter ?: return
         lifecycleScope.launch(Dispatchers.IO) {
-            val words = MochiApplication.wordRepository.getWordsContainingKanji(character)
+            val words = wordRepository.getWordsContainingKanji(character)
             exampleWords.clear()
             exampleWords.addAll(words.map { ExampleItem(it.text, it.phonetics) })
             withContext(Dispatchers.Main) {

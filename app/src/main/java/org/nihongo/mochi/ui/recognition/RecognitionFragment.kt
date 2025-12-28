@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentRecognitionBinding
+import org.nihongo.mochi.domain.util.LevelContentProvider
 
 data class LevelInfo(val button: Button, val levelKey: String, val stringResId: Int)
 
@@ -19,6 +20,8 @@ class RecognitionFragment : Fragment() {
 
     private var _binding: FragmentRecognitionBinding? = null
     private val binding get() = _binding!!
+
+    private val levelContentProvider: LevelContentProvider by inject()
 
     private lateinit var levelInfos: List<LevelInfo>
 
@@ -66,7 +69,7 @@ class RecognitionFragment : Fragment() {
 
     private fun updateAllButtonPercentages() {
         for (info in levelInfos) {
-            val charactersForLevel = MochiApplication.levelContentProvider.getCharactersForLevel(info.levelKey)
+            val charactersForLevel = levelContentProvider.getCharactersForLevel(info.levelKey)
             val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
             updateButtonText(info, masteryPercentage)
         }

@@ -20,7 +20,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.get
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentRecognitionGameBinding
 import org.nihongo.mochi.domain.game.QuestionDirection
@@ -42,10 +42,10 @@ class RecognitionGameFragment : Fragment() {
         viewModelFactory {
             initializer {
                 RecognitionGameViewModel(
-                    kanjiRepository = MochiApplication.kanjiRepository,
-                    meaningRepository = MochiApplication.meaningRepository,
-                    levelContentProvider = MochiApplication.levelContentProvider,
-                    settingsRepository = MochiApplication.settingsRepository
+                    kanjiRepository = get(),
+                    meaningRepository = get(),
+                    levelContentProvider = get(),
+                    settingsRepository = get()
                 )
             }
         }

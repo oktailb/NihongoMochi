@@ -19,7 +19,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.get
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanaQuizBinding
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
@@ -37,7 +37,7 @@ abstract class BaseKanaQuizFragment : Fragment() {
     protected val viewModel: KanaQuizViewModel by viewModels {
         viewModelFactory {
             initializer {
-                KanaQuizViewModel(MochiApplication.kanaRepository)
+                KanaQuizViewModel(get())
             }
         }
     }

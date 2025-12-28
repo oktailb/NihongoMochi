@@ -22,17 +22,21 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentWritingGameBinding
 import org.nihongo.mochi.domain.game.QuestionType
 import org.nihongo.mochi.domain.game.WritingGameViewModel
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.kana.RomajiToKana
+import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 
 class WritingGameFragment : Fragment() {
@@ -40,6 +44,11 @@ class WritingGameFragment : Fragment() {
     private var _binding: FragmentWritingGameBinding? = null
     private val binding get() = _binding!!
     private val args: WritingGameFragmentArgs by navArgs()
+    
+    private val levelContentProvider: LevelContentProvider by inject()
+    private val settingsRepository: SettingsRepository by inject()
+    private val meaningRepository: MeaningRepository by inject()
+    private val kanjiRepository: KanjiRepository by inject()
     
     private val viewModel: WritingGameViewModel by viewModels {
         viewModelFactory {
@@ -143,7 +152,7 @@ class WritingGameFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             loadAllKanjiDetails()
-            val kanjiCharsForLevel = MochiApplication.levelContentProvider.getCharactersForLevel(level)
+            val kanjiCharsForLevel = levelContentProvider.getCharactersForLevel(level)
 
             viewModel.allKanjiDetails.clear()
             viewModel.allKanjiDetails.addAll(
@@ -267,15 +276,15 @@ class WritingGameFragment : Fragment() {
     }
 
     private fun loadMeanings(): Map<String, List<String>> {
-        val locale = MochiApplication.settingsRepository.getAppLocale()
-        return MochiApplication.meaningRepository.getMeanings(locale)
+        val locale = settingsRepository.getAppLocale()
+        return meaningRepository.getMeanings(locale)
     }
 
     private fun loadAllKanjiDetails() {
         val meanings = loadMeanings()
         
         // Load details from Shared Repository (JSON)
-        val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
+        val allKanjiEntries = kanjiRepository.getAllKanji()
         
         viewModel.allKanjiDetailsXml.clear()
         

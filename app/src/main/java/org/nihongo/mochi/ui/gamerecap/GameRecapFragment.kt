@@ -11,12 +11,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentGameRecapBinding
 import org.nihongo.mochi.domain.kanji.KanjiEntry
+import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ScorePresentationUtils
 
 class GameRecapFragment : Fragment() {
@@ -24,6 +26,9 @@ class GameRecapFragment : Fragment() {
     private var _binding: FragmentGameRecapBinding? = null
     private val binding get() = _binding!!
     private val args: GameRecapFragmentArgs by navArgs()
+    
+    private val levelContentProvider: LevelContentProvider by inject()
+    private val kanjiRepository: KanjiRepository by inject()
 
     private var kanjiList: List<KanjiEntry> = emptyList()
     private var currentPage = 0
@@ -132,8 +137,8 @@ class GameRecapFragment : Fragment() {
     }
 
     private fun loadKanjiForLevel(levelKey: String): List<KanjiEntry> {
-        val characters = MochiApplication.levelContentProvider.getCharactersForLevel(levelKey)
-        return characters.mapNotNull { MochiApplication.kanjiRepository.getKanjiByCharacter(it) }
+        val characters = levelContentProvider.getCharactersForLevel(levelKey)
+        return characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
     }
 
     override fun onDestroyView() {

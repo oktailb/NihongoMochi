@@ -10,16 +10,17 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentSettingsBinding
+import org.nihongo.mochi.domain.settings.SettingsRepository
 
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
     
-    private val settingsRepository get() = MochiApplication.settingsRepository
+    private val settingsRepository: SettingsRepository by inject()
 
     private lateinit var languages: List<LanguageItem>
 

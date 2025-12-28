@@ -12,13 +12,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.chip.Chip
-import org.nihongo.mochi.MochiApplication
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentWordListBinding
+import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordListEngine
+import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.ScorePresentationUtils
 
 class WordListFragment : Fragment() {
@@ -26,6 +30,11 @@ class WordListFragment : Fragment() {
     private var _binding: FragmentWordListBinding? = null
     private val binding get() = _binding!!
     private val args: WordListFragmentArgs by navArgs()
+
+    private val wordRepository: WordRepository by inject()
+    private val settingsRepository: SettingsRepository by inject()
+    private val meaningRepository: MeaningRepository by inject()
+    private val kanjiRepository: KanjiRepository by inject()
     
     // Engine instance
     private lateinit var engine: WordListEngine
@@ -48,7 +57,7 @@ class WordListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         // Init Engine
-        engine = WordListEngine(MochiApplication.wordRepository)
+        engine = WordListEngine(wordRepository)
 
         val wordListName = args.wordList
         if (wordListName == "user_custom_list") {
@@ -193,9 +202,9 @@ class WordListFragment : Fragment() {
     }
 
     private fun loadAllKanjiDetails() {
-        val locale = MochiApplication.settingsRepository.getAppLocale()
-        val meanings = MochiApplication.meaningRepository.getMeanings(locale)
-        val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
+        val locale = settingsRepository.getAppLocale()
+        val meanings = meaningRepository.getMeanings(locale)
+        val allKanjiEntries = kanjiRepository.getAllKanji()
         
         allKanjiDetails.clear()
         

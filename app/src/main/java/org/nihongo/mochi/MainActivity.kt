@@ -14,7 +14,9 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.databinding.ActivityMainBinding
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.workers.DecayWorker
 import java.util.concurrent.TimeUnit
 
@@ -23,13 +25,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var gamesSignInClient: GamesSignInClient
+    
+    private val settingsRepository: SettingsRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
         // Apply stored locale from SettingsRepository
-        val settingsRepo = MochiApplication.settingsRepository
-        val savedLocale = settingsRepo.getAppLocale()
+        val savedLocale = settingsRepository.getAppLocale()
         val localeTag = savedLocale.replace('_', '-')
         
         if (AppCompatDelegate.getApplicationLocales().toLanguageTags() != localeTag) {

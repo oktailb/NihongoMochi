@@ -99,6 +99,7 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.multiplatform.settings)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.koin.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

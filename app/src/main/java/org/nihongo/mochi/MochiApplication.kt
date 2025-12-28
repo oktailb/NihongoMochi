@@ -3,8 +3,13 @@ package org.nihongo.mochi
 import android.app.Application
 import android.content.Context
 import com.russhwolf.settings.SharedPreferencesSettings
+import org.koin.android.ext.android.get
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.domain.kana.AndroidResourceLoader
+import org.nihongo.mochi.di.appModule
+import org.nihongo.mochi.di.commonModule
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.RomajiToKana
@@ -34,6 +39,13 @@ class MochiApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         
+        // Init Koin
+        startKoin {
+            androidLogger()
+            androidContext(this@MochiApplication)
+            modules(appModule, commonModule)
+        }
+        
         // Init Settings
         val scoresSettings = SharedPreferencesSettings(getSharedPreferences("scores", Context.MODE_PRIVATE))
         val userListSettings = SharedPreferencesSettings(getSharedPreferences("user_lists", Context.MODE_PRIVATE))
@@ -42,17 +54,13 @@ class MochiApplication : Application() {
         
         ScoreManager.init(scoresSettings, userListSettings, appSettings)
         
-        settingsRepository = SettingsRepository(appSettings)
-
-        // Init Domain Repositories
-        val resourceLoader = AndroidResourceLoader(this)
-        
-        kanaRepository = KanaRepository(resourceLoader)
-        kanjiRepository = KanjiRepository(resourceLoader)
-        wordRepository = WordRepository(resourceLoader)
-        meaningRepository = MeaningRepository(resourceLoader)
-        
-        levelContentProvider = LevelContentProvider(kanaRepository, kanjiRepository, wordRepository)
+        // Init Domain Repositories via Koin
+        kanaRepository = get()
+        kanjiRepository = get()
+        wordRepository = get()
+        meaningRepository = get()
+        settingsRepository = get()
+        levelContentProvider = get()
 
         // Init Services depending on repositories
         KanaToRomaji.init(kanaRepository)
