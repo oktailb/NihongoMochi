@@ -6,28 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
+import org.koin.android.ext.android.inject
 import org.nihongo.mochi.R
+import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentWritingBinding
-import org.nihongo.mochi.domain.statistics.WritingViewModel
+import org.nihongo.mochi.domain.util.LevelContentProvider
 
-data class LevelInfo(val button: Button, val xmlName: String, val stringResId: Int)
+data class LevelInfo(val button: Button, val levelKey: String, val stringResId: Int? = null)
 
 class WritingFragment : Fragment() {
 
     private var _binding: FragmentWritingBinding? = null
     private val binding get() = _binding!!
-    
-    private val viewModel: WritingViewModel by viewModels {
-        viewModelFactory {
-            initializer {
-                WritingViewModel()
-            }
-        }
-    }
+
+    private val levelContentProvider: LevelContentProvider by inject()
 
     private lateinit var levelInfos: List<LevelInfo>
 
@@ -49,8 +43,7 @@ class WritingFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.calculatePercentages()
-        updateButtonText()
+        updateAllButtonPercentages()
     }
 
     private fun initializeLevelInfos() {
@@ -70,26 +63,45 @@ class WritingFragment : Fragment() {
             LevelInfo(binding.buttonWritingTest3, "Grade 8", R.string.level_high_school_2),
             LevelInfo(binding.buttonWritingTestPre2, "Grade 9", R.string.level_high_school_3),
             LevelInfo(binding.buttonWritingTest2, "Grade 10", R.string.level_high_school_4),
+            LevelInfo(binding.buttonUserList, "user_custom_list", R.string.writing_user_lists),
+            LevelInfo(binding.buttonNativeChallenge, "Native Challenge"),
+            LevelInfo(binding.buttonNoReadingChallenge, "No Reading"),
+            LevelInfo(binding.buttonNoMeaningChallenge, "No Meaning")
         )
     }
 
-    private fun updateButtonText() {
+    private fun updateAllButtonPercentages() {
         for (info in levelInfos) {
-            // The text for these buttons is not updated with a percentage for now.
+            val charactersForLevel = levelContentProvider.getCharactersForLevel(info.levelKey)
+            val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
+            updateButtonText(info, masteryPercentage)
         }
-        val userListText = getString(R.string.reading_user_list)
-        binding.buttonUserList.text = "$userListText\n${viewModel.userListPercentage.toInt()}%"
     }
 
+    private fun calculateMasteryPercentage(characterList: List<String>): Double {
+        if (characterList.isEmpty()) return 0.0
+
+        val totalMasteryPoints = characterList.sumOf { character ->
+            val score = ScoreManager.getScore(character, ScoreType.WRITING)
+            val balance = score.successes - score.failures
+            balance.coerceIn(0, 10).toDouble()
+        }
+
+        val maxPossiblePoints = characterList.size * 10.0
+        if (maxPossiblePoints == 0.0) return 0.0
+
+        return (totalMasteryPoints / maxPossiblePoints) * 100
+    }
+
+    private fun updateButtonText(info: LevelInfo, percentage: Double) {
+        val displayName = info.stringResId?.let { getString(it) } ?: info.levelKey
+        val formattedPercentage = "${percentage.toInt()}%"
+        info.button.text = "$displayName\n$formattedPercentage"
+    }
 
     private fun setupClickListeners() {
         for (info in levelInfos) {
-            info.button.setOnClickListener { navigateToRecap(info.xmlName) }
-        }
-
-        binding.buttonUserList.setOnClickListener {
-            val action = WritingFragmentDirections.actionNavWritingToWritingRecap("user_custom_list")
-            findNavController().navigate(action)
+            info.button.setOnClickListener { navigateToRecap(info.levelKey) }
         }
     }
 

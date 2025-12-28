@@ -14,7 +14,7 @@ import org.nihongo.mochi.data.ScoreManager.ScoreType
 import org.nihongo.mochi.databinding.FragmentRecognitionBinding
 import org.nihongo.mochi.domain.util.LevelContentProvider
 
-data class LevelInfo(val button: Button, val levelKey: String, val stringResId: Int)
+data class LevelInfo(val button: Button, val levelKey: String, val stringResId: Int? = null)
 
 class RecognitionFragment : Fragment() {
 
@@ -63,7 +63,10 @@ class RecognitionFragment : Fragment() {
             LevelInfo(binding.buttonTestPre2, "Grade 9", R.string.level_high_school_3),
             LevelInfo(binding.buttonTest2, "Grade 10", R.string.level_high_school_4),
             LevelInfo(binding.buttonHiragana, "Hiragana", R.string.level_hiragana),
-            LevelInfo(binding.buttonKatakana, "Katakana", R.string.level_katakana)
+            LevelInfo(binding.buttonKatakana, "Katakana", R.string.level_katakana),
+            LevelInfo(binding.buttonNativeChallenge, "Native Challenge"),
+            LevelInfo(binding.buttonNoReadingChallenge, "No Reading"),
+            LevelInfo(binding.buttonNoMeaningChallenge, "No Meaning")
         )
     }
 
@@ -91,7 +94,7 @@ class RecognitionFragment : Fragment() {
     }
 
     private fun updateButtonText(info: LevelInfo, percentage: Double) {
-        val displayName = getString(info.stringResId)
+        val displayName = info.stringResId?.let { getString(it) } ?: info.levelKey
         val formattedPercentage = "${percentage.toInt()}%"
         info.button.text = "$displayName\n$formattedPercentage"
     }

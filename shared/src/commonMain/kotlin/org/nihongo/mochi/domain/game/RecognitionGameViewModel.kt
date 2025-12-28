@@ -117,7 +117,21 @@ class RecognitionGameViewModel(
         allKanjiDetails.clear()
         allKanjiDetails.addAll(
             allKanjiDetailsXml.filter {
-                kanjiCharsForLevel.contains(it.character) && it.meanings.isNotEmpty()
+                var include = kanjiCharsForLevel.contains(it.character)
+
+                if (level == "No Meaning") {
+                    // For "No Meaning" challenge, we only care about readings, so we don't filter by meaning
+                } else if (gameMode == "meaning") {
+                    include = include && it.meanings.isNotEmpty()
+                }
+
+                if (level == "No Reading") {
+                    // For "No Reading" challenge, we only care about meanings, so we don't filter by reading
+                } else if (gameMode == "reading") {
+                    include = include && it.readings.isNotEmpty()
+                }
+                
+                include
             }
         )
         allKanjiDetails.shuffle()

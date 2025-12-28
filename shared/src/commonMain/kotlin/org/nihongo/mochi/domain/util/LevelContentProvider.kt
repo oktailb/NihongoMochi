@@ -15,6 +15,9 @@ class LevelContentProvider(
         return when {
             levelKey == "Hiragana" -> kanaRepository.getKanaEntries(KanaType.HIRAGANA).map { it.character }
             levelKey == "Katakana" -> kanaRepository.getKanaEntries(KanaType.KATAKANA).map { it.character }
+            levelKey == "Native Challenge" -> kanjiRepository.getNativeKanji().map { it.character }
+            levelKey == "No Reading" -> kanjiRepository.getNoReadingKanji().map { it.character }
+            levelKey == "No Meaning" -> kanjiRepository.getNoMeaningKanji().map { it.character }
             levelKey.startsWith("bccwj_wordlist_") || levelKey.startsWith("reading_") -> {
                  val cleanKey = if (levelKey.startsWith("reading_n")) "jlpt_wordlist_${levelKey.removePrefix("reading_")}" else levelKey
                  wordRepository.getWordsForLevel(cleanKey)

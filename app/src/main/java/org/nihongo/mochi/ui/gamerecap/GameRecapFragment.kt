@@ -47,11 +47,26 @@ class GameRecapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val levelKey = args.level
-        // Use levelKey as display title if resource ID is not handy, or map it.
-        // For simplicity we show the key (e.g. "N5", "Grade 1")
         binding.textLevelTitle.text = levelKey
 
         kanjiList = loadKanjiForLevel(levelKey)
+
+        when (levelKey) {
+            "No Meaning" -> {
+                binding.radioGroupGameMode.check(R.id.radio_button_reading)
+                binding.radioButtonMeaning.isEnabled = false
+                binding.radioButtonReading.isEnabled = true
+            }
+            "No Reading" -> {
+                binding.radioGroupGameMode.check(R.id.radio_button_meaning)
+                binding.radioButtonMeaning.isEnabled = true
+                binding.radioButtonReading.isEnabled = false
+            }
+            else -> {
+                binding.radioButtonMeaning.isEnabled = true
+                binding.radioButtonReading.isEnabled = true
+            }
+        }
 
         binding.radioGroupGameMode.setOnCheckedChangeListener { _, checkedId ->
             binding.radioGroupReadingOptions.isVisible = checkedId == R.id.radio_button_reading

@@ -10,7 +10,7 @@ import org.nihongo.mochi.domain.words.WordRepository
 
 val commonModule = module {
     single { KanaRepository(get()) }
-    single { KanjiRepository(get()) }
+    single { KanjiRepository(get(), get(), get()) }
     single { WordRepository(get()) }
     single { MeaningRepository(get()) }
     single { SettingsRepository(get()) }
