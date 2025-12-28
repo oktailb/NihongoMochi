@@ -1,24 +1,20 @@
-package org.nihongo.mochi.ui.gojuon
+package org.nihongo.mochi.domain.game
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
-import org.nihongo.mochi.domain.game.KanaQuizEngine
-import org.nihongo.mochi.domain.game.QuizMode
+import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaCharacter
-import org.nihongo.mochi.domain.models.KanaProgress
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
 
-// Re-export type alias
-typealias QuizMode = org.nihongo.mochi.domain.game.QuizMode
-
-class KanaQuizViewModel : ViewModel() {
+class KanaQuizViewModel(
+    private val kanaRepository: KanaRepository
+) : ViewModel() {
 
     private val engine = KanaQuizEngine()
 
@@ -36,23 +32,12 @@ class KanaQuizViewModel : ViewModel() {
         get() = engine.allKana
         set(value) { engine.allKana = value }
     
-    // Game State
-    var kanaListPosition: Int
-        get() = engine.kanaListPosition
-        set(value) { engine.kanaListPosition = value }
-
     val currentKanaSet: MutableList<KanaCharacter>
         get() = engine.currentKanaSet
-
-    val revisionList: MutableList<KanaCharacter>
-        get() = engine.revisionList
 
     val kanaStatus: MutableMap<KanaCharacter, GameStatus>
         get() = engine.kanaStatus
 
-    val kanaProgress: MutableMap<KanaCharacter, KanaProgress>
-        get() = engine.kanaProgress
-    
     val currentQuestion: KanaCharacter
         get() = engine.currentQuestion
 
@@ -104,7 +89,7 @@ class KanaQuizViewModel : ViewModel() {
     }
 
     private fun loadKana(type: KanaType): List<KanaCharacter> {
-        return MochiApplication.kanaRepository.getKanaEntries(type).map { entry ->
+        return kanaRepository.getKanaEntries(type).map { entry ->
             KanaCharacter(entry.character, entry.romaji, entry.category)
         }
     }

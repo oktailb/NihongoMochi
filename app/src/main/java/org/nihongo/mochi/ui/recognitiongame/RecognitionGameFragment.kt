@@ -15,12 +15,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentRecognitionGameBinding
 import org.nihongo.mochi.domain.game.QuestionDirection
+import org.nihongo.mochi.domain.game.RecognitionGameViewModel
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
@@ -33,7 +37,19 @@ class RecognitionGameFragment : Fragment() {
     private var _binding: FragmentRecognitionGameBinding? = null
     private val binding get() = _binding!!
     private val args: RecognitionGameFragmentArgs by navArgs()
-    private val viewModel: RecognitionGameViewModel by viewModels()
+    
+    private val viewModel: RecognitionGameViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                RecognitionGameViewModel(
+                    kanjiRepository = MochiApplication.kanjiRepository,
+                    meaningRepository = MochiApplication.meaningRepository,
+                    levelContentProvider = MochiApplication.levelContentProvider,
+                    settingsRepository = MochiApplication.settingsRepository
+                )
+            }
+        }
+    }
 
     private lateinit var sharedPreferences: SharedPreferences
 

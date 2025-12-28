@@ -17,6 +17,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
@@ -24,6 +26,7 @@ import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentWritingGameBinding
 import org.nihongo.mochi.domain.game.QuestionType
+import org.nihongo.mochi.domain.game.WritingGameViewModel
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.kana.RomajiToKana
 import org.nihongo.mochi.domain.models.GameStatus
@@ -37,7 +40,14 @@ class WritingGameFragment : Fragment() {
     private var _binding: FragmentWritingGameBinding? = null
     private val binding get() = _binding!!
     private val args: WritingGameFragmentArgs by navArgs()
-    private val viewModel: WritingGameViewModel by viewModels()
+    
+    private val viewModel: WritingGameViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                WritingGameViewModel()
+            }
+        }
+    }
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -193,7 +203,7 @@ class WritingGameFragment : Fragment() {
                 binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_neutral))
             }
             
-            // Delay is handled by engine via state transitions
+            // Delay is handled by engine in shared code
         } else {
             binding.buttonSubmitAnswer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_incorrect))
             showCorrectionFeedbackUI()

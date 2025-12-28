@@ -1,22 +1,25 @@
-package org.nihongo.mochi.ui.recognitiongame
+package org.nihongo.mochi.domain.game
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.MochiApplication
-import org.nihongo.mochi.domain.game.RecognitionGameEngine
+import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
-import org.nihongo.mochi.domain.models.KanjiProgress
 import org.nihongo.mochi.domain.models.Reading
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 
-// Re-export type aliases to maintain compatibility with Fragment imports if they use these types from ViewModel package
-typealias QuestionDirection = org.nihongo.mochi.domain.game.QuestionDirection
-
-class RecognitionGameViewModel : ViewModel() {
+class RecognitionGameViewModel(
+    private val kanjiRepository: KanjiRepository,
+    private val meaningRepository: MeaningRepository,
+    private val levelContentProvider: LevelContentProvider,
+    private val settingsRepository: SettingsRepository
+) : ViewModel() {
     
     private val engine = RecognitionGameEngine()
     
@@ -36,14 +39,8 @@ class RecognitionGameViewModel : ViewModel() {
     val currentKanjiSet: MutableList<KanjiDetail>
         get() = engine.currentKanjiSet
 
-    val revisionList: MutableList<KanjiDetail>
-        get() = engine.revisionList
-
     val kanjiStatus: MutableMap<KanjiDetail, GameStatus>
         get() = engine.kanjiStatus
-
-    val kanjiProgress: MutableMap<KanjiDetail, KanjiProgress>
-        get() = engine.kanjiProgress
 
     var kanjiListPosition: Int
         get() = engine.kanjiListPosition
@@ -51,9 +48,6 @@ class RecognitionGameViewModel : ViewModel() {
 
     val currentKanji: KanjiDetail
         get() = engine.currentKanji
-
-    val correctAnswer: String
-        get() = engine.correctAnswer
 
     var gameMode: String
         get() = engine.gameMode
@@ -117,7 +111,7 @@ class RecognitionGameViewModel : ViewModel() {
         val kanjiCharsForLevel: List<String> = if (!customWordList.isNullOrEmpty()) {
             customWordList
         } else {
-            MochiApplication.levelContentProvider.getCharactersForLevel(level)
+            levelContentProvider.getCharactersForLevel(level)
         }
 
         allKanjiDetails.clear()
@@ -141,9 +135,9 @@ class RecognitionGameViewModel : ViewModel() {
     private fun loadAllKanjiDetails() {
         if (allKanjiDetailsXml.isNotEmpty()) return
 
-        val locale = MochiApplication.settingsRepository.getAppLocale()
-        val meanings = MochiApplication.meaningRepository.getMeanings(locale)
-        val allKanjiEntries = MochiApplication.kanjiRepository.getAllKanji()
+        val locale = settingsRepository.getAppLocale()
+        val meanings = meaningRepository.getMeanings(locale)
+        val allKanjiEntries = kanjiRepository.getAllKanji()
         
         allKanjiDetailsXml.clear()
         

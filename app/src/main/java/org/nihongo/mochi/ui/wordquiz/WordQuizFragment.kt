@@ -137,16 +137,6 @@ class WordQuizFragment : Fragment() {
         answerButtons.forEach { it.isEnabled = viewModel.areButtonsEnabled }
         updateProgressBar()
     }
-    
-    private fun hiraganaToKatakana(s: String): String {
-        return s.map { c ->
-            if (c in '\u3041'..'\u3096') {
-                (c + 0x60)
-            } else {
-                c
-            }
-        }.joinToString("")
-    }
 
     private fun displayQuestion() {
         if (viewModel.revisionList.isEmpty()) {

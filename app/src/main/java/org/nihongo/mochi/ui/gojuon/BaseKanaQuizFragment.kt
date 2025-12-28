@@ -15,10 +15,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.MochiApplication
 import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentKanaQuizBinding
+import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
@@ -29,7 +33,14 @@ abstract class BaseKanaQuizFragment : Fragment() {
 
     private var _binding: FragmentKanaQuizBinding? = null
     protected val binding get() = _binding!!
-    protected val viewModel: KanaQuizViewModel by viewModels()
+    
+    protected val viewModel: KanaQuizViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                KanaQuizViewModel(MochiApplication.kanaRepository)
+            }
+        }
+    }
 
     protected lateinit var sharedPreferences: SharedPreferences
 
