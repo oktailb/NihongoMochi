@@ -31,8 +31,6 @@ import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
-import java.util.Locale
-import kotlin.math.max
 
 class WritingGameFragment : Fragment() {
 

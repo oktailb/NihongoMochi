@@ -19,7 +19,6 @@ import org.nihongo.mochi.ui.ScoreUiUtils
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.domain.words.WordListEngine
-import java.util.Locale
 
 class WordListFragment : Fragment() {
 

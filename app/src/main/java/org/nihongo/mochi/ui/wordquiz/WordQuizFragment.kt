@@ -26,7 +26,6 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.Word
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
-import java.io.IOException
 
 class WordQuizFragment : Fragment() {
 
