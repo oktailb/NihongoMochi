@@ -3,8 +3,6 @@ package org.nihongo.mochi.ui.gojuon
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -14,17 +12,22 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.launch
 import org.nihongo.mochi.R
-import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.databinding.FragmentKanaQuizBinding
+import org.nihongo.mochi.domain.game.GameState
 import org.nihongo.mochi.domain.kana.AndroidResourceLoader
 import org.nihongo.mochi.domain.kana.KanaRepository
-import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
+import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanaCharacter
 import org.nihongo.mochi.domain.models.KanaProgress
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
+import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 
 abstract class BaseKanaQuizFragment : Fragment() {
 
@@ -57,16 +60,71 @@ abstract class BaseKanaQuizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
+        viewModel.setAnimationSpeed(animationSpeed)
 
         if (!viewModel.isGameInitialized) {
             initializeGame()
         }
 
-        setupUI()
+        setupStateObservation()
 
         val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
-        answerButtons.forEach { button ->
-            button.setOnClickListener { onAnswerClicked(button) }
+        answerButtons.forEachIndexed { index, button ->
+            button.setOnClickListener { onAnswerClicked(button, index) }
+        }
+    }
+    
+    private fun setupStateObservation() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.state.collect { state ->
+                        renderState(state)
+                    }
+                }
+                launch {
+                    viewModel.buttonStates.collect { states ->
+                        updateButtonStates(states)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun renderState(state: GameState) {
+        when(state) {
+            GameState.Loading -> { 
+                // Could show loading indicator
+            }
+            GameState.WaitingForAnswer -> {
+                displayQuestion()
+            }
+            is GameState.ShowingResult -> {
+                val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
+                answerButtons.forEach { it.isEnabled = false }
+                updateProgressBar()
+            }
+            GameState.Finished -> {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
+    private fun updateButtonStates(states: List<AnswerButtonState>) {
+        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
+        
+        states.forEachIndexed { index, state ->
+            if (index < answerButtons.size) {
+                val colorRes = when(state) {
+                    AnswerButtonState.DEFAULT -> R.color.button_background
+                    AnswerButtonState.CORRECT -> R.color.answer_correct
+                    AnswerButtonState.INCORRECT -> R.color.answer_incorrect
+                    AnswerButtonState.NEUTRAL -> R.color.answer_neutral
+                }
+                answerButtons[index].setBackgroundColor(ContextCompat.getColor(requireContext(), colorRes))
+            }
         }
     }
 
@@ -80,36 +138,11 @@ abstract class BaseKanaQuizFragment : Fragment() {
         viewModel.allKana = filterCharactersForLevel(allCharacters, level).shuffled()
 
         if (viewModel.allKana.isNotEmpty()) {
-            startNewSet()
+            viewModel.startGame()
             viewModel.isGameInitialized = true
         } else {
             findNavController().popBackStack()
         }
-    }
-
-    private fun startNewSet() {
-        viewModel.revisionList.clear()
-        viewModel.kanaStatus.clear()
-        viewModel.kanaProgress.clear()
-
-        if (viewModel.kanaListPosition >= viewModel.allKana.size) {
-            findNavController().popBackStack()
-            return
-        }
-
-        val nextSet = viewModel.allKana.drop(viewModel.kanaListPosition).take(10)
-        viewModel.kanaListPosition += nextSet.size
-
-        viewModel.currentKanaSet.clear()
-        viewModel.currentKanaSet.addAll(nextSet)
-        viewModel.revisionList.addAll(nextSet)
-        viewModel.currentKanaSet.forEach {
-            viewModel.kanaStatus[it] = GameStatus.NOT_ANSWERED
-            viewModel.kanaProgress[it] = KanaProgress()
-        }
-
-        updateProgressBar()
-        displayQuestion()
     }
 
     private fun loadKana(type: org.nihongo.mochi.domain.kana.KanaType): List<KanaCharacter> {
@@ -125,37 +158,6 @@ abstract class BaseKanaQuizFragment : Fragment() {
             "Yōon" -> allCharacters.filter { it.category == "yoon" }
             else -> allCharacters
         }
-    }
-
-    private fun setupUI() {
-        if (viewModel.allKana.isEmpty()) return
-
-        displayQuestionText()
-
-        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
-        answerButtons.forEachIndexed { index, button ->
-            if (viewModel.currentAnswers.size > index) {
-                button.text = viewModel.currentAnswers[index]
-            }
-            if (viewModel.buttonColors.size > index) {
-                val colorRes = viewModel.buttonColors[index]
-                if (colorRes != 0) {
-                    button.setBackgroundColor(ContextCompat.getColor(requireContext(), colorRes))
-                } else {
-                    button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_background))
-                }
-            }
-            
-            // Restore text size based on direction
-            if (viewModel.currentDirection == KanaQuestionDirection.REVERSE) {
-                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)
-            } else {
-                button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
-            }
-        }
-        answerButtons.forEach { it.isEnabled = viewModel.areButtonsEnabled }
-
-        updateProgressBar()
     }
 
     private fun updateProgressBar() {
@@ -186,33 +188,15 @@ abstract class BaseKanaQuizFragment : Fragment() {
     }
 
     private fun displayQuestion() {
-        if (viewModel.revisionList.isEmpty()) {
-            startNewSet()
-            return
-        }
-
-        viewModel.currentQuestion = viewModel.revisionList.random()
-        val progress = viewModel.kanaProgress[viewModel.currentQuestion]!!
-
-        viewModel.currentDirection = when {
-            !progress.normalSolved && !progress.reverseSolved -> if (Math.random() < 0.5) KanaQuestionDirection.NORMAL else KanaQuestionDirection.REVERSE
-            !progress.normalSolved -> KanaQuestionDirection.NORMAL
-            else -> KanaQuestionDirection.REVERSE
-        }
-
         displayQuestionText()
+        updateProgressBar()
 
-        val answers = generateAnswers(viewModel.currentQuestion)
-        viewModel.currentAnswers = answers
+        val answers = viewModel.currentAnswers
         val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
-
-        viewModel.buttonColors.clear()
-        repeat(4) { viewModel.buttonColors.add(R.color.button_background) }
 
         answerButtons.zip(answers).forEach { (button, answerText) ->
             button.text = answerText
-            button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_background))
-
+            
             if (viewModel.currentDirection == KanaQuestionDirection.REVERSE) {
                 button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)
             } else {
@@ -224,7 +208,7 @@ abstract class BaseKanaQuizFragment : Fragment() {
     }
 
     private fun displayQuestionText() {
-        if (!::sharedPreferences.isInitialized) return // Guard against uninitialized state during rotation
+        if (!::sharedPreferences.isInitialized) return
         if (!viewModel.isGameInitialized) return
         
         if (viewModel.currentDirection == KanaQuestionDirection.NORMAL) {
@@ -236,64 +220,13 @@ abstract class BaseKanaQuizFragment : Fragment() {
         }
     }
 
-    private fun generateAnswers(correctChar: KanaCharacter): List<String> {
-        val isNormal = viewModel.currentDirection == KanaQuestionDirection.NORMAL
-        val correctAnswer = if (isNormal) correctChar.romaji else correctChar.kana
-        val incorrectAnswers = viewModel.allKana
-            .asSequence()
-            .map { if (isNormal) it.romaji else it.kana }
-            .distinct()
-            .filter { it != correctAnswer }
-            .shuffled()
-            .take(3)
-            .toList()
-        return (incorrectAnswers + correctAnswer).shuffled()
-    }
-
-    private fun onAnswerClicked(button: Button) {
+    private fun onAnswerClicked(button: Button, index: Int) {
         val selectedAnswer = button.text.toString()
-        val isNormal = viewModel.currentDirection == KanaQuestionDirection.NORMAL
-        val correctAnswerText = if (isNormal) viewModel.currentQuestion.romaji else viewModel.currentQuestion.kana
-        val isCorrect = selectedAnswer == correctAnswerText
-
-        ScoreManager.saveScore(viewModel.currentQuestion.kana, isCorrect, ScoreManager.ScoreType.RECOGNITION)
-
-        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
-        val buttonIndex = answerButtons.indexOf(button)
-
-        if (isCorrect) {
-            val progress = viewModel.kanaProgress[viewModel.currentQuestion]!!
-            if (isNormal) progress.normalSolved = true else progress.reverseSolved = true
-
-            if (progress.normalSolved && progress.reverseSolved) {
-                viewModel.kanaStatus[viewModel.currentQuestion] = GameStatus.CORRECT
-                viewModel.revisionList.remove(viewModel.currentQuestion)
-                viewModel.buttonColors[buttonIndex] = R.color.answer_correct
-            } else {
-                viewModel.kanaStatus[viewModel.currentQuestion] = GameStatus.PARTIAL
-                viewModel.buttonColors[buttonIndex] = R.color.answer_neutral
-            }
-        } else {
-            viewModel.kanaStatus[viewModel.currentQuestion] = GameStatus.INCORRECT
-            viewModel.buttonColors[buttonIndex] = R.color.answer_incorrect
-            // Highlight correct answer
-            val correctButtonIndex = answerButtons.indexOfFirst { it.text == correctAnswerText }
-            if (correctButtonIndex != -1) {
-                answerButtons[correctButtonIndex].setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.answer_correct))
-            }
-        }
-        button.setBackgroundColor(ContextCompat.getColor(requireContext(), viewModel.buttonColors[buttonIndex]))
-
-        // Immediate update of progress bar
-        updateProgressBar()
-
+        viewModel.submitAnswer(selectedAnswer, index)
+        
         viewModel.areButtonsEnabled = false
+        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
         answerButtons.forEach { it.isEnabled = false }
-
-        val animationSpeed = sharedPreferences.getFloat(ANIMATION_SPEED_PREF_KEY, 1.0f)
-        val delay = (1000 * animationSpeed).toLong()
-
-        Handler(Looper.getMainLooper()).postDelayed({ displayQuestion() }, delay)
     }
 
     override fun onDestroyView() {

@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.KanaUtils
+import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.KanjiProgress
@@ -41,6 +42,10 @@ class RecognitionGameEngine {
     
     private val _state = MutableStateFlow<GameState>(GameState.Loading)
     val state: StateFlow<GameState> = _state.asStateFlow()
+    
+    // Buttons state
+    private val _buttonStates = MutableStateFlow<List<AnswerButtonState>>(List(4) { AnswerButtonState.DEFAULT })
+    val buttonStates: StateFlow<List<AnswerButtonState>> = _buttonStates.asStateFlow()
 
     // Configuration
     var pronunciationMode: String = "Hiragana" // "Hiragana" or "Roman"
@@ -56,6 +61,7 @@ class RecognitionGameEngine {
         kanjiListPosition = 0
         currentAnswers = emptyList()
         _state.value = GameState.Loading
+        _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
     }
     
     fun startGame() {
@@ -103,6 +109,7 @@ class RecognitionGameEngine {
         }
 
         currentAnswers = generateAnswers(currentKanji)
+        _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
     }
 
     private fun generateAnswers(correctKanji: KanjiDetail): List<String> {
@@ -190,6 +197,8 @@ class RecognitionGameEngine {
         
         // Update Game State
         val progress = kanjiProgress[currentKanji]!!
+        val newButtonStates = _buttonStates.value.toMutableList()
+
         if (isCorrect) {
             if (currentDirection == QuestionDirection.NORMAL) progress.normalSolved = true
             else progress.reverseSolved = true
@@ -197,13 +206,17 @@ class RecognitionGameEngine {
             if (progress.normalSolved && progress.reverseSolved) {
                 kanjiStatus[currentKanji] = GameStatus.CORRECT
                 revisionList.remove(currentKanji)
+                newButtonStates[selectedIndex] = AnswerButtonState.CORRECT
             } else {
                 kanjiStatus[currentKanji] = GameStatus.PARTIAL
+                newButtonStates[selectedIndex] = AnswerButtonState.NEUTRAL
             }
         } else {
             kanjiStatus[currentKanji] = GameStatus.INCORRECT
+            newButtonStates[selectedIndex] = AnswerButtonState.INCORRECT
         }
         
+        _buttonStates.value = newButtonStates
         _state.value = GameState.ShowingResult(isCorrect, selectedIndex)
         delay((1000 * animationSpeed).toLong())
 

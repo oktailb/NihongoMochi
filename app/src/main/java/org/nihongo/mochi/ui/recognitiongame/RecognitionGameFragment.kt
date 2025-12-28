@@ -24,6 +24,7 @@ import org.nihongo.mochi.R
 import org.nihongo.mochi.databinding.FragmentRecognitionGameBinding
 import org.nihongo.mochi.domain.game.GameState
 import org.nihongo.mochi.domain.game.QuestionDirection
+import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
@@ -77,8 +78,15 @@ class RecognitionGameFragment : Fragment() {
     private fun setupStateObservation() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.state.collect { state ->
-                    renderState(state)
+                launch {
+                    viewModel.state.collect { state ->
+                        renderState(state)
+                    }
+                }
+                launch {
+                    viewModel.buttonStates.collect { states ->
+                        updateButtonStates(states)
+                    }
                 }
             }
         }
@@ -93,10 +101,29 @@ class RecognitionGameFragment : Fragment() {
                 displayQuestion()
             }
             is GameState.ShowingResult -> {
-                showResult(state.isCorrect, state.selectedAnswerIndex)
+                // Button colors are updated via buttonStates flow
+                val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
+                answerButtons.forEach { it.isEnabled = false }
+                updateProgressBar()
             }
             GameState.Finished -> {
                 findNavController().popBackStack()
+            }
+        }
+    }
+    
+    private fun updateButtonStates(states: List<AnswerButtonState>) {
+        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
+        
+        states.forEachIndexed { index, state ->
+            if (index < answerButtons.size) {
+                val colorRes = when(state) {
+                    AnswerButtonState.DEFAULT -> R.color.button_background
+                    AnswerButtonState.CORRECT -> R.color.answer_correct
+                    AnswerButtonState.INCORRECT -> R.color.answer_incorrect
+                    AnswerButtonState.NEUTRAL -> R.color.answer_neutral
+                }
+                answerButtons[index].setBackgroundColor(ContextCompat.getColor(requireContext(), colorRes))
             }
         }
     }
@@ -172,12 +199,11 @@ class RecognitionGameFragment : Fragment() {
         val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
         val answers = viewModel.currentAnswers
 
-        viewModel.buttonColors.clear()
-        repeat(4) { viewModel.buttonColors.add(R.color.button_background) }
+        // Button colors are handled by updateButtonStates observing the flow
+        // Just need to set text and enable
 
         answerButtons.zip(answers).forEach { (button, answerText) ->
             button.text = answerText
-            button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.button_background))
             button.isEnabled = true
             updateButtonSize(button, answerText)
         }
@@ -211,26 +237,6 @@ class RecognitionGameFragment : Fragment() {
         answerButtons.forEach { it.isEnabled = false }
     }
     
-    private fun showResult(isCorrect: Boolean, selectedIndex: Int) {
-        val answerButtons = listOf(binding.buttonAnswer1, binding.buttonAnswer2, binding.buttonAnswer3, binding.buttonAnswer4)
-        
-        if (isCorrect) {
-             viewModel.buttonColors[selectedIndex] = R.color.answer_correct
-             // Check partial
-             val status = viewModel.kanjiStatus[viewModel.currentKanji]
-             if (status == GameStatus.PARTIAL) {
-                 viewModel.buttonColors[selectedIndex] = R.color.answer_neutral
-             }
-        } else {
-             viewModel.buttonColors[selectedIndex] = R.color.answer_incorrect
-        }
-        
-        answerButtons[selectedIndex].setBackgroundColor(ContextCompat.getColor(requireContext(), viewModel.buttonColors[selectedIndex]))
-        updateProgressBar()
-        
-        answerButtons.forEach { it.isEnabled = false }
-    }
-
     private fun updateProgressBar() {
         val progressIndicators = (0 until binding.progressBarGame.childCount).map {
             binding.progressBarGame.getChildAt(it) as ImageView

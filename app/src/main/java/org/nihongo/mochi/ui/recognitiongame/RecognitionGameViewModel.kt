@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.game.GameState
 import org.nihongo.mochi.domain.game.RecognitionGameEngine
+import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.KanjiProgress
@@ -65,10 +66,11 @@ class RecognitionGameViewModel : ViewModel() {
         get() = engine.currentAnswers
 
     val state: StateFlow<GameState> = engine.state
+    val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
 
     // UI Specific State (Platform dependent)
     var areButtonsEnabled = true
-    var buttonColors = mutableListOf<Int>() // Resource IDs are platform specific
+    // Removed buttonColors as it's now handled via state flow from engine
 
     fun updatePronunciationMode(mode: String) {
         engine.pronunciationMode = mode
@@ -78,20 +80,11 @@ class RecognitionGameViewModel : ViewModel() {
         engine.animationSpeed = speed
     }
 
-    fun startNewSet(): Boolean {
-        // This is now internal to engine mostly, but used for initial setup in Fragment
-        // Fragment calls startNewSet() to check if game can start?
-        // Let's keep it for now but ideally engine.startGame() should be used
-        return true
-    }
-    
     fun startGame() {
         engine.startGame()
     }
 
-    fun nextQuestion() {
-        engine.nextQuestion()
-    }
+    // Next question is handled by engine in flow
     
     fun getFormattedReadings(kanji: KanjiDetail): String {
         return engine.getFormattedReadings(kanji)
@@ -107,6 +100,6 @@ class RecognitionGameViewModel : ViewModel() {
         engine.resetState()
         allKanjiDetailsXml.clear()
         areButtonsEnabled = true
-        buttonColors.clear()
+        // buttonColors cleared implicitly by engine reset
     }
 }

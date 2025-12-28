@@ -1,8 +1,13 @@
 package org.nihongo.mochi.ui.gojuon
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import org.nihongo.mochi.domain.game.GameState
 import org.nihongo.mochi.domain.game.KanaQuizEngine
 import org.nihongo.mochi.domain.game.QuizMode
+import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanaCharacter
 import org.nihongo.mochi.domain.models.KanaProgress
@@ -46,25 +51,37 @@ class KanaQuizViewModel : ViewModel() {
     val kanaProgress: MutableMap<KanaCharacter, KanaProgress>
         get() = engine.kanaProgress
     
-    var currentQuestion: KanaCharacter
+    val currentQuestion: KanaCharacter
         get() = engine.currentQuestion
-        set(value) { engine.currentQuestion = value }
 
-    var currentDirection: KanaQuestionDirection
+    val currentDirection: KanaQuestionDirection
         get() = engine.currentDirection
-        set(value) { engine.currentDirection = value }
     
-    var currentAnswers: List<String>
+    val currentAnswers: List<String>
         get() = engine.currentAnswers
-        set(value) { engine.currentAnswers = value }
+
+    val state: StateFlow<GameState> = engine.state
+    val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
 
     // UI Specific State
     var areButtonsEnabled = true
-    var buttonColors = mutableListOf<Int>()
+    
+    fun setAnimationSpeed(speed: Float) {
+        engine.animationSpeed = speed
+    }
     
     fun resetState() {
         engine.resetState()
         areButtonsEnabled = true
-        buttonColors.clear()
+    }
+    
+    fun startGame() {
+        engine.startGame()
+    }
+    
+    fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
+        viewModelScope.launch {
+            engine.submitAnswer(selectedAnswer, selectedIndex)
+        }
     }
 }

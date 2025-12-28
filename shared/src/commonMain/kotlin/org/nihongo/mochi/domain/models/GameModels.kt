@@ -10,6 +10,8 @@ data class KanjiDetail(val id: String, val character: String, val meanings: List
 
 enum class GameStatus { NOT_ANSWERED, PARTIAL, CORRECT, INCORRECT }
 
+enum class AnswerButtonState { DEFAULT, CORRECT, INCORRECT, NEUTRAL }
+
 @Serializable
 data class KanaCharacter(val kana: String, val romaji: String, val category: String)
 
