@@ -22,12 +22,32 @@ class ResultsViewModel(
 
     private val _message = MutableStateFlow<String?>(null)
     val message: StateFlow<String?> = _message.asStateFlow()
+    
+    // Saga Map State now uses Steps instead of just Nodes
+    private val _sagaSteps = MutableStateFlow<List<SagaStep>>(emptyList())
+    val sagaSteps: StateFlow<List<SagaStep>> = _sagaSteps.asStateFlow()
+    
+    private val _currentTab = MutableStateFlow(SagaTab.JLPT)
+    val currentTab: StateFlow<SagaTab> = _currentTab.asStateFlow()
 
-    // Used for snapshot naming
     private var currentSaveName = "NihongoMochiSnapshot"
 
     init {
         checkSignInStatus()
+        refreshSagaMap()
+    }
+    
+    fun setTab(tab: SagaTab) {
+        _currentTab.value = tab
+        refreshSagaMap()
+    }
+    
+    fun refreshSagaMap() {
+        _sagaSteps.value = statisticsEngine.getSagaMapSteps(_currentTab.value)
+    }
+    
+    fun getSagaProgress(node: SagaNode): UserSagaProgress {
+        return statisticsEngine.getSagaProgress(node)
     }
 
     fun checkSignInStatus() {
@@ -62,8 +82,8 @@ class ResultsViewModel(
     }
 
     fun loadGame(data: String) {
-        // Called after getting data from Service/UI
         ScoreManager.restoreDataFromJson(data)
+        refreshSagaMap()
         _message.value = "Données restaurées"
     }
     

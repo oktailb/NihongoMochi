@@ -18,9 +18,9 @@ class StatisticsEngine(
     private fun getLevelDefinitions(): List<LevelDefinition> {
         return listOf(
             // --- RECOGNITION ---
-            // Kanas
+            // Kanas - Same SortOrder = Parallel
             LevelDefinition("Hiragana", "Hiragana", StatisticsType.RECOGNITION, "Kanas", 1),
-            LevelDefinition("Katakana", "Katakana", StatisticsType.RECOGNITION, "Kanas", 2),
+            LevelDefinition("Katakana", "Katakana", StatisticsType.RECOGNITION, "Kanas", 1),
             
             // JLPT
             LevelDefinition("JLPT N5", "N5", StatisticsType.RECOGNITION, "JLPT", 1),
@@ -89,21 +89,155 @@ class StatisticsEngine(
     fun getAllStatistics(): List<LevelProgress> {
         val levels = getLevelDefinitions()
         return levels.map { level ->
-            val scoreType = when(level.type) {
-                StatisticsType.READING -> ScoreManager.ScoreType.READING
-                StatisticsType.WRITING -> ScoreManager.ScoreType.WRITING
-                StatisticsType.RECOGNITION -> ScoreManager.ScoreType.RECOGNITION
-            }
-
-            val percentage = if (level.xmlName == "user_list") {
-                calculateUserListPercentage(scoreType)
-            } else {
-                val characters = levelContentProvider.getCharactersForLevel(level.xmlName)
-                calculateMasteryPercentage(characters, scoreType)
-            }
-
+            val percentage = calculatePercentage(level)
             LevelProgress(level.name, level.xmlName, percentage.toInt(), level.type, level.category, level.sortOrder)
         }
+    }
+    
+    fun getSagaMapSteps(tab: SagaTab): List<SagaStep> {
+        val allLevels = getLevelDefinitions()
+        
+        val categoryFilter = when(tab) {
+            SagaTab.JLPT -> listOf("Kanas", "JLPT", "Frequency") 
+            SagaTab.SCHOOL -> listOf("Kanas", "School", "Frequency")
+            SagaTab.CHALLENGES -> listOf("Challenges", "Frequency") 
+        }
+        
+        val relevantLevels = allLevels.filter { it.category in categoryFilter }
+        
+        // Group by (Category, SortOrder) to create a single node if it's the same level
+        // BUT for Kanas, we want Hiragana and Katakana to be separate nodes in the same step.
+        // So we need a finer key: (Category, SortOrder, GroupIdentity)
+        // For Kanas: GroupIdentity is their Name (Hiragana vs Katakana).
+        // For JLPT: GroupIdentity is their Name (N5, N4...).
+        
+        // Actually, we want to group by Step.
+        // Step 0: Kanas (Hiragana, Katakana) -> 2 nodes
+        // Step 1: JLPT N5 -> 1 node (with recog/read/write)
+        
+        // We need to assign a "Global Step Index" to group them properly.
+        // Kanas = Step 0
+        // JLPT = Step 10 + SortOrder
+        // School = Step 20 + SortOrder
+        // Frequency = Step 30 + SortOrder
+        
+        data class GlobalStepKey(val index: Int)
+        
+        val levelsWithStep = relevantLevels.map { level ->
+             val stepIndex = when(level.category) {
+                "Kanas" -> 0
+                "JLPT" -> 10 + level.sortOrder
+                "School" -> 20 + level.sortOrder
+                "Challenges" -> 30 + level.sortOrder
+                "Frequency" -> 40 + level.sortOrder
+                else -> 999
+            }
+            stepIndex to level
+        }
+        
+        val stepsGrouped = levelsWithStep.groupBy { it.first }
+            .toSortedMap()
+            
+        return stepsGrouped.map { (stepIndex, pairs) ->
+            val levelsInStep = pairs.map { it.second }
+            
+            // Within a step, we might have multiple distinct nodes (e.g. Hiragana and Katakana)
+            // Or just one node that has multiple types (N5 Recog, N5 Read).
+            
+            // Strategy: Group by "Base Name" or something similar to merge Recog/Read/Write.
+            // For Kanas: "Hiragana" and "Katakana" are distinct Base Names.
+            // For JLPT: "N5" is the base name.
+            
+            // Let's use `xmlName` as key but clean it up? Or define a "NodeKey" manually.
+            // For now, let's group by `xmlName` if type matches, or use mapping.
+            // Hiragana (Recog) -> Key: Hiragana
+            // N5 (Recog), N5 (Write), reading_n5 (Read) -> Key: N5 (we need to map reading_n5 back to N5)
+            
+            val nodeGroups = levelsInStep.groupBy { level ->
+                // Normalize Key
+                when {
+                    level.xmlName.startsWith("reading_") -> level.xmlName.removePrefix("reading_").uppercase() // reading_n5 -> N5
+                    level.category == "Kanas" -> level.xmlName // Hiragana != Katakana
+                    else -> level.xmlName.uppercase() // N5 -> N5
+                }
+            }
+            
+            val nodes = nodeGroups.map { (key, levels) ->
+                 val recogLevel = levels.find { it.type == StatisticsType.RECOGNITION }
+                 val readLevel = levels.find { it.type == StatisticsType.READING }
+                 val writeLevel = levels.find { it.type == StatisticsType.WRITING }
+                 
+                 val mainType = when {
+                    recogLevel != null -> StatisticsType.RECOGNITION
+                    readLevel != null -> StatisticsType.READING
+                    writeLevel != null -> StatisticsType.WRITING
+                    else -> StatisticsType.RECOGNITION
+                }
+                
+                val title = when(mainType) {
+                    StatisticsType.RECOGNITION -> recogLevel!!.name
+                    StatisticsType.READING -> readLevel!!.name
+                    StatisticsType.WRITING -> writeLevel!!.name
+                }
+                
+                val nodeId = when(mainType) {
+                    StatisticsType.RECOGNITION -> recogLevel!!.xmlName
+                    StatisticsType.READING -> readLevel!!.xmlName
+                    StatisticsType.WRITING -> writeLevel!!.xmlName
+                }
+
+                SagaNode(
+                    id = nodeId,
+                    title = title,
+                    recognitionId = recogLevel?.xmlName,
+                    readingId = readLevel?.xmlName,
+                    writingId = writeLevel?.xmlName,
+                    mainType = mainType
+                )
+            }
+            
+            SagaStep(
+                id = "step_$stepIndex",
+                nodes = nodes
+            )
+        }
+    }
+    
+    fun getSagaProgress(node: SagaNode): UserSagaProgress {
+        val recogProgress = node.recognitionId?.let { calculatePercentage(it, StatisticsType.RECOGNITION) } ?: 0
+        val readProgress = node.readingId?.let { calculatePercentage(it, StatisticsType.READING) } ?: 0
+        val writeProgress = node.writingId?.let { calculatePercentage(it, StatisticsType.WRITING) } ?: 0
+        
+        val nodeMap = mutableMapOf<String, Int>()
+        if (node.recognitionId != null) nodeMap[node.recognitionId] = recogProgress
+        if (node.readingId != null) nodeMap[node.readingId] = readProgress
+        if (node.writingId != null) nodeMap[node.writingId] = writeProgress
+        
+        return UserSagaProgress(
+            recognitionIndex = recogProgress,
+            readingIndex = readProgress,
+            writingIndex = writeProgress,
+            nodeProgress = nodeMap
+        )
+    }
+
+    private fun calculatePercentage(xmlName: String, type: StatisticsType): Int {
+        val scoreType = when(type) {
+            StatisticsType.READING -> ScoreManager.ScoreType.READING
+            StatisticsType.WRITING -> ScoreManager.ScoreType.WRITING
+            StatisticsType.RECOGNITION -> ScoreManager.ScoreType.RECOGNITION
+        }
+        
+        return if (xmlName == "user_list") {
+             calculateUserListPercentage(scoreType).toInt()
+        } else {
+             val characters = levelContentProvider.getCharactersForLevel(xmlName)
+             calculateMasteryPercentage(characters, scoreType).toInt()
+        }
+    }
+    
+    private fun calculatePercentage(level: LevelDefinition): Double {
+        return calculatePercentage(level.xmlName, level.type).toDouble()
     }
 
     private fun calculateUserListPercentage(scoreType: ScoreManager.ScoreType): Double {
