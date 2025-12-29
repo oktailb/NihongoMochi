@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -57,6 +58,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -72,6 +74,8 @@ import org.nihongo.mochi.domain.statistics.SagaTab
 import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.domain.statistics.UserSagaProgress
 import org.nihongo.mochi.shared.generated.resources.Res
+import org.nihongo.mochi.shared.generated.resources.background_day
+import org.nihongo.mochi.shared.generated.resources.background_night
 import org.nihongo.mochi.shared.generated.resources.reading
 import org.nihongo.mochi.shared.generated.resources.recognising
 import org.nihongo.mochi.shared.generated.resources.writing
@@ -82,6 +86,7 @@ enum class SagaAction {
     SIGN_IN, ACHIEVEMENTS, BACKUP, RESTORE
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun SagaMapScreen(
     viewModel: ResultsViewModel,
@@ -91,45 +96,57 @@ fun SagaMapScreen(
     val steps by viewModel.sagaSteps.collectAsState()
     val currentTab by viewModel.currentTab.collectAsState()
     val isAuthenticated by viewModel.isAuthenticated.collectAsState()
+    
+    val isDark = isSystemInDarkTheme()
+    val backgroundRes = if (isDark) Res.drawable.background_night else Res.drawable.background_day
 
-    Scaffold(
-        bottomBar = {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.Transparent)
-            ) {
-                CloudActionsBar(
-                    isAuthenticated = isAuthenticated,
-                    onAction = onAction
-                )
-                
-                SagaTabBar(
-                    currentTab = currentTab,
-                    onTabSelected = { viewModel.setTab(it) }
-                )
-                
-                Spacer(modifier = Modifier.height(8.dp))
-            }
-        },
-        containerColor = MaterialTheme.colorScheme.background
-    ) { paddingValues ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            if (steps.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(backgroundRes),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+        
+        Scaffold(
+            bottomBar = {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Transparent)
+                ) {
+                    CloudActionsBar(
+                        isAuthenticated = isAuthenticated,
+                        onAction = onAction
+                    )
+                    
+                    SagaTabBar(
+                        currentTab = currentTab,
+                        onTabSelected = { viewModel.setTab(it) }
+                    )
+                    
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
-            } else {
-                SagaMapContent(
-                    steps = steps, 
-                    viewModel = viewModel, 
-                    isAuthenticated = isAuthenticated,
-                    onNodeClick = onNodeClick
-                )
+            },
+            containerColor = Color.Transparent 
+        ) { paddingValues ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            ) {
+                if (steps.isEmpty()) {
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator()
+                    }
+                } else {
+                    SagaMapContent(
+                        steps = steps, 
+                        viewModel = viewModel, 
+                        isAuthenticated = isAuthenticated,
+                        onNodeClick = onNodeClick
+                    )
+                }
             }
         }
     }
@@ -427,7 +444,7 @@ fun SagaMapContent(
                                 }
                                 
                                 cluster.forEachIndexed { clusterIdx, item ->
-                                    val offset = if (clusterIdx % 2 == 0) -130f else 70f
+                                    val offset = if (clusterIdx % 2 == 0) -130f else 130f
                                     finalBillboards.add(item.copy(horizontalOffset = offset))
                                 }
                                 i = j
@@ -570,7 +587,7 @@ fun BillboardContent(
     color: Color
 ) {
     Surface(
-        shape = RoundedCornerShape(8.dp),
+        shape = RoundedCornerShape(24.dp),
         color = MaterialTheme.colorScheme.surfaceVariant,
         shadowElevation = 4.dp, 
         border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
@@ -582,7 +599,7 @@ fun BillboardContent(
             Image(
                 painter = painterResource(drawable),
                 contentDescription = description,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.size(64.dp)
             )
             Text(
                 text = "$progress%",
