@@ -86,7 +86,7 @@ fun WordQuizScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = 20, // Fixed size as per original fragment
+                                fontSizeSp = 30, // Fixed size as per original fragment
                                 onClick = { onAnswerClick(0, row1[0]) }
                             )
                             if (row1.size > 1) {
@@ -97,7 +97,7 @@ fun WordQuizScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = 20,
+                                    fontSizeSp = 30,
                                     onClick = { onAnswerClick(1, row1[1]) }
                                 )
                             } else {
@@ -115,7 +115,7 @@ fun WordQuizScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = 20,
+                                fontSizeSp = 30,
                                 onClick = { onAnswerClick(2, row2[0]) }
                             )
                             if (row2.size > 1) {
@@ -126,7 +126,7 @@ fun WordQuizScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = 20,
+                                    fontSizeSp = 30,
                                     onClick = { onAnswerClick(3, row2[1]) }
                                 )
                             } else {

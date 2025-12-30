@@ -88,16 +88,16 @@ fun QuizQuestionCard(
 ) {
     Card(
         modifier = Modifier
-            .size(200.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(12.dp),
+            .size(300.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
+        shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            val textSize = if (direction == KanaQuestionDirection.NORMAL) 120.sp else 80.sp
+            val textSize = if (direction == KanaQuestionDirection.NORMAL) 200.sp else 120.sp
             Text(
                 text = questionText,
                 fontSize = textSize,

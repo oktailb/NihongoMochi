@@ -93,7 +93,7 @@ fun RecognitionGameScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = calculateFontSize(row1[0], direction), 
+                                fontSizeSp = calculateFontSize(row1[0], direction) * 3 / 2,
                                 onClick = { onAnswerClick(0, row1[0]) }
                             )
                             if (row1.size > 1) {
@@ -104,7 +104,7 @@ fun RecognitionGameScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = calculateFontSize(row1[1], direction),
+                                    fontSizeSp = calculateFontSize(row1[1], direction) * 3 / 2,
                                     onClick = { onAnswerClick(1, row1[1]) }
                                 )
                             } else {
@@ -122,7 +122,7 @@ fun RecognitionGameScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = calculateFontSize(row2[0], direction),
+                                fontSizeSp = calculateFontSize(row2[0], direction) * 3 / 2,
                                 onClick = { onAnswerClick(2, row2[0]) }
                             )
                             if (row2.size > 1) {
@@ -133,7 +133,7 @@ fun RecognitionGameScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = calculateFontSize(row2[1], direction),
+                                    fontSizeSp = calculateFontSize(row2[1], direction) * 3 / 2,
                                     onClick = { onAnswerClick(3, row2[1]) }
                                 )
                             } else {
@@ -153,20 +153,20 @@ fun KanjiCard(
     direction: QuestionDirection
 ) {
     Card(
-        modifier = Modifier.size(200.dp),
+        modifier = Modifier.size(300.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(12.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
+        shape = RoundedCornerShape(24.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             val fontSize = if (direction == QuestionDirection.NORMAL) {
-                120f
+                180f
             } else {
                 val lineCount = text.count { it == '\n' } + 1
                 TextSizeCalculator.calculateQuestionTextSize(text.length, lineCount, direction)

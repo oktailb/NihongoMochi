@@ -22,6 +22,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -35,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -156,7 +158,12 @@ fun WritingGameScreen(
                                     }
                                 }
                             ),
-                            enabled = !processingAnswer
+                            enabled = !processingAnswer,
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                                unfocusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                                disabledContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))
@@ -211,13 +218,13 @@ fun WritingGameScreen(
 @Composable
 fun KanjiCard(text: String) {
     Card(
-        modifier = Modifier.size(160.dp),
+        modifier = Modifier.size(300.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(12.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
+        shape = RoundedCornerShape(24.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -225,7 +232,7 @@ fun KanjiCard(text: String) {
         ) {
             Text(
                 text = text,
-                fontSize = 100.sp,
+                fontSize = 180.sp,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurface
             )
