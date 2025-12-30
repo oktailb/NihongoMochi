@@ -89,7 +89,13 @@ android {
         buildConfig = true
         compose = true
     }
-    // composeOptions removed as it's deprecated with the new plugin
+    
+    sourceSets {
+        getByName("main") {
+            // Include fonts from shared module into Android assets without duplication
+            assets.srcDirs("src/main/assets", "${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
+        }
+    }
 }
 
 dependencies {

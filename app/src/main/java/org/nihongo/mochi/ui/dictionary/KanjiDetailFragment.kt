@@ -1,6 +1,8 @@
 package org.nihongo.mochi.ui.dictionary
 
+import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -30,6 +33,7 @@ import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordRepository
+import java.io.File
 
 class KanjiDetailFragment : Fragment() {
 
@@ -53,9 +57,43 @@ class KanjiDetailFragment : Fragment() {
     private var kanjiComponents = mutableListOf<ComponentItem>()
     private var exampleWords = mutableListOf<ExampleItem>()
 
+    // Font handling
+    private var kanjiStrokeOrderTypeface: Typeface? = null
+    private val fontFileName = "KanjiStrokeOrders_v4.005.ttf"
+
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
     data class ExampleItem(val word: String, val reading: String)
     data class ComponentItem(val character: String, val kanjiRef: String?)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadCustomFont()
+    }
+
+    private fun loadCustomFont() {
+        // Try to load the font from assets if exposed via Android assets,
+        // or directly if it's available via Compose resources path in shared module which might be tricky from Android Fragment.
+        // Assuming the file is available in assets folder for the Android App.
+        // If not, we might need to rely on Compose Resource loading or move the file to Android assets.
+        
+        // Since the file is in shared/src/commonMain/composeResources/files/fonts/, it might not be directly accessible via Android assets manager 
+        // unless configured in build.gradle to include it.
+        // For now, let's try to load it assuming it might be copied or accessible.
+        // If the font is NOT in assets, we should ideally access it via Compose Multiplatform resource mechanism,
+        // but here we are in a legacy Android Fragment.
+        
+        // A common workaround for hybrid apps is to copy the font to assets/fonts in the Android module as well
+        // OR read it from the classpath if possible.
+        
+        try {
+            // Attempt 1: Load from Assets
+            kanjiStrokeOrderTypeface = Typeface.createFromAsset(requireContext().assets, "fonts/$fontFileName")
+        } catch (e: Exception) {
+            Log.e("KanjiDetailFragment", "Could not load font from assets: $e")
+            // Attempt 2: If the font is not in assets, we try to create it from file if we know the path (unlikely in installed APK)
+            // fallback to default font is handled by applying null or catching exception
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,6 +111,8 @@ class KanjiDetailFragment : Fragment() {
         loadKanjiDetails()
 
         binding.textKanjiLarge.text = kanjiCharacter
+        applyFontSafely(binding.textKanjiLarge, kanjiCharacter)
+        
         binding.textMeanings.text = kanjiMeanings.joinToString(", ")
         binding.textJlpt.text = jlptLevel ?: "-"
         binding.textGrade.text = schoolGrade ?: "-"
@@ -88,6 +128,24 @@ class KanjiDetailFragment : Fragment() {
         setupReadingAdapter(binding.recyclerKunReadings, kunReadings, isOn = false)
 
         loadExamples()
+    }
+
+    private fun applyFontSafely(textView: TextView, text: String?) {
+        if (text.isNullOrEmpty()) return
+
+        if (kanjiStrokeOrderTypeface != null && canFontDisplay(kanjiStrokeOrderTypeface!!, text)) {
+            textView.typeface = kanjiStrokeOrderTypeface
+        } else {
+             // Fallback to default font (which usually supports all Kanji)
+             textView.typeface = Typeface.DEFAULT
+        }
+    }
+    
+    private fun canFontDisplay(typeface: Typeface, text: String): Boolean {
+        // Android's Paint can tell us if a glyph exists.
+        val paint = android.graphics.Paint()
+        paint.typeface = typeface
+        return paint.hasGlyph(text)
     }
 
     private fun setupComponents() {
@@ -123,6 +181,9 @@ class KanjiDetailFragment : Fragment() {
             tvChar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32f)
             tvChar.setTextColor(defaultTextColor)
             tvChar.gravity = Gravity.CENTER
+            // Apply custom font to components too if possible
+            applyFontSafely(tvChar, component.character)
+            
             componentLayout.addView(tvChar)
 
             // Ref Char (if different)
@@ -132,6 +193,7 @@ class KanjiDetailFragment : Fragment() {
                 tvRef.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
                 tvRef.setTextColor(defaultTextColor)
                 tvRef.gravity = Gravity.CENTER
+                applyFontSafely(tvRef, component.kanjiRef)
                 componentLayout.addView(tvRef)
             }
 
