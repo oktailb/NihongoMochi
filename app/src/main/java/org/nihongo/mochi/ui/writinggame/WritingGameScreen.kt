@@ -36,7 +36,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -53,6 +52,7 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameProgressBar
+import org.nihongo.mochi.ui.components.GameQuestionCard
 import org.nihongo.mochi.ui.theme.AppTheme
 
 @Composable
@@ -90,7 +90,11 @@ fun WritingGameScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         if (kanji != null) {
-                            KanjiCard(text = kanji.character)
+                            GameQuestionCard(
+                                text = kanji.character,
+                                fontSize = 200.sp,
+                                modifier = Modifier.size(300.dp)
+                            )
                         }
                     }
 
@@ -211,31 +215,6 @@ fun WritingGameScreen(
     LaunchedEffect(kanji, questionType) {
         if (!processingAnswer) {
             focusRequester.requestFocus()
-        }
-    }
-}
-
-@Composable
-fun KanjiCard(text: String) {
-    Card(
-        modifier = Modifier.size(300.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.onSurface
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
-        shape = RoundedCornerShape(24.dp)
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = text,
-                fontSize = 180.sp,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface
-            )
         }
     }
 }

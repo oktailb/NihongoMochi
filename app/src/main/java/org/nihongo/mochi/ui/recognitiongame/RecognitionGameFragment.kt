@@ -77,7 +77,7 @@ class RecognitionGameFragment : Fragment() {
                     currentKanji.character
                 } else {
                     if (viewModel.gameMode == "meaning") {
-                        currentKanji.meanings.joinToString("\n")
+                        currentKanji.meanings.take(3).joinToString("\n")
                     } else {
                         viewModel.getFormattedReadings(currentKanji)
                     }

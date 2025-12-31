@@ -9,25 +9,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.domain.game.QuestionDirection
-import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
+import org.nihongo.mochi.ui.components.GameQuestionCard
 import org.nihongo.mochi.ui.theme.AppTheme
 
 @Composable
@@ -50,7 +45,7 @@ fun RecognitionGameScreen(
                 // Progress Bar
                 GameProgressBar(
                     statuses = gameStatus,
-                    maxItems = 10 // Assuming 10 items for now, can be dynamic
+                    maxItems = 10
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -63,9 +58,17 @@ fun RecognitionGameScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     if (kanji != null && questionText != null) {
-                        KanjiCard(
+                        val fontSize = if (direction == QuestionDirection.NORMAL) {
+                            200f
+                        } else {
+                            val lineCount = questionText.count { it == '\n' } + 1
+                            TextSizeCalculator.calculateQuestionTextSize(questionText.length, lineCount, direction)
+                        }
+                        
+                        GameQuestionCard(
                             text = questionText,
-                            direction = direction
+                            fontSize = fontSize.sp,
+                            modifier = Modifier.size(300.dp)
                         )
                     }
                 }
@@ -143,42 +146,6 @@ fun RecognitionGameScreen(
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun KanjiCard(
-    text: String,
-    direction: QuestionDirection
-) {
-    Card(
-        modifier = Modifier.size(300.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.onSurface
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 24.dp),
-        shape = RoundedCornerShape(24.dp)
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            val fontSize = if (direction == QuestionDirection.NORMAL) {
-                180f
-            } else {
-                val lineCount = text.count { it == '\n' } + 1
-                TextSizeCalculator.calculateQuestionTextSize(text.length, lineCount, direction)
-            }
-            
-            Text(
-                text = text,
-                fontSize = fontSize.sp,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface,
-                lineHeight = (fontSize * 1.2).sp
-            )
         }
     }
 }

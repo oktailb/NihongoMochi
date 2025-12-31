@@ -9,24 +9,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
-import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
+import org.nihongo.mochi.ui.components.GameQuestionCard
 import org.nihongo.mochi.ui.theme.AppTheme
 
 @Composable
@@ -59,7 +52,17 @@ fun WordQuizScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     if (wordToGuess != null) {
-                        WordCard(text = wordToGuess)
+                        val fontSize = when {
+                            wordToGuess.length > 10 -> 40f
+                            wordToGuess.length > 5 -> 60f
+                            else -> 80f
+                        }
+                        
+                        GameQuestionCard(
+                            text = wordToGuess,
+                            fontSize = fontSize.sp,
+                            modifier = Modifier.size(width = 300.dp, height = 200.dp)
+                        )
                     }
                 }
 
@@ -86,7 +89,7 @@ fun WordQuizScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = 30, // Fixed size as per original fragment
+                                fontSizeSp = 20, // Fixed size as per original fragment
                                 onClick = { onAnswerClick(0, row1[0]) }
                             )
                             if (row1.size > 1) {
@@ -97,7 +100,7 @@ fun WordQuizScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = 30,
+                                    fontSizeSp = 20,
                                     onClick = { onAnswerClick(1, row1[1]) }
                                 )
                             } else {
@@ -115,7 +118,7 @@ fun WordQuizScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .padding(4.dp),
-                                fontSizeSp = 30,
+                                fontSizeSp = 20,
                                 onClick = { onAnswerClick(2, row2[0]) }
                             )
                             if (row2.size > 1) {
@@ -126,7 +129,7 @@ fun WordQuizScreen(
                                     modifier = Modifier
                                         .weight(1f)
                                         .padding(4.dp),
-                                    fontSizeSp = 30,
+                                    fontSizeSp = 20,
                                     onClick = { onAnswerClick(3, row2[1]) }
                                 )
                             } else {
@@ -136,40 +139,6 @@ fun WordQuizScreen(
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun WordCard(
-    text: String
-) {
-    Card(
-        modifier = Modifier.size(width = 300.dp, height = 200.dp), // Large enough for words
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.onSurface
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            val fontSize = when {
-                text.length > 10 -> 40f
-                text.length > 5 -> 60f
-                else -> 80f
-            }
-            
-            Text(
-                text = text,
-                fontSize = fontSize.sp,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface,
-                lineHeight = (fontSize * 1.2).sp
-            )
         }
     }
 }
