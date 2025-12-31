@@ -7,23 +7,18 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import org.koin.android.ext.android.inject
-import org.nihongo.mochi.databinding.ActivityMainBinding
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.workers.DecayWorker
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
     private lateinit var gamesSignInClient: GamesSignInClient
     
     private val settingsRepository: SettingsRepository by inject()
@@ -40,14 +35,13 @@ class MainActivity : AppCompatActivity() {
              AppCompatDelegate.setApplicationLocales(appLocale)
         }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
-        val navController = navHostFragment.navController
-
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        // Ensure NavHostFragment is properly set up
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as? NavHostFragment
+        if (navHostFragment == null) {
+            Log.e("MainActivity", "NavHostFragment not found!")
+        }
 
         gamesSignInClient = PlayGames.getGamesSignInClient(this)
         
@@ -83,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        // No AppBarConfiguration needed anymore as we don't have an ActionBar
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
