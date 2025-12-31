@@ -9,6 +9,9 @@ L'interface est actuellement en XML / Fragments Android. C'est le frein principa
  Contraintes: Respecter le plus possible le visuel d origine et les comportements, l objectif est que je soit pas capable de distinguer le rendu xml du rendu compose en utilisant l application.
  -> Tespecter le theme jour/nuit, le comportement, le data model dans le shared etc ...
  On migre en partant du bas de l arbre de depedendances, par un parcours en profondeur. Le dernier fragement a porter sera donc certainement fragment_home.xml
+ - [x] Migrer fragment_recognitions.xml vers Jetpack Compose
+ - [x] Migrer fragment_reading.xml vers Jetpack Compose
+ - [x] Migrer fragment_writing.xml vers Jetpack Compose
 
 2. Prévoir l'intégration "Social" (comparaison de progression) pour plus tard.
 
