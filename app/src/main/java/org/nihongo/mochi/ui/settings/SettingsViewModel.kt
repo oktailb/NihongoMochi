@@ -15,7 +15,8 @@ class SettingsViewModel(private val settingsRepository: SettingsRepository) : Vi
         val removeGoodAnswers: Boolean = false,
         val textSize: Float = 1.0f,
         val animationSpeed: Float = 1.0f,
-        val isDarkMode: Boolean = false
+        val isDarkMode: Boolean = false,
+        val currentMode: String = "JLPT" // New field for Learning Mode
     )
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -34,7 +35,8 @@ class SettingsViewModel(private val settingsRepository: SettingsRepository) : Vi
                 removeGoodAnswers = settingsRepository.shouldRemoveGoodAnswers(),
                 textSize = settingsRepository.getTextSize(),
                 animationSpeed = settingsRepository.getAnimationSpeed(),
-                isDarkMode = settingsRepository.getTheme() == "dark"
+                isDarkMode = settingsRepository.getTheme() == "dark",
+                currentMode = settingsRepository.getMode() // Load mode
             )
         }
     }
@@ -74,5 +76,10 @@ class SettingsViewModel(private val settingsRepository: SettingsRepository) : Vi
         val theme = if (isDark) "dark" else "light"
         settingsRepository.setTheme(theme)
         _uiState.update { it.copy(isDarkMode = isDark) }
+    }
+    
+    fun onModeChanged(newMode: String) {
+        settingsRepository.setMode(newMode)
+        _uiState.update { it.copy(currentMode = newMode) }
     }
 }

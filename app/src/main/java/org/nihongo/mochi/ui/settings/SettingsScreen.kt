@@ -60,7 +60,6 @@ fun SettingsScreen(
     val scrollState = rememberScrollState()
     
     val languages = remember {
-        // This list should ideally come from a non-UI source, but for this migration it's fine here.
         listOf(
             LanguageItem("ar_SA", "العربية", R.drawable.flag_sa_sa),
             LanguageItem("bn_BD", "বাংলা", R.drawable.flag_bn),
@@ -77,6 +76,10 @@ fun SettingsScreen(
             LanguageItem("vi_VN", "Tiếng Việt", R.drawable.flag_vn),
             LanguageItem("zh_CN", "简体中文", R.drawable.flag_cn)
         )
+    }
+
+    val learningModes = remember {
+        listOf("JLPT", "School", "Challenge")
     }
 
     MochiBackground {
@@ -158,6 +161,34 @@ fun SettingsScreen(
                     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { viewModel.onPronunciationChanged("Hiragana") }) {
                         RadioButton(selected = uiState.pronunciation == "Hiragana", onClick = { viewModel.onPronunciationChanged("Hiragana") })
                         Text(stringResource(R.string.settings_pronunciation_hiragana), color = MaterialTheme.colorScheme.onSurface)
+                    }
+                }
+            }
+            
+            Spacer(Modifier.height(16.dp))
+            
+            // Learning Mode Section (New)
+            SettingsSection(title = "Learning Mode") { // Use resource string in prod
+                Column {
+                    learningModes.forEach { mode ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically, 
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { viewModel.onModeChanged(mode) }
+                                .padding(vertical = 4.dp)
+                        ) {
+                            RadioButton(
+                                selected = (uiState.currentMode == mode),
+                                onClick = { viewModel.onModeChanged(mode) }
+                            )
+                            Text(
+                                text = mode,
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.padding(start = 8.dp)
+                            )
+                        }
                     }
                 }
             }

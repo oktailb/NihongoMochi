@@ -3,6 +3,7 @@ package org.nihongo.mochi.domain.settings
 import com.russhwolf.settings.Settings
 import org.nihongo.mochi.settings.ADD_WRONG_ANSWERS_PREF_KEY
 import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
+import org.nihongo.mochi.settings.MODE_PREF_KEY
 import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
 import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
 import org.nihongo.mochi.settings.TEXT_SIZE_PREF_KEY
@@ -30,4 +31,7 @@ class SettingsRepository(private val settings: Settings) {
     
     fun getAppLocale(): String = settings.getString("AppLocale", "en_GB")
     fun setAppLocale(value: String) = settings.putString("AppLocale", value)
+
+    fun getMode(): String = settings.getString(MODE_PREF_KEY, "JLPT")
+    fun setMode(value: String) = settings.putString(MODE_PREF_KEY, value)
 }
