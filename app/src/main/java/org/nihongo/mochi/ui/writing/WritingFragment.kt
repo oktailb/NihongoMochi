@@ -10,48 +10,36 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nihongo.mochi.R
-import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.data.ScoreManager.ScoreType
-import org.nihongo.mochi.domain.util.LevelContentProvider
-import org.nihongo.mochi.presentation.models.WritingLevelInfoState
+import org.nihongo.mochi.presentation.writing.WritingViewModel
 import org.nihongo.mochi.ui.theme.AppTheme
-
-data class LevelDef(val levelKey: String, val stringResId: Int? = null)
 
 class WritingFragment : Fragment() {
 
-    private val levelContentProvider: LevelContentProvider by inject()
+    private val viewModel: WritingViewModel by viewModel()
 
-    private val levelDefs = listOf(
-        LevelDef("N5", R.string.level_n5),
-        LevelDef("N4", R.string.level_n4),
-        LevelDef("N3", R.string.level_n3),
-        LevelDef("N2", R.string.level_n2),
-        LevelDef("N1", R.string.level_n1),
-        LevelDef("Grade 1", R.string.level_class_1),
-        LevelDef("Grade 2", R.string.level_class_2),
-        LevelDef("Grade 3", R.string.level_class_3),
-        LevelDef("Grade 4", R.string.level_class_4),
-        LevelDef("Grade 5", R.string.level_class_5),
-        LevelDef("Grade 6", R.string.level_class_6),
-        LevelDef("Grade 7", R.string.level_high_school_1),
-        LevelDef("Grade 8", R.string.level_high_school_2),
-        LevelDef("Grade 9", R.string.level_high_school_3),
-        LevelDef("Grade 10", R.string.level_high_school_4),
-        LevelDef("user_custom_list", R.string.writing_user_lists),
-        LevelDef("Native Challenge", R.string.challenge_native),
-        LevelDef("No Reading", R.string.challenge_no_reading),
-        LevelDef("No Meaning", R.string.challenge_no_meaning)
+    private val nameIdMap = mapOf(
+        0 to R.string.level_n5,
+        1 to R.string.level_n4,
+        2 to R.string.level_n3,
+        3 to R.string.level_n2,
+        4 to R.string.level_n1,
+        5 to R.string.level_class_1,
+        6 to R.string.level_class_2,
+        7 to R.string.level_class_3,
+        8 to R.string.level_class_4,
+        9 to R.string.level_class_5,
+        10 to R.string.level_class_6,
+        11 to R.string.level_high_school_1,
+        12 to R.string.level_high_school_2,
+        13 to R.string.level_high_school_3,
+        14 to R.string.level_high_school_4,
+        15 to R.string.writing_user_lists,
+        16 to R.string.challenge_native,
+        17 to R.string.challenge_no_reading,
+        18 to R.string.challenge_no_meaning
     )
-
-    private val _levelInfosState = MutableStateFlow<List<WritingLevelInfoState>>(emptyList())
-    private val levelInfosState: StateFlow<List<WritingLevelInfoState>> = _levelInfosState.asStateFlow()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,7 +50,7 @@ class WritingFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 AppTheme {
-                    val levelInfos by levelInfosState.collectAsState()
+                    val levelInfos by viewModel.levelInfosState.collectAsState()
                     WritingScreen(
                         levelInfos = levelInfos,
                         onLevelClick = { levelKey ->
@@ -76,38 +64,10 @@ class WritingFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        updateAllButtonPercentages()
-    }
-
-    private fun updateAllButtonPercentages() {
-        val newStates = levelDefs.map { def ->
-            val charactersForLevel = levelContentProvider.getCharactersForLevel(def.levelKey)
-            val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
-            
-            val displayName = def.stringResId?.let { getString(it) } ?: def.levelKey
-            
-            WritingLevelInfoState(
-                levelKey = def.levelKey,
-                displayName = displayName,
-                percentage = masteryPercentage.toInt()
-            )
+        viewModel.updateAllButtonPercentages { identifier ->
+            val resId = nameIdMap[identifier] ?: 0
+            if (resId != 0) getString(resId) else ""
         }
-        _levelInfosState.update { newStates }
-    }
-
-    private fun calculateMasteryPercentage(characterList: List<String>): Double {
-        if (characterList.isEmpty()) return 0.0
-
-        val totalMasteryPoints = characterList.sumOf { character ->
-            val score = ScoreManager.getScore(character, ScoreType.WRITING)
-            val balance = score.successes - score.failures
-            balance.coerceIn(0, 10).toDouble()
-        }
-
-        val maxPossiblePoints = characterList.size * 10.0
-        if (maxPossiblePoints == 0.0) return 0.0
-
-        return (totalMasteryPoints / maxPossiblePoints) * 100
     }
 
     private fun onLevelClicked(level: String) {
