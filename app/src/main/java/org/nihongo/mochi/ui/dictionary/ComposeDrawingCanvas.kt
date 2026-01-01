@@ -4,6 +4,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,6 +26,9 @@ fun ComposeDrawingCanvas(
     // We keep a temporary path for the current stroke being drawn
     val currentPath = remember { Path() }
     
+    // Trigger to force recomposition when currentPath is updated internally
+    val pathUpdateTrigger = remember { mutableStateOf(0L) }
+    
     // We need to track the current Ink stroke builder
     // We use a ref to hold mutable non-compose state
     val currentStrokeBuilder = remember { androidx.compose.runtime.mutableStateOf<Ink.Stroke.Builder?>(null) }
@@ -37,6 +41,7 @@ fun ComposeDrawingCanvas(
                         // Start visual path
                         currentPath.reset()
                         currentPath.moveTo(offset.x, offset.y)
+                        pathUpdateTrigger.value++
                         
                         // Start Ink stroke
                         val t = System.currentTimeMillis()
@@ -48,6 +53,7 @@ fun ComposeDrawingCanvas(
                         val pos = change.position
                         // Update visual path
                         currentPath.lineTo(pos.x, pos.y)
+                        pathUpdateTrigger.value++
                         
                         // Update Ink stroke
                         val t = System.currentTimeMillis()
@@ -57,6 +63,7 @@ fun ComposeDrawingCanvas(
                         // Finalize visual path
                         paths.add(Path().apply { addPath(currentPath) })
                         currentPath.reset()
+                        pathUpdateTrigger.value++
                         
                         // Finalize Ink stroke
                         currentStrokeBuilder.value?.let { sb ->
@@ -67,11 +74,15 @@ fun ComposeDrawingCanvas(
                     },
                     onDragCancel = {
                         currentPath.reset()
+                        pathUpdateTrigger.value++
                         currentStrokeBuilder.value = null
                     }
                 )
             }
     ) {
+        // Read the trigger to ensure recomposition happens when it changes
+        pathUpdateTrigger.value
+        
         // Draw completed paths
         paths.forEach { path ->
             drawPath(
