@@ -6,6 +6,7 @@ Nihongo Mochi est une application Android conçue pour vous aider à apprendre e
 
 L'application est divisée en plusieurs sections pour vous offrir une expérience d'apprentissage complète :
 ![Image du menu principal](Nihongo_Mochi_Home.png)
+![Image du menu principal](Nihongo_Mochi_Home_Night.png)
 
 ### Reconnaissance
 
@@ -36,7 +37,7 @@ Consultez un dictionnaire de kanjis complet. Recherchez des kanjis par leur sign
 
 <!-- Emplacement pour la capture d'écran de la section Dictionnaire -->
 ![Image de la section Dictionnaire](Nihongo_Mochi_Dictionary.png)
-![Image de la section Details](Nihongo_Mochi_Kanji_Details)
+![Image de la section Details](Nihongo_Mochi_Kanji_Details.png)
 
 ### Paramètres
 
