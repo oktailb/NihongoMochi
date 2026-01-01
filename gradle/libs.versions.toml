@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.2" # Rollback to known working version for now if possible or keep updated but ensure compatibility. Let's try 8.2.2 first to stabilize.
+agp = "8.13.2" # Rollback to known working version for now if possible or keep updated but ensure compatibility. Let's try 8.2.2 first to stabilize.
 kotlin = "2.0.20" # Use a very standard 2.0.x version
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -70,3 +70,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

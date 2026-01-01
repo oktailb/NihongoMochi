@@ -16,7 +16,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -43,7 +43,7 @@ kotlin {
             implementation(compose.material3)
             // Export resources API so app module can use painterResource and Res
             api(compose.components.resources)
-            implementation(libs.androidx.compose.material.icons.extended)
+            implementation(compose.materialIconsExtended)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
