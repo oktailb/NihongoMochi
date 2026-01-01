@@ -26,6 +26,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
+        // Apply stored theme
+        val savedTheme = settingsRepository.getTheme()
+        val nightMode = if (savedTheme == "dark") {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            // Default to system if not set or "light" (assuming default is light/system)
+            // If you want to force light when "light" is stored:
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+        if (AppCompatDelegate.getDefaultNightMode() != nightMode) {
+            AppCompatDelegate.setDefaultNightMode(nightMode)
+        }
+        
         // Apply stored locale from SettingsRepository
         val savedLocale = settingsRepository.getAppLocale()
         val localeTag = savedLocale.replace('_', '-')

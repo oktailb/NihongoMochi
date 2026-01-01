@@ -97,12 +97,21 @@ fun QuizQuestionCard(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            val textSize = if (direction == KanaQuestionDirection.NORMAL) 200.sp else 120.sp
+            // Reduce font size for composed kana (Yoon) to prevent overlap
+            val textSize = if (direction == KanaQuestionDirection.NORMAL && questionText.length > 1) {
+                120.sp
+            } else if (direction == KanaQuestionDirection.NORMAL) {
+                200.sp
+            } else {
+                120.sp
+            }
+            
             Text(
                 text = questionText,
                 fontSize = textSize,
                 textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 1 // Ensure it does not wrap
             )
         }
     }

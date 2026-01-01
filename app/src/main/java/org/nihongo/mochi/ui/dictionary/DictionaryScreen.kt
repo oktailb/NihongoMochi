@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,16 +21,20 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Divider
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
@@ -37,6 +42,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
@@ -64,6 +72,9 @@ fun DictionaryScreen(
 ) {
     val results by viewModel.lastResults.collectAsState()
     val focusManager = LocalFocusManager.current
+    
+    // State for Filter Dropdown
+    var filterExpanded by remember { mutableStateOf(false) }
     
     MochiBackground {
         Column(
@@ -111,20 +122,48 @@ fun DictionaryScreen(
                         }
                     }
 
-                    // Search Mode Radio Buttons
+                    // Level Filter Dropdown & Search Mode
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 4.dp),
+                            .padding(top = 8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.clickable { 
-                                viewModel.searchMode = SearchMode.READING
-                                viewModel.applyFilters()
+                        // Dropdown for Category/Level
+                        Box {
+                            OutlinedButton(
+                                onClick = { filterExpanded = true },
+                                modifier = Modifier.width(120.dp)
+                            ) {
+                                Text(
+                                    text = if (viewModel.selectedLevelCategory == "ALL") "Level" else viewModel.selectedLevelCategory,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Icon(Icons.Default.ArrowDropDown, contentDescription = null)
                             }
-                        ) {
+                            
+                            DropdownMenu(
+                                expanded = filterExpanded,
+                                onDismissRequest = { filterExpanded = false }
+                            ) {
+                                viewModel.availableCategories.forEach { category ->
+                                    DropdownMenuItem(
+                                        text = { Text(category) },
+                                        onClick = {
+                                            viewModel.selectedLevelCategory = category
+                                            viewModel.applyFilters()
+                                            filterExpanded = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(16.dp))
+
+                        // Search Mode Radio Buttons (compact)
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             RadioButton(
                                 selected = viewModel.searchMode == SearchMode.READING,
                                 onClick = { 
@@ -133,20 +172,17 @@ fun DictionaryScreen(
                                 }
                             )
                             Text(
-                                text = stringResource(R.string.dictionary_mode_reading),
-                                color = MaterialTheme.colorScheme.onSurface
+                                text = "Read",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.clickable { 
+                                    viewModel.searchMode = SearchMode.READING
+                                    viewModel.applyFilters() 
+                                }
                             )
-                        }
-                        
-                        Spacer(modifier = Modifier.width(16.dp))
-
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.clickable { 
-                                viewModel.searchMode = SearchMode.MEANING
-                                viewModel.applyFilters()
-                            }
-                        ) {
+                            
+                            Spacer(modifier = Modifier.width(8.dp))
+                            
                             RadioButton(
                                 selected = viewModel.searchMode == SearchMode.MEANING,
                                 onClick = { 
@@ -155,8 +191,13 @@ fun DictionaryScreen(
                                 }
                             )
                             Text(
-                                text = stringResource(R.string.dictionary_mode_meaning),
-                                color = MaterialTheme.colorScheme.onSurface
+                                text = "Mean",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.clickable { 
+                                    viewModel.searchMode = SearchMode.MEANING
+                                    viewModel.applyFilters() 
+                                }
                             )
                         }
                     }
@@ -199,13 +240,18 @@ fun DictionaryScreen(
                             )
                             Text(
                                 text = stringResource(R.string.dictionary_match_exact),
-                                color = MaterialTheme.colorScheme.onSurface
+                                color = MaterialTheme.colorScheme.onSurface,
+                                style = MaterialTheme.typography.bodySmall
                             )
                         }
 
                         Spacer(modifier = Modifier.weight(1f))
 
                         // Drawing Thumbnail
+//                        if (drawingCandidates != null) { // Or check viewModel.drawingCandidates if exposed
+//                            // We don't have access to viewModel.drawingCandidates here as state, but checking drawingBitmap is usually enough for UI feedback
+//                        }
+                        
                         if (drawingBitmap != null) {
                             Card(
                                 modifier = Modifier.size(56.dp),
@@ -317,12 +363,23 @@ fun DictionaryItemRow(
                 overflow = TextOverflow.Ellipsis,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+            
+            // Level Badge (Optional)
+            if (item.jlptLevel != null || item.schoolGrade != null) {
+                Text(
+                    text = listOfNotNull(item.jlptLevel, item.schoolGrade?.let { "G$it" }).joinToString(" • "),
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
         }
 
         // Stroke Count
         Text(
             text = "${item.strokeCount} traits",
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onSurface,
+            fontSize = 12.sp
         )
     }
 }

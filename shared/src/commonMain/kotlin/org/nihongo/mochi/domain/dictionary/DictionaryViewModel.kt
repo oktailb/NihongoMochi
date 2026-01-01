@@ -20,7 +20,9 @@ data class DictionaryItem(
     val character: String,
     val readings: List<ReadingInfo>,
     val strokeCount: Int,
-    val meanings: MutableList<String>
+    val meanings: MutableList<String>,
+    val jlptLevel: String?,
+    val schoolGrade: String?
 )
 
 data class ReadingInfo(val text: String, val type: String)
@@ -45,6 +47,12 @@ class DictionaryViewModel(
     var textQuery: String = ""
     var strokeQuery: String = ""
     var exactMatch: Boolean = false
+    var selectedLevelCategory: String = "ALL" // "ALL", "N5", "N4", "G1", etc.
+    
+    val availableCategories = listOf(
+        "ALL", "N5", "N4", "N3", "N2", "N1", 
+        "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Secondary"
+    )
     
     private var drawingCandidates: List<String>? = null
 
@@ -112,7 +120,9 @@ class DictionaryViewModel(
                     character = kanjiEntry.character,
                     readings = readings,
                     strokeCount = strokes,
-                    meanings = itemMeanings.toMutableList()
+                    meanings = itemMeanings.toMutableList(),
+                    jlptLevel = kanjiEntry.jlptLevel,
+                    schoolGrade = kanjiEntry.schoolGrade
                 )
                 kanjiDataMap[kanjiEntry.id] = item
             }
@@ -124,6 +134,25 @@ class DictionaryViewModel(
 
     fun applyFilters() {
         var filteredList = allKanjiList.toList()
+
+        // 0. Level Category Filter
+        if (selectedLevelCategory != "ALL") {
+            filteredList = filteredList.filter { item ->
+                when {
+                    selectedLevelCategory.startsWith("N") -> item.jlptLevel == selectedLevelCategory
+                    selectedLevelCategory.startsWith("Grade") -> {
+                        val gradeNum = selectedLevelCategory.removePrefix("Grade ").trim()
+                        item.schoolGrade == gradeNum
+                    }
+                    selectedLevelCategory == "Secondary" -> {
+                        // Assuming Secondary is grade > 6 or specific code
+                        val g = item.schoolGrade?.toIntOrNull()
+                        g != null && g > 6
+                    }
+                    else -> true
+                }
+            }
+        }
 
         // 1. Drawing filter
         drawingCandidates?.let { candidates ->

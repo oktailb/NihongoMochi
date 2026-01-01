@@ -11,6 +11,7 @@ class HiraganaQuizFragment : BaseKanaQuizFragment() {
     }
 
     override fun getLevelArgument(): String {
-        return arguments?.getString("level") ?: "Gojūon"
+        // Default to "All" to include Dakuon and Yoon instead of restricting to Gojuon
+        return arguments?.getString("level") ?: "All"
     }
 }
