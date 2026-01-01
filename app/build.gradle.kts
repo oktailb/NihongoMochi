@@ -37,7 +37,7 @@ android {
         applicationId = "org.nihongo.mochi"
         minSdk = 28
         // Align targetSdk with compileSdk for consistency
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 4
         versionName = "0.6.0"
 
