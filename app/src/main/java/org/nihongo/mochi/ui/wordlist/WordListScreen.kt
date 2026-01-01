@@ -14,16 +14,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -92,31 +94,17 @@ fun WordListScreen(
                     .clip(RoundedCornerShape(8.dp))
                     .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.8f))
             ) {
-                Column(modifier = Modifier.padding(8.dp)) {
-                    Row(
+                Column(modifier = Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    FlowRow(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        horizontalArrangement = Arrangement.Center,
+                        verticalArrangement = Arrangement.Center
                     ) {
-                        FilterCheckbox(
-                            text = stringResource(R.string.reading_kanji_solo),
-                            checked = filterKanjiOnly,
-                            onCheckedChange = onFilterKanjiOnlyChange,
-                            modifier = Modifier.weight(1f)
-                        )
-                        FilterCheckbox(
-                            text = stringResource(R.string.reading_simple_words),
-                            checked = filterSimpleWords,
-                            onCheckedChange = onFilterSimpleWordsChange,
-                            modifier = Modifier.weight(1f)
-                        )
-                        FilterCheckbox(
-                            text = stringResource(R.string.reading_compound_words),
-                            checked = filterCompoundWords,
-                            onCheckedChange = onFilterCompoundWordsChange,
-                            modifier = Modifier.weight(1f)
-                        )
+                        ChipFilter(text = stringResource(R.string.reading_kanji_solo), selected = filterKanjiOnly, onClick = { onFilterKanjiOnlyChange(!filterKanjiOnly) })
+                        ChipFilter(text = stringResource(R.string.reading_simple_words), selected = filterSimpleWords, onClick = { onFilterSimpleWordsChange(!filterSimpleWords) })
+                        ChipFilter(text = stringResource(R.string.reading_compound_words), selected = filterCompoundWords, onClick = { onFilterCompoundWordsChange(!filterCompoundWords) })
                     }
-                    
+
                     var expanded by remember { mutableStateOf(false) }
                     Box(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
                         OutlinedButton(
@@ -143,11 +131,7 @@ fun WordListScreen(
                         }
                     }
 
-                    FilterCheckbox(
-                        text = stringResource(R.string.reading_ignore_known_words),
-                        checked = filterIgnoreKnown,
-                        onCheckedChange = onFilterIgnoreKnownChange
-                    )
+                    ChipFilter(text = stringResource(R.string.reading_ignore_known_words), selected = filterIgnoreKnown, onClick = { onFilterIgnoreKnownChange(!filterIgnoreKnown) })
                 }
             }
 
@@ -190,34 +174,28 @@ fun WordListScreen(
 }
 
 @Composable
-fun FilterCheckbox(
+fun ChipFilter(
     text: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
-    modifier: Modifier = Modifier
+    selected: Boolean,
+    onClick: () -> Unit
 ) {
-    // Manually handle click on the Row to toggle checkbox
-    Row(
-        modifier = modifier
-            .clickable { onCheckedChange(!checked) }
-            .padding(4.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Checkbox(
-            checked = checked,
-            onCheckedChange = null, // Handled by Row click
-            colors = CheckboxDefaults.colors(
-                checkedColor = MaterialTheme.colorScheme.primary,
-                uncheckedColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                checkmarkColor = MaterialTheme.colorScheme.surface
-            )
-        )
-        Text(
-            text = text,
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-    }
+    FilterChip(
+        selected = selected,
+        onClick = onClick,
+        label = { Text(text) },
+        modifier = Modifier.padding(horizontal = 4.dp),
+        leadingIcon = if (selected) {
+            {
+                Icon(
+                    imageVector = Icons.Filled.Done,
+                    contentDescription = "Done icon",
+                    modifier = Modifier.size(FilterChipDefaults.IconSize)
+                )
+            }
+        } else {
+            null
+        }
+    )
 }
 
 @Composable
