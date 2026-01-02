@@ -24,8 +24,8 @@ val appModule = module {
     }
     
     viewModel { KanjiDetailViewModel(get(), get(), get(), get()) }
-    viewModel { SettingsViewModel(get()) }
-    viewModel { RecognitionViewModel(get()) }
-    viewModel { ReadingViewModel(get()) }
+    viewModel { SettingsViewModel(get(), get()) } // Added StatisticsEngine
+    viewModel { RecognitionViewModel(get(), get()) }
+    viewModel { ReadingViewModel(get(), get()) }
     viewModel { WritingViewModel(get()) }
 }

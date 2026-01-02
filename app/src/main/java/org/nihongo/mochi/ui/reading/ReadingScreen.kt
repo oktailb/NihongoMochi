@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -26,15 +27,22 @@ import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.R
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.models.ReadingLevelInfoState
+import org.nihongo.mochi.presentation.reading.ReadingCategory
 
 @Composable
 fun ReadingScreen(
-    jlptLevels: List<ReadingLevelInfoState>,
-    wordLevels: List<ReadingLevelInfoState>,
+    categories: List<ReadingCategory>,
     userListInfo: ReadingLevelInfoState,
     onLevelClick: (String) -> Unit
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    
+    // Helper to resolve string resource dynamically
+    fun getCategoryTitle(key: String): String {
+        val resId = context.resources.getIdentifier(key, "string", context.packageName)
+        return if (resId != 0) context.getString(resId) else key
+    }
 
     MochiBackground {
         Column(
@@ -58,59 +66,35 @@ fun ReadingScreen(
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
-            // JLPT Section
-            ReadingCard(title = stringResource(R.string.recognition_jlpt)) {
-                // GridLayout 3 columns logic
-                Column {
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        jlptLevels.take(3).forEach { info ->
-                            ReadingLevelButton(
-                                info = info,
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        jlptLevels.drop(3).take(2).forEach { info ->
-                            ReadingLevelButton(
-                                info = info,
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                        // Fill empty space
-                        Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                    }
-                }
-            }
-
-            // Most Used Words Section
-            ReadingCard(title = stringResource(R.string.writing_most_used_words)) {
-                // GridLayout 2 columns logic
-                Column {
-                    for (i in wordLevels.indices step 2) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            ReadingLevelButton(
-                                info = wordLevels[i],
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                            if (i + 1 < wordLevels.size) {
+            // Dynamic Categories from JSON
+            categories.forEach { category ->
+                ReadingCard(title = getCategoryTitle(category.name)) {
+                    // GridLayout logic (2 columns for example)
+                    Column {
+                        for (i in category.levels.indices step 2) {
+                            Row(modifier = Modifier.fillMaxWidth()) {
                                 ReadingLevelButton(
-                                    info = wordLevels[i + 1],
+                                    info = category.levels[i],
                                     onClick = onLevelClick,
                                     modifier = Modifier.weight(1f).padding(4.dp)
                                 )
-                            } else {
-                                Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+                                if (i + 1 < category.levels.size) {
+                                    ReadingLevelButton(
+                                        info = category.levels[i + 1],
+                                        onClick = onLevelClick,
+                                        modifier = Modifier.weight(1f).padding(4.dp)
+                                    )
+                                } else {
+                                    Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+                                }
                             }
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(16.dp))
             }
 
-            // User Lists Section
+            // User Lists Section (Always present)
             ReadingCard(title = stringResource(R.string.writing_user_lists)) {
                 ReadingLevelButton(
                     info = userListInfo,

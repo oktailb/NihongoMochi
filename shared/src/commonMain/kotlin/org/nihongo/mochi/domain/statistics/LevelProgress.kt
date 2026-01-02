@@ -8,10 +8,3 @@ data class LevelProgress(
     val category: String, // Sub-section (JLPT, School, Frequency...)
     val sortOrder: Int = 0 // To order items within a category
 )
-
-enum class StatisticsType {
-    RECOGNITION,
-    READING,
-    WRITING,
-    // Future types can be added here (GRAMMAR, GAMES...)
-}

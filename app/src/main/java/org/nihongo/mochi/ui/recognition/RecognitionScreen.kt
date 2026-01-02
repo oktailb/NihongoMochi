@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -26,13 +27,21 @@ import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.R
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.models.LevelInfoState
+import org.nihongo.mochi.presentation.recognition.RecognitionCategory
 
 @Composable
 fun RecognitionScreen(
-    levelInfos: List<LevelInfoState>,
+    categories: List<RecognitionCategory>,
     onLevelClick: (String) -> Unit
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    
+    // Helper to resolve string resource dynamically
+    fun getCategoryTitle(key: String): String {
+        val resId = context.resources.getIdentifier(key, "string", context.packageName)
+        return if (resId != 0) context.getString(resId) else key
+    }
 
     MochiBackground {
         Column(
@@ -56,134 +65,47 @@ fun RecognitionScreen(
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
-            // Fundamentals
-            RecognitionCard(title = stringResource(R.string.recognition_fundamentals)) {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    LevelButton(
-                        info = levelInfos.find { it.levelKey == "Hiragana" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.weight(1f).padding(end = 4.dp)
-                    )
-                    LevelButton(
-                        info = levelInfos.find { it.levelKey == "Katakana" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.weight(1f).padding(start = 4.dp)
-                    )
-                }
-            }
-
-            // JLPT
-            RecognitionCard(title = stringResource(R.string.recognition_jlpt)) {
-                val levels = listOf("N5", "N4", "N3", "N2", "N1")
-                // GridLayout with 3 columns logic
-                Column {
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        levels.take(3).forEach { key ->
-                            LevelButton(
-                                info = levelInfos.find { it.levelKey == key },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        levels.drop(3).take(2).forEach { key ->
-                            LevelButton(
-                                info = levelInfos.find { it.levelKey == key },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                        // Fill empty space to keep buttons same width as first row
-                        Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                    }
-                }
-            }
-
-            // Primary School
-            RecognitionCard(title = stringResource(R.string.recognition_primary_school)) {
-                val levels = listOf(
-                    "Grade 1", "Grade 2",
-                    "Grade 3", "Grade 4",
-                    "Grade 5", "Grade 6"
-                )
-                // GridLayout with 2 columns
-                Column {
-                    for (i in levels.indices step 2) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            LevelButton(
-                                info = levelInfos.find { it.levelKey == levels[i] },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                            if (i + 1 < levels.size) {
-                                LevelButton(
-                                    info = levelInfos.find { it.levelKey == levels[i + 1] },
-                                    onClick = onLevelClick,
-                                    modifier = Modifier.weight(1f).padding(4.dp)
-                                )
-                            } else {
-                                Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+            // Dynamic Categories from JSON
+            categories.forEach { category ->
+                RecognitionCard(title = getCategoryTitle(category.name)) {
+                    // GridLayout logic (2 columns for example, or 3 if space permits or configured)
+                    // For now, let's stick to 2 columns for general layout, or smart wrap
+                    // The old code had 3 columns for JLPT, 2 for others.
+                    // We can try to be adaptive or just stick to 2.
+                    
+                    Column {
+                        val items = category.levels
+                        val columns = if (items.size >= 5) 3 else 2 // Heuristic: if many items, use 3 columns (like JLPT)
+                        
+                        val rows = (items.size + columns - 1) / columns
+                        for (r in 0 until rows) {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                for (c in 0 until columns) {
+                                    val index = r * columns + c
+                                    if (index < items.size) {
+                                        val level = items[index]
+                                        LevelButton(
+                                            info = level,
+                                            onClick = onLevelClick,
+                                            modifier = Modifier.weight(1f).padding(4.dp),
+                                            // Heuristic for hidePercentage: Challenges usually hide it or if explicitly set.
+                                            // The old code hardcoded hidePercentage for Challenges.
+                                            // We don't have this info in LevelInfoState yet.
+                                            // For now, let's show it unless levelKey suggests otherwise or if percentage is 0 and it's a challenge?
+                                            // The old code used hardcoded section check.
+                                            // Let's assume we show it. Or check category.name contains "challenge"
+                                            hidePercentage = category.name.contains("challenge", ignoreCase = true)
+                                        )
+                                    } else {
+                                        Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+                                    }
+                                }
                             }
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(16.dp))
             }
-
-            // High School
-            RecognitionCard(title = stringResource(R.string.recognition_high_school)) {
-                val levels = listOf(
-                    "Grade 7", "Grade 8",
-                    "Grade 9", "Grade 10"
-                )
-                // GridLayout with 2 columns
-                Column {
-                    for (i in levels.indices step 2) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            LevelButton(
-                                info = levelInfos.find { it.levelKey == levels[i] },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                            if (i + 1 < levels.size) {
-                                LevelButton(
-                                    info = levelInfos.find { it.levelKey == levels[i + 1] },
-                                    onClick = onLevelClick,
-                                    modifier = Modifier.weight(1f).padding(4.dp)
-                                )
-                            } else {
-                                Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                            }
-                        }
-                    }
-                }
-            }
-
-            // Challenges
-            RecognitionCard(title = stringResource(R.string.section_challenges)) {
-                Column {
-                    LevelButton(
-                        info = levelInfos.find { it.levelKey == "Native Challenge" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                    LevelButton(
-                        info = levelInfos.find { it.levelKey == "No Reading" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                    LevelButton(
-                        info = levelInfos.find { it.levelKey == "No Meaning" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -216,19 +138,17 @@ fun RecognitionCard(
 
 @Composable
 fun LevelButton(
-    info: LevelInfoState?,
+    info: LevelInfoState,
     onClick: (String) -> Unit,
     modifier: Modifier = Modifier,
     hidePercentage: Boolean = false
 ) {
-    if (info == null) return
-
     Button(
         onClick = { onClick(info.levelKey) },
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary, // Was Secondary, now Primary to match button_background
-            contentColor = MaterialTheme.colorScheme.onPrimary // Was OnSecondary
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
         ),
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp),
         shape = RoundedCornerShape(4.dp)

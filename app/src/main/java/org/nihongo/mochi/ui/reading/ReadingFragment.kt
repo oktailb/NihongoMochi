@@ -30,16 +30,8 @@ class ReadingFragment : Fragment() {
                 AppTheme {
                     val state by viewModel.state.collectAsState()
                     
-                    // We need to ensure userListInfo has the correct display name from Android resources
-                    // The ViewModel's state might have an empty string initially or after recomposition if not refreshed
-                    // However, we call refreshData in onResume/onViewCreated.
-                    
-                    // Since we can't easily modify the state inside the composable without triggering loop,
-                    // we rely on the ViewModel having the correct data via refreshData.
-
                     ReadingScreen(
-                        jlptLevels = state.jlptLevels,
-                        wordLevels = state.wordLevels,
+                        categories = state.categories,
                         userListInfo = state.userListInfo,
                         onLevelClick = { levelId ->
                             navigateToWordList(levelId)

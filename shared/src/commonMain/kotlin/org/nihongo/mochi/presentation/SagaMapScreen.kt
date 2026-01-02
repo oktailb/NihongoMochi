@@ -59,6 +59,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -314,6 +315,7 @@ fun SagaMapContent(
     val listState = rememberLazyListState()
     val pathColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
     val density = LocalDensity.current
+    val context = LocalContext.current
     
     LaunchedEffect(steps) {
         if (steps.isNotEmpty()) {
@@ -333,6 +335,12 @@ fun SagaMapContent(
         
         val nodeSpacing = 280.dp 
         val nodeSpacingPx = with(density) { nodeSpacing.toPx() }
+        
+        // Helper to resolve string resource dynamically for Node Titles
+        fun getNodeTitle(key: String): String {
+            val resId = context.resources.getIdentifier(key, "string", context.packageName)
+            return if (resId != 0) context.getString(resId) else key
+        }
 
         LazyColumn(
             state = listState,
@@ -496,6 +504,16 @@ fun SagaMapContent(
                                         color = MaterialTheme.colorScheme.tertiary
                                         label = "Write"
                                     }
+                                    StatisticsType.GRAMMAR -> {
+                                        resource = Res.drawable.writing // Placeholder
+                                        color = MaterialTheme.colorScheme.error
+                                        label = "Gram"
+                                    }
+                                    StatisticsType.GAMES -> {
+                                        resource = Res.drawable.recognising // Placeholder
+                                        color = MaterialTheme.colorScheme.tertiaryContainer
+                                        label = "Game"
+                                    }
                                 }
                                 
                                 val isLeftSide = spec.horizontalOffset < 0
@@ -515,6 +533,7 @@ fun SagaMapContent(
                                                 StatisticsType.RECOGNITION -> node.recognitionId
                                                 StatisticsType.READING -> node.readingId
                                                 StatisticsType.WRITING -> node.writingId
+                                                else -> null
                                             }
                                             if (id != null) onNodeClick(id, spec.type)
                                         }
@@ -531,6 +550,8 @@ fun SagaMapContent(
                         
                         SagaNodeItem(
                             node = node,
+                            // TRANSLATE THE TITLE HERE
+                            title = getNodeTitle(node.title),
                             progress = progress,
                             isAuthenticated = isAuthenticated,
                             onNodeClick = onNodeClick,
@@ -628,7 +649,8 @@ fun BillboardContent(
 
 @Composable
 fun SagaNodeItem(
-    node: SagaNode, 
+    node: SagaNode,
+    title: String = node.title, // Add title parameter with default fallback
     progress: UserSagaProgress,
     isAuthenticated: Boolean,
     onNodeClick: (String, StatisticsType) -> Unit,
@@ -691,7 +713,7 @@ fun SagaNodeItem(
                 modifier = Modifier.fillMaxSize()
             ) {
                 Text(
-                    text = node.title,
+                    text = title, // Use the passed title which might be translated
                     style = MaterialTheme.typography.labelMedium,
                     color = contentColor,
                     textAlign = TextAlign.Center

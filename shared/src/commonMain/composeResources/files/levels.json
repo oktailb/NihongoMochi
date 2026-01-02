@@ -1,372 +1,416 @@
 {
-  "definitions": [
-    {
-      "name": "Hiragana",
-      "xmlName": "Hiragana",
-      "type": "RECOGNITION",
-      "category": "Kanas",
-      "sortOrder": 1,
-      "globalStep": 0
+  "version": "1.0",
+  "sections": {
+    "fundamentals": {
+      "name": "section_fundamentals",
+      "description": "Bases de l'écriture japonaise",
+      "prerequisiteFor": ["jlpt", "school"],
+      "levels": [
+        {
+          "id": "hiragana",
+          "name": "level_hiragana",
+          "description": "Syllabaire hiragana",
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "Hiragana",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "katakana",
+          "name": "level_katakana",
+          "description": "Syllabaire katakana",
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "Katakana",
+              "enabled": true
+            }
+          }
+        }
+      ]
     },
-    {
-      "name": "Katakana",
-      "xmlName": "Katakana",
-      "type": "RECOGNITION",
-      "category": "Kanas",
-      "sortOrder": 1,
-      "globalStep": 0
+    "jlpt": {
+      "name": "section_jlpt",
+      "description": "Japanese Language Proficiency Test",
+      "prerequisiteFor": ["challenge"],
+      "levels": [
+        {
+          "id": "n5",
+          "name": "level_n5",
+          "description": "Niveau débutant",
+          "dependencies": ["hiragana", "katakana"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "jlpt_wordlist_n5",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n5",
+              "enabled": false
+            }
+          }
+        },
+        {
+          "id": "n4",
+          "name": "level_n4",
+          "description": "Niveau élémentaire",
+          "dependencies": ["n5"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "jlpt_wordlist_n4",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n4",
+              "enabled": false
+            }
+          }
+        },
+        {
+          "id": "n3",
+          "name": "level_n3",
+          "description": "Niveau intermédiaire",
+          "dependencies": ["n4"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "jlpt_wordlist_n3",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n3",
+              "enabled": false
+            }
+          }
+        },
+        {
+          "id": "n2",
+          "name": "level_n2",
+          "description": "Niveau pré-avancé",
+          "dependencies": ["n3"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "jlpt_wordlist_n2",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n2",
+              "enabled": false
+            }
+          }
+        },
+        {
+          "id": "n1",
+          "name": "level_n1",
+          "description": "Niveau avancé",
+          "dependencies": ["n2"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "jlpt_wordlist_n1",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n1",
+              "enabled": true
+            }
+          }
+        }
+      ]
     },
-    {
-      "name": "JLPT N5",
-      "xmlName": "N5",
-      "type": "RECOGNITION",
-      "category": "JLPT",
-      "sortOrder": 1,
-      "globalStep": 10
+    "school": {
+      "name": "section_school",
+      "description": "Programme scolaire japonais",
+      "levels": [
+        {
+          "id": "grade1",
+          "name": "level_grade_1",
+          "description": "Première année d'école primaire",
+          "dependencies": ["hiragana", "katakana"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade2",
+          "name": "level_grade_2",
+          "description": "Deuxième année d'école primaire",
+          "dependencies": ["grade1"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade3",
+          "name": "level_grade_3",
+          "description": "Troisième année d'école primaire",
+          "dependencies": ["grade2"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_1000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade4",
+          "name": "level_grade_4",
+          "description": "Quatrième année d'école primaire",
+          "dependencies": ["grade3"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_2000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade5",
+          "name": "level_grade_5",
+          "description": "Cinquième année d'école primaire",
+          "dependencies": ["grade4"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_3000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade6",
+          "name": "level_grade_6",
+          "description": "Sixième année d'école primaire",
+          "dependencies": ["grade5"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_4000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade7",
+          "name": "level_college_1",
+          "description": "Première année de collège",
+          "dependencies": ["grade6"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_5000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade8",
+          "name": "level_college_2",
+          "description": "Seconde année de collège",
+          "dependencies": ["grade7"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_6000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade9",
+          "name": "level_lycee_1",
+          "description": "Première année de lycée",
+          "dependencies": ["grade8"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_7000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "grade10",
+          "name": "level_lycee_2",
+          "description": "Première année de lycée",
+          "dependencies": ["grade9"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_8000",
+              "enabled": true
+            },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        }
+      ]
     },
-    {
-      "name": "JLPT N4",
-      "xmlName": "N4",
-      "type": "RECOGNITION",
-      "category": "JLPT",
-      "sortOrder": 2,
-      "globalStep": 11
-    },
-    {
-      "name": "JLPT N3",
-      "xmlName": "N3",
-      "type": "RECOGNITION",
-      "category": "JLPT",
-      "sortOrder": 3,
-      "globalStep": 12
-    },
-    {
-      "name": "JLPT N2",
-      "xmlName": "N2",
-      "type": "RECOGNITION",
-      "category": "JLPT",
-      "sortOrder": 4,
-      "globalStep": 13
-    },
-    {
-      "name": "JLPT N1",
-      "xmlName": "N1",
-      "type": "RECOGNITION",
-      "category": "JLPT",
-      "sortOrder": 5,
-      "globalStep": 14
-    },
-    {
-      "name": "Grade 1",
-      "xmlName": "Grade 1",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 1,
-      "globalStep": 10
-    },
-    {
-      "name": "Grade 2",
-      "xmlName": "Grade 2",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 2,
-      "globalStep": 11
-    },
-    {
-      "name": "Grade 3",
-      "xmlName": "Grade 3",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 3,
-      "globalStep": 12
-    },
-    {
-      "name": "Grade 4",
-      "xmlName": "Grade 4",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 4,
-      "globalStep": 13
-    },
-    {
-      "name": "Grade 5",
-      "xmlName": "Grade 5",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 5,
-      "globalStep": 14
-    },
-    {
-      "name": "Grade 6",
-      "xmlName": "Grade 6",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 6,
-      "globalStep": 15
-    },
-    {
-      "name": "Collège",
-      "xmlName": "Grade 7",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 7,
-      "globalStep": 16
-    },
-    {
-      "name": "Lycée",
-      "xmlName": "Grade 8",
-      "type": "RECOGNITION",
-      "category": "School",
-      "sortOrder": 8,
-      "globalStep": 17
-    },
-    {
-      "name": "Native Challenge",
-      "xmlName": "Native Challenge",
-      "type": "RECOGNITION",
-      "category": "Challenges",
-      "sortOrder": 1,
-      "globalStep": 50
-    },
-    {
-      "name": "No Reading",
-      "xmlName": "No Reading",
-      "type": "RECOGNITION",
-      "category": "Challenges",
-      "sortOrder": 2,
-      "globalStep": 51
-    },
-    {
-      "name": "No Meaning",
-      "xmlName": "No Meaning",
-      "type": "RECOGNITION",
-      "category": "Challenges",
-      "sortOrder": 3,
-      "globalStep": 52
-    },
-    {
-      "name": "Reading User",
-      "xmlName": "user_list",
-      "type": "READING",
-      "category": "User",
-      "sortOrder": 1,
-      "globalStep": 5
-    },
-    {
-      "name": "Reading N5",
-      "xmlName": "reading_n5",
-      "type": "READING",
-      "category": "JLPT",
-      "sortOrder": 1,
-      "globalStep": 10
-    },
-    {
-      "name": "Reading N4",
-      "xmlName": "reading_n4",
-      "type": "READING",
-      "category": "JLPT",
-      "sortOrder": 2,
-      "globalStep": 11
-    },
-    {
-      "name": "Reading N3",
-      "xmlName": "reading_n3",
-      "type": "READING",
-      "category": "JLPT",
-      "sortOrder": 3,
-      "globalStep": 12
-    },
-    {
-      "name": "Reading N2",
-      "xmlName": "reading_n2",
-      "type": "READING",
-      "category": "JLPT",
-      "sortOrder": 4,
-      "globalStep": 13
-    },
-    {
-      "name": "Reading N1",
-      "xmlName": "reading_n1",
-      "type": "READING",
-      "category": "JLPT",
-      "sortOrder": 5,
-      "globalStep": 14
-    },
-    {
-      "name": "Reading 1000",
-      "xmlName": "bccwj_wordlist_1000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 1,
-      "globalStep": 12
-    },
-    {
-      "name": "Reading 2000",
-      "xmlName": "bccwj_wordlist_2000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 2,
-      "globalStep": 13
-    },
-    {
-      "name": "Reading 3000",
-      "xmlName": "bccwj_wordlist_3000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 3,
-      "globalStep": 14
-    },
-    {
-      "name": "Reading 4000",
-      "xmlName": "bccwj_wordlist_4000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 4,
-      "globalStep": 15
-    },
-    {
-      "name": "Reading 5000",
-      "xmlName": "bccwj_wordlist_5000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 5,
-      "globalStep": 16
-    },
-    {
-      "name": "Reading 6000",
-      "xmlName": "bccwj_wordlist_6000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 6,
-      "globalStep": 17
-    },
-    {
-      "name": "Reading 7000",
-      "xmlName": "bccwj_wordlist_7000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 7,
-      "globalStep": 18
-    },
-    {
-      "name": "Reading 8000",
-      "xmlName": "bccwj_wordlist_8000",
-      "type": "READING",
-      "category": "Frequency",
-      "sortOrder": 8,
-      "globalStep": 19
-    },
-    {
-      "name": "Writing User",
-      "xmlName": "user_list",
-      "type": "WRITING",
-      "category": "User",
-      "sortOrder": 1,
-      "globalStep": 5
-    },
-    {
-      "name": "Writing JLPT N5",
-      "xmlName": "N5",
-      "type": "WRITING",
-      "category": "JLPT",
-      "sortOrder": 1,
-      "globalStep": 10
-    },
-    {
-      "name": "Writing JLPT N4",
-      "xmlName": "N4",
-      "type": "WRITING",
-      "category": "JLPT",
-      "sortOrder": 2,
-      "globalStep": 11
-    },
-    {
-      "name": "Writing JLPT N3",
-      "xmlName": "N3",
-      "type": "WRITING",
-      "category": "JLPT",
-      "sortOrder": 3,
-      "globalStep": 12
-    },
-    {
-      "name": "Writing JLPT N2",
-      "xmlName": "N2",
-      "type": "WRITING",
-      "category": "JLPT",
-      "sortOrder": 4,
-      "globalStep": 13
-    },
-    {
-      "name": "Writing JLPT N1",
-      "xmlName": "N1",
-      "type": "WRITING",
-      "category": "JLPT",
-      "sortOrder": 5,
-      "globalStep": 14
-    },
-    {
-      "name": "Writing Grade 1",
-      "xmlName": "Grade 1",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 1,
-      "globalStep": 10
-    },
-    {
-      "name": "Writing Grade 2",
-      "xmlName": "Grade 2",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 2,
-      "globalStep": 11
-    },
-    {
-      "name": "Writing Grade 3",
-      "xmlName": "Grade 3",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 3,
-      "globalStep": 12
-    },
-    {
-      "name": "Writing Grade 4",
-      "xmlName": "Grade 4",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 4,
-      "globalStep": 13
-    },
-    {
-      "name": "Writing Grade 5",
-      "xmlName": "Grade 5",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 5,
-      "globalStep": 14
-    },
-    {
-      "name": "Writing Grade 6",
-      "xmlName": "Grade 6",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 6,
-      "globalStep": 15
-    },
-    {
-      "name": "Writing Collège",
-      "xmlName": "Grade 7",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 7,
-      "globalStep": 16
-    },
-    {
-      "name": "Writing Lycée",
-      "xmlName": "Grade 8",
-      "type": "WRITING",
-      "category": "School",
-      "sortOrder": 8,
-      "globalStep": 17
+    "challenge": {
+      "name": "section_challenges",
+      "description": "Défis pour locuteurs avancés",
+      "levels": [
+        {
+          "id": "native_challenge",
+          "name": "level_native_challenge",
+          "description": "Défi pour niveau natif",
+          "dependencies": ["n1"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+            "READING": {
+              "dataFile": "bccwj_wordlist_challenge",
+              "enabled": true
+            },
+            "GAMES": {
+              "dataFile": "native_games",
+              "enabled": false
+            }
+          }
+        },
+        {
+          "id": "no_reading",
+          "name": "level_no_reading",
+          "description": "Reconnaissance sans lecture",
+          "dependencies": ["native_challenge"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        },
+        {
+          "id": "no_meaning",
+          "name": "level_no_meaning",
+          "description": "Lecture sans signification",
+          "dependencies": ["native_challenge"],
+          "activities": {
+            "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            }
+          }
+        }
+      ]
     }
-  ]
+  },
+  "activityTypes": {
+    "RECOGNITION": "Reconnaissance de caractères",
+    "READING": "Lecture et prononciation",
+    "WRITING": "Écriture et tracé",
+    "GRAMMAR": "Grammaire et structure",
+    "GAMES": "Jeux et défis interactifs"
+  }
 }

@@ -11,122 +11,169 @@ class StatisticsEngine(
     private val levelContentProvider: LevelContentProvider
 ) {
 
+    private val jsonParser = Json {
+        ignoreUnknownKeys = true
+        isLenient = true
+        coerceInputValues = true
+    }
+
     @Serializable
-    private data class LevelDefinition(
+    data class ActivityConfig(
+        val dataFile: String,
+        val enabled: Boolean = false
+    )
+
+    @Serializable
+    data class LevelDefinition(
+        val id: String,
         val name: String,
-        val xmlName: String,
-        val type: StatisticsType,
-        val category: String,
-        val sortOrder: Int,
-        val globalStep: Int = 0 // Default for backward compatibility if field missing
+        val description: String = "",
+        val sortOrder: Int = 0,
+        val globalStep: Int = 0,
+        val dependencies: List<String> = emptyList(),
+        val activities: Map<StatisticsType, ActivityConfig> = emptyMap()
     )
 
     @Serializable
-    private data class LevelDefinitions(
-        val definitions: List<LevelDefinition>
+    data class SectionDefinition(
+        val name: String,
+        val description: String = "",
+        val prerequisiteFor: List<String> = emptyList(),
+        val sortOrder: Int = 0,
+        val levels: List<LevelDefinition> = emptyList()
     )
 
-    private var cachedLevels: List<LevelDefinition> = emptyList()
+    @Serializable
+    data class LevelDefinitions(
+        val version: String = "1.0",
+        val sections: Map<String, SectionDefinition> = emptyMap(),
+        val activityTypes: Map<String, String> = emptyMap()
+    )
+
+    private var cachedSections: Map<String, SectionDefinition> = emptyMap()
 
     @OptIn(ExperimentalResourceApi::class)
     suspend fun loadLevelDefinitions() {
-        if (cachedLevels.isNotEmpty()) return
+        if (cachedSections.isNotEmpty()) return
         try {
             val jsonString = Res.readBytes("files/levels.json").decodeToString()
-            val data = Json.decodeFromString<LevelDefinitions>(jsonString)
-            cachedLevels = data.definitions
+            val data = jsonParser.decodeFromString<LevelDefinitions>(jsonString)
+            cachedSections = data.sections
         } catch (e: Exception) {
             e.printStackTrace()
-            // Fallback empty or hardcoded if critical
+            // Log error or handle it. Since we can't easily log to Android Logcat from shared/commonMain without expect/actual,
+            // we rely on printStackTrace for now.
+            // If data is empty, cachedSections remains empty.
         }
     }
 
-    // Blocking getter for legacy calls (if needed, but prefer suspend init)
-    // Note: In KMP/Compose, resources are loaded asynchronously.
-    // If you need synchronous access immediately, you might need to preload this in ViewModel init or similar.
-    private fun getLevelDefinitions(): List<LevelDefinition> {
-        return cachedLevels
+    private fun getAllLevels(): List<LevelDefinition> {
+        return cachedSections.values.flatMap { it.levels }.sortedBy { it.globalStep }
     }
 
     fun getAllStatistics(): List<LevelProgress> {
-        val levels = getLevelDefinitions()
-        return levels.map { level ->
-            val percentage = calculatePercentage(level)
-            LevelProgress(level.name, level.xmlName, percentage.toInt(), level.type, level.category, level.sortOrder)
+        val levels = getAllLevels()
+        
+        return levels.flatMap { level ->
+             level.activities.mapNotNull { (type, config) ->
+                 if (!config.enabled) return@mapNotNull null
+                 
+                 val percentage = calculatePercentage(config.dataFile, type)
+                 
+                 LevelProgress(
+                    title = level.name, 
+                    xmlName = config.dataFile,
+                    percentage = percentage.toInt(),
+                    type = type,
+                    category = getCategoryForLevel(level),
+                    sortOrder = level.sortOrder
+                 )
+             }
         }
     }
     
+    private fun getCategoryForLevel(level: LevelDefinition): String {
+        return cachedSections.entries.find { (_, section) -> 
+            section.levels.any { it.id == level.id } 
+        }?.value?.name ?: "Unknown"
+    }
+    
     fun getSagaMapSteps(tab: SagaTab): List<SagaStep> {
-        val allLevels = getLevelDefinitions()
-        
-        val categoryFilter = when(tab) {
-            SagaTab.JLPT -> listOf("Kanas", "JLPT", "Frequency") 
-            SagaTab.SCHOOL -> listOf("Kanas", "School", "Frequency")
-            SagaTab.CHALLENGES -> listOf("Challenges", "Frequency") 
+        val sectionKeys = when(tab) {
+            SagaTab.JLPT -> listOf("fundamentals", "jlpt") 
+            SagaTab.SCHOOL -> listOf("fundamentals", "school")
+            SagaTab.CHALLENGES -> listOf("challenge") 
         }
         
-        val relevantLevels = allLevels.filter { it.category in categoryFilter }
+        val relevantLevels = sectionKeys.mapNotNull { cachedSections[it] }
+            .flatMap { it.levels }
         
-        // Group by globalStep now, instead of calculating stepIndex from sortOrder
-        val levelsWithStep = relevantLevels.map { level ->
-             level.globalStep to level
-        }
+        if (relevantLevels.isEmpty()) return emptyList()
+
+        // --- Dependency-based topological sort / depth calculation ---
         
-        val stepsGrouped = levelsWithStep.groupBy { it.first }
-            .toSortedMap()
+        // 1. Map ID -> Level for quick lookup
+        val levelMap = relevantLevels.associateBy { it.id }
+        
+        // 2. Cache for depths to avoid re-calculation
+        val depthCache = mutableMapOf<String, Int>()
+        
+        // 3. Recursive function to calculate depth
+        fun getDepth(levelId: String, currentStack: Set<String>): Int {
+            if (levelId in currentStack) return 0 // Cycle detected, fallback
+            if (depthCache.containsKey(levelId)) return depthCache[levelId]!!
             
-        return stepsGrouped.map { (stepIndex, pairs) ->
-            val levelsInStep = pairs.map { it.second }
+            val level = levelMap[levelId] ?: return 0 // External dependency or not in this tab
             
-            // Strategy: Group by "Base Name" or something similar to merge Recog/Read/Write.
-            // For Kanas: "Hiragana" and "Katakana" are distinct Base Names.
-            // For JLPT: "N5" is the base name.
+            // Filter dependencies that are actually present in the current tab scope
+            val validDependencies = level.dependencies.filter { levelMap.containsKey(it) }
             
-            val nodeGroups = levelsInStep.groupBy { level ->
-                // Normalize Key
-                when {
-                    level.xmlName.startsWith("reading_") -> level.xmlName.removePrefix("reading_").uppercase() // reading_n5 -> N5
-                    level.category == "Kanas" -> level.xmlName // Hiragana != Katakana
-                    else -> level.xmlName.uppercase() // N5 -> N5
-                }
+            val depth = if (validDependencies.isEmpty()) {
+                0
+            } else {
+                validDependencies.maxOf { getDepth(it, currentStack + levelId) } + 1
             }
             
-            val nodes = nodeGroups.map { (key, levels) ->
-                 val recogLevel = levels.find { it.type == StatisticsType.RECOGNITION }
-                 val readLevel = levels.find { it.type == StatisticsType.READING }
-                 val writeLevel = levels.find { it.type == StatisticsType.WRITING }
-                 
-                 val mainType = when {
-                    recogLevel != null -> StatisticsType.RECOGNITION
-                    readLevel != null -> StatisticsType.READING
-                    writeLevel != null -> StatisticsType.WRITING
+            depthCache[levelId] = depth
+            return depth
+        }
+        
+        // 4. Group levels by calculated depth
+        val levelsByDepth = relevantLevels.groupBy { level ->
+            getDepth(level.id, emptySet())
+        }
+        .toSortedMap()
+
+        return levelsByDepth.map { (depth, levels) ->
+            
+            val nodes = levels.map { level ->
+                val recogActivity = level.activities[StatisticsType.RECOGNITION]
+                val readActivity = level.activities[StatisticsType.READING]
+                val writeActivity = level.activities[StatisticsType.WRITING]
+                val grammarActivity = level.activities[StatisticsType.GRAMMAR]
+                val gamesActivity = level.activities[StatisticsType.GAMES]
+                
+                val mainType = when {
+                    recogActivity != null -> StatisticsType.RECOGNITION
+                    readActivity != null -> StatisticsType.READING
+                    writeActivity != null -> StatisticsType.WRITING
+                    grammarActivity != null -> StatisticsType.GRAMMAR
+                    gamesActivity != null -> StatisticsType.GAMES
                     else -> StatisticsType.RECOGNITION
-                }
-                
-                val title = when(mainType) {
-                    StatisticsType.RECOGNITION -> recogLevel!!.name
-                    StatisticsType.READING -> readLevel!!.name
-                    StatisticsType.WRITING -> writeLevel!!.name
-                }
-                
-                val nodeId = when(mainType) {
-                    StatisticsType.RECOGNITION -> recogLevel!!.xmlName
-                    StatisticsType.READING -> readLevel!!.xmlName
-                    StatisticsType.WRITING -> writeLevel!!.xmlName
                 }
 
                 SagaNode(
-                    id = nodeId,
-                    title = title,
-                    recognitionId = recogLevel?.xmlName,
-                    readingId = readLevel?.xmlName,
-                    writingId = writeLevel?.xmlName,
+                    id = level.id,
+                    title = level.name,
+                    recognitionId = recogActivity?.dataFile,
+                    readingId = readActivity?.dataFile,
+                    writingId = writeActivity?.dataFile,
                     mainType = mainType
                 )
             }
             
             SagaStep(
-                id = "step_$stepIndex",
+                id = "step_$depth",
                 nodes = nodes
             )
         }
@@ -155,6 +202,7 @@ class StatisticsEngine(
             StatisticsType.READING -> ScoreManager.ScoreType.READING
             StatisticsType.WRITING -> ScoreManager.ScoreType.WRITING
             StatisticsType.RECOGNITION -> ScoreManager.ScoreType.RECOGNITION
+            else -> ScoreManager.ScoreType.RECOGNITION // Default fallback
         }
         
         return if (xmlName == "user_list") {
@@ -163,10 +211,6 @@ class StatisticsEngine(
              val characters = levelContentProvider.getCharactersForLevel(xmlName)
              calculateMasteryPercentage(characters, scoreType).toInt()
         }
-    }
-    
-    private fun calculatePercentage(level: LevelDefinition): Double {
-        return calculatePercentage(level.xmlName, level.type).toDouble()
     }
 
     private fun calculateUserListPercentage(scoreType: ScoreManager.ScoreType): Double {

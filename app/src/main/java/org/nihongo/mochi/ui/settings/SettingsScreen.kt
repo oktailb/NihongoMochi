@@ -37,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -59,6 +60,7 @@ fun SettingsScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
     
     val languages = remember {
         listOf(
@@ -79,8 +81,9 @@ fun SettingsScreen(
         )
     }
 
-    val learningModes = remember {
-        listOf("JLPT", "School", "Challenge")
+    // Dynamic learning modes from ViewModel
+    val learningModes = uiState.availableModes.ifEmpty { 
+        listOf("JLPT", "School", "Challenge") 
     }
 
     MochiBackground {
@@ -168,26 +171,44 @@ fun SettingsScreen(
             
             Spacer(Modifier.height(16.dp))
             
-            // Learning Mode Section (New)
-            SettingsSection(title = "Learning Mode") { // Use resource string in prod
-                Column {
-                    learningModes.forEach { mode ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically, 
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { viewModel.onModeChanged(mode) }
-                                .padding(vertical = 4.dp)
-                        ) {
-                            RadioButton(
-                                selected = (uiState.currentMode == mode),
-                                onClick = { viewModel.onModeChanged(mode) }
-                            )
-                            Text(
-                                text = mode,
-                                style = MaterialTheme.typography.bodyLarge,
-                                color = MaterialTheme.colorScheme.onSurface,
-                                modifier = Modifier.padding(start = 8.dp)
+            // Learning Mode Section (New: Dropdown instead of Radio)
+            SettingsSection(title = "Learning Mode") { 
+                var expanded by remember { mutableStateOf(false) }
+                // Fallback to first if current mode is not in list
+                val rawSelectedMode = if (learningModes.contains(uiState.currentMode)) uiState.currentMode else learningModes.firstOrNull() ?: ""
+
+                // Helper to resolve string resource dynamically
+                fun getModeLabel(mode: String): String {
+                    val resId = context.resources.getIdentifier(mode, "string", context.packageName)
+                    return if (resId != 0) context.getString(resId) else mode
+                }
+
+                ExposedDropdownMenuBox(
+                    expanded = expanded,
+                    onExpandedChange = { expanded = !expanded }
+                ) {
+                    OutlinedTextField(
+                        value = getModeLabel(rawSelectedMode),
+                        onValueChange = {},
+                        readOnly = true,
+                        label = { Text("Mode") },
+                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .menuAnchor()
+                    )
+
+                    ExposedDropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        learningModes.forEach { mode ->
+                            DropdownMenuItem(
+                                text = { Text(getModeLabel(mode)) },
+                                onClick = {
+                                    viewModel.onModeChanged(mode)
+                                    expanded = false
+                                }
                             )
                         }
                     }

@@ -145,6 +145,12 @@ class ResultsFragment : Fragment() {
                     }
                     findNavController().navigate(R.id.nav_word_list, bundle)
                 }
+                StatisticsType.GRAMMAR -> {
+                    Toast.makeText(requireContext(), "Grammar exercises coming soon!", Toast.LENGTH_SHORT).show()
+                }
+                StatisticsType.GAMES -> {
+                    Toast.makeText(requireContext(), "Mini-games coming soon!", Toast.LENGTH_SHORT).show()
+                }
             }
         } catch (e: Exception) {
             Log.e("ResultsFragment", "Navigation failed: ${e.message}")

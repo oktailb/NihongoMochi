@@ -1,71 +1,92 @@
 package org.nihongo.mochi.presentation.reading
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-// This model is already in shared: org.nihongo.mochi.presentation.models.ReadingLevelInfoState
+import kotlinx.coroutines.launch
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.presentation.models.ReadingLevelInfoState
 
+data class ReadingCategory(
+    val name: String,
+    val levels: List<ReadingLevelInfoState>
+)
+
 data class ReadingScreenState(
-    val jlptLevels: List<ReadingLevelInfoState> = emptyList(),
-    val wordLevels: List<ReadingLevelInfoState> = emptyList(),
+    val categories: List<ReadingCategory> = emptyList(),
     val userListInfo: ReadingLevelInfoState = ReadingLevelInfoState("user_custom_list", "", 0)
 )
 
 class ReadingViewModel(
-    private val levelContentProvider: LevelContentProvider
+    private val levelContentProvider: LevelContentProvider,
+    private val statisticsEngine: StatisticsEngine
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ReadingScreenState())
     val state: StateFlow<ReadingScreenState> = _state.asStateFlow()
 
     fun refreshData(userListNameProvider: () -> String) {
-        // This logic is based on the old ReadingViewModel from the domain
-        _state.update {
-            it.copy(
-                jlptLevels = listOf(
-                    createLevelState("jlpt_wordlist_n5", "N5"),
-                    createLevelState("jlpt_wordlist_n4", "N4"),
-                    createLevelState("jlpt_wordlist_n3", "N3"),
-                    createLevelState("jlpt_wordlist_n2", "N2"),
-                    createLevelState("jlpt_wordlist_n1", "N1")
-                ),
-                wordLevels = listOf(
-                    createLevelState("bccwj_wordlist_1000", "1000"),
-                    createLevelState("bccwj_wordlist_2000", "2000"),
-                    createLevelState("bccwj_wordlist_3000", "3000"),
-                    createLevelState("bccwj_wordlist_4000", "4000"),
-                    createLevelState("bccwj_wordlist_5000", "5000"),
-                    createLevelState("bccwj_wordlist_6000", "6000"),
-                    createLevelState("bccwj_wordlist_7000", "7000"),
-                    createLevelState("bccwj_wordlist_8000", "8000")
-                ),
-                userListInfo = createLevelState("user_custom_list", userListNameProvider())
-            )
+        viewModelScope.launch {
+            // Ensure levels are loaded
+            statisticsEngine.loadLevelDefinitions()
+            val allStats = statisticsEngine.getAllStatistics()
+            
+            // Filter only READING activities
+            val readingStats = allStats.filter { it.type == StatisticsType.READING }
+            
+            // Group by category dynamically based on levels.json
+            val grouped = readingStats
+                .groupBy { it.category }
+                .map { (categoryName, stats) ->
+                    val levels = stats
+                        .sortedBy { it.sortOrder }
+                        .map { createLevelState(it.xmlName, it.title, it.percentage) }
+                    
+                    ReadingCategory(categoryName, levels)
+                }
+                // Optional: Sort categories if needed, or rely on order in map (usually insertion order in some cases but not guaranteed)
+                // For now, let's sort them to ensure consistent order if possible, or maybe sort by a predefined order if we had one.
+                // Assuming alphabetical or no specific sort for dynamic categories.
+                .sortedBy { it.name }
+            
+            // User List is special, keep it separate or add as a category?
+            // The requirement says "la présentation est esclave de la configuration", but user list is dynamic.
+            // Let's keep user list separate in state, but UI can decide where to put it.
+            
+            val userListState = createLevelState("user_custom_list", userListNameProvider(), 
+                calculateUserListPercentage().toInt())
+
+            _state.update {
+                it.copy(
+                    categories = grouped,
+                    userListInfo = userListState
+                )
+            }
         }
     }
-
-    private fun createLevelState(levelId: String, displayName: String): ReadingLevelInfoState {
-        val wordList = levelContentProvider.getCharactersForLevel(levelId)
-        val percentage = calculateMasteryPercentage(wordList)
-        return ReadingLevelInfoState(levelId, displayName, percentage.toInt())
+    
+    // Helper to create state from pre-calculated data
+    private fun createLevelState(levelId: String, displayName: String, percentage: Int): ReadingLevelInfoState {
+        return ReadingLevelInfoState(levelId, displayName, percentage)
     }
 
-    private fun calculateMasteryPercentage(wordList: List<String>): Double {
-        if (wordList.isEmpty()) return 0.0
+    private fun calculateUserListPercentage(): Double {
+        val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.READING)
+        if (scores.isEmpty()) return 0.0
 
-        val totalMasteryPoints = wordList.sumOf { word ->
-            val score = ScoreManager.getScore(word, ScoreManager.ScoreType.READING)
-            val balance = score.successes - score.failures
-            balance.coerceIn(0, 10).toDouble()
+        val totalEncountered = scores.size
+        val mastered = scores.count { (_, score) -> (score.successes - score.failures) >= 10 }
+
+        return if (totalEncountered > 0) {
+            (mastered.toDouble() / totalEncountered.toDouble()) * 100.0
+        } else {
+            0.0
         }
-
-        val maxPossiblePoints = wordList.size * 10.0
-        return if (maxPossiblePoints > 0) (totalMasteryPoints / maxPossiblePoints) * 100 else 0.0
     }
 }
