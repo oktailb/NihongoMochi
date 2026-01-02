@@ -13,11 +13,6 @@ import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.presentation.models.ReadingLevelInfoState
 
-data class ReadingCategory(
-    val name: String,
-    val levels: List<ReadingLevelInfoState>
-)
-
 data class ReadingScreenState(
     val categories: List<ReadingCategory> = emptyList(),
     val userListInfo: ReadingLevelInfoState = ReadingLevelInfoState("user_custom_list", "", 0)

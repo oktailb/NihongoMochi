@@ -134,9 +134,12 @@ class WritingRecapFragment : Fragment() {
                     val kanjiList by viewModel.kanjiList.collectAsState()
                     val currentPage by viewModel.currentPage.collectAsState()
                     val totalPages by viewModel.totalPages.collectAsState()
+                    
+                    // Try to resolve human readable title for the level key if possible
+                    val title = resolveLevelTitle(args.level)
 
                     WritingRecapScreen(
-                        levelTitle = args.level,
+                        levelTitle = title,
                         kanjiListWithColors = kanjiList,
                         currentPage = currentPage,
                         totalPages = totalPages,
@@ -154,5 +157,23 @@ class WritingRecapFragment : Fragment() {
                 }
             }
         }
+    }
+    
+    private fun resolveLevelTitle(key: String): String {
+        // Try to map key (e.g. "n5", "grade1") to string resource (e.g. "level_n5", "level_grade_1")
+        // If exact match fails, try adding prefixes.
+        val context = requireContext()
+        var resId = context.resources.getIdentifier(key, "string", context.packageName)
+        if (resId != 0) return context.getString(resId)
+        
+        // Try level_ prefix
+        resId = context.resources.getIdentifier("level_$key", "string", context.packageName)
+        if (resId != 0) return context.getString(resId)
+        
+        // Try section_ prefix (less likely but possible)
+        resId = context.resources.getIdentifier("section_$key", "string", context.packageName)
+        if (resId != 0) return context.getString(resId)
+        
+        return key
     }
 }

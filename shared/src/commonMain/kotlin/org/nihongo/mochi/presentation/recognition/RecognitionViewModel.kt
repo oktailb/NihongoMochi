@@ -7,16 +7,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.models.LevelInfoState
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.statistics.StatisticsType
-
-data class RecognitionCategory(
-    val name: String,
-    val levels: List<LevelInfoState>
-)
 
 class RecognitionViewModel(
     private val levelContentProvider: LevelContentProvider,
@@ -55,11 +49,6 @@ class RecognitionViewModel(
                         levels = levels
                     )
                 }
-                // Sort categories if needed (e.g. Fundamentals first)
-                // Since we don't have explicit sort order for categories in LevelProgress, 
-                // we rely on the order from levels.json or sort alphabetically/custom.
-                // The JSON order is preserved if we iterate the map usually, but not guaranteed.
-                // Let's assume the JSON read order is good enough for now.
             
             _categoriesState.update { categories }
             

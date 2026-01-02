@@ -1,72 +1,74 @@
 package org.nihongo.mochi.presentation.writing
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
-import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.domain.util.LevelContentProvider
-
-// Using the shared model from presentation.models
+import kotlinx.coroutines.launch
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.presentation.models.WritingLevelInfoState
 
-data class LevelDef(val levelKey: String, val stringIdentifier: Int)
-
 class WritingViewModel(
-    private val levelContentProvider: LevelContentProvider
+    private val statisticsEngine: StatisticsEngine
 ) : ViewModel() {
 
-    val levelDefs = listOf(
-        LevelDef("N5", 0),
-        LevelDef("N4", 1),
-        LevelDef("N3", 2),
-        LevelDef("N2", 3),
-        LevelDef("N1", 4),
-        LevelDef("Grade 1", 5),
-        LevelDef("Grade 2", 6),
-        LevelDef("Grade 3", 7),
-        LevelDef("Grade 4", 8),
-        LevelDef("Grade 5", 9),
-        LevelDef("Grade 6", 10),
-        LevelDef("Grade 7", 11),
-        LevelDef("Grade 8", 12),
-        LevelDef("Grade 9", 13),
-        LevelDef("Grade 10", 14),
-        LevelDef("user_custom_list", 15),
-        LevelDef("Native Challenge", 16),
-        LevelDef("No Reading", 17),
-        LevelDef("No Meaning", 18)
+    private val _writingCategories = MutableStateFlow<List<WritingCategory>>(emptyList())
+    val writingCategories: StateFlow<List<WritingCategory>> = _writingCategories.asStateFlow()
+
+    private val _userListInfo = MutableStateFlow(
+        WritingLevelInfoState("user_list", "User List", 0)
     )
+    val userListInfo: StateFlow<WritingLevelInfoState> = _userListInfo.asStateFlow()
 
-    private val _levelInfosState = MutableStateFlow<List<WritingLevelInfoState>>(emptyList())
-    val levelInfosState: StateFlow<List<WritingLevelInfoState>> = _levelInfosState.asStateFlow()
-
-    fun updateAllButtonPercentages(nameProvider: (Int) -> String) {
-        val newStates = levelDefs.map { def ->
-            val charactersForLevel = levelContentProvider.getCharactersForLevel(def.levelKey)
-            val masteryPercentage = calculateMasteryPercentage(charactersForLevel)
-            val displayName = nameProvider(def.stringIdentifier)
-
-            WritingLevelInfoState(
-                levelKey = def.levelKey,
-                displayName = displayName,
-                percentage = masteryPercentage.toInt()
-            )
-        }
-        _levelInfosState.update { newStates }
+    init {
+        loadData()
     }
 
-    private fun calculateMasteryPercentage(characterList: List<String>): Double {
-        if (characterList.isEmpty()) return 0.0
+    private fun loadData() {
+        viewModelScope.launch {
+            statisticsEngine.loadLevelDefinitions()
+            refreshStatistics()
+        }
+    }
 
-        val totalMasteryPoints = characterList.sumOf { character ->
-            val score = ScoreManager.getScore(character, ScoreManager.ScoreType.WRITING)
-            val balance = score.successes - score.failures
-            balance.coerceIn(0, 10).toDouble()
+    fun refreshStatistics() {
+        val allStats = statisticsEngine.getAllStatistics()
+        
+        // Group by Category
+        val groupedStats = allStats
+            .filter { it.type == StatisticsType.WRITING }
+            .groupBy { it.category }
+            
+        // Map to UI model
+        val categories = groupedStats.map { (categoryName, levels) ->
+            WritingCategory(
+                name = categoryName,
+                levels = levels.sortedBy { it.sortOrder }.map { level ->
+                    WritingLevelInfoState(
+                        levelKey = level.xmlName,
+                        displayName = level.title,
+                        percentage = level.percentage
+                    )
+                }
+            )
+        }
+        
+        // Handle User List separately (if present in stats or manually)
+        val userListStat = allStats.find { it.type == StatisticsType.WRITING && it.xmlName == "user_list" }
+        if (userListStat != null) {
+            _userListInfo.value = WritingLevelInfoState(
+                levelKey = "user_list",
+                displayName = "User List",
+                percentage = userListStat.percentage
+            )
+        } else {
+             // Force refresh for user list even if not in standard levels
+             // This might need a specific call if "user_list" isn't returned by getAllStatistics normally
+             // For now, let's assume getAllStatistics handles it or we default to 0
         }
 
-        val maxPossiblePoints = characterList.size * 10.0
-        return if (maxPossiblePoints > 0) (totalMasteryPoints / maxPossiblePoints) * 100 else 0.0
+        _writingCategories.value = categories
     }
 }

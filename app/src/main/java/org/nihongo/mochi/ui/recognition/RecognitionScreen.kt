@@ -68,37 +68,22 @@ fun RecognitionScreen(
             // Dynamic Categories from JSON
             categories.forEach { category ->
                 RecognitionCard(title = getCategoryTitle(category.name)) {
-                    // GridLayout logic (2 columns for example, or 3 if space permits or configured)
-                    // For now, let's stick to 2 columns for general layout, or smart wrap
-                    // The old code had 3 columns for JLPT, 2 for others.
-                    // We can try to be adaptive or just stick to 2.
-                    
                     Column {
-                        val items = category.levels
-                        val columns = if (items.size >= 5) 3 else 2 // Heuristic: if many items, use 3 columns (like JLPT)
-                        
-                        val rows = (items.size + columns - 1) / columns
-                        for (r in 0 until rows) {
+                        for (i in category.levels.indices step 2) {
                             Row(modifier = Modifier.fillMaxWidth()) {
-                                for (c in 0 until columns) {
-                                    val index = r * columns + c
-                                    if (index < items.size) {
-                                        val level = items[index]
-                                        LevelButton(
-                                            info = level,
-                                            onClick = onLevelClick,
-                                            modifier = Modifier.weight(1f).padding(4.dp),
-                                            // Heuristic for hidePercentage: Challenges usually hide it or if explicitly set.
-                                            // The old code hardcoded hidePercentage for Challenges.
-                                            // We don't have this info in LevelInfoState yet.
-                                            // For now, let's show it unless levelKey suggests otherwise or if percentage is 0 and it's a challenge?
-                                            // The old code used hardcoded section check.
-                                            // Let's assume we show it. Or check category.name contains "challenge"
-                                            hidePercentage = category.name.contains("challenge", ignoreCase = true)
-                                        )
-                                    } else {
-                                        Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                                    }
+                                RecognitionLevelButton(
+                                    info = category.levels[i],
+                                    onClick = onLevelClick,
+                                    modifier = Modifier.weight(1f).padding(4.dp)
+                                )
+                                if (i + 1 < category.levels.size) {
+                                    RecognitionLevelButton(
+                                        info = category.levels[i + 1],
+                                        onClick = onLevelClick,
+                                        modifier = Modifier.weight(1f).padding(4.dp)
+                                    )
+                                } else {
+                                    Spacer(modifier = Modifier.weight(1f).padding(4.dp))
                                 }
                             }
                         }
@@ -106,6 +91,8 @@ fun RecognitionScreen(
                 }
                 Spacer(modifier = Modifier.height(16.dp))
             }
+            
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
@@ -137,11 +124,10 @@ fun RecognitionCard(
 }
 
 @Composable
-fun LevelButton(
+fun RecognitionLevelButton(
     info: LevelInfoState,
     onClick: (String) -> Unit,
-    modifier: Modifier = Modifier,
-    hidePercentage: Boolean = false
+    modifier: Modifier = Modifier
 ) {
     Button(
         onClick = { onClick(info.levelKey) },
@@ -153,14 +139,8 @@ fun LevelButton(
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
-        val text = if (hidePercentage) {
-            info.displayName
-        } else {
-            "${info.displayName}\n${info.percentage}%"
-        }
-        
         Text(
-            text = text,
+            text = "${info.displayName}\n${info.percentage}%",
             textAlign = TextAlign.Center
         )
     }

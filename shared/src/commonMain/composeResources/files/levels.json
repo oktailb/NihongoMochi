@@ -373,6 +373,10 @@
               "dataFile": "bccwj_wordlist_challenge",
               "enabled": true
             },
+            "WRITING": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
             "GAMES": {
               "dataFile": "native_games",
               "enabled": false
@@ -398,6 +402,10 @@
           "dependencies": ["native_challenge"],
           "activities": {
             "RECOGNITION": {
+              "dataFile": "kanji_details",
+              "enabled": true
+            },
+             "WRITING": {
               "dataFile": "kanji_details",
               "enabled": true
             }

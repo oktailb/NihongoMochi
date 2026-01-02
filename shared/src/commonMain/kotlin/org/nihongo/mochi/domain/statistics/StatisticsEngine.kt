@@ -61,9 +61,6 @@ class StatisticsEngine(
             cachedSections = data.sections
         } catch (e: Exception) {
             e.printStackTrace()
-            // Log error or handle it. Since we can't easily log to Android Logcat from shared/commonMain without expect/actual,
-            // we rely on printStackTrace for now.
-            // If data is empty, cachedSections remains empty.
         }
     }
 
@@ -78,11 +75,14 @@ class StatisticsEngine(
              level.activities.mapNotNull { (type, config) ->
                  if (!config.enabled) return@mapNotNull null
                  
-                 val percentage = calculatePercentage(config.dataFile, type)
+                 // If dataFile is generic ("kanji_details"), use the level ID to be specific
+                 val resolvedKey = if (config.dataFile == "kanji_details") level.id else config.dataFile
+                 
+                 val percentage = calculatePercentage(resolvedKey, type)
                  
                  LevelProgress(
                     title = level.name, 
-                    xmlName = config.dataFile,
+                    xmlName = resolvedKey, // Use the resolved key so UI navigation receives the ID, not "kanji_details"
                     percentage = percentage.toInt(),
                     type = type,
                     category = getCategoryForLevel(level),
@@ -112,20 +112,14 @@ class StatisticsEngine(
 
         // --- Dependency-based topological sort / depth calculation ---
         
-        // 1. Map ID -> Level for quick lookup
         val levelMap = relevantLevels.associateBy { it.id }
-        
-        // 2. Cache for depths to avoid re-calculation
         val depthCache = mutableMapOf<String, Int>()
         
-        // 3. Recursive function to calculate depth
         fun getDepth(levelId: String, currentStack: Set<String>): Int {
-            if (levelId in currentStack) return 0 // Cycle detected, fallback
+            if (levelId in currentStack) return 0 
             if (depthCache.containsKey(levelId)) return depthCache[levelId]!!
             
-            val level = levelMap[levelId] ?: return 0 // External dependency or not in this tab
-            
-            // Filter dependencies that are actually present in the current tab scope
+            val level = levelMap[levelId] ?: return 0
             val validDependencies = level.dependencies.filter { levelMap.containsKey(it) }
             
             val depth = if (validDependencies.isEmpty()) {
@@ -138,7 +132,6 @@ class StatisticsEngine(
             return depth
         }
         
-        // 4. Group levels by calculated depth
         val levelsByDepth = relevantLevels.groupBy { level ->
             getDepth(level.id, emptySet())
         }
@@ -162,12 +155,17 @@ class StatisticsEngine(
                     else -> StatisticsType.RECOGNITION
                 }
 
+                // Resolve keys for Saga nodes too
+                val recogId = recogActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
+                val readId = readActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
+                val writeId = writeActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
+
                 SagaNode(
                     id = level.id,
                     title = level.name,
-                    recognitionId = recogActivity?.dataFile,
-                    readingId = readActivity?.dataFile,
-                    writingId = writeActivity?.dataFile,
+                    recognitionId = recogId,
+                    readingId = readId,
+                    writingId = writeId,
                     mainType = mainType
                 )
             }
@@ -202,7 +200,7 @@ class StatisticsEngine(
             StatisticsType.READING -> ScoreManager.ScoreType.READING
             StatisticsType.WRITING -> ScoreManager.ScoreType.WRITING
             StatisticsType.RECOGNITION -> ScoreManager.ScoreType.RECOGNITION
-            else -> ScoreManager.ScoreType.RECOGNITION // Default fallback
+            else -> ScoreManager.ScoreType.RECOGNITION 
         }
         
         return if (xmlName == "user_list") {

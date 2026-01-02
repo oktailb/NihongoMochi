@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -26,13 +27,28 @@ import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.R
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.models.WritingLevelInfoState
+import org.nihongo.mochi.presentation.writing.WritingCategory
 
 @Composable
 fun WritingScreen(
-    levelInfos: List<WritingLevelInfoState>,
+    categories: List<WritingCategory>,
+    userListInfo: WritingLevelInfoState,
     onLevelClick: (String) -> Unit
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    
+    // Helper to resolve string resource dynamically
+    fun getCategoryTitle(key: String): String {
+        val resId = context.resources.getIdentifier(key, "string", context.packageName)
+        return if (resId != 0) context.getString(resId) else key
+    }
+    
+    // Helper to resolve string resource for levels dynamically
+    fun getLevelTitle(key: String): String {
+        val resId = context.resources.getIdentifier(key, "string", context.packageName)
+        return if (resId != 0) context.getString(resId) else key
+    }
 
     MochiBackground {
         Column(
@@ -56,120 +72,43 @@ fun WritingScreen(
                 modifier = Modifier.padding(bottom = 24.dp)
             )
 
-            // JLPT
-            WritingCard(title = stringResource(R.string.recognition_jlpt)) {
-                val levels = listOf("N5", "N4", "N3", "N2", "N1")
-                Column {
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        levels.take(3).forEach { key ->
-                            WritingLevelButton(
-                                info = levelInfos.find { it.levelKey == key },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        levels.drop(3).take(2).forEach { key ->
-                            WritingLevelButton(
-                                info = levelInfos.find { it.levelKey == key },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                    }
-                }
-            }
-
-            // Primary School
-            WritingCard(title = stringResource(R.string.recognition_primary_school)) {
-                val levels = listOf(
-                    "Grade 1", "Grade 2",
-                    "Grade 3", "Grade 4",
-                    "Grade 5", "Grade 6"
-                )
-                Column {
-                    for (i in levels.indices step 2) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            WritingLevelButton(
-                                info = levelInfos.find { it.levelKey == levels[i] },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                            if (i + 1 < levels.size) {
+            // Dynamic Categories from JSON
+            categories.forEach { category ->
+                WritingCard(title = getCategoryTitle(category.name)) {
+                    Column {
+                        for (i in category.levels.indices step 2) {
+                            Row(modifier = Modifier.fillMaxWidth()) {
                                 WritingLevelButton(
-                                    info = levelInfos.find { it.levelKey == levels[i + 1] },
+                                    info = category.levels[i],
+                                    displayName = getLevelTitle(category.levels[i].displayName),
                                     onClick = onLevelClick,
                                     modifier = Modifier.weight(1f).padding(4.dp)
                                 )
-                            } else {
-                                Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+                                if (i + 1 < category.levels.size) {
+                                    WritingLevelButton(
+                                        info = category.levels[i + 1],
+                                        displayName = getLevelTitle(category.levels[i+1].displayName),
+                                        onClick = onLevelClick,
+                                        modifier = Modifier.weight(1f).padding(4.dp)
+                                    )
+                                } else {
+                                    Spacer(modifier = Modifier.weight(1f).padding(4.dp))
+                                }
                             }
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(16.dp))
             }
 
-            // High School
-            WritingCard(title = stringResource(R.string.recognition_high_school)) {
-                val levels = listOf(
-                    "Grade 7", "Grade 8",
-                    "Grade 9", "Grade 10"
-                )
-                Column {
-                    for (i in levels.indices step 2) {
-                        Row(modifier = Modifier.fillMaxWidth()) {
-                            WritingLevelButton(
-                                info = levelInfos.find { it.levelKey == levels[i] },
-                                onClick = onLevelClick,
-                                modifier = Modifier.weight(1f).padding(4.dp)
-                            )
-                            if (i + 1 < levels.size) {
-                                WritingLevelButton(
-                                    info = levelInfos.find { it.levelKey == levels[i + 1] },
-                                    onClick = onLevelClick,
-                                    modifier = Modifier.weight(1f).padding(4.dp)
-                                )
-                            } else {
-                                Spacer(modifier = Modifier.weight(1f).padding(4.dp))
-                            }
-                        }
-                    }
-                }
-            }
-
-            // User Lists
+            // User Lists Section
             WritingCard(title = stringResource(R.string.writing_user_lists)) {
                 WritingLevelButton(
-                    info = levelInfos.find { it.levelKey == "user_custom_list" },
+                    info = userListInfo,
+                    displayName = stringResource(R.string.writing_user_lists), // Or handle via getCategoryTitle if needed
                     onClick = onLevelClick,
                     modifier = Modifier.fillMaxWidth()
                 )
-            }
-
-            // Challenges
-            WritingCard(title = stringResource(R.string.section_challenges)) {
-                Column {
-                    WritingLevelButton(
-                        info = levelInfos.find { it.levelKey == "Native Challenge" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                    WritingLevelButton(
-                        info = levelInfos.find { it.levelKey == "No Reading" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                    WritingLevelButton(
-                        info = levelInfos.find { it.levelKey == "No Meaning" },
-                        onClick = onLevelClick,
-                        modifier = Modifier.fillMaxWidth().padding(4.dp),
-                        hidePercentage = true
-                    )
-                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -205,31 +144,23 @@ fun WritingCard(
 
 @Composable
 fun WritingLevelButton(
-    info: WritingLevelInfoState?,
+    info: WritingLevelInfoState,
+    displayName: String,
     onClick: (String) -> Unit,
-    modifier: Modifier = Modifier,
-    hidePercentage: Boolean = false
+    modifier: Modifier = Modifier
 ) {
-    if (info == null) return
-
     Button(
         onClick = { onClick(info.levelKey) },
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary, // Using primary color (Teal/Orange) like Reading/Recognition
+            containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary
         ),
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
-        val text = if (hidePercentage) {
-            info.displayName
-        } else {
-            "${info.displayName}\n${info.percentage}%"
-        }
-        
         Text(
-            text = text,
+            text = "$displayName\n${info.percentage}%",
             textAlign = TextAlign.Center
         )
     }
