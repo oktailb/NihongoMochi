@@ -14,6 +14,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nihongo.mochi.R
 import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.ui.theme.AppTheme
+import org.nihongo.mochi.ui.gamerecap.GameRecapFragmentArgs
+import org.nihongo.mochi.ui.writingrecap.WritingRecapFragmentArgs
+import org.nihongo.mochi.ui.wordlist.WordListFragmentArgs
 
 class HomeFragment : Fragment() {
 
@@ -39,17 +42,33 @@ class HomeFragment : Fragment() {
                         onLevelSelected = homeViewModel::onLevelSelected,
                         onRecognitionClick = {
                             if (uiState.isRecognitionEnabled) {
-                                findNavController().navigate(R.id.action_nav_home_to_nav_recognition)
+                                when(uiState.selectedLevelId) {
+                                    "hiragana" -> findNavController().navigate(R.id.action_nav_home_to_nav_hiragana)
+                                    "katakana" -> findNavController().navigate(R.id.action_nav_home_to_nav_katakana)
+                                    else -> {
+                                        val args = Bundle().apply {
+                                            putString("level", uiState.selectedLevelId)
+                                        }
+                                        findNavController().navigate(R.id.action_nav_home_to_game_recap, args)
+                                    }
+                                }
                             }
                         },
                         onReadingClick = {
                             if (uiState.isReadingEnabled) {
-                                findNavController().navigate(R.id.action_nav_home_to_nav_reading)
+                                val args = Bundle().apply {
+                                    // Reading expects the data file name (e.g. "jlpt_wordlist_n5"), not the level ID
+                                    putString("wordList", uiState.readingDataFile ?: uiState.selectedLevelId)
+                                }
+                                findNavController().navigate(R.id.action_nav_home_to_word_list, args)
                             }
                         },
                         onWritingClick = {
                             if (uiState.isWritingEnabled) {
-                                findNavController().navigate(R.id.action_nav_home_to_nav_writing)
+                                val args = Bundle().apply {
+                                    putString("level", uiState.selectedLevelId)
+                                }
+                                findNavController().navigate(R.id.action_nav_home_to_writing_recap, args)
                             }
                         },
                         onDictionaryClick = {

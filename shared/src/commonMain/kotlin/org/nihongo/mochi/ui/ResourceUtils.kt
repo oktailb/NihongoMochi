@@ -33,7 +33,11 @@ object ResourceUtils {
             "level_college_2", "grade_8", "grade8" -> Res.string.level_college_2
             "level_lycee_1", "grade_9", "grade9" -> Res.string.level_lycee_1
             "level_lycee_2", "grade_10", "grade10" -> Res.string.level_lycee_2
-            
+            "level_native_challenge" -> Res.string.level_native_challenge
+            "level_no_reading" -> Res.string.level_no_reading
+            "level_no_meaning" -> Res.string.level_no_meaning
+
+
             "secondary_school" -> Res.string.results_section_school
             "frequency" -> Res.string.results_section_frequency
             "user_list" -> Res.string.reading_user_list

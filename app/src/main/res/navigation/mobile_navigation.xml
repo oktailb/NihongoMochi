@@ -31,6 +31,21 @@
         <action
             android:id="@+id/action_nav_home_to_nav_about"
             app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/action_nav_home_to_game_recap"
+            app:destination="@id/nav_game_recap" />
+        <action
+            android:id="@+id/action_nav_home_to_writing_recap"
+            app:destination="@id/nav_writing_recap" />
+        <action
+            android:id="@+id/action_nav_home_to_word_list"
+            app:destination="@id/nav_word_list" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_hiragana"
+            app:destination="@id/nav_hiragana" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_katakana"
+            app:destination="@id/nav_katakana" />
     </fragment>
 
     <fragment
@@ -161,7 +176,7 @@
     <fragment
         android:id="@+id/nav_writing_recap"
         android:name="org.nihongo.mochi.ui.writingrecap.WritingRecapFragment"
-        android:label="@string/title_game_recap"
+        android:label="@string/title_writing_recap"
         tools:layout="@layout/fragment_writing_recap">
         <argument
             android:name="level"

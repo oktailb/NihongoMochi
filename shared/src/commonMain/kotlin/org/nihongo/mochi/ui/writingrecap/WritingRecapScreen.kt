@@ -21,7 +21,7 @@ import org.nihongo.mochi.ui.components.PaginationControls
 import org.nihongo.mochi.ui.components.PlayButton
 import org.nihongo.mochi.ui.components.RecapKanjiGrid
 import org.nihongo.mochi.shared.generated.resources.Res
-import org.nihongo.mochi.shared.generated.resources.game_recap_title
+import org.nihongo.mochi.shared.generated.resources.writing_game_recap_title
 
 @Composable
 fun WritingRecapScreen(
@@ -52,7 +52,7 @@ fun WritingRecapScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(Res.string.game_recap_title),
+                text = stringResource(Res.string.writing_game_recap_title),
                 style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onBackground

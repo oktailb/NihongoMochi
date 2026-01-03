@@ -21,7 +21,10 @@ class HomeViewModel(
         val selectedLevelId: String = "",
         val isRecognitionEnabled: Boolean = true,
         val isReadingEnabled: Boolean = true,
-        val isWritingEnabled: Boolean = true
+        val isWritingEnabled: Boolean = true,
+        val recognitionDataFile: String? = null,
+        val readingDataFile: String? = null,
+        val writingDataFile: String? = null
     )
 
     private val _uiState = MutableStateFlow(HomeUiState())
@@ -78,16 +81,19 @@ class HomeViewModel(
 
                 // Calculate enabled activities for the selected level
                 val selectedLevel = levels.find { it.id == selectionToUse }
-                val recognitionEnabled = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)?.enabled == true
-                val readingEnabled = selectedLevel?.activities?.get(StatisticsType.READING)?.enabled == true
-                val writingEnabled = selectedLevel?.activities?.get(StatisticsType.WRITING)?.enabled == true
+                val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
+                val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)
+                val writingConfig = selectedLevel?.activities?.get(StatisticsType.WRITING)
 
                 currentState.copy(
                     availableLevels = levels,
                     selectedLevelId = selectionToUse,
-                    isRecognitionEnabled = recognitionEnabled,
-                    isReadingEnabled = readingEnabled,
-                    isWritingEnabled = writingEnabled
+                    isRecognitionEnabled = recognitionConfig?.enabled == true,
+                    isReadingEnabled = readingConfig?.enabled == true,
+                    isWritingEnabled = writingConfig?.enabled == true,
+                    recognitionDataFile = recognitionConfig?.dataFile,
+                    readingDataFile = readingConfig?.dataFile,
+                    writingDataFile = writingConfig?.dataFile
                 )
             }
         }
@@ -98,16 +104,19 @@ class HomeViewModel(
         
         // When level changes, update enabled states immediately
         val selectedLevel = _uiState.value.availableLevels.find { it.id == levelId }
-        val recognitionEnabled = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)?.enabled == true
-        val readingEnabled = selectedLevel?.activities?.get(StatisticsType.READING)?.enabled == true
-        val writingEnabled = selectedLevel?.activities?.get(StatisticsType.WRITING)?.enabled == true
+        val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
+        val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)
+        val writingConfig = selectedLevel?.activities?.get(StatisticsType.WRITING)
 
         _uiState.update { 
             it.copy(
                 selectedLevelId = levelId,
-                isRecognitionEnabled = recognitionEnabled,
-                isReadingEnabled = readingEnabled,
-                isWritingEnabled = writingEnabled
+                isRecognitionEnabled = recognitionConfig?.enabled == true,
+                isReadingEnabled = readingConfig?.enabled == true,
+                isWritingEnabled = writingConfig?.enabled == true,
+                recognitionDataFile = recognitionConfig?.dataFile,
+                readingDataFile = readingConfig?.dataFile,
+                writingDataFile = writingConfig?.dataFile
             ) 
         }
     }
