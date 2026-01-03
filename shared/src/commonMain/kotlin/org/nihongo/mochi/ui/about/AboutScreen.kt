@@ -170,19 +170,19 @@ fun AboutScreen(
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
             }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            AboutSectionCard(
-                title = stringResource(Res.string.about_category_resources),
-                icon = Icons.Default.Info 
-            ) {
-                 FullWidthButton(
-                    text = stringResource(Res.string.about_kanji_data_credit),
-                    onClick = onKanjiDataClick
-                )
-            }
-            
+//Deprecated
+//            Spacer(modifier = Modifier.height(16.dp))
+//
+//            AboutSectionCard(
+//                title = stringResource(Res.string.about_category_resources),
+//                icon = Icons.Default.Info
+//            ) {
+//                 FullWidthButton(
+//                    text = stringResource(Res.string.about_kanji_data_credit),
+//                    onClick = onKanjiDataClick
+//                )
+//            }
+//
             Spacer(modifier = Modifier.height(16.dp))
         }
     }

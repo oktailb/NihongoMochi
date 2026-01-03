@@ -201,7 +201,7 @@ fun LevelSelectorCard(
 
                  Text(
                     text = levelDescription,
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodySmall.copy(lineHeight = 12.sp),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center
                 )
@@ -263,7 +263,8 @@ fun BigModeCard(
                 )
                 Text(
                     text = subtitle,
-                    fontSize = 12.sp,
+                    fontSize = 10.sp,
+                    lineHeight = 12.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha),
                     modifier = Modifier.padding(top = 6.dp)
                 )
