@@ -48,6 +48,9 @@ import kotlin.math.roundToInt
 fun HomeScreen(
     availableLevels: List<LevelDefinition>,
     selectedLevelId: String,
+    isRecognitionEnabled: Boolean,
+    isReadingEnabled: Boolean,
+    isWritingEnabled: Boolean,
     onLevelSelected: (String) -> Unit,
     onRecognitionClick: () -> Unit,
     onReadingClick: () -> Unit,
@@ -95,6 +98,7 @@ fun HomeScreen(
                 title = stringResource(Res.string.menu_recognition),
                 subtitle = stringResource(Res.string.home_recognition_subtitle),
                 kanjiTitle = stringResource(Res.string.recognition_title),
+                enabled = isRecognitionEnabled,
                 onClick = onRecognitionClick
             )
             
@@ -104,6 +108,7 @@ fun HomeScreen(
                 title = stringResource(Res.string.menu_reading),
                 subtitle = stringResource(Res.string.home_reading_subtitle),
                 kanjiTitle = stringResource(Res.string.reading_title),
+                enabled = isReadingEnabled,
                 onClick = onReadingClick
             )
 
@@ -113,6 +118,7 @@ fun HomeScreen(
                 title = stringResource(Res.string.menu_writing),
                 subtitle = stringResource(Res.string.home_writing_subtitle),
                 kanjiTitle = stringResource(Res.string.writing_title),
+                enabled = isWritingEnabled,
                 onClick = onWritingClick
             )
 
@@ -222,15 +228,20 @@ fun BigModeCard(
     title: String,
     subtitle: String,
     kanjiTitle: String,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
+    val alpha = if (enabled) 1f else 0.5f
+    
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick),
+            .clickable(enabled = enabled, onClick = onClick),
         shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(2.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
+        elevation = CardDefaults.cardElevation(if (enabled) 2.dp else 0.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = if (enabled) 0.9f else 0.5f)
+        )
     ) {
         Row(
             modifier = Modifier
@@ -244,12 +255,12 @@ fun BigModeCard(
                     text = title,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = alpha)
                 )
                 Text(
                     text = subtitle,
                     fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha),
                     modifier = Modifier.padding(top = 6.dp)
                 )
             }
@@ -257,7 +268,7 @@ fun BigModeCard(
             Text(
                 text = kanjiTitle,
                 fontSize = 48.sp,
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.primary.copy(alpha = alpha),
                 modifier = Modifier.padding(start = 8.dp)
             )
         }

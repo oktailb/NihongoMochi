@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelDefinition
+import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class HomeViewModel(
     private val settingsRepository: SettingsRepository,
@@ -17,7 +18,10 @@ class HomeViewModel(
 
     data class HomeUiState(
         val availableLevels: List<LevelDefinition> = emptyList(),
-        val selectedLevelId: String = ""
+        val selectedLevelId: String = "",
+        val isRecognitionEnabled: Boolean = true,
+        val isReadingEnabled: Boolean = true,
+        val isWritingEnabled: Boolean = true
     )
 
     private val _uiState = MutableStateFlow(HomeUiState())
@@ -72,9 +76,18 @@ class HomeViewModel(
                     settingsRepository.setSelectedLevel(selectionToUse)
                 }
 
+                // Calculate enabled activities for the selected level
+                val selectedLevel = levels.find { it.id == selectionToUse }
+                val recognitionEnabled = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)?.enabled == true
+                val readingEnabled = selectedLevel?.activities?.get(StatisticsType.READING)?.enabled == true
+                val writingEnabled = selectedLevel?.activities?.get(StatisticsType.WRITING)?.enabled == true
+
                 currentState.copy(
                     availableLevels = levels,
-                    selectedLevelId = selectionToUse
+                    selectedLevelId = selectionToUse,
+                    isRecognitionEnabled = recognitionEnabled,
+                    isReadingEnabled = readingEnabled,
+                    isWritingEnabled = writingEnabled
                 )
             }
         }
@@ -82,6 +95,20 @@ class HomeViewModel(
     
     fun onLevelSelected(levelId: String) {
         settingsRepository.setSelectedLevel(levelId)
-        _uiState.update { it.copy(selectedLevelId = levelId) }
+        
+        // When level changes, update enabled states immediately
+        val selectedLevel = _uiState.value.availableLevels.find { it.id == levelId }
+        val recognitionEnabled = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)?.enabled == true
+        val readingEnabled = selectedLevel?.activities?.get(StatisticsType.READING)?.enabled == true
+        val writingEnabled = selectedLevel?.activities?.get(StatisticsType.WRITING)?.enabled == true
+
+        _uiState.update { 
+            it.copy(
+                selectedLevelId = levelId,
+                isRecognitionEnabled = recognitionEnabled,
+                isReadingEnabled = readingEnabled,
+                isWritingEnabled = writingEnabled
+            ) 
+        }
     }
 }

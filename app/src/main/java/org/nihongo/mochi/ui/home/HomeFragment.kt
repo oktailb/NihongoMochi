@@ -33,15 +33,24 @@ class HomeFragment : Fragment() {
                     HomeScreen(
                         availableLevels = uiState.availableLevels,
                         selectedLevelId = uiState.selectedLevelId,
+                        isRecognitionEnabled = uiState.isRecognitionEnabled,
+                        isReadingEnabled = uiState.isReadingEnabled,
+                        isWritingEnabled = uiState.isWritingEnabled,
                         onLevelSelected = homeViewModel::onLevelSelected,
                         onRecognitionClick = {
-                            findNavController().navigate(R.id.action_nav_home_to_nav_recognition)
+                            if (uiState.isRecognitionEnabled) {
+                                findNavController().navigate(R.id.action_nav_home_to_nav_recognition)
+                            }
                         },
                         onReadingClick = {
-                            findNavController().navigate(R.id.action_nav_home_to_nav_reading)
+                            if (uiState.isReadingEnabled) {
+                                findNavController().navigate(R.id.action_nav_home_to_nav_reading)
+                            }
                         },
                         onWritingClick = {
-                            findNavController().navigate(R.id.action_nav_home_to_nav_writing)
+                            if (uiState.isWritingEnabled) {
+                                findNavController().navigate(R.id.action_nav_home_to_nav_writing)
+                            }
                         },
                         onDictionaryClick = {
                             findNavController().navigate(R.id.action_nav_home_to_nav_dictionary)
