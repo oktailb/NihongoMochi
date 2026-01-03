@@ -17,10 +17,7 @@ import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
-import org.nihongo.mochi.presentation.reading.ReadingViewModel
-import org.nihongo.mochi.presentation.recognition.RecognitionViewModel
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
-import org.nihongo.mochi.presentation.writing.WritingViewModel
 import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
 import org.nihongo.mochi.ui.gojuon.KanaRecapViewModel
 import org.nihongo.mochi.ui.wordlist.WordListViewModel
@@ -41,9 +38,7 @@ val sharedModule = module {
     // --- ViewModels ---
     factoryOf(::KanjiDetailViewModel)
     factoryOf(::SettingsViewModel)
-    factoryOf(::RecognitionViewModel)
-    factoryOf(::ReadingViewModel)
-    factoryOf(::WritingViewModel)
+    // RecognitionViewModel, ReadingViewModel, WritingViewModel removed
     factoryOf(::WordListViewModel)
     factoryOf(::HomeViewModel) // Added HomeViewModel
     

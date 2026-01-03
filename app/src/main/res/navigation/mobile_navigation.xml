@@ -10,15 +10,7 @@
         android:name="org.nihongo.mochi.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_nav_home_to_nav_recognition"
-            app:destination="@id/nav_recognition" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_reading"
-            app:destination="@id/nav_reading" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_writing"
-            app:destination="@id/nav_writing" />
+        <!-- Anciennes actions vers les fragments intermédiaires supprimées -->
         <action
             android:id="@+id/action_nav_home_to_nav_dictionary"
             app:destination="@id/nav_dictionary" />
@@ -48,21 +40,7 @@
             app:destination="@id/nav_katakana" />
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_recognition"
-        android:name="org.nihongo.mochi.ui.recognition.RecognitionFragment"
-        android:label="@string/menu_recognition"
-        tools:layout="@layout/fragment_recognition">
-        <action
-            android:id="@+id/action_nav_recognition_to_game_recap"
-            app:destination="@id/nav_game_recap" />
-        <action
-            android:id="@+id/action_nav_recognition_to_nav_hiragana"
-            app:destination="@id/nav_hiragana" />
-        <action
-            android:id="@+id/action_nav_recognition_to_nav_katakana"
-            app:destination="@id/nav_katakana" />
-    </fragment>
+    <!-- Fragments intermédiaires supprimés (Recognition, Reading, Writing) -->
 
     <fragment
         android:id="@+id/nav_hiragana"
@@ -96,25 +74,9 @@
         android:label="Katakana Quiz"
         tools:layout="@layout/fragment_kana_quiz" />
 
-    <fragment
-        android:id="@+id/nav_reading"
-        android:name="org.nihongo.mochi.ui.reading.ReadingFragment"
-        android:label="@string/menu_reading"
-        tools:layout="@layout/fragment_reading">
-        <action
-            android:id="@+id/action_nav_reading_to_word_list"
-            app:destination="@id/nav_word_list" />
-    </fragment>
+    <!-- Le fragment Reading a été supprimé, mais ses destinations cibles (WordList) restent accessibles via Home -->
 
-    <fragment
-        android:id="@+id/nav_writing"
-        android:name="org.nihongo.mochi.ui.writing.WritingFragment"
-        android:label="@string/menu_writing"
-        tools:layout="@layout/fragment_writing">
-        <action
-            android:id="@+id/action_nav_writing_to_writing_recap"
-            app:destination="@id/nav_writing_recap" />
-    </fragment>
+    <!-- Le fragment Writing a été supprimé, mais ses destinations cibles (WritingRecap) restent accessibles via Home -->
 
     <fragment
         android:id="@+id/nav_dictionary"

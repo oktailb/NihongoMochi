@@ -142,7 +142,7 @@ class ResultsFragment : Fragment() {
                         putString("gameMode", "meaning") 
                         putString("readingMode", "Hiragana")
                     }
-                    findNavController().navigate(R.id.nav_recognition, bundle)
+                    findNavController().navigate(R.id.nav_game_recap, bundle)
                 }
                 StatisticsType.WRITING -> {
                      val bundle = Bundle().apply {
