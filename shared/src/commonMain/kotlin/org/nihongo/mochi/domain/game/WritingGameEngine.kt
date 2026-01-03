@@ -14,9 +14,8 @@ import kotlin.random.Random
 
 enum class QuestionType { MEANING, READING }
 
-interface TextNormalizer {
-    fun normalize(text: String): String
-}
+// TextNormalizer interface is already defined in TextNormalizer.kt
+// interface TextNormalizer { fun normalize(text: String): String }
 
 class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
     var isGameInitialized = false

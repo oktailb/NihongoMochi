@@ -1,11 +1,5 @@
 package org.nihongo.mochi.domain.dictionary
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
@@ -13,6 +7,11 @@ import org.nihongo.mochi.domain.recognition.HandwritingRecognizer
 import org.nihongo.mochi.domain.recognition.ModelStatus
 import org.nihongo.mochi.domain.recognition.RecognitionStroke
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.presentation.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 enum class SearchMode { READING, MEANING }
 
@@ -22,9 +21,7 @@ data class DictionaryItem(
     val readings: List<ReadingInfo>,
     val strokeCount: Int,
     val meanings: MutableList<String>,
-    // Logic IDs (e.g. "grade1", "n5")
     val levelIds: List<String> = emptyList(),
-    // Display keys from levels.json (e.g. "level_grade_1", "level_n5")
     val displayLabelKeys: List<String> = emptyList()
 )
 
@@ -43,7 +40,6 @@ class DictionaryViewModel(
     private val levelsRepository: LevelsRepository
 ) : ViewModel() {
 
-    // --- Dictionary Data ---
     var isDataLoaded = false
     val allKanjiList = mutableListOf<DictionaryItem>()
     val kanjiDataMap = mutableMapOf<String, DictionaryItem>()
@@ -51,36 +47,32 @@ class DictionaryViewModel(
     private val _lastResults = MutableStateFlow<List<DictionaryItem>>(emptyList())
     val lastResults: StateFlow<List<DictionaryItem>> = _lastResults.asStateFlow()
 
-    // --- Filter State ---
     var searchMode: SearchMode = SearchMode.READING
     var textQuery: String = ""
     var strokeQuery: String = ""
     var exactMatch: Boolean = false
-    
-    var selectedLevelId: String = "ALL" 
+    var selectedLevelId: String = "ALL"
     
     private val _availableLevelOptions = MutableStateFlow<List<LevelFilterOption>>(listOf(LevelFilterOption("ALL", "word_type_all")))
     val availableLevelOptions: StateFlow<List<LevelFilterOption>> = _availableLevelOptions.asStateFlow()
     
     private var drawingCandidates: List<String>? = null
 
-    // --- Drawing Recognition State ---
     val modelStatus: StateFlow<ModelStatus> = handwritingRecognizer.modelStatus
 
     private val _recognitionResults = MutableStateFlow<List<String>?>(null)
     val recognitionResults: StateFlow<List<String>?> = _recognitionResults.asStateFlow()
     
-    var lastStrokes: List<RecognitionStroke>? = null
+    private val _lastStrokes = MutableStateFlow<List<RecognitionStroke>?>(null)
+    val lastStrokes: StateFlow<List<RecognitionStroke>?> = _lastStrokes.asStateFlow()
 
     init {
-        // Load categories dynamically on init
         viewModelScope.launch {
             val defs = levelsRepository.loadLevelDefinitions()
-            val options = mutableListOf(LevelFilterOption("ALL", "word_type_all")) // Fallback key for "ALL" or handle in UI
+            val options = mutableListOf(LevelFilterOption("ALL", "word_type_all"))
             
             defs.sections.values
                 .flatMap { it.levels }
-                // We only want to filter by Kanji levels in the dictionary
                 .filter { level -> level.activities.any { it.value.dataFile == "kanji_details" } }
                 .sortedBy { it.globalStep }
                 .forEach { level ->
@@ -99,7 +91,7 @@ class DictionaryViewModel(
 
     fun recognizeInk(strokes: List<RecognitionStroke>) {
         if (!isRecognizerInitialized()) return
-        lastStrokes = strokes
+        _lastStrokes.value = strokes
         
         handwritingRecognizer.recognize(
             strokes,
@@ -117,7 +109,7 @@ class DictionaryViewModel(
 
     fun clearDrawingFilter() {
         drawingCandidates = null
-        lastStrokes = null
+        _lastStrokes.value = null
         _recognitionResults.value = null
         applyFilters()
     }
@@ -130,10 +122,8 @@ class DictionaryViewModel(
             val meanings = meaningRepository.getMeanings(locale)
             val allKanji = kanjiRepository.getAllKanji()
             
-            // Map ID -> Resource Key name from levels.json
             val defs = levelsRepository.loadLevelDefinitions()
-            val levelIdToKey = defs.sections.values.flatMap { it.levels }
-                .associate { it.id to it.name }
+            val levelIdToKey = defs.sections.values.flatMap { it.levels }.associate { it.id to it.name }
             
             kanjiDataMap.clear()
             allKanjiList.clear()
@@ -145,8 +135,6 @@ class DictionaryViewModel(
                 
                 val strokes = kanjiEntry.strokes?.toIntOrNull() ?: 0
                 val itemMeanings = meanings[kanjiEntry.id] ?: emptyList()
-                
-                // Map the level IDs found in KanjiEntry to the resource keys
                 val labels = kanjiEntry.level.mapNotNull { id -> levelIdToKey[id] }
                 
                 val item = DictionaryItem(
@@ -169,7 +157,6 @@ class DictionaryViewModel(
     fun applyFilters() {
         var filteredList = allKanjiList.toList()
 
-        // 0. Level Category Filter
         if (selectedLevelId != "ALL") {
             when (selectedLevelId.lowercase()) {
                 "native_challenge" -> {
@@ -188,7 +175,6 @@ class DictionaryViewModel(
                     }
                 }
                 else -> {
-                    // Standard level filter for JLPT, School Grades, etc.
                     filteredList = filteredList.filter { item ->
                         item.levelIds.any { it.equals(selectedLevelId, ignoreCase = true) }
                     }
@@ -196,19 +182,16 @@ class DictionaryViewModel(
             }
         }
 
-        // 1. Drawing filter
         drawingCandidates?.let { candidates ->
             val candidateSet = candidates.toSet()
             filteredList = filteredList.filter { candidateSet.contains(it.character) }
         }
 
-        // 2. Stroke count filter
         val strokeCount = strokeQuery.toIntOrNull()
         if (strokeCount != null) {
             filteredList = filteredList.filter { it.strokeCount == strokeCount }
         }
 
-        // 3. Text filter
         val query = textQuery.trim().lowercase()
         if (query.isNotEmpty()) {
             if (searchMode == SearchMode.READING) {

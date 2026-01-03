@@ -1,46 +1,26 @@
 package org.nihongo.mochi.ui.dictionary
 
-import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.nihongo.mochi.ui.theme.AppTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.lifecycle.lifecycleScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
+import org.nihongo.mochi.ui.theme.AppTheme
 
 class KanjiDetailFragment : Fragment() {
 
     private val args: KanjiDetailFragmentArgs by navArgs()
     private val viewModel: KanjiDetailViewModel by viewModel()
-    
-    // Font handling
-    private var kanjiStrokeOrderTypeface: Typeface? = null
-    private val fontFileName = "KanjiStrokeOrders_v4.005.ttf"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        loadCustomFont()
-    }
-
-    private fun loadCustomFont() {
-        try {
-            // Attempt 1: Load from Assets
-            kanjiStrokeOrderTypeface = Typeface.createFromAsset(requireContext().assets, "fonts/$fontFileName")
-        } catch (e: Exception) {
-            Log.e("KanjiDetailFragment", "Could not load font from assets: $e")
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,7 +34,6 @@ class KanjiDetailFragment : Fragment() {
                 AppTheme {
                     KanjiDetailScreen(
                         viewModel = viewModel,
-                        kanjiStrokeOrderTypeface = kanjiStrokeOrderTypeface,
                         onKanjiClick = { kanjiChar -> navigateToKanji(kanjiChar) }
                     )
                 }

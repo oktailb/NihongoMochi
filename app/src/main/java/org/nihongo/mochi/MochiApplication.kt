@@ -9,7 +9,7 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.di.appModule
-import org.nihongo.mochi.di.commonModule
+import org.nihongo.mochi.di.sharedModule
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.RomajiToKana
@@ -43,7 +43,8 @@ class MochiApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MochiApplication)
-            modules(appModule, commonModule)
+            // Load appModule (Android-specific) and sharedModule (Shared logic and ViewModels)
+            modules(appModule, sharedModule)
         }
         
         // Init Settings

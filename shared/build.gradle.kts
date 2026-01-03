@@ -34,17 +34,23 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            // Koin core for DI
             implementation(libs.koin.core)
             
-            // Ajout des dependances Compose necessaires, y compris l'API resources
+            // Compose dependencies for KMP
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
-            // Export resources API so app module can use painterResource and Res
             api(compose.components.resources)
             implementation(compose.materialIconsExtended)
         }
+
+        androidMain.dependencies {
+            // Android specific dependencies
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.mlkit.digital.ink)
+        }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }

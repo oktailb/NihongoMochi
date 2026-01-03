@@ -1,17 +1,6 @@
 Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
-Bugs:
- - [x] le spinner de choix de type de mot dans la page du dictionaire ne s ouvre pas ou est vide
- - [x] il semble y avoir une desynchro sur le switch de choix de mode jour/nuit, je dois cliquer 2 fois pour activer le mode nuit et ensuite c est correct
- - [x] le quiz des kanas se contente des kanas simples, il ignore les kanas avec dakuten et les compositions
- - [x] le dessin des kanji semble attendre la fin d un stroke pour le dessiner
- - [x] soucis d affichage avec les kanas composes qui se superposent sur la kanjicard
-
-Refactoring:
- - [x] Factoriser le code generique de app vers shared (LevelContentProvider, KanjiDetailViewModel)
- - [x] Factoriser la logique des écrans Recognition, Reading, et Writing dans des ViewModels partagés
-
 Features:
  - Grammar section with typical JLTP exercises
   - consider grammar rues applied for each exercise
