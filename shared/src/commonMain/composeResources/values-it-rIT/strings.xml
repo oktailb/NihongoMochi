@@ -1,26 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Apri il menu di navigazione</string>
     <string name="navigation_drawer_close">Chiudi il menu di navigazione</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Studio Android</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Intestazione di navigazione</string>
     <string name="action_settings">Impostazioni</string>
     <string name="action_sign_in">Accedi</string>
     <string name="action_achievements">Risultati</string>
-
     <string name="menu_transform">Trasforma</string>
-    <string name="menu_reflow">Reflow</string>
+    <string name="menu_reflow">Riflusso</string>
     <string name="menu_slideshow">Presentazione</string>
     <string name="menu_settings">Impostazioni</string>
-
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
     <string name="lorem_ipsum">Lorem Ipsum è semplicemente un testo segnaposto del settore della stampa e della composizione. Lorem Ipsum è stato il testo segnaposto standard del settore fin dal 1500, quando uno stampatore sconosciuto prese una cassetta di caratteri e li mescolò per creare un libro campione di caratteri.</string>
     <string name="fab_content_description">Rappresenta una vista per invocare un\'azione</string>
     <string name="image_view_item_transform_content_description">Rappresenta una vista immagine nell\'elemento</string>
-
-    <!-- Settings Screen -->
     <string name="settings_title">Opzioni</string>
     <string name="settings_category_general">Generale</string>
     <string name="settings_category_learning">Apprendimento</string>
@@ -37,25 +33,19 @@
     <string name="settings_theme">Tema (Chiaro/Scuro)</string>
     <string name="settings_reset_tutorial">Reimposta tutorial</string>
     <string name="settings_send_bug_report">Invia una segnalazione di bug</string>
-
-    <!-- Game Recap Screen -->
     <string name="game_recap_title">Gioco di riconoscimento</string>
     <string name="game_recap_meaning">Significato</string>
     <string name="game_recap_reading">Lettura</string>
     <string name="game_recap_common_pronunciations">Pronunce comuni</string>
     <string name="game_recap_random_pronunciations">Pronunce casuali</string>
     <string name="game_recap_play">Gioca</string>
-
-    <!-- Game Writing Screen -->
     <string name="game_writing_label_meaning">Significato</string>
     <string name="game_writing_label_reading">Lettura</string>
     <string name="enter_your_answer">Inserisci la tua risposta</string>
     <string name="submit">Invia</string>
     <string name="game_writing_correction">Correzione</string>
-    <string name="game_writing_on">ON</string>
+    <string name="game_writing_on">SU</string>
     <string name="game_writing_kun">KUN</string>
-
-    <!-- Recognition Screen -->
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Scegli un gruppo di kanji e impara a riconoscere i loro diversi significati di base</string>
     <string name="recognition_fundamentals">Fondamenti</string>
@@ -66,8 +56,6 @@
     <string name="challenge_native">Sfida nativa</string>
     <string name="challenge_no_reading">Nessuna lettura</string>
     <string name="challenge_no_meaning">Nessun significato</string>
-
-    <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Gioco di scrittura</string>
     <string name="writing_subtitle">Scegli un gruppo di parole e impara a scriverle.</string>
@@ -80,8 +68,6 @@
     <string name="writing_find_kanji">Trova un Kanji</string>
     <string name="writing_lists">Elenchi</string>
     <string name="writing_user_lists">Elenco utenti / elenchi di studio</string>
-
-    <!-- Reading Screen -->
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Scegli un gruppo di parole e impara le loro pronunce.</string>
     <string name="reading_kanji_tree_subtitle">Se la parola contiene kanji che non hai ancora imparato:\n(10/10 nel gioco di riconoscimento)</string>
@@ -91,16 +77,12 @@
     <string name="reading_simple_words">Parole semplici</string>
     <string name="reading_compound_words">Parole composte</string>
     <string name="reading_ignore_known_words">Ignora parole perfettamente note</string>
-
-    <!-- Navigation Drawer -->
     <string name="menu_recognition">Riconoscimento</string>
     <string name="menu_reading">Lettura</string>
     <string name="menu_writing">Scrittura</string>
     <string name="menu_dictionary">Dizionario</string>
     <string name="menu_results">Risultati</string>
     <string name="menu_about">Informazioni</string>
-
-    <!-- Level/Button Names -->
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
@@ -112,23 +94,17 @@
     <string name="level_class_4">Classe 4</string>
     <string name="level_class_5">Classe 5</string>
     <string name="level_class_6">Classe 6</string>
-    <string name="level_high_school_1">Test 4</string>
-    <string name="level_high_school_2">Test 3</string>
-    <string name="level_high_school_3">Test Pre-2</string>
-    <string name="level_high_school_4">Test 2</string>
+    <string name="level_high_school_1">Prova 4</string>
+    <string name="level_high_school_2">Prova 3</string>
+    <string name="level_high_school_3">Prova pre-2</string>
+    <string name="level_high_school_4">Prova 2</string>
     <string name="level_hiragana">Hiragana</string>
     <string name="level_katakana">Katakana</string>
-
-    <!-- Home Screen -->
     <string name="home_recognition_subtitle">Impara a riconoscere i kanji e a ricordare i loro significati di base.</string>
     <string name="home_reading_subtitle">Impara a leggere parole intere e come pronunciarle in contesti diversi</string>
     <string name="home_writing_subtitle">Esercitati a scrivere parole e a incidere i kanji nella tua memoria.</string>
-
-    <!-- Toolbar Titles -->
     <string name="title_home">Kanji Mori</string>
     <string name="title_game_recap">Riepilogo del gioco</string>
-
-    <!-- About Screen -->
     <string name="about_category_informations">Informazioni</string>
     <string name="about_category_credits">Crediti</string>
     <string name="about_category_resources">Risorse</string>
@@ -144,17 +120,15 @@
     <string name="about_date_label">Data:</string>
     <string name="about_issue_tracker">Tracker problemi,\nProblemi noti e funzionalità pianificate</string>
     <string name="about_credits">Crediti</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">Design, programmazione, ecc.</string>
     <string name="about_pedagogical_content">Contenuto pedagogico giapponese</string>
     <string name="about_kanji_data_credit">Dati Kanji di David Gouveia</string>
     <string name="about_header_picture_credit">Immagine di intestazione di Charles Knowles</string>
     <string name="about_rate_app">Valuta l\'app</string>
-
-    <!-- Results Screen -->
     <string name="results_title">Risultati</string>
     <string name="results_recognition_title">Riconoscimento</string>
-    <string name="results_section_kanas">Kanas (Hiragana / Katakana)</string>
+    <string name="results_section_kanas">Kanas (Hiragana/Katakana)</string>
     <string name="results_section_jlpt">JLPT (N5 - N1)</string>
     <string name="results_section_school">Scuola (Gradi / Liceo)</string>
     <string name="results_section_frequency">Frequenza</string>
@@ -181,8 +155,6 @@
     <string name="results_backup">Backup</string>
     <string name="results_restore">Ripristina</string>
     <string name="results_sync">Sincronizza</string>
-
-    <!-- Word List Screen -->
     <string name="mode_revise">Revisiona</string>
     <string name="options">Opzioni</string>
     <string name="word_type_all">Tutti</string>
@@ -192,20 +164,16 @@
     <string name="word_type_kon">Misto (混)</string>
     <string name="word_type_kan">Sino-giapponese (漢)</string>
     <string name="word_type_kigo">Simbolo (記号)</string>
-
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
-
-    <!-- Dictionary Screen -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
     <string name="dictionary_search_hint_text">Ricerca testo</string>
     <string name="dictionary_search_by_drawing_desc">Ricerca per disegno</string>
     <string name="dictionary_mode_reading">Lettura (Kana)</string>
@@ -217,7 +185,60 @@
     <string name="dictionary_results_count_format">%1$d risultati</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
-    
-    <!-- Kanji Details Screen -->
     <string name="kanji_detail_components">Componenti</string>
+    <string name="section_fundamentals">Fondamenti</string>
+    <string name="section_fundamentals_desc">Nozioni di base sulla scrittura giapponese</string>
+    <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt_desc">Test di conoscenza della lingua giapponese</string>
+    <string name="section_school">Scuola giapponese</string>
+    <string name="section_school_desc">Curriculum scolastico giapponese</string>
+    <string name="section_challenges_desc">Sfide per oratori avanzati</string>
+    <string name="level_hiragana_desc">sillabario hiragana</string>
+    <string name="level_katakana_desc">Sillabario katakana</string>
+    <string name="level_n5_desc">Livello principiante</string>
+    <string name="level_n4_desc">Livello elementare</string>
+    <string name="level_n3_desc">Livello intermedio</string>
+    <string name="level_n2_desc">Livello pre-avanzato</string>
+    <string name="level_n1_desc">Livello avanzato</string>
+    <string name="level_grade_1_desc">Primo anno della scuola primaria</string>
+    <string name="level_grade_2_desc">Secondo anno della scuola primaria</string>
+    <string name="level_grade_3_desc">Terzo anno della scuola primaria</string>
+    <string name="level_grade_4_desc">Quarto anno della scuola primaria</string>
+    <string name="level_grade_5_desc">Quinto anno della scuola primaria</string>
+    <string name="level_grade_6_desc">Sesto anno della scuola primaria</string>
+    <string name="level_college_1_desc">Primo anno di college</string>
+    <string name="level_college_2_desc">Secondo anno di college</string>
+    <string name="level_lycee_1_desc">Primo anno di liceo</string>
+    <string name="level_lycee_2_desc">Secondo anno di liceo</string>
+    <string name="level_native_challenge_desc">Sfida per il livello nativo</string>
+    <string name="level_no_reading_desc">Riconoscimento senza leggere</string>
+    <string name="level_no_meaning_desc">Leggere senza senso</string>
+    <string name="activity_type_recognition">Riconoscimento dei caratteri</string>
+    <string name="activity_type_reading">Lettura e pronuncia</string>
+    <string name="activity_type_writing">Scrivere e tramare</string>
+    <string name="activity_type_grammar">Grammatica e struttura</string>
+    <string name="activity_type_games">Giochi e sfide interattive</string>
+    <string name="level_grade_1">Grado 1</string>
+    <string name="level_grade_2">Grado 2</string>
+    <string name="level_grade_3">Grado 3</string>
+    <string name="level_grade_4">Grado 4</string>
+    <string name="level_grade_5">Grado 5</string>
+    <string name="level_grade_6">Grado 6</string>
+    <string name="level_grade_7">Collegio 1</string>
+    <string name="level_grade_8">Collegio 2</string>
+    <string name="level_grade_9">Scuola superiore 1</string>
+    <string name="level_grade_10">Scuola superiore 2</string>
+    <string name="level_native_challenge">Sfida nativa</string>
+    <string name="level_no_reading">Nessuna lettura</string>
+    <string name="level_no_meaning">Nessun significato</string>
+    <string name="level_college_1">Collegio 1</string>
+    <string name="level_college_2">Collegio 2</string>
+    <string name="level_lycee_1">Scuola superiore 1</string>
+    <string name="level_lycee_2">Scuola superiore 2</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="dictionary_draw_kanji">Disegna un Kanji</string>
+    <string name="dictionary_recognize">Riconoscere</string>
 </resources>

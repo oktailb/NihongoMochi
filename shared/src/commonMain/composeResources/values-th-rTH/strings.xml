@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="app_name">นิฮงโกะ โมจิ</string>
+    <string name="navigation_drawer_open">เปิดลิ้นชักการนำทาง</string>
+    <string name="navigation_drawer_close">ปิดลิ้นชักการนำทาง</string>
+    <string name="nav_header_title">แอนดรอยด์สตูดิโอ</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_desc">ส่วนหัวการนำทาง</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">ลงชื่อเข้าใช้</string>
     <string name="action_achievements">ความสำเร็จ</string>
-
-    <string name="menu_transform">Transform</string>
-    <string name="menu_reflow">Reflow</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_transform">แปลงร่าง</string>
+    <string name="menu_reflow">รีโฟลว์</string>
+    <string name="menu_slideshow">สไลด์โชว์</string>
     <string name="menu_settings">Settings</string>
-
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
         typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
@@ -25,8 +23,6 @@
     <string name="image_view_item_transform_content_description">Represents an image view in the
         item
     </string>
-
-    <!-- Settings Screen -->
     <string name="settings_title">ตัวเลือก</string>
     <string name="settings_category_general">ทั่วไป</string>
     <string name="settings_category_learning">การเรียนรู้</string>
@@ -43,25 +39,19 @@
     <string name="settings_theme">ธีม (สว่าง/มืด)</string>
     <string name="settings_reset_tutorial">รีเซ็ตบทช่วยสอน</string>
     <string name="settings_send_bug_report">ส่งรายงานข้อผิดพลาด</string>
-
-    <!-- Game Recap Screen -->
     <string name="game_recap_title">เกมการจดจำ</string>
     <string name="game_recap_meaning">ความหมาย</string>
     <string name="game_recap_reading">การอ่าน</string>
     <string name="game_recap_common_pronunciations">การออกเสียงทั่วไป</string>
     <string name="game_recap_random_pronunciations">การออกเสียงแบบสุ่ม</string>
     <string name="game_recap_play">เล่น</string>
-
-    <!-- Game Writing Screen -->
     <string name="game_writing_label_meaning">ความหมาย</string>
     <string name="game_writing_label_reading">การอ่าน</string>
     <string name="enter_your_answer">ป้อนคำตอบของคุณ</string>
     <string name="submit">ส่ง</string>
     <string name="game_writing_correction">การแก้ไข</string>
-    <string name="game_writing_on">ON</string>
-    <string name="game_writing_kun">KUN</string>
-
-    <!-- Recognition Screen -->
+    <string name="game_writing_on">บน</string>
+    <string name="game_writing_kun">คุน</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">เลือกกลุ่มของคันจิและเรียนรู้ที่จะจดจำความหมายพื้นฐานที่แตกต่างกัน</string>
     <string name="recognition_fundamentals">พื้นฐาน</string>
@@ -72,8 +62,6 @@
     <string name="challenge_native">ความท้าทายแบบเนทีฟ</string>
     <string name="challenge_no_reading">ไม่มีการอ่าน</string>
     <string name="challenge_no_meaning">ไม่มีความหมาย</string>
-
-    <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">เกมการเขียน</string>
     <string name="writing_subtitle">เลือกกลุ่มคำและเรียนรู้วิธีการเขียน</string>
@@ -86,8 +74,6 @@
     <string name="writing_find_kanji">ค้นหาคันจิ</string>
     <string name="writing_lists">รายการ</string>
     <string name="writing_user_lists">รายการผู้ใช้ / รายการศึกษา</string>
-
-    <!-- Reading Screen -->
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">เลือกกลุ่มคำและเรียนรู้การออกเสียง</string>
     <string name="reading_kanji_tree_subtitle">หากคำนั้นมีคันจิที่คุณยังไม่ได้เรียนรู้:\n(10/10 ในเกมการจดจำ)</string>
@@ -97,16 +83,12 @@
     <string name="reading_simple_words">คำง่ายๆ</string>
     <string name="reading_compound_words">คำประสม</string>
     <string name="reading_ignore_known_words">ข้ามคำที่รู้ดีแล้ว</string>
-
-    <!-- Navigation Drawer -->
     <string name="menu_recognition">การจดจำ</string>
     <string name="menu_reading">การอ่าน</string>
     <string name="menu_writing">การเขียน</string>
     <string name="menu_dictionary">พจนานุกรม</string>
     <string name="menu_results">ผลลัพธ์</string>
     <string name="menu_about">เกี่ยวกับ</string>
-
-    <!-- Level/Button Names -->
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
@@ -118,23 +100,17 @@
     <string name="level_class_4">ชั้นเรียน 4</string>
     <string name="level_class_5">ชั้นเรียน 5</string>
     <string name="level_class_6">ชั้นเรียน 6</string>
-    <string name="level_high_school_1">Test 4</string>
-    <string name="level_high_school_2">Test 3</string>
-    <string name="level_high_school_3">Test Pre-2</string>
-    <string name="level_high_school_4">Test 2</string>
+    <string name="level_high_school_1">ทดสอบ 4</string>
+    <string name="level_high_school_2">ทดสอบ 3</string>
+    <string name="level_high_school_3">การทดสอบก่อน 2</string>
+    <string name="level_high_school_4">ทดสอบ 2</string>
     <string name="level_hiragana">ฮิรางานะ</string>
     <string name="level_katakana">คาตาคานะ</string>
-
-    <!-- Home Screen -->
     <string name="home_recognition_subtitle">เรียนรู้ที่จะจดจำคันจิและจดจำความหมายพื้นฐานของพวกเขา</string>
     <string name="home_reading_subtitle">เรียนรู้ที่จะอ่านคำทั้งคำและวิธีการออกเสียงในบริบทที่แตกต่างกัน</string>
     <string name="home_writing_subtitle">ฝึกเขียนคำและจดจำคันจิในความจำของคุณ</string>
-
-    <!-- Toolbar Titles -->
     <string name="title_home">Kanji Mori</string>
     <string name="title_game_recap">สรุปเกม</string>
-
-    <!-- About Screen -->
     <string name="about_category_informations">ข้อมูล</string>
     <string name="about_category_credits">เครดิต</string>
     <string name="about_category_resources">ทรัพยากร</string>
@@ -150,14 +126,12 @@
     <string name="about_date_label">วันที่:</string>
     <string name="about_issue_tracker">ตัวติดตามปัญหา,\nปัญหาที่ทราบและคุณสมบัติที่วางแผนไว้</string>
     <string name="about_credits">เครดิต</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">การออกแบบ, การเขียนโปรแกรม, ฯลฯ</string>
     <string name="about_pedagogical_content">เนื้อหาการสอนภาษาญี่ปุ่น</string>
     <string name="about_kanji_data_credit">ข้อมูลคันจิโดย David Gouveia</string>
     <string name="about_header_picture_credit">รูปภาพส่วนหัวโดย Charles Knowles</string>
     <string name="about_rate_app">ให้คะแนนแอป</string>
-
-    <!-- Results Screen -->
     <string name="results_title">ผลลัพธ์</string>
     <string name="results_recognition_title">การจดจำ</string>
     <string name="results_section_kanas">คะนะ (ฮิระงะนะ / คะตะคะนะ)</string>
@@ -187,8 +161,6 @@
     <string name="results_backup">สำรอง</string>
     <string name="results_restore">กู้คืน</string>
     <string name="results_sync">ซิงค์</string>
-
-    <!-- Word List Screen -->
     <string name="mode_revise">แก้ไข</string>
     <string name="options">ตัวเลือก</string>
     <string name="word_type_all">ทั้งหมด</string>
@@ -198,20 +170,16 @@
     <string name="word_type_kon">ผสม (混)</string>
     <string name="word_type_kan">จีน-ญี่ปุ่น (漢)</string>
     <string name="word_type_kigo">สัญลักษณ์ (記号)</string>
-
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
-
-    <!-- Dictionary Screen -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
     <string name="dictionary_search_hint_text">ค้นหาข้อความ</string>
     <string name="dictionary_search_by_drawing_desc">ค้นหาโดยการวาด</string>
     <string name="dictionary_mode_reading">การอ่าน (Kanas)</string>
@@ -223,7 +191,60 @@
     <string name="dictionary_results_count_format">%1$d ผลลัพธ์</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
-    
-    <!-- Kanji Details Screen -->
     <string name="kanji_detail_components">ส่วนประกอบ</string>
+    <string name="section_fundamentals">ความรู้พื้นฐาน</string>
+    <string name="section_fundamentals_desc">พื้นฐานการเขียนภาษาญี่ปุ่น</string>
+    <string name="section_jlpt">เจแอลพีที</string>
+    <string name="section_jlpt_desc">แบบทดสอบความสามารถทางภาษาญี่ปุ่น</string>
+    <string name="section_school">โรงเรียนญี่ปุ่น</string>
+    <string name="section_school_desc">หลักสูตรของโรงเรียนภาษาญี่ปุ่น</string>
+    <string name="section_challenges_desc">ความท้าทายสำหรับผู้พูดขั้นสูง</string>
+    <string name="level_hiragana_desc">พยางค์ฮิระงะนะ</string>
+    <string name="level_katakana_desc">พยางค์คาตาคานะ</string>
+    <string name="level_n5_desc">ระดับเริ่มต้น</string>
+    <string name="level_n4_desc">ระดับประถมศึกษา</string>
+    <string name="level_n3_desc">ระดับกลาง</string>
+    <string name="level_n2_desc">ระดับก่อนขั้นสูง</string>
+    <string name="level_n1_desc">ระดับสูง</string>
+    <string name="level_grade_1_desc">ปีแรกของชั้นประถมศึกษา</string>
+    <string name="level_grade_2_desc">ชั้นประถมศึกษาปีที่สอง</string>
+    <string name="level_grade_3_desc">ชั้นประถมศึกษาปีที่สาม</string>
+    <string name="level_grade_4_desc">ชั้นประถมศึกษาปีที่สี่</string>
+    <string name="level_grade_5_desc">ปีที่ห้าของชั้นประถมศึกษา</string>
+    <string name="level_grade_6_desc">ปีที่หกของชั้นประถมศึกษา</string>
+    <string name="level_college_1_desc">ปีแรกของวิทยาลัย</string>
+    <string name="level_college_2_desc">ปีที่สองของวิทยาลัย</string>
+    <string name="level_lycee_1_desc">ปีแรกของโรงเรียนมัธยม</string>
+    <string name="level_lycee_2_desc">ชั้นมัธยมศึกษาปีที่สอง</string>
+    <string name="level_native_challenge_desc">ความท้าทายสำหรับระดับเจ้าของภาษา</string>
+    <string name="level_no_reading_desc">การรับรู้โดยไม่ต้องอ่าน</string>
+    <string name="level_no_meaning_desc">อ่านไปก็ไม่มีความหมาย</string>
+    <string name="activity_type_recognition">การรู้จำอักขระ</string>
+    <string name="activity_type_reading">การอ่านและการออกเสียง</string>
+    <string name="activity_type_writing">การเขียนและการวางแผน</string>
+    <string name="activity_type_grammar">ไวยากรณ์และโครงสร้าง</string>
+    <string name="activity_type_games">เกมแบบโต้ตอบและความท้าทาย</string>
+    <string name="level_grade_1">ชั้นประถมศึกษาปีที่ 1</string>
+    <string name="level_grade_2">ชั้นประถมศึกษาปีที่ 2</string>
+    <string name="level_grade_3">ชั้นประถมศึกษาปีที่ 3</string>
+    <string name="level_grade_4">ชั้นประถมศึกษาปีที่ 4</string>
+    <string name="level_grade_5">ชั้นประถมศึกษาปีที่ 5</string>
+    <string name="level_grade_6">ชั้นประถมศึกษาปีที่ 6</string>
+    <string name="level_grade_7">วิทยาลัย 1</string>
+    <string name="level_grade_8">วิทยาลัย 2</string>
+    <string name="level_grade_9">มัธยมปลาย 1</string>
+    <string name="level_grade_10">มัธยมปลาย 2</string>
+    <string name="level_native_challenge">ความท้าทายพื้นเมือง</string>
+    <string name="level_no_reading">ไม่มีการอ่าน</string>
+    <string name="level_no_meaning">ไม่มีความหมาย</string>
+    <string name="level_college_1">วิทยาลัย 1</string>
+    <string name="level_college_2">วิทยาลัย 2</string>
+    <string name="level_lycee_1">มัธยมปลาย 1</string>
+    <string name="level_lycee_2">มัธยมปลาย 2</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="dictionary_draw_kanji">วาดคันจิ</string>
+    <string name="dictionary_recognize">จำได้</string>
 </resources>

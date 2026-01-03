@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name">নিহংগো মোচি</string>
     <string name="navigation_drawer_open">নেভিগেশন ড্রয়ার খুলুন</string>
     <string name="navigation_drawer_close">নেভিগেশন ড্রয়ার বন্ধ করুন</string>
     <string name="nav_header_title">অ্যান্ড্রয়েড স্টুডিও</string>
@@ -9,18 +9,14 @@
     <string name="action_settings">সেটিংস</string>
     <string name="action_sign_in">সাইন ইন করুন</string>
     <string name="action_achievements">অর্জন</string>
-
     <string name="menu_transform">রূপান্তর</string>
     <string name="menu_reflow">রিফ্লো</string>
     <string name="menu_slideshow">স্লাইডশো</string>
     <string name="menu_settings">সেটিংস</string>
-
     <string name="lorem_ipsum_title">লরেম ইপসাম</string>
     <string name="lorem_ipsum">লরেম ইপসাম মুদ্রণ এবং টাইপসেটিং শিল্পের সহজভাবে স্থানধারক পাঠ্য। ১৫০০-এর দশক থেকে লরেম ইপসাম শিল্পের আদর্শ স্থানধারক পাঠ্য হিসেবে ব্যবহৃত হয়ে আসছে, যখন একজন অজানা প্রিন্টার একটি টাইপ গ্যালি নিয়ে এটি একটি টাইপ নমুনা বই তৈরি করার জন্য এলোমেলো করে দিয়েছিল।</string>
     <string name="fab_content_description">একটি ক্রিয়া শুরু করার জন্য একটি ভিউ উপস্থাপন করে</string>
     <string name="image_view_item_transform_content_description">আইটেমের মধ্যে একটি চিত্র ভিউ উপস্থাপন করে</string>
-
-    <!-- Settings Screen -->
     <string name="settings_title">বিকল্প</string>
     <string name="settings_category_general">সাধারণ</string>
     <string name="settings_category_learning">শেখা</string>
@@ -37,25 +33,19 @@
     <string name="settings_theme">থিম (হালকা/অন্ধকার)</string>
     <string name="settings_reset_tutorial">টিউটোরিয়াল রিসেট করুন</string>
     <string name="settings_send_bug_report">বাগ রিপোর্ট পাঠান</string>
-
-    <!-- Game Recap Screen -->
     <string name="game_recap_title">স্বীকৃতি খেলা</string>
     <string name="game_recap_meaning">অর্থ</string>
     <string name="game_recap_reading">পড়া</string>
     <string name="game_recap_common_pronunciations">সাধারণ উচ্চারণ</string>
     <string name="game_recap_random_pronunciations">এলোমেলো উচ্চারণ</string>
     <string name="game_recap_play">খেলুন</string>
-
-    <!-- Game Writing Screen -->
     <string name="game_writing_label_meaning">অর্থ</string>
     <string name="game_writing_label_reading">পড়া</string>
     <string name="enter_your_answer">আপনার উত্তর লিখুন</string>
     <string name="submit">জমা দিন</string>
     <string name="game_writing_correction">সংশোধন</string>
-    <string name="game_writing_on">ON</string>
-    <string name="game_writing_kun">KUN</string>
-
-    <!-- Recognition Screen -->
+    <string name="game_writing_on">চালু</string>
+    <string name="game_writing_kun">কুন</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">কাঞ্জির একটি গ্রুপ চয়ন করুন এবং তাদের বিভিন্ন মৌলিক অর্থ চিনতে শিখুন</string>
     <string name="recognition_fundamentals">মৌলিক</string>
@@ -66,8 +56,6 @@
     <string name="challenge_native">দেশীয় চ্যালেঞ্জ</string>
     <string name="challenge_no_reading">পড়া নেই</string>
     <string name="challenge_no_meaning">অর্থ নেই</string>
-
-    <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">লেখার খেলা</string>
     <string name="writing_subtitle">শব্দের একটি গ্রুপ চয়ন করুন এবং সেগুলি লিখতে শিখুন।</string>
@@ -81,8 +69,6 @@
     <string name="writing_find_kanji">কাঞ্জি খুঁজুন</string>
     <string name="writing_lists">তালিকা</string>
     <string name="writing_user_lists">ব্যবহারকারী তালিকা / অধ্যয়ন তালিকা</string>
-
-    <!-- Reading Screen -->
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">শব্দের একটি গ্রুপ চয়ন করুন এবং তাদের উচ্চারণ শিখুন।</string>
     <string name="reading_kanji_tree_subtitle">যদি শব্দটিতে এমন কাঞ্জি থাকে যা আপনি এখনও শেখেননি:
@@ -93,16 +79,12 @@
     <string name="reading_simple_words">সহজ শব্দ</string>
     <string name="reading_compound_words">যৌগিক শব্দ</string>
     <string name="reading_ignore_known_words">পুরোপুরি পরিচিত শব্দ উপেক্ষা করুন</string>
-
-    <!-- Navigation Drawer -->
     <string name="menu_recognition">স্বীকৃতি</string>
     <string name="menu_reading">পড়া</string>
     <string name="menu_writing">লেখা</string>
     <string name="menu_dictionary">অভিধান</string>
     <string name="menu_results">ফলাফল</string>
     <string name="menu_about">সম্পর্কে</string>
-
-    <!-- Level/Button Names -->
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
@@ -120,17 +102,11 @@
     <string name="level_high_school_4">টেস্ট ২</string>
     <string name="level_hiragana">হিরাগানা</string>
     <string name="level_katakana">কাতাকানা</string>
-
-    <!-- Home Screen -->
     <string name="home_recognition_subtitle">কাঞ্জি চিনতে শিখুন এবং তাদের মৌলিক অর্থ মনে রাখুন।</string>
     <string name="home_reading_subtitle">পুরো শব্দ পড়তে শিখুন এবং বিভিন্ন প্রসঙ্গে সেগুলি কীভাবে উচ্চারণ করতে হয় তা জানুন</string>
     <string name="home_writing_subtitle">শব্দ লেখার অনুশীলন করুন এবং আপনার স্মৃতিতে কাঞ্জি খোদাই করুন।</string>
-
-    <!-- Toolbar Titles -->
     <string name="title_home">কাঞ্জি মরি</string>
     <string name="title_game_recap">খেলার সারসংক্ষেপ</string>
-
-    <!-- About Screen -->
     <string name="about_category_informations">তথ্য</string>
     <string name="about_category_credits">ক্রেডিট</string>
     <string name="about_category_resources">সম্পদ</string>
@@ -146,14 +122,12 @@
     <string name="about_date_label">তারিখ:</string>
     <string name="about_issue_tracker">সমস্যা ট্র্যাকার,\nজ্ঞাত সমস্যা এবং পরিকল্পিত বৈশিষ্ট্য</string>
     <string name="about_credits">কৃতিত্ব</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">ডিজাইন, প্রোগ্রামিং, ইত্যাদি</string>
     <string name="about_pedagogical_content">জাপানি শিক্ষাগত বিষয়বস্তু</string>
     <string name="about_kanji_data_credit">ডেভিড গউভিয়ার কাঞ্জি ডেটা</string>
     <string name="about_header_picture_credit">চার্লস নোলসের হেডার ছবি</string>
     <string name="about_rate_app">অ্যাপটিকে রেট দিন</string>
-
-    <!-- Results Screen -->
     <string name="results_title">ফলাফল</string>
     <string name="results_recognition_title">স্বীকৃতি</string>
     <string name="results_section_kanas">কানা (হিরাগানা / কাতাকানা)</string>
@@ -183,8 +157,6 @@
     <string name="results_backup">ব্যাকআপ</string>
     <string name="results_restore">পুনরুদ্ধার</string>
     <string name="results_sync">সিঙ্ক</string>
-
-    <!-- Word List Screen -->
     <string name="mode_revise">পুনর্বিবেচনা</string>
     <string name="options">বিকল্প</string>
     <string name="word_type_all">সব</string>
@@ -194,20 +166,16 @@
     <string name="word_type_kon">মিশ্র (混)</string>
     <string name="word_type_kan">সিনো-জাপানি (漢)</string>
     <string name="word_type_kigo">প্রতীক (記号)</string>
-
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
-
-    <!-- Dictionary Screen -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
     <string name="dictionary_search_hint_text">পাঠ্য অনুসন্ধান</string>
     <string name="dictionary_search_by_drawing_desc">অঙ্কন করে অনুসন্ধান</string>
     <string name="dictionary_mode_reading">পড়া (কানাস)</string>
@@ -217,9 +185,62 @@
     <string name="dictionary_clear_drawing_desc">অঙ্কন ফিল্টার মুছুন</string>
     <string name="dictionary_search_button">অনুসন্ধান</string>
     <string name="dictionary_results_count_format">%1$d ফলাফল</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
-    
-    <!-- Kanji Details Screen -->
+    <string name="dictionary_reading_on">ON:</string>
+    <string name="dictionary_reading_kun">KUN:</string>
     <string name="kanji_detail_components">উপাদান</string>
+    <string name="section_fundamentals">মৌলিক</string>
+    <string name="section_fundamentals_desc">জাপানি লেখার মৌলিক বিষয়</string>
+    <string name="section_jlpt">জেএলপিটি</string>
+    <string name="section_jlpt_desc">জাপানি ভাষার দক্ষতা পরীক্ষা</string>
+    <string name="section_school">জাপানি স্কুল</string>
+    <string name="section_school_desc">জাপানি স্কুল পাঠ্যক্রম</string>
+    <string name="section_challenges_desc">উন্নত বক্তাদের জন্য চ্যালেঞ্জ</string>
+    <string name="level_hiragana_desc">হিরাগানা পাঠ্যক্রম</string>
+    <string name="level_katakana_desc">কাতাকানা পাঠ্যক্রম</string>
+    <string name="level_n5_desc">শিক্ষানবিস স্তর</string>
+    <string name="level_n4_desc">প্রাথমিক স্তর</string>
+    <string name="level_n3_desc">মধ্যবর্তী স্তর</string>
+    <string name="level_n2_desc">প্রাক-উন্নত স্তর</string>
+    <string name="level_n1_desc">উন্নত স্তর</string>
+    <string name="level_grade_1_desc">প্রাথমিক বিদ্যালয়ের প্রথম বর্ষ</string>
+    <string name="level_grade_2_desc">প্রাথমিক বিদ্যালয়ের দ্বিতীয় বর্ষ</string>
+    <string name="level_grade_3_desc">প্রাথমিক বিদ্যালয়ের তৃতীয় বর্ষ</string>
+    <string name="level_grade_4_desc">প্রাথমিক বিদ্যালয়ের চতুর্থ বর্ষ</string>
+    <string name="level_grade_5_desc">প্রাথমিক বিদ্যালয়ের পঞ্চম বর্ষ</string>
+    <string name="level_grade_6_desc">প্রাথমিক বিদ্যালয়ের ষষ্ঠ বর্ষ</string>
+    <string name="level_college_1_desc">কলেজের প্রথম বর্ষ</string>
+    <string name="level_college_2_desc">কলেজের দ্বিতীয় বর্ষ</string>
+    <string name="level_lycee_1_desc">হাই স্কুলের প্রথম বর্ষ</string>
+    <string name="level_lycee_2_desc">হাই স্কুলের দ্বিতীয় বর্ষ</string>
+    <string name="level_native_challenge_desc">নেটিভ লেভেলের জন্য চ্যালেঞ্জ</string>
+    <string name="level_no_reading_desc">পড়া ছাড়াই স্বীকৃতি</string>
+    <string name="level_no_meaning_desc">অর্থ ছাড়া পড়া</string>
+    <string name="activity_type_recognition">চরিত্রের স্বীকৃতি</string>
+    <string name="activity_type_reading">পড়া এবং উচ্চারণ</string>
+    <string name="activity_type_writing">লেখা এবং প্লট</string>
+    <string name="activity_type_grammar">ব্যাকরণ এবং গঠন</string>
+    <string name="activity_type_games">ইন্টারেক্টিভ গেম এবং চ্যালেঞ্জ</string>
+    <string name="level_grade_1">গ্রেড 1</string>
+    <string name="level_grade_2">গ্রেড 2</string>
+    <string name="level_grade_3">গ্রেড 3</string>
+    <string name="level_grade_4">গ্রেড 4</string>
+    <string name="level_grade_5">গ্রেড 5</string>
+    <string name="level_grade_6">গ্রেড 6</string>
+    <string name="level_grade_7">কলেজ ঘ</string>
+    <string name="level_grade_8">কলেজ 2</string>
+    <string name="level_grade_9">উচ্চ বিদ্যালয় 1</string>
+    <string name="level_grade_10">উচ্চ বিদ্যালয় 2</string>
+    <string name="level_native_challenge">নেটিভ চ্যালেঞ্জ</string>
+    <string name="level_no_reading">পড়া নেই</string>
+    <string name="level_no_meaning">কোন মানে নেই</string>
+    <string name="level_college_1">কলেজ ঘ</string>
+    <string name="level_college_2">কলেজ 2</string>
+    <string name="level_lycee_1">উচ্চ বিদ্যালয় 1</string>
+    <string name="level_lycee_2">উচ্চ বিদ্যালয় 2</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="dictionary_draw_kanji">একটি কাঞ্জি আঁকুন</string>
+    <string name="dictionary_recognize">চিনতে</string>
 </resources>

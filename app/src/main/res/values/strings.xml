@@ -182,7 +182,7 @@
     <string name="about_date_label">Date :</string>
     <string name="about_issue_tracker">Rapports de bug ou demandes</string>
     <string name="about_credits">Crédits</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">Design, programming, etc.</string>
     <string name="about_pedagogical_content">Contenu pédagogique japonais</string>
     <string name="about_kanji_data_credit">Données Kanji: David Gouveia</string>

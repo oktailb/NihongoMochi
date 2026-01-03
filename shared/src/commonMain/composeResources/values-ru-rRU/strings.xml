@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="app_name">Нихонго Моти</string>
+    <string name="navigation_drawer_open">Открыть панель навигации</string>
+    <string name="navigation_drawer_close">Закрыть панель навигации</string>
+    <string name="nav_header_title">Android-студия</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_desc">Навигационный заголовок</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">Войти</string>
     <string name="action_achievements">Достижения</string>
-
-    <string name="menu_transform">Transform</string>
-    <string name="menu_reflow">Reflow</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_transform">Трансформировать</string>
+    <string name="menu_reflow">Перекомпоновка</string>
+    <string name="menu_slideshow">Слайд-шоу</string>
     <string name="menu_settings">Settings</string>
-
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
         typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
@@ -25,8 +23,6 @@
     <string name="image_view_item_transform_content_description">Represents an image view in the
         item
     </string>
-
-    <!-- Settings Screen -->
     <string name="settings_title">Параметры</string>
     <string name="settings_category_general">Общие</string>
     <string name="settings_category_learning">Обучение</string>
@@ -43,25 +39,19 @@
     <string name="settings_theme">Тема (Светлая/Темная)</string>
     <string name="settings_reset_tutorial">Сбросить учебник</string>
     <string name="settings_send_bug_report">Отправить отчет об ошибке</string>
-
-    <!-- Game Recap Screen -->
     <string name="game_recap_title">Игра на распознавание</string>
     <string name="game_recap_meaning">Значение</string>
     <string name="game_recap_reading">Чтение</string>
     <string name="game_recap_common_pronunciations">Общие произношения</string>
     <string name="game_recap_random_pronunciations">Случайные произношения</string>
     <string name="game_recap_play">Играть</string>
-
-    <!-- Game Writing Screen -->
     <string name="game_writing_label_meaning">Значение</string>
     <string name="game_writing_label_reading">Чтение</string>
     <string name="enter_your_answer">Введите свой ответ</string>
     <string name="submit">Отправить</string>
     <string name="game_writing_correction">Исправление</string>
-    <string name="game_writing_on">ON</string>
-    <string name="game_writing_kun">KUN</string>
-
-    <!-- Recognition Screen -->
+    <string name="game_writing_on">НА</string>
+    <string name="game_writing_kun">КУН</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Выберите группу кандзи и научитесь распознавать их основные значения.</string>
     <string name="recognition_fundamentals">Основы</string>
@@ -72,8 +62,6 @@
     <string name="challenge_native">Родной вызов</string>
     <string name="challenge_no_reading">Без чтения</string>
     <string name="challenge_no_meaning">Без значения</string>
-
-    <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Игра в письмо</string>
     <string name="writing_subtitle">Выберите группу слов и научитесь их писать.</string>
@@ -86,8 +74,6 @@
     <string name="writing_find_kanji">Найти кандзи</string>
     <string name="writing_lists">Списки</string>
     <string name="writing_user_lists">Списки пользователей / учебные списки</string>
-
-    <!-- Reading Screen -->
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Выберите группу слов и выучите их произношение.</string>
     <string name="reading_kanji_tree_subtitle">Если слово содержит кандзи, которые вы еще не выучили:\n(10/10 в игре на распознавание)</string>
@@ -97,16 +83,12 @@
     <string name="reading_simple_words">Простые слова</string>
     <string name="reading_compound_words">Сложные слова</string>
     <string name="reading_ignore_known_words">Игнорировать хорошо известные слова</string>
-
-    <!-- Navigation Drawer -->
     <string name="menu_recognition">Распознавание</string>
     <string name="menu_reading">Чтение</string>
     <string name="menu_writing">Письмо</string>
     <string name="menu_dictionary">Словарь</string>
     <string name="menu_results">Результаты</string>
     <string name="menu_about">О программе</string>
-
-    <!-- Level/Button Names -->
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
@@ -124,17 +106,11 @@
     <string name="level_high_school_4">Тест 2</string>
     <string name="level_hiragana">Хирагана</string>
     <string name="level_katakana">Катакана</string>
-
-    <!-- Home Screen -->
     <string name="home_recognition_subtitle">Научитесь распознавать кандзи и запоминать их основные значения.</string>
     <string name="home_reading_subtitle">Научитесь читать целые слова и произносить их в разных контекстах</string>
     <string name="home_writing_subtitle">Практикуйтесь в написании слов и закрепите кандзи в своей памяти.</string>
-
-    <!-- Toolbar Titles -->
     <string name="title_home">Kanji Mori</string>
     <string name="title_game_recap">Итоги игры</string>
-
-    <!-- About Screen -->
     <string name="about_category_informations">Информация</string>
     <string name="about_category_credits">Кредиты</string>
     <string name="about_category_resources">Ресурсы</string>
@@ -150,14 +126,12 @@
     <string name="about_date_label">Дата:</string>
     <string name="about_issue_tracker">Трекер проблем,\nИзвестные проблемы и запланированные функции</string>
     <string name="about_credits">Кредиты</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">Дизайн, программирование и т.д.</string>
     <string name="about_pedagogical_content">Японский педагогический контент</string>
     <string name="about_kanji_data_credit">Данные кандзи от David Gouveia</string>
     <string name="about_header_picture_credit">Заглавное изображение от Charles Knowles</string>
     <string name="about_rate_app">Оценить приложение</string>
-
-    <!-- Results Screen -->
     <string name="results_title">Результаты</string>
     <string name="results_recognition_title">Распознавание</string>
     <string name="results_section_kanas">Каны (Хирагана / Катакана)</string>
@@ -167,11 +141,11 @@
     <string name="results_frequency_x_words">%1$d самых частых слов</string>
     <string name="results_hiragana">Хирагана - %1$d%%</string>
     <string name="results_katakana">Катакана - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 — %1$d%%</string>
+    <string name="results_jlpt_n4">JLPT N4 — %1$d%%</string>
+    <string name="results_jlpt_n3">JLPT N3 — %1$d%%</string>
+    <string name="results_jlpt_n2">JLPT N2 — %1$d%%</string>
+    <string name="results_jlpt_n1">JLPT N1 — %1$d%%</string>
     <string name="results_grade_1">Класс 1 - %1$d%%</string>
     <string name="results_grade_2">Класс 2 - %1$d%%</string>
     <string name="results_grade_3">Класс 3 - %1$d%%</string>
@@ -187,8 +161,6 @@
     <string name="results_backup">Резервное копирование</string>
     <string name="results_restore">Восстановить</string>
     <string name="results_sync">Синхронизация</string>
-
-    <!-- Word List Screen -->
     <string name="mode_revise">Повторить</string>
     <string name="options">Параметры</string>
     <string name="word_type_all">Все</string>
@@ -198,22 +170,18 @@
     <string name="word_type_kon">Смешанный (混)</string>
     <string name="word_type_kan">Китайско-японский (漢)</string>
     <string name="word_type_kigo">Символ (記号)</string>
-
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_ko_kr">한국어</string>
-    <string name="language_ru_ru">Русский</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
-
-    <!-- Dictionary Screen -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
     <string name="dictionary_search_hint_text">Текстовый поиск</string>
     <string name="dictionary_search_by_drawing_desc">Поиск по рисунку</string>
     <string name="dictionary_mode_reading">Чтение (Кана)</string>
@@ -225,7 +193,58 @@
     <string name="dictionary_results_count_format">%1$d результатов</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
-    
-    <!-- Kanji Details Screen -->
     <string name="kanji_detail_components">Компоненты</string>
+    <string name="section_fundamentals">Основы</string>
+    <string name="section_fundamentals_desc">Основы японского письма</string>
+    <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt_desc">Тест на знание японского языка</string>
+    <string name="section_school">Японская школа</string>
+    <string name="section_school_desc">Японская школьная программа</string>
+    <string name="section_challenges_desc">Проблемы для продвинутых ораторов</string>
+    <string name="level_hiragana_desc">слоговая хирагана</string>
+    <string name="level_katakana_desc">Слоговое письмо катакана</string>
+    <string name="level_n5_desc">Начальный уровень</string>
+    <string name="level_n4_desc">Начальный уровень</string>
+    <string name="level_n3_desc">Средний уровень</string>
+    <string name="level_n2_desc">Предварительно продвинутый уровень</string>
+    <string name="level_n1_desc">Продвинутый уровень</string>
+    <string name="level_grade_1_desc">Первый год начальной школы</string>
+    <string name="level_grade_2_desc">Второй год начальной школы</string>
+    <string name="level_grade_3_desc">Третий год начальной школы</string>
+    <string name="level_grade_4_desc">Четвертый год начальной школы</string>
+    <string name="level_grade_5_desc">Пятый год начальной школы</string>
+    <string name="level_grade_6_desc">Шестой класс начальной школы</string>
+    <string name="level_college_1_desc">Первый год обучения в колледже</string>
+    <string name="level_college_2_desc">Второй год обучения в колледже</string>
+    <string name="level_lycee_1_desc">Первый год средней школы</string>
+    <string name="level_lycee_2_desc">Второй год средней школы</string>
+    <string name="level_native_challenge_desc">Испытание для родного уровня</string>
+    <string name="level_no_reading_desc">Узнавание без чтения</string>
+    <string name="level_no_meaning_desc">Чтение без смысла</string>
+    <string name="activity_type_recognition">Распознавание символов</string>
+    <string name="activity_type_reading">Чтение и произношение</string>
+    <string name="activity_type_writing">Написание и составление сюжета</string>
+    <string name="activity_type_grammar">Грамматика и структура</string>
+    <string name="activity_type_games">Интерактивные игры и задачи</string>
+    <string name="level_grade_1">1 класс</string>
+    <string name="level_grade_2">2 класс</string>
+    <string name="level_grade_3">3 класс</string>
+    <string name="level_grade_4">4 класс</string>
+    <string name="level_grade_5">5 класс</string>
+    <string name="level_grade_6">6 класс</string>
+    <string name="level_grade_7">Колледж 1</string>
+    <string name="level_grade_8">Колледж 2</string>
+    <string name="level_grade_9">Средняя школа 1</string>
+    <string name="level_grade_10">Средняя школа 2</string>
+    <string name="level_native_challenge">Родной вызов</string>
+    <string name="level_no_reading">Нет чтения</string>
+    <string name="level_no_meaning">Нет смысла</string>
+    <string name="level_college_1">Колледж 1</string>
+    <string name="level_college_2">Колледж 2</string>
+    <string name="level_lycee_1">Средняя школа 1</string>
+    <string name="level_lycee_2">Средняя школа 2</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="dictionary_draw_kanji">Нарисуйте кандзи</string>
+    <string name="dictionary_recognize">Распознавать</string>
 </resources>

@@ -15,16 +15,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_settings">Paramètres</string>
 
-    <string name="lorem_ipsum_title">Lorem Ipsum</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-    </string>
-    <string name="fab_content_description">Représente une vue pour invoquer une action</string>
-    <string name="image_view_item_transform_content_description">Représente une vue d\'image dans l\'élément
-    </string>
-
     <!-- Settings Screen -->
     <string name="settings_title">Options</string>
     <string name="settings_category_general">Général</string>
@@ -45,9 +35,42 @@
 
     <!-- Sections (mapped from levels.json) -->
     <string name="section_fundamentals">Fondamentaux</string>
+    <string name="section_fundamentals_desc">Bases de l\'écriture japonaise</string>
     <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt_desc">Japanese Language Proficiency Test</string>
     <string name="section_school">École Japonaise</string>
+    <string name="section_school_desc">Programme scolaire japonais</string>
     <string name="section_challenges">Challenges</string>
+    <string name="section_challenges_desc">Défis pour locuteurs avancés</string>
+
+    <!-- Level Descriptions -->
+    <string name="level_hiragana_desc">Syllabaire hiragana</string>
+    <string name="level_katakana_desc">Syllabaire katakana</string>
+    <string name="level_n5_desc">Niveau débutant</string>
+    <string name="level_n4_desc">Niveau élémentaire</string>
+    <string name="level_n3_desc">Niveau intermédiaire</string>
+    <string name="level_n2_desc">Niveau pré-avancé</string>
+    <string name="level_n1_desc">Niveau avancé</string>
+    <string name="level_grade_1_desc">Première année d\'école primaire</string>
+    <string name="level_grade_2_desc">Deuxième année d\'école primaire</string>
+    <string name="level_grade_3_desc">Troisième année d\'école primaire</string>
+    <string name="level_grade_4_desc">Quatrième année d\'école primaire</string>
+    <string name="level_grade_5_desc">Cinquième année d\'école primaire</string>
+    <string name="level_grade_6_desc">Sixième année d\'école primaire</string>
+    <string name="level_college_1_desc">Première année de collège</string>
+    <string name="level_college_2_desc">Seconde année de collège</string>
+    <string name="level_lycee_1_desc">Première année de lycée</string>
+    <string name="level_lycee_2_desc">Seconde année de lycée</string>
+    <string name="level_native_challenge_desc">Défi pour niveau natif</string>
+    <string name="level_no_reading_desc">Reconnaissance sans lecture</string>
+    <string name="level_no_meaning_desc">Lecture sans signification</string>
+    
+    <!-- Activity Types -->
+    <string name="activity_type_recognition">Reconnaissance de caractères</string>
+    <string name="activity_type_reading">Lecture et prononciation</string>
+    <string name="activity_type_writing">Écriture et tracé</string>
+    <string name="activity_type_grammar">Grammaire et structure</string>
+    <string name="activity_type_games">Jeux et défis interactifs</string>
 
     <!-- Game Recap Screen -->
     <string name="game_recap_title">Jeu de reconnaissance</string>
@@ -79,7 +102,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
-    <string name="writing_game_recap_title">Jeu d'écriture</string>
+    <string name="writing_game_recap_title">Jeu d\'écriture</string>
     <string name="writing_subtitle">Choisis un groupe de mots et apprends à les écrire.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">Si vous n’avez pas encore appris quelque chose :\n(10/10 dans le jeu concerné)</string>
@@ -178,7 +201,7 @@
     <string name="about_date_label">Date :</string>
     <string name="about_issue_tracker">Rapports de bug ou demandes</string>
     <string name="about_credits">Crédits</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">Design, programming, etc.</string>
     <string name="about_pedagogical_content">Contenu pédagogique japonais</string>
     <string name="about_kanji_data_credit">Données Kanji: David Gouveia</string>
@@ -227,21 +250,21 @@
     <string name="word_type_kan">Sino-japonais (漢)</string>
     <string name="word_type_kigo">Symbole (記号)</string>
 
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">Arabian (Saudi Arabia)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_ko_kr">한국어</string>
-    <string name="language_ru_ru">Русский</string>
-    <string name="language_in_id">Bahasa Indonesia</string>
-    <string name="language_zh_cn">简体中文</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
+    <!-- Language Names (Native Names, Non-Translatable) -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
 
     <!-- Dictionary Screen -->
     <string name="dictionary_search_hint_text">Recherche texte</string>

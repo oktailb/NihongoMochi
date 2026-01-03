@@ -195,8 +195,12 @@ fun LevelSelectorCard(
             )
             
             if (currentLevel?.description?.isNotEmpty() == true) {
+                val levelDescription = currentLevel.description.let {
+                    ResourceUtils.resolveStringResource(it)?.let { res -> stringResource(res) }
+                } ?: currentLevel.description
+
                  Text(
-                    text = currentLevel.description,
+                    text = levelDescription,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center

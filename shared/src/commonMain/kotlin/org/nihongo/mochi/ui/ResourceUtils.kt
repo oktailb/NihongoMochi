@@ -37,6 +37,31 @@ object ResourceUtils {
             "level_no_reading" -> Res.string.level_no_reading
             "level_no_meaning" -> Res.string.level_no_meaning
 
+            // Descriptions mappings
+            "level_hiragana_desc" -> Res.string.level_hiragana_desc
+            "level_katakana_desc" -> Res.string.level_katakana_desc
+            "level_n5_desc" -> Res.string.level_n5_desc
+            "level_n4_desc" -> Res.string.level_n4_desc
+            "level_n3_desc" -> Res.string.level_n3_desc
+            "level_n2_desc" -> Res.string.level_n2_desc
+            "level_n1_desc" -> Res.string.level_n1_desc
+            "level_grade_1_desc" -> Res.string.level_grade_1_desc
+            "level_grade_2_desc" -> Res.string.level_grade_2_desc
+            "level_grade_3_desc" -> Res.string.level_grade_3_desc
+            "level_grade_4_desc" -> Res.string.level_grade_4_desc
+            "level_grade_5_desc" -> Res.string.level_grade_5_desc
+            "level_grade_6_desc" -> Res.string.level_grade_6_desc
+            "level_college_1_desc" -> Res.string.level_college_1_desc
+            "level_college_2_desc" -> Res.string.level_college_2_desc
+            "level_lycee_1_desc" -> Res.string.level_lycee_1_desc
+            "level_lycee_2_desc" -> Res.string.level_lycee_2_desc
+            "level_native_challenge_desc" -> Res.string.level_native_challenge_desc
+            "level_no_reading_desc" -> Res.string.level_no_reading_desc
+            "level_no_meaning_desc" -> Res.string.level_no_meaning_desc
+            "section_fundamentals_desc" -> Res.string.section_fundamentals_desc
+            "section_jlpt_desc" -> Res.string.section_jlpt_desc
+            "section_school_desc" -> Res.string.section_school_desc
+            "section_challenges_desc" -> Res.string.section_challenges_desc
 
             "secondary_school" -> Res.string.results_section_school
             "frequency" -> Res.string.results_section_frequency

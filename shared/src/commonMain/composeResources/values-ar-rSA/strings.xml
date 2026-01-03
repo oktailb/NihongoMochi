@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name">نيهونغو موتشي</string>
     <string name="navigation_drawer_open">افتح قائمة التنقل</string>
     <string name="navigation_drawer_close">أغلق قائمة التنقل</string>
     <string name="nav_header_title">أندرويد ستوديو</string>
@@ -9,18 +9,14 @@
     <string name="action_settings">الإعدادات</string>
     <string name="action_sign_in">تسجيل الدخول</string>
     <string name="action_achievements">الإنجازات</string>
-
     <string name="menu_transform">تحويل</string>
     <string name="menu_reflow">إعادة تدفق</string>
     <string name="menu_slideshow">عرض الشرائح</string>
     <string name="menu_settings">الإعدادات</string>
-
     <string name="lorem_ipsum_title">لوريم إيبسوم</string>
     <string name="lorem_ipsum">لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان لوريم إيبسوم هو النص الشكلي القياسي في الصناعة منذ القرن الخامس عشر، عندما أخذ طابع غير معروف لوحة من النوع وخلطها لإنشاء كتاب عينة.</string>
     <string name="fab_content_description">يمثل عرضًا لاستدعاء إجراء</string>
     <string name="image_view_item_transform_content_description">يمثل عرض صورة في العنصر</string>
-
-    <!-- Settings Screen -->
     <string name="settings_title">خيارات</string>
     <string name="settings_category_general">عام</string>
     <string name="settings_category_learning">التعلم</string>
@@ -37,26 +33,20 @@
     <string name="settings_theme">المظهر (فاتح/داكن)</string>
     <string name="settings_reset_tutorial">إعادة تعيين البرنامج التعليمي</string>
     <string name="settings_send_bug_report">إرسال تقرير خطأ</string>
-
-    <!-- Game Recap Screen -->
     <string name="game_recap_title">لعبة التعرف</string>
     <string name="game_recap_meaning">المعنى</string>
     <string name="game_recap_reading">القراءة</string>
     <string name="game_recap_common_pronunciations">النطق الشائع</string>
     <string name="game_recap_random_pronunciations">النطق العشوائي</string>
     <string name="game_recap_play">لعب</string>
-
-    <!-- Game Writing Screen -->
     <string name="game_writing_label_meaning">المعنى</string>
     <string name="game_writing_label_reading">القراءة</string>
     <string name="enter_your_answer">أدخل إجابتك</string>
     <string name="submit">إرسال</string>
     <string name="game_writing_correction">تصحيح</string>
-    <string name="game_writing_on">ON</string>
-    <string name="game_writing_kun">KUN</string>
-
-    <!-- Recognition Screen -->
-    <string name="recognition_title">見覚え</string>
+    <string name="game_writing_on">على</string>
+    <string name="game_writing_kun">كون</string>
+    <string name="recognition_title">يعني</string>
     <string name="recognition_subtitle">اختر مجموعة من الكانجي وتعلم كيفية التعرف على معانيها الأساسية المختلفة</string>
     <string name="recognition_fundamentals">الأساسيات</string>
     <string name="recognition_jlpt">اختبار إتقان اللغة اليابانية</string>
@@ -66,8 +56,6 @@
     <string name="challenge_native">التحدي الأصلي</string>
     <string name="challenge_no_reading">بدون قراءة</string>
     <string name="challenge_no_meaning">بدون معنى</string>
-
-    <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">لعبة الكتابة</string>
     <string name="writing_subtitle">اختر مجموعة من الكلمات وتعلم كيفية كتابتها.</string>
@@ -81,9 +69,7 @@
     <string name="writing_find_kanji">ابحث عن كانجي</string>
     <string name="writing_lists">القوائم</string>
     <string name="writing_user_lists">قائمة المستخدم / قوائم الدراسة</string>
-
-    <!-- Reading Screen -->
-    <string name="reading_title">読み方</string>
+    <string name="reading_title">نعم</string>
     <string name="reading_subtitle">اختر مجموعة من الكلمات وتعلم نطقها.</string>
     <string name="reading_kanji_tree_subtitle">إذا كانت الكلمة تحتوي على كانجي لم تتعلمه بعد:
 (10/10 في لعبة التعرف)</string>
@@ -93,16 +79,12 @@
     <string name="reading_simple_words">كلمات بسيطة</string>
     <string name="reading_compound_words">كلمات مركبة</string>
     <string name="reading_ignore_known_words">تجاهل الكلمات المعروفة تماماً</string>
-
-    <!-- Navigation Drawer -->
     <string name="menu_recognition">التعرف</string>
     <string name="menu_reading">القراءة</string>
     <string name="menu_writing">الكتابة</string>
     <string name="menu_dictionary">القاموس</string>
     <string name="menu_results">النتائج</string>
     <string name="menu_about">حول</string>
-
-    <!-- Level/Button Names -->
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
@@ -120,17 +102,11 @@
     <string name="level_high_school_4">اختبار 2</string>
     <string name="level_hiragana">هيراغانا</string>
     <string name="level_katakana">كاتاكانا</string>
-
-    <!-- Home Screen -->
     <string name="home_recognition_subtitle">تعلم كيفية التعرف على الكانجي وتذكر معانيها الأساسية.</string>
     <string name="home_reading_subtitle">تعلم قراءة الكلمات الكاملة وكيفية نطقها في سياقات مختلفة</string>
     <string name="home_writing_subtitle">تدرب على كتابة الكلمات وحفر الكانجي في ذاكرتك.</string>
-
-    <!-- Toolbar Titles -->
     <string name="title_home">كانجي موري</string>
     <string name="title_game_recap">ملخص اللعبة</string>
-
-    <!-- About Screen -->
     <string name="about_category_informations">معلومات</string>
     <string name="about_category_credits">الاعتمادات</string>
     <string name="about_category_resources">الموارد</string>
@@ -146,14 +122,12 @@
     <string name="about_date_label">التاريخ:</string>
     <string name="about_issue_tracker">متتبع المشكلات،\nالمشكلات المعروفة والميزات المخطط لها</string>
     <string name="about_credits">الاعتمادات</string>
-    <string name="about_author_name">LECOQ Vincent</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
     <string name="about_author_role">التصميم، البرمجة، إلخ.</string>
     <string name="about_pedagogical_content">المحتوى التربوي الياباني</string>
     <string name="about_kanji_data_credit">بيانات الكانجي بواسطة David Gouveia</string>
     <string name="about_header_picture_credit">صورة الغلاف بواسطة Charles Knowles</string>
     <string name="about_rate_app">قيم التطبيق</string>
-
-    <!-- Results Screen -->
     <string name="results_title">النتائج</string>
     <string name="results_recognition_title">التعرف</string>
     <string name="results_section_kanas">كانا (هيراغانا / كاتاكانا)</string>
@@ -183,8 +157,6 @@
     <string name="results_backup">نسخ احتياطي</string>
     <string name="results_restore">استعادة</string>
     <string name="results_sync">مزامنة</string>
-
-    <!-- Word List Screen -->
     <string name="mode_revise">مراجعة</string>
     <string name="options">خيارات</string>
     <string name="word_type_all">الكل</string>
@@ -194,20 +166,16 @@
     <string name="word_type_kon">مختلط (混)</string>
     <string name="word_type_kan">صيني-ياباني (漢)</string>
     <string name="word_type_kigo">رمز (記号)</string>
-
-    <!-- Language Names -->
-    <string name="language_fr_fr">Français (France)</string>
-    <string name="language_en_gb">English (UK)</string>
-    <string name="language_it_it">Italiano</string>
-    <string name="language_de_de">Deutsch (DE)</string>
-    <string name="language_es_sp">Español (España)</string>
-    <string name="language_bn_bn">Bengali</string>
-    <string name="language_th">Thai</string>
-    <string name="language_ar_ar">العربية (المملكة العربية السعودية)</string>
-    <string name="language_pt_br">Português (Portugal)</string>
-    <string name="language_vi_vn">Tiếng Việt</string>
-
-    <!-- Dictionary Screen -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
     <string name="dictionary_search_hint_text">البحث النصي</string>
     <string name="dictionary_search_by_drawing_desc">البحث بالرسم</string>
     <string name="dictionary_mode_reading">القراءة (كانا)</string>
@@ -219,7 +187,60 @@
     <string name="dictionary_results_count_format">%1$d النتائج</string>
     <string name="dictionary_reading_on">On:</string>
     <string name="dictionary_reading_kun">Kun:</string>
-    
-    <!-- Kanji Details Screen -->
     <string name="kanji_detail_components">المكونات</string>
+    <string name="section_fundamentals">الأساسيات</string>
+    <string name="section_fundamentals_desc">أساسيات الكتابة اليابانية</string>
+    <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt_desc">اختبار الكفاءة في اللغة اليابانية</string>
+    <string name="section_school">المدرسة اليابانية</string>
+    <string name="section_school_desc">المناهج المدرسية اليابانية</string>
+    <string name="section_challenges_desc">التحديات للمتحدثين المتقدمين</string>
+    <string name="level_hiragana_desc">هيراغانا مقطعية</string>
+    <string name="level_katakana_desc">كاتاكانا المقطعية</string>
+    <string name="level_n5_desc">مستوى المبتدئين</string>
+    <string name="level_n4_desc">المستوى الابتدائي</string>
+    <string name="level_n3_desc">المستوى المتوسط</string>
+    <string name="level_n2_desc">مستوى متقدم مسبقًا</string>
+    <string name="level_n1_desc">المستوى المتقدم</string>
+    <string name="level_grade_1_desc">السنة الأولى من المدرسة الابتدائية</string>
+    <string name="level_grade_2_desc">السنة الثانية من المدرسة الابتدائية</string>
+    <string name="level_grade_3_desc">السنة الثالثة ابتدائي</string>
+    <string name="level_grade_4_desc">السنة الرابعة ابتدائي</string>
+    <string name="level_grade_5_desc">السنة الخامسة ابتدائي</string>
+    <string name="level_grade_6_desc">السنة السادسة ابتدائي</string>
+    <string name="level_college_1_desc">السنة الأولى من الكلية</string>
+    <string name="level_college_2_desc">السنة الثانية من الكلية</string>
+    <string name="level_lycee_1_desc">السنة الأولى من المدرسة الثانوية</string>
+    <string name="level_lycee_2_desc">السنة الثانية من المدرسة الثانوية</string>
+    <string name="level_native_challenge_desc">التحدي للمستوى الأصلي</string>
+    <string name="level_no_reading_desc">الاعتراف دون القراءة</string>
+    <string name="level_no_meaning_desc">القراءة بلا معنى</string>
+    <string name="activity_type_recognition">التعرف على الحروف</string>
+    <string name="activity_type_reading">القراءة والنطق</string>
+    <string name="activity_type_writing">الكتابة والتخطيط</string>
+    <string name="activity_type_grammar">القواعد والبنية</string>
+    <string name="activity_type_games">الألعاب والتحديات التفاعلية</string>
+    <string name="level_grade_1">الصف 1</string>
+    <string name="level_grade_2">الصف 2</string>
+    <string name="level_grade_3">الصف 3</string>
+    <string name="level_grade_4">الصف 4</string>
+    <string name="level_grade_5">الصف 5</string>
+    <string name="level_grade_6">الصف 6</string>
+    <string name="level_grade_7">الكلية 1</string>
+    <string name="level_grade_8">الكلية 2</string>
+    <string name="level_grade_9">المدرسة الثانوية 1</string>
+    <string name="level_grade_10">المدرسة الثانوية 2</string>
+    <string name="level_native_challenge">التحدي الأصلي</string>
+    <string name="level_no_reading">لا القراءة</string>
+    <string name="level_no_meaning">لا معنى</string>
+    <string name="level_college_1">الكلية 1</string>
+    <string name="level_college_2">الكلية 2</string>
+    <string name="level_lycee_1">المدرسة الثانوية 1</string>
+    <string name="level_lycee_2">المدرسة الثانوية 2</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="dictionary_draw_kanji">ارسم كانجي</string>
+    <string name="dictionary_recognize">يتعرف على</string>
 </resources>

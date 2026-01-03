@@ -3,13 +3,13 @@
   "sections": {
     "fundamentals": {
       "name": "section_fundamentals",
-      "description": "Bases de l'écriture japonaise",
+      "description": "section_fundamentals_desc",
       "prerequisiteFor": ["jlpt", "school"],
       "levels": [
         {
           "id": "hiragana",
           "name": "level_hiragana",
-          "description": "Syllabaire hiragana",
+          "description": "level_hiragana_desc",
           "activities": {
             "RECOGNITION": {
               "dataFile": "Hiragana",
@@ -20,7 +20,7 @@
         {
           "id": "katakana",
           "name": "level_katakana",
-          "description": "Syllabaire katakana",
+          "description": "level_katakana_desc",
           "activities": {
             "RECOGNITION": {
               "dataFile": "Katakana",
@@ -32,13 +32,13 @@
     },
     "jlpt": {
       "name": "section_jlpt",
-      "description": "Japanese Language Proficiency Test",
+      "description": "section_jlpt_desc",
       "prerequisiteFor": ["challenge"],
       "levels": [
         {
           "id": "n5",
           "name": "level_n5",
-          "description": "Niveau débutant",
+          "description": "level_n5_desc",
           "dependencies": ["hiragana", "katakana"],
           "activities": {
             "RECOGNITION": {
@@ -62,7 +62,7 @@
         {
           "id": "n4",
           "name": "level_n4",
-          "description": "Niveau élémentaire",
+          "description": "level_n4_desc",
           "dependencies": ["n5"],
           "activities": {
             "RECOGNITION": {
@@ -86,7 +86,7 @@
         {
           "id": "n3",
           "name": "level_n3",
-          "description": "Niveau intermédiaire",
+          "description": "level_n3_desc",
           "dependencies": ["n4"],
           "activities": {
             "RECOGNITION": {
@@ -110,7 +110,7 @@
         {
           "id": "n2",
           "name": "level_n2",
-          "description": "Niveau pré-avancé",
+          "description": "level_n2_desc",
           "dependencies": ["n3"],
           "activities": {
             "RECOGNITION": {
@@ -134,7 +134,7 @@
         {
           "id": "n1",
           "name": "level_n1",
-          "description": "Niveau avancé",
+          "description": "level_n1_desc",
           "dependencies": ["n2"],
           "activities": {
             "RECOGNITION": {
@@ -159,12 +159,12 @@
     },
     "school": {
       "name": "section_school",
-      "description": "Programme scolaire japonais",
+      "description": "section_school_desc",
       "levels": [
         {
           "id": "grade1",
           "name": "level_grade_1",
-          "description": "Première année d'école primaire",
+          "description": "level_grade_1_desc",
           "dependencies": ["hiragana", "katakana"],
           "activities": {
             "RECOGNITION": {
@@ -180,7 +180,7 @@
         {
           "id": "grade2",
           "name": "level_grade_2",
-          "description": "Deuxième année d'école primaire",
+          "description": "level_grade_2_desc",
           "dependencies": ["grade1"],
           "activities": {
             "RECOGNITION": {
@@ -196,7 +196,7 @@
         {
           "id": "grade3",
           "name": "level_grade_3",
-          "description": "Troisième année d'école primaire",
+          "description": "level_grade_3_desc",
           "dependencies": ["grade2"],
           "activities": {
             "RECOGNITION": {
@@ -216,7 +216,7 @@
         {
           "id": "grade4",
           "name": "level_grade_4",
-          "description": "Quatrième année d'école primaire",
+          "description": "level_grade_4_desc",
           "dependencies": ["grade3"],
           "activities": {
             "RECOGNITION": {
@@ -236,7 +236,7 @@
         {
           "id": "grade5",
           "name": "level_grade_5",
-          "description": "Cinquième année d'école primaire",
+          "description": "level_grade_5_desc",
           "dependencies": ["grade4"],
           "activities": {
             "RECOGNITION": {
@@ -256,7 +256,7 @@
         {
           "id": "grade6",
           "name": "level_grade_6",
-          "description": "Sixième année d'école primaire",
+          "description": "level_grade_6_desc",
           "dependencies": ["grade5"],
           "activities": {
             "RECOGNITION": {
@@ -276,7 +276,7 @@
         {
           "id": "grade7",
           "name": "level_college_1",
-          "description": "Première année de collège",
+          "description": "level_college_1_desc",
           "dependencies": ["grade6"],
           "activities": {
             "RECOGNITION": {
@@ -296,7 +296,7 @@
         {
           "id": "grade8",
           "name": "level_college_2",
-          "description": "Seconde année de collège",
+          "description": "level_college_2_desc",
           "dependencies": ["grade7"],
           "activities": {
             "RECOGNITION": {
@@ -316,7 +316,7 @@
         {
           "id": "grade9",
           "name": "level_lycee_1",
-          "description": "Première année de lycée",
+          "description": "level_lycee_1_desc",
           "dependencies": ["grade8"],
           "activities": {
             "RECOGNITION": {
@@ -336,7 +336,7 @@
         {
           "id": "grade10",
           "name": "level_lycee_2",
-          "description": "Première année de lycée",
+          "description": "level_lycee_2_desc",
           "dependencies": ["grade9"],
           "activities": {
             "RECOGNITION": {
@@ -357,12 +357,12 @@
     },
     "challenge": {
       "name": "section_challenges",
-      "description": "Défis pour locuteurs avancés",
+      "description": "section_challenges_desc",
       "levels": [
         {
           "id": "native_challenge",
           "name": "level_native_challenge",
-          "description": "Défi pour niveau natif",
+          "description": "level_native_challenge_desc",
           "dependencies": ["n1"],
           "activities": {
             "RECOGNITION": {
@@ -386,7 +386,7 @@
         {
           "id": "no_reading",
           "name": "level_no_reading",
-          "description": "Reconnaissance sans lecture",
+          "description": "level_no_reading_desc",
           "dependencies": ["native_challenge"],
           "activities": {
             "RECOGNITION": {
@@ -398,7 +398,7 @@
         {
           "id": "no_meaning",
           "name": "level_no_meaning",
-          "description": "Lecture sans signification",
+          "description": "level_no_meaning_desc",
           "dependencies": ["native_challenge"],
           "activities": {
             "RECOGNITION": {
@@ -415,10 +415,10 @@
     }
   },
   "activityTypes": {
-    "RECOGNITION": "Reconnaissance de caractères",
-    "READING": "Lecture et prononciation",
-    "WRITING": "Écriture et tracé",
-    "GRAMMAR": "Grammaire et structure",
-    "GAMES": "Jeux et défis interactifs"
+    "RECOGNITION": "activity_type_recognition",
+    "READING": "activity_type_reading",
+    "WRITING": "activity_type_writing",
+    "GRAMMAR": "activity_type_grammar",
+    "GAMES": "activity_type_games"
   }
 }
