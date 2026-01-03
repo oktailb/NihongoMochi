@@ -6,12 +6,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
-import org.nihongo.mochi.domain.statistics.StatisticsEngine
 
 class SettingsViewModel(
     private val settingsRepository: SettingsRepository,
-    private val statisticsEngine: StatisticsEngine
+    private val levelsRepository: LevelsRepository
 ) : ViewModel() {
 
     data class SettingsUiState(
@@ -35,30 +35,16 @@ class SettingsViewModel(
 
     private fun loadInitialSettings() {
         viewModelScope.launch {
-            // Load dynamic modes from levels.json
-            statisticsEngine.loadLevelDefinitions()
-            // We use the keys of the sections map as modes (e.g., "jlpt", "school", "challenge")
-            // Or better, use the display names if available, but for internal mode key we might want the ID.
-            // The previous hardcoded list was ["JLPT", "School", "Challenge"].
-            // levels.json has keys: "fundamentals", "jlpt", "school", "challenge".
-            // Let's exclude "fundamentals" if it's not a selectable mode in the old logic, 
-            // or include it if it makes sense. The user said "JLPT/SCHOOL, ...".
+            // Load dynamic modes from levels.json via repository
+            val defs = levelsRepository.loadLevelDefinitions()
             
-            // StatisticsEngine doesn't expose sections directly publicly in the previous edits, 
-            // but we can add a method or just use getAllStatistics().
-            // However, getAllStatistics returns flattened levels.
-            
-            // Let's rely on getAllStatistics().groupBy { it.category }.keys
-            // This gives us the display names of sections (e.g. "JLPT", "École Japonaise", "Challenge pour natif").
-            // But we need to map back to the keys stored in preferences if they differ.
-            // In SettingsRepository, setMode stores a string.
-            
-            // If the user wants the dropdown to use the categories from levels.json:
-            val allStats = statisticsEngine.getAllStatistics()
-            val categories = allStats.map { it.category }.distinct().sorted()
-            
-            // If the list is empty (parsing fail), fallback to defaults?
-            val modes = if (categories.isNotEmpty()) categories else listOf("JLPT", "School", "Challenge")
+            // Use section IDs as modes (e.g. "jlpt", "school", "challenge")
+            // Filtering out "fundamentals" if it shouldn't be a main mode, 
+            // but based on levels.json, fundamentals is a section. 
+            // However, usually it's a dependency. 
+            // If the user wants to select it explicitly, we include it.
+            // Sorting to keep order consistent.
+            val modes = defs.sections.keys.toList().sorted()
 
             _uiState.update {
                 it.copy(

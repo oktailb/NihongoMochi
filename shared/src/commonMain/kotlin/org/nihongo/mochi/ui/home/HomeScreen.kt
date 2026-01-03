@@ -24,23 +24,31 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import org.nihongo.mochi.domain.levels.LevelDefinition
 import org.nihongo.mochi.presentation.MochiBackground
-import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.ResourceUtils
+import kotlin.math.roundToInt
 
 @Composable
 fun HomeScreen(
+    availableLevels: List<LevelDefinition>,
+    selectedLevelId: String,
+    onLevelSelected: (String) -> Unit,
     onRecognitionClick: () -> Unit,
     onReadingClick: () -> Unit,
     onWritingClick: () -> Unit,
@@ -71,6 +79,16 @@ fun HomeScreen(
                     contentScale = ContentScale.Inside,
                     modifier = Modifier.fillMaxSize()
                 )
+            }
+
+            // Level Selector Slider
+            if (availableLevels.isNotEmpty()) {
+                LevelSelectorCard(
+                    availableLevels = availableLevels,
+                    selectedLevelId = selectedLevelId,
+                    onLevelSelected = onLevelSelected
+                )
+                Spacer(modifier = Modifier.height(16.dp))
             }
 
             BigModeCard(
@@ -135,6 +153,66 @@ fun HomeScreen(
             }
             
             Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+fun LevelSelectorCard(
+    availableLevels: List<LevelDefinition>,
+    selectedLevelId: String,
+    onLevelSelected: (String) -> Unit
+) {
+    val currentIndex = availableLevels.indexOfFirst { it.id == selectedLevelId }.coerceAtLeast(0)
+    
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(2.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            val currentLevel = availableLevels.getOrNull(currentIndex)
+            
+            val levelName = currentLevel?.name?.let { 
+                ResourceUtils.resolveStringResource(it)?.let { res -> stringResource(res) } 
+            } ?: currentLevel?.name ?: ""
+
+            Text(
+                text = levelName,
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.Bold
+            )
+            
+            if (currentLevel?.description?.isNotEmpty() == true) {
+                 Text(
+                    text = currentLevel.description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            Slider(
+                value = currentIndex.toFloat(),
+                onValueChange = { 
+                    val newIndex = it.roundToInt()
+                    if (newIndex in availableLevels.indices) {
+                        onLevelSelected(availableLevels[newIndex].id)
+                    }
+                },
+                valueRange = 0f..(availableLevels.size - 1).toFloat(),
+                steps = (availableLevels.size - 2).coerceAtLeast(0),
+                colors = SliderDefaults.colors(
+                    thumbColor = MaterialTheme.colorScheme.primary,
+                    activeTrackColor = MaterialTheme.colorScheme.primary,
+                    inactiveTrackColor = MaterialTheme.colorScheme.primaryContainer
+                )
+            )
         }
     }
 }

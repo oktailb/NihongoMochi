@@ -15,6 +15,7 @@ import org.nihongo.mochi.domain.statistics.ResultsViewModel
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
 import org.nihongo.mochi.presentation.reading.ReadingViewModel
 import org.nihongo.mochi.presentation.recognition.RecognitionViewModel
@@ -44,6 +45,7 @@ val sharedModule = module {
     factoryOf(::ReadingViewModel)
     factoryOf(::WritingViewModel)
     factoryOf(::WordListViewModel)
+    factoryOf(::HomeViewModel) // Added HomeViewModel
     
     // ViewModels with parameters
     factory { params ->

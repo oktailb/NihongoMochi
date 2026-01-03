@@ -6,6 +6,7 @@ import org.nihongo.mochi.settings.ANIMATION_SPEED_PREF_KEY
 import org.nihongo.mochi.settings.MODE_PREF_KEY
 import org.nihongo.mochi.settings.PRONUNCIATION_PREF_KEY
 import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
+import org.nihongo.mochi.settings.SELECTED_LEVEL_PREF_KEY
 import org.nihongo.mochi.settings.TEXT_SIZE_PREF_KEY
 import org.nihongo.mochi.settings.THEME_PREF_KEY
 
@@ -34,4 +35,7 @@ class SettingsRepository(private val settings: Settings) {
 
     fun getMode(): String = settings.getString(MODE_PREF_KEY, "JLPT")
     fun setMode(value: String) = settings.putString(MODE_PREF_KEY, value)
+
+    fun getSelectedLevel(): String = settings.getString(SELECTED_LEVEL_PREF_KEY, "")
+    fun setSelectedLevel(value: String) = settings.putString(SELECTED_LEVEL_PREF_KEY, value)
 }

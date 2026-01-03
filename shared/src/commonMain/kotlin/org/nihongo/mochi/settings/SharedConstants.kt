@@ -7,3 +7,4 @@ const val ANIMATION_SPEED_PREF_KEY = "AnimationSpeed"
 const val PRONUNCIATION_PREF_KEY = "Pronunciation"
 const val THEME_PREF_KEY = "Theme"
 const val MODE_PREF_KEY = "Mode" // New preference key for JLPT/School/Challenge mode
+const val SELECTED_LEVEL_PREF_KEY = "SelectedLevel" // Added key for selected level
