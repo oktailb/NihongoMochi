@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -133,8 +134,46 @@ fun KanjiDetailScreen(
                     StatItem(label = "STROKES", value = uiState.kanjiStrokes.toString())
                 }
 
-                // Components Section
-                if (uiState.components.isNotEmpty()) {
+                // Components Graph Section (Tree View)
+                if (uiState.componentTree != null && uiState.componentTree!!.children.isNotEmpty()) {
+                    SectionHeader(text = stringResource(Res.string.kanji_detail_components))
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(400.dp)
+                            .padding(bottom = 24.dp)
+                            .background(
+                                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
+                                shape = RoundedCornerShape(8.dp)
+                            )
+                            .border(
+                                width = 1.dp,
+                                color = MaterialTheme.colorScheme.outline,
+                                shape = RoundedCornerShape(8.dp)
+                            )
+                    ) {
+                        // Background structure text
+                        if (!uiState.kanjiStructure.isNullOrEmpty()) {
+                            Text(
+                                text = uiState.kanjiStructure ?: "",
+                                fontSize = 60.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f), // Increased visibility
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .padding(16.dp)
+                            )
+                        }
+                        
+                        KanjiGraphComponent(
+                            rootNode = uiState.componentTree!!,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
+                } else if (uiState.components.isNotEmpty()) {
+                    // Fallback to simple list if tree not built or empty
+                     // Components Section (Old List style as fallback)
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -185,15 +224,6 @@ fun KanjiDetailScreen(
                                             color = MaterialTheme.colorScheme.onSurface,
                                             fontFamily = kanjiStrokeOrderFamily
                                         )
-                                        
-                                        if (!currentKanjiRef.isNullOrEmpty() && currentKanjiRef != component.character) {
-                                            Text(
-                                                text = "($currentKanjiRef)",
-                                                fontSize = 12.sp,
-                                                color = MaterialTheme.colorScheme.onSurface,
-                                                fontFamily = kanjiStrokeOrderFamily
-                                            )
-                                        }
                                     }
                                 }
                             }

@@ -32,12 +32,21 @@ class KanjiDetailViewModel(
         val onReadings: List<ReadingItem> = emptyList(),
         val kunReadings: List<ReadingItem> = emptyList(),
         val components: List<ComponentItem> = emptyList(),
-        val examples: List<ExampleItem> = emptyList()
+        val examples: List<ExampleItem> = emptyList(),
+        val componentTree: ComponentNode? = null
     )
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
     data class ExampleItem(val word: String, val reading: String)
     data class ComponentItem(val character: String, val kanjiRef: String?)
+
+    // Recursive structure for the tree
+    data class ComponentNode(
+        val id: String?,
+        val character: String,
+        val onReadings: List<String> = emptyList(),
+        val children: List<ComponentNode> = emptyList()
+    )
 
     private val _uiState = MutableStateFlow(KanjiDetailUiState())
     val uiState: StateFlow<KanjiDetailUiState> = _uiState.asStateFlow()
@@ -68,6 +77,9 @@ class KanjiDetailViewModel(
                     )
                 } ?: emptyList()
 
+                // Build tree recursively
+                val treeRoot = buildComponentTree(entry.character, entry.id, 0)
+
                 // Load meanings
                 val locale = settingsRepository.getAppLocale()
                 val meanings = meaningRepository.getMeanings(locale)[kanjiId] ?: emptyList()
@@ -88,7 +100,8 @@ class KanjiDetailViewModel(
                         onReadings = onReadings,
                         kunReadings = kunReadings,
                         components = components,
-                        examples = examples
+                        examples = examples,
+                        componentTree = treeRoot
                     )
                 }
             } else {
@@ -97,13 +110,52 @@ class KanjiDetailViewModel(
         }
     }
     
+    private fun buildComponentTree(character: String, kanjiId: String?, depth: Int): ComponentNode {
+        // Limit depth to avoid infinite recursion if any circular ref exists (though rare in Kanji)
+        if (depth > 5) return ComponentNode(kanjiId, character)
+        
+        val children = mutableListOf<ComponentNode>()
+        
+        // If we have an ID, we can look up its components
+        // If not, we try to find the ID by character
+        val entry = if (kanjiId != null) {
+            kanjiRepository.getKanjiById(kanjiId)
+        } else {
+            kanjiRepository.getKanjiByCharacter(character)
+        }
+        
+        val onReadings = entry?.readings?.reading
+            ?.filter { it.type == "on" }
+            ?.map { it.value } 
+            ?: emptyList()
+
+        if (entry != null) {
+             entry.components?.component?.forEach { comp ->
+                 val char = comp.text ?: comp.kanjiRef ?: ""
+                 val refId = comp.kanjiRef?.let { ref -> 
+                     // Optimization: If ref is the character itself, it's just the char. 
+                     // Usually ref is the character string.
+                     // We need the ID to look deeper.
+                     kanjiRepository.getKanjiByCharacter(ref)?.id
+                 }
+                 
+                 // Avoid self-reference loop immediately
+                 if (char != character) {
+                     children.add(buildComponentTree(char, refId, depth + 1))
+                 }
+             }
+        }
+        
+        return ComponentNode(
+            id = entry?.id,
+            character = character,
+            onReadings = onReadings,
+            children = children
+        )
+    }
+    
     // Helper needed for navigation logic from UI
     fun findKanjiIdByCharacter(character: String): String? {
-        // Warning: This blocking call might be risky if getKanjiByCharacter does heavy DB work.
-        // In the original it was running on IO via launch, but the return value logic was tricky.
-        // Actually, the original 'navigateToKanji' in Fragment launched a coroutine to call this.
-        // Since this method just returns data, it's fine as is, provided the caller handles threads.
-        // But getKanjiByCharacter in repo should be thread-safe.
         val entry = kanjiRepository.getKanjiByCharacter(character)
         return entry?.id
     }

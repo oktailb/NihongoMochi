@@ -71,8 +71,10 @@ fun DictionaryScreen(
     onItemClick: (DictionaryItem) -> Unit
 ) {
     val results by viewModel.lastResults.collectAsState()
-    // Using availableLevelOptions which contains pairs of (ID, ResourceKey)
     val availableLevelOptions by viewModel.availableLevelOptions.collectAsState()
+    val textQuery by viewModel.textQuery.collectAsState()
+    val searchMode by viewModel.searchMode.collectAsState()
+    
     val focusManager = LocalFocusManager.current
     
     // State for Filter Dropdown
@@ -109,10 +111,9 @@ fun DictionaryScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         OutlinedTextField(
-                            value = viewModel.textQuery,
+                            value = textQuery,
                             onValueChange = { 
-                                viewModel.textQuery = it
-                                viewModel.applyFilters()
+                                viewModel.onSearchTextChange(it)
                             },
                             label = { Text(stringResource(Res.string.dictionary_search_hint_text)) },
                             modifier = Modifier.weight(1f),
@@ -183,10 +184,9 @@ fun DictionaryScreen(
                         // Search Mode Radio Buttons (compact)
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             RadioButton(
-                                selected = viewModel.searchMode == SearchMode.READING,
+                                selected = searchMode == SearchMode.READING,
                                 onClick = { 
-                                    viewModel.searchMode = SearchMode.READING
-                                    viewModel.applyFilters()
+                                    viewModel.setSearchMode(SearchMode.READING)
                                 }
                             )
                             Text(
@@ -194,18 +194,16 @@ fun DictionaryScreen(
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.clickable { 
-                                    viewModel.searchMode = SearchMode.READING
-                                    viewModel.applyFilters() 
+                                    viewModel.setSearchMode(SearchMode.READING)
                                 }
                             )
                             
                             Spacer(modifier = Modifier.width(8.dp))
                             
                             RadioButton(
-                                selected = viewModel.searchMode == SearchMode.MEANING,
+                                selected = searchMode == SearchMode.MEANING,
                                 onClick = { 
-                                    viewModel.searchMode = SearchMode.MEANING
-                                    viewModel.applyFilters()
+                                    viewModel.setSearchMode(SearchMode.MEANING)
                                 }
                             )
                             Text(
@@ -213,8 +211,7 @@ fun DictionaryScreen(
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.clickable { 
-                                    viewModel.searchMode = SearchMode.MEANING
-                                    viewModel.applyFilters() 
+                                    viewModel.setSearchMode(SearchMode.MEANING)
                                 }
                             )
                         }

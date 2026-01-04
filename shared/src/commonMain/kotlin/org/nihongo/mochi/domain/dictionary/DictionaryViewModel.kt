@@ -1,5 +1,7 @@
 package org.nihongo.mochi.domain.dictionary
 
+import org.nihongo.mochi.domain.kana.KanaRepository
+import org.nihongo.mochi.domain.kana.RomajiToKana
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
@@ -37,7 +39,8 @@ class DictionaryViewModel(
     private val kanjiRepository: KanjiRepository,
     private val meaningRepository: MeaningRepository,
     private val settingsRepository: SettingsRepository,
-    private val levelsRepository: LevelsRepository
+    private val levelsRepository: LevelsRepository,
+    private val kanaRepository: KanaRepository
 ) : ViewModel() {
 
     var isDataLoaded = false
@@ -47,8 +50,12 @@ class DictionaryViewModel(
     private val _lastResults = MutableStateFlow<List<DictionaryItem>>(emptyList())
     val lastResults: StateFlow<List<DictionaryItem>> = _lastResults.asStateFlow()
 
-    var searchMode: SearchMode = SearchMode.READING
-    var textQuery: String = ""
+    private val _searchMode = MutableStateFlow(SearchMode.READING)
+    val searchMode: StateFlow<SearchMode> = _searchMode.asStateFlow()
+
+    private val _textQuery = MutableStateFlow("")
+    val textQuery: StateFlow<String> = _textQuery.asStateFlow()
+
     var strokeQuery: String = ""
     var exactMatch: Boolean = false
     var selectedLevelId: String = "ALL"
@@ -68,6 +75,9 @@ class DictionaryViewModel(
 
     init {
         viewModelScope.launch {
+            // Ensure RomajiToKana is initialized
+            RomajiToKana.init(kanaRepository)
+            
             val defs = levelsRepository.loadLevelDefinitions()
             val options = mutableListOf(LevelFilterOption("ALL", "word_type_all"))
             
@@ -154,6 +164,27 @@ class DictionaryViewModel(
         }
     }
 
+    fun setSearchMode(mode: SearchMode) {
+        _searchMode.value = mode
+        applyFilters()
+    }
+
+    fun onSearchTextChange(newText: String) {
+        var finalText = newText
+        val currentText = _textQuery.value
+        
+        // Auto-convert to Kana if in READING mode and text was added (not deleted)
+        if (_searchMode.value == SearchMode.READING && newText.length > currentText.length) {
+             val replacement = RomajiToKana.checkReplacement(newText)
+             if (replacement != null) {
+                 finalText = newText.substring(0, newText.length - replacement.first) + replacement.second
+             }
+        }
+        
+        _textQuery.value = finalText
+        applyFilters()
+    }
+
     fun applyFilters() {
         var filteredList = allKanjiList.toList()
 
@@ -192,9 +223,9 @@ class DictionaryViewModel(
             filteredList = filteredList.filter { it.strokeCount == strokeCount }
         }
 
-        val query = textQuery.trim().lowercase()
+        val query = _textQuery.value.trim().lowercase()
         if (query.isNotEmpty()) {
-            if (searchMode == SearchMode.READING) {
+            if (_searchMode.value == SearchMode.READING) {
                  val cleanQuery = query.replace(".", "")
                  filteredList = filteredList.filter { item ->
                      item.readings.any { it.text.replace(".", "").lowercase().contains(cleanQuery) }

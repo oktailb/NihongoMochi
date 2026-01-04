@@ -74,5 +74,5 @@ val sharedModule = module {
     }
     
     // DictionaryViewModel requires HandwritingRecognizer which is platform specific.
-    factory { DictionaryViewModel(get(), get(), get(), get(), get()) }
+    factory { DictionaryViewModel(get(), get(), get(), get(), get(), get()) }
 }
