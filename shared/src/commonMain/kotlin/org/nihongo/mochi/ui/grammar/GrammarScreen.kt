@@ -1,11 +1,11 @@
 package org.nihongo.mochi.ui.grammar
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -31,19 +30,17 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.max
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
@@ -92,29 +89,63 @@ fun GrammarScreen(
                         .padding(paddingValues)
                         .verticalScroll(scrollState)
                 ) {
-                    // Total height calculation: 
-                    // This is tricky because we want the tree to be scrollable.
-                    // For now, let's assume a fixed height per level or based on the number of levels.
-                    // In a real implementation, you might want a zoomable canvas.
-                    val canvasHeight = 2000.dp // Arbitrary large height
+                    val estimatedHeight = (nodes.size * 120).dp + (separators.size * 200).dp
+                    val minCanvasHeight = 2000.dp
+                    val canvasHeight = max(minCanvasHeight, estimatedHeight)
+                    
                     val canvasWidth = maxWidth
+                    
+                    val nodesById = remember(nodes) { nodes.associateBy { it.rule.id } }
+                    
+                    // Get colors outside the Canvas scope
+                    val lineColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.6f)
+                    val separatorLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
 
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(canvasHeight)
                     ) {
+                        // Draw Connections
+                        Canvas(modifier = Modifier.fillMaxSize()) {
+                            val canvasW = size.width
+                            val canvasH = size.height
+
+                            nodes.forEach { node ->
+                                node.rule.dependencies.forEach { dependencyId ->
+                                    val parentNode = nodesById[dependencyId]
+                                    if (parentNode != null) {
+                                        val start = Offset(
+                                            x = parentNode.x * canvasW,
+                                            y = parentNode.y * canvasH
+                                        )
+                                        val end = Offset(
+                                            x = node.x * canvasW,
+                                            y = node.y * canvasH
+                                        )
+                                        drawLine(
+                                            color = lineColor,
+                                            start = start,
+                                            end = end,
+                                            strokeWidth = 2.dp.toPx(),
+                                            pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
                         // Draw Separators (Toori Gates)
                         separators.forEach { separator ->
-                            val yPos = separator.y * canvasHeight.value
+                            val yPosPx = separator.y * canvasHeight.value
                             
                             Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(2.dp)
-                                    .offset(y = yPos.dp)
+                                    .offset(y = (yPosPx).dp)
                                     .background(
-                                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+                                        color = separatorLineColor,
                                         shape = RoundedCornerShape(1.dp)
                                     )
                             )
@@ -123,27 +154,24 @@ fun GrammarScreen(
                                 painter = painterResource(Res.drawable.toori),
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .size(60.dp)
+                                    .size(120.dp)
                                     .align(Alignment.TopCenter)
-                                    .offset(y = (yPos - 30).dp), // Centered on the line
+                                    .offset(y = (yPosPx - 30).dp), // Centered on the line
                                 contentScale = ContentScale.Fit
                             )
                         }
 
-                        // Draw Connections
-                        // (To be implemented: Draw lines between dependencies)
-
                         // Draw Nodes
                         nodes.forEach { node ->
-                            val xPos = node.x * canvasWidth.value
-                            val yPos = node.y * canvasHeight.value
+                            val xPosPx = node.x * canvasWidth.value
+                            val yPosPx = node.y * canvasHeight.value
                             
                             GrammarNodeItem(
                                 node = node,
                                 modifier = Modifier
                                     .offset(
-                                        x = (xPos - 50).dp, // Center horizontally (width 100)
-                                        y = (yPos - 30).dp  // Center vertically (height 60)
+                                        x = (xPosPx - 50).dp, // Center horizontally (width 100)
+                                        y = (yPosPx - 30).dp  // Center vertically (height 60)
                                     )
                             )
                         }
