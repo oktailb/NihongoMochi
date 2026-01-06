@@ -19,21 +19,15 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -52,6 +46,7 @@ import org.nihongo.mochi.shared.generated.resources.toori
 import org.nihongo.mochi.ui.ResourceUtils
 import kotlin.math.abs
 import kotlin.math.min
+import kotlin.math.sign
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -96,7 +91,10 @@ fun GrammarScreen(
                     val nodeWidthDp = 100.dp
                     val nodeHeightDp = 60.dp
                     val nodeHalfWidthPx = with(density) { (nodeWidthDp / 2).toPx() }
+                    // Used implicitly for visual vertical centering calculations
                     val nodeHeightPx = with(density) { nodeHeightDp.toPx() } 
+                    val centerChannelPadding = with(density) { 12.dp.toPx() }
+                    val cornerRadius = with(density) { 32.dp.toPx() }
 
                     Box(
                         modifier = Modifier
@@ -121,21 +119,35 @@ fun GrammarScreen(
                                     }
                                     val childCenterY = node.y * canvasH
                                     
+                                    val childChannelX = if (node.x < 0.5f) centerX - centerChannelPadding else centerX + centerChannelPadding
+                                    
                                     val path = Path()
                                     path.moveTo(childAnchorX, childCenterY)
                                     
-                                    path.cubicTo(
-                                        x1 = childAnchorX + (if(node.x < 0.5f) 50f else -50f), y1 = childCenterY, 
-                                        x2 = centerX, y2 = childCenterY + (gateY - childCenterY) * 0.5f, 
-                                        x3 = centerX, y3 = gateY 
-                                    )
+                                    val distY = gateY - childCenterY
+                                    val dir = sign(distY)
+
+                                    if (abs(distY) > cornerRadius * 1.5f) {
+                                        val turnY = childCenterY + (dir * cornerRadius)
+                                        // 1. Curve into channel
+                                        path.quadraticBezierTo(childChannelX, childCenterY, childChannelX, turnY)
+                                        // 2. Vertical line to Gate Y
+                                        path.lineTo(childChannelX, gateY)
+                                    } else {
+                                        // Too close: S-Curve
+                                        path.cubicTo(
+                                            childChannelX, childCenterY, 
+                                            childChannelX, gateY, 
+                                            childChannelX, gateY
+                                        )
+                                    }
                                     
                                     drawPath(
                                         path = path,
                                         color = lineColor.copy(alpha = 0.2f), // Very faint
                                         style = Stroke(
                                             width = 1.dp.toPx(),
-                                            pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f, 5f), 0f)
+                                            pathEffect = null // Solid line, no dashes
                                         )
                                     )
                                 }
@@ -155,84 +167,129 @@ fun GrammarScreen(
                                         val path = Path()
 
                                         if (isInterLevel) {
-                                            // Inter-level dependency: Source is the Toori of the parent's level
-                                            // Find the gate corresponding to the parent's level, OR the last gate before the child
-                                            // We use separators list which is sorted by Y.
-                                            // Find the gate belonging to the level preceding the child's level
-                                            // Or more simply: Find the last gate that is ABOVE the child
+                                            // Inter-level: Pipe Style via Gate
                                             val gate = separators
                                                 .filter { it.y < node.y }
                                                 .maxByOrNull { it.y }
                                             
                                             if (gate != null) {
-                                                val gateX = centerX
                                                 val gateY = gate.y * canvasH
                                                 
-                                                // Target: Inner Side (closest to center)
-                                                val childAnchorX = if (node.x < 0.5f) {
-                                                    (node.x * canvasW) + nodeHalfWidthPx // Right edge for left nodes
-                                                } else {
-                                                    (node.x * canvasW) - nodeHalfWidthPx // Left edge for right nodes
-                                                }
-                                                val childAnchorY = childCenterY // Vertical center
+                                                val childAnchorX = if (node.x < 0.5f) (node.x * canvasW) + nodeHalfWidthPx else (node.x * canvasW) - nodeHalfWidthPx
+                                                val childAnchorY = childCenterY
                                                 
-                                                // Part A: Draw STRONG link from Parent -> Toori
-                                                // Parent Anchor: Inner Side
                                                 val parentAnchorX = if (parentNode.x < 0.5f) (parentNode.x * canvasW) + nodeHalfWidthPx else (parentNode.x * canvasW) - nodeHalfWidthPx
                                                 val parentAnchorY = parentCenterY
                                                 
+                                                val parentChannelX = if(parentNode.x < 0.5f) centerX - centerChannelPadding else centerX + centerChannelPadding
+                                                
+                                                // Part A: Parent -> Gate
                                                 val pathParentToGate = Path()
                                                 pathParentToGate.moveTo(parentAnchorX, parentAnchorY)
-                                                pathParentToGate.cubicTo(
-                                                    x1 = parentAnchorX + (if(parentNode.x < 0.5f) 50f else -50f), y1 = parentAnchorY,
-                                                    x2 = centerX, y2 = parentAnchorY + (gateY - parentAnchorY) * 0.5f,
-                                                    x3 = centerX, y3 = gateY
-                                                )
+
+                                                val distToGate = gateY - parentAnchorY
+                                                if (abs(distToGate) > cornerRadius * 1.5f) {
+                                                    val turnY = if(distToGate > 0) parentAnchorY + cornerRadius else parentAnchorY - cornerRadius
+                                                    pathParentToGate.quadraticBezierTo(parentChannelX, parentAnchorY, parentChannelX, turnY)
+                                                    pathParentToGate.lineTo(parentChannelX, gateY)
+                                                } else {
+                                                    pathParentToGate.cubicTo(parentChannelX, parentAnchorY, centerX, parentAnchorY + distToGate * 0.5f, centerX, gateY)
+                                                }
+                                                
                                                 drawPath(
                                                     path = pathParentToGate,
-                                                    color = lineColor, // Strong color
-                                                    style = Stroke(
-                                                        width = 2.dp.toPx(),
-                                                        pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
-                                                    )
+                                                    color = lineColor, 
+                                                    style = Stroke(width = 2.dp.toPx())
                                                 )
 
-                                                // Part B: Draw Link from Toori -> Child (Inner Side)
-                                                path.moveTo(gateX, gateY)
+                                                // Part B: Gate -> Child
+                                                val childChannelX = if(node.x < 0.5f) centerX - centerChannelPadding else centerX + centerChannelPadding
                                                 
-                                                // Curve from Gate Center -> Child Inner Side
-                                                path.cubicTo(
-                                                    x1 = gateX, y1 = gateY + (childAnchorY - gateY) * 0.5f, // Down from gate
-                                                    x2 = childAnchorX + (if(node.x < 0.5f) 50f else -50f), y2 = childAnchorY, // Approach from center side
-                                                    x3 = childAnchorX, y3 = childAnchorY
-                                                )
+                                                path.moveTo(childChannelX, gateY)
+                                                
+                                                val distFromGate = childAnchorY - gateY
+                                                if (abs(distFromGate) > cornerRadius * 1.5f) {
+                                                     val turnY = childAnchorY - cornerRadius 
+                                                     path.lineTo(childChannelX, turnY)
+                                                     path.quadraticBezierTo(childChannelX, childAnchorY, childAnchorX, childAnchorY)
+                                                } else {
+                                                    path.cubicTo(childChannelX, gateY + distFromGate * 0.5f, childChannelX, childAnchorY, childAnchorX, childAnchorY)
+                                                }
                                             }
                                         } else {
-                                            // Intra-level dependency (Same level): Go around the OUTSIDE
+                                            // Intra-level
+                                            val isCrossing = (parentNode.x < 0.5f) != (node.x < 0.5f)
                                             
-                                            // Anchors at OUTER sides
-                                            val parentAnchorX = if (parentNode.x < 0.5f) (parentNode.x * canvasW) - nodeHalfWidthPx else (parentNode.x * canvasW) + nodeHalfWidthPx
-                                            val parentAnchorY = parentCenterY
-                                            
-                                            val childAnchorX = if (node.x < 0.5f) (node.x * canvasW) - nodeHalfWidthPx else (node.x * canvasW) + nodeHalfWidthPx
-                                            val childAnchorY = childCenterY
-                                            
-                                            path.moveTo(parentAnchorX, parentAnchorY)
-                                            
-                                            // Control points to curve outward
-                                            // Scale offset based on vertical distance to separate lines
-                                            val distY = abs(childAnchorY - parentAnchorY)
-                                            val baseOffset = 40f
-                                            val dynamicOffset = min(distY * 0.2f, 100f) // Cap max width
-                                            val totalOffset = baseOffset + dynamicOffset
-                                            
-                                            val controlOffset = if (parentNode.x < 0.5f) -totalOffset else totalOffset
-                                            
-                                            path.cubicTo(
-                                                x1 = parentAnchorX + controlOffset, y1 = parentAnchorY, 
-                                                x2 = childAnchorX + controlOffset, y2 = childAnchorY, 
-                                                x3 = childAnchorX, y3 = childAnchorY
-                                            )
+                                            if (isCrossing) {
+                                                // Pipe Style: Inner Side -> Center Channel -> Cross -> Center Channel -> Inner Side
+                                                val parentAnchorX = if (parentNode.x < 0.5f) (parentNode.x * canvasW) + nodeHalfWidthPx else (parentNode.x * canvasW) - nodeHalfWidthPx
+                                                val childAnchorX = if (node.x < 0.5f) (node.x * canvasW) + nodeHalfWidthPx else (node.x * canvasW) - nodeHalfWidthPx
+                                                
+                                                val parentChannelX = if(parentNode.x < 0.5f) centerX - centerChannelPadding else centerX + centerChannelPadding
+                                                val childChannelX = if(node.x < 0.5f) centerX - centerChannelPadding else centerX + centerChannelPadding
+                                                
+                                                path.moveTo(parentAnchorX, parentCenterY)
+                                                
+                                                val distY = childCenterY - parentCenterY
+                                                val dir = sign(distY)
+                                                
+                                                if (abs(distY) > cornerRadius * 2.5f) {
+                                                    // Vertical Pipe with Crossing
+                                                    val turn1Y = parentCenterY + (dir * cornerRadius)
+                                                    val midY = parentCenterY + (distY / 2)
+                                                    val turn2Y = childCenterY - (dir * cornerRadius)
+                                                    
+                                                    // 1. Enter Channel
+                                                    path.quadraticBezierTo(parentChannelX, parentCenterY, parentChannelX, turn1Y)
+                                                    // 2. Vertical to near Mid
+                                                    path.lineTo(parentChannelX, midY - (dir * cornerRadius))
+                                                    // 3. Cross Over (S-Curve)
+                                                    path.cubicTo(parentChannelX, midY, childChannelX, midY, childChannelX, midY + (dir * cornerRadius))
+                                                    // 4. Vertical to near Child
+                                                    path.lineTo(childChannelX, turn2Y)
+                                                    // 5. Exit Channel
+                                                    path.quadraticBezierTo(childChannelX, childCenterY, childAnchorX, childCenterY)
+                                                } else {
+                                                    // Too close for full pipe: S-Curve across center
+                                                    path.cubicTo(
+                                                        parentChannelX, parentCenterY,
+                                                        childChannelX, childCenterY,
+                                                        childAnchorX, childCenterY
+                                                    )
+                                                }
+                                            } else {
+                                                // Pipe Style: Outer Side -> Outer Channel -> Vertical -> Outer Channel -> Outer Side
+                                                val parentAnchorX = if (parentNode.x < 0.5f) (parentNode.x * canvasW) - nodeHalfWidthPx else (parentNode.x * canvasW) + nodeHalfWidthPx
+                                                val childAnchorX = if (node.x < 0.5f) (node.x * canvasW) - nodeHalfWidthPx else (node.x * canvasW) + nodeHalfWidthPx
+                                                
+                                                val baseOffset = 40f
+                                                val controlOffset = if (parentNode.x < 0.5f) -baseOffset else baseOffset
+                                                val outerChannelX = parentAnchorX + controlOffset
+                                                
+                                                path.moveTo(parentAnchorX, parentCenterY)
+                                                
+                                                val distY = childCenterY - parentCenterY
+                                                val dir = sign(distY)
+
+                                                if (abs(distY) > cornerRadius * 2f) {
+                                                    val turn1Y = parentCenterY + (dir * cornerRadius)
+                                                    val turn2Y = childCenterY - (dir * cornerRadius)
+                                                    
+                                                    // 1. Enter Outer Channel
+                                                    path.quadraticBezierTo(outerChannelX, parentCenterY, outerChannelX, turn1Y)
+                                                    // 2. Vertical Line
+                                                    path.lineTo(outerChannelX, turn2Y)
+                                                    // 3. Exit Outer Channel
+                                                    path.quadraticBezierTo(outerChannelX, childCenterY, childAnchorX, childCenterY)
+                                                } else {
+                                                    // Too close: Simple Bezier
+                                                    path.cubicTo(
+                                                        outerChannelX, parentCenterY,
+                                                        outerChannelX, childCenterY,
+                                                        childAnchorX, childCenterY
+                                                    )
+                                                }
+                                            }
                                         }
 
                                         if (!path.isEmpty) {
@@ -241,7 +298,7 @@ fun GrammarScreen(
                                                 color = lineColor,
                                                 style = Stroke(
                                                     width = 2.dp.toPx(),
-                                                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
+                                                    pathEffect = null
                                                 )
                                             )
                                         }

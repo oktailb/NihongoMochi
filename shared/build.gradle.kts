@@ -66,7 +66,7 @@ compose.resources {
 
 android {
     namespace = "org.nihongo.mochi.shared"
-    compileSdk = 34
+    compileSdk = 36
     defaultConfig {
         minSdk = 24
     }
