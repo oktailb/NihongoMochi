@@ -135,7 +135,7 @@
       "description":  "base_ni_iku_kuru_desc",
       "category": "verbes_composes",
       "level": "n5",
-      "dependencies": ["base_verbale", "particules_ni"],
+      "dependencies": ["base_verbale", "particule_ni"],
       "tags": ["mouvement"]
     },
     {
