@@ -3,9 +3,11 @@ La meilleure appli d apprentissage du japonais qui soit
 
 Features:
  - Grammar section with typical JLTP exercises
+   - define exercices JSON database format to ensure all classic JLPT grammar possibilities
+   - implement generic/adpatative displayer form to all exercice types
    - consider grammar rules applied for each exercise
-   - propose reminders/lessons and progression depending JLPT level only
- - Grammar lessons and specific exercises
+   - propose reminders/lessons for each grammar rule
+   - propose a virtual JLPT grammar exam for each related levels
  - Prévoir l'intégration "Social" (comparaison de progression) pour plus tard.
 Games:
   - Tetris : achieve words from selected level in Kana to make blocks disappear

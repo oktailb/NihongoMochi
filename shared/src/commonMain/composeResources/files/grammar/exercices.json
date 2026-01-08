@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Database of grammar exercises for Nihongo Mochi. Designed for unpredictability and variety."
+  },
+  "exercises": [
+    {
+      "id": "n5_part_ni_001",
+      "level": "N5",
+      "tags": ["particule_ni", "destination", "grammar_basics"],
+      "type": "choice",
+      "question": "明日、日本＿行きます。",
+      "explanation": "La particule 'ni' (に) ou 'he' (へ) indique la destination avec les verbes de mouvement comme 'ikimasu' (aller).",
+      "payload": {
+        "correct": "に",
+        "distractors": ["を", "で", "が", "から", "より", "の"]
+      }
+    },
+    {
+      "id": "n5_part_de_002",
+      "level": "N5",
+      "tags": ["particule_de", "moyen", "transport"],
+      "type": "choice",
+      "question": "バス＿学校へ来ました。",
+      "explanation": "La particule 'de' (で) indique le moyen ou l'outil utilisé pour accomplir une action.",
+      "payload": {
+        "correct": "で",
+        "distractors": ["に", "を", "へ", "が", "と", "や"]
+      }
+    },
+    {
+      "id": "n5_adj_i_order_001",
+      "level": "N5",
+      "tags": ["adjectifs_i", "structure_phrase", "noms"],
+      "type": "order",
+      "question": "Reconstituez la phrase correcte.",
+      "explanation": "En japonais, l'adjectif-i se place directement avant le nom qu'il qualifie.",
+      "payload": {
+        "sentence": "この 猫は 黒い です",
+        "noise": ["白い", "犬は"]
+      }
+    },
+    {
+      "id": "n5_verb_masu_order_002",
+      "level": "N5",
+      "tags": ["forme_masu", "verbe_manger", "structure_phrase"],
+      "type": "order",
+      "question": "Ordonnez les éléments pour dire 'Je mange une pomme'.",
+      "explanation": "L'objet direct est marqué par 'wo' (を) et se place avant le verbe.",
+      "payload": {
+        "sentence": "私は りんごを 食べます",
+        "noise": ["飲みます", "パンを"]
+      }
+    },
+    {
+      "id": "n4_te_form_conj_001",
+      "level": "N4",
+      "tags": ["forme_te", "conjugaison"],
+      "type": "input",
+      "question": "Écrivez la forme en -te du verbe 'matsu' (待つ).",
+      "explanation": "Pour les verbes en 'tsu', la terminaison devient 'tte'.",
+      "payload": {
+        "answers": ["待って", "まって"],
+        "hint": "Verbe du groupe 1 (Godan) se terminant par 'tsu'."
+      }
+    },
+    {
+      "id": "n3_grammar_paraphrase_001",
+      "level": "N3",
+      "tags": ["paraphrase", "expression", "konkai"],
+      "type": "paraphrase",
+      "question": "Quelle phrase a le sens le plus proche de : '彼は来ないはずがない' ?",
+      "explanation": "'Hazu ga nai' exprime une forte impossibilité. La double négation signifie 'Il est impossible qu'il ne vienne pas' => 'Il va sûrement venir'.",
+      "payload": {
+        "correct": [
+          "彼は絶対に来ると思う。",
+          "彼が来ないわけがない。"
+        ],
+        "distractors": [
+          "彼はたぶん来ないだろう。",
+          "彼は来るはずがない。",
+          "彼は来ないほうがいい。",
+          "彼が来るかどうか分からない。"
+        ]
+      }
+    },
+     {
+      "id": "n4_context_choice_001",
+      "level": "N4",
+      "tags": ["usage", "politesse", "keigo_basic"],
+      "type": "choice",
+      "question": "Sélectionnez la réponse la plus appropriée pour parler à votre professeur.",
+      "explanation": "Avec un supérieur, on utilise des formes de politesse. 'Kudasai' est plus poli que l'impératif direct.",
+      "payload": {
+        "correct": "教えてください",
+        "distractors": ["教えて", "教えろ", "教える", "教えてくれ"]
+      }
+    }
+  ]
+}
