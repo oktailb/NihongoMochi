@@ -1,6 +1,7 @@
 package org.nihongo.mochi
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,6 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
-import com.russhwolf.settings.SharedPreferencesSettings
 import org.koin.android.ext.android.inject
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.workers.DecayWorker
@@ -23,68 +23,81 @@ import java.util.concurrent.TimeUnit
 class MainActivity : AppCompatActivity() {
 
     private lateinit var gamesSignInClient: GamesSignInClient
-    
-    // Injecting here works for onCreate, but for attachBaseContext we need manual retrieval
     private val settingsRepository: SettingsRepository by inject()
 
     override fun attachBaseContext(newBase: Context) {
-        // Manual locale application for older Android versions (API < 33)
-        // We can't use Koin injection here yet as the context isn't fully ready or Koin might rely on it.
-        // We manually read SharedPreferences to be safe and fast.
+        // NUCLEAR FIX for Android 9 "One step behind" issue.
+        // We intercept the context CREATION. This happens before onCreate.
+        // We read the synchronous preference we saved in SettingsFragment.
         val prefs = newBase.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
-        val savedLocaleCode = prefs.getString("AppLocale", "en_GB") ?: "en_GB"
-        val localeTag = savedLocaleCode.replace('_', '-')
+        val localeCode = prefs.getString("AppLocale", "en_GB") ?: "en_GB"
         
-        val localeList = LocaleListCompat.forLanguageTags(localeTag)
-        // This helps AppCompatDelegate know what we want before it restores state
+        // Parse locale (e.g., "en_GB" -> "en" + "GB")
+        val parts = localeCode.split("_")
+        val language = parts.getOrElse(0) { "en" }
+        val country = parts.getOrElse(1) { "" }
+        val locale = if (country.isNotEmpty()) Locale(language, country) else Locale(language)
+
+        // Force system defaults immediately
+        Locale.setDefault(locale)
+        
+        // Create a new configuration with this locale
+        val config = Configuration(newBase.resources.configuration)
+        config.setLocale(locale)
+        
+        // Create the wrapped context
+        val context = newBase.createConfigurationContext(config)
+        
+        // Pass the WRAPPED context to super. This ensures all Inflaters use the new language.
+        super.attachBaseContext(context)
+        
+        // Also tell AppCompat, just in case, but the Context wrap does the heavy lifting
+        val localeList = LocaleListCompat.create(locale)
         AppCompatDelegate.setApplicationLocales(localeList)
-        
-        super.attachBaseContext(newBase)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
+        // Standard Sync logic for repository
+        val currentAppLocales = AppCompatDelegate.getApplicationLocales()
+        if (!currentAppLocales.isEmpty) {
+            val primaryLocale = currentAppLocales.get(0)
+            if (primaryLocale != null) {
+                val tag = primaryLocale.toLanguageTag().replace('-', '_')
+                if (settingsRepository.getAppLocale() != tag) {
+                     settingsRepository.setAppLocale(tag)
+                }
+            }
+        }
+
         // Apply stored theme
         val savedTheme = settingsRepository.getTheme()
         val nightMode = if (savedTheme == "dark") {
             AppCompatDelegate.MODE_NIGHT_YES
         } else {
-            // Default to system if not set or "light" (assuming default is light/system)
-            // If you want to force light when "light" is stored:
             AppCompatDelegate.MODE_NIGHT_NO
         }
         if (AppCompatDelegate.getDefaultNightMode() != nightMode) {
             AppCompatDelegate.setDefaultNightMode(nightMode)
         }
-        
-        // Redundant check but good for runtime changes while app is open
-        val savedLocale = settingsRepository.getAppLocale()
-        val localeTag = savedLocale.replace('_', '-')
-        
-        if (AppCompatDelegate.getApplicationLocales().toLanguageTags() != localeTag) {
-             val appLocale = LocaleListCompat.forLanguageTags(localeTag)
-             AppCompatDelegate.setApplicationLocales(appLocale)
-        }
 
         setContentView(R.layout.activity_main)
 
-        // Ensure NavHostFragment is properly set up
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as? NavHostFragment
         if (navHostFragment == null) {
             Log.e("MainActivity", "NavHostFragment not found!")
         }
 
         gamesSignInClient = PlayGames.getGamesSignInClient(this)
-        
         setupWorkers()
     }
     
+    // ... workers and other methods remain unchanged
     private fun setupWorkers() {
         val decayWorkRequest = PeriodicWorkRequestBuilder<DecayWorker>(1, TimeUnit.DAYS)
             .setInitialDelay(1, TimeUnit.DAYS)
             .build()
-
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "MochiDecayWork",
             ExistingPeriodicWorkPolicy.KEEP,
@@ -109,7 +122,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // No AppBarConfiguration needed anymore as we don't have an ActionBar
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

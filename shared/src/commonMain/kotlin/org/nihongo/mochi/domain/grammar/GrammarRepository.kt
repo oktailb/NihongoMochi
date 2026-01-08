@@ -112,26 +112,48 @@ class GrammarRepository(
         } catch (e: Exception) {
              // Fallback CSS in case file load fails
              if (isDark) {
-                 "body { font-family: sans-serif; padding: 16px; color: #E0E0E0; }"
+                 "body { font-family: sans-serif; padding: 16px; color: #E0E0E0; background-color: #121212; }"
              } else {
-                 "body { font-family: sans-serif; padding: 16px; color: #333; }"
+                 "body { font-family: sans-serif; padding: 16px; color: #333; background-color: #FFFFFF; }"
              }
         }
     }
     
-    suspend fun loadLessonHtml(ruleId: String, languageCode: String = "en"): String {
-        val localizedPath = "grammar/lessons/$languageCode/$ruleId.html"
-        val defaultPath = "grammar/lessons/$ruleId.html"
+    suspend fun loadLessonHtml(ruleId: String, languageCode: String): String {
+        // Safe check for language code to avoid bad path construction
+        val safeLang = if (languageCode.length >= 2) languageCode.substring(0, 2).lowercase() else "en"
         
-        return try {
-            resourceLoader.loadJson(localizedPath)
+        // Priority 1: Specific language path
+        val localizedPath = "grammar/lessons/$safeLang/$ruleId.html"
+        
+        // Priority 2: Default (English) specific path
+        val defaultLangPath = "grammar/lessons/en/$ruleId.html"
+        
+        // Priority 3: Root path (legacy or shared)
+        val rootPath = "grammar/lessons/$ruleId.html"
+        
+        try {
+            return resourceLoader.loadJson(localizedPath)
         } catch (e: Exception) {
-            // Fallback to default
+            // Log here if possible in KMP
+        }
+
+        if (safeLang != "en") {
             try {
-                resourceLoader.loadJson(defaultPath)
-            } catch (e2: Exception) {
-                "<h1>Error loading lesson</h1><p>Lesson not found for ID: $ruleId</p>"
-            }
+                return resourceLoader.loadJson(defaultLangPath)
+            } catch (e: Exception) {}
+        }
+
+        try {
+            return resourceLoader.loadJson(rootPath)
+        } catch (e: Exception) {
+            return """
+                <div style="text-align: center; padding: 20px;">
+                    <h3>Lesson not found</h3>
+                    <p>Could not load lesson content for ID: <b>$ruleId</b></p>
+                    <p><small>Language: $safeLang</small></p>
+                </div>
+            """.trimIndent()
         }
     }
 }

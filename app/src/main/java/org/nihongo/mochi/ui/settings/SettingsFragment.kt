@@ -47,11 +47,13 @@ class SettingsFragment : Fragment() {
     }
 
     private fun changeLocale(localeCode: String) {
-        // Force synchronous commit to SharedPreferences for Android < 13 compatibility
-        // This ensures attachBaseContext reads the correct new value immediately after restart
+        // HACK: Force synchronous commit to SharedPreferences
+        // This ensures that when MainActivity restarts, it sees the NEW value immediately.
+        // We use the same file name "AppSettings" as defined in MochiApplication
         val prefs = requireContext().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         prefs.edit().putString("AppLocale", localeCode).commit()
 
+        // Apply to Android System
         val localeTag = localeCode.replace('_', '-')
         val appLocale = LocaleListCompat.forLanguageTags(localeTag)
         AppCompatDelegate.setApplicationLocales(appLocale)
