@@ -105,6 +105,7 @@ class RecognitionGameFragment : Fragment() {
                     buttonStates = buttonStates,
                     buttonsEnabled = viewModel.areButtonsEnabled, 
                     direction = direction,
+                    gameMode = viewModel.gameMode,
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
                     }

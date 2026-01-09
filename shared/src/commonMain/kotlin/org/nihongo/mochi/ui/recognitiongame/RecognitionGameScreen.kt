@@ -34,6 +34,7 @@ fun RecognitionGameScreen(
     buttonStates: List<AnswerButtonState>,
     buttonsEnabled: Boolean,
     direction: QuestionDirection,
+    gameMode: String,
     onAnswerClick: (Int, String) -> Unit
 ) {
     AppTheme {
@@ -64,10 +65,21 @@ fun RecognitionGameScreen(
                             val lineCount = questionText.count { it == '\n' } + 1
                             TextSizeCalculator.calculateQuestionTextSize(questionText.length, lineCount, direction)
                         }
+
+                        // Updated logic based on user request:
+                        // Mode Meaning -> Flip ALWAYS shows Readings
+                        // Mode Reading -> Flip ALWAYS shows Meanings
+                        val secondaryInfo = if (gameMode == "meaning") {
+                            formatReadingsForFlip(kanji)
+                        } else {
+                            formatMeaningsForFlip(kanji)
+                        }
                         
                         GameQuestionCard(
                             text = questionText,
                             fontSize = fontSize.sp,
+                            secondaryText = secondaryInfo,
+                            secondaryFontSize = 24.sp,
                             modifier = Modifier.size(300.dp)
                         )
                     }
@@ -148,6 +160,29 @@ fun RecognitionGameScreen(
             }
         }
     }
+}
+
+private fun formatReadingsForFlip(kanji: KanjiDetail): String {
+    val onReadings = kanji.readings.filter { it.type == "on" }.take(2).map { it.value }
+    val kunReadings = kanji.readings.filter { it.type == "kun" }.take(2).map { it.value }
+    
+    return buildString {
+        if (onReadings.isNotEmpty()) {
+            append("ON:\n")
+            append(onReadings.joinToString("\n"))
+        }
+        if (onReadings.isNotEmpty() && kunReadings.isNotEmpty()) {
+            append("\n\n")
+        }
+        if (kunReadings.isNotEmpty()) {
+            append("KUN:\n")
+            append(kunReadings.joinToString("\n"))
+        }
+    }
+}
+
+private fun formatMeaningsForFlip(kanji: KanjiDetail): String {
+    return kanji.meanings.take(4).joinToString("\n\n")
 }
 
 private fun calculateFontSize(text: String, direction: QuestionDirection): Int {

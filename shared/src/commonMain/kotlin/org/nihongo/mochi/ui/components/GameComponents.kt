@@ -1,6 +1,10 @@
 package org.nihongo.mochi.ui.components
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -22,10 +26,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -133,10 +142,29 @@ fun GameAnswerButton(
 fun GameQuestionCard(
     text: String,
     fontSize: TextUnit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    secondaryText: String? = null,
+    secondaryFontSize: TextUnit = 24.sp
 ) {
+    var rotated by remember { mutableStateOf(false) }
+    val rotation by animateFloatAsState(
+        targetValue = if (rotated) 180f else 0f,
+        animationSpec = tween(durationMillis = 500)
+    )
+
     Card(
-        modifier = modifier,
+        modifier = modifier
+            .graphicsLayer {
+                rotationY = rotation
+                cameraDistance = 8 * density
+            }
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                enabled = secondaryText != null
+            ) {
+                rotated = !rotated
+            },
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface
@@ -148,13 +176,35 @@ fun GameQuestionCard(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = text,
-                fontSize = fontSize,
-                textAlign = TextAlign.Center,
-                lineHeight = (fontSize.value * 1.2).sp,
-                color = MaterialTheme.colorScheme.onSurface
-            )
+            if (rotation <= 90f) {
+                // Front Side
+                Text(
+                    text = text,
+                    fontSize = fontSize,
+                    textAlign = TextAlign.Center,
+                    lineHeight = (fontSize.value * 1.2).sp,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            } else {
+                // Back Side
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .graphicsLayer {
+                            rotationY = 180f // Flip content back so it's not mirrored
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = secondaryText ?: "",
+                        fontSize = secondaryFontSize,
+                        textAlign = TextAlign.Center,
+                        lineHeight = (secondaryFontSize.value * 1.2).sp,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(16.dp)
+                    )
+                }
+            }
         }
     }
 }
