@@ -26,10 +26,6 @@ fun MemorizeGameScreen(
     viewModel: MemorizeViewModel,
     onBackClick: () -> Unit
 ) {
-    val cards by viewModel.cards.collectAsState()
-    val moves by viewModel.moves.collectAsState()
-    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
-    val gridSize by viewModel.selectedGridSize.collectAsState()
     val isFinished by viewModel.isGameFinished.collectAsState()
 
     MochiBackground {
@@ -37,28 +33,13 @@ fun MemorizeGameScreen(
             modifier = Modifier.fillMaxSize().padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                TextButton(onClick = onBackClick) {
-                    Text(stringResource(Res.string.game_memorize_quit), color = MaterialTheme.colorScheme.error)
-                }
-                
-                Column(horizontalAlignment = Alignment.End) {
-                    Text(stringResource(Res.string.game_memorize_moves, moves), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
-                    Text(stringResource(Res.string.game_memorize_time, timeSeconds), fontSize = 14.sp, color = MaterialTheme.colorScheme.onBackground)
-                    Text(
-                        stringResource(Res.string.game_memorize_pairs_count, cards.count { it.isMatched } / 2, gridSize.pairsCount),
-                        fontSize = 12.sp,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-            }
+            MemorizeHeader(viewModel, onBackClick)
 
             Box(modifier = Modifier.weight(1f)) {
                 if (isFinished) {
+                    val moves by viewModel.moves.collectAsState()
+                    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
+                    
                     MemorizeResultOverlay(
                         moves = moves,
                         timeSeconds = timeSeconds,
@@ -66,13 +47,19 @@ fun MemorizeGameScreen(
                         onBack = onBackClick
                     )
                 } else {
+                    val cards by viewModel.cards.collectAsState()
+                    val gridSize by viewModel.selectedGridSize.collectAsState()
+                    
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(gridSize.cols),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        itemsIndexed(cards) { index, card ->
+                        itemsIndexed(
+                            items = cards,
+                            key = { _, card -> card.id }
+                        ) { index, card ->
                             MemoryCard(
                                 state = card,
                                 onClick = { viewModel.onCardClicked(index) }
@@ -81,6 +68,37 @@ fun MemorizeGameScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun MemorizeHeader(
+    viewModel: MemorizeViewModel,
+    onBackClick: () -> Unit
+) {
+    val moves by viewModel.moves.collectAsState()
+    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
+    val cards by viewModel.cards.collectAsState()
+    val gridSize by viewModel.selectedGridSize.collectAsState()
+
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        TextButton(onClick = onBackClick) {
+            Text(stringResource(Res.string.game_memorize_quit), color = MaterialTheme.colorScheme.error)
+        }
+        
+        Column(horizontalAlignment = Alignment.End) {
+            Text(stringResource(Res.string.game_memorize_moves, moves), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
+            Text(stringResource(Res.string.game_memorize_time, timeSeconds), fontSize = 14.sp, color = MaterialTheme.colorScheme.onBackground)
+            Text(
+                stringResource(Res.string.game_memorize_pairs_count, cards.count { it.isMatched } / 2, gridSize.pairsCount),
+                fontSize = 12.sp,
+                color = MaterialTheme.colorScheme.primary
+            )
         }
     }
 }
@@ -163,13 +181,12 @@ fun MemorizeResultOverlay(
             Spacer(modifier = Modifier.height(16.dp))
             
             Text(stringResource(Res.string.game_memorize_congrats), textAlign = TextAlign.Center)
-            //Text(stringResource(Res.string.game_recap_meaning), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            
             Row(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    // Let's use more specific ones if possible.
                     Text(stringResource(Res.string.game_memorize_moves, moves).split(":")[0], fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text("$moves", fontWeight = FontWeight.Bold, fontSize = 24.sp)
                 }

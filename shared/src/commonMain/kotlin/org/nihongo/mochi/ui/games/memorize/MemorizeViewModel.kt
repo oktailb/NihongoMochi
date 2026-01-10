@@ -5,6 +5,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
@@ -19,7 +20,6 @@ class MemorizeViewModel(
     private val settingsRepository: SettingsRepository
 ) : ViewModel() {
 
-    // --- Setup State ---
     private val allPossibleGridSizes = listOf(
         MemorizeGridSize(4, 3), 
         MemorizeGridSize(4, 4), 
@@ -43,7 +43,6 @@ class MemorizeViewModel(
     private val _scoresHistory = MutableStateFlow<List<MemorizeGameResult>>(emptyList())
     val scoresHistory: StateFlow<List<MemorizeGameResult>> = _scoresHistory.asStateFlow()
 
-    // --- Game State ---
     private val _cards = MutableStateFlow<List<MemorizeCardState>>(emptyList())
     val cards: StateFlow<List<MemorizeCardState>> = _cards.asStateFlow()
 
@@ -64,19 +63,23 @@ class MemorizeViewModel(
     private val json = Json { ignoreUnknownKeys = true }
 
     init {
-        val allKanji = kanjiRepository.getAllKanji()
-        val maxS = allKanji.maxOfOrNull { it.strokes?.toIntOrNull() ?: 0 } ?: 20
-        _maxStrokes.value = maxS
-        _selectedMaxStrokes.value = maxS
-        updateAvailableGridSizes()
-        loadScoresHistory()
+        viewModelScope.launch {
+            val allKanji = kanjiRepository.getAllKanji()
+            val maxS = allKanji.maxOfOrNull { it.strokes?.toIntOrNull() ?: 0 } ?: 20
+            _maxStrokes.value = maxS
+            _selectedMaxStrokes.value = maxS
+            updateAvailableGridSizes()
+            loadScoresHistory()
+        }
     }
 
     private fun loadScoresHistory() {
         try {
             val historyJson = ScoreManager.getMemorizeHistory()
-            val history = json.decodeFromString<List<MemorizeGameResult>>(historyJson)
-            _scoresHistory.value = history
+            if (historyJson.isNotEmpty() && historyJson != "[]") {
+                val history = json.decodeFromString<List<MemorizeGameResult>>(historyJson)
+                _scoresHistory.value = history
+            }
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
         }
@@ -107,28 +110,31 @@ class MemorizeViewModel(
     }
 
     fun startGame() {
-        val levelId = settingsRepository.getSelectedLevel()
-        val allAvailableKanji = kanjiRepository.getKanjiByLevel(levelId)
-            .filter { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
-        
-        if (allAvailableKanji.isEmpty()) return
-
-        val pairsToSelect = _selectedGridSize.value.pairsCount
-        val selectedKanji = allAvailableKanji.shuffled().take(pairsToSelect)
-        
-        val gameCards = (selectedKanji + selectedKanji)
-            .shuffled()
-            .mapIndexed { index, kanji ->
-                MemorizeCardState(id = index, kanji = kanji)
-            }
+        viewModelScope.launch {
+            val levelId = settingsRepository.getSelectedLevel()
+            val allAvailableKanji = kanjiRepository.getKanjiByLevel(levelId)
+                .filter { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
             
-        _cards.value = gameCards
-        _moves.value = 0
-        _gameTimeSeconds.value = 0
-        _isGameFinished.value = false
-        firstSelectedCardIndex = null
-        
-        startTimer()
+            if (allAvailableKanji.isEmpty()) return@launch
+
+            val pairsToSelect = _selectedGridSize.value.pairsCount
+            val selectedKanji = allAvailableKanji.shuffled().take(pairsToSelect)
+            
+            val gameCards = (selectedKanji + selectedKanji)
+                .shuffled()
+                .mapIndexed { index, kanji ->
+                    MemorizeCardState(id = index, kanji = kanji)
+                }
+                
+            _cards.value = gameCards
+            _moves.value = 0
+            _gameTimeSeconds.value = 0
+            _isGameFinished.value = false
+            _isProcessing.value = false
+            firstSelectedCardIndex = null
+            
+            startTimer()
+        }
     }
 
     private fun startTimer() {
@@ -136,39 +142,45 @@ class MemorizeViewModel(
         timerJob = viewModelScope.launch {
             while (true) {
                 delay(1000)
-                _gameTimeSeconds.value++
+                _gameTimeSeconds.update { it + 1 }
             }
         }
     }
 
     fun onCardClicked(index: Int) {
-        if (_isProcessing.value || _cards.value[index].isFaceUp || _cards.value[index].isMatched) return
+        val currentCards = _cards.value
+        if (index !in currentCards.indices || _isProcessing.value || currentCards[index].isFaceUp || currentCards[index].isMatched) return
 
-        val currentCards = _cards.value.toMutableList()
-        currentCards[index] = currentCards[index].copy(isFaceUp = true)
-        _cards.value = currentCards
+        _cards.update { list ->
+            list.mapIndexed { i, card ->
+                if (i == index) card.copy(isFaceUp = true) else card
+            }
+        }
 
         if (firstSelectedCardIndex == null) {
             firstSelectedCardIndex = index
         } else {
-            _moves.value++
             val firstIndex = firstSelectedCardIndex!!
+            firstSelectedCardIndex = null 
+            _moves.update { it + 1 }
+            
             if (currentCards[firstIndex].kanji.id == currentCards[index].kanji.id) {
-                currentCards[firstIndex] = currentCards[firstIndex].copy(isMatched = true)
-                currentCards[index] = currentCards[index].copy(isMatched = true)
-                _cards.value = currentCards
-                firstSelectedCardIndex = null
+                _cards.update { list ->
+                    list.mapIndexed { i, card ->
+                        if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
+                    }
+                }
                 checkGameFinished()
             } else {
                 viewModelScope.launch {
                     _isProcessing.value = true
                     delay(800)
-                    val resetCards = _cards.value.toMutableList()
-                    resetCards[firstIndex] = resetCards[firstIndex].copy(isFaceUp = false)
-                    resetCards[index] = resetCards[index].copy(isFaceUp = false)
-                    _cards.value = resetCards
+                    _cards.update { list ->
+                        list.mapIndexed { i, card ->
+                            if (i == firstIndex || i == index) card.copy(isFaceUp = false) else card
+                        }
+                    }
                     _isProcessing.value = false
-                    firstSelectedCardIndex = null
                 }
             }
         }
@@ -190,17 +202,19 @@ class MemorizeViewModel(
             timeSeconds = _gameTimeSeconds.value,
             timestamp = Clock.System.now().toEpochMilliseconds()
         )
-        val currentHistory = _scoresHistory.value.toMutableList()
-        currentHistory.add(0, result)
-        val newHistory = currentHistory.take(10)
+        
+        val newHistory = (_scoresHistory.value.toMutableList().apply {
+            add(0, result)
+        }).take(10)
+        
         _scoresHistory.value = newHistory
         
-        // Persist via ScoreManager
-        try {
-            val historyJson = json.encodeToString(newHistory)
-            ScoreManager.saveMemorizeHistory(historyJson)
-        } catch (e: Exception) {
-            e.printStackTrace()
+        viewModelScope.launch {
+            try {
+                val historyJson = json.encodeToString(newHistory)
+                ScoreManager.saveMemorizeHistory(historyJson)
+            } catch (e: Exception) {
+            }
         }
     }
 }

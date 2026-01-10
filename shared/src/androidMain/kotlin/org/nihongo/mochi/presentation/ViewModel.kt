@@ -6,4 +6,8 @@ import kotlinx.coroutines.CoroutineScope
 
 actual abstract class ViewModel : AndroidViewModel() {
     actual val viewModelScope: CoroutineScope = androidViewModelScope
+    
+    actual override fun onCleared() {
+        super.onCleared()
+    }
 }
