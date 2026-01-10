@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.home.BigModeCard
 
 @Composable
@@ -19,7 +21,8 @@ fun GamesScreen(
     onTaquinClick: () -> Unit,
     onSimonClick: () -> Unit,
     onTetrisClick: () -> Unit,
-    onCrosswordsClick: () -> Unit
+    onCrosswordsClick: () -> Unit,
+    onMemorizeClick: () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -31,7 +34,7 @@ fun GamesScreen(
                 .padding(16.dp)
         ) {
             Text(
-                text = "GAMES",
+                text = stringResource(Res.string.games_title),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,
@@ -39,8 +42,8 @@ fun GamesScreen(
             )
 
             BigModeCard(
-                title = "Taquin",
-                subtitle = "Remettez le tableau des Kanas dans l'ordre",
+                title = stringResource(Res.string.game_taquin_title),
+                subtitle = stringResource(Res.string.game_taquin_subtitle),
                 kanjiTitle = "パズル",
                 onClick = onTaquinClick
             )
@@ -48,8 +51,8 @@ fun GamesScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             BigModeCard(
-                title = "Simon Says",
-                subtitle = "Mémorisez et répétez la séquence de sons",
+                title = stringResource(Res.string.game_simon_title),
+                subtitle = stringResource(Res.string.game_simon_subtitle),
                 kanjiTitle = "記憶",
                 onClick = onSimonClick
             )
@@ -57,8 +60,17 @@ fun GamesScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             BigModeCard(
-                title = "Tetris Kanji",
-                subtitle = "Assemblez les composants pour former des Kanjis",
+                title = stringResource(Res.string.game_memorize_title),
+                subtitle = stringResource(Res.string.game_memorize_subtitle),
+                kanjiTitle = "神経衰弱",
+                onClick = onMemorizeClick
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            BigModeCard(
+                title = stringResource(Res.string.game_tetris_title),
+                subtitle = stringResource(Res.string.game_tetris_subtitle),
                 kanjiTitle = "テトリス",
                 onClick = onTetrisClick
             )
@@ -66,8 +78,8 @@ fun GamesScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             BigModeCard(
-                title = "Crosswords",
-                subtitle = "Mots croisés thématiques par niveau JLPT",
+                title = stringResource(Res.string.game_crosswords_title),
+                subtitle = stringResource(Res.string.game_crosswords_subtitle),
                 kanjiTitle = "十字語",
                 onClick = onCrosswordsClick
             )

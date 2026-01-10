@@ -72,6 +72,19 @@
     <string name="activity_type_grammar">Grammaire</string>
     <string name="activity_type_games">Jeux et défis</string>
 
+    <!-- Games Screen -->
+    <string name="games_title">Jeux</string>
+    <string name="game_taquin_title">Taquin</string>
+    <string name="game_taquin_subtitle">Remettez le tableau des Kanas dans l\'ordre</string>
+    <string name="game_simon_title">Simon Says</string>
+    <string name="game_simon_subtitle">Mémorisez et répétez la séquence de sons</string>
+    <string name="game_tetris_title">Blocks</string>
+    <string name="game_tetris_subtitle">Assemblez les composants pour former des Kanjis</string>
+    <string name="game_crosswords_title">Crosswords</string>
+    <string name="game_crosswords_subtitle">Mots croisés thématiques par niveau JLPT</string>
+    <string name="game_memorize_title">Memorize</string>
+    <string name="game_memorize_subtitle">Retrouvez les paires de cartes (Kanji, Sens, Lecture)</string>
+
     <!-- Game Recap Screen -->
     <string name="game_recap_title">Jeu de reconnaissance</string>
     <string name="game_recap_meaning">Sens</string>
