@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_sign_in">Se connecter</string>
+    <string name="action_achievements">Succès</string>
+
+    <string name="menu_transform">Transform</string>
+    <string name="menu_reflow">Reflow</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_settings">Paramètres</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Options</string>
+    <string name="settings_category_general">Général</string>
+    <string name="settings_category_learning">Apprentissage</string>
+    <string name="settings_category_interface">Interface</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_pronunciation">Prononciation</string>
+    <string name="settings_pronunciation_roman">Alphabet romain</string>
+    <string name="settings_pronunciation_hiragana">Japonais Hiragana</string>
+    <string name="settings_default_user_list">Liste d\'utilisateurs par défaut</string>
+    <string name="settings_add_wrong_answers">Ajoute automatiquement les mauvaises réponses</string>
+    <string name="settings_remove_good_answers">Enlève automatiquement les mots 10/10</string>
+    <string name="settings_text_size">Taille du texte</string>
+    <string name="settings_animation_speed">Vitesse d\'animation</string>
+    <string name="settings_theme">Thème (Clair/Sombre)</string>
+    <string name="settings_reset_tutorial">Réinitialiser le tutoriel</string>
+    <string name="settings_send_bug_report">Envoyer un rapport de bug</string>
+
+    <!-- Sections (mapped from levels.json) -->
+    <string name="section_fundamentals">Fondamentaux</string>
+    <string name="section_fundamentals_desc">Bases de l'écriture japonaise</string>
+    <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt_desc">Japanese Language Proficiency Test</string>
+    <string name="section_school">École Japonaise</string>
+    <string name="section_school_desc">Programme scolaire japonais</string>
+    <string name="section_challenges">Challenges</string>
+    <string name="section_challenges_desc">Défis pour locuteurs avancés</string>
+
+    <!-- Level Descriptions -->
+    <string name="level_hiragana_desc">Syllabaire hiragana</string>
+    <string name="level_katakana_desc">Syllabaire katakana</string>
+    <string name="level_n5_desc">Niveau débutant</string>
+    <string name="level_n4_desc">Niveau élémentaire</string>
+    <string name="level_n3_desc">Niveau intermédiaire</string>
+    <string name="level_n2_desc">Niveau pré-avancé</string>
+    <string name="level_n1_desc">Niveau avancé</string>
+    <string name="level_grade_1_desc">Première année d\'école primaire</string>
+    <string name="level_grade_2_desc">Deuxième année d\'école primaire</string>
+    <string name="level_grade_3_desc">Troisième année d\'école primaire</string>
+    <string name="level_grade_4_desc">Quatrième année d\'école primaire</string>
+    <string name="level_grade_5_desc">Cinquième année d\'école primaire</string>
+    <string name="level_grade_6_desc">Sixième année d\'école primaire</string>
+    <string name="level_college_1_desc">Première année de collège</string>
+    <string name="level_college_2_desc">Seconde année de collège</string>
+    <string name="level_lycee_1_desc">Première année de lycée</string>
+    <string name="level_lycee_2_desc">Seconde année de lycée</string>
+    <string name="level_native_challenge_desc">Défi pour niveau natif</string>
+    <string name="level_no_reading_desc">Reconnaissance sans lecture</string>
+    <string name="level_no_meaning_desc">Lecture sans signification</string>
+    
+    <!-- Activity Types -->
+    <string name="activity_type_recognition">Reconnaissance de caractères</string>
+    <string name="activity_type_reading">Lecture et prononciation</string>
+    <string name="activity_type_writing">Écriture et tracé</string>
+    <string name="activity_type_grammar">Grammaire</string>
+    <string name="activity_type_games">Jeux et défis</string>
+
+    <!-- Games Screen -->
+    <string name="games_title">Jeux</string>
+    <string name="game_taquin_title">Taquin</string>
+    <string name="game_taquin_subtitle">Remettez le tableau des Kanas dans l\'ordre</string>
+    <string name="game_simon_title">Simon Says</string>
+    <string name="game_simon_subtitle">Mémorisez et répétez la séquence de sons</string>
+    <string name="game_tetris_title">Blocks</string>
+    <string name="game_tetris_subtitle">Assemblez les composants pour former des Kanjis</string>
+    <string name="game_crosswords_title">Crosswords</string>
+    <string name="game_crosswords_subtitle">Mots croisés thématiques par niveau JLPT</string>
+    <string name="game_memorize_title">Memorize</string>
+    <string name="game_memorize_subtitle">Retrouvez les paires de cartes (Kanji, Sens, Lecture)</string>
+    <string name="game_particles_title">Particle Defender</string>
+    <string name="game_particles_subtitle">Shooter grammatical : trouvez la bonne particule</string>
+    <string name="game_forge_title">Radical Forge</string>
+    <string name="game_forge_subtitle">Assemblez les radicaux pour forger des Kanjis</string>
+    <string name="game_shiritori_title">Shiritori Zen</string>
+    <string name="game_shiritori_subtitle">La chaîne de mots traditionnelle japonaise</string>
+    <string name="game_shadow_title">Shadow Kanji</string>
+    <string name="game_shadow_subtitle">Identifiez les Kanjis par leur silhouette</string>
+
+    <!-- Taquin Game -->
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Mode de jeu</string>
+    <string name="game_taquin_rows_label">Nombre de lignes : %1$d</string>
+    <string name="game_taquin_moves_label">Coups</string>
+    <string name="game_taquin_time_label">Temps</string>
+    <string name="game_taquin_congrats">Félicitations ! Tableau complété.</string>
+    <string name="game_taquin_back">Retour</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d lignes)</string>
+
+    <!-- Memorize Game -->
+    <string name="game_memorize_grid_size">Taille de la grille</string>
+    <string name="game_memorize_max_strokes">Complexité max (traits: %1$d)</string>
+    <string name="game_memorize_recent_scores">Derniers scores</string>
+    <string name="game_memorize_no_scores">Aucun score pour le moment</string>
+    <string name="game_memorize_score_format">%1$d coups</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">Quitter</string>
+    <string name="game_memorize_moves">Coups: %1$d</string>
+    <string name="game_memorize_time">Temps: %1$ds</string>
+    <string name="game_memorize_pairs_count">Paires: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Terminé !</string>
+    <string name="game_memorize_congrats">Bravo ! Paires trouvées.</string>
+    <string name="game_memorize_replay">Rejouer</string>
+    <string name="game_memorize_back_menu">Retour au menu</string>
+
+    <!-- Simon Game -->
+    <string name="game_simon_max_sequence">Séquence maximale : %1$d</string>
+    <string name="game_simon_game_over">GAME OVER</string>
+    <string name="game_simon_btn_content">Contenu des boutons</string>
+    <string name="game_simon_mode_kanji">Kanji</string>
+    <string name="game_simon_mode_meaning">Sens</string>
+    <string name="game_simon_mode_reading_std">Lecture (Std)</string>
+    <string name="game_simon_mode_reading_rnd">Lecture (Rnd)</string>
+    <string name="game_simon_record">Record : %1$d</string>
+
+    <!-- Game Recap Screen -->
+    <string name="game_recap_title">Jeu de reconnaissance</string>
+    <string name="game_recap_meaning">Sens</string>
+    <string name="game_recap_reading">Lecture</string>
+    <string name="game_recap_common_pronunciations">Prononciations courantes</string>
+    <string name="game_recap_random_pronunciations">Prononciations aléatoires</string>
+    <string name="game_recap_play">Jouer</string>
+
+    <!-- Game Writing Screen -->
+    <string name="game_writing_label_meaning">Signification</string>
+    <string name="game_writing_label_reading">Lecture</string>
+    <string name="enter_your_answer">Entrez votre réponse</string>
+    <string name="submit">Envoyer</string>
+    <string name="game_writing_correction">Correction</string>
+    <string name="game_writing_on">ON</string>
+    <string name="game_writing_kun">KUN</string>
+
+    <!-- Recognition Screen -->
+    <string name="recognition_title">見覚え</string>
+    <string name="recognition_subtitle">Choisis un groupe de kanji et apprends à reconnaître leurs différentes significations de base</string>
+    <string name="recognition_fundamentals">Fondamentaux</string>
+    <string name="recognition_jlpt">Japanese Language Proficiency Test</string>
+    <string name="recognition_primary_school">Ecole primaire (Jōyō 1..1006)</string>
+    <string name="recognition_high_school">Lycée (Jōyō 1007..2136)</string>
+    <string name="challenge_native">Native Challenge</string>
+    <string name="challenge_no_reading">No Reading</string>
+    <string name="challenge_no_meaning">No Meaning</string>
+
+    <!-- Writing Screen -->
+    <string name="writing_title">書き方</string>
+    <string name="writing_game_recap_title">Jeu d\'écriture</string>
+    <string name="writing_subtitle">Choisis un groupe de mots et apprends à les écrire.</string>
+    <string name="writing_kanji_tree">Kanji Tree</string>
+    <string name="writing_kanji_tree_subtitle">Si vous n’avez pas encore appris quelque chose :\n(10/10 dans le jeu concerné)</string>
+    <string name="writing_kanji_tree_ignore">Ignorer</string>
+    <string name="writing_kanji_tree_include">les inclure quand même</string>
+    <string name="writing_find_words">Trouver des mots</string>
+    <string name="writing_most_used_words">Mots les plus utilisés</string>
+    <string name="writing_find_kanji">Trouver un Kanji</string>
+    <string name="writing_lists">Listes</string>
+    <string name="writing_user_lists">Liste de l\'utilisateurs / listes d\'étude</string>
+
+    <!-- Reading Screen -->
+    <string name="reading_title">読み方</string>
+    <string name="reading_subtitle">Choisis un groupe de mots et apprends leurs prononciations.</string>
+    <string name="reading_kanji_tree_subtitle">Si le mot contient des kanji que tu n\'as pas encore appris :\n(10/10 au jeu de reconnaissance)</string>
+    <string name="reading_user_list">Liste de l\'utilisateur</string>
+    <string name="reading_modify_button">Modifier</string>
+    <string name="reading_kanji_solo">Kanji seul</string>
+    <string name="reading_simple_words">Mots simples</string>
+    <string name="reading_compound_words">Mots composés</string>
+    <string name="reading_ignore_known_words">Ignorer les mots parfaitement connus</string>
+
+    <!-- Navigation Drawer -->
+    <string name="menu_recognition">Reconnaître</string>
+    <string name="menu_reading">Lire</string>
+    <string name="menu_writing">Écrire</string>
+    <string name="menu_dictionary">Dictionnaire</string>
+    <string name="menu_results">Résultats</string>
+    <string name="menu_about">À propos</string>
+
+    <!-- Level/Button Names -->
+    <string name="level_n5">JLPT N5</string>
+    <string name="level_n4">JLPT N4</string>
+    <string name="level_n3">JLPT N3</string>
+    <string name="level_n2">JLPT N2</string>
+    <string name="level_n1">JLPT N1</string>
+    
+    <!-- Unified Grade Strings -->
+    <string name="level_grade_1">Grade 1</string>
+    <string name="level_grade_2">Grade 2</string>
+    <string name="level_grade_3">Grade 3</string>
+    <string name="level_grade_4">Grade 4</string>
+    <string name="level_grade_5">Grade 5</string>
+    <string name="level_grade_6">Grade 6</string>
+    <string name="level_grade_7">Collège 1</string>
+    <string name="level_grade_8">Collège 2</string>
+    <string name="level_grade_9">Lycée 1</string>
+    <string name="level_grade_10">Lycée 2</string>
+
+    <string name="level_native_challenge">Native Challenge</string>
+    <string name="level_no_reading">No Reading</string>
+    <string name="level_no_meaning">No Meaning</string>
+    
+    <!-- Legacy/Unused maybe? -->
+    <string name="level_college_1">Collège 1</string>
+    <string name="level_college_2">Collège 2</string>
+    <string name="level_lycee_1">Lycée 1</string>
+    <string name="level_lycee_2">Lycée 2</string>
+    
+    <string name="level_class_1">Classe 1</string>
+    <string name="level_class_2">Classe 2</string>
+    <string name="level_class_3">Classe 3</string>
+    <string name="level_class_4">Classe 4</string>
+    <string name="level_class_5">Classe 5</string>
+    <string name="level_class_6">Classe 6</string>
+    <string name="level_high_school_1">Test 4</string>
+    <string name="level_high_school_2">Test 3</string>
+    <string name="level_high_school_3">Test Pre-2</string>
+    <string name="level_high_school_4">Test 2</string>
+    
+    <string name="level_hiragana">Hiragana</string>
+    <string name="level_katakana">Katakana</string>
+
+    <!-- Home Screen -->
+    <string name="home_recognition_subtitle">Apprendre à reconnaître les kanji et à se rappeler leurs significations de base.</string>
+    <string name="home_reading_subtitle">Apprenez à lire des mots en entier et comment les prononcer dans différents contextes</string>
+    <string name="home_writing_subtitle">Entraînez-vous à écrire des mots et à graver le kanji dans votre mémoire.</string>
+
+    <!-- Toolbar Titles -->
+    <string name="title_home">Nihongo Mochi</string>
+    <string name="title_game_recap">Récapitulatif du jeu</string>
+
+    <!-- About Screen -->
+    <string name="about_category_informations">Informations</string>
+    <string name="about_category_credits">Crédits</string>
+    <string name="about_category_resources">Ressources</string>
+    <string name="about_design_dev">Design &amp; Développement</string>
+    <string name="about_pedagogical">Contenu Pédagogique</string>
+    <string name="about_coming_soon">(À venir)</string>
+    <string name="about_retribution">Rétribution</string>
+    <string name="about_patreon">Soutenez-moi sur Patreon</string>
+    <string name="about_tipeee">Faire un don sur Tipeee</string>
+    <string name="my_image_description">Bouton page suivante</string>
+    <string name="about_version_info">Information de la version</string>
+    <string name="about_version_label">Version :</string>
+    <string name="about_date_label">Date :</string>
+    <string name="about_issue_tracker">Rapports de bug ou demandes</string>
+    <string name="about_credits">Crédits</string>
+    <string name="about_author_name" translatable="false">LECOQ Vincent</string>
+    <string name="about_author_role">Design, programming, etc.</string>
+    <string name="about_pedagogical_content">Contenu pédagogique japonais</string>
+    <string name="about_kanji_data_credit">Données Kanji: David Gouveia</string>
+    <string name="about_header_picture_credit">Photo: Charles Knowles</string>
+    <string name="about_rate_app">Noter l\'application</string>
+
+    <!-- Results Screen -->
+    <string name="results_title">Résultats</string>
+    <string name="results_recognition_title">Reconnaissance</string>
+    <string name="results_section_kanas">Kanas (Hiragana / Katakana)</string>
+    <string name="results_section_jlpt">JLPT (N5 - N1)</string>
+    <string name="results_section_school">Scolaire (Grades / Lycée)</string>
+    <string name="results_section_frequency">Fréquence</string>
+    <string name="results_frequency_x_words">%1$d mots les plus fréquents</string>
+    <string name="results_hiragana">Hiraganas - %1$d%%</string>
+    <string name="results_katakana">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_grade_1">Grade 1 - %1$d%%</string>
+    <string name="results_grade_2">Grade 2 - %1$d%%</string>
+    <string name="results_grade_3">Grade 3 - %1$d%%</string>
+    <string name="results_grade_4">Grade 4 - %1$d%%</string>
+    <string name="results_grade_5">Grade 5 - %1$d%%</string>
+    <string name="results_grade_6">Grade 6 - %1$d%%</string>
+    <string name="results_college">Collège - %1$d%%</string>
+    <string name="results_high_school">Lycée - %1$d%%</string>
+    <string name="results_reading_title">Lecture</string>
+    <string name="results_total_count">Total: %1$d</string>
+    <string name="results_most_frequent_words">%1$d mots les plus fréquents - %2$d%%</string>
+    <string name="results_writing_title">Écriture</string>
+    <string name="results_backup">Backup</string>
+    <string name="results_restore">Restore</string>
+    <string name="results_sync">Sync</string>
+
+    <!-- Word List Screen -->
+    <string name="mode_revise">Réviser</string>
+    <string name="options">Options</string>
+    <string name="word_type_all">Tous</string>
+    <string name="word_type_wa">Japonais (和)</string>
+    <string name="word_type_ko">Nom propre (固)</string>
+    <string name="word_type_gai">Étranger (外)</string>
+    <string name="word_type_kon">Mixte (混)</string>
+    <string name="word_type_kan">Sino-japonais (漢)</string>
+    <string name="word_type_kigo">Symbole (記号)</string>
+
+    <!-- Language Names (Native Names, Non-Translatable) -->
+    <string name="language_fr_fr" translatable="false">Français (France)</string>
+    <string name="language_en_gb" translatable="false">English (UK)</string>
+    <string name="language_it_it" translatable="false">Italiano</string>
+    <string name="language_de_de" translatable="false">Deutsch (DE)</string>
+    <string name="language_es_sp" translatable="false">Español (España)</string>
+    <string name="language_bn_bn" translatable="false">বাংলা</string>
+    <string name="language_th" translatable="false">ไทย</string>
+    <string name="language_ar_ar" translatable="false">العربية</string>
+    <string name="language_pt_br" translatable="false">Português (Brasil)</string>
+    <string name="language_ko_kr" translatable="false">한국어</string>
+    <string name="language_ru_ru" translatable="false">Русский</string>
+    <string name="language_in_id" translatable="false">Bahasa Indonesia</string>
+    <string name="language_zh_cn" translatable="false">简体中文</string>
+    <string name="language_vi_vn" translatable="false">Tiếng Việt</string>
+
+    <!-- Dictionary Screen -->
+    <string name="dictionary_search_hint_text">Recherche texte</string>
+    <string name="dictionary_search_by_drawing_desc">Rechercher par dessin</string>
+    <string name="dictionary_mode_reading">Lecture (Kanas)</string>
+    <string name="dictionary_mode_meaning">Sens (Romaji)</string>
+    <string name="dictionary_search_hint_strokes">Traits</string>
+    <string name="dictionary_match_exact">Exact</string>
+    <string name="dictionary_clear_drawing_desc">Effacer le filtre de dessin</string>
+    <string name="dictionary_search_button">Rechercher</string>
+    <string name="dictionary_results_count_format">%1$d résultats</string>
+    <string name="dictionary_reading_on">On :</string>
+    <string name="dictionary_reading_kun">Kun :</string>
+    <string name="dictionary_draw_kanji">Dessinez un Kanji</string>
+    <string name="dictionary_recognize">Reconnaître</string>
+    
+    <!-- Kanji Details Screen -->
+    <string name="kanji_detail_components">Composants</string>
+
+    <!-- Gramma rules -->
+    <string name="verb_dict_form_desc">Forme dictionnaire des verbes (forme neutre)</string>
+    <string name="base_verbale_desc">Base verbale (forme en -i)</string>
+    <string name="forme_nai_desc">Forme négative des verbes</string>
+    <string name="forme_ta_desc">Forme passée des verbes</string>
+    <string name="forme_te_desc">Forme -te des verbes</string>
+    <string name="conjugaison_conditionnel_desc">Conjugaison des conditionnels</string>
+    <string name="adjectifs_i_desc">Adjectifs en -i</string>
+    <string name="adjectifs_na_desc">Adjectifs en -na</string>
+    <string name="noms_desc">Noms et substantifs</string>
+    <string name="noms_temps_desc">Noms de temps</string>
+    <string name="noms_lieux_desc">Noms de lieu</string>
+    <string name="particules_de_base_desc">Particules de base (は、が、を、に、で、へ、と、から、まで、より)</string>
+    <string name="aru_iru_desc">ある・いる - Exprimer l'existence</string>
+    <string name="ato_de_desc">後で - Après avoir ~, après que ~, après ~</string>
+    <string name="base_dasu_desc">Base verbale + 出す - Se mettre à faire quelque chose</string>
+    <string name="base_hajimeru_desc">Base verbale + 始める - Commencer à ~</string>
+    <string name="base_ni_iku_kuru_desc">Base verbale + にいく・にくる - Aller ou venir faire quelque chose</string>
+    <string name="base_sugiru_desc">Base verbale + すぎる - Exprimer l'excès</string>
+    <string name="chu_ju_desc">中・じゅう - Durant ~, pendant ~, partout dans ~, tout au long de ~</string>
+    <string name="particule_de_desc">で - Particule de moyen, de méthode, de lieu</string>
+    <string name="desho_daro_desc">でしょう・だろう - Exprimer la probabilité</string>
+    <string name="forme_conjonctive_i_desc">Forme conjonctive en -i - Base verbale</string>
+    <string name="forme_masu_desc">Forme en -ます - Forme polie d'un verbe</string>
+    <string name="forme_naide_kudasai_desc">Forme en -ないでください - Impératif poli</string>
+    <string name="forme_dict_desc">Forme en -る, -う - Forme neutre ou du dictionnaire</string>
+    <string name="forme_tai_desc">Forme en -たい - Forme volitive</string>
+    <string name="particule_ga_desc">が - Particule du sujet</string>
+    <string name="particule_ha_desc">は - Particule de thème</string>
+    <string name="ha_ikemasen_desc">は いけません - Exprimer l'interdiction ou l'impossibilité</string>
+    <string name="ho_ga_ii_desc">方がいい - Être préférable de faire quelque chose</string>
+    <string name="particule_ka_desc">か - Particule d'interrogation, d'énumération</string>
+    <string name="kara_made_desc">から・まで - Particules marquant un point de départ et de destination</string>
+    <string name="kara_node_desc">から・ので - Exprimer la raison ou la cause</string>
+    <string name="koto_ga_dekiru_desc">ことができる - Être capable de faire</string>
+    <string name="mae_ni_desc">前に - Avant de ~</string>
+    <string name="particule_mo_desc">も - ~ aussi, ~ non plus</string>
+    <string name="mo_ii_desu_desc">もいいです - Demander la permission</string>
+    <string name="superlatif_desc">最も・一番・最 - Le superlatif</string>
+    <string name="mo_mada_desc">もう・まだ - Déjà ~, ne ~ plus, encore ~, pas encore ~</string>
+    <string name="nado_desc">など - etc, entre autres choses, par exemple</string>
+    <string name="nakereba_narimasen_desc">なければなりません - Exprimer l'obligation</string>
+    <string name="naru_desc">なる - Devenir</string>
+    <string name="particule_ne_desc">ね - Particule de confirmation et d'invitation</string>
+    <string name="particule_ni_desc">に - Particule pour l'objet indirect, la direction, la place</string>
+    <string name="particule_no_desc">の - Particule de possession, d'interrogation</string>
+    <string name="no_desu_desc">のです - Nuance explicative, montrer son intérêt, atténuation</string>
+    <string name="particule_to_desc">と - Conjonction, préposition, citation, conditionnel</string>
+    <string name="to_iu_desc">という - Appelé ~, nommé ~, du nom de ~, qui s'appelle ~</string>
+    <string name="to_omoimasu_desc">と思います・どう思いますか - Donner son opinion et demander un avis</string>
+    <string name="tsumori_desu_desc">つもりです - Exprimer l'intention</string>
+    <string name="ta_koto_ga_aru_desc">Verbe -た + ことがある - Indiquer une expérience</string>
+    <string name="ta_ri_shimasu_desc">Verbe -た + りします - Série d'actions non-exhaustives</string>
+    <string name="te_iru_desc">Verbe -て + いる - Forme progressive</string>
+    <string name="te_kara_desc">Verbe -て + から - Après avoir ~</string>
+    <string name="particule_wo_desc">を - Particule pour indiquer l'objet direct, marquer le COI au causatif, indiquer un lieu traversé</string>
+    <string name="particule_ya_desc">や - Liste incomplète de choses</string>
+    <string name="particule_yo_desc">よ - Particule d'affirmation et d'insistance</string>
+    <string name="particule_yori_desc">より - Particule pour indiquer l'origine ou désigner le point de référence dans une comparaison</string>
+    <string name="yori_no_ho_ga_desc">より・の方が - Le comparatif</string>
+    <string name="amari_nai_desc">あまり + verbe en -ない - Presque pas ~, pas tellement ~</string>
+    <string name="base_au_desc">Base verbale + あう - Faire quelque chose réciproquement</string>
+    <string name="base_nagara_desc">Base verbale + ながら - Le gérondif</string>
+    <string name="base_so_desc">Base verbale + そう - Sembler, avoir l'air de ~</string>
+    <string name="base_tsuzukeru_desc">Base verbale + 続ける - Continuer de faire quelque chose</string>
+    <string name="base_yasui_nikui_desc">Base verbale + やすい・にくい - Facile ou difficile de faire une action</string>
+    <string name="beki_desc">べき - Obligation morale, devoir faire quelque chose</string>
+    <string name="conditionnel_naraba_desc">Conditionnel avec ならば - Conditionnel contextuel</string>
+    <string name="conditionnel_to_desc">Conditionnel avec と - Conditionnel logique</string>
+    <string name="conditionnel_eba_desc">Conditionnel en -えば - Conditionnel général</string>
+    <string name="conditionnel_tara_desc">Conditionnel en -たら - Conditionnel passé</string>
+    <string name="dake_shika_nomi_desc">だけ・しか・のみ - Particules pour limiter quelque chose</string>
+    <string name="conjecturale_to_suru_desc">Forme conjecturale + とする - Essayer de faire</string>
+    <string name="forme_areru_desc">Forme en -あれる - Forme passive</string>
+    <string name="forme_aseru_saseru_desc">Forme en -あせる・させる - Forme causative</string>
+    <string name="forme_eru_rareru_desc">Forme en -える・られる - Forme potentielle</string>
+    <string name="forme_nasai_desc">Forme en -なさい - Impératif doux</string>
+    <string name="forme_saserareru_desc">Forme en -させられる・あせられる - Forme causative passive</string>
+    <string name="forme_zuni_naide_desc">Forme en -ずに・ないで - Faire quelque chose sans en faire une autre</string>
+    <string name="forme_conjecturale_desc">Forme en -おう・よう・ましょう - Forme conjecturale</string>
+    <string name="garu_desc">がる - Exprimer le désir et les émotions de quelqu'un d'autre</string>
+    <string name="hazu_desc">はず - Indiquer que quelque chose est supposé se faire</string>
+    <string name="hoshii_desc">ほしい - Vouloir quelque chose</string>
+    <string name="ka_do_ka_desc">かどうか - Si oui ou non</string>
+    <string name="keigo_bases_desc">Keigo - Formes de base du keigo</string>
+    <string name="ki_ni_suru_naru_desc">気にする・気になる - Être préoccupé, se sentir inquiet</string>
+    <string name="koto_ni_suru_naru_kimeru_desc">ことにする・ことになる・ことを決める - Décider de faire quelque chose</string>
+    <string name="ni_yotte_yoruto_yoreba_desc">によって・によると・によれば・の意見では - Selon ~, d'après l'avis de ~</string>
+    <string name="noni_desc">のに - Malgré que ~, dans le but de ~</string>
+    <string name="rashii_desc">らしい - Exprimer une rumeur</string>
+    <string name="shi_desc">し - Énumérer des états et évoquer des raisons multiples</string>
+    <string name="suru_adjectif_desc">する - Rendre quelque chose ~</string>
+    <string name="toki_ni_desc">ときに - Quand ~</string>
+    <string name="ta_bakari_desc">Verbe -た + ばかり - Venir de faire quelque chose</string>
+    <string name="ta_ra_do_desu_ka_desc">Verbe -た + ら + どうですか - Proposer une suggestion</string>
+    <string name="te_ageru_sashiageru_yaru_desc">Verbe -て + あげる・さしあげる・やる - Faire quelque chose pour quelqu'un</string>
+    <string name="te_aru_desc">Verbe -て + ある - Décrit un état d'une action terminée</string>
+    <string name="te_bakari_iru_desc">Verbe -て + ばかりいる - Ne faire que quelque chose</string>
+    <string name="te_itadakemasen_ka_desc">Verbe -て + いただけませんか - Demande polie</string>
+    <string name="te_kuremasen_ka_desc">Verbe -て + くれませんか - Demande polie</string>
+    <string name="te_kureru_kudasaru_desc">Verbe -て + くれる・くださる - Quelqu'un fait quelque chose pour nous</string>
+    <string name="te_miru_desc">Verbe -て + みる - Essayer pour voir</string>
+    <string name="te_mo_desc">Verbe -て + も - Même si ~</string>
+    <string name="te_morau_itadaku_desc">Verbe -て + もらう・いただく - Recevoir une action de quelqu'un</string>
+    <string name="te_oku_desc">Verbe -て + おく - Faire une action sous peu en préparation de</string>
+    <string name="te_shimau_desc">Verbe -て + しまう - Regretter une action ou faire quelque chose complètement</string>
+    <string name="te_sumimasen_desc">Verbe -て + すmiません - Être désolé de ~</string>
+    <string name="te_yokatta_desc">Verbe -て + よかった - Être content que ~</string>
+    <string name="yo_ni_suru_naru_desc">ようにする・ようになる - Faire en sorte de ~, en arriver au point de ~</string>
+    <string name="base_gachi_desc">Base verbale + がち - Avoir tendance à souvent ~</string>
+    <string name="base_kireru_kirenai_desc">Base verbale + きれる・きれない - Être capable ou ne pas être capable de faire entièrement quelque chose</string>
+    <string name="base_kkonai_desc">Base verbale + っこない - N'est pas possible de ~, ne peut absolument pas ~</string>
+    <string name="base_shidai_desc">Base verbale + 次第 - Aussitôt après ~, dès que ~</string>
+    <string name="base_yo_ga_nai_desc">Base verbale + ようがない - Il n'y a pas moyen de ~</string>
+    <string name="darake_desc">だらけ - Plein de ~</string>
+    <string name="dokoro_ka_desc">どころか - Loin de ~, ~ en fait</string>
+    <string name="ha_motoyori_mochiron_desc">はもちろん・はもちろん - Bien évidemment ~ mais aussi ~</string>
+    <string name="ippo_da_desc">一方だ - Indiquer qu'une action suit de plus en plus une certaine tendance</string>
+    <string name="kara_ni_kakete_desc">から～にかけて - De ~ à ~</string>
+    <string name="kawari_ni_desc">代わりに - À la place de ~, au lieu de ~, en compensation de ~</string>
+    <string name="koso_desc">こそ - Particule de thème accentué</string>
+    <string name="kuseni_desc">くせに - Bien que ~, en dépit du fait que ~, malgré ~</string>
+    <string name="mono_n3_desc">もの - Parce que ~</string>
+    <string name="nagara_mo_desc">ながらも - Bien que ~</string>
+    <string name="ni_kagitte_desc">に限って - Particulièrement lors de ~, seulement lorsque ~</string>
+    <string name="ni_kan_shite_desc">に関して - Concernant ~, à propos de ~</string>
+    <string name="ni_kawatte_kawari_desc">に変わって・にかわり - À la place de ~, au lieu de ~, au nom de ~</string>
+    <string name="ni_kimatte_iru_desc">に決まっている - Sans aucun doute, c'est certain que ~</string>
+    <string name="ni_kurabete_desc">に比べて - Comparé à ~</string>
+    <string name="ni_kuwaete_desc">に加えて - En plus de ~</string>
+    <string name="ni_taishite_desc">に対して - Envers ~, à l'encontre de ~</string>
+    <string name="ni_totte_desc">にとって - Du point de vue de ~</string>
+    <string name="ni_tsuke_tsukete_tsuitemo_desc">につけ・につけて・につけても - Chaque fois que ~, toutes les fois où ~, que ce soit ~ ou ~</string>
+    <string name="okage_de_desc">おかげで - Grâce à ~</string>
+    <string name="sae_eb_desc">さえ + verbe -えば - Si seulement ~ alors ~</string>
+    <string name="seide_desc">せいで - À cause de ~</string>
+    <string name="tabi_ni_desc">度に - Chaque fois que ~</string>
+    <string name="tatoe_te_mo_desc">たとえ + verbe -て + も - Même si ~</string>
+    <string name="to_ieba_desc">と言えば - En parlant de ~</string>
+    <string name="to_ittara_desc">と言ったら - En parlant de ~, à propos de ~</string>
+    <string name="to_iu_to_desc">と言うと - En parlant de ~, à propos de ~</string>
+    <string name="tokoro_he_ni_wo_desc">ところへ・ところに・ところを - Mettre l'accent sur le moment où s'effectue une action</string>
+    <string name="toori_ni_doori_ni_desc">通りに・どおりに - Comme ~</string>
+    <string name="toshite_desc">として - En tant que ~</string>
+    <string name="tsuide_ni_desc">ついでに - Profiter de faire quelque chose pour en faire une autre</string>
+    <string name="uchi_ni_desc">うちに - Tant que ~, avant que ~</string>
+    <string name="ta_tokoro_desc">Verbe -た + ところ - Quand ~, lorsque ~</string>
+    <string name="ta_totan_desc">Verbe -た + とたん - Dès que ~, aussitôt que ~</string>
+    <string name="te_irai_desc">Verbe -て + 以来 - Depuis que ~</string>
+    <string name="wake_deha_nai_desc">わけではない - Cela ne veut pas dire que ~, n'être pas forcément ~, n'être pas spécialement ~</string>
+    <string name="wo_chushin_ni_desc">を中心に - Centré sur ~, autour de ~</string>
+    <string name="wo_hajime_hajime_to_suru_desc">をはじめ・をはじめとする - À commencer par ~</string>
+    <string name="wo_nuki_ni_shite_ha_nuki_ni_shite_desc">を抜きにして・は抜きにして - Laisser de côté ~, ne pas prendre en compte ~</string>
+    <string name="yo_ni_n3_desc">ように - Comme ~, dans le but de ~</string>
+    <string name="ageku_ni_desc">あげくに - Finalement, en fin de compte</string>
+    <string name="amari_excessif_desc">あまり - ~ tellement que</string>
+    <string name="bakari_ka_bakari_de_naku_desc">ばかりか・ばかりでなく - Non seulement ~ mais aussi ~</string>
+    <string name="base_gatai_desc">Base verbale + がたい - Difficile de ~, dur à ~</string>
+    <string name="base_gimi_desc">Base verbale + ぎmi - Avoir tendance à ~, être un peu ~, un léger sentiment de ~</string>
+    <string name="base_kakeru_desc">Base verbale + かける - Sans terminer, en laissant inachevé, sans finir quelque chose</string>
+    <string name="base_kanenai_desc">Base verbale + かねない - Il est à craindre que ~, il est possible que ~</string>
+    <string name="base_kaneru_desc">Base verbale + かねる - Ne pas pouvoir faire</string>
+    <string name="base_kiru_desc">Base verbale + きる - Faire complètement quelque chose</string>
+    <string name="base_nuku_desc">Base verbale + ぬく - Faire quelque chose à fond jusqu'à la fin</string>
+    <string name="base_uru_enai_desc">Base verbale + うる・えない - Être possible de ~</string>
+    <string name="dake_quantite_desc">だけ - Autant que ~</string>
+    <string name="dake_atte_desc">だけあって - Comme on pouvait s'y attendre</string>
+    <string name="dake_ni_desc">だけに - Parce que ~, comme on pouvait s'y attendre</string>
+    <string name="dokoro_deha_nai_naku_desc">どころではない・どころではなく - Être loin de ~, être hors de question de ~</string>
+    <string name="conjecturale_deha_nai_ka_desc">Forme conjecturale + ではないか - Pourquoi ne pas ~ ?, ne pourrait-on pas ~ ?</string>
+    <string name="ge_desc">げ - Avoir l'air de ~</string>
+    <string name="ha_tomokaku_desc">はともかく - Sans tenir compte de ~, en faisant abstraction de ~</string>
+    <string name="hanmen_desc">反面 - D'un autre côté</string>
+    <string name="hodo_desc">ほど - Plus ~, plus ~</string>
+    <string name="hoka_nai_shikata_ga_nai_desc">ほかない・ほか仕方がない - Ne pas avoir d'autres choix que de ~, devoir ~</string>
+    <string name="igai_no_desc">以外の - Autre que ~, excepté ~</string>
+    <string name="ijo_ha_desc">以上は - Dès lors que ~, du moment que ~, vu que ~</string>
+    <string name="ippo_ippo_deha_desc">一方・一方では - Bien que ~, d'un côté ~ par contre ~</string>
+    <string name="jo_ha_mo_no_desc">上は・上 भी・上の - Du point de vue de ~</string>
+    <string name="ka_to_omou_to_omottara_desc">かと思うuと・かと思ったら - Juste après ~, aussitôt que ~</string>
+    <string name="kagiri_desc">限り - Tant que ~, pour autant que ~</string>
+    <string name="kagiri_deha_desc">限りでは - Pour autant que ~, de ce que ~</string>
+    <string name="kanoyo_ni_na_da_desc">かのようだ・かのような・かのように - Comme ~</string>
+    <string name="kara_iu_to_ieba_itte_desc">から言うと・から言えば・から言って - Du point de vue de ~</string>
+    <string name="kara_mite_mo_miru_to_mireba_desc">から見ても・から見ると・から見れば - Du point de vue de ~</string>
+    <string name="kara_ni_ha_ha_desc">からには・からは - Maintenant que ~, depuis que ~</string>
+    <string name="kara_suru_to_sureba_shite_desc">からすると・からすれば・からして - À en juger par ~, compte tenu de ~</string>
+    <string name="kara_to_itte_desc">からと言って - Seulement parce que ~</string>
+    <string name="karakoso_desc">からこそ - C'est précisément parce que ~</string>
+    <string name="ki_ga_suru_desc">気がする - Avoir l'impression de ~</string>
+    <string name="kiri_desc">きり - Juste ~, seulement ~</string>
+    <string name="kke_desc">っけ - Expression pour indiquer une confirmation ou que l'on vient de se rappeler quelque chose</string>
+    <string name="koto_da_recommandation_desc">ことだ - Devoir faire quelque chose (recommandation)</string>
+    <string name="koto_dakara_desc">ことだから - C'est typique de ~, étant donné que ~</string>
+    <string name="koto_ha_nai_desc">ことはない - Ne pas être nécessaire de ~</string>
+    <string name="koto_ka_desc">ことか - Tellement, beaucoup</string>
+    <string name="koto_kara_desc">ことから - Parce que</string>
+    <string name="koto_naku_desc">ことなく - Sans ~</string>
+    <string name="koto_ni_ha_desc">ことには - Complètement ~, vraiment ~, à ma ~</string>
+    <string name="kurai_gurai_hodo_desc">くらい・ぐらい・ほど - Au point de ~, pas autant ~ que ~, même ~, au moins ~, plutôt que de ~</string>
+    <string name="mai_desc">mai - Ne devrait pas ~, ne pas ~ probablement</string>
+    <string name="mai_ka_desc">mai_ka - Ne pas savoir si oui ou non ~</string>
+    <string name="mo_kamawazu_desc">もかまわず - Sans se soucier de ~</string>
+    <string name="mono_da_n2_desc">ものだ - Éprouver de l'admiration, décrire une évidence, suggérer un conseil, exprimer de la nostalgie</string>
+    <string name="mono_dakara_desc">ものだから - Parce que ~</string>
+    <string name="mono_ga_aru_desc">ものがある - Avoir l'impression de ~, ressentir quelque chose</string>
+    <string name="mono_ka_desc">ものか - Pas du tout</string>
+    <string name="mono_nara_desc">ものなら - Si seulement ~ était possible, alors ~</string>
+    <string name="mono_no_desc">ものの - Bien que ~</string>
+    <string name="muke_desc">向け - Destiné à ~</string>
+    <string name="muki_desc">向き - Être adapté à ~</string>
+    <string name="nado_nanka_nante_desc">など・なんか・なんて - Particules soulignant quelque chose de négatif</string>
+    <string name="nai_koto_ha_nai_desc">ないことはない - Ce n'est pas impossible que ~, il y a une faible chance que ~, il se peut que ~</string>
+    <string name="nai_koto_ni_ha_desc">ないことには - Tant que ~, si ~</string>
+    <string name="nakanaka_nai_desc">なかなか + verbe en -ない - Ne pas pouvoir faire quelque chose facilement</string>
+    <string name="ni_atatte_atari_desc">に当たって・に当たり - À l'occasion de ~</string>
+    <string name="ni_chigai_nai_desc">に違いない - Sûrement</string>
+    <string name="ni_hanshite_desc">に反して - Contrairement à ~</string>
+    <string name="ni_hoka_naranai_desc">にほかならない - N'être rien d'autre que ~</string>
+    <string name="ni_kagirazu_desc">に限らず - Pas uniquement réservé à ~</string>
+    <string name="ni_kagiru_desc">に限る - Rien n'est meilleur que de ~, rien ne vaut ~</string>
+    <string name="ni_kakawarazu_kakawarinaku_desc">にかかわらず・にかかわりなく - Peu importe ~</string>
+    <string name="ni_kakete_ha_mo_desc">にかけては・にかけて aussi - Concernant ~, en parlant de ~</string>
+    <string name="ni_kotaete_desc">に応えて - En réponse à ~</string>
+    <string name="ni_mo_kakawarazu_desc">にもかかわらず - Bien que ~, en dépit du fait que ~, malgré ~</string>
+    <string name="ni_moto_zuite_desc">に基づいて - Basé sur ~, en se basant sur ~</string>
+    <string name="ni_oite_okeru_desc">において・における - Dans ~, lors de ~, à ~, en ~</string>
+    <string name="ni_sai_shite_sai_shi_desc">に際して・に際し - Lors de ~, à l'occasion de ~</string>
+    <string name="ni_sakidatte_desc">に先立って - Avant ~, au préalable de ~</string>
+    <string name="ni_shiro_shitemo_seyo_desc">にしろ・にしても・にせよ - Même si ~, peu importe que ~, dans un cas ou l'autre</string>
+    <string name="ni_shitagatte_desc">に従って - En suivant ~, conformément à ~, au fur et à mesure que ~</string>
+    <string name="ni_shitara_sureba_shite_mo_desc">にしたら・にすれば・にしても - En se mettant à la place de ~, du point de vue de ~</string>
+    <string name="ni_shite_ha_desc">にしては - Bien que ~, malgré ~</string>
+    <string name="ni_sotte_soi_sou_desc">に沿って・に沿い・に沿う - Conformément à ~, en suivant ~, le long de ~</string>
+    <string name="ni_suginai_desc">に過ぎない - N'être rien de plus que ~, n'être tout au plus que ~</string>
+    <string name="ni_soi_nai_desc">に相違ない - Sûrement, sans aucun doute</string>
+    <string name="ni_tomonatte_desc">に伴って - En même temps que ~, avec ~</string>
+    <string name="ni_tsuite_desc">について - Concernant ~, à propos de ~</string>
+    <string name="ni_tsuki_desc">につき - En raison de ~, pour cause de ~</string>
+    <string name="ni_tsurete_desc">につれて - Au fur et à mesure que ~</string>
+    <string name="ni_wataru_watatte_desc">にわたる・にわたって - Durant ~, tout au long de ~, à travers ~</string>
+    <string name="ni_ojite_desc">に応じて - Selon ~, suivant ~, en réponse à ~</string>
+    <string name="no_moto_de_ni_desc">のもとで・のもとに - Sous ~, en suivant ~</string>
+    <string name="nomi_narazu_desc">のみならず - Pas seulement ~ mais aussi ~</string>
+    <string name="nuki_de_no_desc">抜きで・抜きの - Sans ~</string>
+    <string name="osore_ga_aru_desc">恐れがある - J'ai bien peur que ~, c'est malheureusement probable que ~</string>
+    <string name="ppoi_desc">っぽい - Paraître ~, ressembler ~</string>
+    <string name="sae_karashite_desc">さえ・からして - Même ~, même pas ~</string>
+    <string name="sai_ni_desc">際に - Lors de ~, lorsque ~</string>
+    <string name="saichu_ni_desc">最中に - En plein milieu de ~</string>
+    <string name="shidai_deha_da_desc">次第では・次第だ - Suivant ~, dépend de ~, la raison est que ~</string>
+    <string name="shikanai_desc">しかない - Ne pas avoir d'autres choix que de ~, devoir ~</string>
+    <string name="sue_ni_no_sue_desc">末に・末の・の末 - Après avoir ~</string>
+    <string name="to_itte_mo_desc">と言っても - Bien que ~, même si l'on dit que ~</string>
+    <string name="to_iu_koto_da_desc">と言うことだ - J'ai entendu que ~, cela veut dire que ~</string>
+    <string name="to_iu_mono_da_desc">と言うものだ - Je pense que ~, c'est ~</string>
+    <string name="to_iu_mono_deha_nai_desc">と言うものではない - Cela ne veut pas dire que ~, ce n'est pas nécessairement ~</string>
+    <string name="to_iu_yori_desc">と言うより - Plutôt que ~</string>
+    <string name="to_shitara_sureba_desc">としたら・とすれば - En supposant que ~, si ~</string>
+    <string name="to_shite_ha_desc">としては - Pour ~</string>
+    <string name="to_shite_mo_desc">としても - Même si ~, en supposant que ~</string>
+    <string name="to_tomo_ni_desc">とともに - Avec ~, en même temps que ~, simultanément</string>
+    <string name="toka_desc">とか - Il semblerait que ~, j'ai entendu dire que ~</string>
+    <string name="tsutsu_desc">つつ - Bien que ~, malgré ~, tout en ~</string>
+    <string name="ue_de_desc">上で - Après avoir ~</string>
+    <string name="ue_ha_desc">上は - Dès lors que ~, du moment que ~</string>
+    <string name="ue_ni_desc">上に - Non seulement ~ mais en plus ~</string>
+    <string name="eba_verb_neutre_hodo_desc">Verbe -えば + verbe neutre + ほど - Plus on fait cela, plus ~</string>
+    <string name="naide_zuni_ha_irarenai_desc">Verbe -ないで ou verbe -ずに + はいられない - Ne pas pouvoir s'empêcher de ~</string>
+    <string name="ta_kiri_desc">Verbe -た + きり - Pour de bon, une fois pour toutes</string>
+    <string name="te_hajimete_desc">Verbe -て + はじめて - Seulement après avoir commencé à ~</string>
+    <string name="te_karade_nai_to_nakereba_desc">Verbe -て + からでないと・からでなければ - Si je ne ~ pas avant, ~</string>
+    <string name="te_naranai_desc">Verbe -て + ならない - Ne pas pouvoir se retenir de ~, ne pas pouvoir s'empêcher de ~</string>
+    <string name="te_tamaranai_shoganai_desc">Verbe -て + たまらない・しょうがない - Ne pas pouvoir supporter ~, ne pas pouvoir se retenir ~</string>
+    <string name="keigo_vocabulaire_desc">Vocabulaire pour le keigo - Mots utilisés de manière formelle</string>
+    <string name="wake_desu_desc">わけです - Il est naturel que ~, c'est parce que ~</string>
+    <string name="wake_ga_nai_desc">わけがない - Il n'est pas possible de/que ~</string>
+    <string name="wake_ni_ha_ikanai_desc">わけにはいかない - Ne pas pouvoir se permettre de ~</string>
+    <string name="wari_ni_desc">わりに - En dépit de ~, malgré ~</string>
+    <string name="wo_keiki_ni_shite_toshite_desc">を契機に・を契機として - Suite à ~</string>
+    <string name="wo_kikkake_ni_shite_toshite_desc">をきっかけに・をきっかけとして - Depuis que ~, suite à ~</string>
+    <string name="wo_komete_desc">を込めて - Avec tout ~</string>
+    <string name="wo_megutte_desc">をめぐって - À propos de ~, autour de ~, concernant ~</string>
+    <string name="wo_moto_ni_shite_desc">を元に・を元にして - En se fondant sur ~, à partir de ~, en se basant sur ~</string>
+    <string name="wo_towazu_ha_towazu_desc">を問わず・は問わず - Sans lien avec ~, quelque soit ~</string>
+    <string name="wo_tsujite_tooshite_desc">を通じて・を通して - Durant ~, à travers ~, par l'intermédiaire de ~</string>
+    <string name="zaru_wo_enai_desc">ざるを得ない - Ne pas avoir d'autres choix que de ~, devoir ~</string>
+    <string name="ka_nai_ka_no_uchi_ni_desc">~か~ないかのうちに - À peine ~</string>
+    <string name="yara_yara_desc">~やら~やら - Des choses comme ~ et ~ entre autres</string>
+    <string name="mo_eba_nara_mo_desc">~も + verbe -えば ou nara + ~も - Non seulement ~ mais ~ aussi, ni ~ ni ~</string>
+    <string name="base_naosu_desc">Base verbale + 直す - Réessayer de faire</string>
+    <string name="base_owaru_desc">Base verbale + 終わる - Finir de ~</string>
+    <string name="conjecturale_to_omou_desc">Forme conjecturale + と思う - Avoir l'intention de faire</string>
+    <string name="goro_gurai_yaku_desc">ごろ・ぐらい・約 - Environ ~</string>
+    <string name="hitsuyo_desc">必要 - Évoquer le nécessaire</string>
+    <string name="ichio_desc">一応 - Au cas où, quand même</string>
+    <string name="nidoto_desc">二度と - Plus jamais</string>
+    <string name="sonna_ni_desc">そんなに - Pas tant que ça</string>
+    <string name="tada_no_tan_ni_desc">ただの・単に - Un simple ~, simplement ~</string>
+    <string name="to_iu_no_ha_desc">というのは - Vouloir dire ou parler de quelque chose</string>
+    <string name="eba_ii_noni_desc">Verbe -えば + いいのに - Espérer ou suggérer quelque chose opposée à ce qui en cours</string>
+    <string name="ta_ra_ii_desu_ka_desc">Verbe -た + ら + いいですか - Demander un conseil</string>
+    <string name="te_mo_shoganai_shikataganai_desc">Verbe -て + も + しょうがない・仕方がない - Ne servir à rien de faire quelque chose</string>
+    <string name="zutsu_desc">ずつ - Chaque ~, ~ à la fois</string>
+</resources>
