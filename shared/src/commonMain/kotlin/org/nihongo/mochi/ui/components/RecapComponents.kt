@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -65,6 +66,9 @@ fun RecapKanjiGridItem(
     color: Color,
     onClick: () -> Unit
 ) {
+    // Determine a readable text color based on background luminance
+    val textColor = if (color.luminance() > 0.5f) Color.Black else Color.White
+
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(4.dp))
@@ -76,7 +80,7 @@ fun RecapKanjiGridItem(
         Text(
             text = kanji,
             fontSize = 24.sp,
-            color = Color.Black, // As per original XML
+            color = textColor,
             textAlign = TextAlign.Center
         )
     }
@@ -127,7 +131,7 @@ fun <T> ModeSelector(
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(Color.White.copy(alpha = 0.8f)) // Semi-transparent white background
+                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.8f))
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -148,8 +152,11 @@ fun <T> ModeSelector(
                             onClick = { onOptionSelected(value) },
                             enabled = enabled
                         )
-                        // Use pure black for text inside the white box for maximum contrast
-                        Text(text = text, color = Color.Black, fontWeight = FontWeight.Bold)
+                        Text(
+                            text = text, 
+                            color = MaterialTheme.colorScheme.onSurfaceVariant, 
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
             }

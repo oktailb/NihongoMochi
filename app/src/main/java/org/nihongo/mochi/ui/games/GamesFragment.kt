@@ -24,7 +24,10 @@ class GamesFragment : Fragment() {
                 AppTheme {
                     GamesScreen(
                         onBackClick = { findNavController().popBackStack() },
-                        onTaquinClick = { Toast.makeText(context, "Coming soon: Taquin", Toast.LENGTH_SHORT).show() },
+                        onTaquinClick = { 
+                            val action = GamesFragmentDirections.actionNavGamesToNavTaquin()
+                            findNavController().navigate(action)
+                        },
                         onSimonClick = { 
                             val action = GamesFragmentDirections.actionNavGamesToNavSimon()
                             findNavController().navigate(action)

@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_nav_games_to_nav_simon"
             app:destination="@id/nav_simon" />
+        <action
+            android:id="@+id/action_nav_games_to_nav_taquin"
+            app:destination="@id/nav_taquin" />
     </fragment>
 
     <fragment
@@ -68,6 +71,12 @@
         android:id="@+id/nav_simon"
         android:name="org.nihongo.mochi.ui.games.SimonFragment"
         android:label="Simon"
+        tools:layout="@layout/fragment_games" />
+
+    <fragment
+        android:id="@+id/nav_taquin"
+        android:name="org.nihongo.mochi.ui.games.TaquinFragment"
+        android:label="Taquin"
         tools:layout="@layout/fragment_games" />
 
     <fragment

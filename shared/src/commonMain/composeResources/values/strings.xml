@@ -85,6 +85,16 @@
     <string name="game_memorize_title">Memorize</string>
     <string name="game_memorize_subtitle">Retrouvez les paires de cartes (Kanji, Sens, Lecture)</string>
 
+    <!-- Taquin Game -->
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Mode de jeu</string>
+    <string name="game_taquin_rows_label">Nombre de lignes : %1$d</string>
+    <string name="game_taquin_moves_label">Coups</string>
+    <string name="game_taquin_time_label">Temps</string>
+    <string name="game_taquin_congrats">Félicitations ! Tableau complété.</string>
+    <string name="game_taquin_back">Retour</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d lignes)</string>
+
     <!-- Memorize Game -->
     <string name="game_memorize_grid_size">Taille de la grille</string>
     <string name="game_memorize_max_strokes">Complexité max (traits: %1$d)</string>
@@ -430,7 +440,7 @@
     <string name="te_morau_itadaku_desc">Verbe -て + もらう・いただく - Recevoir une action de quelqu'un</string>
     <string name="te_oku_desc">Verbe -て + おく - Faire une action sous peu en préparation de</string>
     <string name="te_shimau_desc">Verbe -て + しまう - Regretter une action ou faire quelque chose complètement</string>
-    <string name="te_sumimasen_desc">Verbe -て + すみません - Être désolé de ~</string>
+    <string name="te_sumimasen_desc">Verbe -て + すmiません - Être désolé de ~</string>
     <string name="te_yokatta_desc">Verbe -て + よかった - Être content que ~</string>
     <string name="yo_ni_suru_naru_desc">ようにする・ようになる - Faire en sorte de ~, en arriver au point de ~</string>
     <string name="base_gachi_desc">Base verbale + がち - Avoir tendance à souvent ~</string>
@@ -482,7 +492,7 @@
     <string name="amari_excessif_desc">あまり - ~ tellement que</string>
     <string name="bakari_ka_bakari_de_naku_desc">ばかりか・ばかりでなく - Non seulement ~ mais aussi ~</string>
     <string name="base_gatai_desc">Base verbale + がたい - Difficile de ~, dur à ~</string>
-    <string name="base_gimi_desc">Base verbale + ぎみ - Avoir tendance à ~, être un peu ~, un léger sentiment de ~</string>
+    <string name="base_gimi_desc">Base verbale + ぎmi - Avoir tendance à ~, être un peu ~, un léger sentiment de ~</string>
     <string name="base_kakeru_desc">Base verbale + かける - Sans terminer, en laissant inachevé, sans finir quelque chose</string>
     <string name="base_kanenai_desc">Base verbale + かねない - Il est à craindre que ~, il est possible que ~</string>
     <string name="base_kaneru_desc">Base verbale + かねる - Ne pas pouvoir faire</string>
@@ -502,8 +512,8 @@
     <string name="igai_no_desc">以外の - Autre que ~, excepté ~</string>
     <string name="ijo_ha_desc">以上は - Dès lors que ~, du moment que ~, vu que ~</string>
     <string name="ippo_ippo_deha_desc">一方・一方では - Bien que ~, d'un côté ~ par contre ~</string>
-    <string name="jo_ha_mo_no_desc">上は・上も・上の - Du point de vue de ~</string>
-    <string name="ka_to_omou_to_omottara_desc">かと思うと・かと思ったら - Juste après ~, aussitôt que ~</string>
+    <string name="jo_ha_mo_no_desc">上は・上 भी・上の - Du point de vue de ~</string>
+    <string name="ka_to_omou_to_omottara_desc">かと思うuと・かと思ったら - Juste après ~, aussitôt que ~</string>
     <string name="kagiri_desc">限り - Tant que ~, pour autant que ~</string>
     <string name="kagiri_deha_desc">限りでは - Pour autant que ~, de ce que ~</string>
     <string name="kanoyo_ni_na_da_desc">かのようだ・かのような・かのように - Comme ~</string>
@@ -524,8 +534,8 @@
     <string name="koto_naku_desc">ことなく - Sans ~</string>
     <string name="koto_ni_ha_desc">ことには - Complètement ~, vraiment ~, à ma ~</string>
     <string name="kurai_gurai_hodo_desc">くらい・ぐらい・ほど - Au point de ~, pas autant ~ que ~, même ~, au moins ~, plutôt que de ~</string>
-    <string name="mai_desc">まい - Ne devrait pas ~, ne pas ~ probablement</string>
-    <string name="mai_ka_desc">まいか - Ne pas savoir si oui ou non ~</string>
+    <string name="mai_desc">mai - Ne devrait pas ~, ne pas ~ probablement</string>
+    <string name="mai_ka_desc">mai_ka - Ne pas savoir si oui ou non ~</string>
     <string name="mo_kamawazu_desc">もかまわず - Sans se soucier de ~</string>
     <string name="mono_da_n2_desc">ものだ - Éprouver de l'admiration, décrire une évidence, suggérer un conseil, exprimer de la nostalgie</string>
     <string name="mono_dakara_desc">ものだから - Parce que ~</string>
@@ -546,7 +556,7 @@
     <string name="ni_kagirazu_desc">に限らず - Pas uniquement réservé à ~</string>
     <string name="ni_kagiru_desc">に限る - Rien n'est meilleur que de ~, rien ne vaut ~</string>
     <string name="ni_kakawarazu_kakawarinaku_desc">にかかわらず・にかかわりなく - Peu importe ~</string>
-    <string name="ni_kakete_ha_mo_desc">にかけては・にかけて भी - Concernant ~, en parlant de ~</string>
+    <string name="ni_kakete_ha_mo_desc">にかけては・にかけて aussi - Concernant ~, en parlant de ~</string>
     <string name="ni_kotaete_desc">に応えて - En réponse à ~</string>
     <string name="ni_mo_kakawarazu_desc">にもかかわらず - Bien que ~, en dépit du fait que ~, malgré ~</string>
     <string name="ni_moto_zuite_desc">に基づいて - Basé sur ~, en se basant sur ~</string>

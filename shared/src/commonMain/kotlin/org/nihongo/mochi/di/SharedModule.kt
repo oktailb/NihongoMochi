@@ -23,6 +23,7 @@ import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
 import org.nihongo.mochi.ui.games.memorize.MemorizeViewModel
 import org.nihongo.mochi.ui.games.simon.SimonViewModel
+import org.nihongo.mochi.ui.games.taquin.TaquinViewModel
 import org.nihongo.mochi.ui.gojuon.KanaRecapViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
@@ -51,6 +52,7 @@ val sharedModule = module {
     factoryOf(::GrammarViewModel)
     factoryOf(::MemorizeViewModel)
     factoryOf(::SimonViewModel)
+    factoryOf(::TaquinViewModel)
     
     // ViewModels with parameters
     factory { params ->

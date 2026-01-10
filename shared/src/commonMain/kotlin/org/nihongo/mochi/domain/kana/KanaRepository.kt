@@ -2,20 +2,17 @@ package org.nihongo.mochi.domain.kana
 
 import kotlinx.serialization.json.Json
 import kotlinx.coroutines.runBlocking
+import org.nihongo.mochi.ui.games.taquin.NumberData
+import org.nihongo.mochi.ui.games.taquin.NumberEntry
 
 class KanaRepository(private val resourceLoader: ResourceLoader) {
     
     private val json = Json { ignoreUnknownKeys = true }
     
-    // Cache to avoid reloading/parsing every time (optional optimization)
     private var hiraganaCache: List<KanaEntry>? = null
     private var katakanaCache: List<KanaEntry>? = null
 
     fun getKanaEntries(type: KanaType): List<KanaEntry> {
-        // Compose Resources readBytes is suspendable.
-        // Since this repository is likely called from UI context or non-suspend paths currently,
-        // we use runBlocking for now as a bridge during migration.
-        // Ideally, the whole chain up to ViewModel should be suspendable.
         return runBlocking {
             getKanaEntriesSuspend(type)
         }
@@ -42,5 +39,15 @@ class KanaRepository(private val resourceLoader: ResourceLoader) {
         if (type == KanaType.KATAKANA) katakanaCache = result
         
         return result
+    }
+
+    suspend fun getNumberEntries(): List<NumberEntry> {
+        return try {
+            val jsonString = resourceLoader.loadJson("numbers.json")
+            json.decodeFromString<NumberData>(jsonString).numbers
+        } catch (e: Exception) {
+            println("Error parsing numbers data: ${e.message}")
+            emptyList()
+        }
     }
 }

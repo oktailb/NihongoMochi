@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -110,6 +111,9 @@ fun KanaGridItem(
     character: String,
     color: Color
 ) {
+    // Determine a readable text color based on background luminance
+    val textColor = if (color.luminance() > 0.5f) Color.Black else Color.White
+
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(4.dp))
@@ -120,7 +124,7 @@ fun KanaGridItem(
         Text(
             text = character,
             fontSize = 24.sp,
-            color = Color.Black,
+            color = textColor,
             textAlign = TextAlign.Center
         )
     }

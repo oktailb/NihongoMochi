@@ -16,6 +16,7 @@ object ScoreManager : ScoreRepository {
     private const val DEFAULT_LIST_NAME = "Default"
     private const val MEMORIZE_HISTORY_KEY = "memorize_history_json"
     private const val SIMON_HISTORY_KEY = "simon_history_json"
+    private const val TAQUIN_HISTORY_KEY = "taquin_history_json"
     private lateinit var scoresSettings: Settings
     private lateinit var userListSettings: Settings
     private lateinit var appSettings: Settings
@@ -72,6 +73,15 @@ object ScoreManager : ScoreRepository {
 
     fun getSimonHistory(): String {
         return appSettings.getString(SIMON_HISTORY_KEY, "[]")
+    }
+
+    // --- Taquin History ---
+    fun saveTaquinHistory(historyJson: String) {
+        appSettings.putString(TAQUIN_HISTORY_KEY, historyJson)
+    }
+
+    fun getTaquinHistory(): String {
+        return appSettings.getString(TAQUIN_HISTORY_KEY, "[]")
     }
 
     private fun getList(listName: String): MutableSet<String> {
@@ -231,6 +241,7 @@ object ScoreManager : ScoreRepository {
             })
             put("memorize_history", JsonPrimitive(getMemorizeHistory()))
             put("simon_history", JsonPrimitive(getSimonHistory()))
+            put("taquin_history", JsonPrimitive(getTaquinHistory()))
         }
 
         return Json.encodeToString(jsonObject)
@@ -269,6 +280,11 @@ object ScoreManager : ScoreRepository {
                 val simonHistory = jsonElement["simon_history"]
                 if (simonHistory is JsonPrimitive && simonHistory.isString) {
                     saveSimonHistory(simonHistory.content)
+                }
+
+                val taquinHistory = jsonElement["taquin_history"]
+                if (taquinHistory is JsonPrimitive && taquinHistory.isString) {
+                    saveTaquinHistory(taquinHistory.content)
                 }
             }
         } catch (e: Exception) {
