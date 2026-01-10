@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">니혼고모치</string>
     <string name="navigation_drawer_open">탐색 창 열기</string>
     <string name="navigation_drawer_close">탐색 창 닫기</string>
-    <string name="nav_header_title">안드로이드 스튜디오</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">탐색 헤더</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">로그인</string>
@@ -550,4 +549,55 @@
     <string name="ta_ra_ii_desu_ka_desc">동사 -た + ura + いいがしな - 조언을 구하세요</string>
     <string name="te_mo_shoganai_shikataganai_desc">동사 -て + も + しょуがない・仕方がない - 어떤 일을 해도 소용이 없습니다</string>
     <string name="zutsu_desc">ずつ - 한 번에 ~, ~ 각각</string>
+    <string name="games_title">계략</string>
+    <string name="game_taquin_title">놀리다</string>
+    <string name="game_taquin_subtitle">Kanas 테이블을 다시 순서대로 놓기</string>
+    <string name="game_simon_title">사이먼은 말한다</string>
+    <string name="game_simon_subtitle">소리의 순서를 기억하고 반복하세요</string>
+    <string name="game_tetris_title">블록</string>
+    <string name="game_tetris_subtitle">구성 요소를 조립하여 한자를 만듭니다.</string>
+    <string name="game_crosswords_title">크로스워드</string>
+    <string name="game_crosswords_subtitle">JLPT 레벨별 주제별 크로스워드</string>
+    <string name="game_memorize_title">암기하다</string>
+    <string name="game_memorize_subtitle">카드 쌍 찾기(한자, 의미, 읽기)</string>
+    <string name="game_taquin_japanese_title">스라이딩파즐</string>
+    <string name="game_taquin_mode_label">게임 모드</string>
+    <string name="game_taquin_rows_label">줄 수: %1$d</string>
+    <string name="game_taquin_moves_label">불면</string>
+    <string name="game_taquin_time_label">시간</string>
+    <string name="game_taquin_congrats">축하해요 ! 테이블이 완성되었습니다.</string>
+    <string name="game_taquin_back">뒤쪽에</string>
+    <string name="game_taquin_score_history_label">%1$s(%2$d줄)</string>
+    <string name="game_memorize_grid_size">그리드 크기</string>
+    <string name="game_memorize_max_strokes">최대 복잡성(특성: %1$d)</string>
+    <string name="game_memorize_recent_scores">최신 점수</string>
+    <string name="game_memorize_no_scores">아직 점수가 없습니다</string>
+    <string name="game_memorize_score_format">%1$d 이동</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">떠나다</string>
+    <string name="game_memorize_moves">이동: %1$d</string>
+    <string name="game_memorize_time">시간: %1$ds</string>
+    <string name="game_memorize_pairs_count">쌍: %1$d / %2$d</string>
+    <string name="game_memorize_finished">완성된 !</string>
+    <string name="game_memorize_congrats">잘하셨어요 ! 쌍을 찾았습니다.</string>
+    <string name="game_memorize_replay">다시 하다</string>
+    <string name="game_memorize_back_menu">메뉴로 돌아가기</string>
+    <string name="game_simon_max_sequence">최대 시퀀스: %1$d</string>
+    <string name="game_simon_game_over">게임 종료</string>
+    <string name="game_simon_btn_content">버튼 내용</string>
+    <string name="game_simon_mode_kanji">한자</string>
+    <string name="game_simon_mode_meaning">감각</string>
+    <string name="game_simon_mode_reading_std">읽기(표준)</string>
+    <string name="game_simon_mode_reading_rnd">읽기(Rnd)</string>
+    <string name="game_simon_record">기록: %1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">입자 방어자</string>
+    <string name="game_particles_subtitle">문법 슈터: 올바른 입자 찾기</string>
+    <string name="game_forge_title">래디컬 포지</string>
+    <string name="game_forge_subtitle">한자를 만들기 위해 급진파를 모아라</string>
+    <string name="game_shiritori_title">시리토리 젠</string>
+    <string name="game_shiritori_subtitle">일본의 전통적인 단어 문자열</string>
+    <string name="game_shadow_title">그림자 한자</string>
+    <string name="game_shadow_subtitle">실루엣으로 한자를 식별하세요</string>
 </resources>

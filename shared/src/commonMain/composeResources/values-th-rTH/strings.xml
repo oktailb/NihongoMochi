@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">นิฮงโกะ โมจิ</string>
     <string name="navigation_drawer_open">เปิดลิ้นชักการนำทาง</string>
     <string name="navigation_drawer_close">ปิดลิ้นชักการนำทาง</string>
-    <string name="nav_header_title">แอนดรอยด์สตูดิโอ</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">ส่วนหัวการนำทาง</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">ลงชื่อเข้าใช้</string>
@@ -550,4 +549,55 @@
     <string name="ta_ra_ii_desu_ka_desc">กริยา - た + ら + いいですか - ขอคำแนะนำ</string>
     <string name="te_mo_shoganai_shikataganai_desc">กริยา -て + も + しょうがない・仕方がない - การทำอะไรบางอย่างไม่มีประโยชน์</string>
     <string name="zutsu_desc">ずつ - ครั้งละ ~, ~</string>
+    <string name="games_title">เกมส์</string>
+    <string name="game_taquin_title">หยอกล้อ</string>
+    <string name="game_taquin_subtitle">วางโต๊ะคานาสกลับเข้าที่</string>
+    <string name="game_simon_title">ไซมอนกล่าวว่า</string>
+    <string name="game_simon_subtitle">จดจำและทำซ้ำลำดับของเสียง</string>
+    <string name="game_tetris_title">บล็อก</string>
+    <string name="game_tetris_subtitle">ประกอบส่วนประกอบให้เป็นคันจิ</string>
+    <string name="game_crosswords_title">ปริศนาอักษรไขว้</string>
+    <string name="game_crosswords_subtitle">ปริศนาอักษรไขว้เฉพาะเรื่องตามระดับ JLPT</string>
+    <string name="game_memorize_title">จดจำ</string>
+    <string name="game_memorize_subtitle">ค้นหาคู่ไพ่ (คันจิ ความหมาย การอ่าน)</string>
+    <string name="game_taquin_japanese_title">スライデングパズル</string>
+    <string name="game_taquin_mode_label">โหมดเกม</string>
+    <string name="game_taquin_rows_label">จำนวนบรรทัด: %1$d</string>
+    <string name="game_taquin_moves_label">พัด</string>
+    <string name="game_taquin_time_label">เวลา</string>
+    <string name="game_taquin_congrats">ยินดีด้วย ! ตารางเสร็จสมบูรณ์</string>
+    <string name="game_taquin_back">กลับ</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d บรรทัด)</string>
+    <string name="game_memorize_grid_size">ขนาดตาราง</string>
+    <string name="game_memorize_max_strokes">ความซับซ้อนสูงสุด (ลักษณะ: %1$d)</string>
+    <string name="game_memorize_recent_scores">คะแนนล่าสุด</string>
+    <string name="game_memorize_no_scores">ยังไม่มีคะแนน</string>
+    <string name="game_memorize_score_format">%1$d เคลื่อนไหว</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">เพื่อออกเดินทาง</string>
+    <string name="game_memorize_moves">ย้าย: %1$d</string>
+    <string name="game_memorize_time">เวลา: %1$ds</string>
+    <string name="game_memorize_pairs_count">คู่: %1$d / %2$d</string>
+    <string name="game_memorize_finished">ที่เสร็จเรียบร้อย !</string>
+    <string name="game_memorize_congrats">ทำได้ดี ! พบคู่แล้ว</string>
+    <string name="game_memorize_replay">เล่นซ้ำ</string>
+    <string name="game_memorize_back_menu">กลับไปที่เมนู</string>
+    <string name="game_simon_max_sequence">ลำดับสูงสุด: %1$d</string>
+    <string name="game_simon_game_over">จบเกม</string>
+    <string name="game_simon_btn_content">เนื้อหาปุ่ม</string>
+    <string name="game_simon_mode_kanji">คันจิ</string>
+    <string name="game_simon_mode_meaning">ความรู้สึก</string>
+    <string name="game_simon_mode_reading_std">เรดดิ้ง (มาตรฐาน)</string>
+    <string name="game_simon_mode_reading_rnd">เรดดิ้ง (รอบ)</string>
+    <string name="game_simon_record">บันทึก: %1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">ผู้พิทักษ์อนุภาค</string>
+    <string name="game_particles_subtitle">เกมยิงไวยากรณ์: ค้นหาอนุภาคที่เหมาะสม</string>
+    <string name="game_forge_title">เรดิคัลฟอร์จ</string>
+    <string name="game_forge_subtitle">รวบรวมอนุมูลเพื่อปลอมตัวอักษรคันจิ</string>
+    <string name="game_shiritori_title">ชิริโทริ เซน</string>
+    <string name="game_shiritori_subtitle">สตริงคำภาษาญี่ปุ่นแบบดั้งเดิม</string>
+    <string name="game_shadow_title">เงาคันจิ</string>
+    <string name="game_shadow_subtitle">ระบุตัวคันจิด้วยภาพเงาของพวกเขา</string>
 </resources>

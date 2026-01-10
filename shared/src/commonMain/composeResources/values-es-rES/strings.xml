@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Abrir menú de navegación</string>
     <string name="navigation_drawer_close">Cerrar menú de navegación</string>
-    <string name="nav_header_title">Estudio Android</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Encabezado de navegación</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_sign_in">Iniciar sesión</string>
@@ -248,7 +248,7 @@
     <string name="forme_te_desc">-te forma de verbos</string>
     <string name="conjugaison_conditionnel_desc">Conjugación de condicionales</string>
     <string name="adjectifs_i_desc">Adjetivos en -i</string>
-    <string name="adjectifs_na_desc">Adjectifs en -na</string>
+    <string name="adjectifs_na_desc">Adjetivos terminados en -na</string>
     <string name="noms_desc">Sustantivos y sustantivos</string>
     <string name="noms_temps_desc">nombres de tiempo</string>
     <string name="noms_lieux_desc">Toponimia</string>
@@ -307,7 +307,7 @@
     <string name="base_tsuzukeru_desc">Base verbal + 続ける - Continuar haciendo algo</string>
     <string name="base_yasui_nikui_desc">Base verbal + やすい・にくい - Fácil o difícil de realizar una acción</string>
     <string name="beki_desc">べき - Obligación moral, tener que hacer algo.</string>
-    <string name="conditionnel_naraba_desc">Conditionnel avec ならば - Conditionnel contextuel</string>
+    <string name="conditionnel_naraba_desc">Condicional con ならば - Condicional contextual</string>
     <string name="conditionnel_to_desc">Condicional con と - Condicional lógico</string>
     <string name="conditionnel_eba_desc">Condicional en -えば - Condicional general</string>
     <string name="conditionnel_tara_desc">Condicional en -たら - Pasado condicional</string>
@@ -336,7 +336,7 @@
     <string name="ta_bakari_desc">Verbo -た + ばかり - Acabo de hacer algo</string>
     <string name="ta_ra_do_desu_ka_desc">Verbo -た + ら + どうですか – Ofrecer una sugerencia</string>
     <string name="te_ageru_sashiageru_yaru_desc">Verbo -て + あげる・さしあげる・やる - Hacer algo por alguien</string>
-    <string name="te_aru_desc">Verbe -て + ある - Décrit un état d'une action terminée</string>
+    <string name="te_aru_desc">Verbo -て + ある - Describe el estado de una acción completada</string>
     <string name="te_bakari_iru_desc">Verbo -て + ばかりいる - Sólo hacer algo</string>
     <string name="te_itadakemasen_ka_desc">Verbo -て + いただけませんか – Solicitud cortés</string>
     <string name="te_kuremasen_ka_desc">Verbo -て + くれませんか – Solicitud cortés</string>
@@ -405,12 +405,12 @@
     <string name="base_kiru_desc">Base verbal + きる – Hacer algo completamente</string>
     <string name="base_nuku_desc">Base verbal + ぬく – Hacer algo a fondo hasta el final</string>
     <string name="base_uru_enai_desc">Base verbal + うる・えない - Ser posible ~</string>
-    <string name="dake_quantite_desc">だけ - Autant que ~</string>
+    <string name="dake_quantite_desc">だけ - Tanto como ~</string>
     <string name="dake_atte_desc">だけあって - Como se esperaba</string>
     <string name="dake_ni_desc">だけに - Porque ~, como se esperaba.</string>
     <string name="dokoro_deha_nai_naku_desc">どころではない・どころではなく - Estar lejos de ~, estar fuera de la cuestión de ~</string>
     <string name="conjecturale_deha_nai_ka_desc">Forma conjetural + ではないか - ¿Por qué no ~?, ¿no podríamos ~?</string>
-    <string name="ge_desc">げ - Avoir l'air de ~</string>
+    <string name="ge_desc">げ - Parece ~</string>
     <string name="ha_tomokaku_desc">はともかく - Sin tener en cuenta ~, ignorando ~</string>
     <string name="hanmen_desc">反面 - Por otro lado</string>
     <string name="hodo_desc">ほど - Más ~, más ~</string>
@@ -544,4 +544,54 @@
     <string name="ta_ra_ii_desu_ka_desc">Verbo -た + ら + いいですか - Pedir consejo</string>
     <string name="te_mo_shoganai_shikataganai_desc">Verbo -て + も + しょうがない・仕方がない - No tiene sentido hacer algo</string>
     <string name="zutsu_desc">ずつ - Cada ~, ~ a la vez</string>
+    <string name="games_title">Juegos</string>
+    <string name="game_taquin_title">Fastidiar</string>
+    <string name="game_taquin_subtitle">Vuelve a poner en orden la mesa de Kanas.</string>
+    <string name="game_simon_title">Simón dice</string>
+    <string name="game_simon_subtitle">Memorizar y repetir la secuencia de sonidos.</string>
+    <string name="game_tetris_title">Bloques</string>
+    <string name="game_tetris_subtitle">Reúna los componentes para formar Kanji.</string>
+    <string name="game_crosswords_title">crucigramas</string>
+    <string name="game_crosswords_subtitle">Crucigramas temáticos por nivel JLPT</string>
+    <string name="game_memorize_title">Memorizar</string>
+    <string name="game_memorize_subtitle">Encuentra los pares de cartas (Kanji, Significado, Lectura)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Modo de juego</string>
+    <string name="game_taquin_rows_label">Número de líneas: %1$d</string>
+    <string name="game_taquin_moves_label">golpes</string>
+    <string name="game_taquin_time_label">Tiempo</string>
+    <string name="game_taquin_congrats">¡Felicitaciones! Tabla completa.</string>
+    <string name="game_taquin_back">Atrás</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d líneas)</string>
+    <string name="game_memorize_grid_size">Tamaño de cuadrícula</string>
+    <string name="game_memorize_max_strokes">Complejidad máxima (rasgos: %1$d)</string>
+    <string name="game_memorize_recent_scores">Últimas puntuaciones</string>
+    <string name="game_memorize_no_scores">Aún no hay puntuación</string>
+    <string name="game_memorize_score_format">%1$d movimientos</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">dejar</string>
+    <string name="game_memorize_moves">Movimientos: %1$d</string>
+    <string name="game_memorize_time">Hora: %1$ds</string>
+    <string name="game_memorize_pairs_count">Pares: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Finalizado !</string>
+    <string name="game_memorize_congrats">Bien hecho ! Parejas encontradas.</string>
+    <string name="game_memorize_replay">Repetición</string>
+    <string name="game_memorize_back_menu">Volver al menú</string>
+    <string name="game_simon_max_sequence">Secuencia máxima: %1$d</string>
+    <string name="game_simon_game_over">JUEGO TERMINADO</string>
+    <string name="game_simon_btn_content">Contenido del botón</string>
+    <string name="game_simon_mode_kanji">kanji</string>
+    <string name="game_simon_mode_meaning">Sentido</string>
+    <string name="game_simon_mode_reading_std">Lectura (estándar)</string>
+    <string name="game_simon_mode_reading_rnd">Lectura (Rnd)</string>
+    <string name="game_simon_record">Registro: %1$d</string>
+    <string name="game_particles_title">Defensor de partículas</string>
+    <string name="game_particles_subtitle">Tirador de gramática: encuentra la partícula correcta</string>
+    <string name="game_forge_title">Forja Radical</string>
+    <string name="game_forge_subtitle">Reúne a los radicales para forjar Kanji.</string>
+    <string name="game_shiritori_title">Shiritori Zen</string>
+    <string name="game_shiritori_subtitle">La cadena de palabras tradicional japonesa.</string>
+    <string name="game_shadow_title">Kanji de sombra</string>
+    <string name="game_shadow_subtitle">Identificar Kanji por su silueta.</string>
 </resources>

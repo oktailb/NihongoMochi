@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Нихонго Моти</string>
     <string name="navigation_drawer_open">Открыть панель навигации</string>
     <string name="navigation_drawer_close">Закрыть панель навигации</string>
-    <string name="nav_header_title">Android-студия</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Навигационный заголовок</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">Войти</string>
@@ -550,4 +549,55 @@
     <string name="ta_ra_ii_desu_ka_desc">Глагол -た + ら + いいですか - Спросить совета</string>
     <string name="te_mo_shoganai_shikataganai_desc">Глагол -て + も + しょうがない・仕方がない - Нет смысла что-то делать</string>
     <string name="zutsu_desc">ずつ - Каждый ~, ~ за раз</string>
+    <string name="games_title">Игры</string>
+    <string name="game_taquin_title">Дразнить</string>
+    <string name="game_taquin_subtitle">Приведите стол Канас в порядок.</string>
+    <string name="game_simon_title">Саймон говорит</string>
+    <string name="game_simon_subtitle">Запоминайте и повторяйте последовательность звуков.</string>
+    <string name="game_tetris_title">Блоки</string>
+    <string name="game_tetris_subtitle">Соберите компоненты, чтобы сформировать кандзи.</string>
+    <string name="game_crosswords_title">Кроссворды</string>
+    <string name="game_crosswords_subtitle">Тематические кроссворды по уровню JLPT</string>
+    <string name="game_memorize_title">Запомнить</string>
+    <string name="game_memorize_subtitle">Найдите пары карточек (кандзи, значение, чтение)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Игровой режим</string>
+    <string name="game_taquin_rows_label">Количество строк: %1$d</string>
+    <string name="game_taquin_moves_label">Удары</string>
+    <string name="game_taquin_time_label">Время</string>
+    <string name="game_taquin_congrats">Поздравляем! Таблица заполнена.</string>
+    <string name="game_taquin_back">Назад</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d строк)</string>
+    <string name="game_memorize_grid_size">Размер сетки</string>
+    <string name="game_memorize_max_strokes">Максимальная сложность (особенности: %1$d)</string>
+    <string name="game_memorize_recent_scores">Последние результаты</string>
+    <string name="game_memorize_no_scores">Еще нет оценок</string>
+    <string name="game_memorize_score_format">%1$d ходов</string>
+    <string name="game_memorize_time_format">%1$дс</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">Уйти</string>
+    <string name="game_memorize_moves">Ходы: %1$d</string>
+    <string name="game_memorize_time">Время: %1$ds</string>
+    <string name="game_memorize_pairs_count">Пары: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Закончено!</string>
+    <string name="game_memorize_congrats">Отличная работа ! Пары найдены.</string>
+    <string name="game_memorize_replay">Повтор</string>
+    <string name="game_memorize_back_menu">Вернуться в меню</string>
+    <string name="game_simon_max_sequence">Максимальная последовательность: %1$d</string>
+    <string name="game_simon_game_over">ИГРА ЗАКОНЧЕНА</string>
+    <string name="game_simon_btn_content">Содержимое кнопки</string>
+    <string name="game_simon_mode_kanji">Кандзи</string>
+    <string name="game_simon_mode_meaning">Смысл</string>
+    <string name="game_simon_mode_reading_std">Чтение (стандартно)</string>
+    <string name="game_simon_mode_reading_rnd">Ридинг (Rnd)</string>
+    <string name="game_simon_record">Запись: %1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">Защитник частиц</string>
+    <string name="game_particles_subtitle">Грамматический шутер: найди нужную частицу</string>
+    <string name="game_forge_title">Радикальная Кузница</string>
+    <string name="game_forge_subtitle">Соберите радикалов, чтобы создать кандзи</string>
+    <string name="game_shiritori_title">Сиритори Дзен</string>
+    <string name="game_shiritori_subtitle">Традиционная японская цепочка слов</string>
+    <string name="game_shadow_title">Теневой кандзи</string>
+    <string name="game_shadow_subtitle">Определите кандзи по их силуэту</string>
 </resources>

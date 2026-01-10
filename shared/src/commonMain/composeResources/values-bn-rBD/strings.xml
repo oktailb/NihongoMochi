@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">নিহংগো মোচি</string>
     <string name="navigation_drawer_open">নেভিগেশন ড্রয়ার খুলুন</string>
     <string name="navigation_drawer_close">নেভিগেশন ড্রয়ার বন্ধ করুন</string>
-    <string name="nav_header_title">অ্যান্ড্রয়েড স্টুডিও</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">নেভিগেশন হেডার</string>
     <string name="action_settings">সেটিংস</string>
     <string name="action_sign_in">সাইন ইন করুন</string>
@@ -546,4 +545,55 @@
     <string name="ta_ra_ii_desu_ka_desc">ক্রিয়া - た + ら + いいですか - পরামর্শের জন্য জিজ্ঞাসা করুন</string>
     <string name="te_mo_shoganai_shikataganai_desc">ক্রিয়া - て + も + しょうがない・仕方がない - কিছু করার কোন মানে নেই</string>
     <string name="zutsu_desc">ずつ - প্রতিটি ~, ~ এক সময়ে</string>
+    <string name="games_title">গেমস</string>
+    <string name="game_taquin_title">টিজ</string>
+    <string name="game_taquin_subtitle">কানাস টেবিলটি আবার ক্রমানুসারে রাখুন</string>
+    <string name="game_simon_title">সাইমন বলেছেন</string>
+    <string name="game_simon_subtitle">মনে রাখবেন এবং শব্দের ক্রম পুনরাবৃত্তি করুন</string>
+    <string name="game_tetris_title">ব্লক</string>
+    <string name="game_tetris_subtitle">কাঞ্জি গঠনের জন্য উপাদানগুলি একত্রিত করুন</string>
+    <string name="game_crosswords_title">ক্রসওয়ার্ড</string>
+    <string name="game_crosswords_subtitle">স্তর JLPT দ্বারা বিষয়ভিত্তিক ক্রসওয়ার্ড</string>
+    <string name="game_memorize_title">মুখস্থ করা</string>
+    <string name="game_memorize_subtitle">তাসের জোড়া খুঁজুন (কাঞ্জি, অর্থ, পড়া)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">গেম মোড</string>
+    <string name="game_taquin_rows_label">লাইনের সংখ্যা: %1$d</string>
+    <string name="game_taquin_moves_label">হাতাহাতি</string>
+    <string name="game_taquin_time_label">সময়</string>
+    <string name="game_taquin_congrats">অভিনন্দন! টেবিল সম্পন্ন হয়েছে।</string>
+    <string name="game_taquin_back">ব্যাক</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d লাইন)</string>
+    <string name="game_memorize_grid_size">গ্রিডের আকার</string>
+    <string name="game_memorize_max_strokes">সর্বাধিক জটিলতা (বৈশিষ্ট্য: %1$d)</string>
+    <string name="game_memorize_recent_scores">সর্বশেষ স্কোর</string>
+    <string name="game_memorize_no_scores">এখনো কোনো স্কোর নেই</string>
+    <string name="game_memorize_score_format">%1$d মুভ</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">চলে যেতে</string>
+    <string name="game_memorize_moves">সরানো: %1$d</string>
+    <string name="game_memorize_time">সময়: %1$ds</string>
+    <string name="game_memorize_pairs_count">জোড়া: %1$d / %2$d</string>
+    <string name="game_memorize_finished">সমাপ্ত!</string>
+    <string name="game_memorize_congrats">ভাল হয়েছে! জোড়া পাওয়া গেছে।</string>
+    <string name="game_memorize_replay">রিপ্লে</string>
+    <string name="game_memorize_back_menu">মেনুতে ফিরে যান</string>
+    <string name="game_simon_max_sequence">সর্বাধিক ক্রম: %1$d</string>
+    <string name="game_simon_game_over">খেলা শেষ</string>
+    <string name="game_simon_btn_content">বোতাম সামগ্রী</string>
+    <string name="game_simon_mode_kanji">কাঞ্জি</string>
+    <string name="game_simon_mode_meaning">সেন্স</string>
+    <string name="game_simon_mode_reading_std">পড়া (Std)</string>
+    <string name="game_simon_mode_reading_rnd">পড়া (Rnd)</string>
+    <string name="game_simon_record">রেকর্ড: %1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">কণা ডিফেন্ডার</string>
+    <string name="game_particles_subtitle">ব্যাকরণ শ্যুটার: সঠিক কণা খুঁজুন</string>
+    <string name="game_forge_title">র্যাডিক্যাল ফোর্জ</string>
+    <string name="game_forge_subtitle">কাঞ্জি তৈরি করতে র‌্যাডিকালদের একত্রিত করুন</string>
+    <string name="game_shiritori_title">শিরিটোরি জেন</string>
+    <string name="game_shiritori_subtitle">শব্দের ঐতিহ্যগত জাপানি স্ট্রিং</string>
+    <string name="game_shadow_title">ছায়া কাঞ্জি</string>
+    <string name="game_shadow_subtitle">কানজিকে তাদের সিলুয়েট দ্বারা চিহ্নিত করুন</string>
 </resources>

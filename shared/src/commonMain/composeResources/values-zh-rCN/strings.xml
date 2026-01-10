@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Kanji Mori</string>
     <string name="navigation_drawer_open">打开导航抽屉</string>
     <string name="navigation_drawer_close">关闭导航抽屉</string>
-    <string name="nav_header_title">安卓工作室</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">导航标题</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">登录</string>
@@ -360,7 +359,7 @@
     <string name="base_kkonai_desc">言语基础 + っこない - 不可能～、绝对不能～</string>
     <string name="base_shidai_desc">动词基础 + 次第 - 紧接在〜之后，一旦〜</string>
     <string name="base_yo_ga_nai_desc">言语基础+ようがない - 没有办法~</string>
-    <string name="darake_desc">だらけ - Plein de ~</string>
+    <string name="darake_desc">だらけ - 充满~</string>
     <string name="dokoro_ka_desc">どころか - 远离〜，〜实际上</string>
     <string name="ha_motoyori_mochiron_desc">はもちろん・はもちろん - 显然～但也～</string>
     <string name="ippo_da_desc">侧面だ - 表明股票越来越遵循某种趋势</string>
@@ -382,7 +381,7 @@
     <string name="okage_de_desc">おかげで - 感谢〜</string>
     <string name="sae_eb_desc">さえ + 动词 -えば - 如果只有～那么～</string>
     <string name="seide_desc">せいで - 因为～</string>
-    <string name="tabi_ni_desc">度に - Chaque fois que ~</string>
+    <string name="tabi_ni_desc">度に - 每当~</string>
     <string name="tatoe_te_mo_desc">たとえ+动词-て+も-即使～</string>
     <string name="to_ieba_desc">と言えば - 说到~</string>
     <string name="to_ittara_desc">と言ったら - 说到~，关于~</string>
@@ -394,7 +393,7 @@
     <string name="uchi_ni_desc">うちに - 虽然～，之前～</string>
     <string name="ta_tokoro_desc">动词 -た + ところ - 当〜，当〜</string>
     <string name="ta_totan_desc">动词 -た + とたん - 尽快〜，尽快〜</string>
-    <string name="te_irai_desc">Verbe -て + 以来 - Depuis que ~</string>
+    <string name="te_irai_desc">动词 -て + 自 - 因为 ~</string>
     <string name="wake_deha_nai_desc">わけではない - 这并不意味着~，不一定~，不特别~</string>
     <string name="wo_chushin_ni_desc">を中心に - 以~为中心，围绕~</string>
     <string name="wo_hajime_hajime_to_suru_desc">をはじめ・をはじめとする - 从〜开始</string>
@@ -470,7 +469,7 @@
     <string name="ni_kakawarazu_kakawarinaku_desc">にかかわらず・にかかわりなく - 没关系~</string>
     <string name="ni_kakete_ha_mo_desc">にかけては・にかけても - 关于～，说到～</string>
     <string name="ni_kotaete_desc">に応えて - 回应~</string>
-    <string name="ni_mo_kakawarazu_desc">にもかかわらず - Bien que ~, en dépit du fait que ~, malgré ~</string>
+    <string name="ni_mo_kakawarazu_desc">にもかかわらず - 尽管～，尽管～，尽管～</string>
     <string name="ni_moto_zuite_desc">に基づいて - 基于〜，基于〜</string>
     <string name="ni_oite_okeru_desc">において・における - 在〜，在〜期间，在〜，在〜</string>
     <string name="ni_sai_shite_sai_shi_desc">に际して・に际し - 在〜期间，在〜之际</string>
@@ -504,7 +503,7 @@
     <string name="to_iu_mono_da_desc">と言うものだ - 我想～，是～</string>
     <string name="to_iu_mono_deha_nai_desc">と言うものではない - 这并不意味着~，也不一定~</string>
     <string name="to_iu_yori_desc">と言うより - 而不是~</string>
-    <string name="to_shitara_sureba_desc">としたら・とすれば - En supposant que ~, si ~</string>
+    <string name="to_shitara_sureba_desc">としたら・とすれば - 假设~，如果~</string>
     <string name="to_shite_ha_desc">としては - 为了〜</string>
     <string name="to_shite_mo_desc">としても - 即使～，假设～</string>
     <string name="to_tomo_ni_desc">とともに - 与〜，同时与〜，同时</string>
@@ -550,4 +549,55 @@
     <string name="ta_ra_ii_desu_ka_desc">动词 -た + ら + いいですか - 寻求建议</string>
     <string name="te_mo_shoganai_shikataganai_desc">动词 -て + も + しょうがない・仕方がない - 做某事没有意义</string>
     <string name="zutsu_desc">ずつ - 一次每个 ~, ~</string>
+    <string name="games_title">游戏</string>
+    <string name="game_taquin_title">逗</string>
+    <string name="game_taquin_subtitle">让喀纳斯桌子恢复秩序</string>
+    <string name="game_simon_title">西蒙说</string>
+    <string name="game_simon_subtitle">记住并重复声音序列</string>
+    <string name="game_tetris_title">积木</string>
+    <string name="game_tetris_subtitle">组装组件形成汉字</string>
+    <string name="game_crosswords_title">填字游戏</string>
+    <string name="game_crosswords_subtitle">按级别 JLPT 划分的主题填字游戏</string>
+    <string name="game_memorize_title">记住</string>
+    <string name="game_memorize_subtitle">找到成对的卡片（汉字、含义、阅读）</string>
+    <string name="game_taquin_japanese_title">苏拉伊丁古巴祖鲁</string>
+    <string name="game_taquin_mode_label">游戏模式</string>
+    <string name="game_taquin_rows_label">行数：%1$d</string>
+    <string name="game_taquin_moves_label">打击</string>
+    <string name="game_taquin_time_label">时间</string>
+    <string name="game_taquin_congrats">恭喜！表完成。</string>
+    <string name="game_taquin_back">后退</string>
+    <string name="game_taquin_score_history_label">%1$s（%2$d 行）</string>
+    <string name="game_memorize_grid_size">网格尺寸</string>
+    <string name="game_memorize_max_strokes">最大复杂度（特征：%1$d）</string>
+    <string name="game_memorize_recent_scores">最新成绩</string>
+    <string name="game_memorize_no_scores">还没有分数</string>
+    <string name="game_memorize_score_format">%1$d 步</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">离开</string>
+    <string name="game_memorize_moves">移动：%1$d</string>
+    <string name="game_memorize_time">时间：%1$ds</string>
+    <string name="game_memorize_pairs_count">对：%1$d / %2$d</string>
+    <string name="game_memorize_finished">完成的 ！</string>
+    <string name="game_memorize_congrats">干得好！找到了对。</string>
+    <string name="game_memorize_replay">重播</string>
+    <string name="game_memorize_back_menu">返回菜单</string>
+    <string name="game_simon_max_sequence">最大序列：%1$d</string>
+    <string name="game_simon_game_over">游戏结束</string>
+    <string name="game_simon_btn_content">按钮内容</string>
+    <string name="game_simon_mode_kanji">汉字</string>
+    <string name="game_simon_mode_meaning">感觉</string>
+    <string name="game_simon_mode_reading_std">阅读（标准）</string>
+    <string name="game_simon_mode_reading_rnd">阅读（Rnd）</string>
+    <string name="game_simon_record">记录：%1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">粒子防御者</string>
+    <string name="game_particles_subtitle">语法射手：找到正确的粒子</string>
+    <string name="game_forge_title">激进锻造</string>
+    <string name="game_forge_subtitle">集结部首打造汉字</string>
+    <string name="game_shiritori_title">知鸟禅</string>
+    <string name="game_shiritori_subtitle">传统的日语字符串</string>
+    <string name="game_shadow_title">影子汉字</string>
+    <string name="game_shadow_subtitle">通过汉字的轮廓识别汉字</string>
 </resources>

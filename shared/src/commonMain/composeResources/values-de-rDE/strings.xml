@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Navigationsleiste öffnen</string>
     <string name="navigation_drawer_close">Navigationsleiste schließen</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Navigationskopf</string>
     <string name="action_settings">Einstellungen</string>
     <string name="action_sign_in">Anmelden</string>
@@ -544,4 +544,54 @@
     <string name="ta_ra_ii_desu_ka_desc">Verb -た + ら + いいですか – Um Rat fragen</string>
     <string name="te_mo_shoganai_shikataganai_desc">Verb -て + も + しょうがない・仕方がない – Es hat keinen Sinn, etwas zu tun</string>
     <string name="zutsu_desc">ずつ – Jedes ~, ~ auf einmal</string>
+    <string name="games_title">Spiele</string>
+    <string name="game_taquin_title">Necken</string>
+    <string name="game_taquin_subtitle">Bringen Sie den Kanas-Tisch wieder in Ordnung</string>
+    <string name="game_simon_title">Simon sagt</string>
+    <string name="game_simon_subtitle">Merken Sie sich die Tonfolge und wiederholen Sie sie</string>
+    <string name="game_tetris_title">Blöcke</string>
+    <string name="game_tetris_subtitle">Setzen Sie die Komponenten zusammen, um ein Kanji zu bilden</string>
+    <string name="game_crosswords_title">Kreuzworträtsel</string>
+    <string name="game_crosswords_subtitle">Thematische Kreuzworträtsel nach Level JLPT</string>
+    <string name="game_memorize_title">Merken</string>
+    <string name="game_memorize_subtitle">Finden Sie die Kartenpaare (Kanji, Bedeutung, Lesen)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Spielmodus</string>
+    <string name="game_taquin_rows_label">Anzahl der Zeilen: %1$d</string>
+    <string name="game_taquin_moves_label">Schläge</string>
+    <string name="game_taquin_time_label">Zeit</string>
+    <string name="game_taquin_congrats">Glückwunsch ! Tisch vervollständigt.</string>
+    <string name="game_taquin_back">Zurück</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d Zeilen)</string>
+    <string name="game_memorize_grid_size">Rastergröße</string>
+    <string name="game_memorize_max_strokes">Maximale Komplexität (Merkmale: %1$d)</string>
+    <string name="game_memorize_recent_scores">Neueste Ergebnisse</string>
+    <string name="game_memorize_no_scores">Noch kein Punktestand</string>
+    <string name="game_memorize_score_format">%1$d Bewegungen</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">Gehen</string>
+    <string name="game_memorize_moves">Bewegungen: %1$d</string>
+    <string name="game_memorize_time">Zeit: %1$ds</string>
+    <string name="game_memorize_pairs_count">Paare: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Fertig !</string>
+    <string name="game_memorize_congrats">Gut gemacht ! Paare gefunden.</string>
+    <string name="game_memorize_replay">Wiederholung</string>
+    <string name="game_memorize_back_menu">Zurück zum Menü</string>
+    <string name="game_simon_max_sequence">Maximale Reihenfolge: %1$d</string>
+    <string name="game_simon_game_over">SPIEL VORBEI</string>
+    <string name="game_simon_btn_content">Schaltflächeninhalt</string>
+    <string name="game_simon_mode_kanji">Kanji</string>
+    <string name="game_simon_mode_meaning">Sinn</string>
+    <string name="game_simon_mode_reading_std">Lesen (Std.)</string>
+    <string name="game_simon_mode_reading_rnd">Lesen (Runde)</string>
+    <string name="game_simon_record">Datensatz: %1$d</string>
+    <string name="game_particles_title">Partikelverteidiger</string>
+    <string name="game_particles_subtitle">Grammatik-Shooter: Finden Sie das richtige Teilchen</string>
+    <string name="game_forge_title">Radikale Schmiede</string>
+    <string name="game_forge_subtitle">Versammle die Radikale, um Kanji zu schmieden</string>
+    <string name="game_shiritori_title">Shiritori-Zen</string>
+    <string name="game_shiritori_subtitle">Die traditionelle japanische Wortfolge</string>
+    <string name="game_shadow_title">Schattenkanji</string>
+    <string name="game_shadow_subtitle">Identifizieren Sie Kanji anhand ihrer Silhouette</string>
 </resources>

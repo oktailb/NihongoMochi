@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="action_sign_in">Sign In</string>
@@ -550,4 +550,54 @@
     <string name="ta_ra_ii_desu_ka_desc">Verb -た + ら + いいですか - Ask for advice</string>
     <string name="te_mo_shoganai_shikataganai_desc">Verb -て + も + しょうがない・仕方がない - There is no point in doing something</string>
     <string name="zutsu_desc">ずつ - Each ~, ~ at a time</string>
+    <string name="games_title">Games</string>
+    <string name="game_taquin_title">Tease</string>
+    <string name="game_taquin_subtitle">Put the Kanas table back in order</string>
+    <string name="game_simon_title">Simon Says</string>
+    <string name="game_simon_subtitle">Memorize and repeat the sequence of sounds</string>
+    <string name="game_tetris_title">Blocks</string>
+    <string name="game_tetris_subtitle">Assemble the components to form Kanji</string>
+    <string name="game_crosswords_title">Crosswords</string>
+    <string name="game_crosswords_subtitle">Thematic crosswords by level JLPT</string>
+    <string name="game_memorize_title">Memorize</string>
+    <string name="game_memorize_subtitle">Find the pairs of cards (Kanji, Meaning, Reading)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Game mode</string>
+    <string name="game_taquin_rows_label">Number of lines: %1$d</string>
+    <string name="game_taquin_moves_label">Blows</string>
+    <string name="game_taquin_time_label">Time</string>
+    <string name="game_taquin_congrats">Congratulations ! Table completed.</string>
+    <string name="game_taquin_back">Back</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d lines)</string>
+    <string name="game_memorize_grid_size">Grid size</string>
+    <string name="game_memorize_max_strokes">Max complexity (traits: %1$d)</string>
+    <string name="game_memorize_recent_scores">Latest scores</string>
+    <string name="game_memorize_no_scores">No score yet</string>
+    <string name="game_memorize_score_format">%1$d moves</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">To leave</string>
+    <string name="game_memorize_moves">Moves: %1$d</string>
+    <string name="game_memorize_time">Time: %1$ds</string>
+    <string name="game_memorize_pairs_count">Pairs: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Finished !</string>
+    <string name="game_memorize_congrats">Well done ! Pairs found.</string>
+    <string name="game_memorize_replay">Replay</string>
+    <string name="game_memorize_back_menu">Back to menu</string>
+    <string name="game_simon_max_sequence">Maximum sequence: %1$d</string>
+    <string name="game_simon_game_over">GAME OVER</string>
+    <string name="game_simon_btn_content">Button content</string>
+    <string name="game_simon_mode_kanji">Kanji</string>
+    <string name="game_simon_mode_meaning">Sense</string>
+    <string name="game_simon_mode_reading_std">Reading (Std)</string>
+    <string name="game_simon_mode_reading_rnd">Reading (Rnd)</string>
+    <string name="game_simon_record">Record: %1$d</string>
+    <string name="game_particles_title">Particle Defender</string>
+    <string name="game_particles_subtitle">Grammar shooter: find the right particle</string>
+    <string name="game_forge_title">Radical Forge</string>
+    <string name="game_forge_subtitle">Assemble the radicals to forge Kanji</string>
+    <string name="game_shiritori_title">Shiritori Zen</string>
+    <string name="game_shiritori_subtitle">The traditional Japanese string of words</string>
+    <string name="game_shadow_title">Shadow Kanji</string>
+    <string name="game_shadow_subtitle">Identify Kanji by their silhouette</string>
 </resources>

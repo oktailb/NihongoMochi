@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Mở ngăn điều hướng</string>
     <string name="navigation_drawer_close">Đóng ngăn điều hướng</string>
-    <string name="nav_header_title">Studio Android</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Tiêu đề điều hướng</string>
     <string name="action_settings">Cài đặt</string>
     <string name="action_sign_in">Đăng nhập</string>
@@ -295,7 +295,7 @@
     <string name="ta_ri_shimasu_desc">Động từ -た + りします - Chuỗi hành động không đầy đủ</string>
     <string name="te_iru_desc">Động từ -て + いる – Dạng tiếp diễn</string>
     <string name="te_kara_desc">Động từ -て + から - Sau ~</string>
-    <string name="particule_wo_desc">を - Particule pour indiquer l'objet direct, marquer le COI au causatif, indiquer un lieu traversé</string>
+    <string name="particule_wo_desc">を – Trợ từ chỉ tân ngữ trực tiếp, đánh dấu COI trong nguyên nhân, biểu thị chỗ chéo</string>
     <string name="particule_ya_desc">や - Danh sách sự việc chưa đầy đủ</string>
     <string name="particule_yo_desc">よ - Trợ từ khẳng định, khẳng định</string>
     <string name="particule_yori_desc">より - Trợ từ chỉ nguồn gốc hoặc chỉ điểm tham chiếu trong so sánh</string>
@@ -317,8 +317,8 @@
     <string name="forme_aseru_saseru_desc">Thể trong -あせる・させる - Dạng nguyên nhân</string>
     <string name="forme_eru_rareru_desc">Biểu mẫu trong -える・られる - Dạng tiềm năng</string>
     <string name="forme_nasai_desc">Mẫu trong -なさい - Mệnh lệnh mềm</string>
-    <string name="forme_saserareru_desc">Forme en -させられる・あせられる - Forme causative passive</string>
-    <string name="forme_zuni_naide_desc">Forme en -ずに・ないで - Faire quelque chose sans en faire une autre</string>
+    <string name="forme_saserareru_desc">Thể trong -させられる・あせられる - Dạng nguyên nhân thụ động</string>
+    <string name="forme_zuni_naide_desc">Mẫu trong -ずに・ないで - Làm việc này mà không làm việc khác</string>
     <string name="forme_conjecturale_desc">Thể trong -おう・よう・ましょう - Dạng phỏng đoán</string>
     <string name="garu_desc">がる - Thể hiện mong muốn và cảm xúc của người khác</string>
     <string name="hazu_desc">はず - Để chỉ ra rằng một cái gì đó đáng lẽ phải được thực hiện</string>
@@ -329,14 +329,14 @@
     <string name="koto_ni_suru_naru_kimeru_desc">ことにする・ことになる・ことを決める - Quyết định làm điều gì đó</string>
     <string name="ni_yotte_yoruto_yoreba_desc">によって・によると・によれば・の意見では - Theo ~, theo ý kiến ​​của ~</string>
     <string name="noni_desc">のに - Bất chấp ~, với mục đích ~</string>
-    <string name="rashii_desc">らしい - Exprimer une rumeur</string>
-    <string name="shi_desc">し - Énumérer des états et évoquer des raisons multiples</string>
-    <string name="suru_adjectif_desc">する - Rendre quelque chose ~</string>
+    <string name="rashii_desc">らしい – Thể hiện tin đồn</string>
+    <string name="shi_desc">し – Liệt kê các trạng thái và gợi lên nhiều lý do</string>
+    <string name="suru_adjectif_desc">する - Trả lại thứ gì đó ~</string>
     <string name="toki_ni_desc">ときに - Khi nào ~</string>
-    <string name="ta_bakari_desc">Verbe -た + ばかり - Venir de faire quelque chose</string>
+    <string name="ta_bakari_desc">Động từ -た + ばかり - Vừa làm gì đó</string>
     <string name="ta_ra_do_desu_ka_desc">Động từ -た + ら + どうですか – Đưa ra gợi ý</string>
     <string name="te_ageru_sashiageru_yaru_desc">Động từ -て + あげる・さしあげる・やる - Làm điều gì đó cho ai đó</string>
-    <string name="te_aru_desc">Verbe -て + ある - Décrit un état d'une action terminée</string>
+    <string name="te_aru_desc">Động từ -て + ある - Diễn tả trạng thái của một hành động đã hoàn thành</string>
     <string name="te_bakari_iru_desc">Động từ -て + ばかりいる - Chỉ làm điều gì đó</string>
     <string name="te_itadakemasen_ka_desc">Động từ -て + いただけませんか – Yêu cầu lịch sự</string>
     <string name="te_kuremasen_ka_desc">Động từ -て + くれませんか – Yêu cầu lịch sự</string>
@@ -356,7 +356,7 @@
     <string name="base_yo_ga_nai_desc">Cơ sở ngôn từ + ようがない - Không có cách nào ~</string>
     <string name="darake_desc">だらけ - Đầy ~</string>
     <string name="dokoro_ka_desc">どころか - Thực ra còn xa ~, ~</string>
-    <string name="ha_motoyori_mochiron_desc">はもちろん・はもちろん - Bien évidemment ~ mais aussi ~</string>
+    <string name="ha_motoyori_mochiron_desc">はもちろん・はもちろん - Rõ ràng là ~ nhưng cũng ~</string>
     <string name="ippo_da_desc">一方だ - Cho biết một cổ phiếu đang ngày càng theo một xu hướng nhất định</string>
     <string name="kara_ni_kakete_desc">から～にかけて - Từ ~ tới ~</string>
     <string name="kawari_ni_desc">代わりに - Thay cho ~, thay vì ~, để đền bù cho ~</string>
@@ -502,7 +502,7 @@
     <string name="to_shite_ha_desc">としては - Dành cho ~</string>
     <string name="to_shite_mo_desc">としても - Cho dù ~, giả sử như vậy ~</string>
     <string name="to_tomo_ni_desc">とともに - Với ~, cùng lúc với ~, đồng thời</string>
-    <string name="toka_desc">とか - Il semblerait que ~, j'ai entendu dire que ~</string>
+    <string name="toka_desc">とか - Hình như là ~, tôi có nghe nói vậy ~</string>
     <string name="tsutsu_desc">つつ - Mặc dù ~, mặc dù ~, trong khi ~</string>
     <string name="ue_de_desc">上で - Sau ~</string>
     <string name="ue_ha_desc">上は - Miễn là ~, miễn là ~</string>
@@ -528,7 +528,7 @@
     <string name="wo_tsujite_tooshite_desc">を通じて・を通して - Trong ~, qua ~, qua ~</string>
     <string name="zaru_wo_enai_desc">ざるを得ない - Không còn lựa chọn nào khác ngoài ~, buộc phải ~</string>
     <string name="ka_nai_ka_no_uchi_ni_desc">~か~ないかのうちに - Hầu như không~</string>
-    <string name="yara_yara_desc">~やら~やら - Des choses comme ~ et ~ entre autres</string>
+    <string name="yara_yara_desc">~やら~やら - Những thứ như ~ và ~ trong số những thứ khác</string>
     <string name="mo_eba_nara_mo_desc">~も + động từ -えば hoặc nara + ~も - Không chỉ ~ mà ~ còn, không ~ cũng không ~</string>
     <string name="base_naosu_desc">Cơ sở ngôn từ + 直す - Thử lại</string>
     <string name="base_owaru_desc">Động từ cơ bản + 終わる - Kết thúc ~</string>
@@ -544,4 +544,54 @@
     <string name="ta_ra_ii_desu_ka_desc">Động từ -た + ら + いいですか - Xin lời khuyên</string>
     <string name="te_mo_shoganai_shikataganai_desc">Động từ -て + も + しょうがない・仕方がない - Làm việc gì đó cũng chẳng ích gì</string>
     <string name="zutsu_desc">ずつ - Mỗi ~, ~ tại một thời điểm</string>
+    <string name="games_title">Trò chơi</string>
+    <string name="game_taquin_title">Trêu chọc</string>
+    <string name="game_taquin_subtitle">Đặt bảng Kanas trở lại trật tự</string>
+    <string name="game_simon_title">Simon nói</string>
+    <string name="game_simon_subtitle">Ghi nhớ và lặp lại chuỗi âm thanh</string>
+    <string name="game_tetris_title">Khối</string>
+    <string name="game_tetris_subtitle">Tập hợp các thành phần để tạo thành Kanji</string>
+    <string name="game_crosswords_title">ô chữ</string>
+    <string name="game_crosswords_subtitle">Ô chữ chuyên đề theo cấp độ JLPT</string>
+    <string name="game_memorize_title">ghi nhớ</string>
+    <string name="game_memorize_subtitle">Tìm các cặp thẻ (Kanji, Ý nghĩa, Reading)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Chế độ trò chơi</string>
+    <string name="game_taquin_rows_label">Số dòng: %1$d</string>
+    <string name="game_taquin_moves_label">đòn</string>
+    <string name="game_taquin_time_label">Thời gian</string>
+    <string name="game_taquin_congrats">Chúc mừng ! Bảng đã hoàn thành.</string>
+    <string name="game_taquin_back">Mặt sau</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d dòng)</string>
+    <string name="game_memorize_grid_size">Kích thước lưới</string>
+    <string name="game_memorize_max_strokes">Độ phức tạp tối đa (đặc điểm: %1$d)</string>
+    <string name="game_memorize_recent_scores">Điểm mới nhất</string>
+    <string name="game_memorize_no_scores">Chưa có điểm</string>
+    <string name="game_memorize_score_format">%1$d di chuyển</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">rời đi</string>
+    <string name="game_memorize_moves">Di chuyển: %1$d</string>
+    <string name="game_memorize_time">Thời gian: %1$ds</string>
+    <string name="game_memorize_pairs_count">Cặp: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Hoàn thành !</string>
+    <string name="game_memorize_congrats">Làm tốt ! Các cặp được tìm thấy.</string>
+    <string name="game_memorize_replay">Phát lại</string>
+    <string name="game_memorize_back_menu">Quay lại trình đơn</string>
+    <string name="game_simon_max_sequence">Trình tự tối đa: %1$d</string>
+    <string name="game_simon_game_over">TRÒ CHƠI KẾT THÚC</string>
+    <string name="game_simon_btn_content">Nội dung nút</string>
+    <string name="game_simon_mode_kanji">chữ Hán</string>
+    <string name="game_simon_mode_meaning">Giác quan</string>
+    <string name="game_simon_mode_reading_std">Đọc (Tiêu chuẩn)</string>
+    <string name="game_simon_mode_reading_rnd">Đọc (Rnd)</string>
+    <string name="game_simon_record">Bản ghi: %1$d</string>
+    <string name="game_particles_title">Người bảo vệ hạt</string>
+    <string name="game_particles_subtitle">Game bắn súng ngữ pháp: tìm đúng hạt</string>
+    <string name="game_forge_title">Lò rèn cấp tiến</string>
+    <string name="game_forge_subtitle">Tập hợp các gốc để rèn Kanji</string>
+    <string name="game_shiritori_title">Thiền Shiritori</string>
+    <string name="game_shiritori_subtitle">Chuỗi từ truyền thống của Nhật Bản</string>
+    <string name="game_shadow_title">Bóng Kanji</string>
+    <string name="game_shadow_subtitle">Xác định Kanji bằng hình bóng của họ</string>
 </resources>

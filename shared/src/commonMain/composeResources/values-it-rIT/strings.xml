@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Nihongo Mochi</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
     <string name="navigation_drawer_open">Apri il menu di navigazione</string>
     <string name="navigation_drawer_close">Chiudi il menu di navigazione</string>
-    <string name="nav_header_title">Studio Android</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">Intestazione di navigazione</string>
     <string name="action_settings">Impostazioni</string>
     <string name="action_sign_in">Accedi</string>
@@ -544,4 +544,54 @@
     <string name="ta_ra_ii_desu_ka_desc">Verbo -た + ら + いいですか - Chiedere consiglio</string>
     <string name="te_mo_shoganai_shikataganai_desc">Verbo -て + も + しょうがない・仕方がない - Non ha senso fare qualcosa</string>
     <string name="zutsu_desc">ずつ - Ogni ~, ~ alla volta</string>
+    <string name="games_title">Giochi</string>
+    <string name="game_taquin_title">Burlone</string>
+    <string name="game_taquin_subtitle">Rimetti in ordine il tavolo Kanas</string>
+    <string name="game_simon_title">Dice Simone</string>
+    <string name="game_simon_subtitle">Memorizza e ripeti la sequenza di suoni</string>
+    <string name="game_tetris_title">Blocchi</string>
+    <string name="game_tetris_subtitle">Assemblare i componenti per formare Kanji</string>
+    <string name="game_crosswords_title">Cruciverba</string>
+    <string name="game_crosswords_subtitle">Cruciverba tematici per livello JLPT</string>
+    <string name="game_memorize_title">Memorizza</string>
+    <string name="game_memorize_subtitle">Trova le coppie di carte (Kanji, Significato, Lettura)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">Modalità di gioco</string>
+    <string name="game_taquin_rows_label">Numero di righe: %1$d</string>
+    <string name="game_taquin_moves_label">Colpi</string>
+    <string name="game_taquin_time_label">Tempo</string>
+    <string name="game_taquin_congrats">Congratulazioni! Tabella completata.</string>
+    <string name="game_taquin_back">Indietro</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d righe)</string>
+    <string name="game_memorize_grid_size">Dimensione della griglia</string>
+    <string name="game_memorize_max_strokes">Complessità massima (caratteristiche: %1$d)</string>
+    <string name="game_memorize_recent_scores">Ultimi punteggi</string>
+    <string name="game_memorize_no_scores">Nessun punteggio ancora</string>
+    <string name="game_memorize_score_format">%1$d mosse</string>
+    <string name="game_memorize_time_format">%1$d</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">Andarsene</string>
+    <string name="game_memorize_moves">Mosse: %1$d</string>
+    <string name="game_memorize_time">Ora: %1$ds</string>
+    <string name="game_memorize_pairs_count">Coppie: %1$d / %2$d</string>
+    <string name="game_memorize_finished">Finito !</string>
+    <string name="game_memorize_congrats">Ben fatto ! Coppie trovate.</string>
+    <string name="game_memorize_replay">Rigiocare</string>
+    <string name="game_memorize_back_menu">Torna al menù</string>
+    <string name="game_simon_max_sequence">Sequenza massima: %1$d</string>
+    <string name="game_simon_game_over">GAME OVER</string>
+    <string name="game_simon_btn_content">Contenuto del pulsante</string>
+    <string name="game_simon_mode_kanji">Kanji</string>
+    <string name="game_simon_mode_meaning">Senso</string>
+    <string name="game_simon_mode_reading_std">Lettura (standard)</string>
+    <string name="game_simon_mode_reading_rnd">Lettura (Rnd)</string>
+    <string name="game_simon_record">Registrazione: %1$d</string>
+    <string name="game_particles_title">Difensore delle particelle</string>
+    <string name="game_particles_subtitle">Sparatutto grammaticale: trova la particella giusta</string>
+    <string name="game_forge_title">Forgia Radicale</string>
+    <string name="game_forge_subtitle">Assembla i radicali per forgiare Kanji</string>
+    <string name="game_shiritori_title">Shiritori Zen</string>
+    <string name="game_shiritori_subtitle">La tradizionale sequenza di parole giapponese</string>
+    <string name="game_shadow_title">Kanji ombra</string>
+    <string name="game_shadow_subtitle">Identifica i Kanji dalla loro sagoma</string>
 </resources>

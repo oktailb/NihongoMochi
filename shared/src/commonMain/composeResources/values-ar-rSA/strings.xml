@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">نيهونغو موتشي</string>
     <string name="navigation_drawer_open">افتح قائمة التنقل</string>
     <string name="navigation_drawer_close">أغلق قائمة التنقل</string>
-    <string name="nav_header_title">أندرويد ستوديو</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
+    <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">رأس التنقل</string>
     <string name="action_settings">الإعدادات</string>
     <string name="action_sign_in">تسجيل الدخول</string>
@@ -302,7 +301,7 @@
     <string name="particule_yo_desc">よ - جسيم التوكيد والإصرار</string>
     <string name="particule_yori_desc">より - جسيم للإشارة إلى الأصل أو تعيين النقطة المرجعية في المقارنة</string>
     <string name="yori_no_ho_ga_desc">より・の方が - المقارنة</string>
-    <string name="amari_nai_desc">あまり + verbe en -ない - Presque pas ~, pas tellement ~</string>
+    <string name="amari_nai_desc">あまり + الفعل في -ない - تقريبًا ليس ~، ليس كثيرًا ~</string>
     <string name="base_au_desc">القاعدة اللفظية + あう - افعل شيئًا بالمثل</string>
     <string name="base_nagara_desc">القاعدة اللفظية + ながら - صيغة المصدر</string>
     <string name="base_so_desc">قاعدة الفعل + そう - يبدو أن لديك هواء ~</string>
@@ -322,7 +321,7 @@
     <string name="forme_saserareru_desc">نموذج في -させられる・あせられる - صيغة سببية سلبية</string>
     <string name="forme_zuni_naide_desc">النموذج في -ずに・ないで - لفعل شيء دون القيام بشيء آخر</string>
     <string name="forme_conjecturale_desc">النموذج في -おう・よう・ましょう - شكل تخميني</string>
-    <string name="garu_desc">がる - Exprimer le désir et les émotions de quelqu'un d'autre</string>
+    <string name="garu_desc">がる - التعبير عن رغبة شخص آخر وعواطفه</string>
     <string name="hazu_desc">はず - للإشارة إلى أنه من المفترض القيام بشيء ما</string>
     <string name="hoshii_desc">ほしい - تريد شيئا</string>
     <string name="ka_do_ka_desc">かどうか - سواء أم لا</string>
@@ -546,4 +545,55 @@
     <string name="ta_ra_ii_desu_ka_desc">الفعل -た + ら + いいですか - اطلب النصيحة</string>
     <string name="te_mo_shoganai_shikataganai_desc">الفعل -て + も + しょうがない・仕方がない - ليس هناك فائدة من القيام بشيء ما</string>
     <string name="zutsu_desc">ずつ - كل ~، ~ في وقت واحد</string>
+    <string name="games_title">ألعاب</string>
+    <string name="game_taquin_title">يضايق</string>
+    <string name="game_taquin_subtitle">أعد جدول Kanas إلى ترتيبه مرة أخرى</string>
+    <string name="game_simon_title">يقول سيمون</string>
+    <string name="game_simon_subtitle">حفظ وتكرار تسلسل الأصوات</string>
+    <string name="game_tetris_title">كتل</string>
+    <string name="game_tetris_subtitle">تجميع المكونات لتشكيل كانجي</string>
+    <string name="game_crosswords_title">الكلمات المتقاطعة</string>
+    <string name="game_crosswords_subtitle">الكلمات المتقاطعة المواضيعية حسب المستوى JLPT</string>
+    <string name="game_memorize_title">حفظ</string>
+    <string name="game_memorize_subtitle">العثور على أزواج البطاقات (كانجي، المعنى، القراءة)</string>
+    <string name="game_taquin_japanese_title">スライディングパズル</string>
+    <string name="game_taquin_mode_label">وضع اللعبة</string>
+    <string name="game_taquin_rows_label">عدد الأسطر: %1$d</string>
+    <string name="game_taquin_moves_label">ضربات</string>
+    <string name="game_taquin_time_label">وقت</string>
+    <string name="game_taquin_congrats">تهانينا! اكتمل الجدول.</string>
+    <string name="game_taquin_back">خلف</string>
+    <string name="game_taquin_score_history_label">%1$s (%2$d سطرًا)</string>
+    <string name="game_memorize_grid_size">حجم الشبكة</string>
+    <string name="game_memorize_max_strokes">الحد الأقصى للتعقيد (السمات: %1$d)</string>
+    <string name="game_memorize_recent_scores">أحدث النتائج</string>
+    <string name="game_memorize_no_scores">لا يوجد نتيجة حتى الآن</string>
+    <string name="game_memorize_score_format">%1$d حركة</string>
+    <string name="game_memorize_time_format">%1$ds</string>
+    <string name="game_memorize_grid_label">%1$s</string>
+    <string name="game_memorize_quit">للمغادرة</string>
+    <string name="game_memorize_moves">الحركات: %1$d</string>
+    <string name="game_memorize_time">الوقت: %1$ds</string>
+    <string name="game_memorize_pairs_count">الأزواج: %1$d / %2$d</string>
+    <string name="game_memorize_finished">انتهى !</string>
+    <string name="game_memorize_congrats">أحسنت ! تم العثور على أزواج.</string>
+    <string name="game_memorize_replay">إعادة التشغيل</string>
+    <string name="game_memorize_back_menu">العودة إلى القائمة</string>
+    <string name="game_simon_max_sequence">الحد الأقصى للتسلسل: %1$d</string>
+    <string name="game_simon_game_over">انتهت اللعبة</string>
+    <string name="game_simon_btn_content">محتوى الزر</string>
+    <string name="game_simon_mode_kanji">كانجي</string>
+    <string name="game_simon_mode_meaning">حاسة</string>
+    <string name="game_simon_mode_reading_std">القراءة (الأمراض المنقولة جنسيا)</string>
+    <string name="game_simon_mode_reading_rnd">القراءة (الثانية)</string>
+    <string name="game_simon_record">السجل: %1$d</string>
+    <string name="app_name" translatable="false">Nihongo Mochi</string>
+    <string name="game_particles_title">مدافع الجسيمات</string>
+    <string name="game_particles_subtitle">مطلق النار النحوي: ابحث عن الجسيم الصحيح</string>
+    <string name="game_forge_title">صياغة جذرية</string>
+    <string name="game_forge_subtitle">قم بتجميع المتطرفين لصياغة كانجي</string>
+    <string name="game_shiritori_title">شيريتوري زين</string>
+    <string name="game_shiritori_subtitle">سلسلة الكلمات اليابانية التقليدية</string>
+    <string name="game_shadow_title">الظل كانجي</string>
+    <string name="game_shadow_subtitle">تعرف على كانجي من خلال صورته الظلية</string>
 </resources>
