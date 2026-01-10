@@ -24,11 +24,11 @@
     <string name="settings_pronunciation">Prononciation</string>
     <string name="settings_pronunciation_roman">Alphabet romain</string>
     <string name="settings_pronunciation_hiragana">Japonais Hiragana</string>
-    <string name="settings_default_user_list">Liste d\'utilisateurs par défaut</string>
+    <string name="settings_default_user_list">Liste d'utilisateurs par défaut</string>
     <string name="settings_add_wrong_answers">Ajoute automatiquement les mauvaises réponses</string>
     <string name="settings_remove_good_answers">Enlève automatiquement les mots 10/10</string>
     <string name="settings_text_size">Taille du texte</string>
-    <string name="settings_animation_speed">Vitesse d\'animation</string>
+    <string name="settings_animation_speed">Vitesse d'animation</string>
     <string name="settings_theme">Thème (Clair/Sombre)</string>
     <string name="settings_reset_tutorial">Réinitialiser le tutoriel</string>
     <string name="settings_send_bug_report">Envoyer un rapport de bug</string>
@@ -51,12 +51,12 @@
     <string name="level_n3_desc">Niveau intermédiaire</string>
     <string name="level_n2_desc">Niveau pré-avancé</string>
     <string name="level_n1_desc">Niveau avancé</string>
-    <string name="level_grade_1_desc">Première année d\'école primaire</string>
-    <string name="level_grade_2_desc">Deuxième année d\'école primaire</string>
-    <string name="level_grade_3_desc">Troisième année d\'école primaire</string>
-    <string name="level_grade_4_desc">Quatrième année d\'école primaire</string>
-    <string name="level_grade_5_desc">Cinquième année d\'école primaire</string>
-    <string name="level_grade_6_desc">Sixième année d\'école primaire</string>
+    <string name="level_grade_1_desc">Première année d'école primaire</string>
+    <string name="level_grade_2_desc">Deuxième année d'école primaire</string>
+    <string name="level_grade_3_desc">Troisième année d'école primaire</string>
+    <string name="level_grade_4_desc">Quatrième année d'école primaire</string>
+    <string name="level_grade_5_desc">Cinquième année d'école primaire</string>
+    <string name="level_grade_6_desc">Sixième année d'école primaire</string>
     <string name="level_college_1_desc">Première année de collège</string>
     <string name="level_college_2_desc">Seconde année de collège</string>
     <string name="level_lycee_1_desc">Première année de lycée</string>
@@ -75,7 +75,7 @@
     <!-- Games Screen -->
     <string name="games_title">Jeux</string>
     <string name="game_taquin_title">Taquin</string>
-    <string name="game_taquin_subtitle">Remettez le tableau des Kanas dans l\'ordre</string>
+    <string name="game_taquin_subtitle">Remettez le tableau des Kanas dans l'ordre</string>
     <string name="game_simon_title">Simon Says</string>
     <string name="game_simon_subtitle">Mémorisez et répétez la séquence de sons</string>
     <string name="game_tetris_title">Blocks</string>
@@ -160,7 +160,7 @@
 
     <!-- Writing Screen -->
     <string name="writing_title">書き方</string>
-    <string name="writing_game_recap_title">Jeu d\'écriture</string>
+    <string name="writing_game_recap_title">Jeu d'écriture</string>
     <string name="writing_subtitle">Choisis un groupe de mots et apprends à les écrire.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
     <string name="writing_kanji_tree_subtitle">Si vous n’avez pas encore appris quelque chose :\n(10/10 dans le jeu concerné)</string>
@@ -170,13 +170,13 @@
     <string name="writing_most_used_words">Mots les plus utilisés</string>
     <string name="writing_find_kanji">Trouver un Kanji</string>
     <string name="writing_lists">Listes</string>
-    <string name="writing_user_lists">Liste de l\'utilisateurs / listes d\'étude</string>
+    <string name="writing_user_lists">Liste de l'utilisateurs / listes d'étude</string>
 
     <!-- Reading Screen -->
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Choisis un groupe de mots et apprends leurs prononciations.</string>
-    <string name="reading_kanji_tree_subtitle">Si le mot contient des kanji que tu n\'as pas encore appris :\n(10/10 au jeu de reconnaissance)</string>
-    <string name="reading_user_list">Liste de l\'utilisateur</string>
+    <string name="reading_kanji_tree_subtitle">Si le mot contient des kanji que tu n'as pas encore appris :\n(10/10 au jeu de reconnaissance)</string>
+    <string name="reading_user_list">Liste de l'utilisateur</string>
     <string name="reading_modify_button">Modifier</string>
     <string name="reading_kanji_solo">Kanji seul</string>
     <string name="reading_simple_words">Mots simples</string>
@@ -264,7 +264,7 @@
     <string name="about_pedagogical_content">Contenu pédagogique japonais</string>
     <string name="about_kanji_data_credit">Données Kanji: David Gouveia</string>
     <string name="about_header_picture_credit">Photo: Charles Knowles</string>
-    <string name="about_rate_app">Noter l\'application</string>
+    <string name="about_rate_app">Noter l'application</string>
 
     <!-- Results Screen -->
     <string name="results_title">Résultats</string>

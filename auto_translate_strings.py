@@ -8,7 +8,7 @@ import time
 # Configuration
 SOURCE_FILE = 'shared/src/commonMain/composeResources/values/strings.xml'
 TARGET_DIRS_PATTERN = 'shared/src/commonMain/composeResources/values-*'
-SOURCE_LANG = 'fr'
+SOURCE_LANG = 'en'
 
 # Mapping des dossiers Android vers les codes langues Google Translate
 LANG_MAP = {
@@ -17,6 +17,7 @@ LANG_MAP = {
     'values-de-rDE': 'de',
     'values-en-rGB': 'en',
     'values-es-rES': 'es',
+    'values-fr-rFR': 'fr',
     'values-in-rID': 'id',
     'values-it-rIT': 'it',
     'values-ko-rKR': 'ko',
@@ -118,7 +119,7 @@ def main():
         if modified:
             ET.indent(tree, space="    ", level=0)
             tree.write(target_file, encoding='utf-8', xml_declaration=True)
-            print(f"  -> Fichier sauvegardé avec {updates_count} traductions.")
+            print(f"  -> Fichier sauvegardé with {updates_count} traductions.")
         else:
             print("  -> Aucune modification.")
 

@@ -15,8 +15,8 @@
     <string name="menu_settings">Impostazioni</string>
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
     <string name="lorem_ipsum">Lorem Ipsum è semplicemente un testo segnaposto del settore della stampa e della composizione. Lorem Ipsum è stato il testo segnaposto standard del settore fin dal 1500, quando uno stampatore sconosciuto prese una cassetta di caratteri e li mescolò per creare un libro campione di caratteri.</string>
-    <string name="fab_content_description">Rappresenta una vista per invocare un\'azione</string>
-    <string name="image_view_item_transform_content_description">Rappresenta una vista immagine nell\'elemento</string>
+    <string name="fab_content_description">Rappresenta una vista per invocare un'azione</string>
+    <string name="image_view_item_transform_content_description">Rappresenta una vista immagine nell'elemento</string>
     <string name="settings_title">Opzioni</string>
     <string name="settings_category_general">Generale</string>
     <string name="settings_category_learning">Apprendimento</string>
@@ -29,7 +29,7 @@
     <string name="settings_add_wrong_answers">Aggiungi automaticamente le risposte sbagliate</string>
     <string name="settings_remove_good_answers">Rimuovi automaticamente le parole 10/10</string>
     <string name="settings_text_size">Dimensione del testo</string>
-    <string name="settings_animation_speed">Velocità dell\'animazione</string>
+    <string name="settings_animation_speed">Velocità dell'animazione</string>
     <string name="settings_theme">Tema (Chiaro/Scuro)</string>
     <string name="settings_reset_tutorial">Reimposta tutorial</string>
     <string name="settings_send_bug_report">Invia una segnalazione di bug</string>
@@ -125,7 +125,7 @@
     <string name="about_pedagogical_content">Contenuto pedagogico giapponese</string>
     <string name="about_kanji_data_credit">Dati Kanji di David Gouveia</string>
     <string name="about_header_picture_credit">Immagine di intestazione di Charles Knowles</string>
-    <string name="about_rate_app">Valuta l\'app</string>
+    <string name="about_rate_app">Valuta l'app</string>
     <string name="results_title">Risultati</string>
     <string name="results_recognition_title">Riconoscimento</string>
     <string name="results_section_kanas">Kanas (Hiragana/Katakana)</string>

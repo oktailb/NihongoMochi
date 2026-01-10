@@ -15,7 +15,7 @@
     <string name="menu_settings">Settings</string>
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
+        typesetting industry. Lorem Ipsum has been the industry's standard placeholder text ever
         since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
         type specimen book.
     </string>
@@ -63,7 +63,7 @@
     <string name="writing_game_recap_title">Writing Game</string>
     <string name="writing_subtitle">Choose a group of words and learn how to write them.</string>
     <string name="writing_kanji_tree">Kanji Tree</string>
-    <string name="writing_kanji_tree_subtitle">If you haven\'t learned something yet:\n(10/10 in the relevant game)</string>
+    <string name="writing_kanji_tree_subtitle">If you haven't learned something yet:\n(10/10 in the relevant game)</string>
     <string name="writing_kanji_tree_ignore">Ignore</string>
     <string name="writing_kanji_tree_include">include them anyway</string>
     <string name="writing_find_words">Find words</string>
@@ -73,7 +73,7 @@
     <string name="writing_user_lists">User list / study lists</string>
     <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Choose a group of words and learn their pronunciations.</string>
-    <string name="reading_kanji_tree_subtitle">If the word contains kanji you haven\'t learned yet:\n(10/10 in the recognition game)</string>
+    <string name="reading_kanji_tree_subtitle">If the word contains kanji you haven't learned yet:\n(10/10 in the recognition game)</string>
     <string name="reading_user_list">User list</string>
     <string name="reading_modify_button">Modify</string>
     <string name="reading_kanji_solo">Kanji only</string>
