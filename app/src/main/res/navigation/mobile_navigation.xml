@@ -53,12 +53,21 @@
         <action
             android:id="@+id/action_nav_games_to_nav_memorize"
             app:destination="@id/nav_memorize" />
+        <action
+            android:id="@+id/action_nav_games_to_nav_simon"
+            app:destination="@id/nav_simon" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_memorize"
         android:name="org.nihongo.mochi.ui.games.MemorizeFragment"
         android:label="Memorize"
+        tools:layout="@layout/fragment_games" />
+
+    <fragment
+        android:id="@+id/nav_simon"
+        android:name="org.nihongo.mochi.ui.games.SimonFragment"
+        android:label="Simon"
         tools:layout="@layout/fragment_games" />
 
     <fragment

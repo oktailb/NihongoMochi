@@ -102,6 +102,16 @@
     <string name="game_memorize_replay">Rejouer</string>
     <string name="game_memorize_back_menu">Retour au menu</string>
 
+    <!-- Simon Game -->
+    <string name="game_simon_max_sequence">Séquence maximale : %1$d</string>
+    <string name="game_simon_game_over">GAME OVER</string>
+    <string name="game_simon_btn_content">Contenu des boutons</string>
+    <string name="game_simon_mode_kanji">Kanji</string>
+    <string name="game_simon_mode_meaning">Sens</string>
+    <string name="game_simon_mode_reading_std">Lecture (Std)</string>
+    <string name="game_simon_mode_reading_rnd">Lecture (Rnd)</string>
+    <string name="game_simon_record">Record : %1$d</string>
+
     <!-- Game Recap Screen -->
     <string name="game_recap_title">Jeu de reconnaissance</string>
     <string name="game_recap_meaning">Sens</string>
@@ -536,7 +546,7 @@
     <string name="ni_kagirazu_desc">に限らず - Pas uniquement réservé à ~</string>
     <string name="ni_kagiru_desc">に限る - Rien n'est meilleur que de ~, rien ne vaut ~</string>
     <string name="ni_kakawarazu_kakawarinaku_desc">にかかわらず・にかかわりなく - Peu importe ~</string>
-    <string name="ni_kakete_ha_mo_desc">にかけては・にかけても - Concernant ~, en parlant de ~</string>
+    <string name="ni_kakete_ha_mo_desc">にかけては・にかけて भी - Concernant ~, en parlant de ~</string>
     <string name="ni_kotaete_desc">に応えて - En réponse à ~</string>
     <string name="ni_mo_kakawarazu_desc">にもかかわらず - Bien que ~, en dépit du fait que ~, malgré ~</string>
     <string name="ni_moto_zuite_desc">に基づいて - Basé sur ~, en se basant sur ~</string>
