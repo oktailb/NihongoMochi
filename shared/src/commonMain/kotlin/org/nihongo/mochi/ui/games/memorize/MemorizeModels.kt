@@ -1,11 +1,16 @@
 package org.nihongo.mochi.ui.games.memorize
 
 import kotlinx.serialization.Serializable
-import org.nihongo.mochi.domain.kanji.KanjiEntry
+
+// Wrapper to treat both Kanji and Kana as playable items in Memorize game
+data class MemorizePlayable(
+    val id: String,
+    val character: String
+)
 
 data class MemorizeCardState(
     val id: Int,
-    val kanji: KanjiEntry,
+    val item: MemorizePlayable,
     val isFaceUp: Boolean = false,
     val isMatched: Boolean = false
 )

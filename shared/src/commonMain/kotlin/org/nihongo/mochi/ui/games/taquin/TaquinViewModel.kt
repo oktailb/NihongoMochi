@@ -232,4 +232,9 @@ class TaquinViewModel(
             ScoreManager.saveTaquinHistory(json.encodeToString(newHistory))
         } catch (e: Exception) {}
     }
+
+    fun abandonGame() {
+        timerJob?.cancel()
+        _gameState.value = null
+    }
 }

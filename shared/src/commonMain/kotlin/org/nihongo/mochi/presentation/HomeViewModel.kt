@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelDefinition
+import org.nihongo.mochi.domain.levels.ActivityConfig
 import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class HomeViewModel(
@@ -31,6 +32,8 @@ class HomeViewModel(
 
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState = _uiState.asStateFlow()
+
+    private val REVISION_LEVEL_ID = "user_custom_list"
 
     init {
         loadLevelsForCurrentMode()
@@ -61,13 +64,24 @@ class HomeViewModel(
                 
                 levels.addAll(0, dependencies)
             }
+
+            // Add dynamic "Revision" level at the end
+            val revisionLevel = LevelDefinition(
+                id = REVISION_LEVEL_ID,
+                name = "Revisions",
+                activities = mapOf(
+                    StatisticsType.RECOGNITION to ActivityConfig(enabled = true, dataFile = REVISION_LEVEL_ID),
+                    StatisticsType.READING to ActivityConfig(enabled = true, dataFile = REVISION_LEVEL_ID),
+                    StatisticsType.WRITING to ActivityConfig(enabled = true, dataFile = REVISION_LEVEL_ID),
+                    StatisticsType.GRAMMAR to ActivityConfig(enabled = true, dataFile = REVISION_LEVEL_ID)
+                )
+            )
+            levels.add(revisionLevel)
             
             // Load saved selection from settings
             val savedSelection = settingsRepository.getSelectedLevel()
 
             _uiState.update { currentState ->
-                // First try to use saved selection from settings
-                // If invalid or empty, fallback to current state selection or first level
                 val selectionToUse = if (levels.any { it.id == savedSelection }) {
                     savedSelection
                 } else if (levels.any { it.id == currentState.selectedLevelId }) {
@@ -76,12 +90,10 @@ class HomeViewModel(
                     levels.firstOrNull()?.id ?: ""
                 }
                 
-                // Ensure consistency: If we had to change selection, save it
                 if (selectionToUse != savedSelection && selectionToUse.isNotEmpty()) {
                     settingsRepository.setSelectedLevel(selectionToUse)
                 }
 
-                // Calculate enabled activities for the selected level
                 val selectedLevel = levels.find { it.id == selectionToUse }
                 val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
                 val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)
@@ -107,7 +119,6 @@ class HomeViewModel(
     fun onLevelSelected(levelId: String) {
         settingsRepository.setSelectedLevel(levelId)
         
-        // When level changes, update enabled states immediately
         val selectedLevel = _uiState.value.availableLevels.find { it.id == levelId }
         val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
         val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)

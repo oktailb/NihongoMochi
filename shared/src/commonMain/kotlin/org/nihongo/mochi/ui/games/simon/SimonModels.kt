@@ -1,7 +1,6 @@
 package org.nihongo.mochi.ui.games.simon
 
 import kotlinx.serialization.Serializable
-import org.nihongo.mochi.domain.kanji.KanjiEntry
 
 enum class SimonGameState {
     IDLE,
@@ -11,10 +10,15 @@ enum class SimonGameState {
 }
 
 enum class SimonMode {
+    // Kanji / JLPT Modes
     KANJI,
     MEANING,
     READING_COMMON,
-    READING_RANDOM
+    READING_RANDOM,
+    
+    // Kana Specific Modes
+    KANA_SAME,  // Same syllabary (e.g. Hiragana to Hiragana)
+    KANA_CROSS  // Cross syllabary (e.g. Hiragana to Katakana)
 }
 
 @Serializable

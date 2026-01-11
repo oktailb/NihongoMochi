@@ -21,6 +21,10 @@ import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
+import org.nihongo.mochi.domain.game.RecognitionGameViewModel
+import org.nihongo.mochi.domain.game.WritingGameViewModel
+import org.nihongo.mochi.domain.game.KanaQuizViewModel
+import org.nihongo.mochi.ui.wordquiz.WordQuizViewModel
 import org.nihongo.mochi.ui.games.memorize.MemorizeViewModel
 import org.nihongo.mochi.ui.games.simon.SimonViewModel
 import org.nihongo.mochi.ui.games.taquin.TaquinViewModel
@@ -49,10 +53,22 @@ val sharedModule = module {
     factoryOf(::SettingsViewModel)
     factoryOf(::WordListViewModel)
     factoryOf(::HomeViewModel) 
+    
+    // ViewModels with persistent state during navigation
+    singleOf(::DictionaryViewModel)
+    
+    // Games are singles to share state between Setup and Game screens.
+    // We must manually reset them when leaving the game flow.
+    singleOf(::SimonViewModel)
+    singleOf(::TaquinViewModel)
+    singleOf(::MemorizeViewModel)
+
+    // Game/Quiz ViewModels as factory for those with single-screen flow
     factoryOf(::GrammarViewModel)
-    factoryOf(::MemorizeViewModel)
-    factoryOf(::SimonViewModel)
-    factoryOf(::TaquinViewModel)
+    factoryOf(::RecognitionGameViewModel)
+    factoryOf(::WritingGameViewModel)
+    factoryOf(::KanaQuizViewModel)
+    factoryOf(::WordQuizViewModel)
     
     // ViewModels with parameters
     factory { params ->
@@ -92,6 +108,4 @@ val sharedModule = module {
             grammarTags = params.get<List<String>>()
         )
     }
-    
-    factory { DictionaryViewModel(get(), get(), get(), get(), get(), get()) }
 }

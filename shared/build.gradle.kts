@@ -36,6 +36,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             // Koin core for DI
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
             
             // Compose dependencies for KMP
             implementation(compose.runtime)
@@ -46,6 +47,9 @@ kotlin {
             
             // Rich Text Editor
             implementation(libs.rich.editor)
+
+            // Navigation Multiplatform
+            implementation(libs.jetbrains.navigation.compose)
         }
 
         androidMain.dependencies {

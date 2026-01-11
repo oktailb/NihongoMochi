@@ -33,6 +33,8 @@ class GrammarViewModel(
     private val settingsRepository: SettingsRepository 
 ) : ViewModel() {
 
+    private val REVISION_LEVEL_ID = "user_custom_list"
+
     private val _nodes = MutableStateFlow<List<GrammarNode>>(emptyList())
     val nodes: StateFlow<List<GrammarNode>> = _nodes.asStateFlow()
 
@@ -145,20 +147,30 @@ class GrammarViewModel(
     private suspend fun refreshGraph() {
         val currentMaxLevelId = _currentLevelId.value
         val def = grammarRepository.loadGrammarDefinition()
-        val allLevels = def.metadata.levels
-        val targetLevelIndex = allLevels.indexOf(currentMaxLevelId).takeIf { it != -1 } ?: allLevels.size - 1
-        val levelsToShow = allLevels.take(targetLevelIndex + 1)
         
-        var rules = grammarRepository.getRulesUntilLevel(currentMaxLevelId)
+        val (rules, levelsToShow) = if (currentMaxLevelId == REVISION_LEVEL_ID) {
+            val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.GRAMMAR)
+            val revisionRules = scores.keys.mapNotNull { ruleId ->
+                grammarRepository.getRuleById(ruleId)
+            }
+            revisionRules to listOf(REVISION_LEVEL_ID)
+        } else {
+            val allLevels = def.metadata.levels
+            val targetLevelIndex = allLevels.indexOf(currentMaxLevelId).takeIf { it != -1 } ?: allLevels.size - 1
+            val levelsToShow = allLevels.take(targetLevelIndex + 1)
+            val rules = grammarRepository.getRulesUntilLevel(currentMaxLevelId)
+            rules to levelsToShow
+        }
         
+        var filteredRules = rules
         val selected = _selectedCategories.value
         if (selected.isNotEmpty()) {
-            rules = rules.filter { rule ->
+            filteredRules = filteredRules.filter { rule ->
                 rule.category != null && selected.contains(rule.category)
             }
         }
         
-        val (nodes, separators, totalSlots) = buildGraphLayout(rules, levelsToShow)
+        val (nodes, separators, totalSlots) = buildGraphLayout(filteredRules, levelsToShow)
         
         _nodes.value = nodes
         _separators.value = separators
@@ -191,7 +203,14 @@ class GrammarViewModel(
         }
         rules.forEach { getDepth(it.id) }
 
-        val rulesByLevel = rules.groupBy { it.level }
+        // Rules grouped by level, but for revision mode we treat them as one level
+        val isRevisionMode = levels.size == 1 && levels[0] == REVISION_LEVEL_ID
+        val rulesByLevel = if (isRevisionMode) {
+            mapOf(REVISION_LEVEL_ID to rules)
+        } else {
+            rules.groupBy { it.level }
+        }
+
         var currentSlot = 0f
         
         levels.forEach { levelId ->

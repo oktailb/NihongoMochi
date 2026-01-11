@@ -40,14 +40,11 @@ class WritingGameViewModel(
     val kanjiStatus: MutableMap<KanjiDetail, GameStatus>
         get() = engine.kanjiStatus
     
-    val showCorrectionFeedback: Boolean
-        get() = engine.showCorrectionFeedback
+    val showCorrectionFeedback: StateFlow<Boolean> = engine.showCorrectionFeedback
         
-    val lastAnswerStatus: Boolean?
-        get() = engine.lastAnswerStatus
+    val lastAnswerStatus: StateFlow<Boolean?> = engine.lastAnswerStatus
         
-    val isAnswerProcessing: Boolean
-        get() = engine.isAnswerProcessing
+    val isAnswerProcessing: StateFlow<Boolean> = engine.isAnswerProcessing
 
     val state: StateFlow<GameState> = engine.state
     
@@ -96,9 +93,7 @@ class WritingGameViewModel(
             engine.startGame()
             isGameInitialized = true
         } else {
-            // If empty, we can't really start.
-            // Engine doesn't have an error state, maybe just finish.
-            engine.startGame() // This will trigger Finished if empty
+            engine.startGame()
         }
     }
 

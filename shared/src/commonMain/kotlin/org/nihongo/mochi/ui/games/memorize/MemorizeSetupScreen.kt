@@ -28,6 +28,7 @@ fun MemorizeSetupScreen(
     val maxStrokes by viewModel.maxStrokes.collectAsState()
     val selectedMaxStrokes by viewModel.selectedMaxStrokes.collectAsState()
     val scoresHistory by viewModel.scoresHistory.collectAsState()
+    val isKanaLevel by viewModel.isKanaLevel.collectAsState()
 
     MochiBackground {
         Column(
@@ -82,31 +83,33 @@ fun MemorizeSetupScreen(
                 }
             }
 
-            // Stroke Count Selection
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
-                    contentColor = MaterialTheme.colorScheme.onSurface
-                )
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = stringResource(Res.string.game_memorize_max_strokes, selectedMaxStrokes),
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.padding(bottom = 8.dp)
+            // Stroke Count Selection - Hidden if in Kana level
+            if (!isKanaLevel) {
+                Card(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                        contentColor = MaterialTheme.colorScheme.onSurface
                     )
-                    Slider(
-                        value = selectedMaxStrokes.toFloat(),
-                        onValueChange = { viewModel.onMaxStrokesChanged(it.roundToInt()) },
-                        valueRange = 1f..maxStrokes.toFloat().coerceAtLeast(1f),
-                        steps = (maxStrokes - 1).coerceAtLeast(0),
-                        colors = SliderDefaults.colors(
-                            thumbColor = MaterialTheme.colorScheme.primary,
-                            activeTrackColor = MaterialTheme.colorScheme.primary
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = stringResource(Res.string.game_memorize_max_strokes, selectedMaxStrokes),
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.padding(bottom = 8.dp)
                         )
-                    )
+                        Slider(
+                            value = selectedMaxStrokes.toFloat(),
+                            onValueChange = { viewModel.onMaxStrokesChanged(it.roundToInt()) },
+                            valueRange = 1f..maxStrokes.toFloat().coerceAtLeast(1f),
+                            steps = (maxStrokes - 1).coerceAtLeast(0),
+                            colors = SliderDefaults.colors(
+                                thumbColor = MaterialTheme.colorScheme.primary,
+                                activeTrackColor = MaterialTheme.colorScheme.primary
+                            )
+                        )
+                    }
                 }
             }
 

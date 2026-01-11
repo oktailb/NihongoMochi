@@ -14,9 +14,6 @@ import kotlin.random.Random
 
 enum class QuestionType { MEANING, READING }
 
-// TextNormalizer interface is already defined in TextNormalizer.kt
-// interface TextNormalizer { fun normalize(text: String): String }
-
 class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
     var isGameInitialized = false
     
@@ -31,19 +28,22 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
     lateinit var currentKanji: KanjiDetail
     var currentQuestionType: QuestionType = QuestionType.MEANING
     
-    // UI State
+    // UI State - Reactive
     private val _state = MutableStateFlow<GameState>(GameState.Loading)
     val state: StateFlow<GameState> = _state.asStateFlow()
     
-    var isAnswerProcessing = false
-    var lastAnswerStatus: Boolean? = null
-    var showCorrectionFeedback = false
-    var correctionDelayPending = false
+    private val _isAnswerProcessing = MutableStateFlow(false)
+    val isAnswerProcessing: StateFlow<Boolean> = _isAnswerProcessing.asStateFlow()
+
+    private val _lastAnswerStatus = MutableStateFlow<Boolean?>(null)
+    val lastAnswerStatus: StateFlow<Boolean?> = _lastAnswerStatus.asStateFlow()
+
+    private val _showCorrectionFeedback = MutableStateFlow(false)
+    val showCorrectionFeedback: StateFlow<Boolean> = _showCorrectionFeedback.asStateFlow()
 
     // Configuration
     var animationSpeed: Float = 1.0f
 
-    @Suppress("unused") // Kept for potential future use (game restart feature)
     fun resetState() {
         isGameInitialized = false
         allKanjiDetails.clear()
@@ -52,10 +52,9 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
         revisionList.clear()
         kanjiStatus.clear()
         kanjiProgress.clear()
-        isAnswerProcessing = false
-        lastAnswerStatus = null
-        showCorrectionFeedback = false
-        correctionDelayPending = false
+        _isAnswerProcessing.value = false
+        _lastAnswerStatus.value = null
+        _showCorrectionFeedback.value = false
         _state.value = GameState.Loading
     }
 
@@ -104,10 +103,9 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
     fun nextQuestion() {
         if (revisionList.isEmpty()) return
 
-        isAnswerProcessing = false
-        lastAnswerStatus = null
-        showCorrectionFeedback = false
-        correctionDelayPending = false
+        _isAnswerProcessing.value = false
+        _lastAnswerStatus.value = null
+        _showCorrectionFeedback.value = false
 
         currentKanji = revisionList.random()
         val progress = kanjiProgress[currentKanji]!!
@@ -120,8 +118,8 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
     }
 
     suspend fun submitAnswer(userAnswer: String): Boolean {
-        if (isAnswerProcessing) return false
-        isAnswerProcessing = true
+        if (_isAnswerProcessing.value) return false
+        _isAnswerProcessing.value = true
 
         val isCorrect = if (currentQuestionType == QuestionType.MEANING) {
             checkMeaning(userAnswer)
@@ -131,7 +129,7 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
 
         ScoreManager.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.WRITING)
 
-        lastAnswerStatus = isCorrect
+        _lastAnswerStatus.value = isCorrect
         
         if (isCorrect) {
             val progress = kanjiProgress[currentKanji]!!
@@ -151,15 +149,8 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
             
         } else {
             kanjiStatus[currentKanji] = GameStatus.INCORRECT
-            showCorrectionFeedback = true
+            _showCorrectionFeedback.value = true
             _state.value = GameState.ShowingResult(isCorrect)
-            
-            // For incorrect answers, feedback is shown, and we might wait longer or wait for user action
-            // The original logic had a complex delay. 
-            // We can simplify: showing result -> delay -> next question OR just show result and let UI decide when to call next
-            
-            // To mimic original behavior where feedback time depended on length:
-            // The logic was in Fragment. We can move it here or just use a standard delay + factor
             
             var delayMs: Long
             if (currentQuestionType == QuestionType.MEANING) {
@@ -170,9 +161,7 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
                  delayMs = kotlin.math.max(2000L, len * 150L)
             }
             
-            // Limit max delay
             delayMs = delayMs.coerceAtMost(6000L)
-            
             delay((delayMs * animationSpeed).toLong())
             displayQuestion()
         }

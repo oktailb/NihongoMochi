@@ -75,9 +75,7 @@ class DictionaryViewModel(
 
     init {
         viewModelScope.launch {
-            // Ensure RomajiToKana is initialized
             RomajiToKana.init(kanaRepository)
-            
             val defs = levelsRepository.loadLevelDefinitions()
             val options = mutableListOf(LevelFilterOption("ALL", "word_type_all"))
             
@@ -90,6 +88,7 @@ class DictionaryViewModel(
                 }
             
             _availableLevelOptions.value = options
+            loadDictionaryData()
         }
     }
 
@@ -108,10 +107,13 @@ class DictionaryViewModel(
             onSuccess = { candidates ->
                 drawingCandidates = candidates
                 _recognitionResults.value = candidates
+                // Logic change: When drawing, we often want to see results across all levels
+                if (selectedLevelId != "ALL" && candidates.isNotEmpty()) {
+                    selectedLevelId = "ALL"
+                }
                 applyFilters()
             },
             onFailure = { e ->
-                println("Recognition failed: ${e.message}")
                 _recognitionResults.value = null
             }
         )
@@ -173,7 +175,6 @@ class DictionaryViewModel(
         var finalText = newText
         val currentText = _textQuery.value
         
-        // Auto-convert to Kana if in READING mode and text was added (not deleted)
         if (_searchMode.value == SearchMode.READING && newText.length > currentText.length) {
              val replacement = RomajiToKana.checkReplacement(newText)
              if (replacement != null) {

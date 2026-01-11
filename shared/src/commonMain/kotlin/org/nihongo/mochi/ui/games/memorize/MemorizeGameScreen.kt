@@ -28,12 +28,19 @@ fun MemorizeGameScreen(
 ) {
     val isFinished by viewModel.isGameFinished.collectAsState()
 
+    // Ensure session is cleaned up when leaving the screen
+    DisposableEffect(viewModel) {
+        onDispose {
+            viewModel.abandonGame()
+        }
+    }
+
     MochiBackground {
         Column(
             modifier = Modifier.fillMaxSize().padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            MemorizeHeader(viewModel, onBackClick)
+            MemorizeHeader(viewModel)
 
             Box(modifier = Modifier.weight(1f)) {
                 if (isFinished) {
@@ -74,23 +81,18 @@ fun MemorizeGameScreen(
 
 @Composable
 private fun MemorizeHeader(
-    viewModel: MemorizeViewModel,
-    onBackClick: () -> Unit
+    viewModel: MemorizeViewModel
 ) {
     val moves by viewModel.moves.collectAsState()
     val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
     val cards by viewModel.cards.collectAsState()
     val gridSize by viewModel.selectedGridSize.collectAsState()
 
-    Row(
+    // HUD Aligned to Top End (like Simon)
+    Box(
         modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+        contentAlignment = Alignment.TopEnd
     ) {
-        TextButton(onClick = onBackClick) {
-            Text(stringResource(Res.string.game_memorize_quit), color = MaterialTheme.colorScheme.error)
-        }
-        
         Column(horizontalAlignment = Alignment.End) {
             Text(stringResource(Res.string.game_memorize_moves, moves), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
             Text(stringResource(Res.string.game_memorize_time, timeSeconds), fontSize = 14.sp, color = MaterialTheme.colorScheme.onBackground)
@@ -110,7 +112,8 @@ fun MemoryCard(
 ) {
     val rotation by animateFloatAsState(
         targetValue = if (state.isFaceUp || state.isMatched) 180f else 0f,
-        animationSpec = tween(durationMillis = 400)
+        animationSpec = tween(durationMillis = 400),
+        label = "cardRotation"
     )
 
     Box(
@@ -147,7 +150,7 @@ fun MemoryCard(
             ) {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Text(
-                        text = state.kanji.character,
+                        text = state.item.character,
                         fontSize = 32.sp,
                         textAlign = TextAlign.Center
                     )
@@ -187,11 +190,13 @@ fun MemorizeResultOverlay(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(stringResource(Res.string.game_memorize_moves, moves).split(":")[0], fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    val label = stringResource(Res.string.game_memorize_moves, moves).split(":")[0]
+                    Text(label, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text("$moves", fontWeight = FontWeight.Bold, fontSize = 24.sp)
                 }
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(stringResource(Res.string.game_memorize_time, timeSeconds).split(":")[0], fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    val label = stringResource(Res.string.game_memorize_time, timeSeconds).split(":")[0]
+                    Text(label, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     Text("${timeSeconds}s", fontWeight = FontWeight.Bold, fontSize = 24.sp)
                 }
             }

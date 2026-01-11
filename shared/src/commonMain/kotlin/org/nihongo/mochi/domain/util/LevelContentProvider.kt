@@ -21,7 +21,13 @@ class LevelContentProvider(
             lowerKey == "native_challenge" || lowerKey == "native challenge" -> kanjiRepository.getNativeKanji().map { it.character }
             lowerKey == "no_reading" || lowerKey == "no reading" -> kanjiRepository.getNoReadingKanji().map { it.character }
             lowerKey == "no_meaning" || lowerKey == "no meaning" -> kanjiRepository.getNoMeaningKanji().map { it.character }
-            lowerKey == "user_custom_list" -> ScoreManager.getAllScores(ScoreManager.ScoreType.READING).keys.toList()
+            lowerKey == "user_custom_list" -> {
+                // Return all items with a score in RECOGNITION (Kanji) or GRAMMAR
+                // This covers revisions for kanji and grammar rules
+                val kanjiScores = ScoreManager.getAllScores(ScoreManager.ScoreType.RECOGNITION).keys
+                val grammarScores = ScoreManager.getAllScores(ScoreManager.ScoreType.GRAMMAR).keys
+                (kanjiScores + grammarScores).toList()
+            }
             
             // Word lists (explicit filenames from levels.json)
             lowerKey.contains("wordlist") -> wordRepository.getWordsForLevel(levelKey)

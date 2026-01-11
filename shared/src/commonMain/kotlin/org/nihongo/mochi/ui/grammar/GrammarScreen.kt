@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.grammar
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -112,6 +113,18 @@ fun GrammarScreen(
 
     var detectedLevelName by remember { mutableStateOf("") }
     var initialScrollDone by remember { mutableStateOf(false) }
+
+    // Logic for back button handling
+    val isQuizOpen = selectedQuizTags != null
+    val isLessonOpen = selectedLessonHtml != null
+
+    BackHandler(enabled = isQuizOpen || isLessonOpen) {
+        if (isQuizOpen) {
+            viewModel.closeQuiz()
+        } else if (isLessonOpen) {
+            viewModel.closeLesson()
+        }
+    }
 
     Scaffold(
         // No TopBar

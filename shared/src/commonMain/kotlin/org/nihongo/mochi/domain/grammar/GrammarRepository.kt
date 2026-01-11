@@ -35,7 +35,6 @@ class GrammarRepository(
     private var grammarDefinition: GrammarDefinition? = null
     
     // HACK: List of IDs that we know have lessons. 
-    // In a real localized setup, we should check if the file exists for the locale or fallback.
     private val availableLessons = setOf(
         "ge", "kke", "mai", "shi", "beki", "garu", "hazu", "hodo", "kiri", "koso", "muke", "muki", "nado", "naru", "noms", "noni", "ppoi", "toka",
         "ichio", "seide", "te_mo", "to_iu", "ue_de", "ue_ha", "ue_ni", "zutsu", "ato_de", "chu_ju", "darake", "hanmen", "hoshii", "ijo_ha", "kagiri",
@@ -86,16 +85,22 @@ class GrammarRepository(
         return loadGrammarDefinition().metadata.categories
     }
 
-    suspend fun getRulesUntilLevel(maxLevelId: String): List<GrammarRule> {
+    suspend fun getAllRules(): List<GrammarRule> {
         val def = loadGrammarDefinition()
-        val allRules = def.dependencies_basics + def.rules
-        
-        val levelsOrder = def.metadata.levels
+        return def.dependencies_basics + def.rules
+    }
+
+    suspend fun getRuleById(id: String): GrammarRule? {
+        return getAllRules().find { it.id == id }
+    }
+
+    suspend fun getRulesUntilLevel(maxLevelId: String): List<GrammarRule> {
+        val levelsOrder = loadGrammarDefinition().metadata.levels
         val maxLevelIndex = levelsOrder.indexOf(maxLevelId)
         
         if (maxLevelIndex == -1) return emptyList()
 
-        return allRules.filter { rule ->
+        return getAllRules().filter { rule ->
             val ruleLevelIndex = levelsOrder.indexOf(rule.level)
             ruleLevelIndex != -1 && ruleLevelIndex <= maxLevelIndex
         }
@@ -110,7 +115,6 @@ class GrammarRepository(
         return try {
             resourceLoader.loadJson("grammar/lessons/$fileName")
         } catch (e: Exception) {
-             // Fallback CSS in case file load fails
              if (isDark) {
                  "body { font-family: sans-serif; padding: 16px; color: #E0E0E0; background-color: #121212; }"
              } else {
@@ -120,23 +124,14 @@ class GrammarRepository(
     }
     
     suspend fun loadLessonHtml(ruleId: String, languageCode: String): String {
-        // Safe check for language code to avoid bad path construction
         val safeLang = if (languageCode.length >= 2) languageCode.substring(0, 2).lowercase() else "en"
-        
-        // Priority 1: Specific language path
         val localizedPath = "grammar/lessons/$safeLang/$ruleId.html"
-        
-        // Priority 2: Default (English) specific path
         val defaultLangPath = "grammar/lessons/en/$ruleId.html"
-        
-        // Priority 3: Root path (legacy or shared)
         val rootPath = "grammar/lessons/$ruleId.html"
         
         try {
             return resourceLoader.loadJson(localizedPath)
-        } catch (e: Exception) {
-            // Log here if possible in KMP
-        }
+        } catch (e: Exception) {}
 
         if (safeLang != "en") {
             try {

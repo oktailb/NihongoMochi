@@ -1,15 +1,17 @@
 package org.nihongo.mochi
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.compose.rememberNavController
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -17,7 +19,11 @@ import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import org.koin.android.ext.android.inject
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.ui.navigation.MochiNavGraph
+import org.nihongo.mochi.ui.theme.AppTheme
 import org.nihongo.mochi.workers.DecayWorker
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
@@ -27,32 +33,22 @@ class MainActivity : AppCompatActivity() {
     private val settingsRepository: SettingsRepository by inject()
 
     override fun attachBaseContext(newBase: Context) {
-        // NUCLEAR FIX for Android 9 "One step behind" issue.
-        // We intercept the context CREATION. This happens before onCreate.
-        // We read the synchronous preference we saved in SettingsFragment.
         val prefs = newBase.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         val localeCode = prefs.getString("AppLocale", "en_GB") ?: "en_GB"
         
-        // Parse locale (e.g., "en_GB" -> "en" + "GB")
         val parts = localeCode.split("_")
         val language = parts.getOrElse(0) { "en" }
         val country = parts.getOrElse(1) { "" }
         val locale = if (country.isNotEmpty()) Locale(language, country) else Locale(language)
 
-        // Force system defaults immediately
         Locale.setDefault(locale)
         
-        // Create a new configuration with this locale
         val config = Configuration(newBase.resources.configuration)
         config.setLocale(locale)
         
-        // Create the wrapped context
         val context = newBase.createConfigurationContext(config)
-        
-        // Pass the WRAPPED context to super. This ensures all Inflaters use the new language.
         super.attachBaseContext(context)
         
-        // Also tell AppCompat, just in case, but the Context wrap does the heavy lifting
         val localeList = LocaleListCompat.create(locale)
         AppCompatDelegate.setApplicationLocales(localeList)
     }
@@ -61,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         
-        // Standard Sync logic for repository
+        // Locale and Theme Sync
         val currentAppLocales = AppCompatDelegate.getApplicationLocales()
         if (!currentAppLocales.isEmpty) {
             val primaryLocale = currentAppLocales.get(0)
@@ -73,7 +69,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Apply stored theme
         val savedTheme = settingsRepository.getTheme()
         val nightMode = if (savedTheme == "dark") {
             AppCompatDelegate.MODE_NIGHT_YES
@@ -84,17 +79,54 @@ class MainActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(nightMode)
         }
 
-        setContentView(R.layout.activity_main)
+        setContent {
+            val sdf = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault())
+            val currentDate = sdf.format(Date())
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as? NavHostFragment
-        if (navHostFragment == null) {
-            Log.e("MainActivity", "NavHostFragment not found!")
+            AppTheme {
+                val navController = rememberNavController()
+                MochiNavGraph(
+                    navController = navController,
+                    versionName = BuildConfig.VERSION_NAME,
+                    currentDate = currentDate,
+                    onOpenUrl = { url -> openUrl(url) },
+                    onThemeChanged = { isDark -> changeTheme(isDark) },
+                    onLocaleChanged = { newLocale -> changeLocale(newLocale) }
+                )
+            }
         }
 
         gamesSignInClient = PlayGames.getGamesSignInClient(this)
         setupWorkers()
     }
+
+    private fun changeTheme(isDark: Boolean) {
+        val mode = if (isDark) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+        AppCompatDelegate.setDefaultNightMode(mode)
+    }
+
+    private fun changeLocale(localeCode: String) {
+        val prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        prefs.edit().putString("AppLocale", localeCode).commit()
+
+        val localeTag = localeCode.replace('_', '-')
+        val appLocale = LocaleListCompat.forLanguageTags(localeTag)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+    }
     
+    private fun openUrl(url: String) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Failed to open URL: $url", e)
+        }
+    }
+
     private fun setupWorkers() {
         val decayWorkRequest = PeriodicWorkRequestBuilder<DecayWorker>(1, TimeUnit.DAYS)
             .setInitialDelay(1, TimeUnit.DAYS)
@@ -119,10 +151,5 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "Google Play Games sign-in failed or not authenticated.")
             }
         }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

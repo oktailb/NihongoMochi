@@ -12,13 +12,20 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.kana.KanaRepository
+import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ViewModel
 
 class MemorizeViewModel(
     private val kanjiRepository: KanjiRepository,
-    private val settingsRepository: SettingsRepository
+    private val kanaRepository: KanaRepository,
+    private val settingsRepository: SettingsRepository,
+    private val levelContentProvider: LevelContentProvider
 ) : ViewModel() {
+
+    private val REVISION_LEVEL_ID = "user_custom_list"
 
     private val allPossibleGridSizes = listOf(
         MemorizeGridSize(4, 3), 
@@ -39,6 +46,9 @@ class MemorizeViewModel(
     
     private val _selectedMaxStrokes = MutableStateFlow(20)
     val selectedMaxStrokes: StateFlow<Int> = _selectedMaxStrokes.asStateFlow()
+
+    private val _isKanaLevel = MutableStateFlow(false)
+    val isKanaLevel: StateFlow<Boolean> = _isKanaLevel.asStateFlow()
 
     private val _scoresHistory = MutableStateFlow<List<MemorizeGameResult>>(emptyList())
     val scoresHistory: StateFlow<List<MemorizeGameResult>> = _scoresHistory.asStateFlow()
@@ -68,7 +78,7 @@ class MemorizeViewModel(
             val maxS = allKanji.maxOfOrNull { it.strokes?.toIntOrNull() ?: 0 } ?: 20
             _maxStrokes.value = maxS
             _selectedMaxStrokes.value = maxS
-            updateAvailableGridSizes()
+            updateLevelInfo()
             loadScoresHistory()
         }
     }
@@ -85,10 +95,21 @@ class MemorizeViewModel(
         }
     }
 
-    private fun updateAvailableGridSizes() {
+    private fun updateLevelInfo() {
         val levelId = settingsRepository.getSelectedLevel()
-        val count = kanjiRepository.getKanjiByLevel(levelId)
-            .count { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
+        val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
+        _isKanaLevel.value = isKana
+
+        val count = if (isKana) {
+            val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
+            kanaRepository.getKanaEntries(type).size
+        } else if (levelId == REVISION_LEVEL_ID) {
+            // Revisions count (kanji with scores)
+            levelContentProvider.getCharactersForLevel(levelId).size
+        } else {
+            kanjiRepository.getKanjiByLevel(levelId)
+                .count { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
+        }
         
         val filtered = allPossibleGridSizes.filter { it.pairsCount <= count }
         _availableGridSizes.value = filtered.ifEmpty { listOf(allPossibleGridSizes.first()) }
@@ -106,24 +127,38 @@ class MemorizeViewModel(
 
     fun onMaxStrokesChanged(strokes: Int) {
         _selectedMaxStrokes.value = strokes
-        updateAvailableGridSizes()
+        updateLevelInfo()
     }
 
     fun startGame() {
         viewModelScope.launch {
             val levelId = settingsRepository.getSelectedLevel()
-            val allAvailableKanji = kanjiRepository.getKanjiByLevel(levelId)
-                .filter { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
+            val isKana = _isKanaLevel.value
+
+            val allPlayables = if (isKana) {
+                val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
+                kanaRepository.getKanaEntries(type).map { MemorizePlayable(it.character, it.character) }
+            } else if (levelId == REVISION_LEVEL_ID) {
+                val kanjiChars = levelContentProvider.getCharactersForLevel(levelId)
+                kanjiChars.mapNotNull { idOrChar ->
+                     val k = kanjiRepository.getKanjiById(idOrChar) ?: kanjiRepository.getKanjiByCharacter(idOrChar)
+                     k?.let { MemorizePlayable(it.id, it.character) }
+                }
+            } else {
+                kanjiRepository.getKanjiByLevel(levelId)
+                    .filter { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
+                    .map { MemorizePlayable(it.id, it.character) }
+            }
             
-            if (allAvailableKanji.isEmpty()) return@launch
+            if (allPlayables.isEmpty()) return@launch
 
             val pairsToSelect = _selectedGridSize.value.pairsCount
-            val selectedKanji = allAvailableKanji.shuffled().take(pairsToSelect)
+            val selectedItems = allPlayables.shuffled().take(pairsToSelect)
             
-            val gameCards = (selectedKanji + selectedKanji)
+            val gameCards = (selectedItems + selectedItems)
                 .shuffled()
-                .mapIndexed { index, kanji ->
-                    MemorizeCardState(id = index, kanji = kanji)
+                .mapIndexed { index, item ->
+                    MemorizeCardState(id = index, item = item)
                 }
                 
             _cards.value = gameCards
@@ -164,7 +199,7 @@ class MemorizeViewModel(
             firstSelectedCardIndex = null 
             _moves.update { it + 1 }
             
-            if (currentCards[firstIndex].kanji.id == currentCards[index].kanji.id) {
+            if (currentCards[firstIndex].item.id == currentCards[index].item.id) {
                 _cards.update { list ->
                     list.mapIndexed { i, card ->
                         if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
@@ -216,5 +251,12 @@ class MemorizeViewModel(
             } catch (e: Exception) {
             }
         }
+    }
+
+    fun abandonGame() {
+        timerJob?.cancel()
+        _cards.value = emptyList()
+        _isGameFinished.value = false
+        updateLevelInfo() // Refresh level info in case it changed
     }
 }
