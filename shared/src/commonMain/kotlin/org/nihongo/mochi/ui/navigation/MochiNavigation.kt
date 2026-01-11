@@ -35,6 +35,7 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.SagaMapScreen
@@ -683,6 +684,7 @@ fun MochiNavGraph(
             val levelId = backStackEntry.arguments?.getString("levelId") ?: ""
             val viewModel: WordQuizViewModel = koinInject()
             val wordRepository: WordRepository = koinInject()
+            val levelContentProvider: LevelContentProvider = koinInject()
             
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val currentWord by viewModel.currentWord.collectAsState(null)
@@ -692,7 +694,12 @@ fun MochiNavGraph(
             val wordStatuses by viewModel.wordStatuses.collectAsState(emptyList())
 
             remember(levelId) {
-                val wordsForQuiz = wordRepository.getWordsForLevel(levelId)
+                val wordsForQuiz = if (levelId == "user_custom_list") {
+                    val texts = levelContentProvider.getCharactersForLevel(levelId)
+                    wordRepository.getWordEntriesByText(texts)
+                } else {
+                    wordRepository.getWordEntriesForLevel(levelId)
+                }
                 viewModel.initializeGame(wordsForQuiz)
                 true
             }

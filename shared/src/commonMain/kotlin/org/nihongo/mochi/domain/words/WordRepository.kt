@@ -46,7 +46,6 @@ class WordRepository(
             knownListsLoaded = true
             
         } catch (e: Exception) {
-            // Fallback to defaults if something goes wrong
              if (_knownLists.isEmpty()) {
                 _knownLists.addAll(listOf(
                     "bccwj_wordlist_1000", "bccwj_wordlist_2000", "bccwj_wordlist_3000", 
@@ -75,8 +74,8 @@ class WordRepository(
             return cachedWords[fileName]!!
         }
         
-        val jsonString = resourceLoader.loadJson("words/$fileName.json")
         return try {
+            val jsonString = resourceLoader.loadJson("words/$fileName.json")
             val root = json.decodeFromString<WordListRoot>(jsonString)
             cachedWords[fileName] = root.words.word
             root.words.word
@@ -109,5 +108,12 @@ class WordRepository(
 
     fun getWordsContainingKanji(kanji: String): List<WordEntry> {
         return getAllWordEntries().filter { it.text.contains(kanji) }
+    }
+
+    fun getWordEntriesByText(texts: List<String>): List<WordEntry> {
+        val all = getAllWordEntries()
+        val textSet = texts.toSet()
+        // We might have duplicates if a word is in multiple levels, we take the first found
+        return all.filter { it.text in textSet }.distinctBy { it.text }
     }
 }

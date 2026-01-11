@@ -17,6 +17,7 @@ import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.Word
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.domain.words.WordEntry
 
 class WordQuizViewModel(
     private val wordRepository: WordRepository
@@ -53,22 +54,10 @@ class WordQuizViewModel(
         animationSpeed = speed
     }
 
-    fun initializeGame(customWordList: List<String>?) {
+    fun initializeGame(entries: List<WordEntry>) {
         if (engine.isGameInitialized) return
 
-        val wordListToUse = customWordList ?: emptyList()
-        
-        // This should ideally be a suspend call in repository, but for now we follow existing sync pattern or assume it's fast
-        val allEntries = wordRepository.getAllWordEntries()
-        
-        val words = if (wordListToUse.isNotEmpty()) {
-            allEntries.filter { wordListToUse.contains(it.text) }.map { Word(it.text, it.phonetics) }
-        } else {
-            // Fallback: take random words if no list provided? Or maybe we should load all?
-            // Existing logic was empty list fallback which lead to popBackStack.
-            // Let's try to load something if custom list is empty, or just return empty
-            emptyList()
-        }
+        val words = entries.map { Word(it.text, it.phonetics) }
 
         engine.allWords = words.shuffled().toMutableList()
         engine.wordListPosition = 0
