@@ -14,15 +14,13 @@
     <string name="menu_slideshow">Apresentação de slides</string>
     <string name="menu_settings">Definições</string>
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-    </string>
-    <string name="fab_content_description">Represents a view to invoke an action</string>
-    <string name="image_view_item_transform_content_description">Represents an image view in the
-        item
-    </string>
+    <string name="lorem_ipsum">Lorem Ipsum é simplesmente um espaço reservado para texto da impressão e
+        indústria tipográfica. Lorem Ipsum tem sido o texto de espaço reservado padrão da indústria de todos os tempos
+        desde 1500, quando um impressor desconhecido pegou uma galera de tipos e a embaralhou para fazer uma
+        tipo livro de exemplares.</string>
+    <string name="fab_content_description">Representa uma visão para invocar uma ação</string>
+    <string name="image_view_item_transform_content_description">Representa uma visualização de imagem no
+        artigo</string>
     <string name="settings_title">Opções</string>
     <string name="settings_category_general">Geral</string>
     <string name="settings_category_learning">Aprendizado</string>
@@ -50,8 +48,6 @@
     <string name="enter_your_answer">Insira a sua resposta</string>
     <string name="submit">Enviar</string>
     <string name="game_writing_correction">Correção</string>
-    <string name="game_writing_on">SOBRE</string>
-    <string name="game_writing_kun">KUN</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Escolha um grupo de kanji e aprenda a reconhecer os seus diferentes significados básicos</string>
     <string name="recognition_fundamentals">Fundamentos</string>
@@ -189,7 +185,7 @@
     <string name="dictionary_clear_drawing_desc">Limpar filtro de desenho</string>
     <string name="dictionary_search_button">Pesquisar</string>
     <string name="dictionary_results_count_format">%1$d resultados</string>
-    <string name="dictionary_reading_on">On:</string>
+    <string name="dictionary_reading_on">Sobre:</string>
     <string name="dictionary_reading_kun">Kun:</string>
     <string name="kanji_detail_components">Componentes</string>
     <string name="section_fundamentals">Fundamentos</string>
@@ -600,4 +596,25 @@
     <string name="game_shiritori_subtitle">A tradicional sequência de palavras japonesas</string>
     <string name="game_shadow_title">Sombra Kanji</string>
     <string name="game_shadow_subtitle">Identifique Kanji pela silhueta</string>
+    <string name="game_config_title">Configuração</string>
+    <string name="game_history_title">História</string>
+    <string name="game_replay_button">Repetir</string>
+    <string name="game_menu_button">Menu</string>
+    <string name="game_simon_japanese_title">Tradução</string>
+    <string name="game_simon_mode_kana_same">Mesmo silabário</string>
+    <string name="game_simon_mode_kana_cross">Silabário Cruzado</string>
+    <string name="game_simon_score_label">Pontuação: %1$d</string>
+    <string name="game_simon_record_label">Registro: %1$d</string>
+    <string name="game_simon_time_label">Hora: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">Hiragana</string>
+    <string name="game_taquin_mode_katakana">Katakana</string>
+    <string name="game_taquin_mode_numbers">Números</string>
+    <string name="grammar_filter_categories">Filtrar categorias</string>
+    <string name="grammar_no_categories">Nenhuma categoria encontrada.</string>
+    <string name="grammar_done">Feito</string>
+    <string name="grammar_clear_all">Limpar tudo</string>
+    <string name="grammar_pass_exam">Passar no exame</string>
+    <string name="level_user_custom_list">Revisões</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

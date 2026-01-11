@@ -5,23 +5,21 @@
     <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
     <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">ส่วนหัวการนำทาง</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">การตั้งค่า</string>
     <string name="action_sign_in">ลงชื่อเข้าใช้</string>
     <string name="action_achievements">ความสำเร็จ</string>
     <string name="menu_transform">แปลงร่าง</string>
     <string name="menu_reflow">รีโฟลว์</string>
     <string name="menu_slideshow">สไลด์โชว์</string>
-    <string name="menu_settings">Settings</string>
-    <string name="lorem_ipsum_title">Lorem Ipsum</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-    </string>
-    <string name="fab_content_description">Represents a view to invoke an action</string>
-    <string name="image_view_item_transform_content_description">Represents an image view in the
-        item
-    </string>
+    <string name="menu_settings">การตั้งค่า</string>
+    <string name="lorem_ipsum_title">ลอเรม อิปซัม</string>
+    <string name="lorem_ipsum">Lorem Ipsum เป็นเพียงตัวยึดตำแหน่งข้อความในการพิมพ์และ
+        อุตสาหกรรมการเรียงพิมพ์ Lorem Ipsum ถือเป็นข้อความตัวยึดตำแหน่งมาตรฐานของอุตสาหกรรมเลยทีเดียว
+        นับตั้งแต่ช่วงทศวรรษที่ 1500 เมื่อเครื่องพิมพ์ที่ไม่รู้จักได้นำห้องครัวประเภทหนึ่งมาเบียดเสียดกันเพื่อสร้าง
+        ประเภทหนังสือตัวอย่าง</string>
+    <string name="fab_content_description">แสดงถึงมุมมองเพื่อเรียกใช้การดำเนินการ</string>
+    <string name="image_view_item_transform_content_description">แสดงถึงมุมมองภาพใน
+        รายการ</string>
     <string name="settings_title">ตัวเลือก</string>
     <string name="settings_category_general">ทั่วไป</string>
     <string name="settings_category_learning">การเรียนรู้</string>
@@ -49,8 +47,6 @@
     <string name="enter_your_answer">ป้อนคำตอบของคุณ</string>
     <string name="submit">ส่ง</string>
     <string name="game_writing_correction">การแก้ไข</string>
-    <string name="game_writing_on">บน</string>
-    <string name="game_writing_kun">คุน</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">เลือกกลุ่มของคันจิและเรียนรู้ที่จะจดจำความหมายพื้นฐานที่แตกต่างกัน</string>
     <string name="recognition_fundamentals">พื้นฐาน</string>
@@ -91,7 +87,7 @@
     <string name="level_n5">N5</string>
     <string name="level_n4">N4</string>
     <string name="level_n3">N3</string>
-    <string name="level_n2">N2</string>
+    <string name="level_n2">น2</string>
     <string name="level_n1">N1</string>
     <string name="level_class_1">ชั้นเรียน 1</string>
     <string name="level_class_2">ชั้นเรียน 2</string>
@@ -108,7 +104,7 @@
     <string name="home_recognition_subtitle">เรียนรู้ที่จะจดจำคันจิและจดจำความหมายพื้นฐานของพวกเขา</string>
     <string name="home_reading_subtitle">เรียนรู้ที่จะอ่านคำทั้งคำและวิธีการออกเสียงในบริบทที่แตกต่างกัน</string>
     <string name="home_writing_subtitle">ฝึกเขียนคำและจดจำคันจิในความจำของคุณ</string>
-    <string name="title_home">Kanji Mori</string>
+    <string name="title_home">คันจิ โมริ</string>
     <string name="title_game_recap">สรุปเกม</string>
     <string name="about_category_informations">ข้อมูล</string>
     <string name="about_category_credits">เครดิต</string>
@@ -188,8 +184,8 @@
     <string name="dictionary_clear_drawing_desc">ล้างตัวกรองการวาด</string>
     <string name="dictionary_search_button">ค้นหา</string>
     <string name="dictionary_results_count_format">%1$d ผลลัพธ์</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on">บน:</string>
+    <string name="dictionary_reading_kun">คุน:</string>
     <string name="kanji_detail_components">ส่วนประกอบ</string>
     <string name="section_fundamentals">ความรู้พื้นฐาน</string>
     <string name="section_fundamentals_desc">พื้นฐานการเขียนภาษาญี่ปุ่น</string>
@@ -600,4 +596,25 @@
     <string name="game_shiritori_subtitle">สตริงคำภาษาญี่ปุ่นแบบดั้งเดิม</string>
     <string name="game_shadow_title">เงาคันจิ</string>
     <string name="game_shadow_subtitle">ระบุตัวคันจิด้วยภาพเงาของพวกเขา</string>
+    <string name="game_config_title">การกำหนดค่า</string>
+    <string name="game_history_title">ประวัติศาสตร์</string>
+    <string name="game_replay_button">เล่นซ้ำ</string>
+    <string name="game_menu_button">เมนู</string>
+    <string name="game_simon_japanese_title">記憶</string>
+    <string name="game_simon_mode_kana_same">พยางค์เดียวกัน</string>
+    <string name="game_simon_mode_kana_cross">พยางค์ข้าม</string>
+    <string name="game_simon_score_label">คะแนน: %1$d</string>
+    <string name="game_simon_record_label">บันทึก: %1$d</string>
+    <string name="game_simon_time_label">เวลา: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">ฮิระงะนะ</string>
+    <string name="game_taquin_mode_katakana">คาตาคานะ</string>
+    <string name="game_taquin_mode_numbers">ตัวเลข</string>
+    <string name="grammar_filter_categories">หมวดหมู่ตัวกรอง</string>
+    <string name="grammar_no_categories">ไม่พบหมวดหมู่</string>
+    <string name="grammar_done">เสร็จแล้ว</string>
+    <string name="grammar_clear_all">ล้างทั้งหมด</string>
+    <string name="grammar_pass_exam">ผ่านการสอบ</string>
+    <string name="level_user_custom_list">การแก้ไข</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

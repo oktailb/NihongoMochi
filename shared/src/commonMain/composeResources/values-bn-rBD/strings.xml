@@ -43,8 +43,6 @@
     <string name="enter_your_answer">আপনার উত্তর লিখুন</string>
     <string name="submit">জমা দিন</string>
     <string name="game_writing_correction">সংশোধন</string>
-    <string name="game_writing_on">চালু</string>
-    <string name="game_writing_kun">কুন</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">কাঞ্জির একটি গ্রুপ চয়ন করুন এবং তাদের বিভিন্ন মৌলিক অর্থ চিনতে শিখুন</string>
     <string name="recognition_fundamentals">মৌলিক</string>
@@ -596,4 +594,25 @@
     <string name="game_shiritori_subtitle">শব্দের ঐতিহ্যগত জাপানি স্ট্রিং</string>
     <string name="game_shadow_title">ছায়া কাঞ্জি</string>
     <string name="game_shadow_subtitle">কানজিকে তাদের সিলুয়েট দ্বারা চিহ্নিত করুন</string>
+    <string name="game_config_title">কনফিগারেশন</string>
+    <string name="game_history_title">ইতিহাস</string>
+    <string name="game_replay_button">রিপ্লে</string>
+    <string name="game_menu_button">মেনু</string>
+    <string name="game_simon_japanese_title">記憶</string>
+    <string name="game_simon_mode_kana_same">একই সিলেবরী</string>
+    <string name="game_simon_mode_kana_cross">ক্রস সিলেবারি</string>
+    <string name="game_simon_score_label">স্কোর: %1$d</string>
+    <string name="game_simon_record_label">রেকর্ড: %1$d</string>
+    <string name="game_simon_time_label">সময়: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">হিরাগানা</string>
+    <string name="game_taquin_mode_katakana">কাতাকানা</string>
+    <string name="game_taquin_mode_numbers">সংখ্যা</string>
+    <string name="grammar_filter_categories">ফিল্টার বিভাগ</string>
+    <string name="grammar_no_categories">কোন বিভাগ পাওয়া যায়নি.</string>
+    <string name="grammar_done">সম্পন্ন</string>
+    <string name="grammar_clear_all">সব সাফ করুন</string>
+    <string name="grammar_pass_exam">পরীক্ষায় উত্তীর্ণ</string>
+    <string name="level_user_custom_list">রিভিশন</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

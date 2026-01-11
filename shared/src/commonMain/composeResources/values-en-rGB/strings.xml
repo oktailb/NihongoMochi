@@ -17,12 +17,10 @@
     <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's standard placeholder text ever
         since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-    </string>
+        type specimen book.</string>
     <string name="fab_content_description">Represents a view to invoke an action</string>
     <string name="image_view_item_transform_content_description">Represents an image view in the
-        item
-    </string>
+        item</string>
     <string name="settings_title">Options</string>
     <string name="settings_language">Language</string>
     <string name="settings_pronunciation">Pronunciation</string>
@@ -47,8 +45,6 @@
     <string name="enter_your_answer">Enter your answer</string>
     <string name="submit">Submit</string>
     <string name="game_writing_correction">Correction</string>
-    <string name="game_writing_on">ON</string>
-    <string name="game_writing_kun">KUN</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Choose a group of kanji and learn to recognize their different basic meanings</string>
     <string name="recognition_fundamentals">Fundamentals</string>
@@ -600,4 +596,25 @@
     <string name="game_shiritori_subtitle">The traditional Japanese string of words</string>
     <string name="game_shadow_title">Shadow Kanji</string>
     <string name="game_shadow_subtitle">Identify Kanji by their silhouette</string>
+    <string name="game_config_title">Configuration</string>
+    <string name="game_history_title">History</string>
+    <string name="game_replay_button">Replay</string>
+    <string name="game_menu_button">Menu</string>
+    <string name="game_simon_japanese_title">記憶</string>
+    <string name="game_simon_mode_kana_same">Same Syllabary</string>
+    <string name="game_simon_mode_kana_cross">Cross Syllabary</string>
+    <string name="game_simon_score_label">Score: %1$d</string>
+    <string name="game_simon_record_label">Record: %1$d</string>
+    <string name="game_simon_time_label">Time: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">Hiragana</string>
+    <string name="game_taquin_mode_katakana">Katakana</string>
+    <string name="game_taquin_mode_numbers">Numbers</string>
+    <string name="grammar_filter_categories">Filter Categories</string>
+    <string name="grammar_no_categories">No categories found.</string>
+    <string name="grammar_done">Done</string>
+    <string name="grammar_clear_all">Clear All</string>
+    <string name="grammar_pass_exam">Pass Exam</string>
+    <string name="level_user_custom_list">Revisions</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

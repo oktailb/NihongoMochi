@@ -44,8 +44,6 @@
     <string name="enter_your_answer">Geben Sie Ihre Antwort ein</string>
     <string name="submit">Einreichen</string>
     <string name="game_writing_correction">Korrektur</string>
-    <string name="game_writing_on">AN</string>
-    <string name="game_writing_kun">KUN</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Wählen Sie eine Gruppe von Kanji und lernen Sie, ihre verschiedenen grundlegenden Bedeutungen zu erkennen</string>
     <string name="recognition_fundamentals">Grundlagen</string>
@@ -187,7 +185,7 @@
     <string name="dictionary_clear_drawing_desc">Zeichnungsfilter löschen</string>
     <string name="dictionary_search_button">Suchen</string>
     <string name="dictionary_results_count_format">%1$d Ergebnisse</string>
-    <string name="dictionary_reading_on">On:</string>
+    <string name="dictionary_reading_on">An:</string>
     <string name="dictionary_reading_kun">Kun:</string>
     <string name="kanji_detail_components">Komponenten</string>
     <string name="section_fundamentals">Grundlagen</string>
@@ -594,4 +592,25 @@
     <string name="game_shiritori_subtitle">Die traditionelle japanische Wortfolge</string>
     <string name="game_shadow_title">Schattenkanji</string>
     <string name="game_shadow_subtitle">Identifizieren Sie Kanji anhand ihrer Silhouette</string>
+    <string name="game_config_title">Konfiguration</string>
+    <string name="game_history_title">Geschichte</string>
+    <string name="game_replay_button">Wiederholung</string>
+    <string name="game_menu_button">Speisekarte</string>
+    <string name="game_simon_japanese_title">記憶</string>
+    <string name="game_simon_mode_kana_same">Gleiche Silbe</string>
+    <string name="game_simon_mode_kana_cross">Kreuzsilbenschrift</string>
+    <string name="game_simon_score_label">Ergebnis: %1$d</string>
+    <string name="game_simon_record_label">Datensatz: %1$d</string>
+    <string name="game_simon_time_label">Zeit: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">Hiragana</string>
+    <string name="game_taquin_mode_katakana">Katakana</string>
+    <string name="game_taquin_mode_numbers">Zahlen</string>
+    <string name="grammar_filter_categories">Kategorien filtern</string>
+    <string name="grammar_no_categories">Keine Kategorien gefunden.</string>
+    <string name="grammar_done">Erledigt</string>
+    <string name="grammar_clear_all">Alles löschen</string>
+    <string name="grammar_pass_exam">Prüfung bestehen</string>
+    <string name="level_user_custom_list">Überarbeitungen</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

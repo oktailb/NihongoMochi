@@ -43,8 +43,6 @@
     <string name="enter_your_answer">أدخل إجابتك</string>
     <string name="submit">إرسال</string>
     <string name="game_writing_correction">تصحيح</string>
-    <string name="game_writing_on">على</string>
-    <string name="game_writing_kun">كون</string>
     <string name="recognition_title">يعني</string>
     <string name="recognition_subtitle">اختر مجموعة من الكانجي وتعلم كيفية التعرف على معانيها الأساسية المختلفة</string>
     <string name="recognition_fundamentals">الأساسيات</string>
@@ -84,11 +82,11 @@
     <string name="menu_dictionary">القاموس</string>
     <string name="menu_results">النتائج</string>
     <string name="menu_about">حول</string>
-    <string name="level_n5">N5</string>
-    <string name="level_n4">N4</string>
-    <string name="level_n3">N3</string>
-    <string name="level_n2">N2</string>
-    <string name="level_n1">N1</string>
+    <string name="level_n5">ن5</string>
+    <string name="level_n4">ن4</string>
+    <string name="level_n3">ن3</string>
+    <string name="level_n2">ن2</string>
+    <string name="level_n1">ن1</string>
     <string name="level_class_1">الفصل 1</string>
     <string name="level_class_2">الفصل 2</string>
     <string name="level_class_3">الفصل 3</string>
@@ -184,8 +182,8 @@
     <string name="dictionary_clear_drawing_desc">مسح عامل تصفية الرسم</string>
     <string name="dictionary_search_button">بحث</string>
     <string name="dictionary_results_count_format">%1$d النتائج</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on">على:</string>
+    <string name="dictionary_reading_kun">كون:</string>
     <string name="kanji_detail_components">المكونات</string>
     <string name="section_fundamentals">الأساسيات</string>
     <string name="section_fundamentals_desc">أساسيات الكتابة اليابانية</string>
@@ -596,4 +594,25 @@
     <string name="game_shiritori_subtitle">سلسلة الكلمات اليابانية التقليدية</string>
     <string name="game_shadow_title">الظل كانجي</string>
     <string name="game_shadow_subtitle">تعرف على كانجي من خلال صورته الظلية</string>
+    <string name="game_config_title">إعدادات</string>
+    <string name="game_history_title">تاريخ</string>
+    <string name="game_replay_button">إعادة التشغيل</string>
+    <string name="game_menu_button">قائمة طعام</string>
+    <string name="game_simon_japanese_title">مرحبا</string>
+    <string name="game_simon_mode_kana_same">نفس المقطعي</string>
+    <string name="game_simon_mode_kana_cross">عبر المقطعي</string>
+    <string name="game_simon_score_label">النتيجة: %1$د</string>
+    <string name="game_simon_record_label">السجل: %1$d</string>
+    <string name="game_simon_time_label">الوقت: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">هيراغانا</string>
+    <string name="game_taquin_mode_katakana">كاتاكانا</string>
+    <string name="game_taquin_mode_numbers">أرقام</string>
+    <string name="grammar_filter_categories">فئات التصفية</string>
+    <string name="grammar_no_categories">لم يتم العثور على فئات.</string>
+    <string name="grammar_done">منتهي</string>
+    <string name="grammar_clear_all">مسح الكل</string>
+    <string name="grammar_pass_exam">اجتياز الامتحان</string>
+    <string name="level_user_custom_list">المراجعات</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

@@ -5,23 +5,21 @@
     <string name="nav_header_title" translatable="false">Nihongo Mochi</string>
     <string name="nav_header_subtitle" translatable="false">vincent.lecoq@gmail.com</string>
     <string name="nav_header_desc">탐색 헤더</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">설정</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_achievements">업적</string>
     <string name="menu_transform">변환</string>
     <string name="menu_reflow">리플로우</string>
     <string name="menu_slideshow">슬라이드쇼</string>
-    <string name="menu_settings">Settings</string>
-    <string name="lorem_ipsum_title">Lorem Ipsum</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
-    </string>
-    <string name="fab_content_description">Represents a view to invoke an action</string>
-    <string name="image_view_item_transform_content_description">Represents an image view in the
-        item
-    </string>
+    <string name="menu_settings">설정</string>
+    <string name="lorem_ipsum_title">로렘 입숨</string>
+    <string name="lorem_ipsum">Lorem Ipsum은 단순히 인쇄 및
+        조판 산업. Lorem Ipsum은 지금까지 업계 표준 자리 표시자 텍스트였습니다.
+        1500년대부터 무명 인쇄업자가 활자 갤리를 가져와서 뒤섞어
+        유형 견본 책.</string>
+    <string name="fab_content_description">작업을 호출하는 뷰를 나타냅니다.</string>
+    <string name="image_view_item_transform_content_description">이미지 뷰를 나타냅니다.
+        아이템</string>
     <string name="settings_title">옵션</string>
     <string name="settings_category_general">일반</string>
     <string name="settings_category_learning">학습</string>
@@ -49,8 +47,6 @@
     <string name="enter_your_answer">답을 입력하세요</string>
     <string name="submit">제출</string>
     <string name="game_writing_correction">수정</string>
-    <string name="game_writing_on">에</string>
-    <string name="game_writing_kun">쿤</string>
     <string name="recognition_title">봐봐</string>
     <string name="recognition_subtitle">한자 그룹을 선택하고 기본 의미를 인식하는 법을 배웁니다.</string>
     <string name="recognition_fundamentals">기초</string>
@@ -108,7 +104,7 @@
     <string name="home_recognition_subtitle">한자를 인식하고 기본 의미를 기억하는 법을 배웁니다.</string>
     <string name="home_reading_subtitle">전체 단어를 읽고 다른 맥락에서 발음하는 법을 배웁니다.</string>
     <string name="home_writing_subtitle">단어 쓰기를 연습하고 한자를 기억에 새깁니다.</string>
-    <string name="title_home">Kanji Mori</string>
+    <string name="title_home">모리 칸지</string>
     <string name="title_game_recap">게임 요약</string>
     <string name="about_category_informations">정보</string>
     <string name="about_category_credits">크레딧</string>
@@ -189,8 +185,8 @@
     <string name="dictionary_clear_drawing_desc">그리기 필터 지우기</string>
     <string name="dictionary_search_button">검색</string>
     <string name="dictionary_results_count_format">%1$d 결과</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on">에:</string>
+    <string name="dictionary_reading_kun">쿤:</string>
     <string name="kanji_detail_components">구성 요소</string>
     <string name="section_fundamentals">기초</string>
     <string name="section_fundamentals_desc">일본어 작문의 기초</string>
@@ -600,4 +596,25 @@
     <string name="game_shiritori_subtitle">일본의 전통적인 단어 문자열</string>
     <string name="game_shadow_title">그림자 한자</string>
     <string name="game_shadow_subtitle">실루엣으로 한자를 식별하세요</string>
+    <string name="game_config_title">구성</string>
+    <string name="game_history_title">역사</string>
+    <string name="game_replay_button">다시 하다</string>
+    <string name="game_menu_button">메뉴</string>
+    <string name="game_simon_japanese_title">설명</string>
+    <string name="game_simon_mode_kana_same">같은 음절</string>
+    <string name="game_simon_mode_kana_cross">교차 음절</string>
+    <string name="game_simon_score_label">점수: %1$d</string>
+    <string name="game_simon_record_label">기록: %1$d</string>
+    <string name="game_simon_time_label">시간: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">히라가나</string>
+    <string name="game_taquin_mode_katakana">가타카나</string>
+    <string name="game_taquin_mode_numbers">숫자</string>
+    <string name="grammar_filter_categories">카테고리 필터링</string>
+    <string name="grammar_no_categories">카테고리를 찾을 수 없습니다.</string>
+    <string name="grammar_done">완료</string>
+    <string name="grammar_clear_all">모두 지우기</string>
+    <string name="grammar_pass_exam">시험 합격</string>
+    <string name="level_user_custom_list">개정</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
 </resources>

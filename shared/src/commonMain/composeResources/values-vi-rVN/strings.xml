@@ -44,8 +44,6 @@
     <string name="enter_your_answer">Nhập câu trả lời của bạn</string>
     <string name="submit">Gửi</string>
     <string name="game_writing_correction">Sửa</string>
-    <string name="game_writing_on">TRÊN</string>
-    <string name="game_writing_kun">KUN</string>
     <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Chọn một nhóm kanji và học cách nhận biết các ý nghĩa cơ bản khác nhau của chúng</string>
     <string name="recognition_fundamentals">Cơ bản</string>
@@ -187,8 +185,6 @@
     <string name="dictionary_clear_drawing_desc">Xóa bộ lọc hình vẽ</string>
     <string name="dictionary_search_button">Tìm kiếm</string>
     <string name="dictionary_results_count_format">%1$d kết quả</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
     <string name="kanji_detail_components">Thành phần</string>
     <string name="section_fundamentals">Nguyên tắc cơ bản</string>
     <string name="section_fundamentals_desc">Viết tiếng Nhật cơ bản</string>
@@ -594,4 +590,27 @@
     <string name="game_shiritori_subtitle">Chuỗi từ truyền thống của Nhật Bản</string>
     <string name="game_shadow_title">Bóng Kanji</string>
     <string name="game_shadow_subtitle">Xác định Kanji bằng hình bóng của họ</string>
+    <string name="game_config_title">Cấu hình</string>
+    <string name="game_history_title">Lịch sử</string>
+    <string name="game_replay_button">Phát lại</string>
+    <string name="game_menu_button">Thực đơn</string>
+    <string name="game_simon_japanese_title">記憶</string>
+    <string name="game_simon_mode_kana_same">Âm tiết giống nhau</string>
+    <string name="game_simon_mode_kana_cross">Âm tiết chéo</string>
+    <string name="game_simon_score_label">Điểm: %1$d</string>
+    <string name="game_simon_record_label">Bản ghi: %1$d</string>
+    <string name="game_simon_time_label">Thời gian: %1$ds</string>
+    <string name="game_taquin_mode_hiragana">chữ hiragana</string>
+    <string name="game_taquin_mode_katakana">Katakana</string>
+    <string name="game_taquin_mode_numbers">số</string>
+    <string name="grammar_filter_categories">Lọc danh mục</string>
+    <string name="grammar_no_categories">Không tìm thấy danh mục nào.</string>
+    <string name="grammar_done">Xong</string>
+    <string name="grammar_clear_all">Xóa tất cả</string>
+    <string name="grammar_pass_exam">Vượt qua kỳ thi</string>
+    <string name="level_user_custom_list">Sửa đổi</string>
+    <string name="game_writing_on" translatable="false">ON</string>
+    <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="dictionary_reading_on">TRÊN:</string>
+    <string name="dictionary_reading_kun">Côn:</string>
 </resources>
