@@ -13,9 +13,7 @@ import org.nihongo.mochi.services.AndroidCloudSaveService
 import org.nihongo.mochi.ui.dictionary.AndroidMlKitRecognizer
 import org.nihongo.mochi.ui.writinggame.AndroidTextNormalizer
 
-val appModule = module {
-    // Platform specific dependencies
-    
+val platformModule = module {
     // Settings implementation for Android
     single<Settings> {
         SharedPreferencesSettings(

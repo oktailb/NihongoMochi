@@ -8,7 +8,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.di.appModule
+import org.nihongo.mochi.di.platformModule
 import org.nihongo.mochi.di.sharedModule
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaToRomaji
@@ -43,14 +43,13 @@ class MochiApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MochiApplication)
-            // Load appModule (Android-specific) and sharedModule (Shared logic and ViewModels)
-            modules(appModule, sharedModule)
+            // Load platformModule (Android-specific from shared) and sharedModule
+            modules(platformModule, sharedModule)
         }
         
         // Init Settings
         val scoresSettings = SharedPreferencesSettings(getSharedPreferences("scores", Context.MODE_PRIVATE))
         val userListSettings = SharedPreferencesSettings(getSharedPreferences("user_lists", Context.MODE_PRIVATE))
-        // Changed "settings" to "AppSettings" to match previous Android implementation and share data
         val appSettings = SharedPreferencesSettings(getSharedPreferences("AppSettings", Context.MODE_PRIVATE))
         
         ScoreManager.init(scoresSettings, userListSettings, appSettings)

@@ -54,6 +54,7 @@ kotlin {
 
         androidMain.dependencies {
             // Android specific dependencies
+            implementation(libs.koin.android)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.mlkit.digital.ink)
             implementation(libs.play.services.games)

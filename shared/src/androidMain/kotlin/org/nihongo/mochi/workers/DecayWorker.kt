@@ -12,7 +12,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import org.nihongo.mochi.MainActivity
 import org.nihongo.mochi.data.ScoreManager
 
 class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
@@ -42,10 +41,15 @@ class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(con
             notificationManager.createNotificationChannel(channel)
         }
 
-        val intent = Intent(applicationContext, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        // Use launch intent to avoid hard dependency on :app:MainActivity
+        val launchIntent = applicationContext.packageManager.getLaunchIntentForPackage(applicationContext.packageName)
+        val pendingIntent: PendingIntent = if (launchIntent != null) {
+            launchIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            PendingIntent.getActivity(applicationContext, 0, launchIntent, PendingIntent.FLAG_IMMUTABLE)
+        } else {
+            // Fallback (might not work well if MainActivity is not found, but it's a safety)
+            PendingIntent.getActivity(applicationContext, 0, Intent(), PendingIntent.FLAG_IMMUTABLE)
         }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val messages = listOf(
             "Don't let your Mochi dry out! 🍡 Time for a quick review?",
@@ -55,7 +59,7 @@ class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(con
         )
         
         val notification = NotificationCompat.Builder(applicationContext, channelId)
-            .setSmallIcon(android.R.drawable.ic_dialog_info) // Fallback icon
+            .setSmallIcon(android.R.drawable.ic_dialog_info) 
             .setContentTitle("Nihongo Mochi")
             .setContentText(messages.random())
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -65,12 +69,10 @@ class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(con
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                // Permission not granted, cannot send notification
                 return
             }
         }
 
-        // ID 1 to update the same notification
         notificationManager.notify(1, notification)
     }
 }
