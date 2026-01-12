@@ -70,7 +70,8 @@ class KanaDropViewModel(
             _state.value = _state.value.copy(
                 isLoading = false,
                 timeRemaining = config.initialTime,
-                score = 100 // START WITH 100 POINTS
+                timeElapsed = 0,
+                score = 100 
             )
             startTimer()
         }
@@ -82,15 +83,18 @@ class KanaDropViewModel(
             while (!_state.value.isGameOver) {
                 delay(1000)
                 val currentState = _state.value
+                val newElapsed = currentState.timeElapsed + 1
+                
                 if (config.mode == KanaLinkMode.TIME_ATTACK) {
                     val newTime = currentState.timeRemaining - 1
                     if (newTime <= 0) {
+                        _state.value = currentState.copy(timeRemaining = 0, timeElapsed = newElapsed)
                         endGame()
                     } else {
-                        _state.value = currentState.copy(timeRemaining = newTime)
+                        _state.value = currentState.copy(timeRemaining = newTime, timeElapsed = newElapsed)
                     }
                 } else {
-                    _state.value = currentState.copy(timeRemaining = currentState.timeRemaining + 1)
+                    _state.value = currentState.copy(timeRemaining = 0, timeElapsed = newElapsed)
                 }
             }
         }
@@ -108,7 +112,7 @@ class KanaDropViewModel(
         val result = KanaLinkResult(
             score = s.score,
             wordsFound = s.wordsFound,
-            timeSeconds = if (config.mode == KanaLinkMode.TIME_ATTACK) config.initialTime else s.timeRemaining,
+            timeSeconds = s.timeElapsed,
             levelId = config.levelFileName,
             timestamp = Clock.System.now().toEpochMilliseconds()
         )
@@ -121,14 +125,12 @@ class KanaDropViewModel(
     }
 
     private fun generateInitialGrid() {
-        // Create an empty grid
         val tempGrid = MutableList(config.rows) { r ->
             MutableList(config.cols) { c ->
                 KanaDropCell(id = "${r}_${c}_init", char = "", row = r, col = c)
             }
         }
 
-        // 1/ INJECT SOME EXISTING WORDS
         val wordsToInject = availableWords.shuffled().take(3)
         wordsToInject.forEach { word ->
             var placed = false
@@ -136,10 +138,9 @@ class KanaDropViewModel(
             while (!placed && attempts < 10) {
                 val startRow = Random.nextInt(config.rows)
                 val startCol = Random.nextInt(config.cols)
-                val direction = Random.nextInt(2) // 0: horizontal, 1: vertical
+                val direction = Random.nextInt(2) 
                 
                 if (direction == 0 && startCol + word.length <= config.cols) {
-                    // Check if space is free
                     val canPlace = (0 until word.length).all { tempGrid[startRow][startCol + it].char.isEmpty() }
                     if (canPlace) {
                         word.forEachIndexed { i, char ->
@@ -160,7 +161,6 @@ class KanaDropViewModel(
             }
         }
 
-        // Fill remaining with random kanas from pool
         val finalGrid = tempGrid.map { row ->
             row.map { cell ->
                 if (cell.char.isEmpty()) cell.copy(char = kanaPool.random(), id = "${cell.row}_${cell.col}_${Random.nextInt()}")
@@ -218,8 +218,7 @@ class KanaDropViewModel(
             if (validEntry != null) {
                 handleValidWord(validEntry)
             } else {
-                // WRONG WORD: Penalty
-                val penalty = word.length * 10 // Increased penalty
+                val penalty = word.length * 10 
                 val newScore = (currentState.score - penalty).coerceAtLeast(0)
                 
                 _state.value = currentState.copy(
@@ -229,7 +228,6 @@ class KanaDropViewModel(
                     errorFlash = true
                 )
                 
-                // 2/ CHECK IF SCORE IS 0 -> GAME OVER
                 if (newScore <= 0) {
                     endGame()
                 }

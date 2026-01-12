@@ -34,6 +34,7 @@ data class KanaDropGameState(
     val score: Int = 0,
     val wordsFound: Int = 0,
     val timeRemaining: Int = 60,
+    val timeElapsed: Int = 0,
     val isGameOver: Boolean = false,
     val lastValidWord: WordEntry? = null,
     val isLoading: Boolean = true,

@@ -73,9 +73,9 @@ fun GamesScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             BigModeCard(
-                title = stringResource(Res.string.game_tetris_title),
-                subtitle = stringResource(Res.string.game_tetris_subtitle),
-                kanjiTitle = "カナリンク",
+                title = stringResource(Res.string.game_kana_link_title),
+                subtitle = stringResource(Res.string.game_kana_link_subtitle),
+                kanjiTitle = "リンク",
                 onClick = onTetrisClick
             )
 
