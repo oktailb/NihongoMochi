@@ -58,6 +58,10 @@ import org.nihongo.mochi.ui.games.simon.SimonViewModel
 import org.nihongo.mochi.ui.games.taquin.TaquinGameScreen
 import org.nihongo.mochi.ui.games.taquin.TaquinSetupScreen
 import org.nihongo.mochi.ui.games.taquin.TaquinViewModel
+import org.nihongo.mochi.ui.games.kanadrop.KanaDropGameScreen
+import org.nihongo.mochi.ui.games.kanadrop.KanaDropSetupScreen
+import org.nihongo.mochi.ui.games.kanadrop.KanaDropViewModel
+import org.nihongo.mochi.ui.games.kanadrop.KanaLinkMode
 import org.nihongo.mochi.ui.grammar.GrammarScreen
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
@@ -92,6 +96,10 @@ sealed class Screen(val route: String) {
     data object TaquinGame : Screen("taquin_game")
     data object MemorizeSetup : Screen("memorize_setup")
     data object MemorizeGame : Screen("memorize_game")
+    data object KanaDropSetup : Screen("kanadrop_setup")
+    data object KanaDropGame : Screen("kanadrop_game/{levelId}/{mode}") {
+        fun createRoute(levelId: String, mode: String) = "kanadrop_game/$levelId/$mode"
+    }
     
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
@@ -273,11 +281,16 @@ fun MochiNavGraph(
         }
 
         composable(Screen.Games.route) {
+            val homeViewModel: HomeViewModel = koinInject()
+            val uiState by homeViewModel.uiState.collectAsState()
+            
             GamesScreen(
                 onBackClick = { navController.popBackStack() },
                 onTaquinClick = { navController.navigate(Screen.TaquinSetup.route) },
                 onSimonClick = { navController.navigate(Screen.SimonSetup.route) },
-                onTetrisClick = { /* TODO */ },
+                onTetrisClick = { 
+                    navController.navigate(Screen.KanaDropSetup.route) 
+                },
                 onCrosswordsClick = { /* TODO */ },
                 onMemorizeClick = { navController.navigate(Screen.MemorizeSetup.route) },
                 onParticlesClick = { /* TODO */ },
@@ -333,6 +346,46 @@ fun MochiNavGraph(
         composable(Screen.MemorizeGame.route) {
             val viewModel: MemorizeViewModel = koinInject()
             MemorizeGameScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.KanaDropSetup.route) {
+            val viewModel: KanaDropViewModel = koinInject()
+            val homeViewModel: HomeViewModel = koinInject()
+            val uiState by homeViewModel.uiState.collectAsState()
+            val levelId = uiState.readingDataFile ?: "jlpt_wordlist_n5"
+
+            KanaDropSetupScreen(
+                viewModel = viewModel,
+                levelId = levelId,
+                onStartGame = { mode -> 
+                    navController.navigate(Screen.KanaDropGame.createRoute(levelId, mode.name))
+                },
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Screen.KanaDropGame.route,
+            arguments = listOf(
+                navArgument("levelId") { type = NavType.StringType },
+                navArgument("mode") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "jlpt_wordlist_n5"
+            val modeStr = backStackEntry.arguments?.getString("mode") ?: "TIME_ATTACK"
+            val mode = KanaLinkMode.valueOf(modeStr)
+            
+            val viewModel: KanaDropViewModel = koinInject()
+            
+            remember(levelId, mode) {
+                viewModel.initGame(levelId, mode)
+                true
+            }
+
+            KanaDropGameScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )

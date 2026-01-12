@@ -555,8 +555,8 @@
     <string name="game_taquin_subtitle">Put the characters in order</string>
     <string name="game_simon_title">Simon</string>
     <string name="game_simon_subtitle">Memorize and repeat the sequence</string>
-    <string name="game_tetris_title">Blocks</string>
-    <string name="game_tetris_subtitle">Assemble components to form Kanji</string>
+    <string name="game_kana_link_title">Kana Link</string>
+    <string name="game_kana_link_subtitle">Link Kanas to form words and clear blocks</string>
     <string name="game_crosswords_title">Crosswords</string>
     <string name="game_crosswords_subtitle">Thematic crosswords by JLPT level</string>
     <string name="game_memorize_title">Memorize</string>

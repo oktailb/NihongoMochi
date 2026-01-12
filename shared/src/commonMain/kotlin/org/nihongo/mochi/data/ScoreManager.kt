@@ -17,6 +17,7 @@ object ScoreManager : ScoreRepository {
     private const val MEMORIZE_HISTORY_KEY = "memorize_history_json"
     private const val SIMON_HISTORY_KEY = "simon_history_json"
     private const val TAQUIN_HISTORY_KEY = "taquin_history_json"
+    private const val KANA_LINK_HISTORY_KEY = "kana_link_history_json"
     private lateinit var scoresSettings: Settings
     private lateinit var userListSettings: Settings
     private lateinit var appSettings: Settings
@@ -82,6 +83,15 @@ object ScoreManager : ScoreRepository {
 
     fun getTaquinHistory(): String {
         return appSettings.getString(TAQUIN_HISTORY_KEY, "[]")
+    }
+
+    // --- Kana Link History ---
+    fun saveKanaLinkHistory(historyJson: String) {
+        appSettings.putString(KANA_LINK_HISTORY_KEY, historyJson)
+    }
+
+    fun getKanaLinkHistory(): String {
+        return appSettings.getString(KANA_LINK_HISTORY_KEY, "[]")
     }
 
     private fun getList(listName: String): MutableSet<String> {
@@ -242,6 +252,7 @@ object ScoreManager : ScoreRepository {
             put("memorize_history", JsonPrimitive(getMemorizeHistory()))
             put("simon_history", JsonPrimitive(getSimonHistory()))
             put("taquin_history", JsonPrimitive(getTaquinHistory()))
+            put("kana_link_history", JsonPrimitive(getKanaLinkHistory()))
         }
 
         return Json.encodeToString(jsonObject)
@@ -285,6 +296,11 @@ object ScoreManager : ScoreRepository {
                 val taquinHistory = jsonElement["taquin_history"]
                 if (taquinHistory is JsonPrimitive && taquinHistory.isString) {
                     saveTaquinHistory(taquinHistory.content)
+                }
+
+                val kanaLinkHistory = jsonElement["kana_link_history"]
+                if (kanaLinkHistory is JsonPrimitive && kanaLinkHistory.isString) {
+                    saveKanaLinkHistory(kanaLinkHistory.content)
                 }
             }
         } catch (e: Exception) {
