@@ -14,6 +14,8 @@ class LevelContentProvider(
     private val scoreRepository: ScoreRepository
 ) {
 
+    private val kanaPoolCache = mutableMapOf<String, List<String>>()
+
     fun getCharactersForLevel(levelKey: String): List<String> {
         val lowerKey = levelKey.lowercase()
         return when {
@@ -25,17 +27,33 @@ class LevelContentProvider(
             lowerKey == "no_meaning" || lowerKey == "no meaning" -> kanjiRepository.getNoMeaningKanji().map { it.character }
             lowerKey == "user_custom_list" -> {
                 // Return all items with a score in RECOGNITION (Kanji) or GRAMMAR
-                // This covers revisions for kanji and grammar rules
                 val kanjiScores = scoreRepository.getAllScores(ScoreManager.ScoreType.RECOGNITION).keys
                 val grammarScores = scoreRepository.getAllScores(ScoreManager.ScoreType.GRAMMAR).keys
                 (kanjiScores + grammarScores).toList()
             }
             
-            // Word lists (explicit filenames from levels.json)
+            // Word lists
             lowerKey.contains("wordlist") -> wordRepository.getWordsForLevel(levelKey)
             
-            // Default: Assume it's a level ID (n5, grade1, etc.) and ask KanjiRepository directly
+            // Default
             else -> kanjiRepository.getKanjiByLevel(levelKey).map { it.character }
         }
+    }
+
+    /**
+     * Optimized: returns a unique pool of kana used in the words of a specific level.
+     * Cached to speed up game initialization (Kana Drop, Simon, etc.)
+     */
+    suspend fun getKanaPoolForLevel(levelKey: String): List<String> {
+        kanaPoolCache[levelKey]?.let { return it }
+
+        val wordEntries = wordRepository.getWordEntriesForLevelSuspend(levelKey)
+        val pool = wordEntries.flatMap { word ->
+            word.phonetics.map { it.toString() }
+        }.distinct().filter { it.isNotBlank() && it != "/" }
+
+        val finalPool = pool.ifEmpty { listOf("あ", "い", "う", "え", "お") }
+        kanaPoolCache[levelKey] = finalPool
+        return finalPool
     }
 }

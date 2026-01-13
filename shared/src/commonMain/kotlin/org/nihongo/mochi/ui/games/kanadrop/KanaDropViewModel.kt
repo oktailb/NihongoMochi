@@ -10,13 +10,15 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
 
 class KanaDropViewModel(
     private val wordRepository: WordRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val levelContentProvider: LevelContentProvider
 ) : ViewModel() {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -59,13 +61,8 @@ class KanaDropViewModel(
             val entries = wordRepository.getWordEntriesForLevelSuspend(levelFileName)
             availableWords = entries.map { it.phonetics }
             
-            kanaPool = availableWords.flatMap { word -> 
-                word.map { it.toString() } 
-            }.distinct().filter { it.isNotBlank() && it != "/" }
-
-            if (kanaPool.isEmpty()) {
-                kanaPool = listOf("あ", "い", "う", "え", "お")
-            }
+            // Optimization: Use cached pool from levelContentProvider
+            kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
 
             generateInitialGrid()
             _state.value = _state.value.copy(

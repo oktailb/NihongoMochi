@@ -97,7 +97,7 @@ class MemorizeViewModel(
     }
 
     private fun updateLevelInfo() {
-        val levelId = settingsRepository.getSelectedLevel()
+        val levelId = settingsRepository.getSelectedLevel().ifEmpty { "hiragana" }
         val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
         _isKanaLevel.value = isKana
 
@@ -105,7 +105,6 @@ class MemorizeViewModel(
             val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
             kanaRepository.getKanaEntries(type).size
         } else if (levelId == REVISION_LEVEL_ID) {
-            // Revisions count (kanji with scores)
             levelContentProvider.getCharactersForLevel(levelId).size
         } else {
             kanjiRepository.getKanjiByLevel(levelId)
@@ -133,10 +132,10 @@ class MemorizeViewModel(
 
     fun startGame() {
         viewModelScope.launch {
-            val levelId = settingsRepository.getSelectedLevel()
-            val isKana = _isKanaLevel.value
+            val levelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
+            val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
 
-            val allPlayables = if (isKana) {
+            var allPlayables = if (isKana) {
                 val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
                 kanaRepository.getKanaEntries(type).map { MemorizePlayable(it.character, it.character) }
             } else if (levelId == REVISION_LEVEL_ID) {
@@ -151,6 +150,11 @@ class MemorizeViewModel(
                     .map { MemorizePlayable(it.id, it.character) }
             }
             
+            // Fallback
+            if (allPlayables.isEmpty()) {
+                allPlayables = kanjiRepository.getKanjiByLevel("n5").map { MemorizePlayable(it.id, it.character) }
+            }
+
             if (allPlayables.isEmpty()) return@launch
 
             val pairsToSelect = _selectedGridSize.value.pairsCount
@@ -258,6 +262,6 @@ class MemorizeViewModel(
         timerJob?.cancel()
         _cards.value = emptyList()
         _isGameFinished.value = false
-        updateLevelInfo() // Refresh level info in case it changed
+        updateLevelInfo()
     }
 }

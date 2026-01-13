@@ -10,6 +10,7 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
@@ -84,7 +85,7 @@ class SimonViewModel(
     }
 
     private fun checkLevelType() {
-        val levelId = settingsRepository.getSelectedLevel()
+        val levelId = settingsRepository.getSelectedLevel().ifEmpty { "hiragana" }
         val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
         _isKanaLevel.value = isKana
         if (isKana) {
@@ -111,36 +112,47 @@ class SimonViewModel(
     }
 
     fun startGame() {
-        val levelId = settingsRepository.getSelectedLevel()
+        val levelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
         
         viewModelScope.launch {
             val locale = settingsRepository.getAppLocale()
             val meaningsMap = meaningRepository.getMeanings(locale)
+            val lowerLevel = levelId.lowercase()
 
-            allPlayablesInLevel = if (levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)) {
-                val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
+            val kanjis: List<KanjiEntry> = when {
+                lowerLevel.equals("hiragana", ignoreCase = true) || lowerLevel.equals("katakana", ignoreCase = true) -> emptyList()
+                lowerLevel == "native_challenge" || lowerLevel == "native challenge" -> kanjiRepository.getNativeKanji()
+                lowerLevel == "no_reading" || lowerLevel == "no reading" -> kanjiRepository.getNoReadingKanji()
+                lowerLevel == "no_meaning" || lowerLevel == "no meaning" -> kanjiRepository.getNoMeaningKanji()
+                lowerLevel == REVISION_LEVEL_ID -> {
+                    val chars = levelContentProvider.getCharactersForLevel(levelId)
+                    chars.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
+                }
+                else -> kanjiRepository.getKanjiByLevel(levelId)
+            }
+
+            allPlayablesInLevel = if (lowerLevel.equals("hiragana", ignoreCase = true) || lowerLevel.equals("katakana", ignoreCase = true)) {
+                val type = if (lowerLevel.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
                 val playableType = if (type == KanaType.HIRAGANA) PlayableType.HIRAGANA else PlayableType.KATAKANA
                 kanaRepository.getKanaEntries(type).map { 
                     SimonPlayable(it.character, it.character, listOf(it.romaji), listOf(it.romaji), playableType)
                 }
-            } else if (levelId == REVISION_LEVEL_ID) {
-                // Fetch user revisions (kanji only for now in mini-games)
-                val kanjiChars = levelContentProvider.getCharactersForLevel(levelId)
-                kanjiChars.mapNotNull { idOrChar ->
-                    val kanji = kanjiRepository.getKanjiById(idOrChar) ?: kanjiRepository.getKanjiByCharacter(idOrChar)
-                    kanji?.let { k ->
-                        SimonPlayable(
-                            id = k.id,
-                            character = k.character,
-                            meanings = meaningsMap[k.id] ?: emptyList(),
-                            readings = k.readings?.reading?.map { it.value } ?: emptyList(),
-                            type = PlayableType.KANJI
-                        )
-                    }
-                }
             } else {
-                val kanjis = kanjiRepository.getKanjiByLevel(levelId)
                 kanjis.map { kanji ->
+                    SimonPlayable(
+                        id = kanji.id,
+                        character = kanji.character,
+                        meanings = meaningsMap[kanji.id] ?: emptyList(),
+                        readings = kanji.readings?.reading?.map { it.value } ?: emptyList(),
+                        type = PlayableType.KANJI
+                    )
+                }
+            }
+
+            // Ultimate fallback if still empty
+            if (allPlayablesInLevel.isEmpty() && levelId != "n5") {
+                val fallbackKanjis = kanjiRepository.getKanjiByLevel("n5")
+                allPlayablesInLevel = fallbackKanjis.map { kanji ->
                     SimonPlayable(
                         id = kanji.id,
                         character = kanji.character,
@@ -178,6 +190,8 @@ class SimonViewModel(
             _gameState.value = SimonGameState.SHOWING_SEQUENCE
             _isButtonsVisible.value = false
             
+            if (allPlayablesInLevel.isEmpty()) return@launch
+            
             val nextItem = allPlayablesInLevel.shuffled().first()
             val newSequence = _targetSequence.value + nextItem
             _targetSequence.value = newSequence
@@ -200,6 +214,8 @@ class SimonViewModel(
     }
 
     private fun refreshAnswersForIndex(index: Int) {
+        if (_targetSequence.value.isEmpty()) return
+        
         val correctAnswer = _targetSequence.value[index]
         val distractors = allPlayablesInLevel
             .filter { it.id != correctAnswer.id }
@@ -248,7 +264,7 @@ class SimonViewModel(
     }
 
     private fun saveFinalScore() {
-        val levelId = settingsRepository.getSelectedLevel()
+        val levelId = settingsRepository.getSelectedLevel().ifEmpty { "unknown" }
         val result = SimonGameResult(
             levelId = levelId,
             mode = _selectedMode.value,

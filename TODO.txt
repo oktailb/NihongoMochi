@@ -21,8 +21,8 @@ Games:
   - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou
 
 KMP & Architecture Refactoring (Technical Debt):
- - [ ] Refacto ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
- - [ ] ResourceUtils : le mapping manuel Res.string est fragile. Explorer une génération auto ou un StringProvider injecté.
+ - [X] Refactor ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
+ - [X] ResourceUtils : le mapping manuel Res.string est fragile. Remplacé par une HashMap O(1).
  - [ ] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
  - [ ] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
  - [ ] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
@@ -30,7 +30,7 @@ KMP & Architecture Refactoring (Technical Debt):
 Optimisations (Mémoire/CPU):
  - [ ] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
  - [ ] Kana Drop : Minimiser les allocations d'objets dans applyGravity (évitement de .map { .map { ... } } à chaque mouvement).
- - [ ] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
+ - [X] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
  - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.
  - [ ] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
  - [ ] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).

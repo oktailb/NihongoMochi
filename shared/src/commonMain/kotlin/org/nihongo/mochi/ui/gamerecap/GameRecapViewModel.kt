@@ -34,14 +34,24 @@ class GameRecapViewModel(
 
     fun loadLevel(level: String, gameMode: String) {
         viewModelScope.launch {
-            val characters = levelContentProvider.getCharactersForLevel(level)
+            val lowerLevel = level.lowercase()
             
-            allKanjiEntries = if (level.equals("no_meaning", ignoreCase = true)) {
-                kanjiRepository.getNoMeaningKanji()
-            } else {
-                 characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
+            // Optimization: bypass levelContentProvider for massive challenges 
+            // to avoid redundant O(N) mapping from String back to KanjiEntry
+            allKanjiEntries = when {
+                lowerLevel == "native_challenge" || lowerLevel == "native challenge" -> 
+                    kanjiRepository.getNativeKanji()
+                lowerLevel == "no_reading" || lowerLevel == "no reading" -> 
+                    kanjiRepository.getNoReadingKanji()
+                lowerLevel == "no_meaning" || lowerLevel == "no meaning" -> 
+                    kanjiRepository.getNoMeaningKanji()
+                else -> {
+                    val characters = levelContentProvider.getCharactersForLevel(level)
+                    characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
+                }
             }
             
+            _currentPage.value = 0
             _totalPages.value = (allKanjiEntries.size + pageSize - 1) / pageSize
             updateCurrentPageItems(gameMode)
         }
