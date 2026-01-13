@@ -10,6 +10,10 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.putJsonArray
 import org.nihongo.mochi.settings.ADD_WRONG_ANSWERS_PREF_KEY
 import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
+import org.nihongo.mochi.ui.games.simon.SimonGameResult
+import org.nihongo.mochi.ui.games.memorize.MemorizeGameResult
+import org.nihongo.mochi.ui.games.taquin.TaquinGameResult
+import org.nihongo.mochi.ui.games.kanadrop.KanaLinkResult
 
 class ScoreManager(
     private val scoresSettings: Settings,
@@ -57,7 +61,19 @@ class ScoreManager(
 
     // --- Memorize History ---
     override fun saveMemorizeHistory(historyJson: String) {
-        appSettings.putString(MEMORIZE_HISTORY_KEY, historyJson)
+        try {
+            val history = Json.decodeFromString<List<MemorizeGameResult>>(historyJson)
+            val sortedHistory = history
+                .sortedWith(
+                    compareByDescending<MemorizeGameResult> { it.totalPairs }
+                        .thenBy { it.moves }
+                        .thenBy { it.timeSeconds }
+                )
+                .take(10)
+            appSettings.putString(MEMORIZE_HISTORY_KEY, Json.encodeToString(sortedHistory))
+        } catch (e: Exception) {
+            appSettings.putString(MEMORIZE_HISTORY_KEY, historyJson)
+        }
     }
 
     override fun getMemorizeHistory(): String {
@@ -66,7 +82,18 @@ class ScoreManager(
 
     // --- Simon History ---
     override fun saveSimonHistory(historyJson: String) {
-        appSettings.putString(SIMON_HISTORY_KEY, historyJson)
+        try {
+            val history = Json.decodeFromString<List<SimonGameResult>>(historyJson)
+            val sortedHistory = history
+                .sortedWith(
+                    compareByDescending<SimonGameResult> { it.maxSequence }
+                        .thenBy { it.timeSeconds }
+                )
+                .take(10)
+            appSettings.putString(SIMON_HISTORY_KEY, Json.encodeToString(sortedHistory))
+        } catch (e: Exception) {
+            appSettings.putString(SIMON_HISTORY_KEY, historyJson)
+        }
     }
 
     override fun getSimonHistory(): String {
@@ -75,16 +102,40 @@ class ScoreManager(
 
     // --- Taquin History ---
     override fun saveTaquinHistory(historyJson: String) {
-        appSettings.putString(TAQUIN_HISTORY_KEY, historyJson)
+        try {
+            val history = Json.decodeFromString<List<TaquinGameResult>>(historyJson)
+            val sortedHistory = history
+                .sortedWith(
+                    compareByDescending<TaquinGameResult> { it.rows }
+                        .thenBy { it.moves }
+                        .thenBy { it.timeSeconds }
+                )
+                .take(10)
+            appSettings.putString(TAQUIN_HISTORY_KEY, Json.encodeToString(sortedHistory))
+        } catch (e: Exception) {
+            appSettings.putString(TAQUIN_HISTORY_KEY, historyJson)
+        }
     }
 
     override fun getTaquinHistory(): String {
         return appSettings.getString(TAQUIN_HISTORY_KEY, "[]")
     }
 
-    // --- Kana Link History ---
+    // --- Kana Drop (Link) History ---
     override fun saveKanaLinkHistory(historyJson: String) {
-        appSettings.putString(KANA_LINK_HISTORY_KEY, historyJson)
+        try {
+            val history = Json.decodeFromString<List<KanaLinkResult>>(historyJson)
+            val sortedHistory = history
+                .sortedWith(
+                    compareByDescending<KanaLinkResult> { it.score }
+                        .thenByDescending { it.wordsFound }
+                        .thenBy { it.timeSeconds }
+                )
+                .take(10)
+            appSettings.putString(KANA_LINK_HISTORY_KEY, Json.encodeToString(sortedHistory))
+        } catch (e: Exception) {
+            appSettings.putString(KANA_LINK_HISTORY_KEY, historyJson)
+        }
     }
 
     override fun getKanaLinkHistory(): String {
