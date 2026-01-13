@@ -11,6 +11,7 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
@@ -98,24 +99,37 @@ class MemorizeViewModel(
 
     private fun updateLevelInfo() {
         val levelId = settingsRepository.getSelectedLevel().ifEmpty { "hiragana" }
-        val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
+        val lowerLevel = levelId.lowercase()
+        val isKana = lowerLevel.equals("hiragana", ignoreCase = true) || lowerLevel.equals("katakana", ignoreCase = true)
         _isKanaLevel.value = isKana
 
         val count = if (isKana) {
-            val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
+            val type = if (lowerLevel.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
             kanaRepository.getKanaEntries(type).size
-        } else if (levelId == REVISION_LEVEL_ID) {
-            levelContentProvider.getCharactersForLevel(levelId).size
         } else {
-            kanjiRepository.getKanjiByLevel(levelId)
-                .count { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
+            val kanjis = getKanjisForLevel(levelId)
+            kanjis.count { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
         }
         
         val filtered = allPossibleGridSizes.filter { it.pairsCount <= count }
         _availableGridSizes.value = filtered.ifEmpty { listOf(allPossibleGridSizes.first()) }
         
         if (_selectedGridSize.value !in _availableGridSizes.value) {
-            _selectedGridSize.value = _availableGridSizes.value.last()
+            _selectedGridSize.value = _availableGridSizes.value.lastOrNull() ?: allPossibleGridSizes.first()
+        }
+    }
+
+    private fun getKanjisForLevel(levelId: String): List<KanjiEntry> {
+        val lowerLevel = levelId.lowercase()
+        return when {
+            lowerLevel == "native_challenge" || lowerLevel == "native challenge" -> kanjiRepository.getNativeKanji()
+            lowerLevel == "no_reading" || lowerLevel == "no reading" -> kanjiRepository.getNoReadingKanji()
+            lowerLevel == "no_meaning" || lowerLevel == "no meaning" -> kanjiRepository.getNoMeaningKanji()
+            lowerLevel == REVISION_LEVEL_ID -> {
+                val chars = levelContentProvider.getCharactersForLevel(levelId)
+                chars.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
+            }
+            else -> kanjiRepository.getKanjiByLevel(levelId)
         }
     }
 
@@ -133,26 +147,21 @@ class MemorizeViewModel(
     fun startGame() {
         viewModelScope.launch {
             val levelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
-            val isKana = levelId.equals("hiragana", ignoreCase = true) || levelId.equals("katakana", ignoreCase = true)
+            val lowerLevel = levelId.lowercase()
+            val isKana = lowerLevel.equals("hiragana", ignoreCase = true) || lowerLevel.equals("katakana", ignoreCase = true)
 
             var allPlayables = if (isKana) {
-                val type = if (levelId.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
+                val type = if (lowerLevel.equals("hiragana", ignoreCase = true)) KanaType.HIRAGANA else KanaType.KATAKANA
                 kanaRepository.getKanaEntries(type).map { MemorizePlayable(it.character, it.character) }
-            } else if (levelId == REVISION_LEVEL_ID) {
-                val kanjiChars = levelContentProvider.getCharactersForLevel(levelId)
-                kanjiChars.mapNotNull { idOrChar ->
-                     val k = kanjiRepository.getKanjiById(idOrChar) ?: kanjiRepository.getKanjiByCharacter(idOrChar)
-                     k?.let { MemorizePlayable(it.id, it.character) }
-                }
             } else {
-                kanjiRepository.getKanjiByLevel(levelId)
+                getKanjisForLevel(levelId)
                     .filter { (it.strokes?.toIntOrNull() ?: 0) <= _selectedMaxStrokes.value }
                     .map { MemorizePlayable(it.id, it.character) }
             }
             
-            // Fallback
-            if (allPlayables.isEmpty()) {
-                allPlayables = kanjiRepository.getKanjiByLevel("n5").map { MemorizePlayable(it.id, it.character) }
+            // Ultimate Fallback
+            if (allPlayables.isEmpty() && !isKana) {
+                allPlayables = getKanjisForLevel("n5").map { MemorizePlayable(it.id, it.character) }
             }
 
             if (allPlayables.isEmpty()) return@launch
