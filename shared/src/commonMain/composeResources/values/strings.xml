@@ -23,7 +23,7 @@
     <string name="image_view_item_transform_content_description">Represents an image view in the
         item
     </string>
-    <string name="settings_title">Options</string>
+    <string name="settings_title">Settings</string>
     <string name="settings_language">Language</string>
     <string name="settings_pronunciation">Pronunciation</string>
     <string name="settings_pronunciation_roman">Roman alphabet</string>

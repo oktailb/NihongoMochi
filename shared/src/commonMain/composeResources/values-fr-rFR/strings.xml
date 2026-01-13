@@ -13,7 +13,7 @@
     <string name="menu_reflow">Refusion</string>
     <string name="menu_slideshow">Diaporama</string>
     <string name="menu_settings">Paramètres</string>
-    <string name="settings_title">Possibilités</string>
+    <string name="settings_title">Paramètres</string>
     <string name="settings_category_general">Général</string>
     <string name="settings_category_learning">Apprentissage</string>
     <string name="settings_category_interface">Interface</string>
