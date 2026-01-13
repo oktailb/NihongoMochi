@@ -4,38 +4,33 @@ La meilleure appli d apprentissage du japonais qui soit
 
 Features:
  - Grammar section with typical JLTP exercises
-   - fill exercices database
+   - fill exercices database and lessons -> Sofia
  - Prévoir l'intégration "Social" (comparaison de progression) pour plus tard.
    - reussir la connexion au google play !
- - Du son ! Du bruit ! des effets !
+ - Du son ! Du bruit ! des effets ! [TODO: Interface AudioPlayer expect/actual]
 
 Games:
-  - memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
-  - Simon : enforce kanji remembering by sequence
-  - Taquin : redo the basic gojuon table hiragana/katakana [DONE]
-  - Tetris/Candycrush like (Kana Drop) : achieve words from selected level in Kana to make blocks disappear
-  - Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary
-  - Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
-  - Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
-  - Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
-  - Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou
+  - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
+  - [X] Simon : enforce kanji remembering by sequence
+  - [X] Taquin : redo the basic gojuon table hiragana/katakana
+  - [/] Tetris/Candycrush like (Kana Drop) : achieve words from selected level in Kana to make blocks disappear [SOMEWHAT DONE, maybe more to do]
+  - [ ] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary
+  - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
+  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
+  - [ ] Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
+  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou
 
-Notes on iOS port::
-I dont have relevat mac means to achievei it localy
-Advices get :
-That is a common hurdle for older Mac hardware. Since Xcode is mandatory for compiling the Kotlin/Native code into an iOS framework and for linking the final app, you have a few options to proceed without buying a new Mac:
-1. The "Power User" Solution: OpenCore Legacy Patcher (OCLP)
-If your iMac is technically capable but "retired" by Apple, you can use OpenCore Legacy Patcher to install a newer version of macOS (like Sonoma or Sequoia) on unsupported hardware.
-• Why do this? It will allow you to install the latest Xcode and build your app locally. Many developers use this to keep 2015–2017 iMacs/MacBooks relevant for development.
-• Risk: It's a third-party patch; it's generally stable but can have minor issues with sleep or specific graphics drivers.
-2. The "Cloud" Solution: GitHub Actions
-You can continue developing the shared logic and UI in Android Studio on your current macOS. To actually "see" it on iOS:
-1. Push your code to a GitHub repository.
-2. Set up a GitHub Action using a macos-latest runner (which has the latest Xcode).
-3. The Action can build the .ipa file for you or run your tests.
-4. You can use a service like Appetize.io to upload the build and view it in a browser-based iOS simulator.
-3. Build the iOS Structure Anyway
-Even if you can't run it locally yet, you can prepare the project so it's "ready to go" once you have access to a newer environment (or OCLP).
-I can help you create the necessary iosMain bridge files right now. This will make your shared module technically "Multiplatform" even if your local machine can't finish the final compilation.
-Would you like me to generate the iosMain source files and update your build.gradle.kts to ensure the structure is correct? (This won't require Xcode to just write the code).
-=====> looks complicated for few advantages ---> may we consider a web version ?
+KMP & Architecture Refactoring (Technical Debt):
+ - [ ] Refacto ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
+ - [ ] ResourceUtils : le mapping manuel Res.string est fragile. Explorer une génération auto ou un StringProvider injecté.
+ - [ ] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
+ - [ ] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
+ - [ ] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
+
+Optimisations (Mémoire/CPU):
+ - [ ] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
+ - [ ] Kana Drop : Minimiser les allocations d'objets dans applyGravity (évitement de .map { .map { ... } } à chaque mouvement).
+ - [ ] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
+ - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.
+ - [ ] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
+ - [ ] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).
