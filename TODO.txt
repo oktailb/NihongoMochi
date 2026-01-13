@@ -32,5 +32,5 @@ Optimisations (Mémoire/CPU):
  - [ ] Kana Drop : Minimiser les allocations d'objets dans applyGravity (évitement de .map { .map { ... } } à chaque mouvement).
  - [X] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
  - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.
- - [ ] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
+ - [X] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
  - [ ] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).
