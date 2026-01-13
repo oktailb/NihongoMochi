@@ -11,21 +11,18 @@ import kotlinx.serialization.json.putJsonArray
 import org.nihongo.mochi.settings.ADD_WRONG_ANSWERS_PREF_KEY
 import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
 
-object ScoreManager : ScoreRepository {
+class ScoreManager(
+    private val scoresSettings: Settings,
+    private val userListSettings: Settings,
+    private val appSettings: Settings
+) : ScoreRepository {
 
-    private const val DEFAULT_LIST_NAME = "Default"
-    private const val MEMORIZE_HISTORY_KEY = "memorize_history_json"
-    private const val SIMON_HISTORY_KEY = "simon_history_json"
-    private const val TAQUIN_HISTORY_KEY = "taquin_history_json"
-    private const val KANA_LINK_HISTORY_KEY = "kana_link_history_json"
-    private lateinit var scoresSettings: Settings
-    private lateinit var userListSettings: Settings
-    private lateinit var appSettings: Settings
-
-    fun init(scoresSettings: Settings, userListSettings: Settings, appSettings: Settings) {
-        this.scoresSettings = scoresSettings
-        this.userListSettings = userListSettings
-        this.appSettings = appSettings
+    private companion object {
+        const val DEFAULT_LIST_NAME = "Default"
+        const val MEMORIZE_HISTORY_KEY = "memorize_history_json"
+        const val SIMON_HISTORY_KEY = "simon_history_json"
+        const val TAQUIN_HISTORY_KEY = "taquin_history_json"
+        const val KANA_LINK_HISTORY_KEY = "kana_link_history_json"
     }
 
     enum class ScoreType {
@@ -59,38 +56,38 @@ object ScoreManager : ScoreRepository {
     }
 
     // --- Memorize History ---
-    fun saveMemorizeHistory(historyJson: String) {
+    override fun saveMemorizeHistory(historyJson: String) {
         appSettings.putString(MEMORIZE_HISTORY_KEY, historyJson)
     }
 
-    fun getMemorizeHistory(): String {
+    override fun getMemorizeHistory(): String {
         return appSettings.getString(MEMORIZE_HISTORY_KEY, "[]")
     }
 
     // --- Simon History ---
-    fun saveSimonHistory(historyJson: String) {
+    override fun saveSimonHistory(historyJson: String) {
         appSettings.putString(SIMON_HISTORY_KEY, historyJson)
     }
 
-    fun getSimonHistory(): String {
+    override fun getSimonHistory(): String {
         return appSettings.getString(SIMON_HISTORY_KEY, "[]")
     }
 
     // --- Taquin History ---
-    fun saveTaquinHistory(historyJson: String) {
+    override fun saveTaquinHistory(historyJson: String) {
         appSettings.putString(TAQUIN_HISTORY_KEY, historyJson)
     }
 
-    fun getTaquinHistory(): String {
+    override fun getTaquinHistory(): String {
         return appSettings.getString(TAQUIN_HISTORY_KEY, "[]")
     }
 
     // --- Kana Link History ---
-    fun saveKanaLinkHistory(historyJson: String) {
+    override fun saveKanaLinkHistory(historyJson: String) {
         appSettings.putString(KANA_LINK_HISTORY_KEY, historyJson)
     }
 
-    fun getKanaLinkHistory(): String {
+    override fun getKanaLinkHistory(): String {
         return appSettings.getString(KANA_LINK_HISTORY_KEY, "[]")
     }
 

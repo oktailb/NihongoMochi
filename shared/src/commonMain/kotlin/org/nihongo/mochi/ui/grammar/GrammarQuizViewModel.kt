@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.grammar.Exercise
 import org.nihongo.mochi.domain.grammar.ExercisePayload
 import org.nihongo.mochi.domain.grammar.ExerciseRepository
@@ -31,6 +32,7 @@ data class GrammarQuizState(
 class GrammarQuizViewModel(
     private val exerciseRepository: ExerciseRepository,
     private val settingsRepository: SettingsRepository,
+    private val scoreRepository: ScoreRepository,
     private val grammarTags: List<String> // Changed to List
 ) : ViewModel() {
 
@@ -115,7 +117,7 @@ class GrammarQuizViewModel(
         // Save score for each tag associated with the rule
         val currentExercise = currentState.exercises.getOrNull(currentState.currentIndex)
         currentExercise?.tags?.forEach { tag ->
-            ScoreManager.saveScore(tag, isCorrect, ScoreManager.ScoreType.GRAMMAR)
+            scoreRepository.saveScore(tag, isCorrect, ScoreManager.ScoreType.GRAMMAR)
         }
 
         val newHistory = currentState.progressHistory.toMutableList()

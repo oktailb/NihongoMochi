@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
@@ -22,7 +22,8 @@ class MemorizeViewModel(
     private val kanjiRepository: KanjiRepository,
     private val kanaRepository: KanaRepository,
     private val settingsRepository: SettingsRepository,
-    private val levelContentProvider: LevelContentProvider
+    private val levelContentProvider: LevelContentProvider,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val REVISION_LEVEL_ID = "user_custom_list"
@@ -85,7 +86,7 @@ class MemorizeViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = ScoreManager.getMemorizeHistory()
+            val historyJson = scoreRepository.getMemorizeHistory()
             if (historyJson.isNotEmpty() && historyJson != "[]") {
                 val history = json.decodeFromString<List<MemorizeGameResult>>(historyJson)
                 _scoresHistory.value = history
@@ -247,7 +248,7 @@ class MemorizeViewModel(
         viewModelScope.launch {
             try {
                 val historyJson = json.encodeToString(newHistory)
-                ScoreManager.saveMemorizeHistory(historyJson)
+                scoreRepository.saveMemorizeHistory(historyJson)
             } catch (e: Exception) {
             }
         }

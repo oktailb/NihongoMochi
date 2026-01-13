@@ -12,10 +12,30 @@ import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.services.AndroidCloudSaveService
 import org.nihongo.mochi.ui.dictionary.AndroidMlKitRecognizer
 import org.nihongo.mochi.ui.writinggame.AndroidTextNormalizer
+import org.koin.core.qualifier.named
 
 val platformModule = module {
-    // Settings implementation for Android
+    // Shared Settings (legacy)
     single<Settings> {
+        SharedPreferencesSettings(
+            androidContext().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
+        )
+    }
+
+    // Specific settings for ScoreManager
+    single<Settings>(named("scoresSettings")) {
+        SharedPreferencesSettings(
+            androidContext().getSharedPreferences("KanjiScores", Context.MODE_PRIVATE)
+        )
+    }
+    
+    single<Settings>(named("userListSettings")) {
+        SharedPreferencesSettings(
+            androidContext().getSharedPreferences("UserLists", Context.MODE_PRIVATE)
+        )
+    }
+    
+    single<Settings>(named("appSettings")) {
         SharedPreferencesSettings(
             androidContext().getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         )

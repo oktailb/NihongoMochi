@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaEntry
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.presentation.ScorePresentationUtils
@@ -13,6 +14,7 @@ import org.nihongo.mochi.presentation.ViewModel
 
 class KanaRecapViewModel(
     private val kanaRepository: KanaRepository,
+    private val scoreRepository: ScoreRepository,
     private val baseColorInt: Int
 ) : ViewModel() {
 
@@ -53,7 +55,7 @@ class KanaRecapViewModel(
     fun refreshScores() {
         val currentChars = _charactersByLine.value.values.flatten()
         val colorMap = currentChars.associate { kana ->
-            val score = ScoreManager.getScore(kana.character, ScoreManager.ScoreType.RECOGNITION)
+            val score = scoreRepository.getScore(kana.character, ScoreManager.ScoreType.RECOGNITION)
             val colorInt = ScorePresentationUtils.getScoreColor(score, baseColorInt)
             kana.character to Color(colorInt)
         }

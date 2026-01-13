@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
@@ -18,7 +19,9 @@ enum class QuizMode {
     ROMAJI_TO_KANA
 }
 
-class KanaQuizEngine {
+class KanaQuizEngine(
+    private val scoreRepository: ScoreRepository
+) {
     var isGameInitialized = false
     var quizMode: QuizMode = QuizMode.KANA_TO_ROMAJI
     
@@ -133,7 +136,7 @@ class KanaQuizEngine {
         val correctAnswerText = if (isNormal) currentQuestion.romaji else currentQuestion.kana
         val isCorrect = selectedAnswer == correctAnswerText
 
-        ScoreManager.saveScore(currentQuestion.kana, isCorrect, ScoreManager.ScoreType.RECOGNITION)
+        scoreRepository.saveScore(currentQuestion.kana, isCorrect, ScoreManager.ScoreType.RECOGNITION)
         
         val newButtonStates = _buttonStates.value.toMutableList()
 

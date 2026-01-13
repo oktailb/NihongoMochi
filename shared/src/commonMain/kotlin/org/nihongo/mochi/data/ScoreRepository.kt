@@ -14,4 +14,14 @@ interface ScoreRepository {
     // Backup/Restore
     fun getAllDataJson(): String
     fun restoreDataFromJson(json: String)
+
+    // History methods
+    fun saveMemorizeHistory(historyJson: String)
+    fun getMemorizeHistory(): String
+    fun saveSimonHistory(historyJson: String)
+    fun getSimonHistory(): String
+    fun saveTaquinHistory(historyJson: String)
+    fun getTaquinHistory(): String
+    fun saveKanaLinkHistory(historyJson: String)
+    fun getKanaLinkHistory(): String
 }

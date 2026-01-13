@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.data.ScoreManager.ScoreType
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
@@ -16,6 +16,7 @@ import org.nihongo.mochi.presentation.ViewModel
 class WritingRecapViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val kanjiRepository: KanjiRepository,
+    private val scoreRepository: ScoreRepository,
     private val baseColorInt: Int
 ) : ViewModel() {
 
@@ -62,7 +63,7 @@ class WritingRecapViewModel(
         if (startIndex < allKanjiEntries.size) {
             val pageItems = allKanjiEntries.subList(startIndex, endIndex)
             _kanjiList.value = pageItems.map { kanji ->
-                val score = ScoreManager.getScore(kanji.character, ScoreType.WRITING)
+                val score = scoreRepository.getScore(kanji.character, ScoreManager.ScoreType.WRITING)
                 val colorInt = ScorePresentationUtils.getScoreColor(score, baseColorInt)
                 kanji to Color(colorInt)
             }

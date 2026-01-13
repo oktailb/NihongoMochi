@@ -3,6 +3,7 @@ package org.nihongo.mochi.ui.grammar
 import org.nihongo.mochi.data.GrammarRuleScore
 import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.grammar.GrammarRepository
 import org.nihongo.mochi.domain.grammar.GrammarRule
 import org.nihongo.mochi.domain.settings.SettingsRepository
@@ -30,7 +31,8 @@ data class GrammarLevelSeparator(
 
 class GrammarViewModel(
     private val grammarRepository: GrammarRepository,
-    private val settingsRepository: SettingsRepository 
+    private val settingsRepository: SettingsRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val REVISION_LEVEL_ID = "user_custom_list"
@@ -149,7 +151,7 @@ class GrammarViewModel(
         val def = grammarRepository.loadGrammarDefinition()
         
         val (rules, levelsToShow) = if (currentMaxLevelId == REVISION_LEVEL_ID) {
-            val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.GRAMMAR)
+            val scores = scoreRepository.getAllScores(ScoreManager.ScoreType.GRAMMAR)
             val revisionRules = scores.keys.mapNotNull { ruleId ->
                 grammarRepository.getRuleById(ruleId)
             }
@@ -263,7 +265,7 @@ class GrammarViewModel(
                 
                 sortedRules.forEach { rule ->
                     val x = assignedSides[rule.id] ?: 0.5f
-                    val rawScore = ScoreManager.getScore(rule.id, ScoreManager.ScoreType.GRAMMAR)
+                    val rawScore = scoreRepository.getScore(rule.id, ScoreManager.ScoreType.GRAMMAR)
                     val score = GrammarRuleScore(rawScore.successes, rawScore.failures, rawScore.lastReviewDate)
                     val hasLesson = grammarRepository.hasLesson(rule.id)
                     finalNodes.add(GrammarNode(rule, x, currentSlot, score, hasLesson)) 
@@ -282,7 +284,7 @@ class GrammarViewModel(
             val levelRules = rulesByLevel[levelId] ?: emptyList()
             val completion = if (levelRules.isNotEmpty()) {
                 val successfulNodes = levelRules.count { rule ->
-                    val score = ScoreManager.getScore(rule.id, ScoreManager.ScoreType.GRAMMAR)
+                    val score = scoreRepository.getScore(rule.id, ScoreManager.ScoreType.GRAMMAR)
                     (score.successes - score.failures) >= 1
                 }
                 (successfulNodes * 100) / levelRules.size

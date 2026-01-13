@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -13,10 +14,11 @@ import org.nihongo.mochi.domain.models.KanaCharacter
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
 
 class KanaQuizViewModel(
-    private val kanaRepository: KanaRepository
+    private val kanaRepository: KanaRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
-    private val engine = KanaQuizEngine()
+    private val engine = KanaQuizEngine(scoreRepository)
 
     // Delegate properties to Engine
     var isGameInitialized: Boolean

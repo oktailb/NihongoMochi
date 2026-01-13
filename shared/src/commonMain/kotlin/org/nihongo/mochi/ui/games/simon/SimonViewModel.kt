@@ -9,8 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.domain.kanji.KanjiEntry
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
@@ -36,7 +35,8 @@ class SimonViewModel(
     private val kanaRepository: KanaRepository,
     private val meaningRepository: MeaningRepository,
     private val settingsRepository: SettingsRepository,
-    private val levelContentProvider: LevelContentProvider
+    private val levelContentProvider: LevelContentProvider,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val REVISION_LEVEL_ID = "user_custom_list"
@@ -96,7 +96,7 @@ class SimonViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = ScoreManager.getSimonHistory()
+            val historyJson = scoreRepository.getSimonHistory()
             if (historyJson.isNotEmpty()) {
                 val history = json.decodeFromString<List<SimonGameResult>>(historyJson)
                 _scoresHistory.value = history
@@ -263,7 +263,7 @@ class SimonViewModel(
         _scoresHistory.value = newHistory
         
         try {
-            ScoreManager.saveSimonHistory(json.encodeToString(newHistory))
+            scoreRepository.saveSimonHistory(json.encodeToString(newHistory))
         } catch (e: Exception) {
         }
     }

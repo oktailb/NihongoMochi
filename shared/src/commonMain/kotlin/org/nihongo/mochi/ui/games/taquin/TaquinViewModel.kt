@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.presentation.ViewModel
@@ -22,7 +22,8 @@ data class NumberEntry(val character: String, val romaji: String, val value: Int
 data class NumberData(val numbers: List<NumberEntry>)
 
 class TaquinViewModel(
-    private val kanaRepository: KanaRepository
+    private val kanaRepository: KanaRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -49,7 +50,7 @@ class TaquinViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = ScoreManager.getTaquinHistory()
+            val historyJson = scoreRepository.getTaquinHistory()
             if (historyJson.isNotEmpty()) {
                 _scoresHistory.value = json.decodeFromString(historyJson)
             }
@@ -229,7 +230,7 @@ class TaquinViewModel(
         val newHistory = (listOf(result) + _scoresHistory.value).take(10)
         _scoresHistory.value = newHistory
         try {
-            ScoreManager.saveTaquinHistory(json.encodeToString(newHistory))
+            scoreRepository.saveTaquinHistory(json.encodeToString(newHistory))
         } catch (e: Exception) {}
     }
 

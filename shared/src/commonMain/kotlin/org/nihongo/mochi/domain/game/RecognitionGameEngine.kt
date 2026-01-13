@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -16,7 +17,9 @@ import kotlin.random.Random
 
 enum class QuestionDirection { NORMAL, REVERSE }
 
-class RecognitionGameEngine {
+class RecognitionGameEngine(
+    private val scoreRepository: ScoreRepository
+) {
     var isGameInitialized = false
     
     val allKanjiDetails = mutableListOf<KanjiDetail>()
@@ -187,7 +190,7 @@ class RecognitionGameEngine {
             selectedAnswer == correctAnswer
         }
         
-        ScoreManager.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.RECOGNITION)
+        scoreRepository.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.RECOGNITION)
         
         // Update Game State
         val progress = kanjiProgress[currentKanji]!!

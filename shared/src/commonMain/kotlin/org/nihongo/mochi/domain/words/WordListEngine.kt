@@ -1,61 +1,83 @@
 package org.nihongo.mochi.domain.words
 
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.domain.util.TextUtils
+import org.nihongo.mochi.data.ScoreRepository
 
-class WordListEngine(private val wordRepository: WordRepository) {
+class WordListEngine(
+    private val wordRepository: WordRepository,
+    private val scoreRepository: ScoreRepository
+) {
+    var isGameInitialized = false
+    
+    private var allWords = listOf<WordEntry>()
+    private var filteredWords = listOf<WordEntry>()
 
-    private var allWords: List<WordEntry> = emptyList()
-    private var displayedWords: List<WordEntry> = emptyList()
-
-    // Filters state
+    // Filters
     var filterKanjiOnly = false
     var filterSimpleWords = false
     var filterCompoundWords = false
     var filterIgnoreKnown = false
-    var filterWordType = "Tous"
+    var filterWordType: String = "Tous"
 
     fun loadList(listName: String) {
-        if (listName == "user_custom_list") {
-            val scores = ScoreManager.getAllScores(ScoreManager.ScoreType.READING)
-            allWords = scores.map { (word, _) ->
-                WordEntry(text = word, type = "")
-            }
-        } else {
-            allWords = wordRepository.getWordEntriesForLevel(listName)
-        }
+        allWords = wordRepository.getWordEntriesForLevel(listName)
         applyFilters()
     }
 
-    fun applyFilters(): List<WordEntry> {
-        displayedWords = allWords.filter { word ->
-            val kanjiCount = TextUtils.kanjiCount(word.text)
-            val hasKana = TextUtils.containsKana(word.text)
-
-            val typeFilter = when (filterWordType) {
-                "Tous" -> true
-                else -> word.type == filterWordType
+    fun applyFilters() {
+        filteredWords = allWords.filter { word ->
+            var include = true
+            
+            if (filterKanjiOnly) {
+                include = include && word.text.any { it.isKanji() }
             }
-
-            val structureFilter = when {
-                filterKanjiOnly && kanjiCount == 1 && !hasKana -> true
-                filterSimpleWords && kanjiCount == 1 && hasKana -> true
-                filterCompoundWords && kanjiCount > 1 -> true
-                !filterKanjiOnly && !filterSimpleWords && !filterCompoundWords -> true
-                else -> false
+            
+            if (filterSimpleWords) {
+                include = include && word.text.length == 1
             }
-
-            val knownFilter = if (filterIgnoreKnown) {
-                val score = ScoreManager.getScore(word.text, ScoreManager.ScoreType.READING)
-                (score.successes - score.failures) < 10
-            } else {
-                true
+            
+            if (filterCompoundWords) {
+                include = include && word.text.length > 1
             }
-
-            typeFilter && structureFilter && knownFilter
+            
+            if (filterIgnoreKnown) {
+                val score = scoreRepository.getScore(word.text, ScoreManager.ScoreType.READING)
+                include = include && (score.successes - score.failures) < 10
+            }
+            
+            if (filterWordType != "Tous") {
+                // Logic for word type filtering if available in metadata
+            }
+            
+            include
         }
-        return displayedWords
     }
-    
-    fun getDisplayedWords(): List<WordEntry> = displayedWords
+
+    fun getDisplayedWords(): List<WordEntry> = filteredWords
+
+    fun calculateMasteryPercentage(levelKey: String): Double {
+        val wordTexts = wordRepository.getWordsForLevel(levelKey)
+        if (wordTexts.isEmpty()) return 0.0
+
+        val scores = scoreRepository.getAllScores(ScoreManager.ScoreType.READING)
+        if (scores.isEmpty()) return 0.0
+
+        val totalMasteryPoints = wordTexts.sumOf { wordText ->
+            val score = scoreRepository.getScore(wordText, ScoreManager.ScoreType.READING)
+            val balance = score.successes - score.failures
+            balance.coerceIn(0, 10).toDouble()
+        }
+
+        val maxPossiblePoints = wordTexts.size * 10.0
+        return (totalMasteryPoints / maxPossiblePoints) * 100.0
+    }
+
+    fun getMasteryPoints(wordText: String): Int {
+        val score = scoreRepository.getScore(wordText, ScoreManager.ScoreType.READING)
+        return (score.successes - score.failures).coerceAtLeast(0)
+    }
+
+    private fun Char.isKanji(): Boolean {
+        return this.code in 0x4E00..0x9FAF
+    }
 }

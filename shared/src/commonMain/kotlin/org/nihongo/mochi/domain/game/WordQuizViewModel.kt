@@ -6,10 +6,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.data.ScoreManager.ScoreType
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.game.WordQuizEngine
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -20,7 +19,8 @@ import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.words.WordEntry
 
 class WordQuizViewModel(
-    private val wordRepository: WordRepository
+    private val wordRepository: WordRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
     
     private val engine = WordQuizEngine()
@@ -156,7 +156,7 @@ class WordQuizViewModel(
         val isCorrect = selectedAnswer == correctReading
 
         // Side effect: save score
-        ScoreManager.saveScore(engine.currentWord.text, isCorrect, ScoreType.READING)
+        scoreRepository.saveScore(engine.currentWord.text, isCorrect, ScoreManager.ScoreType.READING)
 
         val newButtonStates = _buttonStates.value.toMutableList()
         

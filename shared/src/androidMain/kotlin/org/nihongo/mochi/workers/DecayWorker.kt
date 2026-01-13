@@ -12,12 +12,16 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import org.nihongo.mochi.data.ScoreManager
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import org.nihongo.mochi.data.ScoreRepository
 
-class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams), KoinComponent {
+
+    private val scoreRepository: ScoreRepository by inject()
 
     override fun doWork(): Result {
-        val decayed = ScoreManager.decayScores()
+        val decayed = scoreRepository.decayScores()
         
         if (decayed) {
             sendNotification()

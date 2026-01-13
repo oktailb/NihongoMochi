@@ -1,6 +1,7 @@
 package org.nihongo.mochi.domain.statistics
 
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.presentation.SagaAction
 import org.nihongo.mochi.presentation.ViewModel
@@ -19,7 +20,8 @@ sealed class OneTimeEvent {
 
 class ResultsViewModel(
     private val cloudSaveService: CloudSaveService,
-    private val statisticsEngine: StatisticsEngine
+    private val statisticsEngine: StatisticsEngine,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val _isAuthenticated = MutableStateFlow(false)
@@ -105,7 +107,7 @@ class ResultsViewModel(
 
     fun saveGame() {
         viewModelScope.launch {
-            val data = ScoreManager.getAllDataJson()
+            val data = scoreRepository.getAllDataJson()
             val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
             val desc = "Backup ${now.date} ${now.hour}:${now.minute}"
             
@@ -119,7 +121,7 @@ class ResultsViewModel(
     }
 
     fun loadGame(data: String) {
-        ScoreManager.restoreDataFromJson(data)
+        scoreRepository.restoreDataFromJson(data)
         refreshSagaMap()
         _message.value = "Données restaurées"
     }

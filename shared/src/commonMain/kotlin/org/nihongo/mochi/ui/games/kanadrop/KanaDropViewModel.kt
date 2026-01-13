@@ -9,13 +9,14 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
 
 class KanaDropViewModel(
-    private val wordRepository: WordRepository
+    private val wordRepository: WordRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -37,7 +38,7 @@ class KanaDropViewModel(
 
     private fun loadHistory() {
         try {
-            val historyJson = ScoreManager.getKanaLinkHistory()
+            val historyJson = scoreRepository.getKanaLinkHistory()
             if (historyJson.isNotEmpty()) {
                 _history.value = json.decodeFromString(historyJson)
             }
@@ -120,7 +121,7 @@ class KanaDropViewModel(
         val newHistory = (listOf(result) + _history.value).take(10)
         _history.value = newHistory
         try {
-            ScoreManager.saveKanaLinkHistory(json.encodeToString(newHistory))
+            scoreRepository.saveKanaLinkHistory(json.encodeToString(newHistory))
         } catch (e: Exception) {}
     }
 

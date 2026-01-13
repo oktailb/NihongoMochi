@@ -3,6 +3,8 @@ package org.nihongo.mochi.di
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
+import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.dictionary.DictionaryViewModel
 import org.nihongo.mochi.domain.grammar.ExerciseRepository
 import org.nihongo.mochi.domain.grammar.GrammarRepository
@@ -34,6 +36,7 @@ import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.wordlist.WordListViewModel
 import org.nihongo.mochi.ui.writingrecap.WritingRecapViewModel
+import org.koin.core.qualifier.named
 
 val sharedModule = module {
     // --- Data / Repositories ---
@@ -48,6 +51,15 @@ val sharedModule = module {
     singleOf(::StatisticsEngine)
     singleOf(::GrammarRepository)
     singleOf(::ExerciseRepository)
+    
+    // ScoreManager with named settings
+    single<ScoreRepository> { 
+        ScoreManager(
+            scoresSettings = get(named("scoresSettings")),
+            userListSettings = get(named("userListSettings")),
+            appSettings = get(named("appSettings"))
+        )
+    }
 
     // --- ViewModels ---
     factoryOf(::KanjiDetailViewModel)
@@ -59,7 +71,6 @@ val sharedModule = module {
     singleOf(::DictionaryViewModel)
     
     // Games are singles to share state between Setup and Game screens.
-    // We must manually reset them when leaving the game flow.
     singleOf(::SimonViewModel)
     singleOf(::TaquinViewModel)
     singleOf(::MemorizeViewModel)
@@ -77,6 +88,7 @@ val sharedModule = module {
         GameRecapViewModel(
             levelContentProvider = get(),
             kanjiRepository = get(),
+            scoreRepository = get(),
             baseColorInt = params.get()
         )
     }
@@ -84,6 +96,7 @@ val sharedModule = module {
     factory { params ->
         KanaRecapViewModel(
             kanaRepository = get(),
+            scoreRepository = get(),
             baseColorInt = params.get()
         )
     }
@@ -92,6 +105,7 @@ val sharedModule = module {
         WritingRecapViewModel(
             levelContentProvider = get(),
             kanjiRepository = get(),
+            scoreRepository = get(),
             baseColorInt = params.get()
         )
     }
@@ -99,7 +113,8 @@ val sharedModule = module {
     factory { params ->
         ResultsViewModel(
             cloudSaveService = params.get(),
-            statisticsEngine = get()
+            statisticsEngine = get(),
+            scoreRepository = get()
         )
     }
 
@@ -107,6 +122,7 @@ val sharedModule = module {
         GrammarQuizViewModel(
             exerciseRepository = get(),
             settingsRepository = get(),
+            scoreRepository = get(),
             grammarTags = params.get<List<String>>()
         )
     }

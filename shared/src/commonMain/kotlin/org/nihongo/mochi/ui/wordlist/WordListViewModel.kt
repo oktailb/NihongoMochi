@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
@@ -22,10 +23,11 @@ class WordListViewModel(
     private val meaningRepository: MeaningRepository,
     private val kanjiRepository: KanjiRepository,
     private val settingsRepository: SettingsRepository,
-    private val levelsRepository: LevelsRepository
+    private val levelsRepository: LevelsRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
-    private val engine = WordListEngine(wordRepository)
+    private val engine = WordListEngine(wordRepository, scoreRepository)
 
     private val _displayedWords = MutableStateFlow<List<Triple<WordEntry, LearningScore, Boolean>>>(emptyList())
     val displayedWords: StateFlow<List<Triple<WordEntry, LearningScore, Boolean>>> = _displayedWords.asStateFlow()
@@ -148,7 +150,7 @@ class WordListViewModel(
         if (startIndex < allDisplayed.size) {
             val pageItems = allDisplayed.subList(startIndex, endIndex)
             _displayedWords.value = pageItems.map { word ->
-                val kanjiScore = ScoreManager.getScore(word.text, ScoreManager.ScoreType.READING)
+                val kanjiScore = scoreRepository.getScore(word.text, ScoreManager.ScoreType.READING)
                 val kanjiDetail = allKanjiDetails.firstOrNull { it.character == word.text }
                 val isRedBorder = kanjiDetail != null && kanjiDetail.meanings.isEmpty()
                 Triple(word, kanjiScore, isRedBorder)

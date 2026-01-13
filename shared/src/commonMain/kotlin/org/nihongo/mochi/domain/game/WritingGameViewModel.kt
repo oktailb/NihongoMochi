@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.GameStatus
@@ -18,10 +19,11 @@ class WritingGameViewModel(
     private val meaningRepository: MeaningRepository,
     private val levelContentProvider: LevelContentProvider,
     private val settingsRepository: SettingsRepository,
+    private val scoreRepository: ScoreRepository,
     textNormalizer: TextNormalizer? = null
 ) : ViewModel() {
     
-    private val engine = WritingGameEngine(textNormalizer)
+    private val engine = WritingGameEngine(scoreRepository, textNormalizer)
     
     var isGameInitialized: Boolean
         get() = engine.isGameInitialized

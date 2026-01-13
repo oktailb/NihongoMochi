@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -18,24 +19,22 @@ class RecognitionGameViewModel(
     private val kanjiRepository: KanjiRepository,
     private val meaningRepository: MeaningRepository,
     private val levelContentProvider: LevelContentProvider,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
     
-    private val engine = RecognitionGameEngine()
+    private val engine = RecognitionGameEngine(scoreRepository)
     
     // Delegate properties to Engine
     var isGameInitialized: Boolean
         get() = engine.isGameInitialized
         set(value) { engine.isGameInitialized = value }
 
-    // This property was previously used to hold all loaded details before filtering
-    // It's kept here as private or internal if needed, but the main goal is to populate engine.allKanjiDetails
     private val allKanjiDetailsXml = mutableListOf<KanjiDetail>()
     
     val allKanjiDetails: MutableList<KanjiDetail>
         get() = engine.allKanjiDetails
 
-    // Read-only access to lists for UI binding (if needed) but mutations should go through Engine methods ideally
     val currentKanjiSet: MutableList<KanjiDetail>
         get() = engine.currentKanjiSet
 
@@ -66,9 +65,7 @@ class RecognitionGameViewModel(
     val state: StateFlow<GameState> = engine.state
     val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
 
-    // UI Specific State (Platform dependent)
     var areButtonsEnabled = true
-    // Removed buttonColors as it's now handled via state flow from engine
 
     fun updatePronunciationMode(mode: String) {
         engine.pronunciationMode = mode
@@ -82,8 +79,6 @@ class RecognitionGameViewModel(
         engine.startGame()
     }
 
-    // Next question is handled by engine in flow
-    
     fun getFormattedReadings(kanji: KanjiDetail): String {
         return engine.getFormattedReadings(kanji)
     }
@@ -98,7 +93,6 @@ class RecognitionGameViewModel(
         engine.resetState()
         allKanjiDetailsXml.clear()
         areButtonsEnabled = true
-        // buttonColors cleared implicitly by engine reset
     }
 
     fun initializeGame(gameMode: String, readingMode: String, level: String, customWordList: List<String>?): Boolean {
@@ -120,13 +114,11 @@ class RecognitionGameViewModel(
                 var include = kanjiCharsForLevel.contains(it.character)
 
                 if (level == "No Meaning") {
-                    // For "No Meaning" challenge, we only care about readings, so we don't filter by meaning
                 } else if (gameMode == "meaning") {
                     include = include && it.meanings.isNotEmpty()
                 }
 
                 if (level == "No Reading") {
-                    // For "No Reading" challenge, we only care about meanings, so we don't filter by reading
                 } else if (gameMode == "reading") {
                     include = include && it.readings.isNotEmpty()
                 }

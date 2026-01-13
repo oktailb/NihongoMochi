@@ -1,13 +1,15 @@
 package org.nihongo.mochi.domain.statistics
 
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.levels.LevelDefinition
 import org.nihongo.mochi.domain.util.LevelContentProvider
 
 class StatisticsEngine(
     private val levelContentProvider: LevelContentProvider,
-    private val levelsRepository: LevelsRepository
+    private val levelsRepository: LevelsRepository,
+    private val scoreRepository: ScoreRepository
 ) {
 
     suspend fun loadLevelDefinitions() {
@@ -170,11 +172,11 @@ class StatisticsEngine(
     }
 
     private fun calculateUserListPercentage(scoreType: ScoreManager.ScoreType): Double {
-        val scores = ScoreManager.getAllScores(scoreType)
+        val scores = scoreRepository.getAllScores(scoreType)
         if (scores.isEmpty()) return 0.0
 
         val totalEncountered = scores.size
-        val mastered = scores.count { (_, score) -> (score.successes - score.failures) >= 10 }
+        val mastered = scores.count { entry -> (entry.value.successes - entry.value.failures) >= 10 }
 
         return if (totalEncountered > 0) {
             (mastered.toDouble() / totalEncountered.toDouble()) * 100.0
@@ -187,7 +189,7 @@ class StatisticsEngine(
         if (characterList.isEmpty()) return 0.0
 
         val totalMasteryPoints = characterList.sumOf { character ->
-            val score = ScoreManager.getScore(character, scoreType)
+            val score = scoreRepository.getScore(character, scoreType)
             val balance = score.successes - score.failures
             balance.coerceIn(0, 10).toDouble()
         }

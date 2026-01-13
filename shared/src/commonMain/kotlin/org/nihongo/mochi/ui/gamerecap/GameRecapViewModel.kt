@@ -2,7 +2,7 @@ package org.nihongo.mochi.ui.gamerecap
 
 import androidx.compose.ui.graphics.Color
 import org.nihongo.mochi.data.ScoreManager
-import org.nihongo.mochi.data.ScoreManager.ScoreType
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 class GameRecapViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val kanjiRepository: KanjiRepository,
+    private val scoreRepository: ScoreRepository,
     private val baseColorInt: Int
 ) : ViewModel() {
 
@@ -61,13 +62,13 @@ class GameRecapViewModel(
     }
 
     fun updateCurrentPageItems(gameMode: String) {
-        val scoreType = if (gameMode == "meaning") ScoreType.RECOGNITION else ScoreType.READING
+        val scoreType = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
         val startIndex = _currentPage.value * pageSize
         val endIndex = (startIndex + pageSize).coerceAtMost(allKanjiEntries.size)
         
         if (startIndex < allKanjiEntries.size) {
             _kanjiListWithColors.value = allKanjiEntries.subList(startIndex, endIndex).map { kanji ->
-                val score = ScoreManager.getScore(kanji.character, scoreType)
+                val score = scoreRepository.getScore(kanji.character, scoreType)
                 val colorInt = ScorePresentationUtils.getScoreColor(score, baseColorInt)
                 kanji to Color(colorInt)
             }

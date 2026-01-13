@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
@@ -14,7 +15,10 @@ import kotlin.random.Random
 
 enum class QuestionType { MEANING, READING }
 
-class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
+class WritingGameEngine(
+    private val scoreRepository: ScoreRepository,
+    private val textNormalizer: TextNormalizer? = null
+) {
     var isGameInitialized = false
     
     val allKanjiDetails = mutableListOf<KanjiDetail>()
@@ -127,7 +131,7 @@ class WritingGameEngine(private val textNormalizer: TextNormalizer? = null) {
             checkReading(userAnswer)
         }
 
-        ScoreManager.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.WRITING)
+        scoreRepository.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.WRITING)
 
         _lastAnswerStatus.value = isCorrect
         

@@ -1,6 +1,7 @@
 package org.nihongo.mochi.domain.util
 
 import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.kanji.KanjiRepository
@@ -9,7 +10,8 @@ import org.nihongo.mochi.domain.words.WordRepository
 class LevelContentProvider(
     private val kanaRepository: KanaRepository,
     private val kanjiRepository: KanjiRepository,
-    private val wordRepository: WordRepository
+    private val wordRepository: WordRepository,
+    private val scoreRepository: ScoreRepository
 ) {
 
     fun getCharactersForLevel(levelKey: String): List<String> {
@@ -24,8 +26,8 @@ class LevelContentProvider(
             lowerKey == "user_custom_list" -> {
                 // Return all items with a score in RECOGNITION (Kanji) or GRAMMAR
                 // This covers revisions for kanji and grammar rules
-                val kanjiScores = ScoreManager.getAllScores(ScoreManager.ScoreType.RECOGNITION).keys
-                val grammarScores = ScoreManager.getAllScores(ScoreManager.ScoreType.GRAMMAR).keys
+                val kanjiScores = scoreRepository.getAllScores(ScoreManager.ScoreType.RECOGNITION).keys
+                val grammarScores = scoreRepository.getAllScores(ScoreManager.ScoreType.GRAMMAR).keys
                 (kanjiScores + grammarScores).toList()
             }
             
