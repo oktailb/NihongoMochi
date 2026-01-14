@@ -45,7 +45,7 @@ fun SimonSetupScreen(
                 modifier = Modifier.padding(bottom = 8.dp, top = 16.dp)
             )
             Text(
-                text = "記憶",
+                text = stringResource(Res.string.game_simon_japanese_title),
                 fontSize = 24.sp,
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.padding(bottom = 24.dp)
@@ -57,18 +57,22 @@ fun SimonSetupScreen(
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text(text = "Configuration", fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 8.dp))
+                    Text(
+                        text = stringResource(Res.string.game_config_title), 
+                        fontWeight = FontWeight.Bold, 
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
                     Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         SimonMode.entries.forEach { mode ->
                             val isVisible = if (isKanaLevel) mode == SimonMode.KANA_SAME || mode == SimonMode.KANA_CROSS else mode != SimonMode.KANA_SAME && mode != SimonMode.KANA_CROSS
                             if (isVisible) {
                                 val label = when(mode) {
-                                    SimonMode.KANJI -> "Kanji"
-                                    SimonMode.MEANING -> "Sens"
-                                    SimonMode.READING_COMMON -> "Lecture Std"
-                                    SimonMode.READING_RANDOM -> "Lecture Aléa"
-                                    SimonMode.KANA_SAME -> "Même Syllabaire"
-                                    SimonMode.KANA_CROSS -> "Syllabaire Croisé"
+                                    SimonMode.KANJI -> stringResource(Res.string.game_simon_mode_kanji)
+                                    SimonMode.MEANING -> stringResource(Res.string.game_simon_mode_meaning)
+                                    SimonMode.READING_COMMON -> stringResource(Res.string.game_simon_mode_reading_std)
+                                    SimonMode.READING_RANDOM -> stringResource(Res.string.game_simon_mode_reading_rnd)
+                                    SimonMode.KANA_SAME -> stringResource(Res.string.game_simon_mode_kana_same)
+                                    SimonMode.KANA_CROSS -> stringResource(Res.string.game_simon_mode_kana_cross)
                                 }
                                 FilterChip(
                                     selected = selectedMode == mode,
@@ -88,23 +92,35 @@ fun SimonSetupScreen(
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text(text = "Historique", fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 8.dp))
+                    Text(
+                        text = stringResource(Res.string.game_history_title), 
+                        fontWeight = FontWeight.Bold, 
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
                     if (scoresHistory.isEmpty()) {
-                        Text(text = "Aucun score", fontSize = 14.sp)
+                        Text(
+                            text = stringResource(Res.string.game_memorize_no_scores), 
+                            fontSize = 14.sp
+                        )
                     } else {
                         scoresHistory.take(5).forEach { result ->
                             Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
                                 val modeLabel = when(result.mode) {
-                                    SimonMode.KANJI -> "Kanji"
-                                    SimonMode.MEANING -> "Sens"
-                                    SimonMode.READING_COMMON -> "Lecture Std"
-                                    SimonMode.READING_RANDOM -> "Lecture Aléa"
-                                    SimonMode.KANA_SAME -> "Même Syllabaire"
-                                    SimonMode.KANA_CROSS -> "Syllabaire Croisé"
+                                    SimonMode.KANJI -> stringResource(Res.string.game_simon_mode_kanji)
+                                    SimonMode.MEANING -> stringResource(Res.string.game_simon_mode_meaning)
+                                    SimonMode.READING_COMMON -> stringResource(Res.string.game_simon_mode_reading_std)
+                                    SimonMode.READING_RANDOM -> stringResource(Res.string.game_simon_mode_reading_rnd)
+                                    SimonMode.KANA_SAME -> stringResource(Res.string.game_simon_mode_kana_same)
+                                    SimonMode.KANA_CROSS -> stringResource(Res.string.game_simon_mode_kana_cross)
                                 }
                                 Text(text = modeLabel, fontSize = 12.sp, modifier = Modifier.weight(1f))
                                 Text(text = "${result.maxSequence}", fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f), textAlign = TextAlign.Center)
-                                Text(text = "${result.timeSeconds}s", fontSize = 14.sp, modifier = Modifier.weight(1f), textAlign = TextAlign.End)
+                                Text(
+                                    text = stringResource(Res.string.game_memorize_time_format, result.timeSeconds), 
+                                    fontSize = 14.sp, 
+                                    modifier = Modifier.weight(1f), 
+                                    textAlign = TextAlign.End
+                                )
                             }
                         }
                     }
@@ -151,8 +167,16 @@ fun SimonGameScreen(
             // HUD
             Box(modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp), contentAlignment = Alignment.TopEnd) {
                 Column(horizontalAlignment = Alignment.End) {
-                    Text(text = "Score: $score", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
-                    Text(text = "Record: $bestScore", fontSize = 12.sp, color = MaterialTheme.colorScheme.primary)
+                    Text(
+                        text = stringResource(Res.string.game_simon_score_label, score), 
+                        fontWeight = FontWeight.Bold, 
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                    Text(
+                        text = stringResource(Res.string.game_simon_record_label, bestScore), 
+                        fontSize = 12.sp, 
+                        color = MaterialTheme.colorScheme.primary
+                    )
                     
                     // Optimized Timer
                     TimerText(viewModel.gameTimeSeconds)
@@ -165,13 +189,33 @@ fun SimonGameScreen(
                     val finalTime by viewModel.gameTimeSeconds.collectAsState()
                     Card(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                         Column(modifier = Modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(text = "GAME OVER", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
+                            Text(
+                                text = stringResource(Res.string.game_simon_game_over), 
+                                fontSize = 28.sp, 
+                                fontWeight = FontWeight.Bold, 
+                                color = MaterialTheme.colorScheme.error
+                            )
                             Spacer(modifier = Modifier.height(16.dp))
-                            Text(text = "Sequence: $score", fontWeight = FontWeight.Bold)
-                            Text(text = "Time: ${finalTime}s")
+                            Text(
+                                text = stringResource(Res.string.game_simon_score_label, score), 
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = stringResource(Res.string.game_simon_time_label, finalTime)
+                            )
                             Spacer(modifier = Modifier.height(24.dp))
-                            Button(onClick = { viewModel.startGame() }, modifier = Modifier.fillMaxWidth()) { Text("Rejouer") }
-                            OutlinedButton(onClick = onBackClick, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) { Text("Menu") }
+                            Button(
+                                onClick = { viewModel.startGame() }, 
+                                modifier = Modifier.fillMaxWidth()
+                            ) { 
+                                Text(stringResource(Res.string.game_replay_button)) 
+                            }
+                            OutlinedButton(
+                                onClick = onBackClick, 
+                                modifier = Modifier.fillMaxWidth().padding(top = 8.dp)
+                            ) { 
+                                Text(stringResource(Res.string.game_menu_button)) 
+                            }
                         }
                     }
                 } else {
@@ -213,7 +257,7 @@ fun SimonGameScreen(
 private fun TimerText(timeFlow: StateFlow<Int>) {
     val timeSeconds by timeFlow.collectAsState()
     Text(
-        text = "Time: ${timeSeconds}s",
+        text = stringResource(Res.string.game_simon_time_label, timeSeconds),
         fontSize = 14.sp,
         color = MaterialTheme.colorScheme.onBackground
     )
