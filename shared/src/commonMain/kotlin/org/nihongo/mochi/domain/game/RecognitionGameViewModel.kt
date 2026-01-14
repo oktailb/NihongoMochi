@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -45,7 +47,7 @@ class RecognitionGameViewModel(
         get() = engine.kanjiListPosition
         set(value) { engine.kanjiListPosition = value }
 
-    val currentKanji: KanjiDetail
+    val currentKanji: KanjiDetail?
         get() = engine.currentKanji
 
     var gameMode: String
@@ -66,6 +68,17 @@ class RecognitionGameViewModel(
     val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
 
     var areButtonsEnabled = true
+
+    fun getCurrentKanjiScore(): LearningScore? {
+        if (!isGameInitialized || engine.state.value == GameState.Finished) return null
+        return try {
+            val kanji = engine.currentKanji ?: return null
+            val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+            scoreRepository.getScore(kanji.character, type)
+        } catch(e: Exception) {
+            null
+        }
+    }
 
     fun updatePronunciationMode(mode: String) {
         engine.pronunciationMode = mode
@@ -91,7 +104,8 @@ class RecognitionGameViewModel(
 
     fun resetState() {
         engine.resetState()
-        allKanjiDetailsXml.clear()
+        // We don't clear allKanjiDetailsXml here to keep the cache during the app session
+        // It's filled once and reused.
         areButtonsEnabled = true
     }
 
@@ -100,25 +114,32 @@ class RecognitionGameViewModel(
         this.gameMode = gameMode
         this.readingMode = readingMode
 
+        // Ensure we have the base data (cached in ViewModel)
         loadAllKanjiDetails()
+
+        val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
 
         val kanjiCharsForLevel: List<String> = if (!customWordList.isNullOrEmpty()) {
             customWordList
         } else {
-            levelContentProvider.getCharactersForLevel(level)
+            levelContentProvider.getCharactersForLevel(level, type)
         }
 
         allKanjiDetails.clear()
+        
+        val normalizedLevel = level.lowercase()
         allKanjiDetails.addAll(
             allKanjiDetailsXml.filter {
                 var include = kanjiCharsForLevel.contains(it.character)
 
-                if (level == "No Meaning") {
+                if (normalizedLevel == "no meaning") {
+                    // Specific case where we allow empty meanings if explicitly requested
                 } else if (gameMode == "meaning") {
                     include = include && it.meanings.isNotEmpty()
                 }
 
-                if (level == "No Reading") {
+                if (normalizedLevel == "no reading") {
+                    // Specific case where we allow empty readings if explicitly requested
                 } else if (gameMode == "reading") {
                     include = include && it.readings.isNotEmpty()
                 }
@@ -126,15 +147,22 @@ class RecognitionGameViewModel(
                 include
             }
         )
-        allKanjiDetails.shuffle()
+        
+        // If not a custom list, shuffle to vary experience
+        if (customWordList.isNullOrEmpty()) {
+            allKanjiDetails.shuffle()
+        }
+        
         kanjiListPosition = 0
 
-        return if (allKanjiDetails.isNotEmpty()) {
+        isGameInitialized = true
+        if (allKanjiDetails.isNotEmpty()) {
             startGame()
-            isGameInitialized = true
-            true
+            return true
         } else {
-            false
+            // Force finish if no kanji found for this mode/level
+            engine.startGame() 
+            return false
         }
     }
 

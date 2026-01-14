@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelDefinition
@@ -14,7 +16,8 @@ import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class HomeViewModel(
     private val settingsRepository: SettingsRepository,
-    private val levelsRepository: LevelsRepository
+    private val levelsRepository: LevelsRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     data class HomeUiState(
@@ -81,45 +84,48 @@ class HomeViewModel(
             // Load saved selection from settings
             val savedSelection = settingsRepository.getSelectedLevel()
 
-            _uiState.update { currentState ->
-                val selectionToUse = if (levels.any { it.id == savedSelection }) {
-                    savedSelection
-                } else if (levels.any { it.id == currentState.selectedLevelId }) {
-                    currentState.selectedLevelId
-                } else {
-                    levels.firstOrNull()?.id ?: ""
-                }
-                
-                if (selectionToUse != savedSelection && selectionToUse.isNotEmpty()) {
-                    settingsRepository.setSelectedLevel(selectionToUse)
-                }
-
-                val selectedLevel = levels.find { it.id == selectionToUse }
-                val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
-                val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)
-                val writingConfig = selectedLevel?.activities?.get(StatisticsType.WRITING)
-                val grammarConfig = selectedLevel?.activities?.get(StatisticsType.GRAMMAR)
-
-                currentState.copy(
-                    availableLevels = levels,
-                    selectedLevelId = selectionToUse,
-                    isRecognitionEnabled = recognitionConfig?.enabled == true,
-                    isReadingEnabled = readingConfig?.enabled == true,
-                    isWritingEnabled = writingConfig?.enabled == true,
-                    isGrammarEnabled = grammarConfig?.enabled == true,
-                    recognitionDataFile = recognitionConfig?.dataFile,
-                    readingDataFile = readingConfig?.dataFile,
-                    writingDataFile = writingConfig?.dataFile,
-                    grammarDataFile = grammarConfig?.dataFile
-                )
+            val selectionToUse = if (levels.any { it.id == savedSelection }) {
+                savedSelection
+            } else if (levels.any { it.id == _uiState.value.selectedLevelId }) {
+                _uiState.value.selectedLevelId
+            } else {
+                levels.firstOrNull()?.id ?: ""
             }
+            
+            if (selectionToUse != savedSelection && selectionToUse.isNotEmpty()) {
+                settingsRepository.setSelectedLevel(selectionToUse)
+            }
+
+            updateStateForLevel(levels, selectionToUse)
         }
     }
     
     fun onLevelSelected(levelId: String) {
         settingsRepository.setSelectedLevel(levelId)
+        updateStateForLevel(_uiState.value.availableLevels, levelId)
+    }
+
+    private fun updateStateForLevel(levels: List<LevelDefinition>, levelId: String) {
+        val selectedLevel = levels.find { it.id == levelId }
         
-        val selectedLevel = _uiState.value.availableLevels.find { it.id == levelId }
+        var isRecognitionEnabled = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)?.enabled == true
+        var isReadingEnabled = selectedLevel?.activities?.get(StatisticsType.READING)?.enabled == true
+        var isWritingEnabled = selectedLevel?.activities?.get(StatisticsType.WRITING)?.enabled == true
+        var isGrammarEnabled = selectedLevel?.activities?.get(StatisticsType.GRAMMAR)?.enabled == true
+
+        // For "Revision" level, we further check if the lists are actually not empty
+        if (levelId == REVISION_LEVEL_ID) {
+            val recEmpty = scoreRepository.getListItems(ScoreManager.RECOGNITION_LIST).isEmpty()
+            val readEmpty = scoreRepository.getListItems(ScoreManager.READING_LIST).isEmpty()
+            val writeEmpty = scoreRepository.getListItems(ScoreManager.WRITING_LIST).isEmpty()
+            val grammarEmpty = scoreRepository.getAllScores(ScoreManager.ScoreType.GRAMMAR).isEmpty()
+            
+            isRecognitionEnabled = isRecognitionEnabled && !recEmpty
+            isReadingEnabled = isReadingEnabled && !readEmpty
+            isWritingEnabled = isWritingEnabled && !writeEmpty
+            isGrammarEnabled = isGrammarEnabled && !grammarEmpty
+        }
+
         val recognitionConfig = selectedLevel?.activities?.get(StatisticsType.RECOGNITION)
         val readingConfig = selectedLevel?.activities?.get(StatisticsType.READING)
         val writingConfig = selectedLevel?.activities?.get(StatisticsType.WRITING)
@@ -127,11 +133,12 @@ class HomeViewModel(
 
         _uiState.update { 
             it.copy(
+                availableLevels = levels,
                 selectedLevelId = levelId,
-                isRecognitionEnabled = recognitionConfig?.enabled == true,
-                isReadingEnabled = readingConfig?.enabled == true,
-                isWritingEnabled = writingConfig?.enabled == true,
-                isGrammarEnabled = grammarConfig?.enabled == true,
+                isRecognitionEnabled = isRecognitionEnabled,
+                isReadingEnabled = isReadingEnabled,
+                isWritingEnabled = isWritingEnabled,
+                isGrammarEnabled = isGrammarEnabled,
                 recognitionDataFile = recognitionConfig?.dataFile,
                 readingDataFile = readingConfig?.dataFile,
                 writingDataFile = writingConfig?.dataFile,

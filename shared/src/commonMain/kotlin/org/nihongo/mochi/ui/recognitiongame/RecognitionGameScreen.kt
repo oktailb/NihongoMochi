@@ -1,19 +1,22 @@
 package org.nihongo.mochi.ui.recognitiongame
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
@@ -35,13 +38,13 @@ fun RecognitionGameScreen(
     buttonsEnabled: Boolean,
     direction: QuestionDirection,
     gameMode: String,
+    currentScore: LearningScore?,
     onAnswerClick: (Int, String) -> Unit
 ) {
     AppTheme {
         MochiBackground {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
+                modifier = Modifier.fillMaxSize()
             ) {
                 // Progress Bar
                 GameProgressBar(
@@ -52,11 +55,10 @@ fun RecognitionGameScreen(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Kanji Card Area
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
+                Column(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
                     if (kanji != null && questionText != null) {
                         val fontSize = if (direction == QuestionDirection.NORMAL) {
@@ -66,9 +68,6 @@ fun RecognitionGameScreen(
                             TextSizeCalculator.calculateQuestionTextSize(questionText.length, lineCount, direction)
                         }
 
-                        // Updated logic based on user request:
-                        // Mode Meaning -> Flip ALWAYS shows Readings
-                        // Mode Reading -> Flip ALWAYS shows Meanings
                         val secondaryInfo = if (gameMode == "meaning") {
                             formatReadingsForFlip(kanji)
                         } else {
@@ -82,6 +81,13 @@ fun RecognitionGameScreen(
                             secondaryFontSize = 24.sp,
                             modifier = Modifier.size(300.dp)
                         )
+
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // Kanji Score Box
+                        if (currentScore != null) {
+                            ScoreDisplayBox(currentScore)
+                        }
                     }
                 }
 
@@ -96,7 +102,6 @@ fun RecognitionGameScreen(
                     val row1 = answers.take(2)
                     val row2 = answers.drop(2).take(2)
                     
-                    // Helper to get button state safely
                     fun getState(index: Int) = buttonStates.getOrElse(index) { AnswerButtonState.DEFAULT }
 
                     if (row1.isNotEmpty()) {
@@ -105,9 +110,7 @@ fun RecognitionGameScreen(
                                 text = row1[0],
                                 state = getState(0),
                                 enabled = buttonsEnabled,
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(4.dp),
+                                modifier = Modifier.weight(1f).padding(4.dp),
                                 fontSizeSp = calculateFontSize(row1[0], direction) * 3 / 2,
                                 onClick = { onAnswerClick(0, row1[0]) }
                             )
@@ -116,9 +119,7 @@ fun RecognitionGameScreen(
                                     text = row1[1],
                                     state = getState(1),
                                     enabled = buttonsEnabled,
-                                    modifier = Modifier
-                                        .weight(1f)
-                                        .padding(4.dp),
+                                    modifier = Modifier.weight(1f).padding(4.dp),
                                     fontSizeSp = calculateFontSize(row1[1], direction) * 3 / 2,
                                     onClick = { onAnswerClick(1, row1[1]) }
                                 )
@@ -134,9 +135,7 @@ fun RecognitionGameScreen(
                                 text = row2[0],
                                 state = getState(2),
                                 enabled = buttonsEnabled,
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(4.dp),
+                                modifier = Modifier.weight(1f).padding(4.dp),
                                 fontSizeSp = calculateFontSize(row2[0], direction) * 3 / 2,
                                 onClick = { onAnswerClick(2, row2[0]) }
                             )
@@ -145,9 +144,7 @@ fun RecognitionGameScreen(
                                     text = row2[1],
                                     state = getState(3),
                                     enabled = buttonsEnabled,
-                                    modifier = Modifier
-                                        .weight(1f)
-                                        .padding(4.dp),
+                                    modifier = Modifier.weight(1f).padding(4.dp),
                                     fontSizeSp = calculateFontSize(row2[1], direction) * 3 / 2,
                                     onClick = { onAnswerClick(3, row2[1]) }
                                 )
@@ -158,6 +155,47 @@ fun RecognitionGameScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun ScoreDisplayBox(score: LearningScore) {
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(12.dp))
+            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                Icons.Default.Check,
+                contentDescription = null,
+                tint = Color(0xFF4CAF50),
+                modifier = Modifier.size(16.dp)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            Text(
+                text = score.successes.toString(),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 14.sp
+            )
+        }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                Icons.Default.Close,
+                contentDescription = null,
+                tint = Color(0xFFF44336),
+                modifier = Modifier.size(16.dp)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            Text(
+                text = score.failures.toString(),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 14.sp
+            )
         }
     }
 }

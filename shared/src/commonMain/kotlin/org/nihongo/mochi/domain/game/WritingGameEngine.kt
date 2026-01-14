@@ -29,10 +29,11 @@ class WritingGameEngine(
     val kanjiStatus = mutableMapOf<KanjiDetail, GameStatus>()
     val kanjiProgress = mutableMapOf<KanjiDetail, KanjiProgress>()
     
-    lateinit var currentKanji: KanjiDetail
+    private var _currentKanji: KanjiDetail? = null
+    val currentKanji: KanjiDetail? get() = _currentKanji
+
     var currentQuestionType: QuestionType = QuestionType.MEANING
     
-    // UI State - Reactive
     private val _state = MutableStateFlow<GameState>(GameState.Loading)
     val state: StateFlow<GameState> = _state.asStateFlow()
     
@@ -45,7 +46,6 @@ class WritingGameEngine(
     private val _showCorrectionFeedback = MutableStateFlow(false)
     val showCorrectionFeedback: StateFlow<Boolean> = _showCorrectionFeedback.asStateFlow()
 
-    // Configuration
     var animationSpeed: Float = 1.0f
 
     fun resetState() {
@@ -56,6 +56,7 @@ class WritingGameEngine(
         revisionList.clear()
         kanjiStatus.clear()
         kanjiProgress.clear()
+        _currentKanji = null
         _isAnswerProcessing.value = false
         _lastAnswerStatus.value = null
         _showCorrectionFeedback.value = false
@@ -63,6 +64,11 @@ class WritingGameEngine(
     }
 
     fun startGame() {
+        if (allKanjiDetails.isEmpty()) {
+            _state.value = GameState.Finished
+            return
+        }
+
         if (startNewSet()) {
             displayQuestion()
         } else {
@@ -105,14 +111,23 @@ class WritingGameEngine(
     }
 
     fun nextQuestion() {
-        if (revisionList.isEmpty()) return
+        if (revisionList.isEmpty()) {
+            _state.value = GameState.Finished
+            return
+        }
 
         _isAnswerProcessing.value = false
         _lastAnswerStatus.value = null
         _showCorrectionFeedback.value = false
 
-        currentKanji = revisionList.random()
-        val progress = kanjiProgress[currentKanji]!!
+        val nextKanji = revisionList.randomOrNull()
+        if (nextKanji == null) {
+            _state.value = GameState.Finished
+            return
+        }
+
+        _currentKanji = nextKanji
+        val progress = kanjiProgress[nextKanji]!!
         
         currentQuestionType = when {
             !progress.meaningSolved && !progress.readingSolved -> if (Random.nextDouble() < 0.5) QuestionType.MEANING else QuestionType.READING
@@ -122,29 +137,30 @@ class WritingGameEngine(
     }
 
     suspend fun submitAnswer(userAnswer: String): Boolean {
+        val kanji = _currentKanji ?: return false
         if (_isAnswerProcessing.value) return false
         _isAnswerProcessing.value = true
 
         val isCorrect = if (currentQuestionType == QuestionType.MEANING) {
-            checkMeaning(userAnswer)
+            checkMeaning(userAnswer, kanji)
         } else {
-            checkReading(userAnswer)
+            checkReading(userAnswer, kanji)
         }
 
-        scoreRepository.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.WRITING)
+        scoreRepository.saveScore(kanji.character, isCorrect, ScoreManager.ScoreType.WRITING)
 
         _lastAnswerStatus.value = isCorrect
         
         if (isCorrect) {
-            val progress = kanjiProgress[currentKanji]!!
+            val progress = kanjiProgress[kanji]!!
             if (currentQuestionType == QuestionType.MEANING) progress.meaningSolved = true
             else progress.readingSolved = true
 
             if (progress.meaningSolved && progress.readingSolved) {
-                kanjiStatus[currentKanji] = GameStatus.CORRECT
-                revisionList.remove(currentKanji)
+                kanjiStatus[kanji] = GameStatus.CORRECT
+                revisionList.remove(kanji)
             } else {
-                kanjiStatus[currentKanji] = GameStatus.PARTIAL
+                kanjiStatus[kanji] = GameStatus.PARTIAL
             }
             
             _state.value = GameState.ShowingResult(isCorrect)
@@ -152,16 +168,16 @@ class WritingGameEngine(
             displayQuestion()
             
         } else {
-            kanjiStatus[currentKanji] = GameStatus.INCORRECT
+            kanjiStatus[kanji] = GameStatus.INCORRECT
             _showCorrectionFeedback.value = true
             _state.value = GameState.ShowingResult(isCorrect)
             
             var delayMs: Long
             if (currentQuestionType == QuestionType.MEANING) {
-                 val len = currentKanji.meanings.joinToString(", ").length
+                 val len = kanji.meanings.joinToString(", ").length
                  delayMs = kotlin.math.max(2000L, len * 100L)
             } else {
-                 val len = currentKanji.readings.sumOf { it.value.length }
+                 val len = kanji.readings.sumOf { it.value.length }
                  delayMs = kotlin.math.max(2000L, len * 150L)
             }
             
@@ -173,14 +189,14 @@ class WritingGameEngine(
         return isCorrect
     }
 
-    private fun checkMeaning(answer: String): Boolean {
+    private fun checkMeaning(answer: String, kanji: KanjiDetail): Boolean {
         val normalizedAnswer = normalizeForComparison(answer, isReading = false)
-        return currentKanji.meanings.any { normalizeForComparison(it, isReading = false) == normalizedAnswer }
+        return kanji.meanings.any { normalizeForComparison(it, isReading = false) == normalizedAnswer }
     }
 
-    private fun checkReading(answer: String): Boolean {
+    private fun checkReading(answer: String, kanji: KanjiDetail): Boolean {
         val normalizedAnswer = normalizeForComparison(answer, isReading = true)
-        return currentKanji.readings.any { normalizeForComparison(it.value, isReading = true) == normalizedAnswer }
+        return kanji.readings.any { normalizeForComparison(it.value, isReading = true) == normalizedAnswer }
     }
 
     private fun normalizeForComparison(input: String, isReading: Boolean): String {

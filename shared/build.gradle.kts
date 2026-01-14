@@ -4,9 +4,11 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
+    // Enregistrement de la cible Android
     androidTarget {
         compilations.all {
             compileTaskProvider.configure {
@@ -34,30 +36,34 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.coroutines.core)
-            // Koin core for DI
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             
-            // Compose dependencies for KMP
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             api(compose.components.resources)
             implementation(compose.materialIconsExtended)
             
-            // Rich Text Editor
             implementation(libs.rich.editor)
-
-            // Navigation Multiplatform
             implementation(libs.jetbrains.navigation.compose)
+
+            // SQLDelight
+            implementation(libs.sqldelight.coroutines.extensions)
         }
 
         androidMain.dependencies {
-            // Android specific dependencies
             implementation(libs.koin.android)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.mlkit.digital.ink)
             implementation(libs.play.services.games)
+            // Correction ici : tirets remplacés par des points
+            implementation(libs.sqldelight.android.driver)
+        }
+
+        iosMain.dependencies {
+            // Correction ici : tirets remplacés par des points
+            implementation(libs.sqldelight.native.driver)
         }
 
         commonTest.dependencies {
@@ -66,7 +72,14 @@ kotlin {
     }
 }
 
-// Configuration standard avec la nouvelle version du plugin
+sqldelight {
+    databases {
+        create("MochiDatabase") {
+            packageName.set("org.nihongo.mochi.db")
+        }
+    }
+}
+
 compose.resources {
     publicResClass = true
     packageOfResClass = "org.nihongo.mochi.shared.generated.resources"

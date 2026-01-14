@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.GameStatus
@@ -30,7 +31,7 @@ class WritingGameViewModel(
         set(value) { engine.isGameInitialized = value }
 
     // Properties accessed by UI (driven by state changes)
-    val currentKanji: KanjiDetail
+    val currentKanji: KanjiDetail?
         get() = engine.currentKanji
 
     val currentQuestionType: QuestionType
@@ -67,7 +68,7 @@ class WritingGameViewModel(
         val meanings = meaningRepository.getMeanings(locale)
         val allKanjiEntries = kanjiRepository.getAllKanjiSuspend()
         
-        val allKanjiDetails = mutableListOf<KanjiDetail>()
+        val allKanjiDetailsRaw = mutableListOf<KanjiDetail>()
         for (entry in allKanjiEntries) {
             val id = entry.id
             val character = entry.character
@@ -79,29 +80,39 @@ class WritingGameViewModel(
                  readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
             }
             
-            allKanjiDetails.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
+            allKanjiDetailsRaw.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
         }
 
-        val kanjiCharsForLevel = levelContentProvider.getCharactersForLevel(level)
+        // Use WRITING_LIST for custom review lists in this ViewModel
+        val kanjiCharsForLevel = levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
         
         engine.allKanjiDetails.clear()
-        engine.allKanjiDetails.addAll(
-            allKanjiDetails.filter { kanjiCharsForLevel.contains(it.character) }
-        )
-        engine.allKanjiDetails.shuffle()
+        val filtered = allKanjiDetailsRaw.filter { 
+            kanjiCharsForLevel.contains(it.character) && 
+            it.meanings.isNotEmpty() && 
+            it.readings.isNotEmpty() 
+        }
+        
+        engine.allKanjiDetails.addAll(filtered)
+        
+        // Don't shuffle if it's a user custom list (often used for specific order or small set)
+        if (level != "user_custom_list") {
+            engine.allKanjiDetails.shuffle()
+        }
+        
         engine.kanjiListPosition = 0
 
-        if (engine.allKanjiDetails.isNotEmpty()) {
-            engine.startGame()
-            isGameInitialized = true
-        } else {
-            engine.startGame()
-        }
+        isGameInitialized = true
+        engine.startGame()
     }
 
     fun submitAnswer(userAnswer: String) {
         viewModelScope.launch {
             engine.submitAnswer(userAnswer)
         }
+    }
+
+    fun resetState() {
+        engine.resetState()
     }
 }

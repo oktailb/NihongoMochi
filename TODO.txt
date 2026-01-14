@@ -28,7 +28,7 @@ KMP & Architecture Refactoring (Technical Debt):
  - [ ] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
 
 Optimisations (Mémoire/CPU):
- - [ ] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
+ - [X] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
  - [ ] Kana Drop : Minimiser les allocations d'objets dans applyGravity (évitement de .map { .map { ... } } à chaque mouvement).
  - [X] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
  - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.

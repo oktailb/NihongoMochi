@@ -6,6 +6,7 @@ import com.russhwolf.settings.Settings
 import com.russhwolf.settings.SharedPreferencesSettings
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
+import org.nihongo.mochi.db.DatabaseDriverFactory
 import org.nihongo.mochi.domain.game.TextNormalizer
 import org.nihongo.mochi.domain.recognition.HandwritingRecognizer
 import org.nihongo.mochi.domain.services.CloudSaveService
@@ -15,6 +16,9 @@ import org.nihongo.mochi.ui.writinggame.AndroidTextNormalizer
 import org.koin.core.qualifier.named
 
 val platformModule = module {
+    // Database
+    single { DatabaseDriverFactory(androidContext()) }
+
     // Shared Settings (legacy)
     single<Settings> {
         SharedPreferencesSettings(

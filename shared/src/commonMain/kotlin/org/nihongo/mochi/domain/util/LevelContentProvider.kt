@@ -16,7 +16,7 @@ class LevelContentProvider(
 
     private val kanaPoolCache = mutableMapOf<String, List<String>>()
 
-    fun getCharactersForLevel(levelKey: String): List<String> {
+    fun getCharactersForLevel(levelKey: String, scoreType: ScoreManager.ScoreType = ScoreManager.ScoreType.RECOGNITION): List<String> {
         val lowerKey = levelKey.lowercase()
         return when {
             // Static / Special mappings
@@ -26,10 +26,13 @@ class LevelContentProvider(
             lowerKey == "no_reading" || lowerKey == "no reading" -> kanjiRepository.getNoReadingKanji().map { it.character }
             lowerKey == "no_meaning" || lowerKey == "no meaning" -> kanjiRepository.getNoMeaningKanji().map { it.character }
             lowerKey == "user_custom_list" -> {
-                // Return all items with a score in RECOGNITION (Kanji) or GRAMMAR
-                val kanjiScores = scoreRepository.getAllScores(ScoreManager.ScoreType.RECOGNITION).keys
-                val grammarScores = scoreRepository.getAllScores(ScoreManager.ScoreType.GRAMMAR).keys
-                (kanjiScores + grammarScores).toList()
+                val listName = when(scoreType) {
+                    ScoreManager.ScoreType.RECOGNITION -> ScoreManager.RECOGNITION_LIST
+                    ScoreManager.ScoreType.READING -> ScoreManager.READING_LIST
+                    ScoreManager.ScoreType.WRITING -> ScoreManager.WRITING_LIST
+                    ScoreManager.ScoreType.GRAMMAR -> ScoreManager.RECOGNITION_LIST
+                }
+                scoreRepository.getListItems(listName)
             }
             
             // Word lists

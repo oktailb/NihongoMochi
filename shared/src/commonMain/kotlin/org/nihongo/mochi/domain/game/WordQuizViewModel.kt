@@ -57,17 +57,19 @@ class WordQuizViewModel(
     fun initializeGame(entries: List<WordEntry>) {
         if (engine.isGameInitialized) return
 
+        if (entries.isEmpty()) {
+            engine.isGameInitialized = true
+            _state.value = GameState.Finished
+            return
+        }
+
         val words = entries.map { Word(it.text, it.phonetics) }
 
         engine.allWords = words.shuffled().toMutableList()
         engine.wordListPosition = 0
         engine.isGameInitialized = true
 
-        if (engine.allWords.isNotEmpty()) {
-            startNewSet()
-        } else {
-            _state.value = GameState.Finished
-        }
+        startNewSet()
     }
 
     private fun startNewSet() {
@@ -107,10 +109,16 @@ class WordQuizViewModel(
             return
         }
 
-        engine.currentWord = engine.revisionList.random()
-        _currentWord.value = engine.currentWord
+        val nextWord = engine.revisionList.randomOrNull()
+        if (nextWord == null) {
+            _state.value = GameState.Finished
+            return
+        }
 
-        val answers = generateAnswers(engine.currentWord)
+        engine.currentWord = nextWord
+        _currentWord.value = nextWord
+
+        val answers = generateAnswers(nextWord)
         engine.currentAnswers = answers
         _currentAnswers.value = answers
         
@@ -146,28 +154,29 @@ class WordQuizViewModel(
 
     fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
         if (!_areButtonsEnabled.value) return
+        val currentWord = engine.currentWord ?: return
         _areButtonsEnabled.value = false
 
-        val correctReading = if (engine.currentWord.phonetics.isNotEmpty()) {
-             if (pronunciationMode == "Roman") KanaToRomaji.convert(engine.currentWord.phonetics)
-             else engine.currentWord.phonetics
+        val correctReading = if (currentWord.phonetics.isNotEmpty()) {
+             if (pronunciationMode == "Roman") KanaToRomaji.convert(currentWord.phonetics)
+             else currentWord.phonetics
         } else "?"
         
         val isCorrect = selectedAnswer == correctReading
 
         // Side effect: save score
-        scoreRepository.saveScore(engine.currentWord.text, isCorrect, ScoreManager.ScoreType.READING)
+        scoreRepository.saveScore(currentWord.text, isCorrect, ScoreManager.ScoreType.READING)
 
         val newButtonStates = _buttonStates.value.toMutableList()
         
         if (isCorrect) {
-            engine.wordStatus[engine.currentWord] = GameStatus.CORRECT
-            engine.revisionList.remove(engine.currentWord)
+            engine.wordStatus[currentWord] = GameStatus.CORRECT
+            engine.revisionList.remove(currentWord)
             if (selectedIndex in newButtonStates.indices) {
                 newButtonStates[selectedIndex] = AnswerButtonState.CORRECT
             }
         } else {
-            engine.wordStatus[engine.currentWord] = GameStatus.INCORRECT
+            engine.wordStatus[currentWord] = GameStatus.INCORRECT
             if (selectedIndex in newButtonStates.indices) {
                 newButtonStates[selectedIndex] = AnswerButtonState.INCORRECT
             }

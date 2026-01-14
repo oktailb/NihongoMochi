@@ -34,7 +34,8 @@ class WritingRecapViewModel(
 
     fun loadLevel(levelKey: String) {
         viewModelScope.launch {
-            val characters = levelContentProvider.getCharactersForLevel(levelKey)
+            val scoreType = if (levelKey == "user_custom_list") ScoreManager.ScoreType.WRITING else ScoreManager.ScoreType.RECOGNITION
+            val characters = levelContentProvider.getCharactersForLevel(levelKey, scoreType)
             allKanjiEntries = characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
 
             _totalPages.value = if (allKanjiEntries.isEmpty()) 0 else (allKanjiEntries.size + pageSize - 1) / pageSize

@@ -28,7 +28,9 @@ class RecognitionGameEngine(
     val kanjiStatus = mutableMapOf<KanjiDetail, GameStatus>()
     val kanjiProgress = mutableMapOf<KanjiDetail, KanjiProgress>()
     var kanjiListPosition = 0
-    lateinit var currentKanji: KanjiDetail
+    private var _currentKanji: KanjiDetail? = null
+    val currentKanji: KanjiDetail? get() = _currentKanji
+    
     lateinit var correctAnswer: String
     lateinit var gameMode: String
     lateinit var readingMode: String
@@ -48,6 +50,9 @@ class RecognitionGameEngine(
     var pronunciationMode: String = "Hiragana" // "Hiragana" or "Roman"
     var animationSpeed: Float = 1.0f
 
+    // Internal guard to prevent double submissions
+    private var isProcessingAnswer = false
+
     fun resetState() {
         isGameInitialized = false
         allKanjiDetails.clear()
@@ -57,11 +62,18 @@ class RecognitionGameEngine(
         kanjiProgress.clear()
         kanjiListPosition = 0
         currentAnswers = emptyList()
+        _currentKanji = null
+        isProcessingAnswer = false
         _state.value = GameState.Loading
         _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
     }
     
     fun startGame() {
+        if (allKanjiDetails.isEmpty()) {
+            _state.value = GameState.Finished
+            return
+        }
+
         if (startNewSet()) {
             nextQuestion()
             _state.value = GameState.WaitingForAnswer
@@ -93,10 +105,21 @@ class RecognitionGameEngine(
     }
 
     fun nextQuestion() {
-        if (revisionList.isEmpty()) return
+        if (revisionList.isEmpty()) {
+            if (!startNewSet()) {
+                _state.value = GameState.Finished
+                return
+            }
+        }
 
-        currentKanji = revisionList.random()
-        val progress = kanjiProgress[currentKanji]!!
+        val nextKanji = revisionList.randomOrNull()
+        if (nextKanji == null) {
+            _state.value = GameState.Finished
+            return
+        }
+        
+        _currentKanji = nextKanji
+        val progress = kanjiProgress[nextKanji]!!
 
         // Determine direction
         currentDirection = when {
@@ -105,7 +128,7 @@ class RecognitionGameEngine(
             else -> QuestionDirection.REVERSE
         }
 
-        currentAnswers = generateAnswers(currentKanji)
+        currentAnswers = generateAnswers(nextKanji)
         _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
     }
 
@@ -182,7 +205,15 @@ class RecognitionGameEngine(
         return (onStrings + kunStrings).joinToString("\n")
     }
 
+    private fun getScoreType(): ScoreManager.ScoreType {
+        return if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+    }
+
     suspend fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
+        val kanji = _currentKanji ?: return
+        if (isProcessingAnswer || _state.value == GameState.Finished) return
+        isProcessingAnswer = true
+
         val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
             // For NORMAL, button text might be multi-line, check if any line matches correctAnswer
             selectedAnswer.lines().any { it.equals(correctAnswer, ignoreCase = true) }
@@ -190,10 +221,10 @@ class RecognitionGameEngine(
             selectedAnswer == correctAnswer
         }
         
-        scoreRepository.saveScore(currentKanji.character, isCorrect, ScoreManager.ScoreType.RECOGNITION)
+        scoreRepository.saveScore(kanji.character, isCorrect, getScoreType())
         
         // Update Game State
-        val progress = kanjiProgress[currentKanji]!!
+        val progress = kanjiProgress[kanji] ?: KanjiProgress()
         val newButtonStates = _buttonStates.value.toMutableList()
 
         if (isCorrect) {
@@ -201,21 +232,23 @@ class RecognitionGameEngine(
             else progress.reverseSolved = true
 
             if (progress.normalSolved && progress.reverseSolved) {
-                kanjiStatus[currentKanji] = GameStatus.CORRECT
-                revisionList.remove(currentKanji)
+                kanjiStatus[kanji] = GameStatus.CORRECT
+                revisionList.remove(kanji)
                 newButtonStates[selectedIndex] = AnswerButtonState.CORRECT
             } else {
-                kanjiStatus[currentKanji] = GameStatus.PARTIAL
+                kanjiStatus[kanji] = GameStatus.PARTIAL
                 newButtonStates[selectedIndex] = AnswerButtonState.NEUTRAL
             }
         } else {
-            kanjiStatus[currentKanji] = GameStatus.INCORRECT
+            kanjiStatus[kanji] = GameStatus.INCORRECT
             newButtonStates[selectedIndex] = AnswerButtonState.INCORRECT
         }
         
         _buttonStates.value = newButtonStates
         _state.value = GameState.ShowingResult(isCorrect, selectedIndex)
         delay((1000 * animationSpeed).toLong())
+
+        isProcessingAnswer = false
 
         if (revisionList.isEmpty()) {
             if (!startNewSet()) {

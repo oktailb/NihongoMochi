@@ -37,8 +37,16 @@ import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.wordlist.WordListViewModel
 import org.nihongo.mochi.ui.writingrecap.WritingRecapViewModel
 import org.koin.core.qualifier.named
+import org.nihongo.mochi.db.DatabaseDriverFactory
+import org.nihongo.mochi.db.MochiDatabase
 
 val sharedModule = module {
+    // --- Database ---
+    single { 
+        val driver = get<DatabaseDriverFactory>().createDriver()
+        MochiDatabase(driver)
+    }
+
     // --- Data / Repositories ---
     single<ResourceLoader> { ComposeResourceLoader() }
     singleOf(::KanaRepository)
@@ -52,9 +60,10 @@ val sharedModule = module {
     singleOf(::GrammarRepository)
     singleOf(::ExerciseRepository)
     
-    // ScoreManager with named settings
+    // ScoreManager with database and legacy settings for migration
     single<ScoreRepository> { 
         ScoreManager(
+            database = get(),
             scoresSettings = get(named("scoresSettings")),
             userListSettings = get(named("userListSettings")),
             appSettings = get(named("appSettings"))

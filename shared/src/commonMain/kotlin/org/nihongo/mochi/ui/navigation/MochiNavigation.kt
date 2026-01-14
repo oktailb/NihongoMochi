@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -169,8 +170,8 @@ fun MochiNavGraph(
                 onWritingClick = {
                     navController.navigate(Screen.WritingRecap.createRoute(uiState.selectedLevelId))
                 },
-                onGrammarClick = { 
-                    navController.navigate(Screen.Grammar.createRoute(uiState.selectedLevelId))
+                onAboutClick = {
+                    navController.navigate(Screen.About.route)
                 },
                 onGamesClick = {
                     navController.navigate(Screen.Games.route)
@@ -184,8 +185,8 @@ fun MochiNavGraph(
                 onOptionsClick = {
                     navController.navigate(Screen.Settings.route)
                 },
-                onAboutClick = {
-                    navController.navigate(Screen.About.route)
+                onGrammarClick = {
+                    navController.navigate(Screen.Grammar.createRoute(uiState.selectedLevelId))
                 }
             )
         }
@@ -461,19 +462,28 @@ fun MochiNavGraph(
                 true
             }
 
-            if (viewModel.isGameInitialized) {
+            // --- Auto-exit if finished ---
+            LaunchedEffect(gameState) {
+                if (gameState == GameState.Finished) {
+                    navController.popBackStack()
+                }
+            }
+
+            if (viewModel.isGameInitialized && gameState != GameState.Finished) {
                 val currentKanji = viewModel.currentKanji
                 val direction = viewModel.currentDirection
                 
-                val questionText = if (direction == QuestionDirection.NORMAL) {
-                    currentKanji.character
-                } else {
-                    if (gameMode == "meaning") {
-                        currentKanji.meanings.firstOrNull() ?: ""
+                val questionText = if (currentKanji != null) {
+                    if (direction == QuestionDirection.NORMAL) {
+                        currentKanji.character
                     } else {
-                        viewModel.getFormattedReadings(currentKanji)
+                        if (gameMode == "meaning") {
+                            currentKanji.meanings.firstOrNull() ?: ""
+                        } else {
+                            viewModel.getFormattedReadings(currentKanji)
+                        }
                     }
-                }
+                } else null
                 
                 val gameStatusList = viewModel.currentKanjiSet.map { 
                     viewModel.kanjiStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED 
@@ -488,6 +498,7 @@ fun MochiNavGraph(
                     buttonsEnabled = viewModel.areButtonsEnabled,
                     direction = direction,
                     gameMode = gameMode,
+                    currentScore = viewModel.getCurrentKanjiScore(),
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
                     }
@@ -543,7 +554,6 @@ fun MochiNavGraph(
             val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
             val viewModel: WritingGameViewModel = koinInject()
             
-            // Reactive State Collection
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val isProcessing by viewModel.isAnswerProcessing.collectAsState(false)
             val lastStatus by viewModel.lastAnswerStatus.collectAsState(null)
@@ -554,7 +564,14 @@ fun MochiNavGraph(
                 true
             }
 
-            if (viewModel.isGameInitialized) {
+            // --- Auto-exit if finished ---
+            LaunchedEffect(gameState) {
+                if (gameState == GameState.Finished) {
+                    navController.popBackStack()
+                }
+            }
+
+            if (viewModel.isGameInitialized && gameState != GameState.Finished) {
                 val gameStatusList = viewModel.currentKanjiSet.map { 
                     viewModel.kanjiStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED 
                 }

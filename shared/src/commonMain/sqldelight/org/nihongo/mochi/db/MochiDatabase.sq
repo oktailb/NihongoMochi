@@ -1,0 +1,75 @@
+CREATE TABLE LearningScoreEntity (
+    key TEXT NOT NULL,
+    type TEXT NOT NULL,
+    successes INTEGER NOT NULL DEFAULT 0,
+    failures INTEGER NOT NULL DEFAULT 0,
+    lastReviewDate INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (key, type)
+);
+
+CREATE TABLE UserList (
+    listName TEXT NOT NULL,
+    itemKey TEXT NOT NULL,
+    PRIMARY KEY (listName, itemKey)
+);
+
+CREATE TABLE GameHistory (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    gameType TEXT NOT NULL,
+    score INTEGER NOT NULL,
+    moves INTEGER,
+    timeSeconds INTEGER,
+    maxSequence INTEGER,
+    totalPairs INTEGER,
+    rows INTEGER,
+    wordsFound INTEGER,
+    timestamp INTEGER NOT NULL,
+    metadata TEXT -- For any extra JSON data if needed
+);
+
+-- Queries for LearningScoreEntity
+insertScore:
+INSERT OR REPLACE INTO LearningScoreEntity(key, type, successes, failures, lastReviewDate)
+VALUES (?, ?, ?, ?, ?);
+
+getScore:
+SELECT * FROM LearningScoreEntity WHERE key = ? AND type = ?;
+
+getAllScoresByType:
+SELECT * FROM LearningScoreEntity WHERE type = ?;
+
+getAllScores:
+SELECT * FROM LearningScoreEntity;
+
+-- Queries for UserList
+addItemToList:
+INSERT OR IGNORE INTO UserList(listName, itemKey) VALUES (?, ?);
+
+removeItemFromList:
+DELETE FROM UserList WHERE listName = ? AND itemKey = ?;
+
+getListItems:
+SELECT itemKey FROM UserList WHERE listName = ?;
+
+getAllLists:
+SELECT * FROM UserList;
+
+-- Queries for GameHistory
+insertGameResult:
+INSERT INTO GameHistory(gameType, score, moves, timeSeconds, maxSequence, totalPairs, rows, wordsFound, timestamp, metadata)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+getTopScores:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY score DESC, timeSeconds ASC LIMIT 10;
+
+getTopScoresByTotalPairs:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY totalPairs DESC, moves ASC, timeSeconds ASC LIMIT 10;
+
+getTopScoresByMaxSequence:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY maxSequence DESC, timeSeconds ASC LIMIT 10;
+
+getTopScoresByRows:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY rows DESC, moves ASC, timeSeconds ASC LIMIT 10;
+
+getTopScoresByKanaLink:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY score DESC, wordsFound DESC, timeSeconds ASC LIMIT 10;

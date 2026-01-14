@@ -5,6 +5,9 @@ interface ScoreRepository {
     fun getScore(key: String, type: ScoreManager.ScoreType): LearningScore
     fun getAllScores(type: ScoreManager.ScoreType): Map<String, LearningScore>
     
+    // List management
+    fun getListItems(listName: String): List<String>
+    
     /**
      * Applies decay to scores that haven't been reviewed for a while.
      * @return true if any score was decayed/updated, false otherwise.
