@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.presentation.MochiBackground
@@ -130,7 +131,6 @@ fun SimonGameScreen(
     val answers by viewModel.answers.collectAsState()
     val score by viewModel.score.collectAsState()
     val scoresHistory by viewModel.scoresHistory.collectAsState()
-    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
 
     // Nettoyage automatique de la session lors de la fermeture de l'écran
     DisposableEffect(viewModel) {
@@ -153,19 +153,22 @@ fun SimonGameScreen(
                 Column(horizontalAlignment = Alignment.End) {
                     Text(text = "Score: $score", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
                     Text(text = "Record: $bestScore", fontSize = 12.sp, color = MaterialTheme.colorScheme.primary)
-                    Text(text = "Time: ${timeSeconds}s", fontSize = 14.sp, color = MaterialTheme.colorScheme.onBackground)
+                    
+                    // Optimized Timer
+                    TimerText(viewModel.gameTimeSeconds)
                 }
             }
 
             // Main Area
             Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
                 if (gameState == SimonGameState.GAME_OVER) {
+                    val finalTime by viewModel.gameTimeSeconds.collectAsState()
                     Card(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                         Column(modifier = Modifier.padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(text = "GAME OVER", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(text = "Sequence: $score", fontWeight = FontWeight.Bold)
-                            Text(text = "Time: ${timeSeconds}s")
+                            Text(text = "Time: ${finalTime}s")
                             Spacer(modifier = Modifier.height(24.dp))
                             Button(onClick = { viewModel.startGame() }, modifier = Modifier.fillMaxWidth()) { Text("Rejouer") }
                             OutlinedButton(onClick = onBackClick, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) { Text("Menu") }
@@ -204,4 +207,14 @@ fun SimonGameScreen(
             }
         }
     }
+}
+
+@Composable
+private fun TimerText(timeFlow: StateFlow<Int>) {
+    val timeSeconds by timeFlow.collectAsState()
+    Text(
+        text = "Time: ${timeSeconds}s",
+        fontSize = 14.sp,
+        color = MaterialTheme.colorScheme.onBackground
+    )
 }

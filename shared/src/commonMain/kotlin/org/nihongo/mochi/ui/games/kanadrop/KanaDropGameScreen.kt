@@ -19,6 +19,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import org.nihongo.mochi.presentation.MochiBackground
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,7 +54,8 @@ fun KanaDropGameScreen(
                 GameOverView(state, onBackClick)
             } else {
                 val backgroundColor by animateColorAsState(
-                    if (state.errorFlash) Color.Red.copy(alpha = 0.3f) else Color.Transparent
+                    if (state.errorFlash) Color.Red.copy(alpha = 0.3f) else Color.Transparent,
+                    label = "errorFlash"
                 )
 
                 Column(
@@ -78,15 +81,8 @@ fun KanaDropGameScreen(
                             )
                         }
 
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text("Time", style = MaterialTheme.typography.labelMedium)
-                            Text(
-                                state.timeRemaining.toString(),
-                                style = MaterialTheme.typography.headlineMedium,
-                                fontWeight = FontWeight.Bold,
-                                color = if (state.timeRemaining < 10) Color.Red else MaterialTheme.colorScheme.onBackground
-                            )
-                        }
+                        // Optimized Timer
+                        TimerDisplay(viewModel.state)
                         
                         Column(horizontalAlignment = Alignment.End) {
                             Text("Words", style = MaterialTheme.typography.labelMedium)
@@ -181,6 +177,22 @@ fun KanaDropGameScreen(
 }
 
 @Composable
+private fun TimerDisplay(stateFlow: StateFlow<KanaDropGameState>) {
+    // We only collect the timeRemaining to minimize recomposition
+    val timeRemaining by stateFlow.map { it.timeRemaining }.collectAsState(initial = 0)
+    
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text("Time", style = MaterialTheme.typography.labelMedium)
+        Text(
+            timeRemaining.toString(),
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            color = if (timeRemaining < 10) Color.Red else MaterialTheme.colorScheme.onBackground
+        )
+    }
+}
+
+@Composable
 fun GameOverView(state: KanaDropGameState, onBackClick: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize().padding(32.dp),
@@ -223,12 +235,14 @@ fun KanaCellItem(
     isSelected: Boolean
 ) {
     val backgroundColor by animateColorAsState(
-        if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+        if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
+        label = "cellColor"
     )
     val textColor by animateColorAsState(
-        if (isSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface
+        if (isSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
+        label = "textColor"
     )
-    val scale by animateFloatAsState(if (isSelected) 1.2f else 1.0f)
+    val scale by animateFloatAsState(if (isSelected) 1.2f else 1.0f, label = "cellScale")
 
     Box(
         modifier = Modifier

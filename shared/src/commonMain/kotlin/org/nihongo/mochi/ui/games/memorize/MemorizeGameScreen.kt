@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
@@ -84,7 +85,6 @@ private fun MemorizeHeader(
     viewModel: MemorizeViewModel
 ) {
     val moves by viewModel.moves.collectAsState()
-    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
     val cards by viewModel.cards.collectAsState()
     val gridSize by viewModel.selectedGridSize.collectAsState()
 
@@ -95,7 +95,10 @@ private fun MemorizeHeader(
     ) {
         Column(horizontalAlignment = Alignment.End) {
             Text(stringResource(Res.string.game_memorize_moves, moves), fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
-            Text(stringResource(Res.string.game_memorize_time, timeSeconds), fontSize = 14.sp, color = MaterialTheme.colorScheme.onBackground)
+            
+            // Optimized Timer: passing the StateFlow directly to avoid recomposing the entire Header
+            TimerText(viewModel.gameTimeSeconds)
+
             Text(
                 stringResource(Res.string.game_memorize_pairs_count, cards.count { it.isMatched } / 2, gridSize.pairsCount),
                 fontSize = 12.sp,
@@ -103,6 +106,16 @@ private fun MemorizeHeader(
             )
         }
     }
+}
+
+@Composable
+private fun TimerText(timeFlow: StateFlow<Int>) {
+    val timeSeconds by timeFlow.collectAsState()
+    Text(
+        text = stringResource(Res.string.game_memorize_time, timeSeconds),
+        fontSize = 14.sp,
+        color = MaterialTheme.colorScheme.onBackground
+    )
 }
 
 @Composable

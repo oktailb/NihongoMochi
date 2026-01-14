@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
@@ -215,18 +214,20 @@ class MemorizeViewModel(
             firstSelectedCardIndex = null 
             _moves.update { it + 1 }
             
-            if (currentCards[firstIndex].item.id == currentCards[index].item.id) {
-                audioPlayer.playSound("sounds/correct.mp3")
-                _cards.update { list ->
-                    list.mapIndexed { i, card ->
-                        if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
+            viewModelScope.launch {
+                _isProcessing.value = true
+                
+                if (currentCards[firstIndex].item.id == currentCards[index].item.id) {
+                    audioPlayer.playSound("sounds/correct.mp3")
+                    _cards.update { list ->
+                        list.mapIndexed { i, card ->
+                            if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
+                        }
                     }
-                }
-                checkGameFinished()
-            } else {
-                audioPlayer.playSound("sounds/incorrect.mp3")
-                viewModelScope.launch {
-                    _isProcessing.value = true
+                    _isProcessing.value = false
+                    checkGameFinished()
+                } else {
+                    audioPlayer.playSound("sounds/incorrect.mp3")
                     delay(800)
                     _cards.update { list ->
                         list.mapIndexed { i, card ->
@@ -256,16 +257,16 @@ class MemorizeViewModel(
             timestamp = Clock.System.now().toEpochMilliseconds()
         )
         
+        // Update local state history for immediate UI feedback if needed
         val newHistory = (_scoresHistory.value.toMutableList().apply {
             add(0, result)
         }).take(10)
-        
         _scoresHistory.value = newHistory
         
         viewModelScope.launch {
             try {
-                val historyJson = json.encodeToString(newHistory)
-                scoreRepository.saveMemorizeHistory(historyJson)
+                // Save single result instead of the whole list JSON string
+                scoreRepository.saveMemorizeResult(result)
             } catch (e: Exception) {
             }
         }

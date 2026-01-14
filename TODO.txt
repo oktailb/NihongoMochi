@@ -13,8 +13,9 @@ Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
   - [X] Simon : enforce kanji remembering by sequence
   - [X] Taquin : redo the basic gojuon table hiragana/katakana
-  - [/] Tetris/Candycrush like (Kana Drop) : achieve words from selected level in Kana to Smake blocks disappear [SOMEWHAT DONE, maybe more to do]
+  - [/] Tetris/Candycrush like (Kana Drop) : achieve words from selected level in Kana to make blocks disappear [SOMEWHAT DONE, maybe more to do]
   - [ ] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary
+  - [ ] Snake ?
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
   - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
   - [ ] Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
@@ -33,4 +34,4 @@ Optimisations (Mémoire/CPU):
  - [X] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
  - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.
  - [X] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
- - [ ] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).
+ - [X] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).

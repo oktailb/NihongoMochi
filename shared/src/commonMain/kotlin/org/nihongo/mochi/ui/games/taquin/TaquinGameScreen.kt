@@ -17,6 +17,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
@@ -71,10 +73,9 @@ fun TaquinGameScreen(
                             label = stringResource(Res.string.game_taquin_moves_label), 
                             value = gameState.moves.toString()
                         )
-                        StatItem(
-                            label = stringResource(Res.string.game_taquin_time_label), 
-                            value = stringResource(Res.string.game_memorize_time_format, gameState.timeSeconds)
-                        )
+                        
+                        // Optimized Timer Display
+                        TimerStat(viewModel.gameState)
                     }
 
                     // The Puzzle Grid
@@ -154,6 +155,16 @@ fun TaquinGameScreen(
             }
         }
     }
+}
+
+@Composable
+private fun TimerStat(gameStateFlow: StateFlow<TaquinGameState?>) {
+    val timeSeconds by gameStateFlow.map { it?.timeSeconds ?: 0 }.collectAsState(initial = 0)
+    
+    StatItem(
+        label = stringResource(Res.string.game_taquin_time_label), 
+        value = stringResource(Res.string.game_memorize_time_format, timeSeconds)
+    )
 }
 
 @Composable

@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
@@ -231,9 +230,12 @@ class TaquinViewModel(
         
         val newHistory = (listOf(result) + _scoresHistory.value).take(10)
         _scoresHistory.value = newHistory
-        try {
-            scoreRepository.saveTaquinHistory(json.encodeToString(newHistory))
-        } catch (e: Exception) {}
+        
+        viewModelScope.launch {
+            try {
+                scoreRepository.saveTaquinResult(result)
+            } catch (e: Exception) {}
+        }
     }
 
     fun abandonGame() {

@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.services.AudioPlayer
@@ -43,7 +42,7 @@ class KanaDropViewModel(
     private fun loadHistory() {
         try {
             val historyJson = scoreRepository.getKanaLinkHistory()
-            if (historyJson.isNotEmpty()) {
+            if (historyJson.isNotEmpty() && historyJson != "[]") {
                 _history.value = json.decodeFromString(historyJson)
             }
         } catch (e: Exception) {
@@ -63,7 +62,6 @@ class KanaDropViewModel(
             val entries = wordRepository.getWordEntriesForLevelSuspend(levelFileName)
             availableWords = entries.map { it.phonetics }
             
-            // Optimization: Use cached pool from levelContentProvider
             kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
 
             generateInitialGrid()
@@ -120,9 +118,12 @@ class KanaDropViewModel(
         
         val newHistory = (listOf(result) + _history.value).take(10)
         _history.value = newHistory
-        try {
-            scoreRepository.saveKanaLinkHistory(json.encodeToString(newHistory))
-        } catch (e: Exception) {}
+        
+        viewModelScope.launch {
+            try {
+                scoreRepository.saveKanaLinkResult(result)
+            } catch (e: Exception) {}
+        }
     }
 
     private fun generateInitialGrid() {
@@ -162,10 +163,14 @@ class KanaDropViewModel(
             }
         }
 
-        val finalGrid = tempGrid.map { row ->
-            row.map { cell ->
-                if (cell.char.isEmpty()) cell.copy(char = kanaPool.random(), id = "${cell.row}_${cell.col}_${Random.nextInt()}")
-                else cell.copy(id = "${cell.row}_${cell.col}_${Random.nextInt()}")
+        val finalGrid = List(config.rows) { r ->
+            List(config.cols) { c ->
+                val cell = tempGrid[r][c]
+                if (cell.char.isEmpty()) {
+                    cell.copy(char = kanaPool.random(), id = "${r}_${c}_${Random.nextInt()}")
+                } else {
+                    cell.copy(id = "${r}_${c}_${Random.nextInt()}")
+                }
             }
         }
         
@@ -270,31 +275,43 @@ class KanaDropViewModel(
         val currentState = _state.value
         val rows = config.rows
         val cols = config.cols
+        val oldGrid = currentState.grid
         
-        val newGridData = MutableList(rows) { MutableList<KanaDropCell?>(cols) { null } }
-        
-        for (c in 0 until cols) {
-            var targetRow = rows - 1
+        // 1. Pour chaque colonne, on pré-calcule les cellules qui restent (non matchées)
+        val colRemaining = Array(cols) { c ->
+            val remaining = ArrayList<KanaDropCell>(rows)
             for (r in rows - 1 downTo 0) {
-                val cell = currentState.grid[r][c]
-                if (!cell.isMatched) {
-                    newGridData[targetRow][c] = cell.copy(row = targetRow, col = c)
-                    targetRow--
-                }
+                val cell = oldGrid[r][c]
+                if (!cell.isMatched) remaining.add(cell)
             }
-            while (targetRow >= 0) {
-                newGridData[targetRow][c] = KanaDropCell(
-                    id = "new_${targetRow}_${c}_${Random.nextInt()}",
-                    char = kanaPool.random(),
-                    row = targetRow,
-                    col = c
-                )
-                targetRow--
+            remaining // Liste ordonnée du bas vers le haut
+        }
+
+        // 2. On construit la nouvelle grille directement
+        val finalGrid = List(rows) { r ->
+            List(cols) { c ->
+                val remainingInCol = colRemaining[c]
+                val numRemaining = remainingInCol.size
+                val firstRemainingRow = rows - numRemaining
+                
+                if (r >= firstRemainingRow) {
+                    // Cellule existante qui descend
+                    val originalCell = remainingInCol[rows - 1 - r]
+                    if (originalCell.row == r) originalCell else originalCell.copy(row = r)
+                } else {
+                    // Nouvelle cellule qui apparaît en haut
+                    KanaDropCell(
+                        id = "n_${r}_${c}_${Random.nextInt(999999)}",
+                        char = kanaPool.random(),
+                        row = r,
+                        col = c
+                    )
+                }
             }
         }
 
-        _state.value = _state.value.copy(
-            grid = newGridData.map { it.filterNotNull() },
+        _state.value = currentState.copy(
+            grid = finalGrid,
             selectedCells = emptyList(),
             currentWord = ""
         )

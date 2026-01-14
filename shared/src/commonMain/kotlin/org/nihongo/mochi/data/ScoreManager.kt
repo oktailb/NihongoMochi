@@ -154,24 +154,19 @@ class ScoreManager(
 
     // --- Game History ---
 
-    override fun saveMemorizeHistory(historyJson: String) {
-        try {
-            val results = Json.decodeFromString<List<MemorizeGameResult>>(historyJson)
-            results.forEach { res ->
-                queries.insertGameResult(
-                    "MEMORIZE",
-                    res.totalPairs.toLong(),
-                    res.moves.toLong(),
-                    res.timeSeconds.toLong(),
-                    null,
-                    res.totalPairs.toLong(),
-                    null,
-                    null,
-                    Clock.System.now().toEpochMilliseconds(),
-                    null
-                )
-            }
-        } catch (_: Exception) {}
+    override fun saveMemorizeResult(result: MemorizeGameResult) {
+        queries.insertGameResult(
+            "MEMORIZE",
+            result.totalPairs.toLong(),
+            result.moves.toLong(),
+            result.timeSeconds.toLong(),
+            null,
+            result.totalPairs.toLong(),
+            null,
+            null,
+            result.timestamp,
+            result.gridSizeLabel
+        )
     }
 
     override fun getMemorizeHistory(): String {
@@ -179,7 +174,7 @@ class ScoreManager(
             MemorizeGameResult(
                 moves = it.moves?.toInt() ?: 0,
                 totalPairs = it.totalPairs?.toInt() ?: 0,
-                gridSizeLabel = "", 
+                gridSizeLabel = it.metadata ?: "", 
                 timeSeconds = it.timeSeconds?.toInt() ?: 0,
                 timestamp = it.timestamp
             )
@@ -187,30 +182,25 @@ class ScoreManager(
         return Json.encodeToString(results)
     }
 
-    override fun saveSimonHistory(historyJson: String) {
-        try {
-            val results = Json.decodeFromString<List<SimonGameResult>>(historyJson)
-            results.forEach { res ->
-                queries.insertGameResult(
-                    "SIMON",
-                    res.maxSequence.toLong(),
-                    null,
-                    res.timeSeconds.toLong(),
-                    res.maxSequence.toLong(),
-                    null,
-                    null,
-                    null,
-                    Clock.System.now().toEpochMilliseconds(),
-                    null
-                )
-            }
-        } catch (_: Exception) {}
+    override fun saveSimonResult(result: SimonGameResult) {
+        queries.insertGameResult(
+            "SIMON",
+            result.maxSequence.toLong(),
+            null,
+            result.timeSeconds.toLong(),
+            result.maxSequence.toLong(),
+            null,
+            null,
+            null,
+            result.timestamp,
+            result.levelId
+        )
     }
 
     override fun getSimonHistory(): String {
         val results = queries.getTopScoresByMaxSequence("SIMON").executeAsList().map {
             SimonGameResult(
-                levelId = "", 
+                levelId = it.metadata ?: "", 
                 mode = org.nihongo.mochi.ui.games.simon.SimonMode.KANJI, 
                 maxSequence = it.maxSequence?.toInt() ?: 0,
                 timeSeconds = it.timeSeconds?.toInt() ?: 0,
@@ -220,24 +210,19 @@ class ScoreManager(
         return Json.encodeToString(results)
     }
 
-    override fun saveTaquinHistory(historyJson: String) {
-        try {
-            val results = Json.decodeFromString<List<TaquinGameResult>>(historyJson)
-            results.forEach { res ->
-                queries.insertGameResult(
-                    "TAQUIN",
-                    res.rows.toLong(),
-                    res.moves.toLong(),
-                    res.timeSeconds.toLong(),
-                    null,
-                    null,
-                    res.rows.toLong(),
-                    null,
-                    Clock.System.now().toEpochMilliseconds(),
-                    null
-                )
-            }
-        } catch (_: Exception) {}
+    override fun saveTaquinResult(result: TaquinGameResult) {
+        queries.insertGameResult(
+            "TAQUIN",
+            result.rows.toLong(),
+            result.moves.toLong(),
+            result.timeSeconds.toLong(),
+            null,
+            null,
+            result.rows.toLong(),
+            null,
+            result.timestamp,
+            null
+        )
     }
 
     override fun getTaquinHistory(): String {
@@ -253,24 +238,19 @@ class ScoreManager(
         return Json.encodeToString(results)
     }
 
-    override fun saveKanaLinkHistory(historyJson: String) {
-        try {
-            val results = Json.decodeFromString<List<KanaLinkResult>>(historyJson)
-            results.forEach { res ->
-                queries.insertGameResult(
-                    "KANALINK",
-                    res.score.toLong(),
-                    null,
-                    res.timeSeconds.toLong(),
-                    null,
-                    null,
-                    null,
-                    res.wordsFound.toLong(),
-                    Clock.System.now().toEpochMilliseconds(),
-                    null
-                )
-            }
-        } catch (_: Exception) {}
+    override fun saveKanaLinkResult(result: KanaLinkResult) {
+        queries.insertGameResult(
+            "KANALINK",
+            result.score.toLong(),
+            null,
+            result.timeSeconds.toLong(),
+            null,
+            null,
+            null,
+            result.wordsFound.toLong(),
+            result.timestamp,
+            result.levelId
+        )
     }
 
     override fun getKanaLinkHistory(): String {
@@ -279,7 +259,7 @@ class ScoreManager(
                 score = it.score.toInt(),
                 wordsFound = it.wordsFound?.toInt() ?: 0,
                 timeSeconds = it.timeSeconds?.toInt() ?: 0,
-                levelId = "",
+                levelId = it.metadata ?: "",
                 timestamp = it.timestamp
             )
         }
@@ -321,9 +301,9 @@ class ScoreManager(
         return Json.encodeToString(jsonObject)
     }
 
-    override fun restoreDataFromJson(json: String) {
+    override fun restoreDataFromJson(jsonStr: String) {
         try {
-            val jsonElement = Json.parseToJsonElement(json)
+            val jsonElement = Json.parseToJsonElement(jsonStr)
             if (jsonElement is JsonObject) {
                 database.transaction {
                     // Restore Scores
