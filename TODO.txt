@@ -7,7 +7,7 @@ Features:
    - fill exercices database and lessons -> Sofia
  - Prévoir l'intégration "Social" (comparaison de progression) pour plus tard.
    - reussir la connexion au google play !
- - Du son ! Du bruit ! des effets ! [TODO: Interface AudioPlayer expect/actual]
+ - [X] Du son ! Du bruit ! des effets ! [TODO: Interface AudioPlayer expect/actual]
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
@@ -23,7 +23,7 @@ Games:
 KMP & Architecture Refactoring (Technical Debt):
  - [X] Refactor ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
  - [X] ResourceUtils : le mapping manuel Res.string est fragile. Remplacé par une HashMap O(1).
- - [ ] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
+ - [X] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
  - [ ] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
  - [ ] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
 

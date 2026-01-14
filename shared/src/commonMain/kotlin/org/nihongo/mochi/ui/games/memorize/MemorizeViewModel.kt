@@ -15,6 +15,7 @@ import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ViewModel
@@ -24,7 +25,8 @@ class MemorizeViewModel(
     private val kanaRepository: KanaRepository,
     private val settingsRepository: SettingsRepository,
     private val levelContentProvider: LevelContentProvider,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
     private val REVISION_LEVEL_ID = "user_custom_list"
@@ -214,6 +216,7 @@ class MemorizeViewModel(
             _moves.update { it + 1 }
             
             if (currentCards[firstIndex].item.id == currentCards[index].item.id) {
+                audioPlayer.playSound("sounds/correct.mp3")
                 _cards.update { list ->
                     list.mapIndexed { i, card ->
                         if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
@@ -221,6 +224,7 @@ class MemorizeViewModel(
                 }
                 checkGameFinished()
             } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
                 viewModelScope.launch {
                     _isProcessing.value = true
                     delay(800)
@@ -268,9 +272,17 @@ class MemorizeViewModel(
     }
 
     fun abandonGame() {
+        if (!_isGameFinished.value && _cards.value.isNotEmpty()) {
+            audioPlayer.playSound("sounds/game_over.mp3")
+        }
         timerJob?.cancel()
         _cards.value = emptyList()
         _isGameFinished.value = false
         updateLevelInfo()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

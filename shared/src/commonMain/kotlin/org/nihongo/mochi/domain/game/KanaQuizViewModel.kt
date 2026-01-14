@@ -12,10 +12,12 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaCharacter
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
+import org.nihongo.mochi.domain.services.AudioPlayer
 
 class KanaQuizViewModel(
     private val kanaRepository: KanaRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
     private val engine = KanaQuizEngine(scoreRepository)
@@ -70,6 +72,16 @@ class KanaQuizViewModel(
     
     fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
         viewModelScope.launch {
+            val isNormal = currentDirection == KanaQuestionDirection.NORMAL
+            val correctAnswerText = if (isNormal) currentQuestion.romaji else currentQuestion.kana
+            val isCorrect = selectedAnswer == correctAnswerText
+            
+            if (isCorrect) {
+                audioPlayer.playSound("sounds/correct.mp3")
+            } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
+            }
+            
             engine.submitAnswer(selectedAnswer, selectedIndex)
         }
     }
@@ -103,5 +115,10 @@ class KanaQuizViewModel(
             "Yōon" -> allCharacters.filter { it.category == "yoon" }
             else -> allCharacters
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

@@ -13,7 +13,7 @@ import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.presentation.ViewModel
-import org.nihongo.mochi.domain.kana.KanaEntry
+import org.nihongo.mochi.domain.services.AudioPlayer
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -23,7 +23,8 @@ data class NumberData(val numbers: List<NumberEntry>)
 
 class TaquinViewModel(
     private val kanaRepository: KanaRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -213,6 +214,7 @@ class TaquinViewModel(
         if (isSolved) {
             timerJob?.cancel()
             _gameState.value = state.copy(isSolved = true)
+            audioPlayer.playSound("sounds/correct.mp3")
             saveResult()
         }
     }
@@ -236,6 +238,14 @@ class TaquinViewModel(
 
     fun abandonGame() {
         timerJob?.cancel()
+        if (_gameState.value != null && !_gameState.value!!.isSolved) {
+            audioPlayer.playSound("sounds/game_over.mp3")
+        }
         _gameState.value = null
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

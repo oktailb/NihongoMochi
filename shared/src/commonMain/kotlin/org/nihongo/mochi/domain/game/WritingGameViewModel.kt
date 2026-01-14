@@ -12,6 +12,7 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 
@@ -21,6 +22,7 @@ class WritingGameViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val settingsRepository: SettingsRepository,
     private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer,
     textNormalizer: TextNormalizer? = null
 ) : ViewModel() {
     
@@ -108,11 +110,21 @@ class WritingGameViewModel(
 
     fun submitAnswer(userAnswer: String) {
         viewModelScope.launch {
-            engine.submitAnswer(userAnswer)
+            val isCorrect = engine.submitAnswer(userAnswer)
+            if (isCorrect) {
+                audioPlayer.playSound("sounds/correct.mp3")
+            } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
+            }
         }
     }
 
     fun resetState() {
         engine.resetState()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

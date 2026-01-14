@@ -88,7 +88,11 @@ val sharedModule = module {
     // Game/Quiz ViewModels as factory for those with single-screen flow
     factoryOf(::GrammarViewModel)
     factoryOf(::RecognitionGameViewModel)
+    
+    // WritingGameViewModel: ensure optional parameters like textNormalizer are handled
+    // Koin will use the primary constructor and get() for all parameters including AudioPlayer
     factoryOf(::WritingGameViewModel)
+    
     factoryOf(::KanaQuizViewModel)
     factoryOf(::WordQuizViewModel)
     
@@ -132,6 +136,7 @@ val sharedModule = module {
             exerciseRepository = get(),
             settingsRepository = get(),
             scoreRepository = get(),
+            audioPlayer = get(),
             grammarTags = params.get<List<String>>()
         )
     }

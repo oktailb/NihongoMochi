@@ -11,6 +11,7 @@ import org.nihongo.mochi.domain.grammar.Exercise
 import org.nihongo.mochi.domain.grammar.ExercisePayload
 import org.nihongo.mochi.domain.grammar.ExerciseRepository
 import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
@@ -33,7 +34,8 @@ class GrammarQuizViewModel(
     private val exerciseRepository: ExerciseRepository,
     private val settingsRepository: SettingsRepository,
     private val scoreRepository: ScoreRepository,
-    private val grammarTags: List<String> // Changed to List
+    private val audioPlayer: AudioPlayer,
+    private val grammarTags: List<String>
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(GrammarQuizState())
@@ -114,6 +116,12 @@ class GrammarQuizViewModel(
 
         val isCorrect = checkAnswer(option, currentState.currentExercisePayload, currentState.currentStarIndex)
         
+        if (isCorrect) {
+            audioPlayer.playSound("sounds/correct.mp3")
+        } else {
+            audioPlayer.playSound("sounds/incorrect.mp3")
+        }
+
         // Save score for each tag associated with the rule
         val currentExercise = currentState.exercises.getOrNull(currentState.currentIndex)
         currentExercise?.tags?.forEach { tag ->
@@ -163,5 +171,10 @@ class GrammarQuizViewModel(
         } else {
             _state.value = _state.value.copy(isFinished = true)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

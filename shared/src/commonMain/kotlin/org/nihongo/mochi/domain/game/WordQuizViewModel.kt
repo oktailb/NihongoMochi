@@ -15,12 +15,14 @@ import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.Word
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.words.WordEntry
 
 class WordQuizViewModel(
     private val wordRepository: WordRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
     
     private val engine = WordQuizEngine()
@@ -164,6 +166,12 @@ class WordQuizViewModel(
         
         val isCorrect = selectedAnswer == correctReading
 
+        if (isCorrect) {
+            audioPlayer.playSound("sounds/correct.mp3")
+        } else {
+            audioPlayer.playSound("sounds/incorrect.mp3")
+        }
+
         // Side effect: save score
         scoreRepository.saveScore(currentWord.text, isCorrect, ScoreManager.ScoreType.READING)
 
@@ -197,5 +205,10 @@ class WordQuizViewModel(
             delay(delayMs)
             displayQuestion()
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

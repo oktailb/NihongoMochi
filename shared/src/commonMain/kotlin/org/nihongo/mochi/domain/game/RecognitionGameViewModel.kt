@@ -14,6 +14,7 @@ import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 
@@ -22,7 +23,8 @@ class RecognitionGameViewModel(
     private val meaningRepository: MeaningRepository,
     private val levelContentProvider: LevelContentProvider,
     private val settingsRepository: SettingsRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
     
     private val engine = RecognitionGameEngine(scoreRepository)
@@ -98,14 +100,24 @@ class RecognitionGameViewModel(
 
     fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
         viewModelScope.launch {
+            val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
+                selectedAnswer.lines().any { it.equals(engine.correctAnswer, ignoreCase = true) }
+            } else {
+                selectedAnswer == engine.correctAnswer
+            }
+
+            if (isCorrect) {
+                audioPlayer.playSound("sounds/correct.mp3")
+            } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
+            }
+
             engine.submitAnswer(selectedAnswer, selectedIndex)
         }
     }
 
     fun resetState() {
         engine.resetState()
-        // We don't clear allKanjiDetailsXml here to keep the cache during the app session
-        // It's filled once and reused.
         areButtonsEnabled = true
     }
 
@@ -189,5 +201,10 @@ class RecognitionGameViewModel(
             val kanjiDetail = KanjiDetail(id, character, kanjiMeanings, readingsList)
             allKanjiDetailsXml.add(kanjiDetail)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

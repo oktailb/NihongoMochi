@@ -10,6 +10,7 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.ViewModel
@@ -18,7 +19,8 @@ import kotlin.random.Random
 class KanaDropViewModel(
     private val wordRepository: WordRepository,
     private val scoreRepository: ScoreRepository,
-    private val levelContentProvider: LevelContentProvider
+    private val levelContentProvider: LevelContentProvider,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
     private val json = Json { ignoreUnknownKeys = true }
@@ -87,6 +89,7 @@ class KanaDropViewModel(
                     val newTime = currentState.timeRemaining - 1
                     if (newTime <= 0) {
                         _state.value = currentState.copy(timeRemaining = 0, timeElapsed = newElapsed)
+                        audioPlayer.playSound("sounds/game_over.mp3")
                         endGame()
                     } else {
                         _state.value = currentState.copy(timeRemaining = newTime, timeElapsed = newElapsed)
@@ -214,8 +217,10 @@ class KanaDropViewModel(
             val validEntry = wordRepository.getAllWordEntriesSuspend().find { it.phonetics == word }
             
             if (validEntry != null) {
+                audioPlayer.playSound("sounds/correct.mp3")
                 handleValidWord(validEntry)
             } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
                 val penalty = word.length * 10 
                 val newScore = (currentState.score - penalty).coerceAtLeast(0)
                 
@@ -227,6 +232,7 @@ class KanaDropViewModel(
                 )
                 
                 if (newScore <= 0) {
+                    audioPlayer.playSound("sounds/game_over.mp3")
                     endGame()
                 }
 
@@ -296,6 +302,12 @@ class KanaDropViewModel(
 
     fun abandonGame() {
         timerJob?.cancel()
+        audioPlayer.playSound("sounds/game_over.mp3")
         _state.value = _state.value.copy(isGameOver = true)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }

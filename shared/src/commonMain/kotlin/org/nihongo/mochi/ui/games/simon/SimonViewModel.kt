@@ -16,6 +16,7 @@ import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ViewModel
@@ -37,7 +38,8 @@ class SimonViewModel(
     private val meaningRepository: MeaningRepository,
     private val settingsRepository: SettingsRepository,
     private val levelContentProvider: LevelContentProvider,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
     private val REVISION_LEVEL_ID = "user_custom_list"
@@ -249,6 +251,7 @@ class SimonViewModel(
         if (_gameState.value != SimonGameState.AWAITING_INPUT) return
 
         if (item.id == _targetSequence.value[inputIndex].id) {
+            audioPlayer.playSound("sounds/correct.mp3")
             inputIndex++
             if (inputIndex >= _targetSequence.value.size) {
                 _score.value = _targetSequence.value.size
@@ -257,6 +260,7 @@ class SimonViewModel(
                 refreshAnswersForIndex(inputIndex)
             }
         } else {
+            audioPlayer.playSound("sounds/game_over.mp3")
             _gameState.value = SimonGameState.GAME_OVER
             timerJob?.cancel()
             saveFinalScore()
@@ -286,6 +290,7 @@ class SimonViewModel(
     
     fun abandonGame() {
         if (_gameState.value == SimonGameState.SHOWING_SEQUENCE || _gameState.value == SimonGameState.AWAITING_INPUT) {
+            audioPlayer.playSound("sounds/game_over.mp3")
             saveFinalScore()
         }
         timerJob?.cancel()
@@ -297,5 +302,10 @@ class SimonViewModel(
         timerJob?.cancel()
         _gameState.value = SimonGameState.IDLE
         checkLevelType()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        audioPlayer.stopAll()
     }
 }
