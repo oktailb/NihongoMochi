@@ -31,12 +31,24 @@ class KanaDropViewModel(
     val history: StateFlow<List<KanaLinkResult>> = _history.asStateFlow()
 
     private var config = KanaDropConfig()
-    private var availableWords: List<String> = emptyList()
+    private var allAvailableWordEntries: List<org.nihongo.mochi.domain.words.WordEntry> = emptyList()
     private var kanaPool: List<String> = emptyList()
     private var timerJob: Job? = null
 
+    // Normalisation map for small kanas to large kanas
+    private val kanaNormalizationMap = mapOf(
+        'ぁ' to 'あ', 'ぃ' to 'い', 'ぅ' to 'う', 'ぇ' to 'え', 'ぉ' to 'お',
+        'っ' to 'つ', 'ゃ' to 'や', 'ゅ' to 'ゆ', 'ょ' to 'よ', 'ゎ' to 'わ',
+        'ァ' to 'ア', 'ィ' to 'イ', 'ゥ' to 'ウ', 'ェ' to 'エ', 'ォ' to 'オ',
+        'ッ' to 'ツ', 'ャ' to 'ヤ', 'ュ' to 'ユ', 'ョ' to 'ヨ', 'ヮ' to 'ワ'
+    )
+
     init {
         loadHistory()
+    }
+
+    private fun normalizeKana(text: String): String {
+        return text.map { kanaNormalizationMap[it] ?: it }.joinToString("")
     }
 
     private fun loadHistory() {
@@ -59,17 +71,31 @@ class KanaDropViewModel(
                 initialTime = if (mode == KanaLinkMode.TIME_ATTACK) 60 else 0
             )
             
-            val entries = wordRepository.getWordEntriesForLevelSuspend(levelFileName)
-            availableWords = entries.map { it.phonetics }
+            val allLevels = listOf("n5", "n4", "n3", "n2", "n1")
+            val selectedLevelIndex = allLevels.indexOf(levelFileName.lowercase())
+            val levelsToInclude = if (selectedLevelIndex != -1) {
+                allLevels.take(selectedLevelIndex + 1)
+            } else {
+                listOf(levelFileName) 
+            }
+
+            val entries = mutableListOf<org.nihongo.mochi.domain.words.WordEntry>()
+            levelsToInclude.forEach { lvl ->
+                try {
+                    entries.addAll(wordRepository.getWordEntriesForLevelSuspend(lvl))
+                } catch (_: Exception) {}
+            }
+            allAvailableWordEntries = entries.distinctBy { it.text + it.phonetics }
             
             kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
+                .filter { it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&" }
 
             generateInitialGrid()
             _state.value = _state.value.copy(
                 isLoading = false,
                 timeRemaining = config.initialTime,
                 timeElapsed = 0,
-                score = 100 
+                score = 0 
             )
             startTimer()
         }
@@ -133,7 +159,7 @@ class KanaDropViewModel(
             }
         }
 
-        val wordsToInject = availableWords.shuffled().take(3)
+        val wordsToInject = allAvailableWordEntries.shuffled().take(5).map { it.phonetics }
         wordsToInject.forEach { word ->
             var placed = false
             var attempts = 0
@@ -167,9 +193,9 @@ class KanaDropViewModel(
             List(config.cols) { c ->
                 val cell = tempGrid[r][c]
                 if (cell.char.isEmpty()) {
-                    cell.copy(char = kanaPool.random(), id = "${r}_${c}_${Random.nextInt()}")
+                    cell.copy(char = kanaPool.random(), id = "${r}_${c}_${Random.nextInt(999999)}")
                 } else {
-                    cell.copy(id = "${r}_${c}_${Random.nextInt()}")
+                    cell.copy(id = "${r}_${c}_${Random.nextInt(999999)}")
                 }
             }
         }
@@ -215,18 +241,21 @@ class KanaDropViewModel(
 
     fun onReleaseSelection() {
         val currentState = _state.value
-        val word = currentState.currentWord
-        if (word.isEmpty() || currentState.isGameOver) return
+        val rawWord = currentState.currentWord
+        if (rawWord.isEmpty() || currentState.isGameOver) return
         
         viewModelScope.launch {
-            val validEntry = wordRepository.getAllWordEntriesSuspend().find { it.phonetics == word }
+            val normalizedSelection = normalizeKana(rawWord)
+            val validEntry = allAvailableWordEntries.find { 
+                normalizeKana(it.phonetics) == normalizedSelection 
+            }
             
             if (validEntry != null) {
                 audioPlayer.playSound("sounds/correct.mp3")
                 handleValidWord(validEntry)
             } else {
                 audioPlayer.playSound("sounds/incorrect.mp3")
-                val penalty = word.length * 10 
+                val penalty = rawWord.length * 5 
                 val newScore = (currentState.score - penalty).coerceAtLeast(0)
                 
                 _state.value = currentState.copy(
@@ -236,11 +265,6 @@ class KanaDropViewModel(
                     errorFlash = true
                 )
                 
-                if (newScore <= 0) {
-                    audioPlayer.playSound("sounds/game_over.mp3")
-                    endGame()
-                }
-
                 delay(300)
                 _state.value = _state.value.copy(errorFlash = false)
             }
@@ -268,7 +292,11 @@ class KanaDropViewModel(
             lastValidWord = entry
         )
 
-        applyGravity()
+        // DELAY before applying gravity to see the match
+        viewModelScope.launch {
+            delay(300)
+            applyGravity()
+        }
     }
 
     private fun applyGravity() {
@@ -277,17 +305,15 @@ class KanaDropViewModel(
         val cols = config.cols
         val oldGrid = currentState.grid
         
-        // 1. Pour chaque colonne, on pré-calcule les cellules qui restent (non matchées)
         val colRemaining = Array(cols) { c ->
             val remaining = ArrayList<KanaDropCell>(rows)
             for (r in rows - 1 downTo 0) {
                 val cell = oldGrid[r][c]
                 if (!cell.isMatched) remaining.add(cell)
             }
-            remaining // Liste ordonnée du bas vers le haut
+            remaining 
         }
 
-        // 2. On construit la nouvelle grille directement
         val finalGrid = List(rows) { r ->
             List(cols) { c ->
                 val remainingInCol = colRemaining[c]
@@ -295,11 +321,9 @@ class KanaDropViewModel(
                 val firstRemainingRow = rows - numRemaining
                 
                 if (r >= firstRemainingRow) {
-                    // Cellule existante qui descend
                     val originalCell = remainingInCol[rows - 1 - r]
                     if (originalCell.row == r) originalCell else originalCell.copy(row = r)
                 } else {
-                    // Nouvelle cellule qui apparaît en haut
                     KanaDropCell(
                         id = "n_${r}_${c}_${Random.nextInt(999999)}",
                         char = kanaPool.random(),
@@ -319,7 +343,9 @@ class KanaDropViewModel(
 
     fun abandonGame() {
         timerJob?.cancel()
-        audioPlayer.playSound("sounds/game_over.mp3")
+        if (_state.value.score > 0 && !_state.value.isGameOver) {
+             audioPlayer.playSound("sounds/game_over.mp3")
+        }
         _state.value = _state.value.copy(isGameOver = true)
     }
 

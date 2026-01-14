@@ -50,12 +50,23 @@ class LevelContentProvider(
     suspend fun getKanaPoolForLevel(levelKey: String): List<String> {
         kanaPoolCache[levelKey]?.let { return it }
 
-        val wordEntries = wordRepository.getWordEntriesForLevelSuspend(levelKey)
+        val wordEntries = try {
+            wordRepository.getWordEntriesForLevelSuspend(levelKey)
+        } catch (e: Exception) {
+            emptyList()
+        }
+        
         val pool = wordEntries.flatMap { word ->
             word.phonetics.map { it.toString() }
-        }.distinct().filter { it.isNotBlank() && it != "/" }
+        }.distinct().filter { 
+            it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&"
+        }
 
-        val finalPool = pool.ifEmpty { listOf("あ", "い", "う", "え", "お") }
+        val finalPool = pool.ifEmpty { 
+            // Fallback to basic hiragana if no pool found
+            kanaRepository.getKanaEntries(KanaType.HIRAGANA).map { it.character } 
+        }
+        
         kanaPoolCache[levelKey] = finalPool
         return finalPool
     }

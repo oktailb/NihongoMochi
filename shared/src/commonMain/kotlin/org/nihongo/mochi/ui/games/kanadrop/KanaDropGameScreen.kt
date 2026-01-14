@@ -12,6 +12,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -147,8 +148,15 @@ fun KanaDropGameScreen(
                         ) {
                             state.grid.forEach { row ->
                                 row.forEach { cell ->
-                                    val isSelected = state.selectedCells.any { it.id == cell.id }
-                                    KanaCellItem(cell = cell, size = cellSize, isSelected = isSelected)
+                                    // KEY IS ESSENTIAL FOR ANIMATION
+                                    key(cell.id) {
+                                        val isSelected = state.selectedCells.any { it.id == cell.id }
+                                        KanaCellItem(
+                                            cell = cell, 
+                                            size = cellSize, 
+                                            isSelected = isSelected
+                                        )
+                                    }
                                 }
                             }
                         }
@@ -178,7 +186,6 @@ fun KanaDropGameScreen(
 
 @Composable
 private fun TimerDisplay(stateFlow: StateFlow<KanaDropGameState>) {
-    // We only collect the timeRemaining to minimize recomposition
     val timeRemaining by stateFlow.map { it.timeRemaining }.collectAsState(initial = 0)
     
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -234,6 +241,28 @@ fun KanaCellItem(
     size: androidx.compose.ui.unit.Dp,
     isSelected: Boolean
 ) {
+    val targetY = size * cell.row
+    
+    // Starting position for NEW cells (above the grid)
+    val isNew = cell.id.startsWith("n_")
+    val initialY = if (isNew) -size else targetY
+
+    // We use Animatable for more control if needed, but animateDpAsState is fine with keys
+    val animatedY by animateDpAsState(
+        targetValue = targetY,
+        animationSpec = spring(
+            dampingRatio = 0.7f, // Bouncy
+            stiffness = 300f     // Medium speed
+        ),
+        label = "cellGravity"
+    )
+
+    val alpha by animateFloatAsState(
+        targetValue = if (cell.isMatched) 0f else 1f,
+        animationSpec = tween(300),
+        label = "cellAlpha"
+    )
+
     val backgroundColor by animateColorAsState(
         if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface,
         label = "cellColor"
@@ -242,13 +271,22 @@ fun KanaCellItem(
         if (isSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
         label = "textColor"
     )
-    val scale by animateFloatAsState(if (isSelected) 1.2f else 1.0f, label = "cellScale")
+    val scale by animateFloatAsState(
+        targetValue = if (cell.isMatched) 0.5f else if (isSelected) 1.2f else 1.0f, 
+        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy),
+        label = "cellScale"
+    )
 
     Box(
         modifier = Modifier
-            .offset(x = size * cell.col, y = size * cell.row)
+            .offset(x = size * cell.col, y = animatedY)
             .size(size)
             .padding(2.dp)
+            .graphicsLayer {
+                this.alpha = alpha
+                this.scaleX = scale
+                this.scaleY = scale
+            }
             .clip(RoundedCornerShape(8.dp))
             .background(backgroundColor),
         contentAlignment = Alignment.Center
@@ -257,8 +295,7 @@ fun KanaCellItem(
             text = cell.char,
             fontSize = (size.value * 0.5f).sp,
             fontWeight = FontWeight.Medium,
-            color = textColor,
-            modifier = Modifier.graphicsLayer(scaleX = scale, scaleY = scale)
+            color = textColor
         )
     }
 }
