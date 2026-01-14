@@ -54,12 +54,16 @@ fun SimonSetupScreen(
             // Configuration Card
             Card(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                    contentColor = MaterialTheme.colorScheme.onSurface
+                )
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
                         text = stringResource(Res.string.game_config_title), 
                         fontWeight = FontWeight.Bold, 
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -89,18 +93,23 @@ fun SimonSetupScreen(
             // History Card
             Card(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f))
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                    contentColor = MaterialTheme.colorScheme.onSurface
+                )
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
                         text = stringResource(Res.string.game_history_title), 
                         fontWeight = FontWeight.Bold, 
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(bottom = 8.dp)
                     )
                     if (scoresHistory.isEmpty()) {
                         Text(
                             text = stringResource(Res.string.game_memorize_no_scores), 
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     } else {
                         scoresHistory.take(5).forEach { result ->
@@ -113,11 +122,23 @@ fun SimonSetupScreen(
                                     SimonMode.KANA_SAME -> stringResource(Res.string.game_simon_mode_kana_same)
                                     SimonMode.KANA_CROSS -> stringResource(Res.string.game_simon_mode_kana_cross)
                                 }
-                                Text(text = modeLabel, fontSize = 12.sp, modifier = Modifier.weight(1f))
-                                Text(text = "${result.maxSequence}", fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f), textAlign = TextAlign.Center)
+                                Text(
+                                    text = modeLabel, 
+                                    fontSize = 12.sp, 
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                Text(
+                                    text = "${result.maxSequence}", 
+                                    fontWeight = FontWeight.Bold, 
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.weight(1f), 
+                                    textAlign = TextAlign.Center
+                                )
                                 Text(
                                     text = stringResource(Res.string.game_memorize_time_format, result.timeSeconds), 
                                     fontSize = 14.sp, 
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     modifier = Modifier.weight(1f), 
                                     textAlign = TextAlign.End
                                 )
