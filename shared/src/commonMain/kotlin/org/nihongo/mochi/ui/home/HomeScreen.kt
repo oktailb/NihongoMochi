@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -58,7 +57,7 @@ fun HomeScreen(
     onReadingClick: () -> Unit,
     onWritingClick: () -> Unit,
     onGrammarClick: () -> Unit,
-    onGamesClick: () -> Unit, // Added
+    onGamesClick: () -> Unit,
     onDictionaryClick: () -> Unit,
     onResultsClick: () -> Unit,
     onOptionsClick: () -> Unit,
@@ -139,8 +138,8 @@ fun HomeScreen(
             Spacer(modifier = Modifier.height(12.dp))
 
             BigModeCard(
-                title = "Games",
-                subtitle = "Défis ludiques pour s'entraîner (Taquin, Simon...)",
+                title = stringResource(Res.string.games_title),
+                subtitle = stringResource(Res.string.activity_type_games),
                 kanjiTitle = "遊び", 
                 enabled = true,
                 onClick = onGamesClick
