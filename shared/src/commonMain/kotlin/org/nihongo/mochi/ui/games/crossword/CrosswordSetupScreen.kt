@@ -1,0 +1,151 @@
+package org.nihongo.mochi.ui.games.crossword
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
+import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.PlayButton
+
+@Composable
+fun CrosswordSetupScreen(
+    viewModel: CrosswordViewModel,
+    onBackClick: () -> Unit,
+    onStartGame: () -> Unit
+) {
+    val selectedMode by viewModel.selectedMode.collectAsState()
+    val wordCount by viewModel.wordCount.collectAsState()
+    val isGenerating by viewModel.isGenerating.collectAsState()
+    val scoresHistory: List<CrosswordGameResult> by viewModel.scoresHistory.collectAsState(initial = emptyList())
+
+    MochiBackground {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(Res.string.game_crosswords_title),
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(bottom = 8.dp, top = 16.dp)
+            )
+
+            Text(
+                text = "Mochi-Cross",
+                fontSize = 24.sp,
+                color = MaterialTheme.colorScheme.secondary,
+                modifier = Modifier.padding(bottom = 24.dp)
+            )
+
+            // Mode Selection
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                    contentColor = MaterialTheme.colorScheme.onSurface
+                )
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = "Mode de jeu",
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        CrosswordMode.entries.forEach { mode ->
+                            FilterChip(
+                                selected = selectedMode == mode,
+                                onClick = { viewModel.onModeSelected(mode) },
+                                label = { Text(mode.name) }
+                            )
+                        }
+                    }
+                }
+            }
+
+            // Word Count Selection (Slider)
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                    contentColor = MaterialTheme.colorScheme.onSurface
+                )
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = "Nombre de mots : $wordCount",
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    Slider(
+                        value = wordCount.toFloat(),
+                        onValueChange = { viewModel.onWordCountSelected(it.toInt()) },
+                        valueRange = 5f..42f,
+                        steps = 36
+                    )
+                }
+            }
+
+            // Recent Scores
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
+                    contentColor = MaterialTheme.colorScheme.onSurface
+                )
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = stringResource(Res.string.game_memorize_recent_scores),
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    
+                    if (scoresHistory.isEmpty()) {
+                        Text(
+                            text = stringResource(Res.string.game_memorize_no_scores),
+                            fontSize = 14.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    } else {
+                        // History list...
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            if (isGenerating) {
+                CircularProgressIndicator()
+                Text(
+                    text = "Génération de la grille...", 
+                    color = MaterialTheme.colorScheme.onBackground,
+                    modifier = Modifier.padding(top = 8.dp)
+                )
+            } else {
+                PlayButton(onClick = {
+                    viewModel.startGame()
+                    onStartGame()
+                })
+            }
+        }
+    }
+}

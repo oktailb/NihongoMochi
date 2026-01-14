@@ -102,7 +102,7 @@ fun GamesScreen(
                     title = stringResource(Res.string.game_crosswords_title),
                     subtitle = stringResource(Res.string.game_crosswords_subtitle),
                     kanjiTitle = "十字語",
-                    onClick = { showComingSoon() }
+                    onClick = onCrosswordsClick
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))

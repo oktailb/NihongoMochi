@@ -63,6 +63,9 @@ import org.nihongo.mochi.ui.games.kanadrop.KanaDropGameScreen
 import org.nihongo.mochi.ui.games.kanadrop.KanaDropSetupScreen
 import org.nihongo.mochi.ui.games.kanadrop.KanaDropViewModel
 import org.nihongo.mochi.ui.games.kanadrop.KanaLinkMode
+import org.nihongo.mochi.ui.games.crossword.CrosswordSetupScreen
+import org.nihongo.mochi.ui.games.crossword.CrosswordGameScreen
+import org.nihongo.mochi.ui.games.crossword.CrosswordViewModel
 import org.nihongo.mochi.ui.grammar.GrammarScreen
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
@@ -101,6 +104,8 @@ sealed class Screen(val route: String) {
     data object KanaDropGame : Screen("kanadrop_game/{levelId}/{mode}") {
         fun createRoute(levelId: String, mode: String) = "kanadrop_game/$levelId/$mode"
     }
+    data object CrosswordSetup : Screen("crossword_setup")
+    data object CrosswordGame : Screen("crossword_game")
     
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
@@ -292,7 +297,7 @@ fun MochiNavGraph(
                 onTetrisClick = { 
                     navController.navigate(Screen.KanaDropSetup.route) 
                 },
-                onCrosswordsClick = { /* TODO */ },
+                onCrosswordsClick = { navController.navigate(Screen.CrosswordSetup.route) },
                 onMemorizeClick = { navController.navigate(Screen.MemorizeSetup.route) },
                 onParticlesClick = { /* TODO */ },
                 onForgeClick = { /* TODO */ },
@@ -387,6 +392,23 @@ fun MochiNavGraph(
             }
 
             KanaDropGameScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.CrosswordSetup.route) {
+            val viewModel: CrosswordViewModel = koinInject()
+            CrosswordSetupScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() },
+                onStartGame = { navController.navigate(Screen.CrosswordGame.route) }
+            )
+        }
+
+        composable(Screen.CrosswordGame.route) {
+            val viewModel: CrosswordViewModel = koinInject()
+            CrosswordGameScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )

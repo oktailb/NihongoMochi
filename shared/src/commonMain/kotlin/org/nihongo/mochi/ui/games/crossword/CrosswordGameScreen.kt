@@ -1,0 +1,257 @@
+package org.nihongo.mochi.ui.games.crossword
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTransformGestures
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import org.nihongo.mochi.presentation.MochiBackground
+
+@Composable
+fun CrosswordGameScreen(
+    viewModel: CrosswordViewModel,
+    onBackClick: () -> Unit
+) {
+    val cells by viewModel.cells.collectAsState()
+    val placedWords by viewModel.placedWords.collectAsState()
+    val selectedCell by viewModel.selectedCell.collectAsState()
+    val keyboardKeys by viewModel.keyboardKeys.collectAsState()
+    val gameTimeSeconds by viewModel.gameTimeSeconds.collectAsState()
+    val selectedHintType by viewModel.selectedHintType.collectAsState()
+    
+    val cellsMap = remember(cells) {
+        cells.associateBy { it.r to it.c }
+    }
+
+    var scale by remember { mutableStateOf(1f) }
+    var offset by remember { mutableStateOf(Offset.Zero) }
+
+    val gridSize = 16
+    val cellSize = 40.dp
+    val gridDimension = cellSize * gridSize
+
+    // Find current word for clue display
+    val currentWord = remember(selectedCell, placedWords) {
+        selectedCell?.let { (r, c) ->
+            placedWords.find { word ->
+                if (word.isHorizontal) {
+                    word.row == r && c >= word.col && c < word.col + word.word.length
+                } else {
+                    word.col == c && r >= word.row && r < word.row + word.word.length
+                }
+            }
+        }
+    }
+
+    MochiBackground {
+        Box(modifier = Modifier.fillMaxSize()) {
+            // --- Interactive Grid Layer ---
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(Unit) {
+                        detectTransformGestures { _, pan, zoom, _ ->
+                            scale *= zoom
+                            scale = scale.coerceIn(0.5f, 3f)
+                            offset += pan
+                        }
+                    }
+                    .graphicsLayer(
+                        scaleX = scale,
+                        scaleY = scale,
+                        translationX = offset.x,
+                        translationY = offset.y
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Box(modifier = Modifier.wrapContentSize(unbounded = true)) {
+                    Column(modifier = Modifier.requiredSize(gridDimension)) {
+                        for (r in 0 until gridSize) {
+                            Row(modifier = Modifier.wrapContentWidth(unbounded = true)) {
+                                for (c in 0 until gridSize) {
+                                    val cell = cellsMap[r to c]
+                                    CrosswordCellView(
+                                        cell = cell,
+                                        isSelected = selectedCell?.first == r && selectedCell?.second == c,
+                                        onClick = { 
+                                            if (cell != null && !cell.isBlack) {
+                                                viewModel.onCellSelected(r, c)
+                                            }
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // --- UI Overlays ---
+            // Top Bar with Timer
+            Surface(
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                shadowElevation = 4.dp
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        "Mochi-Cross",
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier.weight(1f)
+                    )
+                    Text(
+                        text = formatTime(gameTimeSeconds),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+                    IconButton(onClick = onBackClick) {
+                        Text("X")
+                    }
+                }
+            }
+
+            // Bottom Controls Area
+            Column(
+                modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth()
+            ) {
+                // Clue Bar
+                if (currentWord != null) {
+                    Surface(
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+                        shape = MaterialTheme.shapes.medium,
+                        color = MaterialTheme.colorScheme.secondaryContainer,
+                        shadowElevation = 4.dp
+                    ) {
+                        val clueText = if (selectedHintType == CrosswordHintType.KANJI) currentWord.kanji else currentWord.meaning
+                        Text(
+                            text = clueText,
+                            modifier = Modifier.padding(12.dp).fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+
+                // Virtual Keyboard
+                if (selectedCell != null) {
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
+                        shadowElevation = 16.dp,
+                        tonalElevation = 8.dp
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(8.dp).height(120.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            // Key Grid
+                            LazyVerticalGrid(
+                                columns = GridCells.Fixed(5),
+                                modifier = Modifier.weight(1f),
+                                contentPadding = PaddingValues(4.dp),
+                                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                                verticalArrangement = Arrangement.spacedBy(4.dp)
+                            ) {
+                                items(keyboardKeys) { key ->
+                                    KeyButton(text = key, onClick = { viewModel.onKeyTyped(key) })
+                                }
+                            }
+                            
+                            // Delete Button
+                            Button(
+                                onClick = { viewModel.onDelete() },
+                                modifier = Modifier.width(60.dp).fillMaxHeight().padding(4.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.errorContainer),
+                                contentPadding = PaddingValues(0.dp)
+                            ) {
+                                Text("⌫", color = MaterialTheme.colorScheme.onErrorContainer, fontSize = 24.sp)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun KeyButton(text: String, onClick: () -> Unit) {
+    Surface(
+        modifier = Modifier.size(width = 45.dp, height = 45.dp).clickable { onClick() },
+        shape = MaterialTheme.shapes.small,
+        color = MaterialTheme.colorScheme.primaryContainer,
+        tonalElevation = 2.dp
+    ) {
+        Box(contentAlignment = Alignment.Center) {
+            Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.Medium)
+        }
+    }
+}
+
+@Composable
+fun CrosswordCellView(
+    cell: CrosswordCell?,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    val cellSize = 40.dp
+    
+    Box(
+        modifier = Modifier
+            .requiredSize(cellSize)
+            .border(0.5.dp, if (cell?.isBlack == true) Color.Transparent else Color.Gray.copy(alpha = 0.5f))
+            .background(
+                when {
+                    cell == null || cell.isBlack -> Color.Transparent
+                    cell.isCorrect -> Color(0xFFC8E6C9) // Light Green
+                    isSelected -> MaterialTheme.colorScheme.primaryContainer
+                    else -> Color.White
+                }
+            )
+            .clickable(enabled = cell?.isBlack == false) { onClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        if (cell != null && !cell.isBlack) {
+            if (cell.number != null) {
+                Text(
+                    text = cell.number.toString(),
+                    fontSize = 10.sp,
+                    modifier = Modifier.align(Alignment.TopStart).padding(2.dp),
+                    color = Color.DarkGray
+                )
+            }
+            Text(
+                text = cell.userInput,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = if (cell.isCorrect) Color(0xFF2E7D32) else Color.Black
+            )
+        }
+    }
+}
+
+private fun formatTime(seconds: Int): String {
+    val m = seconds / 60
+    val s = seconds % 60
+    return "${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}"
+}
