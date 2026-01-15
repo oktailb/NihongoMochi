@@ -73,3 +73,6 @@ SELECT * FROM GameHistory WHERE gameType = ? ORDER BY rows DESC, moves ASC, time
 
 getTopScoresByKanaLink:
 SELECT * FROM GameHistory WHERE gameType = ? ORDER BY score DESC, wordsFound DESC, timeSeconds ASC LIMIT 10;
+
+getTopScoresByWordsFound:
+SELECT * FROM GameHistory WHERE gameType = ? ORDER BY wordsFound DESC, timeSeconds ASC LIMIT 10;

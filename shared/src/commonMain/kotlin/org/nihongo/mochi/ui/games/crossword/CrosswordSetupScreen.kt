@@ -21,10 +21,10 @@ fun CrosswordSetupScreen(
     onBackClick: () -> Unit,
     onStartGame: () -> Unit
 ) {
-    val selectedMode by viewModel.selectedMode.collectAsState()
-    val wordCount by viewModel.wordCount.collectAsState()
-    val isGenerating by viewModel.isGenerating.collectAsState()
-    val scoresHistory: List<CrosswordGameResult> by viewModel.scoresHistory.collectAsState(initial = emptyList())
+    val selectedMode by viewModel.selectedMode.collectAsState(CrosswordMode.KANAS)
+    val wordCount by viewModel.wordCount.collectAsState(10)
+    val isGenerating by viewModel.isGenerating.collectAsState(false)
+    val scoresHistory by viewModel.scoresHistory.collectAsState(emptyList())
 
     MochiBackground {
         Column(
@@ -142,8 +142,7 @@ fun CrosswordSetupScreen(
                 )
             } else {
                 PlayButton(onClick = {
-                    viewModel.startGame()
-                    onStartGame()
+                    viewModel.startGame(onGenerated = onStartGame)
                 })
             }
         }

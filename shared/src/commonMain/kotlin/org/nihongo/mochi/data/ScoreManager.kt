@@ -11,6 +11,8 @@ import org.nihongo.mochi.ui.games.simon.SimonGameResult
 import org.nihongo.mochi.ui.games.memorize.MemorizeGameResult
 import org.nihongo.mochi.ui.games.taquin.TaquinGameResult
 import org.nihongo.mochi.ui.games.kanadrop.KanaLinkResult
+import org.nihongo.mochi.ui.games.crossword.CrosswordGameResult
+import org.nihongo.mochi.ui.games.crossword.CrosswordMode
 
 class ScoreManager(
     private val database: MochiDatabase,
@@ -266,6 +268,34 @@ class ScoreManager(
         return Json.encodeToString(results)
     }
 
+    override fun saveCrosswordResult(result: CrosswordGameResult) {
+        queries.insertGameResult(
+            "CROSSWORD",
+            result.wordCount.toLong(),
+            null,
+            result.timeSeconds.toLong(),
+            null,
+            null,
+            null,
+            result.wordCount.toLong(),
+            result.timestamp,
+            result.mode.name
+        )
+    }
+
+    override fun getCrosswordHistory(): String {
+        val results = queries.getTopScoresByWordsFound("CROSSWORD").executeAsList().map {
+            CrosswordGameResult(
+                wordCount = it.wordsFound?.toInt() ?: 0,
+                mode = try { CrosswordMode.valueOf(it.metadata ?: "KANAS") } catch(e: Exception) { CrosswordMode.KANAS },
+                timeSeconds = it.timeSeconds?.toInt() ?: 0,
+                completionPercentage = it.score.toInt(),
+                timestamp = it.timestamp
+            )
+        }
+        return Json.encodeToString(results)
+    }
+
     // --- Import/Export ---
 
     override fun getAllDataJson(): String {
@@ -296,6 +326,7 @@ class ScoreManager(
             put("simon_history", JsonPrimitive(getSimonHistory()))
             put("taquin_history", JsonPrimitive(getTaquinHistory()))
             put("kana_link_history", JsonPrimitive(getKanaLinkHistory()))
+            put("crossword_history", JsonPrimitive(getCrosswordHistory()))
         }
 
         return Json.encodeToString(jsonObject)

@@ -11,8 +11,18 @@ class CrosswordGenerator(
     private val grid = Array(gridSize) { Array(gridSize) { "" } }
     private val placedWords = mutableListOf<CrosswordWord>()
 
+    // Clean phonetics to keep only one reading and no special chars
+    private fun cleanPhonetics(p: String): String {
+        return p.split("/")
+            .firstOrNull { it.isNotBlank() }
+            ?.replace(".", "")
+            ?.replace(" ", "")
+            ?: ""
+    }
+
     fun generate(): Pair<List<CrosswordCell>, List<CrosswordWord>> {
         val candidates = availableWords
+            .map { it.copy(phonetics = cleanPhonetics(it.phonetics)) }
             .filter { it.phonetics.length in 2..8 }
             .shuffled()
             .sortedByDescending { it.phonetics.length }
@@ -77,8 +87,11 @@ class CrosswordGenerator(
             val r = if (isHorizontal) row else row + i
             val c = if (isHorizontal) col + i else col
             val existing = grid[r][c]
+            
+            // Check if cell is compatible
             if (existing != "" && existing != word[i].toString()) return false
             
+            // If cell is empty, check neighbors to avoid creating unintended words
             if (existing == "") {
                 if (isHorizontal) {
                     if (isOccupied(r - 1, c) || isOccupied(r + 1, c)) return false
@@ -100,7 +113,6 @@ class CrosswordGenerator(
     }
 
     private fun placeWord(entry: WordEntry, row: Int, col: Int, isHorizontal: Boolean) {
-        // Clean Kanji hint (remove dots)
         val cleanKanji = entry.text.replace(".", "")
         
         placedWords.add(
@@ -108,7 +120,7 @@ class CrosswordGenerator(
                 number = placedWords.size + 1,
                 word = entry.phonetics,
                 kanji = cleanKanji,
-                meaning = cleanKanji, // Use Kanji as meaning hint for now
+                meaning = cleanKanji, 
                 row = row,
                 col = col,
                 isHorizontal = isHorizontal

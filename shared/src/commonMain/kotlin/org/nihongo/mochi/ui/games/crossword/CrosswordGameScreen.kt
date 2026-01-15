@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,6 +19,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.presentation.MochiBackground
@@ -33,7 +35,16 @@ fun CrosswordGameScreen(
     val keyboardKeys by viewModel.keyboardKeys.collectAsState()
     val gameTimeSeconds by viewModel.gameTimeSeconds.collectAsState()
     val selectedHintType by viewModel.selectedHintType.collectAsState()
+    val isFinished by viewModel.isFinished.collectAsState()
     
+    // Auto-exit or show finish dialog
+    LaunchedEffect(isFinished) {
+        if (isFinished) {
+            // Option A: Just go back
+            // onBackClick()
+        }
+    }
+
     val cellsMap = remember(cells) {
         cells.associateBy { it.r to it.c }
     }
@@ -141,19 +152,25 @@ fun CrosswordGameScreen(
                         color = MaterialTheme.colorScheme.secondaryContainer,
                         shadowElevation = 4.dp
                     ) {
-                        val clueText = if (selectedHintType == CrosswordHintType.KANJI) currentWord.kanji else currentWord.meaning
+                        val clueText = if (selectedHintType == CrosswordHintType.KANJI) {
+                            if (currentWord.meaning != currentWord.kanji) "${currentWord.kanji} → ${currentWord.meaning}" else currentWord.kanji
+                        } else {
+                            currentWord.meaning
+                        }
                         Text(
                             text = clueText,
                             modifier = Modifier.padding(12.dp).fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             style = MaterialTheme.typography.bodyLarge,
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Bold,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                 }
 
                 // Virtual Keyboard
-                if (selectedCell != null) {
+                if (selectedCell != null && !isFinished) {
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
                         color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
@@ -190,6 +207,32 @@ fun CrosswordGameScreen(
                     }
                 }
             }
+            
+            // Finish Overlay
+            if (isFinished) {
+                Box(
+                    modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Card(
+                        modifier = Modifier.padding(32.dp),
+                        shape = RoundedCornerShape(16.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(24.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text("Félicitations !", style = MaterialTheme.typography.headlineMedium)
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text("Grille complétée en ${formatTime(gameTimeSeconds)}")
+                            Spacer(modifier = Modifier.height(24.dp))
+                            Button(onClick = onBackClick) {
+                                Text("Retour au menu")
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -216,6 +259,10 @@ fun CrosswordCellView(
 ) {
     val cellSize = 40.dp
     
+    // Logic for individual character validation
+    val isInputCorrect = cell?.userInput?.isNotEmpty() == true && cell.userInput == cell.solution
+    val isInputWrong = cell?.userInput?.isNotEmpty() == true && cell.userInput != cell.solution
+
     Box(
         modifier = Modifier
             .requiredSize(cellSize)
@@ -223,7 +270,8 @@ fun CrosswordCellView(
             .background(
                 when {
                     cell == null || cell.isBlack -> Color.Transparent
-                    cell.isCorrect -> Color(0xFFC8E6C9) // Light Green
+                    cell.isCorrect || isInputCorrect -> Color(0xFFC8E6C9) // Light Green
+                    isInputWrong -> Color(0xFFFFCDD2) // Light Red
                     isSelected -> MaterialTheme.colorScheme.primaryContainer
                     else -> Color.White
                 }
@@ -244,7 +292,11 @@ fun CrosswordCellView(
                 text = cell.userInput,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = if (cell.isCorrect) Color(0xFF2E7D32) else Color.Black
+                color = when {
+                    cell.isCorrect || isInputCorrect -> Color(0xFF2E7D32) // Dark Green
+                    isInputWrong -> Color(0xFFD32F2F) // Dark Red
+                    else -> Color.Black
+                }
             )
         }
     }

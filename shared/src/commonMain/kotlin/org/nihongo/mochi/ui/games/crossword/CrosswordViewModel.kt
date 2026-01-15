@@ -1,14 +1,19 @@
 package org.nihongo.mochi.ui.games.crossword
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.words.WordRepository
-import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.statistics.StatisticsType
@@ -17,7 +22,7 @@ import org.nihongo.mochi.domain.services.AudioPlayer
 
 class CrosswordViewModel(
     private val wordRepository: WordRepository,
-    private val meaningRepository: MeaningRepository,
+    private val wordMeaningRepository: WordMeaningRepository,
     private val scoreRepository: ScoreRepository,
     private val settingsRepository: SettingsRepository,
     private val levelsRepository: LevelsRepository,
@@ -59,13 +64,39 @@ class CrosswordViewModel(
     private val _keyboardKeys = MutableStateFlow<List<String>>(emptyList())
     val keyboardKeys: StateFlow<List<String>> = _keyboardKeys.asStateFlow()
 
+    private val _isFinished = MutableStateFlow(false)
+    val isFinished: StateFlow<Boolean> = _isFinished.asStateFlow()
+
     private var timerJob: Job? = null
+    private var currentLevelIdUsed: String = "n5"
+
+    init {
+        loadHistory()
+    }
+
+    fun loadHistory() {
+        viewModelScope.launch {
+            try {
+                val historyJson = scoreRepository.getCrosswordHistory()
+                if (historyJson.isNotEmpty() && historyJson != "[]") {
+                    _scoresHistory.value = Json.decodeFromString(historyJson)
+                }
+            } catch (e: Exception) {
+                _scoresHistory.value = emptyList()
+            }
+        }
+    }
 
     fun onModeSelected(mode: CrosswordMode) { _selectedMode.value = mode }
     fun onHintTypeSelected(hintType: CrosswordHintType) { _selectedHintType.value = hintType }
     fun onWordCountSelected(count: Int) { _wordCount.value = count }
 
+    private fun cleanPhonetics(p: String): String {
+        return p.split("/").firstOrNull { it.isNotBlank() }?.replace(".", "")?.replace(" ", "") ?: ""
+    }
+
     fun onCellSelected(r: Int, c: Int) {
+        if (_isFinished.value) return
         if (_selectedCell.value == r to c) {
             val words = getWordsAt(r, c)
             if (words.size > 1) {
@@ -84,11 +115,12 @@ class CrosswordViewModel(
     }
 
     private fun updateKeyboardKeys(r: Int, c: Int) {
-        val word = getActiveWordAt(r, c) ?: return
-        val random = kotlin.random.Random(word.word.hashCode())
+        val activeWord = getActiveWordAt(r, c) ?: return
+        val wordChars = activeWord.word.map { it.toString() }.toSet()
+        val random = kotlin.random.Random(activeWord.word.hashCode() + r + c)
         val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
-        val disturbers = (1..5).map { allKanas[random.nextInt(allKanas.length)].toString() }
-        _keyboardKeys.value = (word.word.map { it.toString() }.toSet() + disturbers).shuffled(random)
+        val disturbers = (1..8).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
+        _keyboardKeys.value = (wordChars + disturbers).toList().shuffled(random)
     }
 
     private fun getWordsAt(r: Int, c: Int): List<CrosswordWord> {
@@ -111,6 +143,7 @@ class CrosswordViewModel(
     }
 
     fun onKeyTyped(char: String) {
+        if (_isFinished.value) return
         val currentPos = _selectedCell.value ?: return
         val currentCells = _cells.value.toMutableList()
         val index = currentCells.indexOfFirst { it.r == currentPos.first && it.c == currentPos.second }
@@ -134,6 +167,7 @@ class CrosswordViewModel(
     }
 
     fun onDelete() {
+        if (_isFinished.value) return
         val currentPos = _selectedCell.value ?: return
         val currentCells = _cells.value.toMutableList()
         val index = currentCells.indexOfFirst { it.r == currentPos.first && it.c == currentPos.second }
@@ -157,6 +191,7 @@ class CrosswordViewModel(
             if (wordCells.joinToString("") { it.userInput } == word.word) {
                 markWordAsCorrect(word, wordCells)
                 audioPlayer.playSound("sounds/correct.mp3")
+                checkGameFinished()
             }
         }
     }
@@ -170,46 +205,69 @@ class CrosswordViewModel(
         }
     }
 
-    fun startGame() {
+    private fun checkGameFinished() {
+        if (_placedWords.value.all { it.isSolved }) {
+            _isFinished.value = true
+            timerJob?.cancel()
+            saveGameResult()
+        }
+    }
+
+    private fun saveGameResult() {
+        val result = CrosswordGameResult(
+            wordCount = _placedWords.value.size,
+            mode = _selectedMode.value,
+            timeSeconds = _gameTimeSeconds.value,
+            completionPercentage = 100,
+            timestamp = Clock.System.now().toEpochMilliseconds()
+        )
+        viewModelScope.launch {
+            try {
+                scoreRepository.saveCrosswordResult(result)
+                // Reload history to reflect new score
+                loadHistory()
+            } catch (e: Exception) {}
+        }
+    }
+
+    fun startGame(onGenerated: () -> Unit) {
         viewModelScope.launch {
             _isGenerating.value = true
+            _isFinished.value = false
             
-            // 1. Get currently selected level and find its READING dataFile
-            val currentLevelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
-            val definitions = levelsRepository.loadLevelDefinitions()
-            
-            var dataFile = "jlpt_wordlist_n5" // Default fallback
-            
-            // Find the level in any section
-            for (section in definitions.sections.values) {
-                val level = section.levels.find { it.id.equals(currentLevelId, ignoreCase = true) }
-                if (level != null) {
-                    val config = level.activities[StatisticsType.READING]
-                    if (config != null) {
-                        dataFile = config.dataFile
-                    }
-                    break
+            val result = withContext(Dispatchers.Default) {
+                val currentLevelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
+                currentLevelIdUsed = currentLevelId
+                val locale = settingsRepository.getAppLocale()
+                val meanings = wordMeaningRepository.getWordMeanings(locale)
+                
+                var availableWords = wordRepository.getWordEntriesForLevelSuspend(currentLevelId)
+                if (availableWords.isEmpty()) availableWords = wordRepository.getWordEntriesForLevelSuspend("n5")
+                
+                val generator = CrosswordGenerator(availableWords, _wordCount.value)
+                val (genCells, wordsWithoutMeanings) = generator.generate()
+                
+                val finalWords = wordsWithoutMeanings.map { cw ->
+                    val originalEntry = availableWords.find { cleanPhonetics(it.phonetics) == cw.word && it.text == cw.kanji }
+                    val realMeaning = originalEntry?.let { meanings[it.id] }
+                    cw.copy(meaning = realMeaning ?: cw.kanji)
                 }
+                Pair(genCells, finalWords)
             }
             
-            val availableWords = wordRepository.getWordEntriesForLevelSuspend(dataFile)
-            
-            // 2. Generate grid
-            val generator = CrosswordGenerator(availableWords, _wordCount.value)
-            val (generatedCells, words) = generator.generate()
-            
-            _cells.value = generatedCells
-            _placedWords.value = words
+            _cells.value = result.first
+            _placedWords.value = result.second
             _isGenerating.value = false
             _gameTimeSeconds.value = 0
             startTimer()
+            onGenerated()
         }
     }
 
     private fun startTimer() {
         timerJob?.cancel()
         timerJob = viewModelScope.launch {
-            while (true) {
+            while (!_isFinished.value) {
                 delay(1000)
                 _gameTimeSeconds.value += 1
             }

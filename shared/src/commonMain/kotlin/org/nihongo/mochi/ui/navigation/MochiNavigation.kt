@@ -41,6 +41,7 @@ import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.SagaMapScreen
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.about.AboutScreen
 import org.nihongo.mochi.ui.home.HomeScreen
@@ -742,10 +743,10 @@ fun MochiNavGraph(
 
             WordListScreen(
                 listTitle = screenTitleKey ?: levelId,
-                wordsWithColors = displayedWords.map { (word, score, isRed) -> 
+                wordsWithColors = displayedWords.map { (word, score, meaning) -> 
                     val baseColor = MaterialTheme.colorScheme.surface.toArgb()
                     val colorInt = org.nihongo.mochi.presentation.ScorePresentationUtils.getScoreColor(score, baseColor)
-                    Triple(word, androidx.compose.ui.graphics.Color(colorInt), isRed)
+                    Triple(word, androidx.compose.ui.graphics.Color(colorInt), meaning)
                 },
                 currentPage = currentPage,
                 totalPages = totalPages,
