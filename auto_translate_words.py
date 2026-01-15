@@ -25,6 +25,14 @@ def load_json(file_path):
         print(f"Erreur lecture {file_path}: {e}")
         return None
 
+def save_json(file_path, data):
+    try:
+        data['word_meanings']['entries'].sort(key=lambda x: int(x['@id']))
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Erreur sauvegarde {file_path}: {e}")
+
 def main():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
@@ -66,20 +74,19 @@ def main():
                         existing_meanings[w_id] = new_entry
                         print(f"    ID {w_id}: {w['text']} -> {meaning_text}")
                         updates_count += 1
+                        
+                        if updates_count % 100 == 0:
+                            save_json(out_file, target_data)
+                            print(f"    [Checkpoint] {updates_count} mots sauvegardés...")
+                            
                         time.sleep(0.1) # Pause anti-ban
-                    
-                    if updates_count >= 100000:
-                        print("    Limite de 100 atteinte.")
-                        break
                 except Exception as e:
                     print(f"    Erreur sur {w['text']}: {e}")
                     time.sleep(0.2)
 
         if updates_count > 0:
-            target_data['word_meanings']['entries'].sort(key=lambda x: int(x['@id']))
-            with open(out_file, 'w', encoding='utf-8') as f:
-                json.dump(target_data, f, ensure_ascii=False, indent=2)
-            print(f"  -> Sauvegardé: {out_file}")
+            save_json(out_file, target_data)
+            print(f"  -> Terminé: {out_file} ({updates_count} nouveaux)")
 
 if __name__ == "__main__":
     main()

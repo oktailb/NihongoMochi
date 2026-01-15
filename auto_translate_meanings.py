@@ -26,6 +26,14 @@ def load_json(file_path):
         print(f"Erreur chargement {file_path}: {e}")
         return None
 
+def save_json(file_path, data):
+    try:
+        data['meanings']['kanji'].sort(key=lambda x: int(x['@id']))
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Erreur sauvegarde {file_path}: {e}")
+
 def main():
     print("--- Démarrage de la traduction des Kanjis ---")
     kanji_details = load_json(KANJI_DETAILS_FILE)
@@ -92,21 +100,25 @@ def main():
                 final_val = new_m if len(new_m) > 1 else (new_m[0] if new_m else "")
                 if not t_entry:
                     target_data['meanings']['kanji'].append({"@id": k_id, "meaning": final_val})
+                    existing[k_id] = target_data['meanings']['kanji'][-1]
                 else:
                     t_entry['meaning'] = final_val
                 
                 print(f"OK: {final_val}")
                 updates += 1
+                
+                if updates % 100 == 0:
+                    save_json(target_file, target_data)
+                    print(f"    [Checkpoint] {updates} kanjis sauvegardés...")
+                
                 time.sleep(0.2)
-                if updates >= 14000: break
             except Exception as e:
                 print(f"ERREUR: {e}")
                 time.sleep(0.2)
 
         if updates > 0:
-            target_data['meanings']['kanji'].sort(key=lambda x: int(x['@id']))
-            with open(target_file, 'w', encoding='utf-8') as f:
-                json.dump(target_data, f, ensure_ascii=False, indent=2)
+            save_json(target_file, target_data)
+            print(f"  -> Terminé: {target_file} ({updates} nouveaux)")
 
 if __name__ == "__main__":
     main()
