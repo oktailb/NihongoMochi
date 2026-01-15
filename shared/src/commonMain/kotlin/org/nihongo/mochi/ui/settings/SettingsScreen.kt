@@ -71,10 +71,13 @@ fun SettingsScreen(
             LanguageItem("fr_FR", "Français", Res.drawable.flag_fr_fr),
             LanguageItem("in_ID", "Bahasa Indonesia", Res.drawable.flag_id),
             LanguageItem("it_IT", "Italiano", Res.drawable.flag_it),
+            LanguageItem("ja_JP", "日本語", Res.drawable.flag_jp),
             LanguageItem("ko_KR", "한국어", Res.drawable.flag_kr),
+            LanguageItem("mn_MN", "Монгол", Res.drawable.flag_mn),
             LanguageItem("pt_BR", "Português", Res.drawable.flag_pt_br),
             LanguageItem("ru_RU", "Русский", Res.drawable.flag_ru),
             LanguageItem("th_TH", "ไทย", Res.drawable.flag_th_th),
+            LanguageItem("ua_UA", "Українська", Res.drawable.flag_ua),
             LanguageItem("vi_VN", "Tiếng Việt", Res.drawable.flag_vn),
             LanguageItem("zh_CN", "简体中文", Res.drawable.flag_cn)
         )
