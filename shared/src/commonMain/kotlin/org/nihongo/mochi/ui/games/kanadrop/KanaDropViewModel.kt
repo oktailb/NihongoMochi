@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
@@ -35,20 +36,27 @@ class KanaDropViewModel(
     private var kanaPool: List<String> = emptyList()
     private var timerJob: Job? = null
 
-    // Normalisation map for small kanas to large kanas
+    // Complete map to normalize small characters to large Hiragana
     private val kanaNormalizationMap = mapOf(
         'ぁ' to 'あ', 'ぃ' to 'い', 'ぅ' to 'う', 'ぇ' to 'え', 'ぉ' to 'お',
         'っ' to 'つ', 'ゃ' to 'や', 'ゅ' to 'ゆ', 'ょ' to 'よ', 'ゎ' to 'わ',
-        'ァ' to 'ア', 'ィ' to 'イ', 'ゥ' to 'ウ', 'ェ' to 'エ', 'ォ' to 'オ',
-        'ッ' to 'ツ', 'ャ' to 'ヤ', 'ュ' to 'ユ', 'ョ' to 'ヨ', 'ヮ' to 'ワ'
+        'ゕ' to 'か', 'ゖ' to 'け',
+        'ァ' to 'あ', 'ィ' to 'い', 'ゥ' to 'う', 'ェ' to 'え', 'ォ' to 'お',
+        'ッ' to 'つ', 'ャ' to 'や', 'ュ' to 'ゆ', 'ョ' to 'よ', 'ヮ' to 'わ',
+        'ヵ' to 'か', 'ヶ' to 'け'
     )
 
     init {
         loadHistory()
     }
 
+    /**
+     * Normalizes text: Katakana to Hiragana AND Small to Large.
+     * This ensures that "あ" == "ア" and "つ" == "っ".
+     */
     private fun normalizeKana(text: String): String {
-        return text.map { kanaNormalizationMap[it] ?: it }.joinToString("")
+        val hiragana = KanaUtils.katakanaToHiragana(text)
+        return hiragana.map { kanaNormalizationMap[it] ?: it }.joinToString("")
     }
 
     private fun loadHistory() {
@@ -82,20 +90,35 @@ class KanaDropViewModel(
             val entries = mutableListOf<org.nihongo.mochi.domain.words.WordEntry>()
             levelsToInclude.forEach { lvl ->
                 try {
-                    entries.addAll(wordRepository.getWordEntriesForLevelSuspend(lvl))
+                    val words = wordRepository.getWordEntriesForLevelSuspend(lvl)
+                    entries.addAll(words)
                 } catch (_: Exception) {}
             }
+            
+            if (entries.isEmpty()) {
+                try {
+                    entries.addAll(wordRepository.getWordEntriesForLevelSuspend("n5"))
+                } catch (_: Exception) {}
+            }
+
             allAvailableWordEntries = entries.distinctBy { it.text + it.phonetics }
             
+            // Pool is strictly Hiragana Large
             kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
                 .filter { it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&" }
+                .map { normalizeKana(it) }
+                .filter { it.isNotEmpty() }
+            
+            if (kanaPool.isEmpty()) {
+                kanaPool = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん".map { it.toString() }
+            }
 
             generateInitialGrid()
             _state.value = _state.value.copy(
                 isLoading = false,
                 timeRemaining = config.initialTime,
                 timeElapsed = 0,
-                score = 0 
+                score = if (mode == KanaLinkMode.SURVIVAL) 100 else 0 
             )
             startTimer()
         }
@@ -159,7 +182,8 @@ class KanaDropViewModel(
             }
         }
 
-        val wordsToInject = allAvailableWordEntries.shuffled().take(5).map { it.phonetics }
+        // We inject normalized versions only
+        val wordsToInject = allAvailableWordEntries.shuffled().take(5).map { normalizeKana(it.phonetics) }
         wordsToInject.forEach { word ->
             var placed = false
             var attempts = 0
@@ -245,6 +269,7 @@ class KanaDropViewModel(
         if (rawWord.isEmpty() || currentState.isGameOver) return
         
         viewModelScope.launch {
+            // Selection is already Hiragana Large from grid, but we normalize it just in case
             val normalizedSelection = normalizeKana(rawWord)
             val validEntry = allAvailableWordEntries.find { 
                 normalizeKana(it.phonetics) == normalizedSelection 
@@ -267,6 +292,11 @@ class KanaDropViewModel(
                 
                 delay(300)
                 _state.value = _state.value.copy(errorFlash = false)
+                
+                if (config.mode == KanaLinkMode.SURVIVAL && newScore <= 0) {
+                    audioPlayer.playSound("sounds/game_over.mp3")
+                    endGame()
+                }
             }
         }
     }
@@ -292,7 +322,6 @@ class KanaDropViewModel(
             lastValidWord = entry
         )
 
-        // DELAY before applying gravity to see the match
         viewModelScope.launch {
             delay(300)
             applyGravity()
