@@ -40,6 +40,8 @@ import org.nihongo.mochi.ui.writingrecap.WritingRecapViewModel
 import org.koin.core.qualifier.named
 import org.nihongo.mochi.db.DatabaseDriverFactory
 import org.nihongo.mochi.db.MochiDatabase
+import org.nihongo.mochi.domain.services.StringProvider
+import org.nihongo.mochi.ui.ComposeStringProvider
 
 val sharedModule = module {
     // --- Database ---
@@ -61,6 +63,9 @@ val sharedModule = module {
     singleOf(::GrammarRepository)
     singleOf(::ExerciseRepository)
     
+    // String Provider for ViewModels
+    single<StringProvider> { ComposeStringProvider() }
+
     // ScoreManager with database and legacy settings for migration
     single<ScoreRepository> { 
         ScoreManager(

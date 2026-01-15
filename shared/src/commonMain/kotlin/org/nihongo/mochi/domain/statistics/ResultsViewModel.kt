@@ -1,8 +1,8 @@
 package org.nihongo.mochi.domain.statistics
 
-import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.services.CloudSaveService
+import org.nihongo.mochi.domain.services.StringProvider
 import org.nihongo.mochi.presentation.SagaAction
 import org.nihongo.mochi.presentation.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -21,7 +21,8 @@ sealed class OneTimeEvent {
 class ResultsViewModel(
     private val cloudSaveService: CloudSaveService,
     private val statisticsEngine: StatisticsEngine,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val stringProvider: StringProvider
 ) : ViewModel() {
 
     private val _isAuthenticated = MutableStateFlow(false)
@@ -100,7 +101,7 @@ class ResultsViewModel(
             val success = cloudSaveService.signIn()
             _isAuthenticated.value = success
             if (!success) {
-                _message.value = "Connexion échouée"
+                _message.value = stringProvider.getString("error_sign_in_failed")
             }
         }
     }
@@ -113,9 +114,9 @@ class ResultsViewModel(
             
             val success = cloudSaveService.saveGame(currentSaveName, data, desc)
             if (success) {
-                _message.value = "Sauvegarde effectuée"
+                _message.value = stringProvider.getString("success_save_complete")
             } else {
-                _message.value = "Erreur de sauvegarde"
+                _message.value = stringProvider.getString("error_save_failed")
             }
         }
     }
@@ -123,7 +124,7 @@ class ResultsViewModel(
     fun loadGame(data: String) {
         scoreRepository.restoreDataFromJson(data)
         refreshSagaMap()
-        _message.value = "Données restaurées"
+        _message.value = stringProvider.getString("success_data_restored")
     }
     
     fun setCurrentSaveName(name: String) {

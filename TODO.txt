@@ -1,20 +1,23 @@
 Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
+Bugs:
+ - [ ] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
 
-Features:
- - Grammar section with typical JLTP exercises
-   - fill exercices database and lessons -> Sofia
- - Prévoir l'intégration "Social" (comparaison de progression) pour plus tard.
-   - reussir la connexion au google play !
- - [X] Du son ! Du bruit ! des effets ! [TODO: Interface AudioPlayer expect/actual]
+Todo:
+ - [ ] More i18n : Mogolian and Japanese
+ - [ ] Meanings of wordlists -> JLTP and Grades only to limit size for translations
+ - [ ] Find better sounds
+ - [ ] Better translations for meanings : Source English + Japanese => other languages
+ - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
+ - [ ] Achieve google play connexion
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
   - [X] Simon : enforce kanji remembering by sequence
   - [X] Taquin : redo the basic gojuon table hiragana/katakana
   - [X] Kana Drop : achieve words from selected level in Kana to make blocks disappear
-  - [ ] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary
+  - [/] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary -> in progress
   - [ ] Snake ?
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
@@ -26,8 +29,8 @@ KMP & Architecture Refactoring (Technical Debt):
  - [X] Refactor ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
  - [X] ResourceUtils : le mapping manuel Res.string est fragile. Remplacé par une HashMap O(1).
  - [X] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
- - [ ] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
- - [ ] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
+ - [X] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
+ - [X] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
 
 Optimisations (Mémoire/CPU):
  - [X] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
