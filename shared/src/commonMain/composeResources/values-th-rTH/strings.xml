@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">การแก้ไข</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">คาน่า ลิงค์</string>
+    <string name="game_kana_link_subtitle">เชื่อมโยง Kanas เพื่อสร้างคำและบล็อกที่ชัดเจน</string>
+    <string name="game_kana_link_setup_title">การตั้งค่าลิงค์ Kana</string>
+    <string name="game_kana_link_mode_settings">การตั้งค่าโหมด</string>
+    <string name="game_kana_link_time_attack_title">การโจมตีครั้ง</string>
+    <string name="game_kana_link_time_attack_desc">60 วินาทีเพื่อค้นหาคำศัพท์ให้ได้มากที่สุด คำถูกเพิ่มเวลา!</string>
+    <string name="game_kana_link_survival_title">การอยู่รอด</string>
+    <string name="game_kana_link_survival_desc">ไม่มีการจับเวลา แต่คำผิดต้องใช้คะแนนมากกว่า ดูว่าคุณสามารถอยู่ได้นานแค่ไหน!</string>
+    <string name="game_kana_link_no_history">ยังไม่มีเกมที่เล่นเลย</string>
+    <string name="game_kana_link_start">เริ่มเกม</string>
+    <string name="game_kana_link_score_label">คะแนน</string>
+    <string name="game_kana_link_time_label">เวลา</string>
+    <string name="game_kana_link_words_label">คำ</string>
+    <string name="game_kana_link_game_over">จบเกม</string>
+    <string name="game_kana_link_final_score">คะแนนสุดท้าย</string>
+    <string name="game_kana_link_words_found">พบคำ</string>
+    <string name="game_kana_link_return_menu">กลับไปที่เมนู</string>
+    <string name="game_kana_link_history_item_format">พบ %1$d คำ</string>
 </resources>

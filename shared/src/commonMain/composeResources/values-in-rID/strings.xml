@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">Revisi</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">Tautan Kana</string>
+    <string name="game_kana_link_subtitle">Tautkan Kanas untuk membentuk kata-kata dan menghapus blok</string>
+    <string name="game_kana_link_setup_title">Pengaturan Tautan Kana</string>
+    <string name="game_kana_link_mode_settings">Pengaturan Modus</string>
+    <string name="game_kana_link_time_attack_title">Serangan Waktu</string>
+    <string name="game_kana_link_time_attack_desc">60 detik untuk menemukan kata sebanyak mungkin. Kata-kata yang benar menambah waktu!</string>
+    <string name="game_kana_link_survival_title">Kelangsungan hidup</string>
+    <string name="game_kana_link_survival_desc">Tidak ada pengatur waktu, tetapi kata-kata yang salah membutuhkan lebih banyak poin. Lihat berapa lama Anda bisa bertahan!</string>
+    <string name="game_kana_link_no_history">Belum ada permainan yang dimainkan</string>
+    <string name="game_kana_link_start">MULAI PERMAINAN</string>
+    <string name="game_kana_link_score_label">Skor</string>
+    <string name="game_kana_link_time_label">Waktu</string>
+    <string name="game_kana_link_words_label">Kata-kata</string>
+    <string name="game_kana_link_game_over">PERMAINAN BERAKHIR</string>
+    <string name="game_kana_link_final_score">Nilai akhir</string>
+    <string name="game_kana_link_words_found">Kata-kata Ditemukan</string>
+    <string name="game_kana_link_return_menu">KEMBALI KE MENU</string>
+    <string name="game_kana_link_history_item_format">%1$d kata ditemukan</string>
 </resources>

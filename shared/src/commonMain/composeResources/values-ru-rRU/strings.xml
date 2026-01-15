@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">Редакции</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">Кана Линк</string>
+    <string name="game_kana_link_subtitle">Свяжите Канас, чтобы формировать слова и очищать блоки.</string>
+    <string name="game_kana_link_setup_title">Настройка Кана Линк</string>
+    <string name="game_kana_link_mode_settings">Настройки режима</string>
+    <string name="game_kana_link_time_attack_title">Атака на время</string>
+    <string name="game_kana_link_time_attack_desc">60 секунд, чтобы найти как можно больше слов. Правильные слова добавляют времени!</string>
+    <string name="game_kana_link_survival_title">Выживание</string>
+    <string name="game_kana_link_survival_desc">Таймера нет, но неправильные слова приносят больше очков. Посмотрите, как долго вы сможете продержаться!</string>
+    <string name="game_kana_link_no_history">Ни одной игры еще не сыграно</string>
+    <string name="game_kana_link_start">НАЧАТЬ ИГРУ</string>
+    <string name="game_kana_link_score_label">Счет</string>
+    <string name="game_kana_link_time_label">Время</string>
+    <string name="game_kana_link_words_label">Слова</string>
+    <string name="game_kana_link_game_over">ИГРА ЗАКОНЧЕНА</string>
+    <string name="game_kana_link_final_score">Окончательный счет</string>
+    <string name="game_kana_link_words_found">Слова найдены</string>
+    <string name="game_kana_link_return_menu">ВОЗВРАТ В МЕНЮ</string>
+    <string name="game_kana_link_history_item_format">Найдено %1$d слов</string>
 </resources>

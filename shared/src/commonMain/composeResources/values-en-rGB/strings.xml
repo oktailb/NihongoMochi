@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">Revisions</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">Kana Link</string>
+    <string name="game_kana_link_subtitle">Link Kanas to form words and clear blocks</string>
+    <string name="game_kana_link_setup_title">Kana Link Setup</string>
+    <string name="game_kana_link_mode_settings">Mode Settings</string>
+    <string name="game_kana_link_time_attack_title">Time Attack</string>
+    <string name="game_kana_link_time_attack_desc">60 seconds to find as many words as possible. Correct words add time!</string>
+    <string name="game_kana_link_survival_title">Survival</string>
+    <string name="game_kana_link_survival_desc">No timer, but wrong words cost more points. See how long you can last!</string>
+    <string name="game_kana_link_no_history">No games played yet</string>
+    <string name="game_kana_link_start">START GAME</string>
+    <string name="game_kana_link_score_label">Score</string>
+    <string name="game_kana_link_time_label">Time</string>
+    <string name="game_kana_link_words_label">Words</string>
+    <string name="game_kana_link_game_over">GAME OVER</string>
+    <string name="game_kana_link_final_score">Final Score</string>
+    <string name="game_kana_link_words_found">Words Found</string>
+    <string name="game_kana_link_return_menu">RETURN TO MENU</string>
+    <string name="game_kana_link_history_item_format">%1$d words found</string>
 </resources>

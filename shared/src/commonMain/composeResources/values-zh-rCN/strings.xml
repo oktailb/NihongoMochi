@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">修订</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">假名链接</string>
+    <string name="game_kana_link_subtitle">连接喀纳斯组成单词并清除方块</string>
+    <string name="game_kana_link_setup_title">假名链接设置</string>
+    <string name="game_kana_link_mode_settings">模式设置</string>
+    <string name="game_kana_link_time_attack_title">时间攻击</string>
+    <string name="game_kana_link_time_attack_desc">60 秒内找到尽可能多的单词。正确的词语可以增加时间！</string>
+    <string name="game_kana_link_survival_title">生存</string>
+    <string name="game_kana_link_survival_desc">没有计时器，但错误的单词会花费更多积分。看看你能坚持多久！</string>
+    <string name="game_kana_link_no_history">还没有玩过任何游戏</string>
+    <string name="game_kana_link_start">开始游戏</string>
+    <string name="game_kana_link_score_label">分数</string>
+    <string name="game_kana_link_time_label">时间</string>
+    <string name="game_kana_link_words_label">字</string>
+    <string name="game_kana_link_game_over">游戏结束</string>
+    <string name="game_kana_link_final_score">最终成绩</string>
+    <string name="game_kana_link_words_found">找到的单词</string>
+    <string name="game_kana_link_return_menu">返回菜单</string>
+    <string name="game_kana_link_history_item_format">找到 %1$d 个单词</string>
 </resources>

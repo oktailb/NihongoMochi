@@ -615,4 +615,22 @@
     <string name="level_user_custom_list">المراجعات</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">كانا لينك</string>
+    <string name="game_kana_link_subtitle">ربط Kanas لتكوين الكلمات والكتل الواضحة</string>
+    <string name="game_kana_link_setup_title">إعداد كانا لينك</string>
+    <string name="game_kana_link_mode_settings">إعدادات الوضع</string>
+    <string name="game_kana_link_time_attack_title">هجوم الوقت</string>
+    <string name="game_kana_link_time_attack_desc">60 ثانية للعثور على أكبر عدد ممكن من الكلمات. الكلمات الصحيحة تضيف الوقت!</string>
+    <string name="game_kana_link_survival_title">بقاء</string>
+    <string name="game_kana_link_survival_desc">لا يوجد توقيت، ولكن الكلمات الخاطئة تكلف المزيد من النقاط. انظر كم من الوقت يمكنك أن تستمر!</string>
+    <string name="game_kana_link_no_history">لم يتم لعب أي مباريات حتى الآن</string>
+    <string name="game_kana_link_start">ابدأ اللعبة</string>
+    <string name="game_kana_link_score_label">نتيجة</string>
+    <string name="game_kana_link_time_label">وقت</string>
+    <string name="game_kana_link_words_label">كلمات</string>
+    <string name="game_kana_link_game_over">انتهت اللعبة</string>
+    <string name="game_kana_link_final_score">النتيجة النهائية</string>
+    <string name="game_kana_link_words_found">الكلمات التي تم العثور عليها</string>
+    <string name="game_kana_link_return_menu">العودة إلى القائمة</string>
+    <string name="game_kana_link_history_item_format">تم العثور على %1$d كلمة</string>
 </resources>

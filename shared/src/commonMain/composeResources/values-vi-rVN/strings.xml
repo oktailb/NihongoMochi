@@ -613,4 +613,22 @@
     <string name="game_writing_kun" translatable="false">KUN</string>
     <string name="dictionary_reading_on">TRÊN:</string>
     <string name="dictionary_reading_kun">Côn:</string>
+    <string name="game_kana_link_title">Liên kết Kana</string>
+    <string name="game_kana_link_subtitle">Liên kết Kanas để tạo thành từ và xóa khối</string>
+    <string name="game_kana_link_setup_title">Thiết lập liên kết Kana</string>
+    <string name="game_kana_link_mode_settings">Cài đặt chế độ</string>
+    <string name="game_kana_link_time_attack_title">Tấn công thời gian</string>
+    <string name="game_kana_link_time_attack_desc">60 giây để tìm càng nhiều từ càng tốt. Lời nói đúng thêm thời gian!</string>
+    <string name="game_kana_link_survival_title">Sống sót</string>
+    <string name="game_kana_link_survival_desc">Không có bộ đếm thời gian, nhưng từ sai sẽ tốn nhiều điểm hơn. Xem bạn có thể kéo dài bao lâu!</string>
+    <string name="game_kana_link_no_history">Chưa có trò chơi nào được chơi</string>
+    <string name="game_kana_link_start">BẮT ĐẦU TRÒ CHƠI</string>
+    <string name="game_kana_link_score_label">Điểm</string>
+    <string name="game_kana_link_time_label">Thời gian</string>
+    <string name="game_kana_link_words_label">Từ</string>
+    <string name="game_kana_link_game_over">TRÒ CHƠI KẾT THÚC</string>
+    <string name="game_kana_link_final_score">Điểm cuối cùng</string>
+    <string name="game_kana_link_words_found">từ tìm thấy</string>
+    <string name="game_kana_link_return_menu">TRỞ LẠI MENU</string>
+    <string name="game_kana_link_history_item_format">Đã tìm thấy %1$d từ</string>
 </resources>

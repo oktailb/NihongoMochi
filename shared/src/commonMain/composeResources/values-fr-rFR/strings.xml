@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">Révisions</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">Lien Kana</string>
+    <string name="game_kana_link_subtitle">Reliez Kanas pour former des mots et effacer des blocs</string>
+    <string name="game_kana_link_setup_title">Configuration du lien Kana</string>
+    <string name="game_kana_link_mode_settings">Paramètres des modes</string>
+    <string name="game_kana_link_time_attack_title">Contre-la-montre</string>
+    <string name="game_kana_link_time_attack_desc">60 secondes pour trouver le plus de mots possible. Les mots corrects ajoutent du temps !</string>
+    <string name="game_kana_link_survival_title">Survie</string>
+    <string name="game_kana_link_survival_desc">Pas de chronomètre, mais les mauvais mots coûtent plus de points. Voyez combien de temps vous pouvez tenir !</string>
+    <string name="game_kana_link_no_history">Aucun jeu joué pour l'instant</string>
+    <string name="game_kana_link_start">COMMENCER LE JEU</string>
+    <string name="game_kana_link_score_label">Score</string>
+    <string name="game_kana_link_time_label">Temps</string>
+    <string name="game_kana_link_words_label">Mots</string>
+    <string name="game_kana_link_game_over">JEU TERMINÉ</string>
+    <string name="game_kana_link_final_score">Score final</string>
+    <string name="game_kana_link_words_found">Mots trouvés</string>
+    <string name="game_kana_link_return_menu">RETOUR AU MENU</string>
+    <string name="game_kana_link_history_item_format">%1$d mots trouvés</string>
 </resources>

@@ -617,4 +617,22 @@
     <string name="level_user_custom_list">개정</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
+    <string name="game_kana_link_title">가나 링크</string>
+    <string name="game_kana_link_subtitle">Kanas를 연결하여 단어를 만들고 블록을 지웁니다.</string>
+    <string name="game_kana_link_setup_title">가나 링크 설정</string>
+    <string name="game_kana_link_mode_settings">모드 설정</string>
+    <string name="game_kana_link_time_attack_title">타임 어택</string>
+    <string name="game_kana_link_time_attack_desc">60초 동안 가능한 한 많은 단어를 찾으세요. 올바른 단어는 시간을 추가합니다!</string>
+    <string name="game_kana_link_survival_title">활착</string>
+    <string name="game_kana_link_survival_desc">타이머는 없지만 잘못된 단어를 사용하면 더 많은 포인트가 필요합니다. 얼마나 오래 버틸 수 있는지 확인해 보세요!</string>
+    <string name="game_kana_link_no_history">아직 플레이한 게임이 없습니다.</string>
+    <string name="game_kana_link_start">게임 시작</string>
+    <string name="game_kana_link_score_label">점수</string>
+    <string name="game_kana_link_time_label">시간</string>
+    <string name="game_kana_link_words_label">단어</string>
+    <string name="game_kana_link_game_over">게임 종료</string>
+    <string name="game_kana_link_final_score">최종 점수</string>
+    <string name="game_kana_link_words_found">찾은 단어</string>
+    <string name="game_kana_link_return_menu">메뉴로 돌아가기</string>
+    <string name="game_kana_link_history_item_format">%1$d단어 발견됨</string>
 </resources>
