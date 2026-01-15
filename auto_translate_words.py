@@ -66,14 +66,14 @@ def main():
                         existing_meanings[w_id] = new_entry
                         print(f"    ID {w_id}: {w['text']} -> {meaning_text}")
                         updates_count += 1
-                        time.sleep(0.4) # Pause anti-ban
+                        time.sleep(0.1) # Pause anti-ban
                     
-                    if updates_count >= 10:
+                    if updates_count >= 100000:
                         print("    Limite de 100 atteinte.")
                         break
                 except Exception as e:
                     print(f"    Erreur sur {w['text']}: {e}")
-                    time.sleep(2)
+                    time.sleep(0.2)
 
         if updates_count > 0:
             target_data['word_meanings']['entries'].sort(key=lambda x: int(x['@id']))
