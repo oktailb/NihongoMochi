@@ -20,10 +20,13 @@ LANG_MAP = {
     'values-fr-rFR': 'fr',
     'values-in-rID': 'id',
     'values-it-rIT': 'it',
+    'values-ja-rJP': 'ja',
     'values-ko-rKR': 'ko',
+    'values-mn-rMN': 'mn',
     'values-pt-rBR': 'pt',
     'values-ru-rRU': 'ru',
     'values-th-rTH': 'th',
+    'values-ua-rUA': 'uk',
     'values-vi-rVN': 'vi',
     'values-zh-rCN': 'zh-CN'
 }
@@ -63,6 +66,11 @@ def main():
         target_file = os.path.join(target_dir, 'strings.xml')
         print(f"\nTraitement de {dir_name} -> {target_lang}...")
         
+        # S'assurer que le répertoire existe avant d'essayer de charger le fichier
+        if not os.path.exists(target_file):
+            print(f"Le fichier {target_file} n'existe pas encore. Il sera créé par sync_strings.py.")
+            continue
+
         tree, root, target_data = load_xml_as_dict(target_file)
         if not tree:
             continue
