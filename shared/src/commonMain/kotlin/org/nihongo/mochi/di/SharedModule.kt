@@ -134,7 +134,8 @@ val sharedModule = module {
         ResultsViewModel(
             cloudSaveService = params.get(),
             statisticsEngine = get(),
-            scoreRepository = get()
+            scoreRepository = get(),
+            stringProvider = get()
         )
     }
 

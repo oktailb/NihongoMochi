@@ -2,7 +2,7 @@ Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
 Bugs:
- - [ ] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
+ - [X] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
 
 Todo:
  - [ ] More i18n : Mogolian and Japanese
@@ -11,6 +11,7 @@ Todo:
  - [ ] Better translations for meanings : Source English + Japanese => other languages
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
+ - [ ] enhance HTML/CSS for grammar lessons
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
