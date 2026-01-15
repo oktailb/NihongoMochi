@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.services.AudioPlayer
@@ -22,8 +21,6 @@ class KanaDropViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
-
-    private val json = Json { ignoreUnknownKeys = true }
 
     private val _state = MutableStateFlow(KanaDropGameState())
     val state: StateFlow<KanaDropGameState> = _state.asStateFlow()
@@ -61,10 +58,7 @@ class KanaDropViewModel(
 
     private fun loadHistory() {
         try {
-            val historyJson = scoreRepository.getKanaLinkHistory()
-            if (historyJson.isNotEmpty() && historyJson != "[]") {
-                _history.value = json.decodeFromString(historyJson)
-            }
+            _history.value = scoreRepository.getKanaLinkHistory()
         } catch (e: Exception) {
             _history.value = emptyList()
         }

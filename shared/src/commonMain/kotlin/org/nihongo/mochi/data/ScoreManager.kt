@@ -171,8 +171,8 @@ class ScoreManager(
         )
     }
 
-    override fun getMemorizeHistory(): String {
-        val results = queries.getTopScoresByTotalPairs("MEMORIZE").executeAsList().map {
+    override fun getMemorizeHistory(): List<MemorizeGameResult> {
+        return queries.getTopScoresByTotalPairs("MEMORIZE").executeAsList().map {
             MemorizeGameResult(
                 moves = it.moves?.toInt() ?: 0,
                 totalPairs = it.totalPairs?.toInt() ?: 0,
@@ -181,7 +181,6 @@ class ScoreManager(
                 timestamp = it.timestamp
             )
         }
-        return Json.encodeToString(results)
     }
 
     override fun saveSimonResult(result: SimonGameResult) {
@@ -199,8 +198,8 @@ class ScoreManager(
         )
     }
 
-    override fun getSimonHistory(): String {
-        val results = queries.getTopScoresByMaxSequence("SIMON").executeAsList().map {
+    override fun getSimonHistory(): List<SimonGameResult> {
+        return queries.getTopScoresByMaxSequence("SIMON").executeAsList().map {
             SimonGameResult(
                 levelId = it.metadata ?: "", 
                 mode = org.nihongo.mochi.ui.games.simon.SimonMode.KANJI, 
@@ -209,7 +208,6 @@ class ScoreManager(
                 timestamp = it.timestamp
             )
         }
-        return Json.encodeToString(results)
     }
 
     override fun saveTaquinResult(result: TaquinGameResult) {
@@ -227,8 +225,8 @@ class ScoreManager(
         )
     }
 
-    override fun getTaquinHistory(): String {
-        val results = queries.getTopScoresByRows("TAQUIN").executeAsList().map {
+    override fun getTaquinHistory(): List<TaquinGameResult> {
+        return queries.getTopScoresByRows("TAQUIN").executeAsList().map {
             TaquinGameResult(
                 mode = org.nihongo.mochi.ui.games.taquin.TaquinMode.HIRAGANA,
                 rows = it.rows?.toInt() ?: 0,
@@ -237,7 +235,6 @@ class ScoreManager(
                 timestamp = it.timestamp
             )
         }
-        return Json.encodeToString(results)
     }
 
     override fun saveKanaLinkResult(result: KanaLinkResult) {
@@ -255,8 +252,8 @@ class ScoreManager(
         )
     }
 
-    override fun getKanaLinkHistory(): String {
-        val results = queries.getTopScoresByKanaLink("KANALINK").executeAsList().map {
+    override fun getKanaLinkHistory(): List<KanaLinkResult> {
+        return queries.getTopScoresByKanaLink("KANALINK").executeAsList().map {
             KanaLinkResult(
                 score = it.score.toInt(),
                 wordsFound = it.wordsFound?.toInt() ?: 0,
@@ -265,7 +262,6 @@ class ScoreManager(
                 timestamp = it.timestamp
             )
         }
-        return Json.encodeToString(results)
     }
 
     override fun saveCrosswordResult(result: CrosswordGameResult) {
@@ -283,8 +279,8 @@ class ScoreManager(
         )
     }
 
-    override fun getCrosswordHistory(): String {
-        val results = queries.getTopScoresByWordsFound("CROSSWORD").executeAsList().map {
+    override fun getCrosswordHistory(): List<CrosswordGameResult> {
+        return queries.getTopScoresByWordsFound("CROSSWORD").executeAsList().map {
             CrosswordGameResult(
                 wordCount = it.wordsFound?.toInt() ?: 0,
                 mode = try { CrosswordMode.valueOf(it.metadata ?: "KANAS") } catch(e: Exception) { CrosswordMode.KANAS },
@@ -293,7 +289,6 @@ class ScoreManager(
                 timestamp = it.timestamp
             )
         }
-        return Json.encodeToString(results)
     }
 
     // --- Import/Export ---
@@ -322,11 +317,13 @@ class ScoreManager(
                     putJsonArray(k) { v.forEach { add(JsonPrimitive(it)) } }
                 }
             })
-            put("memorize_history", JsonPrimitive(getMemorizeHistory()))
-            put("simon_history", JsonPrimitive(getSimonHistory()))
-            put("taquin_history", JsonPrimitive(getTaquinHistory()))
-            put("kana_link_history", JsonPrimitive(getKanaLinkHistory()))
-            put("crossword_history", JsonPrimitive(getCrosswordHistory()))
+            // History is now internal, but for backup we might want to keep it as JSON or similar
+            // For simplicity in backup, let's keep encoding lists to JSON for the export format
+            put("memorize_history", Json.encodeToJsonElement(getMemorizeHistory()))
+            put("simon_history", Json.encodeToJsonElement(getSimonHistory()))
+            put("taquin_history", Json.encodeToJsonElement(getTaquinHistory()))
+            put("kana_link_history", Json.encodeToJsonElement(getKanaLinkHistory()))
+            put("crossword_history", Json.encodeToJsonElement(getCrosswordHistory()))
         }
 
         return Json.encodeToString(jsonObject)

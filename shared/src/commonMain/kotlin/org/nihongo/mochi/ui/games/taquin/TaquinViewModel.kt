@@ -7,26 +7,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
+import org.nihongo.mochi.domain.kana.NumberEntry
 import org.nihongo.mochi.presentation.ViewModel
 import org.nihongo.mochi.domain.services.AudioPlayer
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class NumberEntry(val character: String, val romaji: String, val value: Int)
-@Serializable
-data class NumberData(val numbers: List<NumberEntry>)
 
 class TaquinViewModel(
     private val kanaRepository: KanaRepository,
     private val scoreRepository: ScoreRepository,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
-
-    private val json = Json { ignoreUnknownKeys = true }
 
     // --- Setup State ---
     private val _selectedMode = MutableStateFlow(TaquinMode.HIRAGANA)
@@ -50,10 +42,7 @@ class TaquinViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = scoreRepository.getTaquinHistory()
-            if (historyJson.isNotEmpty()) {
-                _scoresHistory.value = json.decodeFromString(historyJson)
-            }
+            _scoresHistory.value = scoreRepository.getTaquinHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
         }
@@ -62,7 +51,7 @@ class TaquinViewModel(
     fun onModeSelected(mode: TaquinMode) {
         _selectedMode.value = mode
         if (mode == TaquinMode.NUMBERS) {
-             _selectedRows.value = 4 // Numbers fixed to 4x4 (15 pieces)
+             _selectedRows.value = 4 
         }
     }
 
@@ -95,12 +84,10 @@ class TaquinViewModel(
                     }
                 }
             } else {
-                // Load from numbers.json
                 val numberEntries = kanaRepository.getNumberEntries()
-                numberEntries.take(15).forEachIndexed { i, entry ->
+                numberEntries.take(15).forEachIndexed { i, entry: NumberEntry ->
                     solvedPieces.add(TaquinPiece(entry.character, (i / 4) + 1, (i % 4) + 1))
                 }
-                // Ensure we have exactly 15 pieces + 1 blank even if JSON is short
                 while (solvedPieces.size < 15) {
                     solvedPieces.add(TaquinPiece("", 0, 0))
                 }
@@ -111,17 +98,19 @@ class TaquinViewModel(
             val shuffleMoves = rows * cols * 20
             repeat(shuffleMoves) {
                 val blankIndex = shuffledPieces.indexOfFirst { it.isBlank }
-                val bRow = blankIndex / cols
-                val bCol = blankIndex % cols
-                
-                val neighbors = mutableListOf<Int>()
-                if (bRow > 0) neighbors.add(blankIndex - cols)
-                if (bRow < rows - 1) neighbors.add(blankIndex + cols)
-                if (bCol > 0) neighbors.add(blankIndex - 1)
-                if (bCol < cols - 1) neighbors.add(blankIndex + 1)
-                
-                val moveIndex = neighbors.random()
-                shuffledPieces = swapped(shuffledPieces, blankIndex, moveIndex)
+                if (blankIndex != -1) {
+                    val bRow = blankIndex / cols
+                    val bCol = blankIndex % cols
+                    
+                    val neighbors = mutableListOf<Int>()
+                    if (bRow > 0) neighbors.add(blankIndex - cols)
+                    if (bRow < rows - 1) neighbors.add(blankIndex + cols)
+                    if (bCol > 0) neighbors.add(blankIndex - 1)
+                    if (bCol < cols - 1) neighbors.add(blankIndex + 1)
+                    
+                    val moveIndex = neighbors.random()
+                    shuffledPieces = swapped(shuffledPieces, blankIndex, moveIndex)
+                }
             }
 
             _gameState.value = TaquinGameState(

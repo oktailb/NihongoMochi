@@ -7,8 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
@@ -79,7 +77,6 @@ class SimonViewModel(
     private var inputIndex = 0
     private var timerJob: Job? = null
     private var allPlayablesInLevel: List<SimonPlayable> = emptyList()
-    private val json = Json { ignoreUnknownKeys = true }
 
     init {
         loadScoresHistory()
@@ -99,11 +96,7 @@ class SimonViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = scoreRepository.getSimonHistory()
-            if (historyJson.isNotEmpty()) {
-                val history = json.decodeFromString<List<SimonGameResult>>(historyJson)
-                _scoresHistory.value = history
-            }
+            _scoresHistory.value = scoreRepository.getSimonHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
         }
@@ -283,7 +276,7 @@ class SimonViewModel(
         _scoresHistory.value = newHistory
         
         try {
-            scoreRepository.saveSimonHistory(json.encodeToString(newHistory))
+            scoreRepository.saveSimonResult(result)
         } catch (e: Exception) {
         }
     }

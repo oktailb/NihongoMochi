@@ -2,8 +2,6 @@ package org.nihongo.mochi.domain.kana
 
 import kotlinx.serialization.json.Json
 import kotlinx.coroutines.runBlocking
-import org.nihongo.mochi.ui.games.taquin.NumberData
-import org.nihongo.mochi.ui.games.taquin.NumberEntry
 
 class KanaRepository(private val resourceLoader: ResourceLoader) {
     

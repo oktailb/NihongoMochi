@@ -73,10 +73,7 @@ class CrosswordViewModel(
     fun loadHistory() {
         viewModelScope.launch {
             try {
-                val historyJson = scoreRepository.getCrosswordHistory()
-                if (historyJson.isNotEmpty() && historyJson != "[]") {
-                    _scoresHistory.value = Json.decodeFromString(historyJson)
-                }
+                _scoresHistory.value = scoreRepository.getCrosswordHistory()
             } catch (e: Exception) {
                 _scoresHistory.value = emptyList()
             }
@@ -267,7 +264,6 @@ class CrosswordViewModel(
                         }
                     }
                     val realMeaning = originalEntry?.let { meanings[it.id] }
-                    // On ne met PAS cw.kanji ici, sinon ça affiche la solution
                     cw.copy(meaning = realMeaning ?: "") 
                 }
                 Pair(genCells, finalWords)

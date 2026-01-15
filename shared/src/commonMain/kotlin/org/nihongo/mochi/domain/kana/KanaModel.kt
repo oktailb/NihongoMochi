@@ -27,3 +27,15 @@ enum class KanaType {
 data class KanaData(
     val characters: List<KanaEntry>
 )
+
+@Serializable
+data class NumberEntry(
+    val character: String, 
+    val romaji: String, 
+    val value: Int
+)
+
+@Serializable
+data class NumberData(
+    val numbers: List<NumberEntry>
+)

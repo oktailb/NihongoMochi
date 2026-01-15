@@ -73,7 +73,6 @@ class MemorizeViewModel(
 
     private var firstSelectedCardIndex: Int? = null
     private var timerJob: Job? = null
-    private val json = Json { ignoreUnknownKeys = true }
 
     init {
         viewModelScope.launch {
@@ -88,11 +87,7 @@ class MemorizeViewModel(
 
     private fun loadScoresHistory() {
         try {
-            val historyJson = scoreRepository.getMemorizeHistory()
-            if (historyJson.isNotEmpty() && historyJson != "[]") {
-                val history = json.decodeFromString<List<MemorizeGameResult>>(historyJson)
-                _scoresHistory.value = history
-            }
+            _scoresHistory.value = scoreRepository.getMemorizeHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
         }
@@ -160,7 +155,6 @@ class MemorizeViewModel(
                     .map { MemorizePlayable(it.id, it.character) }
             }
             
-            // Ultimate Fallback
             if (allPlayables.isEmpty() && !isKana) {
                 allPlayables = getKanjisForLevel("n5").map { MemorizePlayable(it.id, it.character) }
             }
@@ -199,7 +193,11 @@ class MemorizeViewModel(
 
     fun onCardClicked(index: Int) {
         val currentCards = _cards.value
-        if (index !in currentCards.indices || _isProcessing.value || currentCards[index].isFaceUp || currentCards[index].isMatched) return
+        if (index !in currentCards.indices || 
+            _isProcessing.value || 
+            currentCards[index].isFaceUp || 
+            currentCards[index].isMatched ||
+            _isGameFinished.value) return
 
         _cards.update { list ->
             list.mapIndexed { i, card ->
@@ -215,9 +213,11 @@ class MemorizeViewModel(
             _moves.update { it + 1 }
             
             viewModelScope.launch {
-                _isProcessing.value = true
+                _isProcessing.value = true 
+                delay(400) 
                 
-                if (currentCards[firstIndex].item.id == currentCards[index].item.id) {
+                val updatedCards = _cards.value
+                if (updatedCards[firstIndex].item.id == updatedCards[index].item.id) {
                     audioPlayer.playSound("sounds/correct.mp3")
                     _cards.update { list ->
                         list.mapIndexed { i, card ->
@@ -228,7 +228,7 @@ class MemorizeViewModel(
                     checkGameFinished()
                 } else {
                     audioPlayer.playSound("sounds/incorrect.mp3")
-                    delay(800)
+                    delay(600) 
                     _cards.update { list ->
                         list.mapIndexed { i, card ->
                             if (i == firstIndex || i == index) card.copy(isFaceUp = false) else card
@@ -257,26 +257,21 @@ class MemorizeViewModel(
             timestamp = Clock.System.now().toEpochMilliseconds()
         )
         
-        // Update local state history for immediate UI feedback if needed
-        val newHistory = (_scoresHistory.value.toMutableList().apply {
-            add(0, result)
-        }).take(10)
+        val newHistory = (listOf(result) + _scoresHistory.value).take(10)
         _scoresHistory.value = newHistory
         
         viewModelScope.launch {
             try {
-                // Save single result instead of the whole list JSON string
                 scoreRepository.saveMemorizeResult(result)
-            } catch (e: Exception) {
-            }
+            } catch (e: Exception) {}
         }
     }
 
     fun abandonGame() {
+        timerJob?.cancel()
         if (!_isGameFinished.value && _cards.value.isNotEmpty()) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }
-        timerJob?.cancel()
         _cards.value = emptyList()
         _isGameFinished.value = false
         updateLevelInfo()
@@ -284,6 +279,7 @@ class MemorizeViewModel(
 
     override fun onCleared() {
         super.onCleared()
+        timerJob?.cancel()
         audioPlayer.stopAll()
     }
 }

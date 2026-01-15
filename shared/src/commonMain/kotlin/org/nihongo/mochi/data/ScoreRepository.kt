@@ -26,19 +26,19 @@ interface ScoreRepository {
 
     // History methods
     fun saveMemorizeResult(result: MemorizeGameResult)
-    fun getMemorizeHistory(): String
+    fun getMemorizeHistory(): List<MemorizeGameResult>
     
     fun saveSimonResult(result: SimonGameResult)
-    fun getSimonHistory(): String
+    fun getSimonHistory(): List<SimonGameResult>
     
     fun saveTaquinResult(result: TaquinGameResult)
-    fun getTaquinHistory(): String
+    fun getTaquinHistory(): List<TaquinGameResult>
     
     fun saveKanaLinkResult(result: KanaLinkResult)
-    fun getKanaLinkHistory(): String
+    fun getKanaLinkHistory(): List<KanaLinkResult>
 
     fun saveCrosswordResult(result: CrosswordGameResult)
-    fun getCrosswordHistory(): String
+    fun getCrosswordHistory(): List<CrosswordGameResult>
 
     // Legacy (to be removed once migrated)
     @Deprecated("Use saveMemorizeResult")

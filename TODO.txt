@@ -3,6 +3,9 @@ La meilleure appli d apprentissage du japonais qui soit
 
 Bugs:
  - [X] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
+ - [X] KanaDrop en mode semble ne plus fonctionner correctement -> pb de wordlist ?
+ - [?] Memorise en 5x6 plante souvent apres + de 30 mouvements -> fuite memoire ? pb threading ?
+ - [ ] Crossword -> au croisement avec un mot sur l autre axe, le prochain kana est vole par l autre axe
 
 Todo:
  - [X] More i18n : Mogolian and Japanese
@@ -11,7 +14,8 @@ Todo:
  - [X] Better translations for meanings : Source English + Japanese => other languages
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
- - [ ] enhance HTML/CSS for grammar lessons
+ - [X] enhance HTML/CSS for grammar lessons
+ - [ ] enhance grammar exercices display
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
