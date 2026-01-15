@@ -542,7 +542,7 @@
       },
       {
         "@id": "79",
-        "meaning": "Thread"
+        "meaning": "Chủ đề"
       },
       {
         "@id": "80",
@@ -1511,9 +1511,9 @@
       {
         "@id": "208",
         "meaning": [
-          "Boulder",
-          "Rock",
-          "Cliff"
+          "Đá",
+          "Tảng đá",
+          "Vách đá"
         ]
       },
       {
@@ -2043,7 +2043,7 @@
       },
       {
         "@id": "273",
-        "meaning": "Prefecture"
+        "meaning": "Tỉnh"
       },
       {
         "@id": "274",
@@ -5213,7 +5213,10 @@
       },
       {
         "@id": "621",
-        "meaning": "Plum"
+        "meaning": [
+          "Quả mận",
+          "Mận"
+        ]
       },
       {
         "@id": "622",
@@ -6958,7 +6961,10 @@
       },
       {
         "@id": "810",
-        "meaning": "Cherry"
+        "meaning": [
+          "Hoa anh đào",
+          "Anh đào"
+        ]
       },
       {
         "@id": "811",
@@ -7049,7 +7055,7 @@
       },
       {
         "@id": "820",
-        "meaning": "Cotton"
+        "meaning": "Bông"
       },
       {
         "@id": "821",
@@ -7057,7 +7063,10 @@
       },
       {
         "@id": "822",
-        "meaning": "Eyeball"
+        "meaning": [
+          "Mắt",
+          "Nhãn cầu"
+        ]
       },
       {
         "@id": "823",
@@ -8583,7 +8592,7 @@
       },
       {
         "@id": "991",
-        "meaning": "Sugar"
+        "meaning": "Đường"
       },
       {
         "@id": "992",
@@ -8657,8 +8666,9 @@
       {
         "@id": "1000",
         "meaning": [
-          "Magnet",
-          "Porcelain"
+          "Từ tính",
+          "Nam châm",
+          "Sứ"
         ]
       },
       {
@@ -8687,7 +8697,7 @@
       },
       {
         "@id": "1004",
-        "meaning": "Silk"
+        "meaning": "Lụa"
       },
       {
         "@id": "1005",
@@ -8701,7 +8711,10 @@
       },
       {
         "@id": "1006",
-        "meaning": "Silkworm"
+        "meaning": [
+          "Con tằm",
+          "Tằm"
+        ]
       },
       {
         "@id": "1007",
@@ -8724,7 +8737,7 @@
       },
       {
         "@id": "1009",
-        "meaning": "Wisteria"
+        "meaning": "Hoa tử đằng"
       },
       {
         "@id": "1010",
@@ -10226,7 +10239,7 @@
       },
       {
         "@id": "1172",
-        "meaning": "Deer"
+        "meaning": "Con nai"
       },
       {
         "@id": "1173",
@@ -10733,8 +10746,9 @@
       {
         "@id": "1226",
         "meaning": [
-          "Turf",
-          "Lawn"
+          "Cỏ",
+          "Sân cỏ",
+          "Bãi cỏ"
         ]
       },
       {
@@ -10851,12 +10865,12 @@
       {
         "@id": "1240",
         "meaning": [
-          "Swing",
-          "Shake",
-          "Sway",
-          "Rock",
-          "Tremble",
-          "Vibrate"
+          "Lắc",
+          "Đu",
+          "Lắc lư",
+          "Đá",
+          "Run rẩy",
+          "Rung"
         ]
       },
       {
@@ -10946,8 +10960,8 @@
       {
         "@id": "1251",
         "meaning": [
-          "Cedar",
-          "Cryptomeria"
+          "Cây tuyết tùng",
+          "Tiền điện tử"
         ]
       },
       {
@@ -11316,7 +11330,7 @@
       },
       {
         "@id": "1292",
-        "meaning": "Willow"
+        "meaning": "Liễu"
       },
       {
         "@id": "1293",
@@ -11646,10 +11660,10 @@
       {
         "@id": "1332",
         "meaning": [
-          "Slippery",
-          "Slide",
-          "Slip",
-          "Flunk"
+          "Trơn",
+          "Trơn trượt",
+          "Trượt",
+          "Thất bại"
         ]
       },
       {
@@ -11737,8 +11751,9 @@
       {
         "@id": "1343",
         "meaning": [
-          "Sweep",
-          "Brush"
+          "Vệ sinh",
+          "Quét",
+          "Bàn chải"
         ]
       },
       {
@@ -11805,9 +11820,10 @@
       {
         "@id": "1351",
         "meaning": [
-          "Wink",
-          "Blink",
-          "Twinkle"
+          "Thuấn",
+          "Nháy mắt",
+          "Chớp mắt",
+          "Lấp lánh"
         ]
       },
       {
@@ -12426,8 +12442,8 @@
       {
         "@id": "1425",
         "meaning": [
-          "Crane",
-          "Stork"
+          "Cần cẩu",
+          "Cò"
         ]
       },
       {
@@ -12671,8 +12687,8 @@
       {
         "@id": "1450",
         "meaning": [
-          "Ridgepole",
-          "Ridge"
+          "Sườn núi",
+          "Cột sống"
         ]
       },
       {
@@ -12858,9 +12874,10 @@
       {
         "@id": "1472",
         "meaning": [
-          "Pluck",
-          "Pull",
-          "Extract",
+          "Xổ số",
+          "Nhổ lông",
+          "Kéo",
+          "Trích xuất",
           "Excel"
         ]
       },
@@ -13247,9 +13264,9 @@
       {
         "@id": "1517",
         "meaning": [
-          "Diagonal",
-          "Slanting",
-          "Oblique"
+          "Xiên",
+          "Đường chéo",
+          "Nghiêng"
         ]
       },
       {
@@ -13423,8 +13440,9 @@
       {
         "@id": "1538",
         "meaning": [
-          "Blossom",
-          "Bloom"
+          "Saki",
+          "Hoa",
+          "Nở hoa"
         ]
       },
       {
@@ -13801,9 +13819,9 @@
       {
         "@id": "1582",
         "meaning": [
-          "Sickle",
-          "Scythe",
-          "Trick"
+          "Liềm",
+          "Lưỡi hái",
+          "Thủ thuật"
         ]
       },
       {
@@ -13825,8 +13843,8 @@
       {
         "@id": "1585",
         "meaning": [
-          "Harp",
-          "Koto"
+          "Koto",
+          "Đàn hạc"
         ]
       },
       {
@@ -14189,7 +14207,7 @@
       },
       {
         "@id": "1627",
-        "meaning": "Mulberry"
+        "meaning": "Dâu tằm"
       },
       {
         "@id": "1628",
@@ -14259,7 +14277,7 @@
       },
       {
         "@id": "1636",
-        "meaning": "Epidemic"
+        "meaning": "Bệnh dịch"
       },
       {
         "@id": "1637",
@@ -14775,7 +14793,7 @@
       },
       {
         "@id": "1698",
-        "meaning": "Persimmon"
+        "meaning": "Quả hồng"
       },
       {
         "@id": "1699",
@@ -14979,9 +14997,10 @@
       {
         "@id": "1723",
         "meaning": [
-          "Bowstring",
-          "Chord",
-          "Hypotenuse"
+          "Sợi dây",
+          "Dây cung",
+          "Hợp âm",
+          "Cạnh huyền"
         ]
       },
       {
@@ -15041,7 +15060,7 @@
       },
       {
         "@id": "1731",
-        "meaning": "Peach"
+        "meaning": "Quả đào"
       },
       {
         "@id": "1732",
@@ -15071,9 +15090,8 @@
       {
         "@id": "1735",
         "meaning": [
-          "Whirlpool",
-          "Eddy",
-          "Vortex"
+          "Xoáy nước",
+          "Xoáy"
         ]
       },
       {
@@ -15211,9 +15229,10 @@
       {
         "@id": "1752",
         "meaning": [
-          "Pot",
-          "Pan",
-          "Kettle"
+          "Cái nồi",
+          "Nồi",
+          "Chảo",
+          "Ấm đun nước"
         ]
       },
       {
@@ -15240,10 +15259,10 @@
       {
         "@id": "1756",
         "meaning": [
-          "Pickling",
-          "Soak",
-          "Moisten",
-          "Steep"
+          "Dưa chua",
+          "Ngâm",
+          "Làm ẩm",
+          "Dốc"
         ]
       },
       {
@@ -15390,7 +15409,7 @@
       },
       {
         "@id": "1775",
-        "meaning": "Nun"
+        "meaning": "Ni cô"
       },
       {
         "@id": "1776",
@@ -15459,8 +15478,9 @@
       {
         "@id": "1784",
         "meaning": [
-          "Hoarse",
-          "Scold"
+          "Chúc mừng",
+          "Khàn tiếng",
+          "Mắng"
         ]
       },
       {
@@ -15483,7 +15503,10 @@
       },
       {
         "@id": "1787",
-        "meaning": "Fermentation"
+        "meaning": [
+          "Quá trình lên men",
+          "Lên men"
+        ]
       },
       {
         "@id": "1788",
@@ -15519,7 +15542,7 @@
       },
       {
         "@id": "1792",
-        "meaning": "Sulphur"
+        "meaning": "Lưu huỳnh"
       },
       {
         "@id": "1793",
@@ -15582,7 +15605,10 @@
       },
       {
         "@id": "1800",
-        "meaning": "Spinning"
+        "meaning": [
+          "Quay tròn",
+          "Quay"
+        ]
       },
       {
         "@id": "1801",
@@ -15826,7 +15852,7 @@
       },
       {
         "@id": "1832",
-        "meaning": "Sail"
+        "meaning": "Chèo"
       },
       {
         "@id": "1833",
@@ -15870,7 +15896,7 @@
       },
       {
         "@id": "1838",
-        "meaning": "Fist"
+        "meaning": "Nắm tay"
       },
       {
         "@id": "1839",
@@ -16085,8 +16111,8 @@
       {
         "@id": "1864",
         "meaning": [
-          "Reef",
-          "Sunken Rock"
+          "Rạn san hô",
+          "Đá chìm"
         ]
       },
       {
@@ -16132,7 +16158,10 @@
       },
       {
         "@id": "1870",
-        "meaning": "Lips"
+        "meaning": [
+          "Đôi môi",
+          "Môi"
+        ]
       },
       {
         "@id": "1871",
@@ -16257,7 +16286,10 @@
       },
       {
         "@id": "1885",
-        "meaning": "Pan-"
+        "meaning": [
+          "Chảo",
+          "Chảo-"
+        ]
       },
       {
         "@id": "1886",
@@ -16345,7 +16377,7 @@
       },
       {
         "@id": "1897",
-        "meaning": "Diarrhea"
+        "meaning": "Tiêu chảy"
       },
       {
         "@id": "1898",
@@ -16364,7 +16396,7 @@
       },
       {
         "@id": "1900",
-        "meaning": "Indigo"
+        "meaning": "Màu chàm"
       },
       {
         "@id": "1901",
@@ -16377,7 +16409,10 @@
       },
       {
         "@id": "1902",
-        "meaning": "Squeeze"
+        "meaning": [
+          "Sữa",
+          "Vắt kiệt"
+        ]
       },
       {
         "@id": "1903",
@@ -16652,7 +16687,7 @@
       },
       {
         "@id": "1936",
-        "meaning": "Rainbow"
+        "meaning": "Cầu vồng"
       },
       {
         "@id": "1937",
@@ -16682,7 +16717,7 @@
       },
       {
         "@id": "1940",
-        "meaning": "Mosquito"
+        "meaning": "Muỗi"
       },
       {
         "@id": "1941",
@@ -16696,8 +16731,9 @@
       {
         "@id": "1942",
         "meaning": [
-          "Seaweed",
-          "Duckweed"
+          "Tảo",
+          "Rong biển",
+          "Bèo tấm"
         ]
       },
       {
@@ -16735,8 +16771,8 @@
       {
         "@id": "1947",
         "meaning": [
-          "Spit",
-          "Skewer"
+          "Xiên",
+          "Nhổ"
         ]
       },
       {
@@ -16766,9 +16802,10 @@
       {
         "@id": "1951",
         "meaning": [
-          "Rhyme",
-          "Elegance",
-          "Tone"
+          "Vần điệu",
+          "Vần",
+          "Sang trọng",
+          "Giai điệu"
         ]
       },
       {
@@ -16788,7 +16825,7 @@
       },
       {
         "@id": "1955",
-        "meaning": "Chopsticks"
+        "meaning": "Đũa"
       },
       {
         "@id": "1956",
@@ -16840,7 +16877,7 @@
       },
       {
         "@id": "1963",
-        "meaning": "Eyebrow"
+        "meaning": "Lông mày"
       },
       {
         "@id": "1964",
@@ -16893,7 +16930,10 @@
       },
       {
         "@id": "1970",
-        "meaning": "Wick"
+        "meaning": [
+          "Cốt lõi",
+          "Tim"
+        ]
       },
       {
         "@id": "1971",
@@ -16906,9 +16946,9 @@
       {
         "@id": "1972",
         "meaning": [
-          "Concave",
-          "Hollow",
-          "Sunken"
+          "Lõm",
+          "Rỗng",
+          "Chìm đắm"
         ]
       },
       {
@@ -16937,8 +16977,9 @@
       {
         "@id": "1975",
         "meaning": [
-          "Thigh",
-          "Crotch"
+          "Háng",
+          "Đùi",
+          "Đáy quần"
         ]
       },
       {
@@ -16973,9 +17014,8 @@
       {
         "@id": "1979",
         "meaning": [
-          "Bee",
-          "Wasp",
-          "Hornet"
+          "Con ong",
+          "Ong bắp cày"
         ]
       },
       {
@@ -17208,7 +17248,10 @@
       },
       {
         "@id": "2008",
-        "meaning": "Barbarian"
+        "meaning": [
+          "Sự man rợ",
+          "Man rợ"
+        ]
       },
       {
         "@id": "2009",
@@ -17260,11 +17303,14 @@
       },
       {
         "@id": "2017",
-        "meaning": "Kick"
+        "meaning": "Đá"
       },
       {
         "@id": "2018",
-        "meaning": "Obituary"
+        "meaning": [
+          "Đã chết",
+          "Cáo phó"
+        ]
       },
       {
         "@id": "2019",
@@ -17421,7 +17467,10 @@
       },
       {
         "@id": "2039",
-        "meaning": "Cocoon"
+        "meaning": [
+          "Cái kén",
+          "Kén"
+        ]
       },
       {
         "@id": "2040",
@@ -17506,8 +17555,8 @@
       {
         "@id": "2052",
         "meaning": [
-          "Saliva",
-          "Sputum"
+          "Nước bọt",
+          "Đờm"
         ]
       },
       {
@@ -17825,8 +17874,8 @@
       {
         "@id": "2094",
         "meaning": [
-          "Pox",
-          "Smallpox"
+          "Bệnh đậu mùa",
+          "Thủy đậu"
         ]
       },
       {
@@ -17909,7 +17958,7 @@
       },
       {
         "@id": "2107",
-        "meaning": "Gland"
+        "meaning": "Tuyến"
       },
       {
         "@id": "2108",
@@ -18063,7 +18112,10 @@
       },
       {
         "@id": "2127",
-        "meaning": "Sake"
+        "meaning": [
+          "Chu",
+          "Rượu sake"
+        ]
       },
       {
         "@id": "2128",
@@ -18188,7 +18240,10 @@
       },
       {
         "@id": "2142",
-        "meaning": "Plum"
+        "meaning": [
+          "Lý",
+          "Mận"
+        ]
       },
       {
         "@id": "2143",
@@ -18298,7 +18353,7 @@
       },
       {
         "@id": "2160",
-        "meaning": "Chestnut"
+        "meaning": "Hạt dẻ"
       },
       {
         "@id": "2161",
@@ -18316,7 +18371,10 @@
       },
       {
         "@id": "2163",
-        "meaning": "Sedge"
+        "meaning": [
+          "Suga",
+          "Cói"
+        ]
       },
       {
         "@id": "2164",
@@ -18376,22 +18434,21 @@
       {
         "@id": "2171",
         "meaning": [
-          "Reed",
-          "Rush"
+          "Ogi",
+          "Sậy",
+          "Vội vàng"
         ]
       },
       {
         "@id": "2172",
-        "meaning": [
-          "Pigeon",
-          "Dove"
-        ]
+        "meaning": "Chim bồ câu"
       },
       {
         "@id": "2173",
         "meaning": [
-          "Brush",
-          "Firewood"
+          "Shiba",
+          "Bàn chải",
+          "Củi"
         ]
       },
       {
@@ -18415,7 +18472,7 @@
       },
       {
         "@id": "2178",
-        "meaning": "Hawk"
+        "meaning": "Chim ưng"
       },
       {
         "@id": "2179",
@@ -18457,7 +18514,10 @@
       },
       {
         "@id": "2185",
-        "meaning": "Phoenix"
+        "meaning": [
+          "Bành",
+          "Phượng hoàng"
+        ]
       },
       {
         "@id": "2186",
@@ -18474,7 +18534,8 @@
       {
         "@id": "2188",
         "meaning": [
-          "Reed",
+          "Cây lau",
+          "Sậy",
           "Bullrush"
         ]
       },
@@ -18487,7 +18548,10 @@
       },
       {
         "@id": "2190",
-        "meaning": "Bracelet"
+        "meaning": [
+          "Sensu",
+          "Vòng đeo tay"
+        ]
       },
       {
         "@id": "2191",
@@ -18530,7 +18594,10 @@
       },
       {
         "@id": "2197",
-        "meaning": "Willow"
+        "meaning": [
+          "Dương",
+          "Liễu"
+        ]
       },
       {
         "@id": "2198",
@@ -18558,7 +18625,7 @@
       },
       {
         "@id": "2201",
-        "meaning": "Camellia"
+        "meaning": "Hoa trà"
       },
       {
         "@id": "2202",
@@ -18571,7 +18638,7 @@
       },
       {
         "@id": "2203",
-        "meaning": "Lotus"
+        "meaning": "Hoa sen"
       },
       {
         "@id": "2204",
@@ -18636,7 +18703,10 @@
       },
       {
         "@id": "2213",
-        "meaning": "Miscanthus Reed"
+        "meaning": [
+          "Tranh",
+          "Miscanthus sậy"
+        ]
       },
       {
         "@id": "2214",
@@ -18864,8 +18934,8 @@
       {
         "@id": "2248",
         "meaning": [
-          "Scout",
-          "Sentinel"
+          "Lính gác",
+          "Trinh sát"
         ]
       },
       {
@@ -18891,11 +18961,17 @@
       },
       {
         "@id": "2253",
-        "meaning": "Winnowing"
+        "meaning": [
+          "Sàng lọc",
+          "Giành chiến thắng"
+        ]
       },
       {
         "@id": "2254",
-        "meaning": "Banana"
+        "meaning": [
+          "Âm trầm",
+          "Chuối"
+        ]
       },
       {
         "@id": "2255",
@@ -18903,7 +18979,10 @@
       },
       {
         "@id": "2256",
-        "meaning": "Oak"
+        "meaning": [
+          "Cây sồi",
+          "Gỗ sồi"
+        ]
       },
       {
         "@id": "2257",
@@ -18936,10 +19015,7 @@
       },
       {
         "@id": "2261",
-        "meaning": [
-          "Crow",
-          "Raven"
-        ]
+        "meaning": "Con quạ"
       },
       {
         "@id": "2262",
@@ -18955,7 +19031,10 @@
       },
       {
         "@id": "2264",
-        "meaning": "Mandarin Orange"
+        "meaning": [
+          "Tachibana",
+          "Cam quýt"
+        ]
       },
       {
         "@id": "2265",
@@ -19145,7 +19224,7 @@
       },
       {
         "@id": "2291",
-        "meaning": "Cormorant"
+        "meaning": "Chim cốc"
       },
       {
         "@id": "2292",
@@ -19156,7 +19235,10 @@
       },
       {
         "@id": "2293",
-        "meaning": "Hollyhock"
+        "meaning": [
+          "Aoi",
+          "Hollyhock"
+        ]
       },
       {
         "@id": "2294",
@@ -19177,7 +19259,10 @@
       },
       {
         "@id": "2296",
-        "meaning": "Wolf"
+        "meaning": [
+          "Chó sói",
+          "Sói"
+        ]
       },
       {
         "@id": "2297",
@@ -19226,7 +19311,10 @@
       },
       {
         "@id": "2302",
-        "meaning": "Stretch"
+        "meaning": [
+          "Thông thạo",
+          "Kéo dài"
+        ]
       },
       {
         "@id": "2303",
@@ -19247,7 +19335,10 @@
       },
       {
         "@id": "2306",
-        "meaning": "Clay"
+        "meaning": [
+          "Hani",
+          "Đất sét"
+        ]
       },
       {
         "@id": "2307",
@@ -19262,7 +19353,10 @@
       },
       {
         "@id": "2309",
-        "meaning": "Parsley"
+        "meaning": [
+          "Seri",
+          "Mùi tây"
+        ]
       },
       {
         "@id": "2310",
@@ -19306,7 +19400,7 @@
       },
       {
         "@id": "2317",
-        "meaning": "Heron"
+        "meaning": "Diệc"
       },
       {
         "@id": "2318",
@@ -19433,7 +19527,7 @@
       },
       {
         "@id": "2336",
-        "meaning": "Saddle"
+        "meaning": "Yên xe"
       },
       {
         "@id": "2337",
@@ -19444,7 +19538,7 @@
       },
       {
         "@id": "2338",
-        "meaning": "Miscanthus Reed"
+        "meaning": "Miscanthus sậy"
       },
       {
         "@id": "2339",
@@ -19479,7 +19573,10 @@
       },
       {
         "@id": "2343",
-        "meaning": "Falcon"
+        "meaning": [
+          "Hayabusa",
+          "Chim ưng"
+        ]
       },
       {
         "@id": "2344",
@@ -19546,7 +19643,7 @@
       },
       {
         "@id": "2353",
-        "meaning": "Cave"
+        "meaning": "Hang"
       },
       {
         "@id": "2354",
@@ -19581,7 +19678,7 @@
       },
       {
         "@id": "2359",
-        "meaning": "Comb"
+        "meaning": "Cái lược"
       },
       {
         "@id": "2360",

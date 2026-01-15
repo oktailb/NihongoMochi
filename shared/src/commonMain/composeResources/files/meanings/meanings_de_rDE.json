@@ -20,7 +20,10 @@
       },
       {
         "@id": "3",
-        "meaning": "Person"
+        "meaning": [
+          "Menschen",
+          "Person"
+        ]
       },
       {
         "@id": "4",
@@ -542,7 +545,7 @@
       },
       {
         "@id": "79",
-        "meaning": "Thread"
+        "meaning": "Faden"
       },
       {
         "@id": "80",
@@ -1511,9 +1514,10 @@
       {
         "@id": "208",
         "meaning": [
-          "Boulder",
+          "Felsen",
+          "Felsbrocken",
           "Rock",
-          "Cliff"
+          "Klippe"
         ]
       },
       {
@@ -1672,8 +1676,8 @@
       {
         "@id": "233",
         "meaning": [
-          "Dart",
-          "Arrow"
+          "Pfeil",
+          "Dart"
         ]
       },
       {
@@ -2152,7 +2156,10 @@
       },
       {
         "@id": "285",
-        "meaning": "Anti-"
+        "meaning": [
+          "Anti",
+          "Anti-"
+        ]
       },
       {
         "@id": "286",
@@ -3455,7 +3462,8 @@
       {
         "@id": "436",
         "meaning": [
-          "Sino-",
+          "Han",
+          "Chinesisch-",
           "China"
         ]
       },
@@ -4739,8 +4747,9 @@
       {
         "@id": "569",
         "meaning": [
-          "Sash",
-          "Belt",
+          "Band",
+          "Schärpe",
+          "Gürtel",
           "Obi",
           "Zone",
           "Region"
@@ -5213,7 +5222,7 @@
       },
       {
         "@id": "621",
-        "meaning": "Plum"
+        "meaning": "Pflaume"
       },
       {
         "@id": "622",
@@ -6680,7 +6689,10 @@
       },
       {
         "@id": "778",
-        "meaning": "Miscellaneous"
+        "meaning": [
+          "Rauh",
+          "Verschiedenes"
+        ]
       },
       {
         "@id": "779",
@@ -6820,7 +6832,10 @@
       },
       {
         "@id": "794",
-        "meaning": "Lend"
+        "meaning": [
+          "Darlehen",
+          "Leihen"
+        ]
       },
       {
         "@id": "795",
@@ -6958,7 +6973,10 @@
       },
       {
         "@id": "810",
-        "meaning": "Cherry"
+        "meaning": [
+          "Kirschblüten",
+          "Kirsche"
+        ]
       },
       {
         "@id": "811",
@@ -7057,7 +7075,10 @@
       },
       {
         "@id": "822",
-        "meaning": "Eyeball"
+        "meaning": [
+          "Auge",
+          "Augapfel"
+        ]
       },
       {
         "@id": "823",
@@ -7995,8 +8016,8 @@
       {
         "@id": "923",
         "meaning": [
-          "Mail",
-          "Stagecoach Stop"
+          "Post",
+          "Postkutschenhaltestelle"
         ]
       },
       {
@@ -8701,7 +8722,7 @@
       },
       {
         "@id": "1006",
-        "meaning": "Silkworm"
+        "meaning": "Seidenraupe"
       },
       {
         "@id": "1007",
@@ -8724,7 +8745,7 @@
       },
       {
         "@id": "1009",
-        "meaning": "Wisteria"
+        "meaning": "Glyzinien"
       },
       {
         "@id": "1010",
@@ -10183,8 +10204,9 @@
       {
         "@id": "1167",
         "meaning": [
-          "Allot",
-          "Fill"
+          "Mitsuru",
+          "Zuteilen",
+          "Füllen"
         ]
       },
       {
@@ -10733,8 +10755,8 @@
       {
         "@id": "1226",
         "meaning": [
-          "Turf",
-          "Lawn"
+          "Gras",
+          "Rasen"
         ]
       },
       {
@@ -11000,7 +11022,7 @@
       },
       {
         "@id": "1258",
-        "meaning": "Bear"
+        "meaning": "Tragen"
       },
       {
         "@id": "1259",
@@ -11240,8 +11262,9 @@
       {
         "@id": "1284",
         "meaning": [
-          "Hermit",
-          "Wizard",
+          "Unsterblich",
+          "Einsiedler",
+          "Zauberer",
           "Cent"
         ]
       },
@@ -11316,7 +11339,7 @@
       },
       {
         "@id": "1292",
-        "meaning": "Willow"
+        "meaning": "Weide"
       },
       {
         "@id": "1293",
@@ -11489,7 +11512,7 @@
       },
       {
         "@id": "1313",
-        "meaning": "Lagoon"
+        "meaning": "Lagune"
       },
       {
         "@id": "1314",
@@ -11737,8 +11760,9 @@
       {
         "@id": "1343",
         "meaning": [
-          "Sweep",
-          "Brush"
+          "Reinigung",
+          "Fegen",
+          "Pinsel"
         ]
       },
       {
@@ -11805,9 +11829,10 @@
       {
         "@id": "1351",
         "meaning": [
-          "Wink",
-          "Blink",
-          "Twinkle"
+          "Meiden",
+          "Zwinker",
+          "Blinzeln",
+          "Funkeln"
         ]
       },
       {
@@ -11826,7 +11851,7 @@
       },
       {
         "@id": "1354",
-        "meaning": "Soft"
+        "meaning": "Weich"
       },
       {
         "@id": "1355",
@@ -11961,7 +11986,7 @@
       },
       {
         "@id": "1369",
-        "meaning": "Chrysanthemum"
+        "meaning": "Chrysantheme"
       },
       {
         "@id": "1370",
@@ -12426,8 +12451,8 @@
       {
         "@id": "1425",
         "meaning": [
-          "Crane",
-          "Stork"
+          "Kran",
+          "Storch"
         ]
       },
       {
@@ -12671,8 +12696,8 @@
       {
         "@id": "1450",
         "meaning": [
-          "Ridgepole",
-          "Ridge"
+          "Grat",
+          "Ridgepole"
         ]
       },
       {
@@ -13247,9 +13272,8 @@
       {
         "@id": "1517",
         "meaning": [
-          "Diagonal",
-          "Slanting",
-          "Oblique"
+          "Schräg",
+          "Diagonal"
         ]
       },
       {
@@ -13825,8 +13849,8 @@
       {
         "@id": "1585",
         "meaning": [
-          "Harp",
-          "Koto"
+          "Koto",
+          "Harfe"
         ]
       },
       {
@@ -13877,10 +13901,7 @@
       },
       {
         "@id": "1591",
-        "meaning": [
-          "Corner",
-          "Nook"
-        ]
+        "meaning": "Ecke"
       },
       {
         "@id": "1592",
@@ -14189,7 +14210,7 @@
       },
       {
         "@id": "1627",
-        "meaning": "Mulberry"
+        "meaning": "Maulbeere"
       },
       {
         "@id": "1628",
@@ -14209,9 +14230,10 @@
       {
         "@id": "1630",
         "meaning": [
-          "Basin",
-          "Lantern Festival",
-          "Tray"
+          "Obon",
+          "Becken",
+          "Laternenfest",
+          "Tablett"
         ]
       },
       {
@@ -15041,7 +15063,7 @@
       },
       {
         "@id": "1731",
-        "meaning": "Peach"
+        "meaning": "Pfirsich"
       },
       {
         "@id": "1732",
@@ -15071,9 +15093,9 @@
       {
         "@id": "1735",
         "meaning": [
+          "Wirbel",
           "Whirlpool",
-          "Eddy",
-          "Vortex"
+          "Eddy"
         ]
       },
       {
@@ -15146,11 +15168,11 @@
       {
         "@id": "1744",
         "meaning": [
-          "Clod",
-          "Lump",
-          "Chunk",
-          "Clot",
-          "Mass"
+          "Masse",
+          "Klumpen",
+          "Brocken",
+          "Gerinnsel",
+          "Messe"
         ]
       },
       {
@@ -15179,8 +15201,9 @@
       {
         "@id": "1748",
         "meaning": [
+          "Lüfter",
           "Fan",
-          "Folding Fan"
+          "Faltfächer"
         ]
       },
       {
@@ -15212,8 +15235,9 @@
         "@id": "1752",
         "meaning": [
           "Pot",
-          "Pan",
-          "Kettle"
+          "Topf",
+          "Pfanne",
+          "Wasserkocher"
         ]
       },
       {
@@ -15390,7 +15414,7 @@
       },
       {
         "@id": "1775",
-        "meaning": "Nun"
+        "meaning": "Nonne"
       },
       {
         "@id": "1776",
@@ -15519,7 +15543,7 @@
       },
       {
         "@id": "1792",
-        "meaning": "Sulphur"
+        "meaning": "Schwefel"
       },
       {
         "@id": "1793",
@@ -15582,7 +15606,7 @@
       },
       {
         "@id": "1800",
-        "meaning": "Spinning"
+        "meaning": "Spinnen"
       },
       {
         "@id": "1801",
@@ -15708,7 +15732,10 @@
       },
       {
         "@id": "1816",
-        "meaning": "Sand"
+        "meaning": [
+          "Sha",
+          "Sand"
+        ]
       },
       {
         "@id": "1817",
@@ -15726,7 +15753,7 @@
       },
       {
         "@id": "1819",
-        "meaning": "Chicken"
+        "meaning": "Huhn"
       },
       {
         "@id": "1820",
@@ -15826,7 +15853,7 @@
       },
       {
         "@id": "1832",
-        "meaning": "Sail"
+        "meaning": "Segel"
       },
       {
         "@id": "1833",
@@ -15870,7 +15897,7 @@
       },
       {
         "@id": "1838",
-        "meaning": "Fist"
+        "meaning": "Faust"
       },
       {
         "@id": "1839",
@@ -16085,8 +16112,8 @@
       {
         "@id": "1864",
         "meaning": [
-          "Reef",
-          "Sunken Rock"
+          "Riff",
+          "Versunkener felsen"
         ]
       },
       {
@@ -16199,8 +16226,9 @@
       {
         "@id": "1878",
         "meaning": [
+          "Gießen",
           "Casting",
-          "Mint"
+          "Minze"
         ]
       },
       {
@@ -16257,7 +16285,10 @@
       },
       {
         "@id": "1885",
-        "meaning": "Pan-"
+        "meaning": [
+          "Pfanne",
+          "Pfanne-"
+        ]
       },
       {
         "@id": "1886",
@@ -16358,8 +16389,8 @@
       {
         "@id": "1899",
         "meaning": [
-          "Pit",
-          "Hole"
+          "Grube",
+          "Loch"
         ]
       },
       {
@@ -16386,8 +16417,9 @@
       {
         "@id": "1904",
         "meaning": [
-          "Paddy Ridge",
-          "Levee"
+          "Das ufer",
+          "Paddy ridge",
+          "Deich"
         ]
       },
       {
@@ -16596,8 +16628,8 @@
       {
         "@id": "1930",
         "meaning": [
-          "Bridegroom",
-          "Son-in-law"
+          "Schwiegersohn",
+          "Bräutigam"
         ]
       },
       {
@@ -16652,7 +16684,7 @@
       },
       {
         "@id": "1936",
-        "meaning": "Rainbow"
+        "meaning": "Regenbogen"
       },
       {
         "@id": "1937",
@@ -16682,7 +16714,7 @@
       },
       {
         "@id": "1940",
-        "meaning": "Mosquito"
+        "meaning": "Moskito"
       },
       {
         "@id": "1941",
@@ -16735,8 +16767,8 @@
       {
         "@id": "1947",
         "meaning": [
-          "Spit",
-          "Skewer"
+          "Spieß",
+          "Spucke"
         ]
       },
       {
@@ -16840,7 +16872,7 @@
       },
       {
         "@id": "1963",
-        "meaning": "Eyebrow"
+        "meaning": "Augenbraue"
       },
       {
         "@id": "1964",
@@ -16893,7 +16925,10 @@
       },
       {
         "@id": "1970",
-        "meaning": "Wick"
+        "meaning": [
+          "Kern",
+          "Docht"
+        ]
       },
       {
         "@id": "1971",
@@ -16937,8 +16972,9 @@
       {
         "@id": "1975",
         "meaning": [
-          "Thigh",
-          "Crotch"
+          "Zwickel",
+          "Oberschenkel",
+          "Schritt"
         ]
       },
       {
@@ -16973,9 +17009,9 @@
       {
         "@id": "1979",
         "meaning": [
-          "Bee",
-          "Wasp",
-          "Hornet"
+          "Biene",
+          "Wespe",
+          "Hornisse"
         ]
       },
       {
@@ -17229,7 +17265,10 @@
       },
       {
         "@id": "2012",
-        "meaning": "Lapis Lazuli"
+        "meaning": [
+          "Ru",
+          "Lapislazuli"
+        ]
       },
       {
         "@id": "2013",
@@ -17421,7 +17460,7 @@
       },
       {
         "@id": "2039",
-        "meaning": "Cocoon"
+        "meaning": "Kokon"
       },
       {
         "@id": "2040",
@@ -17506,8 +17545,8 @@
       {
         "@id": "2052",
         "meaning": [
-          "Saliva",
-          "Sputum"
+          "Speichel",
+          "Auswurf"
         ]
       },
       {
@@ -17575,8 +17614,9 @@
         "@id": "2061",
         "meaning": [
           "Cliff",
+          "Klippe",
           "Bluff",
-          "Precipice"
+          "Abgrund"
         ]
       },
       {
@@ -17903,13 +17943,14 @@
       {
         "@id": "2106",
         "meaning": [
-          "Elbow",
+          "Ellbogen",
+          "Ellenbogen",
           "Arm"
         ]
       },
       {
         "@id": "2107",
-        "meaning": "Gland"
+        "meaning": "Drüse"
       },
       {
         "@id": "2108",
@@ -18007,7 +18048,7 @@
       },
       {
         "@id": "2120",
-        "meaning": "Bribe"
+        "meaning": "Bestechen"
       },
       {
         "@id": "2121",
@@ -18063,7 +18104,10 @@
       },
       {
         "@id": "2127",
-        "meaning": "Sake"
+        "meaning": [
+          "Chu",
+          "Willen"
+        ]
       },
       {
         "@id": "2128",
@@ -18188,7 +18232,10 @@
       },
       {
         "@id": "2142",
-        "meaning": "Plum"
+        "meaning": [
+          "Lee",
+          "Pflaume"
+        ]
       },
       {
         "@id": "2143",
@@ -18298,7 +18345,7 @@
       },
       {
         "@id": "2160",
-        "meaning": "Chestnut"
+        "meaning": "Kastanie"
       },
       {
         "@id": "2161",
@@ -18316,7 +18363,10 @@
       },
       {
         "@id": "2163",
-        "meaning": "Sedge"
+        "meaning": [
+          "Suga",
+          "Segge"
+        ]
       },
       {
         "@id": "2164",
@@ -18356,8 +18406,8 @@
       {
         "@id": "2168",
         "meaning": [
-          "Oak",
-          "Cypress"
+          "Eiche",
+          "Zypresse"
         ]
       },
       {
@@ -18376,16 +18426,14 @@
       {
         "@id": "2171",
         "meaning": [
-          "Reed",
-          "Rush"
+          "Ogi",
+          "Schilf",
+          "Ansturm"
         ]
       },
       {
         "@id": "2172",
-        "meaning": [
-          "Pigeon",
-          "Dove"
-        ]
+        "meaning": "Taube"
       },
       {
         "@id": "2173",
@@ -18415,11 +18463,11 @@
       },
       {
         "@id": "2178",
-        "meaning": "Hawk"
+        "meaning": "Falke"
       },
       {
         "@id": "2179",
-        "meaning": "Boar"
+        "meaning": "Eber"
       },
       {
         "@id": "2180",
@@ -18457,7 +18505,10 @@
       },
       {
         "@id": "2185",
-        "meaning": "Phoenix"
+        "meaning": [
+          "Peng",
+          "Phönix"
+        ]
       },
       {
         "@id": "2186",
@@ -18474,7 +18525,7 @@
       {
         "@id": "2188",
         "meaning": [
-          "Reed",
+          "Schilf",
           "Bullrush"
         ]
       },
@@ -18530,7 +18581,10 @@
       },
       {
         "@id": "2197",
-        "meaning": "Willow"
+        "meaning": [
+          "Yang",
+          "Weide"
+        ]
       },
       {
         "@id": "2198",
@@ -18636,7 +18690,10 @@
       },
       {
         "@id": "2213",
-        "meaning": "Miscanthus Reed"
+        "meaning": [
+          "Stroh",
+          "Miscanthus-schilf"
+        ]
       },
       {
         "@id": "2214",
@@ -18674,7 +18731,7 @@
       },
       {
         "@id": "2220",
-        "meaning": "Eagle"
+        "meaning": "Adler"
       },
       {
         "@id": "2221",
@@ -18821,8 +18878,9 @@
       {
         "@id": "2242",
         "meaning": [
-          "Twig",
-          "Ornamental Evergreen"
+          "Maki",
+          "Zweig",
+          "Zier-immergrün"
         ]
       },
       {
@@ -18835,14 +18893,16 @@
       {
         "@id": "2244",
         "meaning": [
+          "Iwao",
           "Rock",
-          "Crag",
-          "Boulder"
+          "Fels",
+          "Felsbrocken"
         ]
       },
       {
         "@id": "2245",
         "meaning": [
+          "Yodo",
           "Pool",
           "Eddy"
         ]
@@ -18864,8 +18924,9 @@
       {
         "@id": "2248",
         "meaning": [
+          "Posten",
           "Scout",
-          "Sentinel"
+          "Wächter"
         ]
       },
       {
@@ -18903,7 +18964,7 @@
       },
       {
         "@id": "2256",
-        "meaning": "Oak"
+        "meaning": "Eiche"
       },
       {
         "@id": "2257",
@@ -18937,8 +18998,8 @@
       {
         "@id": "2261",
         "meaning": [
-          "Crow",
-          "Raven"
+          "Krähe",
+          "Rabe"
         ]
       },
       {
@@ -18955,7 +19016,10 @@
       },
       {
         "@id": "2264",
-        "meaning": "Mandarin Orange"
+        "meaning": [
+          "Tachibana",
+          "Mandarine"
+        ]
       },
       {
         "@id": "2265",
@@ -18990,8 +19054,9 @@
       {
         "@id": "2270",
         "meaning": [
-          "Woods",
-          "Grove"
+          "Mori",
+          "Wald",
+          "Hain"
         ]
       },
       {
@@ -19145,7 +19210,7 @@
       },
       {
         "@id": "2291",
-        "meaning": "Cormorant"
+        "meaning": "Kormoran"
       },
       {
         "@id": "2292",
@@ -19156,7 +19221,10 @@
       },
       {
         "@id": "2293",
-        "meaning": "Hollyhock"
+        "meaning": [
+          "Aoi",
+          "Malve"
+        ]
       },
       {
         "@id": "2294",
