@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "pt_rBR",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Salvar"
+      },
+      {
+        "@id": "2",
+        "meaning": "Estar lá"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Sim"
+      },
+      {
+        "@id": "5",
+        "meaning": "É"
+      },
+      {
+        "@id": "6",
+        "meaning": "Dizer"
+      },
+      {
+        "@id": "7",
+        "meaning": "Caso"
+      },
+      {
+        "@id": "8",
+        "meaning": "Não tenho"
+      },
+      {
+        "@id": "9",
+        "meaning": "Ser capaz de"
+      },
+      {
+        "@id": "10",
+        "meaning": "Tornar-se"
+      }
+    ]
+  }
+}

@@ -403,7 +403,7 @@ fun ReadingColumn(
 
 @Composable
 fun ExampleItem(item: KanjiDetailViewModel.ExampleItem) {
-    Column(
+    Row(
         modifier = Modifier
             .background(
                 color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
@@ -414,22 +414,42 @@ fun ExampleItem(item: KanjiDetailViewModel.ExampleItem) {
                 color = MaterialTheme.colorScheme.outlineVariant,
                 shape = RoundedCornerShape(8.dp)
             )
-            .padding(8.dp)
-            .widthIn(min = 60.dp)
+            .padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = item.word,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-        Text(
-            text = item.reading,
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
+        Column(
+            modifier = Modifier.widthIn(min = 40.dp)
+        ) {
+            Text(
+                text = item.reading,
+                fontSize = 10.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                text = item.word,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        }
+        
+        if (!item.meaning.isNullOrEmpty()) {
+            Text(
+                text = " → ",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 14.sp
+            )
+            Text(
+                text = item.meaning,
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(start = 4.dp)
+            )
+        }
     }
 }
 

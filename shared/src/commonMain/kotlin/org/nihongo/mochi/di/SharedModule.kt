@@ -14,6 +14,7 @@ import org.nihongo.mochi.domain.kana.ResourceLoader
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.statistics.ResultsViewModel
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
@@ -57,6 +58,7 @@ val sharedModule = module {
     single { KanjiRepository(get(), get(), get()) } 
     singleOf(::WordRepository)
     singleOf(::MeaningRepository)
+    singleOf(::WordMeaningRepository)
     singleOf(::SettingsRepository)
     singleOf(::LevelContentProvider)
     singleOf(::StatisticsEngine)

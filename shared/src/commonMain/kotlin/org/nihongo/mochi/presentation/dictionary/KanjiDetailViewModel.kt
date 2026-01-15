@@ -11,12 +11,14 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordRepository
 
 class KanjiDetailViewModel(
     private val kanjiRepository: KanjiRepository,
     private val meaningRepository: MeaningRepository,
+    private val wordMeaningRepository: WordMeaningRepository,
     private val wordRepository: WordRepository,
     private val settingsRepository: SettingsRepository
 ) : ViewModel() {
@@ -37,7 +39,7 @@ class KanjiDetailViewModel(
     )
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
-    data class ExampleItem(val word: String, val reading: String)
+    data class ExampleItem(val word: String, val reading: String, val meaning: String? = null)
     data class ComponentItem(val character: String, val kanjiRef: String?)
 
     // Recursive structure for the tree
@@ -83,10 +85,11 @@ class KanjiDetailViewModel(
                 // Load meanings
                 val locale = settingsRepository.getAppLocale()
                 val meanings = meaningRepository.getMeanings(locale)[kanjiId] ?: emptyList()
+                val wordMeanings = wordMeaningRepository.getWordMeaningsSuspend(locale)
 
                 // Load examples
                 val examples = wordRepository.getWordsContainingKanji(entry.character)
-                    .map { ExampleItem(it.text, it.phonetics) }
+                    .map { ExampleItem(it.text, it.phonetics, wordMeanings[it.id]) }
 
                 _uiState.update {
                     it.copy(

@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "ko_rKR",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "구하다"
+      },
+      {
+        "@id": "2",
+        "meaning": "거기에 있어"
+      },
+      {
+        "@id": "3",
+        "meaning": "마스"
+      },
+      {
+        "@id": "4",
+        "meaning": "예"
+      },
+      {
+        "@id": "5",
+        "meaning": "~이다"
+      },
+      {
+        "@id": "6",
+        "meaning": "말하다"
+      },
+      {
+        "@id": "7",
+        "meaning": "사례"
+      },
+      {
+        "@id": "8",
+        "meaning": "가지고 있지 않다"
+      },
+      {
+        "@id": "9",
+        "meaning": "할 수 있다"
+      },
+      {
+        "@id": "10",
+        "meaning": "~이 되다"
+      }
+    ]
+  }
+}

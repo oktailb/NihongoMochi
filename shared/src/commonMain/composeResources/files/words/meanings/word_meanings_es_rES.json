@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "es_rES",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Ahorrar"
+      },
+      {
+        "@id": "2",
+        "meaning": "Estar ahí"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masú"
+      },
+      {
+        "@id": "4",
+        "meaning": "Sí"
+      },
+      {
+        "@id": "5",
+        "meaning": "Es"
+      },
+      {
+        "@id": "6",
+        "meaning": "Decir"
+      },
+      {
+        "@id": "7",
+        "meaning": "Caso"
+      },
+      {
+        "@id": "8",
+        "meaning": "No tengo"
+      },
+      {
+        "@id": "9",
+        "meaning": "Poder"
+      },
+      {
+        "@id": "10",
+        "meaning": "Convertirse"
+      }
+    ]
+  }
+}

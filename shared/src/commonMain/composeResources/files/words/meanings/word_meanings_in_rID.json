@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "in_rID",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Menyimpan"
+      },
+      {
+        "@id": "2",
+        "meaning": "Berada di sana"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Ya"
+      },
+      {
+        "@id": "5",
+        "meaning": "Adalah"
+      },
+      {
+        "@id": "6",
+        "meaning": "Mengatakan"
+      },
+      {
+        "@id": "7",
+        "meaning": "Kasus"
+      },
+      {
+        "@id": "8",
+        "meaning": "Tidak punya"
+      },
+      {
+        "@id": "9",
+        "meaning": "Bisa"
+      },
+      {
+        "@id": "10",
+        "meaning": "Menjadi"
+      }
+    ]
+  }
+}

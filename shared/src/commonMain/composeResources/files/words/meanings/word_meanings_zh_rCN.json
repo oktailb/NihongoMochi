@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "zh_rCN",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "节省"
+      },
+      {
+        "@id": "2",
+        "meaning": "在那里"
+      },
+      {
+        "@id": "3",
+        "meaning": "马苏"
+      },
+      {
+        "@id": "4",
+        "meaning": "是的"
+      },
+      {
+        "@id": "5",
+        "meaning": "是"
+      },
+      {
+        "@id": "6",
+        "meaning": "说"
+      },
+      {
+        "@id": "7",
+        "meaning": "案件"
+      },
+      {
+        "@id": "8",
+        "meaning": "没有"
+      },
+      {
+        "@id": "9",
+        "meaning": "能够"
+      },
+      {
+        "@id": "10",
+        "meaning": "变得"
+      }
+    ]
+  }
+}

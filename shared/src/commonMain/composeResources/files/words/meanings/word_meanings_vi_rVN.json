@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "vi_rVN",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Cứu"
+      },
+      {
+        "@id": "2",
+        "meaning": "Ở đó"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Đúng"
+      },
+      {
+        "@id": "5",
+        "meaning": "Là"
+      },
+      {
+        "@id": "6",
+        "meaning": "Nói"
+      },
+      {
+        "@id": "7",
+        "meaning": "Trường hợp"
+      },
+      {
+        "@id": "8",
+        "meaning": "Không có"
+      },
+      {
+        "@id": "9",
+        "meaning": "Có thể"
+      },
+      {
+        "@id": "10",
+        "meaning": "Trở nên"
+      }
+    ]
+  }
+}

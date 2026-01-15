@@ -9,7 +9,7 @@ import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
-import org.nihongo.mochi.domain.meaning.MeaningRepository
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.domain.settings.SettingsRepository
@@ -21,7 +21,7 @@ import org.nihongo.mochi.presentation.ViewModel
 
 class WordListViewModel(
     private val wordRepository: WordRepository,
-    private val meaningRepository: MeaningRepository,
+    private val wordMeaningRepository: WordMeaningRepository,
     private val kanjiRepository: KanjiRepository,
     private val settingsRepository: SettingsRepository,
     private val levelsRepository: LevelsRepository,
@@ -30,8 +30,8 @@ class WordListViewModel(
 
     private val engine = WordListEngine(wordRepository, scoreRepository)
 
-    private val _displayedWords = MutableStateFlow<List<Triple<WordEntry, LearningScore, Boolean>>>(emptyList())
-    val displayedWords: StateFlow<List<Triple<WordEntry, LearningScore, Boolean>>> = _displayedWords.asStateFlow()
+    private val _displayedWords = MutableStateFlow<List<Triple<WordEntry, LearningScore, String?>>>(emptyList())
+    val displayedWords: StateFlow<List<Triple<WordEntry, LearningScore, String?>>> = _displayedWords.asStateFlow()
 
     private val _currentPage = MutableStateFlow(0)
     val currentPage: StateFlow<Int> = _currentPage.asStateFlow()
@@ -59,10 +59,13 @@ class WordListViewModel(
     val screenTitleKey = _screenTitleKey.asStateFlow()
 
     private val pageSize = 80
-    private var allKanjiDetails = listOf<KanjiDetail>()
+    private var wordMeanings = mapOf<String, String>()
 
     fun loadList(levelId: String) {
         viewModelScope.launch {
+            val locale = settingsRepository.getAppLocale()
+            wordMeanings = wordMeaningRepository.getWordMeaningsSuspend(locale)
+
             val defs = levelsRepository.loadLevelDefinitions()
             val levelDef = defs.sections.values.flatMap { it.levels }.find { it.id == levelId }
             
@@ -77,12 +80,10 @@ class WordListViewModel(
                     val words = wordRepository.getWordsByConfig(config)
                     engine.setWords(words)
                 } else {
-                    // Fallback
                     engine.loadList(levelId)
                 }
             }
 
-            loadAllKanjiDetails()
             applyFilters()
         }
     }
@@ -152,35 +153,11 @@ class WordListViewModel(
             val pageItems = allDisplayed.subList(startIndex, endIndex)
             _displayedWords.value = pageItems.map { word ->
                 val kanjiScore = scoreRepository.getScore(word.text, ScoreManager.ScoreType.READING)
-                val kanjiDetail = allKanjiDetails.firstOrNull { it.character == word.text }
-                val isRedBorder = kanjiDetail != null && kanjiDetail.meanings.isEmpty()
-                Triple(word, kanjiScore, isRedBorder)
+                val meaning = wordMeanings[word.id]
+                Triple(word, kanjiScore, meaning)
             }
         } else {
              _displayedWords.value = emptyList()
-        }
-    }
-    
-    private fun loadAllKanjiDetails() {
-        viewModelScope.launch {
-            val locale = settingsRepository.getAppLocale()
-            val meanings = meaningRepository.getMeanings(locale)
-            val allKanjiEntries = kanjiRepository.getAllKanji()
-            
-            val details = mutableListOf<KanjiDetail>()
-            for (entry in allKanjiEntries) {
-                val id = entry.id
-                val character = entry.character
-                val kanjiMeanings = meanings[id] ?: emptyList()
-                
-                val readingsList = mutableListOf<Reading>()
-                entry.readings?.reading?.forEach { readingEntry ->
-                     val freq = readingEntry.frequency?.toIntOrNull() ?: 0
-                     readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
-                }
-                details.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
-            }
-            allKanjiDetails = details
         }
     }
 }

@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "de_rDE",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Speichern"
+      },
+      {
+        "@id": "2",
+        "meaning": "Da sein"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "5",
+        "meaning": "Ist"
+      },
+      {
+        "@id": "6",
+        "meaning": "Sagen"
+      },
+      {
+        "@id": "7",
+        "meaning": "Fall"
+      },
+      {
+        "@id": "8",
+        "meaning": "Nicht haben"
+      },
+      {
+        "@id": "9",
+        "meaning": "Können"
+      },
+      {
+        "@id": "10",
+        "meaning": "Werden"
+      }
+    ]
+  }
+}

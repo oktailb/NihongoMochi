@@ -2,6 +2,7 @@ package org.nihongo.mochi.ui.wordlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -28,6 +30,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,7 +55,7 @@ import org.nihongo.mochi.shared.generated.resources.*
 @Composable
 fun WordListScreen(
     listTitle: String,
-    wordsWithColors: List<Triple<WordEntry, Color, Boolean>>, // Word, Color, isRedBorder
+    wordsWithColors: List<Triple<WordEntry, Color, String?>>, // Word, Color, Meaning
     currentPage: Int,
     totalPages: Int,
     filterKanjiOnly: Boolean,
@@ -70,6 +73,8 @@ fun WordListScreen(
     onNextPage: () -> Unit,
     onPlayClick: () -> Unit
 ) {
+    var selectedWordForMeaning by remember { mutableStateOf<Pair<String, String>?>(null) }
+
     MochiBackground {
         Column(
             modifier = Modifier
@@ -146,11 +151,15 @@ fun WordListScreen(
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    wordsWithColors.forEach { (word, color, isRedBorder) ->
+                    wordsWithColors.forEach { (word, color, meaning) ->
                         WordChip(
                             text = word.text,
                             backgroundColor = color,
-                            isRedBorder = isRedBorder
+                            onClick = {
+                                if (meaning != null) {
+                                    selectedWordForMeaning = word.text to meaning
+                                }
+                            }
                         )
                     }
                 }
@@ -170,6 +179,25 @@ fun WordListScreen(
             PlayButton(onClick = onPlayClick)
         }
     }
+
+    // Meaning Dialog
+    selectedWordForMeaning?.let { (word, meaning) ->
+        AlertDialog(
+            onDismissRequest = { selectedWordForMeaning = null },
+            title = { Text(text = word) },
+            text = { Text(text = meaning) },
+            confirmButton = {
+                辅助TextButton(onClick = { selectedWordForMeaning = null }) {
+                    Text("OK")
+                }
+            }
+        )
+    }
+}
+
+@Composable
+fun 辅助TextButton(onClick: () -> Unit, content: @Composable () -> Unit) {
+    TextButton(onClick = onClick) { content() }
 }
 
 @Composable
@@ -201,13 +229,13 @@ fun ChipFilter(
 fun WordChip(
     text: String,
     backgroundColor: Color,
-    isRedBorder: Boolean
+    onClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
-            .clip(RoundedCornerShape(16.dp)) // Chip shape
+            .clip(RoundedCornerShape(16.dp))
             .background(backgroundColor)
-            .then(if (isRedBorder) Modifier.border(2.dp, MaterialTheme.colorScheme.error, RoundedCornerShape(16.dp)) else Modifier)
+            .clickable(onClick = onClick)
             .padding(horizontal = 12.dp, vertical = 6.dp)
     ) {
         Text(

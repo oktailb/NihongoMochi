@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "it_rIT",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Salva"
+      },
+      {
+        "@id": "2",
+        "meaning": "Essere lì"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Sì"
+      },
+      {
+        "@id": "5",
+        "meaning": "È"
+      },
+      {
+        "@id": "6",
+        "meaning": "Dire"
+      },
+      {
+        "@id": "7",
+        "meaning": "Caso"
+      },
+      {
+        "@id": "8",
+        "meaning": "Non ho"
+      },
+      {
+        "@id": "9",
+        "meaning": "Essere in grado di"
+      },
+      {
+        "@id": "10",
+        "meaning": "Diventare"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "en_rGB",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Save"
+      },
+      {
+        "@id": "2",
+        "meaning": "Be there"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Yes"
+      },
+      {
+        "@id": "5",
+        "meaning": "Is"
+      },
+      {
+        "@id": "6",
+        "meaning": "Say"
+      },
+      {
+        "@id": "7",
+        "meaning": "Case"
+      },
+      {
+        "@id": "8",
+        "meaning": "Do not have"
+      },
+      {
+        "@id": "9",
+        "meaning": "Be able to"
+      },
+      {
+        "@id": "10",
+        "meaning": "Become"
+      }
+    ]
+  }
+}

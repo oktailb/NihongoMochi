@@ -1,0 +1,47 @@
+{
+  "word_meanings": {
+    "@locale": "fr_rFR",
+    "entries": [
+      {
+        "@id": "1",
+        "meaning": "Sauvegarder"
+      },
+      {
+        "@id": "2",
+        "meaning": "Être là"
+      },
+      {
+        "@id": "3",
+        "meaning": "Masu"
+      },
+      {
+        "@id": "4",
+        "meaning": "Oui"
+      },
+      {
+        "@id": "5",
+        "meaning": "Est"
+      },
+      {
+        "@id": "6",
+        "meaning": "Dire"
+      },
+      {
+        "@id": "7",
+        "meaning": "Cas"
+      },
+      {
+        "@id": "8",
+        "meaning": "Je n'ai pas"
+      },
+      {
+        "@id": "9",
+        "meaning": "Pouvoir"
+      },
+      {
+        "@id": "10",
+        "meaning": "Devenir"
+      }
+    ]
+  }
+}
