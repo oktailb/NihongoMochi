@@ -37,6 +37,7 @@ fun CrosswordGameScreen(
     val keyboardKeys by viewModel.keyboardKeys.collectAsState()
     val gameTimeSeconds by viewModel.gameTimeSeconds.collectAsState()
     val selectedHintType by viewModel.selectedHintType.collectAsState()
+    val selectedMode by viewModel.selectedMode.collectAsState()
     val isFinished by viewModel.isFinished.collectAsState()
     
     val cellsMap = remember(cells) {
@@ -50,7 +51,6 @@ fun CrosswordGameScreen(
     val cellSize = 40.dp
     val gridDimension = cellSize * gridSize
 
-    // Find current word for clue display
     val currentWord = remember(selectedCell, placedWords) {
         selectedCell?.let { (r, c) ->
             placedWords.find { word ->
@@ -65,7 +65,6 @@ fun CrosswordGameScreen(
 
     MochiBackground {
         Box(modifier = Modifier.fillMaxSize()) {
-            // --- Interactive Grid Layer ---
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -106,8 +105,6 @@ fun CrosswordGameScreen(
                 }
             }
 
-            // --- UI Overlays ---
-            // Top Bar with Timer
             Surface(
                 modifier = Modifier.fillMaxWidth().height(56.dp),
                 color = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
@@ -134,11 +131,9 @@ fun CrosswordGameScreen(
                 }
             }
 
-            // Bottom Controls Area
             Column(
                 modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth()
             ) {
-                // Clue Bar
                 if (currentWord != null) {
                     Surface(
                         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
@@ -146,24 +141,47 @@ fun CrosswordGameScreen(
                         color = MaterialTheme.colorScheme.secondaryContainer,
                         shadowElevation = 4.dp
                     ) {
-                        val clueText = if (selectedHintType == CrosswordHintType.KANJI) {
-                            if (currentWord.meaning != currentWord.kanji) "${currentWord.kanji} → ${currentWord.meaning}" else currentWord.kanji
-                        } else {
-                            currentWord.meaning
+                        Column(modifier = Modifier.padding(12.dp).fillMaxWidth()) {
+                            if (selectedMode == CrosswordMode.KANJIS) {
+                                // MODE KANJI: On affiche la lecture (kana) et le sens
+                                Text(
+                                    text = currentWord.phonetics,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                                if (currentWord.meaning.isNotEmpty()) {
+                                    Text(
+                                        text = currentWord.meaning,
+                                        modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                                        textAlign = TextAlign.Center,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                                    )
+                                }
+                            } else {
+                                // MODE KANA: Comportement classique
+                                val clueText = if (selectedHintType == CrosswordHintType.KANJI) {
+                                    currentWord.kanji
+                                } else {
+                                    currentWord.meaning
+                                }
+                                Text(
+                                    text = clueText,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
                         }
-                        Text(
-                            text = clueText,
-                            modifier = Modifier.padding(12.dp).fillMaxWidth(),
-                            textAlign = TextAlign.Center,
-                            style = MaterialTheme.typography.bodyLarge,
-                            fontWeight = FontWeight.Bold,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis
-                        )
                     }
                 }
 
-                // Virtual Keyboard
                 if (selectedCell != null && !isFinished) {
                     Surface(
                         modifier = Modifier.fillMaxWidth(),
@@ -175,7 +193,6 @@ fun CrosswordGameScreen(
                             modifier = Modifier.padding(8.dp).height(120.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            // Key Grid
                             LazyVerticalGrid(
                                 columns = GridCells.Fixed(5),
                                 modifier = Modifier.weight(1f),
@@ -188,7 +205,6 @@ fun CrosswordGameScreen(
                                 }
                             }
                             
-                            // Delete Button
                             Button(
                                 onClick = { viewModel.onDelete() },
                                 modifier = Modifier.width(60.dp).fillMaxHeight().padding(4.dp),
@@ -202,7 +218,6 @@ fun CrosswordGameScreen(
                 }
             }
             
-            // Finish Overlay
             if (isFinished) {
                 Box(
                     modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)),
@@ -257,8 +272,6 @@ fun CrosswordCellView(
     onClick: () -> Unit
 ) {
     val cellSize = 40.dp
-    
-    // Logic for individual character validation
     val isInputCorrect = cell?.userInput?.isNotEmpty() == true && cell.userInput == cell.solution
     val isInputWrong = cell?.userInput?.isNotEmpty() == true && cell.userInput != cell.solution
 
@@ -269,8 +282,8 @@ fun CrosswordCellView(
             .background(
                 when {
                     cell == null || cell.isBlack -> Color.Transparent
-                    cell.isCorrect || isInputCorrect -> Color(0xFFC8E6C9) // Light Green
-                    isInputWrong -> Color(0xFFFFCDD2) // Light Red
+                    cell.isCorrect || isInputCorrect -> Color(0xFFC8E6C9)
+                    isInputWrong -> Color(0xFFFFCDD2)
                     isSelected -> MaterialTheme.colorScheme.primaryContainer
                     else -> Color.White
                 }
@@ -292,8 +305,8 @@ fun CrosswordCellView(
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 color = when {
-                    cell.isCorrect || isInputCorrect -> Color(0xFF2E7D32) // Dark Green
-                    isInputWrong -> Color(0xFFD32F2F) // Dark Red
+                    cell.isCorrect || isInputCorrect -> Color(0xFF2E7D32)
+                    isInputWrong -> Color(0xFFD32F2F)
                     else -> Color.Black
                 }
             )

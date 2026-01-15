@@ -16,7 +16,6 @@ import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
-import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.presentation.ViewModel
 import org.nihongo.mochi.domain.services.AudioPlayer
 
@@ -29,7 +28,6 @@ class CrosswordViewModel(
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
-    // --- Setup State ---
     private val _selectedMode = MutableStateFlow(CrosswordMode.KANAS)
     val selectedMode: StateFlow<CrosswordMode> = _selectedMode.asStateFlow()
 
@@ -42,7 +40,6 @@ class CrosswordViewModel(
     private val _scoresHistory = MutableStateFlow<List<CrosswordGameResult>>(emptyList())
     val scoresHistory: StateFlow<List<CrosswordGameResult>> = _scoresHistory.asStateFlow()
 
-    // --- Game State ---
     private val _cells = MutableStateFlow<List<CrosswordCell>>(emptyList())
     val cells: StateFlow<List<CrosswordCell>> = _cells.asStateFlow()
 
@@ -68,7 +65,6 @@ class CrosswordViewModel(
     val isFinished: StateFlow<Boolean> = _isFinished.asStateFlow()
 
     private var timerJob: Job? = null
-    private var currentLevelIdUsed: String = "n5"
 
     init {
         loadHistory()
@@ -118,8 +114,19 @@ class CrosswordViewModel(
         val activeWord = getActiveWordAt(r, c) ?: return
         val wordChars = activeWord.word.map { it.toString() }.toSet()
         val random = kotlin.random.Random(activeWord.word.hashCode() + r + c)
-        val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
-        val disturbers = (1..8).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
+        
+        val disturbers = if (_selectedMode.value == CrosswordMode.KANJIS) {
+            val otherKanjis = _placedWords.value.flatMap { it.word.map { c -> c.toString() } }.toSet()
+            if (otherKanjis.size > 10) {
+                otherKanjis.shuffled(random).take(8).toSet()
+            } else {
+                "日一国会人年大十二本中長出三同時政自前者".map { it.toString() }.shuffled(random).take(8).toSet()
+            }
+        } else {
+            val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
+            (1..8).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
+        }
+        
         _keyboardKeys.value = (wordChars + disturbers).toList().shuffled(random)
     }
 
@@ -197,7 +204,6 @@ class CrosswordViewModel(
 
             if (wordCells.joinToString("") { it.userInput } == word.word) {
                 markWordAsCorrect(word, wordCells)
-                // correct.mp3 is already played per letter, but we could play a different sound for full word
                 checkGameFinished()
             }
         }
@@ -243,20 +249,26 @@ class CrosswordViewModel(
             
             val result = withContext(Dispatchers.Default) {
                 val currentLevelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
-                currentLevelIdUsed = currentLevelId
                 val locale = settingsRepository.getAppLocale()
                 val meanings = wordMeaningRepository.getWordMeanings(locale)
                 
                 var availableWords = wordRepository.getWordEntriesForLevelSuspend(currentLevelId)
                 if (availableWords.isEmpty()) availableWords = wordRepository.getWordEntriesForLevelSuspend("n5")
                 
-                val generator = CrosswordGenerator(availableWords, _wordCount.value)
+                val generator = CrosswordGenerator(availableWords, _wordCount.value, _selectedMode.value)
                 val (genCells, wordsWithoutMeanings) = generator.generate()
                 
                 val finalWords = wordsWithoutMeanings.map { cw ->
-                    val originalEntry = availableWords.find { cleanPhonetics(it.phonetics) == cw.word && it.text == cw.kanji }
+                    val originalEntry = availableWords.find { entry ->
+                        if (_selectedMode.value == CrosswordMode.KANJIS) {
+                            entry.text == cw.word
+                        } else {
+                            cleanPhonetics(entry.phonetics) == cw.word
+                        }
+                    }
                     val realMeaning = originalEntry?.let { meanings[it.id] }
-                    cw.copy(meaning = realMeaning ?: cw.kanji)
+                    // On ne met PAS cw.kanji ici, sinon ça affiche la solution
+                    cw.copy(meaning = realMeaning ?: "") 
                 }
                 Pair(genCells, finalWords)
             }

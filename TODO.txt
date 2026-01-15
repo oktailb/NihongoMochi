@@ -5,10 +5,10 @@ Bugs:
  - [X] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
 
 Todo:
- - [ ] More i18n : Mogolian and Japanese
- - [ ] Meanings of wordlists -> JLTP and Grades only to limit size for translations
+ - [X] More i18n : Mogolian and Japanese
+ - [WIP] Meanings of wordlists
  - [ ] Find better sounds
- - [ ] Better translations for meanings : Source English + Japanese => other languages
+ - [X] Better translations for meanings : Source English + Japanese => other languages
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
  - [ ] enhance HTML/CSS for grammar lessons
@@ -18,7 +18,7 @@ Games:
   - [X] Simon : enforce kanji remembering by sequence
   - [X] Taquin : redo the basic gojuon table hiragana/katakana
   - [X] Kana Drop : achieve words from selected level in Kana to make blocks disappear
-  - [/] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary -> in progress
+  - [X] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary -> in progress
   - [ ] Snake ?
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)

@@ -26,9 +26,10 @@ data class CrosswordCell(
 @Serializable
 data class CrosswordWord(
     val number: Int,
-    val word: String, // Phonetics/Kana
+    val word: String, // Grid solution string (Kana or Kanji)
     val kanji: String,
     val meaning: String,
+    val phonetics: String = "",
     val row: Int,
     val col: Int,
     val isHorizontal: Boolean,

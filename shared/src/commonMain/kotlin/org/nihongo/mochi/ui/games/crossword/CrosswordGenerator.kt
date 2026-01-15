@@ -6,12 +6,12 @@ import kotlin.random.Random
 class CrosswordGenerator(
     private val availableWords: List<WordEntry>,
     private val targetWordCount: Int,
+    private val mode: CrosswordMode = CrosswordMode.KANAS,
     private val gridSize: Int = 16
 ) {
     private val grid = Array(gridSize) { Array(gridSize) { "" } }
     private val placedWords = mutableListOf<CrosswordWord>()
 
-    // Clean phonetics to keep only one reading and no special chars
     private fun cleanPhonetics(p: String): String {
         return p.split("/")
             .firstOrNull { it.isNotBlank() }
@@ -20,16 +20,37 @@ class CrosswordGenerator(
             ?: ""
     }
 
+    private fun isPureKanji(text: String): Boolean {
+        if (text.isEmpty()) return false
+        return text.all { char ->
+            val code = char.code
+            // Kanji range
+            (code in 0x4E00..0x9FAF) || (code in 0x3400..0x4DBF)
+        }
+    }
+
     fun generate(): Pair<List<CrosswordCell>, List<CrosswordWord>> {
         val candidates = availableWords
             .map { it.copy(phonetics = cleanPhonetics(it.phonetics)) }
-            .filter { it.phonetics.length in 2..8 }
+            .filter { entry ->
+                val solution = if (mode == CrosswordMode.KANJIS) entry.text else entry.phonetics
+                val length = solution.length
+                val lengthOk = length in 2..8
+                
+                if (mode == CrosswordMode.KANJIS) {
+                    lengthOk && isPureKanji(entry.text)
+                } else {
+                    lengthOk
+                }
+            }
             .shuffled()
-            .sortedByDescending { it.phonetics.length }
+            .sortedByDescending { if (mode == CrosswordMode.KANJIS) it.text.length else it.phonetics.length }
 
         if (candidates.isEmpty()) return Pair(emptyList(), emptyList())
 
-        placeWord(candidates[0], gridSize / 2, (gridSize - candidates[0].phonetics.length) / 2, true)
+        val firstEntry = candidates[0]
+        val firstSolution = if (mode == CrosswordMode.KANJIS) firstEntry.text else firstEntry.phonetics
+        placeWord(firstEntry, gridSize / 2, (gridSize - firstSolution.length) / 2, true)
 
         var candidatesIdx = 1
         var attempts = 0
@@ -47,7 +68,7 @@ class CrosswordGenerator(
     }
 
     private fun tryPlaceWord(wordEntry: WordEntry): Boolean {
-        val word = wordEntry.phonetics
+        val word = if (mode == CrosswordMode.KANJIS) wordEntry.text else wordEntry.phonetics
         val possiblePositions = mutableListOf<Triple<Int, Int, Boolean>>()
 
         for (placed in placedWords) {
@@ -88,10 +109,8 @@ class CrosswordGenerator(
             val c = if (isHorizontal) col + i else col
             val existing = grid[r][c]
             
-            // Check if cell is compatible
             if (existing != "" && existing != word[i].toString()) return false
             
-            // If cell is empty, check neighbors to avoid creating unintended words
             if (existing == "") {
                 if (isHorizontal) {
                     if (isOccupied(r - 1, c) || isOccupied(r + 1, c)) return false
@@ -113,23 +132,24 @@ class CrosswordGenerator(
     }
 
     private fun placeWord(entry: WordEntry, row: Int, col: Int, isHorizontal: Boolean) {
-        val cleanKanji = entry.text.replace(".", "")
+        val solution = if (mode == CrosswordMode.KANJIS) entry.text else entry.phonetics
         
         placedWords.add(
             CrosswordWord(
                 number = placedWords.size + 1,
-                word = entry.phonetics,
-                kanji = cleanKanji,
-                meaning = cleanKanji, 
+                word = solution,
+                kanji = entry.text,
+                meaning = "", // On laisse vide, le ViewModel remplira avec la traduction
+                phonetics = entry.phonetics,
                 row = row,
                 col = col,
                 isHorizontal = isHorizontal
             )
         )
-        for (i in entry.phonetics.indices) {
+        for (i in solution.indices) {
             val r = if (isHorizontal) row else row + i
             val c = if (isHorizontal) col + i else col
-            grid[r][c] = entry.phonetics[i].toString()
+            grid[r][c] = solution[i].toString()
         }
     }
 
