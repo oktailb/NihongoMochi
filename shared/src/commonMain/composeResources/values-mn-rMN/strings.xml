@@ -633,4 +633,12 @@
     <string name="game_kana_link_words_found">Үг олдсон</string>
     <string name="game_kana_link_return_menu">Цэс рүү буцах</string>
     <string name="game_kana_link_history_item_format">%1$d үг олдсон</string>
+    <string name="writing_most_frequent_words_format">Хамгийн түгээмэл %1$d үг</string>
+    <string name="game_crossword_setup_mode">Тоглоомын горим</string>
+    <string name="game_crossword_setup_word_count">Үгийн тоо: %1$d</string>
+    <string name="game_crossword_generating">Сүлжээ үүсгэж байна...</string>
+    <string name="game_crossword_congrats">Баяр хүргэе!</string>
+    <string name="game_crossword_completed_in">Сүлжээ %1$s-д дууссан</string>
+    <string name="game_crossword_back_menu">Цэс рүү буцах</string>
+    <string name="game_crossword_history_item">%1$d үг (%2$s)</string>
 </resources>

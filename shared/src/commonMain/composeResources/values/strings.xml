@@ -69,6 +69,7 @@
     <string name="writing_find_words">Find words</string>
     <string name="writing_most_used_words">Most used words</string>
     <string name="writing_find_kanji">Find a Kanji</string>
+    <string name="writing_most_frequent_words_format">%1$d most frequent words</string>
     <string name="writing_lists">Lists</string>
     <string name="writing_user_lists">User list / study lists</string>
     <string name="reading_title">読み方</string>
@@ -635,4 +636,11 @@
     <string name="game_kana_link_words_found">Words Found</string>
     <string name="game_kana_link_return_menu">RETURN TO MENU</string>
     <string name="game_kana_link_history_item_format">%1$d words found</string>
+    <string name="game_crossword_setup_mode">Game Mode</string>
+    <string name="game_crossword_setup_word_count">Number of words: %1$d</string>
+    <string name="game_crossword_generating">Generating grid...</string>
+    <string name="game_crossword_congrats">Congratulations!</string>
+    <string name="game_crossword_completed_in">Grid completed in %1$s</string>
+    <string name="game_crossword_back_menu">Back to menu</string>
+    <string name="game_crossword_history_item">%1$d words (%2$s)</string>
 </resources>

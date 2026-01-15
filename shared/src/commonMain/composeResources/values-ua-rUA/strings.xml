@@ -633,4 +633,12 @@
     <string name="game_kana_link_words_found">Знайдено слова</string>
     <string name="game_kana_link_return_menu">ПОВЕРНУТИСЯ ДО МЕНЮ</string>
     <string name="game_kana_link_history_item_format">%1$d слів знайдено</string>
+    <string name="writing_most_frequent_words_format">%1$d найчастіших слів</string>
+    <string name="game_crossword_setup_mode">Ігровий режим</string>
+    <string name="game_crossword_setup_word_count">Кількість слів: %1$d</string>
+    <string name="game_crossword_generating">Створення сітки...</string>
+    <string name="game_crossword_congrats">Щиро вітаю!</string>
+    <string name="game_crossword_completed_in">Таблиця завершена за %1$s</string>
+    <string name="game_crossword_back_menu">Назад до меню</string>
+    <string name="game_crossword_history_item">%1$d слова (%2$s)</string>
 </resources>

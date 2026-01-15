@@ -635,4 +635,12 @@
     <string name="game_kana_link_words_found">Kata-kata Ditemukan</string>
     <string name="game_kana_link_return_menu">KEMBALI KE MENU</string>
     <string name="game_kana_link_history_item_format">%1$d kata ditemukan</string>
+    <string name="writing_most_frequent_words_format">%1$d kata paling sering</string>
+    <string name="game_crossword_setup_mode">Modus Permainan</string>
+    <string name="game_crossword_setup_word_count">Jumlah kata: %1$d</string>
+    <string name="game_crossword_generating">Menghasilkan jaringan...</string>
+    <string name="game_crossword_congrats">Selamat!</string>
+    <string name="game_crossword_completed_in">Petak selesai dalam %1$s</string>
+    <string name="game_crossword_back_menu">Kembali ke menu</string>
+    <string name="game_crossword_history_item">%1$d kata (%2$s)</string>
 </resources>

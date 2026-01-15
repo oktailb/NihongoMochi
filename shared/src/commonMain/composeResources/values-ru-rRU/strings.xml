@@ -635,4 +635,12 @@
     <string name="game_kana_link_words_found">Слова найдены</string>
     <string name="game_kana_link_return_menu">ВОЗВРАТ В МЕНЮ</string>
     <string name="game_kana_link_history_item_format">Найдено %1$d слов</string>
+    <string name="writing_most_frequent_words_format">%1$d наиболее часто встречающихся слов</string>
+    <string name="game_crossword_setup_mode">Игровой режим</string>
+    <string name="game_crossword_setup_word_count">Количество слов: %1$d</string>
+    <string name="game_crossword_generating">Генерация сетки...</string>
+    <string name="game_crossword_congrats">Поздравляем!</string>
+    <string name="game_crossword_completed_in">Сетка завершена за %1$s</string>
+    <string name="game_crossword_back_menu">Вернуться в меню</string>
+    <string name="game_crossword_history_item">%1$d слов (%2$s)</string>
 </resources>

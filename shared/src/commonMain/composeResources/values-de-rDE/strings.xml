@@ -631,4 +631,12 @@
     <string name="game_kana_link_words_found">Wörter gefunden</string>
     <string name="game_kana_link_return_menu">ZURÜCK ZUM MENÜ</string>
     <string name="game_kana_link_history_item_format">%1$d Wörter gefunden</string>
+    <string name="writing_most_frequent_words_format">%1$d häufigste Wörter</string>
+    <string name="game_crossword_setup_mode">Spielmodus</string>
+    <string name="game_crossword_setup_word_count">Anzahl der Wörter: %1$d</string>
+    <string name="game_crossword_generating">Raster wird erzeugt...</string>
+    <string name="game_crossword_congrats">Glückwunsch!</string>
+    <string name="game_crossword_completed_in">Raster in %1$s fertiggestellt</string>
+    <string name="game_crossword_back_menu">Zurück zum Menü</string>
+    <string name="game_crossword_history_item">%1$d Wörter (%2$s)</string>
 </resources>

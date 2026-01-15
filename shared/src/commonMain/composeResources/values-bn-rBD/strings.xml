@@ -633,4 +633,12 @@
     <string name="game_kana_link_words_found">শব্দ পাওয়া গেছে</string>
     <string name="game_kana_link_return_menu">মেনুতে ফিরে যান</string>
     <string name="game_kana_link_history_item_format">%1$dটি শব্দ পাওয়া গেছে</string>
+    <string name="writing_most_frequent_words_format">%1$dটি সবচেয়ে ঘন ঘন শব্দ</string>
+    <string name="game_crossword_setup_mode">গেম মোড</string>
+    <string name="game_crossword_setup_word_count">শব্দের সংখ্যা: %1$d</string>
+    <string name="game_crossword_generating">গ্রিড তৈরি করা হচ্ছে...</string>
+    <string name="game_crossword_congrats">অভিনন্দন!</string>
+    <string name="game_crossword_completed_in">গ্রিড %1$s এ সম্পন্ন হয়েছে</string>
+    <string name="game_crossword_back_menu">মেনুতে ফিরে যান</string>
+    <string name="game_crossword_history_item">%1$d শব্দ (%2$s)</string>
 </resources>

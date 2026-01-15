@@ -633,4 +633,12 @@
     <string name="game_kana_link_words_found">見つかった言葉</string>
     <string name="game_kana_link_return_menu">メニューに戻る</string>
     <string name="game_kana_link_history_item_format">%1$d 個の単語が見つかりました</string>
+    <string name="writing_most_frequent_words_format">%1$d 個の最も頻繁に使用される単語</string>
+    <string name="game_crossword_setup_mode">ゲームモード</string>
+    <string name="game_crossword_setup_word_count">単語数: %1$d</string>
+    <string name="game_crossword_generating">グリッドを生成中...</string>
+    <string name="game_crossword_congrats">おめでとう！</string>
+    <string name="game_crossword_completed_in">グリッドは %1$s で完了しました</string>
+    <string name="game_crossword_back_menu">メニューに戻る</string>
+    <string name="game_crossword_history_item">%1$d 単語 (%2$s)</string>
 </resources>

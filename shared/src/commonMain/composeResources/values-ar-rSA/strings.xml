@@ -633,4 +633,12 @@
     <string name="game_kana_link_words_found">الكلمات التي تم العثور عليها</string>
     <string name="game_kana_link_return_menu">العودة إلى القائمة</string>
     <string name="game_kana_link_history_item_format">تم العثور على %1$d كلمة</string>
+    <string name="writing_most_frequent_words_format">%1$d من الكلمات الأكثر شيوعًا</string>
+    <string name="game_crossword_setup_mode">وضع اللعبة</string>
+    <string name="game_crossword_setup_word_count">عدد الكلمات: %1$d</string>
+    <string name="game_crossword_generating">شبكة توليد...</string>
+    <string name="game_crossword_congrats">تهانينا!</string>
+    <string name="game_crossword_completed_in">اكتملت الشبكة في %1$s</string>
+    <string name="game_crossword_back_menu">العودة إلى القائمة</string>
+    <string name="game_crossword_history_item">%1$d كلمة (%2$s)</string>
 </resources>

@@ -62,7 +62,7 @@ fun CrosswordSetupScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Mode de jeu",
+                        text = stringResource(Res.string.game_crossword_setup_mode),
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(bottom = 8.dp)
@@ -92,7 +92,7 @@ fun CrosswordSetupScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Nombre de mots : $wordCount",
+                        text = stringResource(Res.string.game_crossword_setup_word_count, wordCount),
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(bottom = 8.dp)
@@ -136,7 +136,7 @@ fun CrosswordSetupScreen(
                             ) {
                                 Column {
                                     Text(
-                                        text = "${result.wordCount} mots (${result.mode})",
+                                        text = stringResource(Res.string.game_crossword_history_item, result.wordCount, result.mode.name),
                                         fontSize = 14.sp,
                                         fontWeight = FontWeight.Medium
                                     )
@@ -165,7 +165,7 @@ fun CrosswordSetupScreen(
             if (isGenerating) {
                 CircularProgressIndicator()
                 Text(
-                    text = "Génération de la grille...", 
+                    text = stringResource(Res.string.game_crossword_generating), 
                     color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier.padding(top = 8.dp)
                 )

@@ -635,4 +635,12 @@
     <string name="game_kana_link_words_found">Palavras encontradas</string>
     <string name="game_kana_link_return_menu">VOLTAR AO MENU</string>
     <string name="game_kana_link_history_item_format">%1$d palavras encontradas</string>
+    <string name="writing_most_frequent_words_format">%1$d palavras mais frequentes</string>
+    <string name="game_crossword_setup_mode">Modo de jogo</string>
+    <string name="game_crossword_setup_word_count">Número de palavras: %1$d</string>
+    <string name="game_crossword_generating">Gerando grade...</string>
+    <string name="game_crossword_congrats">Parabéns!</string>
+    <string name="game_crossword_completed_in">Grade concluída em %1$s</string>
+    <string name="game_crossword_back_menu">Voltar ao cardápio</string>
+    <string name="game_crossword_history_item">%1$d palavras (%2$s)</string>
 </resources>

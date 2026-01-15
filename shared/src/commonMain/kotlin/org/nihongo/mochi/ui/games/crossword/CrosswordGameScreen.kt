@@ -22,7 +22,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.shared.generated.resources.*
 
 @Composable
 fun CrosswordGameScreen(
@@ -37,14 +39,6 @@ fun CrosswordGameScreen(
     val selectedHintType by viewModel.selectedHintType.collectAsState()
     val isFinished by viewModel.isFinished.collectAsState()
     
-    // Auto-exit or show finish dialog
-    LaunchedEffect(isFinished) {
-        if (isFinished) {
-            // Option A: Just go back
-            // onBackClick()
-        }
-    }
-
     val cellsMap = remember(cells) {
         cells.associateBy { it.r to it.c }
     }
@@ -124,7 +118,7 @@ fun CrosswordGameScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        "Mochi-Cross",
+                        stringResource(Res.string.game_crosswords_title),
                         style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier.weight(1f)
                     )
@@ -222,12 +216,17 @@ fun CrosswordGameScreen(
                             modifier = Modifier.padding(24.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text("Félicitations !", style = MaterialTheme.typography.headlineMedium)
+                            Text(
+                                stringResource(Res.string.game_crossword_congrats), 
+                                style = MaterialTheme.typography.headlineMedium
+                            )
                             Spacer(modifier = Modifier.height(8.dp))
-                            Text("Grille complétée en ${formatTime(gameTimeSeconds)}")
+                            Text(
+                                stringResource(Res.string.game_crossword_completed_in, formatTime(gameTimeSeconds))
+                            )
                             Spacer(modifier = Modifier.height(24.dp))
                             Button(onClick = onBackClick) {
-                                Text("Retour au menu")
+                                Text(stringResource(Res.string.game_crossword_back_menu))
                             }
                         }
                     }

@@ -635,4 +635,12 @@
     <string name="game_kana_link_words_found">พบคำ</string>
     <string name="game_kana_link_return_menu">กลับไปที่เมนู</string>
     <string name="game_kana_link_history_item_format">พบ %1$d คำ</string>
+    <string name="writing_most_frequent_words_format">%1$d คำที่ใช้บ่อยที่สุด</string>
+    <string name="game_crossword_setup_mode">โหมดเกม</string>
+    <string name="game_crossword_setup_word_count">จำนวนคำ: %1$d</string>
+    <string name="game_crossword_generating">กำลังสร้างกริด...</string>
+    <string name="game_crossword_congrats">ยินดีด้วย!</string>
+    <string name="game_crossword_completed_in">ตารางเสร็จสมบูรณ์ใน %1$s</string>
+    <string name="game_crossword_back_menu">กลับไปที่เมนู</string>
+    <string name="game_crossword_history_item">%1$d คำ (%2$s)</string>
 </resources>
