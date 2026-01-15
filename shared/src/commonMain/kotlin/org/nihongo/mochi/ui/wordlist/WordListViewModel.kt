@@ -13,6 +13,7 @@ import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.domain.words.WordListEngine
 import org.nihongo.mochi.domain.words.WordRepository
@@ -60,28 +61,28 @@ class WordListViewModel(
     private val pageSize = 80
     private var allKanjiDetails = listOf<KanjiDetail>()
 
-    fun loadList(listName: String) {
+    fun loadList(levelId: String) {
         viewModelScope.launch {
-            if (listName == "user_custom_list") {
+            val defs = levelsRepository.loadLevelDefinitions()
+            val levelDef = defs.sections.values.flatMap { it.levels }.find { it.id == levelId }
+            
+            if (levelId == "user_custom_list") {
                 _screenTitleKey.value = "reading_user_list"
+                engine.loadList(levelId)
             } else {
-                val defs = levelsRepository.loadLevelDefinitions()
-                var foundKey: String? = null
-                outer@ for (section in defs.sections.values) {
-                    for (level in section.levels) {
-                        for (activity in level.activities.values) {
-                            if (activity.dataFile == listName) {
-                                foundKey = level.name
-                                break@outer
-                            }
-                        }
-                    }
+                _screenTitleKey.value = levelDef?.name
+                val config = levelDef?.activities?.get(StatisticsType.READING)
+                
+                if (config != null) {
+                    val words = wordRepository.getWordsByConfig(config)
+                    engine.setWords(words)
+                } else {
+                    // Fallback
+                    engine.loadList(levelId)
                 }
-                _screenTitleKey.value = foundKey
             }
 
             loadAllKanjiDetails()
-            engine.loadList(listName)
             applyFilters()
         }
     }

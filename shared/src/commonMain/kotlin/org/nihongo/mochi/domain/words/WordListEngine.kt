@@ -24,6 +24,11 @@ class WordListEngine(
         applyFilters()
     }
 
+    fun setWords(words: List<WordEntry>) {
+        allWords = words
+        applyFilters()
+    }
+
     fun applyFilters() {
         filteredWords = allWords.filter { word ->
             var include = true
@@ -46,7 +51,7 @@ class WordListEngine(
             }
             
             if (filterWordType != "Tous") {
-                // Logic for word type filtering if available in metadata
+                include = include && word.type == filterWordType
             }
             
             include
@@ -55,20 +60,17 @@ class WordListEngine(
 
     fun getDisplayedWords(): List<WordEntry> = filteredWords
 
-    fun calculateMasteryPercentage(levelKey: String): Double {
-        val wordTexts = wordRepository.getWordsForLevel(levelKey)
-        if (wordTexts.isEmpty()) return 0.0
+    fun calculateMasteryPercentage(levelId: String): Double {
+        val wordEntries = wordRepository.getWordEntriesForLevel(levelId)
+        if (wordEntries.isEmpty()) return 0.0
 
-        val scores = scoreRepository.getAllScores(ScoreManager.ScoreType.READING)
-        if (scores.isEmpty()) return 0.0
-
-        val totalMasteryPoints = wordTexts.sumOf { wordText ->
-            val score = scoreRepository.getScore(wordText, ScoreManager.ScoreType.READING)
+        val totalMasteryPoints = wordEntries.sumOf { wordEntry ->
+            val score = scoreRepository.getScore(wordEntry.text, ScoreManager.ScoreType.READING)
             val balance = score.successes - score.failures
             balance.coerceIn(0, 10).toDouble()
         }
 
-        val maxPossiblePoints = wordTexts.size * 10.0
+        val maxPossiblePoints = wordEntries.size * 10.0
         return (totalMasteryPoints / maxPossiblePoints) * 100.0
     }
 

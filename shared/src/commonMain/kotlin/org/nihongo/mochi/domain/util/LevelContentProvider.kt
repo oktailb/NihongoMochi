@@ -59,7 +59,7 @@ class LevelContentProvider(
         val pool = wordEntries.flatMap { word ->
             word.phonetics.map { it.toString() }
         }.distinct().filter { 
-            it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&"
+            it.isNotBlank() && it.isNotEmpty() && it[0] !in " ./()[]+-*=_\"'!?#%&"
         }
 
         val finalPool = pool.ifEmpty { 

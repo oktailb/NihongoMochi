@@ -1,27 +1,25 @@
 package org.nihongo.mochi.domain.words
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.coroutines.runBlocking
 import org.nihongo.mochi.domain.kana.ResourceLoader
 import org.nihongo.mochi.domain.levels.LevelsRepository
+import org.nihongo.mochi.domain.levels.ActivityConfig
 
 @Serializable
 data class WordEntry(
-    @SerialName("@phonetics") val phonetics: String = "",
-    @SerialName("#text") val text: String = "",
-    @SerialName("@type") val type: String = ""
-)
-
-@Serializable
-data class WordsList(
-    val word: List<WordEntry>
+    val id: String = "",
+    val text: String = "",
+    val phonetics: String = "",
+    val type: String? = null,
+    val jlpt: String? = null,
+    val rank: String? = null
 )
 
 @Serializable
 data class WordListRoot(
-    val words: WordsList
+    val words: List<WordEntry> = emptyList()
 )
 
 class WordRepository(
@@ -29,57 +27,26 @@ class WordRepository(
     private val levelsRepository: LevelsRepository
 ) {
     
-    private val json = Json { ignoreUnknownKeys = true }
-    private val cachedWords = mutableMapOf<String, List<WordEntry>>()
+    private val json = Json { 
+        ignoreUnknownKeys = true 
+        coerceInputValues = true
+    }
     private var allWordsCache: List<WordEntry>? = null
     
-    private var knownListsLoaded = false
-    private val _knownLists = mutableListOf<String>()
+    private val MERGED_FILE = "merged_wordlist"
 
-    private suspend fun ensureKnownListsLoaded() {
-        if (knownListsLoaded) return
-        try {
-            val files = levelsRepository.getAllDataFilesForActivity("READING")
-            
-            _knownLists.clear()
-            _knownLists.addAll(files)
-            knownListsLoaded = true
-            
-        } catch (e: Exception) {
-             if (_knownLists.isEmpty()) {
-                _knownLists.addAll(listOf(
-                    "bccwj_wordlist_1000", "bccwj_wordlist_2000", "bccwj_wordlist_3000", 
-                    "bccwj_wordlist_4000", "bccwj_wordlist_5000", "bccwj_wordlist_6000", 
-                    "bccwj_wordlist_7000", "bccwj_wordlist_8000",
-                    "jlpt_wordlist_n5", "jlpt_wordlist_n4", "jlpt_wordlist_n3",
-                    "jlpt_wordlist_n2", "jlpt_wordlist_n1"
-                ))
-            }
-            e.printStackTrace()
-        }
-    }
-    
-    fun getWordsForLevel(fileName: String): List<String> {
-        return getWordEntriesForLevel(fileName).map { it.text }
-    }
-
-    fun getWordEntriesForLevel(fileName: String): List<WordEntry> {
-        return runBlocking {
-             getWordEntriesForLevelSuspend(fileName)
-        }
-    }
-
-    suspend fun getWordEntriesForLevelSuspend(fileName: String): List<WordEntry> {
-        if (cachedWords.containsKey(fileName)) {
-            return cachedWords[fileName]!!
+    suspend fun getAllWordEntriesSuspend(): List<WordEntry> {
+        if (allWordsCache != null) {
+            return allWordsCache!!
         }
         
         return try {
-            val jsonString = resourceLoader.loadJson("words/$fileName.json")
+            val jsonString = resourceLoader.loadJson("words/$MERGED_FILE.json")
             val root = json.decodeFromString<WordListRoot>(jsonString)
-            cachedWords[fileName] = root.words.word
-            root.words.word
+            allWordsCache = root.words
+            root.words
         } catch (e: Exception) {
+            e.printStackTrace()
             emptyList()
         }
     }
@@ -90,20 +57,80 @@ class WordRepository(
         }
     }
 
-    suspend fun getAllWordEntriesSuspend(): List<WordEntry> {
-        if (allWordsCache != null) {
-            return allWordsCache!!
+    /**
+     * Filtre les mots en fonction de la configuration de l'activité.
+     * Supporte le niveau JLPT et les plages de fréquence (rank).
+     */
+    suspend fun getWordsByConfig(config: ActivityConfig): List<WordEntry> {
+        val allWords = getAllWordEntriesSuspend()
+        return allWords.filter { word ->
+            var match = true
+            
+            // Filtre par niveau JLPT
+            if (config.jlpt != null) {
+                match = match && word.jlpt == config.jlpt
+            }
+            
+            // Filtre par rang de fréquence (BCCWJ)
+            val wordRank = word.rank?.toIntOrNull()
+            if (config.minRank != null || config.maxRank != null) {
+                if (wordRank == null) {
+                    match = false
+                } else {
+                    if (config.minRank != null) match = match && wordRank >= config.minRank
+                    if (config.maxRank != null) match = match && wordRank <= config.maxRank
+                }
+            }
+            
+            match
+        }
+    }
+
+    /**
+     * Charge les entrées de mots pour un niveau donné.
+     * Tente d'utiliser la configuration du niveau si possible.
+     */
+    suspend fun getWordEntriesForLevelSuspend(levelId: String): List<WordEntry> {
+        // Tente d'abord de trouver la config dans levels.json pour cet ID de niveau
+        val defs = levelsRepository.loadLevelDefinitions()
+        val config = defs.sections.values.flatMap { it.levels }
+            .firstOrNull { it.id == levelId }
+            ?.activities?.get(org.nihongo.mochi.domain.statistics.StatisticsType.READING)
+
+        if (config != null) {
+            return getWordsByConfig(config)
+        }
+
+        // Fallback sur l'ancien comportement si on passe un nom de fichier brut ou un niveau non configuré
+        val all = getAllWordEntriesSuspend()
+        if (levelId.startsWith("jlpt_wordlist_n")) {
+            val level = levelId.split("_").last().uppercase()
+            return all.filter { it.jlpt == level }
         }
         
-        ensureKnownListsLoaded()
-        
-        val allEntries = mutableListOf<WordEntry>()
-        for (listName in _knownLists) {
-            val entries = getWordEntriesForLevelSuspend(listName)
-            allEntries.addAll(entries)
+        if (levelId.startsWith("bccwj_wordlist_")) {
+            val max = levelId.split("_").last().toIntOrNull() ?: 999999
+            val min = max - 999
+            return all.filter { 
+                val r = it.rank?.toIntOrNull()
+                r != null && r in min..max 
+            }
         }
-        allWordsCache = allEntries
-        return allEntries
+        
+        return all
+    }
+
+    /**
+     * Méthode de compatibilité pour l'ancien système basé sur les noms de fichiers.
+     */
+    fun getWordEntriesForLevel(levelIdOrFileName: String): List<WordEntry> {
+        return runBlocking {
+            getWordEntriesForLevelSuspend(levelIdOrFileName)
+        }
+    }
+
+    fun getWordsForLevel(levelId: String): List<String> {
+        return getWordEntriesForLevel(levelId).map { it.text }
     }
 
     fun getWordsContainingKanji(kanji: String): List<WordEntry> {
@@ -113,7 +140,6 @@ class WordRepository(
     fun getWordEntriesByText(texts: List<String>): List<WordEntry> {
         val all = getAllWordEntries()
         val textSet = texts.toSet()
-        // We might have duplicates if a word is in multiple levels, we take the first found
         return all.filter { it.text in textSet }.distinctBy { it.text }
     }
 }

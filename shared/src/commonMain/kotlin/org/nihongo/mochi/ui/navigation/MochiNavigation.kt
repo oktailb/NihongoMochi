@@ -169,8 +169,8 @@ fun MochiNavGraph(
                     }
                 },
                 onReadingClick = {
-                    val levelId = uiState.readingDataFile ?: uiState.selectedLevelId
-                    navController.navigate(Screen.WordList.createRoute(levelId))
+                    // Navigation par identifiant de niveau pour permettre le filtrage correct
+                    navController.navigate(Screen.WordList.createRoute(uiState.selectedLevelId))
                 },
                 onWritingClick = {
                     navController.navigate(Screen.WritingRecap.createRoute(uiState.selectedLevelId))
@@ -361,7 +361,7 @@ fun MochiNavGraph(
             val viewModel: KanaDropViewModel = koinInject()
             val homeViewModel: HomeViewModel = koinInject()
             val uiState by homeViewModel.uiState.collectAsState()
-            val levelId = uiState.readingDataFile ?: "jlpt_wordlist_n5"
+            val levelId = uiState.selectedLevelId
 
             KanaDropSetupScreen(
                 viewModel = viewModel,
@@ -380,7 +380,7 @@ fun MochiNavGraph(
                 navArgument("mode") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val levelId = backStackEntry.arguments?.getString("levelId") ?: "jlpt_wordlist_n5"
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val modeStr = backStackEntry.arguments?.getString("mode") ?: "TIME_ATTACK"
             val mode = KanaLinkMode.valueOf(modeStr)
             
@@ -419,7 +419,7 @@ fun MochiNavGraph(
             route = Screen.RecognitionRecap.route,
             arguments = listOf(navArgument("levelId") { type = NavType.StringType })
         ) { backStackEntry ->
-            val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val baseColor = MaterialTheme.colorScheme.surface.toArgb()
             val viewModel: GameRecapViewModel = koinInject { parametersOf(baseColor) }
             
@@ -471,7 +471,7 @@ fun MochiNavGraph(
                 navArgument("readingMode") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val gameMode = backStackEntry.arguments?.getString("gameMode") ?: "meaning"
             val readingMode = backStackEntry.arguments?.getString("readingMode") ?: "common"
             
@@ -539,7 +539,7 @@ fun MochiNavGraph(
             route = Screen.WritingRecap.route,
             arguments = listOf(navArgument("levelId") { type = NavType.StringType })
         ) { backStackEntry ->
-            val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val baseColor = MaterialTheme.colorScheme.surface.toArgb()
             val viewModel: WritingRecapViewModel = koinInject { parametersOf(baseColor) }
             
@@ -573,7 +573,7 @@ fun MochiNavGraph(
             route = Screen.WritingGame.route,
             arguments = listOf(navArgument("levelId") { type = NavType.StringType })
         ) { backStackEntry ->
-            val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
+            val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val viewModel: WritingGameViewModel = koinInject()
             
             val gameState by viewModel.state.collectAsState(GameState.Loading)

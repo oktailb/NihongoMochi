@@ -6,7 +6,10 @@ import org.nihongo.mochi.domain.statistics.StatisticsType
 @Serializable
 data class ActivityConfig(
     val dataFile: String,
-    val enabled: Boolean = false
+    val enabled: Boolean = false,
+    val jlpt: String? = null,
+    val minRank: Int? = null,
+    val maxRank: Int? = null
 )
 
 @Serializable

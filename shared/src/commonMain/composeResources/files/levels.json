@@ -54,7 +54,8 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "jlpt_wordlist_n5",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N5",
               "enabled": true
             },
             "WRITING": {
@@ -66,7 +67,8 @@
               "enabled": true
             },
             "GAMES": {
-              "dataFile": "jlpt_wordlist_n5",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N5",
               "enabled": false
             }
           }
@@ -82,7 +84,8 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "jlpt_wordlist_n4",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N4",
               "enabled": true
             },
             "WRITING": {
@@ -106,7 +109,8 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "jlpt_wordlist_n3",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N3",
               "enabled": true
             },
             "WRITING": {
@@ -130,7 +134,8 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "jlpt_wordlist_n2",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N2",
               "enabled": true
             },
             "WRITING": {
@@ -154,7 +159,8 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "jlpt_wordlist_n1",
+              "dataFile": "merged_wordlist",
+              "jlpt": "N1",
               "enabled": true
             },
             "WRITING": {
@@ -212,7 +218,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_1000",
+              "dataFile": "merged_wordlist",
+              "minRank": 1,
+              "maxRank": 1000,
               "enabled": true
             },
             "WRITING": {
@@ -232,7 +240,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_2000",
+              "dataFile": "merged_wordlist",
+              "minRank": 1001,
+              "maxRank": 2000,
               "enabled": true
             },
             "WRITING": {
@@ -252,7 +262,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_3000",
+              "dataFile": "merged_wordlist",
+              "minRank": 2001,
+              "maxRank": 3000,
               "enabled": true
             },
             "WRITING": {
@@ -272,7 +284,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_4000",
+              "dataFile": "merged_wordlist",
+              "minRank": 3001,
+              "maxRank": 4000,
               "enabled": true
             },
             "WRITING": {
@@ -292,7 +306,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_5000",
+              "dataFile": "merged_wordlist",
+              "minRank": 4001,
+              "maxRank": 6000,
               "enabled": true
             },
             "WRITING": {
@@ -312,7 +328,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_6000",
+              "dataFile": "merged_wordlist",
+              "minRank": 6001,
+              "maxRank": 8000,
               "enabled": true
             },
             "WRITING": {
@@ -332,7 +350,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_7000",
+              "dataFile": "merged_wordlist",
+              "minRank": 8001,
+              "maxRank": 10000,
               "enabled": true
             },
             "WRITING": {
@@ -352,7 +372,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_8000",
+              "dataFile": "merged_wordlist",
+              "minRank": 10001,
+              "maxRank": 12000,
               "enabled": true
             },
             "WRITING": {
@@ -378,7 +400,9 @@
               "enabled": true
             },
             "READING": {
-              "dataFile": "bccwj_wordlist_challenge",
+              "dataFile": "merged_wordlist",
+              "minRank": 12001,
+              "maxRank": 100000,
               "enabled": true
             },
             "WRITING": {
