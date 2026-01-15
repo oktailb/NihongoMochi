@@ -149,6 +149,13 @@ class CrosswordViewModel(
         val index = currentCells.indexOfFirst { it.r == currentPos.first && it.c == currentPos.second }
         
         if (index != -1 && !currentCells[index].isCorrect) {
+            val isLetterCorrect = char == currentCells[index].solution
+            if (isLetterCorrect) {
+                audioPlayer.playSound("sounds/correct.mp3")
+            } else {
+                audioPlayer.playSound("sounds/incorrect.mp3")
+            }
+
             currentCells[index] = currentCells[index].copy(userInput = char)
             _cells.value = currentCells
             
@@ -190,7 +197,7 @@ class CrosswordViewModel(
 
             if (wordCells.joinToString("") { it.userInput } == word.word) {
                 markWordAsCorrect(word, wordCells)
-                audioPlayer.playSound("sounds/correct.mp3")
+                // correct.mp3 is already played per letter, but we could play a different sound for full word
                 checkGameFinished()
             }
         }
@@ -224,7 +231,6 @@ class CrosswordViewModel(
         viewModelScope.launch {
             try {
                 scoreRepository.saveCrosswordResult(result)
-                // Reload history to reflect new score
                 loadHistory()
             } catch (e: Exception) {}
         }
@@ -274,5 +280,10 @@ class CrosswordViewModel(
         }
     }
 
-    fun abandonGame() { timerJob?.cancel() }
+    fun abandonGame() { 
+        timerJob?.cancel()
+        if (!_isFinished.value) {
+            audioPlayer.playSound("sounds/game_over.mp3")
+        }
+    }
 }

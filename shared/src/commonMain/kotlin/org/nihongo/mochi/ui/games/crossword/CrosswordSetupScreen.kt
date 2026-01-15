@@ -14,6 +14,9 @@ import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.components.PlayButton
+import kotlinx.datetime.Instant
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 @Composable
 fun CrosswordSetupScreen(
@@ -126,7 +129,33 @@ fun CrosswordSetupScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     } else {
-                        // History list...
+                        scoresHistory.take(5).forEach { result ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Column {
+                                    Text(
+                                        text = "${result.wordCount} mots (${result.mode})",
+                                        fontSize = 14.sp,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                    val date = Instant.fromEpochMilliseconds(result.timestamp)
+                                        .toLocalDateTime(TimeZone.currentSystemDefault())
+                                    Text(
+                                        text = "${date.dayOfMonth}/${date.monthNumber} ${date.hour}:${date.minute.toString().padStart(2, '0')}",
+                                        fontSize = 12.sp,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                                Text(
+                                    text = formatTime(result.timeSeconds),
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+                        }
                     }
                 }
             }
@@ -147,4 +176,10 @@ fun CrosswordSetupScreen(
             }
         }
     }
+}
+
+private fun formatTime(seconds: Int): String {
+    val m = seconds / 60
+    val s = seconds % 60
+    return "${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}"
 }
