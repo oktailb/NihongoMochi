@@ -16,6 +16,7 @@ Todo:
  - [ ] Achieve google play connexion
  - [X] enhance HTML/CSS for grammar lessons
  - [ ] enhance grammar exercices display
+ - [ ] Taquin : harmoniser les boutons avec ceux des quizz (ils sont trop petits la)
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
