@@ -13,6 +13,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -143,7 +144,6 @@ fun CrosswordGameScreen(
                     ) {
                         Column(modifier = Modifier.padding(12.dp).fillMaxWidth()) {
                             if (selectedMode == CrosswordMode.KANJIS) {
-                                // MODE KANJI: On affiche la lecture (kana) et le sens
                                 Text(
                                     text = currentWord.phonetics,
                                     modifier = Modifier.fillMaxWidth(),
@@ -162,7 +162,6 @@ fun CrosswordGameScreen(
                                     )
                                 }
                             } else {
-                                // MODE KANA: Comportement classique
                                 val clueText = if (selectedHintType == CrosswordHintType.KANJI) {
                                     currentWord.kanji
                                 } else {
@@ -190,7 +189,7 @@ fun CrosswordGameScreen(
                         tonalElevation = 8.dp
                     ) {
                         Row(
-                            modifier = Modifier.padding(8.dp).height(120.dp),
+                            modifier = Modifier.padding(8.dp).height(200.dp), // Increased height for 3 rows
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             LazyVerticalGrid(
@@ -254,7 +253,7 @@ fun CrosswordGameScreen(
 @Composable
 fun KeyButton(text: String, onClick: () -> Unit) {
     Surface(
-        modifier = Modifier.size(width = 45.dp, height = 45.dp).clickable { onClick() },
+        modifier = Modifier.aspectRatio(1f).clickable { onClick() }, // Aspect ratio 1:1 for better grid look
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.primaryContainer,
         tonalElevation = 2.dp
@@ -288,6 +287,7 @@ fun CrosswordCellView(
                     else -> Color.White
                 }
             )
+            .shadow(if (cell?.isBlack == true) 0.dp else 12.dp)
             .clickable(enabled = cell?.isBlack == false) { onClick() },
         contentAlignment = Alignment.Center
     ) {

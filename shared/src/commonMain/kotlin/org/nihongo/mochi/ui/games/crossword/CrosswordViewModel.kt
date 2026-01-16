@@ -65,6 +65,7 @@ class CrosswordViewModel(
     val isFinished: StateFlow<Boolean> = _isFinished.asStateFlow()
 
     private var timerJob: Job? = null
+    private var lastActiveWordId: Int? = null
 
     init {
         loadHistory()
@@ -88,43 +89,74 @@ class CrosswordViewModel(
         return p.split("/").firstOrNull { it.isNotBlank() }?.replace(".", "")?.replace(" ", "") ?: ""
     }
 
-    fun onCellSelected(r: Int, c: Int) {
+    fun onCellSelected(r: Int, c: Int, preserveOrientation: Boolean = false) {
         if (_isFinished.value) return
-        if (_selectedCell.value == r to c) {
-            val words = getWordsAt(r, c)
+        
+        val words = getWordsAt(r, c)
+        if (words.isEmpty()) return
+
+        if (_selectedCell.value == r to c && !preserveOrientation) {
+            // Toggle orientation on double click/re-select
             if (words.size > 1) {
                 _isVerticalInput.value = !_isVerticalInput.value
             }
-        } else {
-            _selectedCell.value = r to c
-            val words = getWordsAt(r, c)
-            if (words.any { !it.isHorizontal } && !words.any { it.isHorizontal }) {
+        } else if (!preserveOrientation) {
+            // New cell selection: Smart orientation
+            val currentVertical = _isVerticalInput.value
+            val hasHorizontal = words.any { it.isHorizontal }
+            val hasVertical = words.any { !it.isHorizontal }
+
+            if (currentVertical && hasVertical) {
+                // Keep vertical if possible
                 _isVerticalInput.value = true
-            } else if (words.any { it.isHorizontal }) {
+            } else if (!currentVertical && hasHorizontal) {
+                // Keep horizontal if possible
                 _isVerticalInput.value = false
+            } else {
+                // Switch if forced
+                _isVerticalInput.value = hasVertical && !hasHorizontal
             }
         }
+        
+        _selectedCell.value = r to c
         updateKeyboardKeys(r, c)
     }
 
     private fun updateKeyboardKeys(r: Int, c: Int) {
         val activeWord = getActiveWordAt(r, c) ?: return
+        
+        // Fix: Pool is now stable for the entire word
+        if (activeWord.number == lastActiveWordId && _keyboardKeys.value.isNotEmpty()) {
+            return
+        }
+        
+        lastActiveWordId = activeWord.number
         val wordChars = activeWord.word.map { it.toString() }.toSet()
-        val random = kotlin.random.Random(activeWord.word.hashCode() + r + c)
+        // Use a seed based only on the word ID/content to keep it stable while typing the word
+        val random = kotlin.random.Random(activeWord.number + activeWord.word.hashCode())
+        
+        val disturbersCount = (15 - wordChars.size).coerceAtLeast(0)
         
         val disturbers = if (_selectedMode.value == CrosswordMode.KANJIS) {
             val otherKanjis = _placedWords.value.flatMap { it.word.map { c -> c.toString() } }.toSet()
-            if (otherKanjis.size > 10) {
-                otherKanjis.shuffled(random).take(8).toSet()
+            if (otherKanjis.size > disturbersCount + 2) {
+                otherKanjis.shuffled(random).take(disturbersCount).toSet()
             } else {
-                "日一国会人年大十二本中長出三同時政自前者".map { it.toString() }.shuffled(random).take(8).toSet()
+                "日一国会人年大十二本中長出三同時政自前者".map { it.toString() }.shuffled(random).take(disturbersCount).toSet()
             }
         } else {
             val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
-            (1..8).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
+            (1..disturbersCount).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
         }
         
-        _keyboardKeys.value = (wordChars + disturbers).toList().shuffled(random)
+        // Target 15 keys exactly (3 rows of 5)
+        val combined = (wordChars + disturbers).toList().shuffled(random)
+        _keyboardKeys.value = if (combined.size > 15) combined.take(15) else if (combined.size < 15) {
+            // Fallback: fill if too few (rare)
+            val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
+            val needed = 15 - combined.size
+            combined + (1..needed).map { allKanas[random.nextInt(allKanas.length)].toString() }
+        } else combined
     }
 
     private fun getWordsAt(r: Int, c: Int): List<CrosswordWord> {
@@ -171,9 +203,13 @@ class CrosswordViewModel(
     private fun moveToNextCell(r: Int, c: Int) {
         val word = getActiveWordAt(r, c) ?: return
         if (word.isHorizontal) {
-            if (c + 1 < word.col + word.word.length) onCellSelected(r, c + 1)
+            if (c + 1 < word.col + word.word.length) {
+                onCellSelected(r, c + 1, preserveOrientation = true)
+            }
         } else {
-            if (r + 1 < word.row + word.word.length) onCellSelected(r + 1, c)
+            if (r + 1 < word.row + word.word.length) {
+                onCellSelected(r + 1, c, preserveOrientation = true)
+            }
         }
     }
 
@@ -243,6 +279,7 @@ class CrosswordViewModel(
         viewModelScope.launch {
             _isGenerating.value = true
             _isFinished.value = false
+            lastActiveWordId = null
             
             val result = withContext(Dispatchers.Default) {
                 val currentLevelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
