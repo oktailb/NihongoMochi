@@ -16,11 +16,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
+import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
+import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.PlayButton
+import org.nihongo.mochi.ui.gojuon.QuizQuestionCard
 
 @Composable
 fun SimonSetupScreen(
@@ -156,6 +159,10 @@ fun SimonSetupScreen(
     }
 }
 
+private fun calculateFontSize(text: String, direction: QuestionDirection): Int {
+    return TextSizeCalculator.calculateButtonTextSize(text.length, direction).toInt()
+}
+
 @Composable
 fun SimonGameScreen(
     viewModel: SimonViewModel,
@@ -169,7 +176,6 @@ fun SimonGameScreen(
     val score by viewModel.score.collectAsState()
     val scoresHistory by viewModel.scoresHistory.collectAsState()
 
-    // Nettoyage automatique de la session lors de la fermeture de l'écran
     DisposableEffect(viewModel) {
         onDispose {
             viewModel.abandonGame()
@@ -182,12 +188,15 @@ fun SimonGameScreen(
 
     MochiBackground {
         Column(
-            modifier = Modifier.fillMaxSize().padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.fillMaxSize()
         ) {
             // HUD
-            Box(modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp), contentAlignment = Alignment.TopEnd) {
-                Column(horizontalAlignment = Alignment.End) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Top
+            ) {
+                Column {
                     Text(
                         text = stringResource(Res.string.game_simon_score_label, score), 
                         fontWeight = FontWeight.Bold, 
@@ -198,10 +207,8 @@ fun SimonGameScreen(
                         fontSize = 12.sp, 
                         color = MaterialTheme.colorScheme.primary
                     )
-                    
-                    // Optimized Timer
-                    TimerText(viewModel.gameTimeSeconds)
                 }
+                TimerText(viewModel.gameTimeSeconds)
             }
 
             // Main Area
@@ -240,34 +247,46 @@ fun SimonGameScreen(
                         }
                     }
                 } else {
-                    val alpha by animateFloatAsState(targetValue = if (isKanjiVisible) 1f else 0f, animationSpec = tween(300), label = "kanjiAlpha")
-                    if (currentPlayable != null) {
-                        Surface(modifier = Modifier.size(250.dp), shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surface.copy(alpha = alpha), shadowElevation = (8.dp.value * alpha).dp) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Text(text = currentPlayable?.character ?: "", fontSize = 120.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = alpha))
-                            }
-                        }
+                    val alpha by animateFloatAsState(
+                        targetValue = if (isKanjiVisible) 1f else 0f, 
+                        animationSpec = tween(300), 
+                        label = "kanjiAlpha"
+                    )
+                    
+                    Box(modifier = Modifier.alpha(alpha)) {
+                        QuizQuestionCard(
+                            direction = org.nihongo.mochi.domain.models.KanaQuestionDirection.NORMAL,
+                            questionText = currentPlayable?.character ?: ""
+                        )
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
-
-            // Buttons
-            Column(modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp).alpha(if (isButtonsVisible) 1f else 0f)) {
-                val row1 = answers.take(2)
-                val row2 = answers.drop(2).take(2)
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    row1.forEach { (playable, label) ->
-                        GameAnswerButton(text = label, state = AnswerButtonState.DEFAULT, enabled = isButtonsVisible, modifier = Modifier.weight(1f).padding(4.dp), fontSizeSp = if (label.length > 4) 16 else 24, onClick = { viewModel.onAnswerClick(playable) })
+            // Buttons Grid (Factorized style from KanaQuiz)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp)
+                    .alpha(if (isButtonsVisible) 1f else 0f)
+            ) {
+                val chunks = answers.chunked(2)
+                chunks.forEach { rowAnswers ->
+                    Row(modifier = Modifier.fillMaxWidth()) {
+                        rowAnswers.forEach { (playable, label) ->
+                            GameAnswerButton(
+                                text = label,
+                                state = AnswerButtonState.DEFAULT,
+                                enabled = isButtonsVisible,
+                                modifier = Modifier.weight(1f).padding(8.dp),
+                                fontSizeSp = calculateFontSize(label, QuestionDirection.REVERSE) * 3 / 2,
+                                onClick = { viewModel.onAnswerClick(playable) }
+                            )
+                        }
+                        // Handle odd number of buttons in a row
+                        if (rowAnswers.size < 2) {
+                            Spacer(Modifier.weight(1f).padding(8.dp))
+                        }
                     }
-                    if (row1.size < 2) Spacer(Modifier.weight(1f))
-                }
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    row2.forEach { (playable, label) ->
-                        GameAnswerButton(text = label, state = AnswerButtonState.DEFAULT, enabled = isButtonsVisible, modifier = Modifier.weight(1f).padding(4.dp), fontSizeSp = if (label.length > 4) 16 else 24, onClick = { viewModel.onAnswerClick(playable) })
-                    }
-                    if (row2.size < 2) Spacer(Modifier.weight(1f))
                 }
             }
         }
@@ -280,6 +299,7 @@ private fun TimerText(timeFlow: StateFlow<Int>) {
     Text(
         text = stringResource(Res.string.game_simon_time_label, timeSeconds),
         fontSize = 14.sp,
+        fontWeight = FontWeight.Medium,
         color = MaterialTheme.colorScheme.onBackground
     )
 }

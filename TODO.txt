@@ -5,7 +5,10 @@ Bugs:
  - [X] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
  - [X] KanaDrop en mode semble ne plus fonctionner correctement -> pb de wordlist ?
  - [?] Memorise en 5x6 plante souvent apres + de 30 mouvements -> fuite memoire ? pb threading ?
- - [ ] Crossword -> au croisement avec un mot sur l autre axe, le prochain kana est vole par l autre axe
+ - [ ] Crossword -> au croisement avec un mot horizontal et un mot vertical, le prochain kana est vole par l'axe vertical
+ - [ ] Crossword -> quand il y a 3 lignes de kanas, cela oblige acroller, c'est fatiguant
+ - [ ] Crossword -> le pool de kanas + perturbateurs doit être le même pour tout le mot, là c'est pour chaque kana et dans le désordre. Ca evite certes la dichotomie, mais ca fatigue vite (en option pour la difficulté ?)
+
 
 Todo:
  - [X] More i18n : Mogolian and Japanese
@@ -16,7 +19,7 @@ Todo:
  - [ ] Achieve google play connexion
  - [X] enhance HTML/CSS for grammar lessons
  - [ ] enhance grammar exercices display
- - [ ] Taquin : harmoniser les boutons avec ceux des quizz (ils sont trop petits la)
+ - [X] Simon : harmoniser les boutons avec ceux des quizz (ils sont trop petits la)
 
 Games:
   - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
