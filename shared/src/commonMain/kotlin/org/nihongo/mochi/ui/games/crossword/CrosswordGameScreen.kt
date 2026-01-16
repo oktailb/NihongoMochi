@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameResultOverlay
 
 @Composable
 fun CrosswordGameScreen(
@@ -219,33 +220,14 @@ fun CrosswordGameScreen(
             }
             
             if (isFinished) {
-                Box(
-                    modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Card(
-                        modifier = Modifier.padding(32.dp),
-                        shape = RoundedCornerShape(16.dp)
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(24.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                stringResource(Res.string.game_crossword_congrats), 
-                                style = MaterialTheme.typography.headlineMedium
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(
-                                stringResource(Res.string.game_crossword_completed_in, formatTime(gameTimeSeconds))
-                            )
-                            Spacer(modifier = Modifier.height(24.dp))
-                            Button(onClick = onBackClick) {
-                                Text(stringResource(Res.string.game_crossword_back_menu))
-                            }
-                        }
-                    }
-                }
+                GameResultOverlay(
+                    isVictory = true,
+                    stats = listOf(
+                        stringResource(Res.string.game_crossword_history_item, placedWords.size, selectedMode.name) to formatTime(gameTimeSeconds)
+                    ),
+                    onReplayClick = { viewModel.startGame { /* Already in game screen */ } },
+                    onMenuClick = onBackClick
+                )
             }
         }
     }

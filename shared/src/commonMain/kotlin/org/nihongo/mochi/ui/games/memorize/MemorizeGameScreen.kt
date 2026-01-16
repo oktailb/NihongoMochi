@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameResultOverlay
 
 @Composable
 fun MemorizeGameScreen(
@@ -28,6 +29,8 @@ fun MemorizeGameScreen(
     onBackClick: () -> Unit
 ) {
     val isFinished by viewModel.isGameFinished.collectAsState()
+    val moves by viewModel.moves.collectAsState()
+    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
 
     // Ensure session is cleaned up when leaving the screen
     DisposableEffect(viewModel) {
@@ -37,24 +40,14 @@ fun MemorizeGameScreen(
     }
 
     MochiBackground {
-        Column(
-            modifier = Modifier.fillMaxSize().padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            MemorizeHeader(viewModel)
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier.fillMaxSize().padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                MemorizeHeader(viewModel)
 
-            Box(modifier = Modifier.weight(1f)) {
-                if (isFinished) {
-                    val moves by viewModel.moves.collectAsState()
-                    val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
-                    
-                    MemorizeResultOverlay(
-                        moves = moves,
-                        timeSeconds = timeSeconds,
-                        onRestart = { viewModel.startGame() },
-                        onBack = onBackClick
-                    )
-                } else {
+                Box(modifier = Modifier.weight(1f)) {
                     val cards by viewModel.cards.collectAsState()
                     val gridSize by viewModel.selectedGridSize.collectAsState()
                     
@@ -75,6 +68,19 @@ fun MemorizeGameScreen(
                         }
                     }
                 }
+            }
+
+            // Game Result Overlay
+            if (isFinished) {
+                GameResultOverlay(
+                    isVictory = true,
+                    stats = listOf(
+                        stringResource(Res.string.game_memorize_moves, moves).split(":")[0] to moves.toString(),
+                        stringResource(Res.string.game_memorize_time, timeSeconds).split(":")[0] to "${timeSeconds}s"
+                    ),
+                    onReplayClick = { viewModel.startGame() },
+                    onMenuClick = onBackClick
+                )
             }
         }
     }
@@ -168,57 +174,6 @@ fun MemoryCard(
                         textAlign = TextAlign.Center
                     )
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun MemorizeResultOverlay(
-    moves: Int,
-    timeSeconds: Int,
-    onRestart: () -> Unit,
-    onBack: () -> Unit
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
-        shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(8.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            contentColor = MaterialTheme.colorScheme.onSurface
-        )
-    ) {
-        Column(
-            modifier = Modifier.padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(stringResource(Res.string.game_memorize_finished), fontSize = 28.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            Text(stringResource(Res.string.game_memorize_congrats), textAlign = TextAlign.Center)
-            
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    val label = stringResource(Res.string.game_memorize_moves, moves).split(":")[0]
-                    Text(label, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("$moves", fontWeight = FontWeight.Bold, fontSize = 24.sp)
-                }
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    val label = stringResource(Res.string.game_memorize_time, timeSeconds).split(":")[0]
-                    Text(label, fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("${timeSeconds}s", fontWeight = FontWeight.Bold, fontSize = 24.sp)
-                }
-            }
-            
-            Button(onClick = onRestart, modifier = Modifier.fillMaxWidth()) {
-                Text(stringResource(Res.string.game_memorize_replay))
-            }
-            OutlinedButton(onClick = onBack, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
-                Text(stringResource(Res.string.game_memorize_back_menu))
             }
         }
     }

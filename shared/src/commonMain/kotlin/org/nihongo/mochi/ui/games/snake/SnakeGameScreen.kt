@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameResultOverlay
 import kotlin.math.abs
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,161 +37,168 @@ fun SnakeGameScreen(
     val selectedMode by viewModel.selectedMode.collectAsState()
 
     MochiBackground {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { 
-                        Text(
-                            text = stringResource(Res.string.game_snake_title),
-                            color = MaterialTheme.colorScheme.onBackground
-                        ) 
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onBackClick) {
-                            Icon(
-                                Icons.Default.ArrowBack, 
-                                contentDescription = "Back",
-                                tint = MaterialTheme.colorScheme.onBackground
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
-                )
-            },
-            containerColor = Color.Transparent
-        ) { padding ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .pointerInput(Unit) {
-                        detectDragGestures(
-                            onDragStart = { dragAmount = Offset.Zero },
-                            onDrag = { change, dragAmountDelta ->
-                                change.consume()
-                                dragAmount += dragAmountDelta
-                            },
-                            onDragEnd = {
-                                if (abs(dragAmount.x) > abs(dragAmount.y)) {
-                                    if (dragAmount.x > 40) viewModel.onDirectionChanged(Direction.RIGHT)
-                                    else if (dragAmount.x < -40) viewModel.onDirectionChanged(Direction.LEFT)
-                                } else {
-                                    if (dragAmount.y > 40) viewModel.onDirectionChanged(Direction.DOWN)
-                                    else if (dragAmount.y < -40) viewModel.onDirectionChanged(Direction.UP)
-                                }
-                            }
-                        )
-                    },
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                // Info Header (Score)
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    GameStatItem(label = stringResource(Res.string.game_kana_link_score_label), value = state.score.toString())
-                    if (state.wordsCompleted > 0) {
-                        GameStatItem(label = stringResource(Res.string.game_kana_link_words_label), value = state.wordsCompleted.toString())
-                    }
-                }
-
-                // Target Word/Item Box
-                Surface(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.9f),
-                    shadowElevation = 4.dp
-                ) {
-                    Column(
-                        modifier = Modifier.padding(12.dp).fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = state.currentTargetLabel,
-                            style = MaterialTheme.typography.headlineMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary,
-                            textAlign = TextAlign.Center
-                        )
-                        if (selectedMode == SnakeMode.WORDS) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = { 
                             Text(
-                                text = stringResource(Res.string.game_snake_eat_phonetics),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
-                            )
-                        }
-                    }
-                }
-
-                // Game Board
-                BoxWithConstraints(
+                                text = stringResource(Res.string.game_snake_title),
+                                color = MaterialTheme.colorScheme.onBackground
+                            ) 
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = onBackClick) {
+                                Icon(
+                                    Icons.Default.ArrowBack, 
+                                    contentDescription = "Back",
+                                    tint = MaterialTheme.colorScheme.onBackground
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
+                    )
+                },
+                containerColor = Color.Transparent
+            ) { padding ->
+                Column(
                     modifier = Modifier
-                        .weight(1f)
-                        .padding(16.dp)
-                        .aspectRatio(state.gridWidth.toFloat() / state.gridHeight.toFloat())
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                        .fillMaxSize()
+                        .padding(padding)
+                        .pointerInput(Unit) {
+                            detectDragGestures(
+                                onDragStart = { dragAmount = Offset.Zero },
+                                onDrag = { change, dragAmountDelta ->
+                                    change.consume()
+                                    dragAmount += dragAmountDelta
+                                },
+                                onDragEnd = {
+                                    if (abs(dragAmount.x) > abs(dragAmount.y)) {
+                                        if (dragAmount.x > 40) viewModel.onDirectionChanged(Direction.RIGHT)
+                                        else if (dragAmount.x < -40) viewModel.onDirectionChanged(Direction.LEFT)
+                                    } else {
+                                        if (dragAmount.y > 40) viewModel.onDirectionChanged(Direction.DOWN)
+                                        else if (dragAmount.y < -40) viewModel.onDirectionChanged(Direction.UP)
+                                    }
+                                }
+                            )
+                        },
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    val density = LocalDensity.current
-                    val cellSize = maxWidth / state.gridWidth
-                    val cellSizePx = with(density) { cellSize.toPx() }
+                    // Info Header (Score)
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        GameStatItem(label = stringResource(Res.string.game_kana_link_score_label), value = state.score.toString())
+                        if (state.wordsCompleted > 0) {
+                            GameStatItem(label = stringResource(Res.string.game_kana_link_words_label), value = state.wordsCompleted.toString())
+                        }
+                    }
 
-                    Canvas(modifier = Modifier.fillMaxSize()) {
-                        // Draw Target Item (Circle)
+                    // Target Word/Item Box
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        shape = RoundedCornerShape(12.dp),
+                        color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.9f),
+                        shadowElevation = 4.dp
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(12.dp).fillMaxWidth(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = state.currentTargetLabel,
+                                style = MaterialTheme.typography.headlineMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary,
+                                textAlign = TextAlign.Center
+                            )
+                            if (selectedMode == SnakeMode.WORDS) {
+                                Text(
+                                    text = stringResource(Res.string.game_snake_eat_phonetics),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                                )
+                            }
+                        }
+                    }
+
+                    // Game Board
+                    BoxWithConstraints(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(16.dp)
+                            .aspectRatio(state.gridWidth.toFloat() / state.gridHeight.toFloat())
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                    ) {
+                        val density = LocalDensity.current
+                        val cellSize = maxWidth / state.gridWidth
+                        val cellSizePx = with(density) { cellSize.toPx() }
+
+                        Canvas(modifier = Modifier.fillMaxSize()) {
+                            // Draw Target Item (Circle)
+                            state.targetItem?.let { item ->
+                                drawCircle(
+                                    color = Color(0xFF4CAF50),
+                                    radius = cellSizePx * 0.55f,
+                                    center = Offset(
+                                        item.position.x * cellSizePx + cellSizePx / 2,
+                                        item.position.y * cellSizePx + cellSizePx / 2
+                                    )
+                                )
+                            }
+
+                            // Draw Distractions (Circle)
+                            state.distractions.forEach { item ->
+                                drawCircle(
+                                    color = Color.Gray.copy(alpha = 0.4f),
+                                    radius = cellSizePx * 0.45f,
+                                    center = Offset(
+                                        item.position.x * cellSizePx + cellSizePx / 2,
+                                        item.position.y * cellSizePx + cellSizePx / 2
+                                    )
+                                )
+                            }
+
+                            // Draw Snake (Circles)
+                            state.snake.forEachIndexed { index, point ->
+                                val color = if (index == 0) Color(0xFF2E7D32) else Color(0xFF4CAF50)
+                                val scale = if (index == 0) 0.55f else 0.45f // Head slightly larger
+                                drawCircle(
+                                    color = color,
+                                    radius = cellSizePx * scale,
+                                    center = Offset(
+                                        point.x * cellSizePx + cellSizePx / 2,
+                                        point.y * cellSizePx + cellSizePx / 2
+                                    )
+                                )
+                            }
+                        }
+
+                        // Labels
                         state.targetItem?.let { item ->
-                            drawCircle(
-                                color = Color(0xFF4CAF50),
-                                radius = cellSizePx * 0.55f,
-                                center = Offset(
-                                    item.position.x * cellSizePx + cellSizePx / 2,
-                                    item.position.y * cellSizePx + cellSizePx / 2
-                                )
-                            )
+                            SnakeItemLabel(item.character, item.position, cellSize, Color.White)
                         }
-
-                        // Draw Distractions (Circle)
                         state.distractions.forEach { item ->
-                            drawCircle(
-                                color = Color.Gray.copy(alpha = 0.4f),
-                                radius = cellSizePx * 0.45f,
-                                center = Offset(
-                                    item.position.x * cellSizePx + cellSizePx / 2,
-                                    item.position.y * cellSizePx + cellSizePx / 2
-                                )
-                            )
+                            SnakeItemLabel(item.character, item.position, cellSize, MaterialTheme.colorScheme.onSurface)
                         }
-
-                        // Draw Snake (Circles)
-                        state.snake.forEachIndexed { index, point ->
-                            val color = if (index == 0) Color(0xFF2E7D32) else Color(0xFF4CAF50)
-                            val scale = if (index == 0) 0.55f else 0.45f // Head slightly larger
-                            drawCircle(
-                                color = color,
-                                radius = cellSizePx * scale,
-                                center = Offset(
-                                    point.x * cellSizePx + cellSizePx / 2,
-                                    point.y * cellSizePx + cellSizePx / 2
-                                )
-                            )
-                        }
-                    }
-
-                    // Labels
-                    state.targetItem?.let { item ->
-                        SnakeItemLabel(item.character, item.position, cellSize, Color.White)
-                    }
-                    state.distractions.forEach { item ->
-                        SnakeItemLabel(item.character, item.position, cellSize, MaterialTheme.colorScheme.onSurface)
                     }
                 }
 
+                // Game Result Overlay
                 if (state.isGameOver) {
-                    GameOverDialog(
-                        score = state.score,
-                        onReplay = { viewModel.startGame() },
-                        onMenu = onBackClick
+                    GameResultOverlay(
+                        isVictory = false,
+                        score = state.score.toString(),
+                        stats = if (state.wordsCompleted > 0) listOf(
+                            stringResource(Res.string.game_kana_link_words_label) to state.wordsCompleted.toString()
+                        ) else emptyList(),
+                        onReplayClick = { viewModel.startGame() },
+                        onMenuClick = onBackClick
                     )
                 }
             }
@@ -222,40 +230,4 @@ fun SnakeItemLabel(text: String, position: Point, cellSize: androidx.compose.ui.
             textAlign = TextAlign.Center
         )
     }
-}
-
-@Composable
-fun GameOverDialog(score: Int, onReplay: () -> Unit, onMenu: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = { },
-        title = { 
-            Text(
-                text = stringResource(Res.string.game_snake_game_over),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            ) 
-        },
-        text = { 
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                Text(text = stringResource(Res.string.game_snake_final_score), style = MaterialTheme.typography.bodyMedium)
-                Text(text = score.toString(), style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = onReplay,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(Res.string.game_replay_button))
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = onMenu,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(Res.string.game_menu_button))
-            }
-        }
-    )
 }

@@ -364,6 +364,10 @@ class KanaDropViewModel(
         )
     }
 
+    fun resetGame() {
+        initGame(config.levelFileName, config.mode)
+    }
+
     fun abandonGame() {
         timerJob?.cancel()
         if (_state.value.score > 0 && !_state.value.isGameOver) {
