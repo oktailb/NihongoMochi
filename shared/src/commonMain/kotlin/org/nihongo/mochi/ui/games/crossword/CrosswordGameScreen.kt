@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.crossword
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -189,7 +190,7 @@ fun CrosswordGameScreen(
                         tonalElevation = 8.dp
                     ) {
                         Row(
-                            modifier = Modifier.padding(8.dp).height(200.dp), // Increased height for 3 rows
+                            modifier = Modifier.padding(8.dp).height(200.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             LazyVerticalGrid(
@@ -253,7 +254,7 @@ fun CrosswordGameScreen(
 @Composable
 fun KeyButton(text: String, onClick: () -> Unit) {
     Surface(
-        modifier = Modifier.aspectRatio(1f).clickable { onClick() }, // Aspect ratio 1:1 for better grid look
+        modifier = Modifier.aspectRatio(1f).clickable { onClick() },
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.primaryContainer,
         tonalElevation = 2.dp
@@ -271,45 +272,59 @@ fun CrosswordCellView(
     onClick: () -> Unit
 ) {
     val cellSize = 40.dp
-    val isInputCorrect = cell?.userInput?.isNotEmpty() == true && cell.userInput == cell.solution
-    val isInputWrong = cell?.userInput?.isNotEmpty() == true && cell.userInput != cell.solution
-
+    
+    // Conteneur fixe pour garder la grille alignée
     Box(
-        modifier = Modifier
-            .requiredSize(cellSize)
-            .border(0.5.dp, if (cell?.isBlack == true) Color.Transparent else Color.Gray.copy(alpha = 0.5f))
-            .background(
-                when {
-                    cell == null || cell.isBlack -> Color.Transparent
-                    cell.isCorrect || isInputCorrect -> Color(0xFFC8E6C9)
-                    isInputWrong -> Color(0xFFFFCDD2)
-                    isSelected -> MaterialTheme.colorScheme.primaryContainer
-                    else -> Color.White
-                }
-            )
-            .shadow(if (cell?.isBlack == true) 0.dp else 12.dp)
-            .clickable(enabled = cell?.isBlack == false) { onClick() },
+        modifier = Modifier.size(cellSize),
         contentAlignment = Alignment.Center
     ) {
         if (cell != null && !cell.isBlack) {
-            if (cell.number != null) {
-                Text(
-                    text = cell.number.toString(),
-                    fontSize = 10.sp,
-                    modifier = Modifier.align(Alignment.TopStart).padding(2.dp),
-                    color = Color.DarkGray
-                )
+            val isInputCorrect = cell.userInput.isNotEmpty() && cell.userInput == cell.solution
+            val isInputWrong = cell.userInput.isNotEmpty() && cell.userInput != cell.solution
+
+            val backgroundColor = when {
+                cell.isCorrect || isInputCorrect -> Color(0xFFC8E6C9)
+                isInputWrong -> Color(0xFFFFCDD2)
+                isSelected -> MaterialTheme.colorScheme.primaryContainer
+                else -> Color.White
             }
-            Text(
-                text = cell.userInput,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = when {
-                    cell.isCorrect || isInputCorrect -> Color(0xFF2E7D32)
-                    isInputWrong -> Color(0xFFD32F2F)
-                    else -> Color.Black
+
+            // Surface gère l'élévation et l'ombre correctement
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(1.dp) // Important: laisse l'ombre visible sans chevaucher les voisins
+                    .clickable { onClick() },
+                shape = RoundedCornerShape(2.dp),
+                color = backgroundColor,
+                shadowElevation = if (isSelected) 4.dp else 2.dp,
+                border = BorderStroke(
+                    width = if (isSelected) 1.5.dp else 0.5.dp,
+                    color = if (isSelected) MaterialTheme.colorScheme.primary else Color.Gray.copy(alpha = 0.5f)
+                )
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    if (cell.number != null) {
+                        Text(
+                            text = cell.number.toString(),
+                            fontSize = 9.sp,
+                            modifier = Modifier.align(Alignment.TopStart).padding(2.dp),
+                            color = Color.DarkGray,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Text(
+                        text = cell.userInput,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = when {
+                            cell.isCorrect || isInputCorrect -> Color(0xFF2E7D32)
+                            isInputWrong -> Color(0xFFD32F2F)
+                            else -> Color.Black
+                        }
+                    )
                 }
-            )
+            }
         }
     }
 }
