@@ -5,8 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -17,15 +15,14 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import kotlin.math.abs
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaquinGameScreen(
     viewModel: TaquinViewModel,
@@ -35,98 +32,67 @@ fun TaquinGameScreen(
 
     MochiBackground {
         Box(modifier = Modifier.fillMaxSize()) {
-            Scaffold(
-                containerColor = Color.Transparent,
-                topBar = {
-                    TopAppBar(
-                        title = { 
-                            Text(
-                                text = stringResource(Res.string.game_taquin_title),
-                                color = MaterialTheme.colorScheme.onBackground
-                            ) 
-                        },
-                        navigationIcon = {
-                            IconButton(onClick = onBackClick) {
-                                Icon(
-                                    imageVector = Icons.Default.ArrowBack, 
-                                    contentDescription = "Back",
-                                    tint = MaterialTheme.colorScheme.onBackground
-                                )
-                            }
-                        },
-                        colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
+            state?.let { gameState ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    // Factorized HUD (Contains Game Title and Stats)
+                    GameHUD(
+                        primaryStat = stringResource(Res.string.game_taquin_title) to "",
+                        secondaryStat = stringResource(Res.string.game_taquin_moves_label) to gameState.moves.toString(),
+                        timerFlow = viewModel.gameState.map { it?.timeSeconds ?: 0 },
+                        initialTimerValue = gameState.timeSeconds
                     )
-                }
-            ) { padding ->
-                state?.let { gameState ->
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(padding)
-                            .padding(horizontal = 8.dp, vertical = 4.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        // Stats Header
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            StatItem(
-                                label = stringResource(Res.string.game_taquin_moves_label), 
-                                value = gameState.moves.toString()
-                            )
-                            
-                            // Optimized Timer Display
-                            TimerStat(viewModel.gameState)
-                        }
 
-                        // The Puzzle Grid
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxWidth(),
+                    // The Puzzle Grid
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        BoxWithConstraints(
+                            modifier = Modifier.fillMaxSize(),
                             contentAlignment = Alignment.Center
                         ) {
-                            BoxWithConstraints(
-                                modifier = Modifier.fillMaxSize(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                val boardPadding = 4.dp
-                                val availableWidth = maxWidth - (boardPadding * 2)
-                                val availableHeight = maxHeight - (boardPadding * 2)
-                                
-                                val pieceSizeWidth = availableWidth / gameState.cols
-                                val pieceSizeHeight = availableHeight / gameState.rows
-                                val pieceSize = minOf(pieceSizeWidth, pieceSizeHeight)
-                                
-                                val dynamicFontSize = (pieceSize.value * 0.6f).sp
+                            val boardPadding = 4.dp
+                            val availableWidth = maxWidth - (boardPadding * 2)
+                            val availableHeight = maxHeight - (boardPadding * 2)
+                            
+                            val pieceSizeWidth = availableWidth / gameState.cols
+                            val pieceSizeHeight = availableHeight / gameState.rows
+                            val pieceSize = minOf(pieceSizeWidth, pieceSizeHeight)
+                            
+                            val dynamicFontSize = (pieceSize.value * 0.6f).sp
 
-                                Column(
-                                    modifier = Modifier
-                                        .width(pieceSize * gameState.cols)
-                                        .height(pieceSize * gameState.rows),
-                                    verticalArrangement = Arrangement.Center,
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    for (r in 0 until gameState.rows) {
-                                        Row(
-                                            modifier = Modifier.height(pieceSize).fillMaxWidth(),
-                                            horizontalArrangement = Arrangement.Center,
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            for (c in 0 until gameState.cols) {
-                                                val index = r * gameState.cols + c
-                                                val piece = gameState.pieces.getOrNull(index)
-                                                
-                                                Box(modifier = Modifier.size(pieceSize).padding(1.dp)) {
-                                                    if (piece != null) {
-                                                        TaquinPieceItem(
-                                                            modifier = Modifier.fillMaxSize(),
-                                                            piece = piece,
-                                                            fontSize = dynamicFontSize,
-                                                            onClick = { viewModel.onPieceClicked(index) }
-                                                        )
-                                                    }
+                            Column(
+                                modifier = Modifier
+                                    .width(pieceSize * gameState.cols)
+                                    .height(pieceSize * gameState.rows),
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                for (r in 0 until gameState.rows) {
+                                    Row(
+                                        modifier = Modifier.height(pieceSize).fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.Center,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        for (c in 0 until gameState.cols) {
+                                            val index = r * gameState.cols + c
+                                            val piece = gameState.pieces.getOrNull(index)
+                                            
+                                            Box(modifier = Modifier.size(pieceSize).padding(1.dp)) {
+                                                if (piece != null) {
+                                                    TaquinPieceItem(
+                                                        modifier = Modifier.fillMaxSize(),
+                                                        piece = piece,
+                                                        fontSize = dynamicFontSize,
+                                                        onClick = { viewModel.onPieceClicked(index) }
+                                                    )
                                                 }
                                             }
                                         }
@@ -135,33 +101,29 @@ fun TaquinGameScreen(
                             }
                         }
                     }
-                    
-                    // Game Result Overlay
-                    if (gameState.isSolved) {
-                        GameResultOverlay(
-                            isVictory = true,
-                            stats = listOf(
-                                stringResource(Res.string.game_taquin_moves_label) to gameState.moves.toString(),
-                                stringResource(Res.string.game_taquin_time_label) to stringResource(Res.string.game_memorize_time_format, gameState.timeSeconds)
-                            ),
-                            onReplayClick = { viewModel.startGame() },
-                            onMenuClick = onBackClick
-                        )
-                    }
+                }
+                
+                // Game Result Overlay
+                if (gameState.isSolved) {
+                    GameResultOverlay(
+                        isVictory = true,
+                        stats = listOf(
+                            stringResource(Res.string.game_taquin_moves_label) to gameState.moves.toString(),
+                            stringResource(Res.string.game_taquin_time_label) to formatGameTimeHUD(gameState.timeSeconds)
+                        ),
+                        onReplayClick = { viewModel.startGame() },
+                        onMenuClick = onBackClick
+                    )
                 }
             }
         }
     }
 }
 
-@Composable
-private fun TimerStat(gameStateFlow: StateFlow<TaquinGameState?>) {
-    val timeSeconds by gameStateFlow.map { it?.timeSeconds ?: 0 }.collectAsState(initial = 0)
-    
-    StatItem(
-        label = stringResource(Res.string.game_taquin_time_label), 
-        value = stringResource(Res.string.game_memorize_time_format, timeSeconds)
-    )
+private fun formatGameTimeHUD(seconds: Int): String {
+    val m = seconds / 60
+    val s = seconds % 60
+    return if (m > 0) "${m}m ${s}s" else "${s}s"
 }
 
 @Composable
@@ -218,22 +180,5 @@ fun TaquinPieceItem(
                 softWrap = false
             )
         }
-    }
-}
-
-@Composable
-fun StatItem(label: String, value: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = label, 
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-        )
-        Text(
-            text = value, 
-            style = MaterialTheme.typography.titleMedium, 
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onBackground
-        )
     }
 }

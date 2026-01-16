@@ -12,7 +12,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -20,6 +19,7 @@ import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.components.GameAnswerButton
+import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.ui.components.GameSetupTemplate
 import org.nihongo.mochi.ui.gojuon.QuizQuestionCard
@@ -174,26 +174,13 @@ fun SimonGameScreen(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                // HUD
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.Top
-                ) {
-                    Column {
-                        Text(
-                            text = stringResource(Res.string.game_simon_score_label, score), 
-                            fontWeight = FontWeight.Bold, 
-                            color = MaterialTheme.colorScheme.onBackground
-                        )
-                        Text(
-                            text = stringResource(Res.string.game_simon_record_label, bestScore), 
-                            fontSize = 12.sp, 
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                    TimerText(viewModel.gameTimeSeconds)
-                }
+                // Factorized HUD
+                GameHUD(
+                    primaryStat = stringResource(Res.string.game_simon_score_label, "") to score.toString(),
+                    secondaryStat = stringResource(Res.string.game_simon_record_label, "") to bestScore.toString(),
+                    timerFlow = viewModel.gameTimeSeconds,
+                    initialTimerValue = finalTime
+                )
 
                 // Main Area
                 Box(modifier = Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
@@ -246,7 +233,7 @@ fun SimonGameScreen(
                     score = score.toString(),
                     bestScore = bestScore.toString(),
                     stats = listOf(
-                        stringResource(Res.string.game_taquin_time_label) to stringResource(Res.string.game_memorize_time_format, finalTime)
+                        stringResource(Res.string.game_taquin_time_label) to formatGameTime(finalTime)
                     ),
                     onReplayClick = { viewModel.startGame() },
                     onMenuClick = onBackClick
@@ -256,13 +243,8 @@ fun SimonGameScreen(
     }
 }
 
-@Composable
-private fun TimerText(timeFlow: StateFlow<Int>) {
-    val timeSeconds by timeFlow.collectAsState()
-    Text(
-        text = stringResource(Res.string.game_simon_time_label, timeSeconds),
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Medium,
-        color = MaterialTheme.colorScheme.onBackground
-    )
+private fun formatGameTime(seconds: Int): String {
+    val m = seconds / 60
+    val s = seconds % 60
+    return if (m > 0) "${m}m ${s}s" else "${s}s"
 }
