@@ -1,8 +1,6 @@
 package org.nihongo.mochi.ui.grammar
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -59,53 +57,70 @@ fun QuizContent(state: GrammarQuizState, viewModel: GrammarQuizViewModel) {
     val payload = state.currentExercisePayload ?: return
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp).verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier.fillMaxSize()
     ) {
-        val questionText = when (payload) {
-            is ExercisePayload.FillBlank -> payload.sentence
-            is ExercisePayload.Underline -> payload.sentence.replace("[", "【").replace("]", "】")
-            is ExercisePayload.Paraphrase -> payload.baseSentence
-            is ExercisePayload.WordUsage -> "「${payload.word}」の使い方が正しいものを選んでください。"
-            is ExercisePayload.SentenceOrder -> {
-                val holes = List(payload.blocks.size) { i -> if (i == state.currentStarIndex) "★" else "___" }
-                "${payload.prefix} ${holes.joinToString(" ")} ${payload.suffix}"
-            }
-        }
-
-        GameQuestionCard(
-            text = questionText,
-            fontSize = 22.sp,
-            modifier = Modifier.fillMaxWidth().heightIn(min = 120.dp).padding(vertical = 16.dp)
-        )
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        // Standard 4-button Bottom Layout
-        state.currentOptions.chunked(2).forEach { row ->
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                row.forEach { option ->
-                    val isSelected = state.selectedOption == option
-                    val isActuallyCorrect = checkIsCorrect(option, payload, state.currentStarIndex)
-                    
-                    val buttonState = when {
-                        isSelected && state.isAnswerCorrect == true -> AnswerButtonState.CORRECT
-                        isSelected && state.isAnswerCorrect == false -> AnswerButtonState.INCORRECT
-                        state.selectedOption != null && isActuallyCorrect -> AnswerButtonState.CORRECT
-                        else -> AnswerButtonState.DEFAULT
-                    }
-                    
-                    GameAnswerButton(
-                        text = option,
-                        state = buttonState,
-                        enabled = state.selectedOption == null,
-                        modifier = Modifier.weight(1f).height(100.dp),
-                        fontSizeSp = if (payload is ExercisePayload.WordUsage || payload is ExercisePayload.Paraphrase) 14 else 18,
-                        onClick = { viewModel.onOptionSelected(option) }
-                    )
+        // 1/ Question area centered vertically with fixed size card
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            val questionText = when (payload) {
+                is ExercisePayload.FillBlank -> payload.sentence.replace("__", " ___★___ ")
+                is ExercisePayload.Underline -> payload.sentence.replace("[", "【").replace("]", "】")
+                is ExercisePayload.Paraphrase -> payload.baseSentence
+                is ExercisePayload.WordUsage -> "「${payload.word}」の使い方が正しいものを選んでください。"
+                is ExercisePayload.SentenceOrder -> {
+                    val holes = List(payload.blocks.size) { i -> if (i == state.currentStarIndex) " ★ " else " ___ " }
+                    "${payload.prefix} ${holes.joinToString("")} ${payload.suffix}"
                 }
             }
-            Spacer(modifier = Modifier.height(8.dp))
+
+            GameQuestionCard(
+                text = questionText,
+                fontSize = if (payload is ExercisePayload.WordUsage || payload is ExercisePayload.Paraphrase) 18.sp else 22.sp,
+                modifier = Modifier.size(width = 340.dp, height = 240.dp)
+            )
+        }
+
+        // 2/ Answer buttons area at the bottom
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            state.currentOptions.chunked(2).forEach { row ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    row.forEach { option ->
+                        val isSelected = state.selectedOption == option
+                        val isActuallyCorrect = checkIsCorrect(option, payload, state.currentStarIndex)
+                        
+                        val buttonState = when {
+                            isSelected && state.isAnswerCorrect == true -> AnswerButtonState.CORRECT
+                            isSelected && state.isAnswerCorrect == false -> AnswerButtonState.INCORRECT
+                            state.selectedOption != null && isActuallyCorrect -> AnswerButtonState.CORRECT
+                            else -> AnswerButtonState.DEFAULT
+                        }
+                        
+                        GameAnswerButton(
+                            text = option,
+                            state = buttonState,
+                            enabled = state.selectedOption == null,
+                            modifier = Modifier.weight(1f).height(100.dp),
+                            fontSizeSp = if (payload is ExercisePayload.WordUsage || payload is ExercisePayload.Paraphrase) 14 else 18,
+                            onClick = { viewModel.onOptionSelected(option) }
+                        )
+                    }
+                    if (row.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
         }
     }
 }
