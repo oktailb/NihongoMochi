@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">ตารางเสร็จสมบูรณ์ใน %1$s</string>
     <string name="game_crossword_back_menu">กลับไปที่เมนู</string>
     <string name="game_crossword_history_item">%1$d คำ (%2$s)</string>
+    <string name="game_snake_title">งู</string>
+    <string name="game_snake_subtitle">เรียนรู้ตัวละครโดยการกินตามลำดับ</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">กินสัทศาสตร์ตามลำดับ</string>
+    <string name="game_snake_score">คะแนน: %1$d</string>
+    <string name="game_snake_words">คำ: %1$d</string>
+    <string name="game_snake_game_over">เกมโอเวอร์</string>
+    <string name="game_snake_final_score">คะแนนสุดท้าย</string>
+    <string name="game_snake_next_format">ถัดไป: %1$s</string>
+    <string name="game_snake_word_format">คำ: %1$s</string>
 </resources>

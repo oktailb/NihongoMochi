@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">Сетка завершена за %1$s</string>
     <string name="game_crossword_back_menu">Вернуться в меню</string>
     <string name="game_crossword_history_item">%1$d слов (%2$s)</string>
+    <string name="game_snake_title">Змея</string>
+    <string name="game_snake_subtitle">Изучайте персонажей, съедая их по порядку.</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Ешьте фонетику по порядку</string>
+    <string name="game_snake_score">Оценка: %1$d</string>
+    <string name="game_snake_words">Слова: %1$d</string>
+    <string name="game_snake_game_over">Игра закончена</string>
+    <string name="game_snake_final_score">Окончательный счет</string>
+    <string name="game_snake_next_format">Далее: %1$s</string>
+    <string name="game_snake_word_format">Слово: %1$s</string>
 </resources>

@@ -26,6 +26,7 @@ fun GamesScreen(
     onTetrisClick: () -> Unit,
     onCrosswordsClick: () -> Unit,
     onMemorizeClick: () -> Unit,
+    onSnakeClick: () -> Unit,
     onParticlesClick: () -> Unit,
     onForgeClick: () -> Unit,
     onShiritoriClick: () -> Unit,
@@ -103,6 +104,15 @@ fun GamesScreen(
                     subtitle = stringResource(Res.string.game_crosswords_subtitle),
                     kanjiTitle = "十字語",
                     onClick = onCrosswordsClick
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                BigModeCard(
+                    title = stringResource(Res.string.game_snake_title),
+                    subtitle = stringResource(Res.string.game_snake_subtitle),
+                    kanjiTitle = "ヘビ",
+                    onClick = onSnakeClick
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))

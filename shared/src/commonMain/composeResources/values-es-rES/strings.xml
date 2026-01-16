@@ -639,4 +639,14 @@
     <string name="game_crossword_completed_in">Cuadrícula completada en %1$s</string>
     <string name="game_crossword_back_menu">Volver al menú</string>
     <string name="game_crossword_history_item">%1$d palabras (%2$s)</string>
+    <string name="game_snake_title">Serpiente</string>
+    <string name="game_snake_subtitle">Aprende personajes comiéndolos en orden</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Come fonética en orden.</string>
+    <string name="game_snake_score">Puntuación: %1$d</string>
+    <string name="game_snake_words">Palabras: %1$d</string>
+    <string name="game_snake_game_over">Juego terminado</string>
+    <string name="game_snake_final_score">Puntuación final</string>
+    <string name="game_snake_next_format">Siguiente: %1$s</string>
+    <string name="game_snake_word_format">Palabra: %1$s</string>
 </resources>

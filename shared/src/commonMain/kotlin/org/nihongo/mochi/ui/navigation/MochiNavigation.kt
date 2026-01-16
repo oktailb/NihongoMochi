@@ -67,6 +67,9 @@ import org.nihongo.mochi.ui.games.kanadrop.KanaLinkMode
 import org.nihongo.mochi.ui.games.crossword.CrosswordSetupScreen
 import org.nihongo.mochi.ui.games.crossword.CrosswordGameScreen
 import org.nihongo.mochi.ui.games.crossword.CrosswordViewModel
+import org.nihongo.mochi.ui.games.snake.SnakeSetupScreen
+import org.nihongo.mochi.ui.games.snake.SnakeGameScreen
+import org.nihongo.mochi.ui.games.snake.SnakeViewModel
 import org.nihongo.mochi.ui.grammar.GrammarScreen
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
@@ -107,6 +110,8 @@ sealed class Screen(val route: String) {
     }
     data object CrosswordSetup : Screen("crossword_setup")
     data object CrosswordGame : Screen("crossword_game")
+    data object SnakeSetup : Screen("snake_setup")
+    data object SnakeGame : Screen("snake_game")
     
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
@@ -300,6 +305,7 @@ fun MochiNavGraph(
                 },
                 onCrosswordsClick = { navController.navigate(Screen.CrosswordSetup.route) },
                 onMemorizeClick = { navController.navigate(Screen.MemorizeSetup.route) },
+                onSnakeClick = { navController.navigate(Screen.SnakeSetup.route) },
                 onParticlesClick = { /* TODO */ },
                 onForgeClick = { /* TODO */ },
                 onShiritoriClick = { /* TODO */ },
@@ -410,6 +416,23 @@ fun MochiNavGraph(
         composable(Screen.CrosswordGame.route) {
             val viewModel: CrosswordViewModel = koinInject()
             CrosswordGameScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.SnakeSetup.route) {
+            val viewModel: SnakeViewModel = koinInject()
+            SnakeSetupScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() },
+                onStartGame = { navController.navigate(Screen.SnakeGame.route) }
+            )
+        }
+
+        composable(Screen.SnakeGame.route) {
+            val viewModel: SnakeViewModel = koinInject()
+            SnakeGameScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )

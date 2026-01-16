@@ -33,6 +33,7 @@ import org.nihongo.mochi.ui.games.simon.SimonViewModel
 import org.nihongo.mochi.ui.games.taquin.TaquinViewModel
 import org.nihongo.mochi.ui.games.kanadrop.KanaDropViewModel
 import org.nihongo.mochi.ui.games.crossword.CrosswordViewModel
+import org.nihongo.mochi.ui.games.snake.SnakeViewModel
 import org.nihongo.mochi.ui.gojuon.KanaRecapViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
@@ -93,6 +94,7 @@ val sharedModule = module {
     singleOf(::MemorizeViewModel)
     singleOf(::KanaDropViewModel)
     singleOf(::CrosswordViewModel)
+    singleOf(::SnakeViewModel)
 
     // Game/Quiz ViewModels as factory for those with single-screen flow
     factoryOf(::GrammarViewModel)

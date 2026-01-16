@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">%1$s 후에 그리드가 완료되었습니다.</string>
     <string name="game_crossword_back_menu">메뉴로 돌아가기</string>
     <string name="game_crossword_history_item">%1$d단어(%2$s)</string>
+    <string name="game_snake_title">뱀</string>
+    <string name="game_snake_subtitle">캐릭터를 순서대로 먹으면서 배워보세요</string>
+    <string name="game_snake_japanese_title">헤비게임</string>
+    <string name="game_snake_eat_phonetics">음성학을 순서대로 먹어라</string>
+    <string name="game_snake_score">점수: %1$d</string>
+    <string name="game_snake_words">단어: %1$d</string>
+    <string name="game_snake_game_over">게임 오버</string>
+    <string name="game_snake_final_score">최종 점수</string>
+    <string name="game_snake_next_format">다음: %1$s</string>
+    <string name="game_snake_word_format">단어: %1$s</string>
 </resources>

@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">网格在 %1$s 内完成</string>
     <string name="game_crossword_back_menu">返回菜单</string>
     <string name="game_crossword_history_item">%1$d 个字（%2$s）</string>
+    <string name="game_snake_title">蛇</string>
+    <string name="game_snake_subtitle">通过按顺序吃字符来学习字符</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">按顺序吃语音</string>
+    <string name="game_snake_score">得分：%1$d</string>
+    <string name="game_snake_words">字数：%1$d</string>
+    <string name="game_snake_game_over">游戏结束</string>
+    <string name="game_snake_final_score">最终成绩</string>
+    <string name="game_snake_next_format">下一个：%1$s</string>
+    <string name="game_snake_word_format">字：%1$s</string>
 </resources>

@@ -5,6 +5,7 @@ import org.nihongo.mochi.ui.games.simon.SimonGameResult
 import org.nihongo.mochi.ui.games.taquin.TaquinGameResult
 import org.nihongo.mochi.ui.games.kanadrop.KanaLinkResult
 import org.nihongo.mochi.ui.games.crossword.CrosswordGameResult
+import org.nihongo.mochi.ui.games.snake.SnakeGameResult
 
 interface ScoreRepository {
     fun saveScore(key: String, wasCorrect: Boolean, type: ScoreManager.ScoreType)
@@ -39,6 +40,9 @@ interface ScoreRepository {
 
     fun saveCrosswordResult(result: CrosswordGameResult)
     fun getCrosswordHistory(): List<CrosswordGameResult>
+
+    fun saveSnakeResult(result: SnakeGameResult)
+    fun getSnakeHistory(): List<SnakeGameResult>
 
     // Legacy (to be removed once migrated)
     @Deprecated("Use saveMemorizeResult")

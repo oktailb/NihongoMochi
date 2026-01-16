@@ -641,4 +641,14 @@
     <string name="game_crossword_completed_in">Сүлжээ %1$s-д дууссан</string>
     <string name="game_crossword_back_menu">Цэс рүү буцах</string>
     <string name="game_crossword_history_item">%1$d үг (%2$s)</string>
+    <string name="game_snake_title">Могой</string>
+    <string name="game_snake_subtitle">Дүрүүдийг дарааллаар нь идэж сур</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Фонетикийг дарааллаар нь идээрэй</string>
+    <string name="game_snake_score">Оноо: %1$d</string>
+    <string name="game_snake_words">Үг: %1$d</string>
+    <string name="game_snake_game_over">Тоглоом дууслаа</string>
+    <string name="game_snake_final_score">Эцсийн оноо</string>
+    <string name="game_snake_next_format">Дараа нь: %1$s</string>
+    <string name="game_snake_word_format">Үг: %1$s</string>
 </resources>

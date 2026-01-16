@@ -639,4 +639,14 @@
     <string name="game_crossword_completed_in">Raster in %1$s fertiggestellt</string>
     <string name="game_crossword_back_menu">Zurück zum Menü</string>
     <string name="game_crossword_history_item">%1$d Wörter (%2$s)</string>
+    <string name="game_snake_title">Schlange</string>
+    <string name="game_snake_subtitle">Lerne Charaktere, indem du sie der Reihe nach isst</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Iss die Phonetik der Reihe nach</string>
+    <string name="game_snake_score">Ergebnis: %1$d</string>
+    <string name="game_snake_words">Wörter: %1$d</string>
+    <string name="game_snake_game_over">Spiel vorbei</string>
+    <string name="game_snake_final_score">Endergebnis</string>
+    <string name="game_snake_next_format">Weiter: %1$s</string>
+    <string name="game_snake_word_format">Wort: %1$s</string>
 </resources>

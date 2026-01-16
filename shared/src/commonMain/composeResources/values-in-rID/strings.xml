@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">Petak selesai dalam %1$s</string>
     <string name="game_crossword_back_menu">Kembali ke menu</string>
     <string name="game_crossword_history_item">%1$d kata (%2$s)</string>
+    <string name="game_snake_title">Ular</string>
+    <string name="game_snake_subtitle">Pelajari karakter dengan memakannya secara berurutan</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Makan fonetik secara berurutan</string>
+    <string name="game_snake_score">Skor: %1$d</string>
+    <string name="game_snake_words">Kata-kata: %1$d</string>
+    <string name="game_snake_game_over">Permainan Berakhir</string>
+    <string name="game_snake_final_score">Nilai akhir</string>
+    <string name="game_snake_next_format">Berikutnya: %1$s</string>
+    <string name="game_snake_word_format">Kata: %1$s</string>
 </resources>

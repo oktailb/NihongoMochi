@@ -641,4 +641,14 @@
     <string name="game_crossword_completed_in">اكتملت الشبكة في %1$s</string>
     <string name="game_crossword_back_menu">العودة إلى القائمة</string>
     <string name="game_crossword_history_item">%1$d كلمة (%2$s)</string>
+    <string name="game_snake_title">ثعبان</string>
+    <string name="game_snake_subtitle">تعلم الشخصيات عن طريق تناولها بالترتيب</string>
+    <string name="game_snake_japanese_title">ヘビゲム</string>
+    <string name="game_snake_eat_phonetics">تناول الصوتيات بالترتيب</string>
+    <string name="game_snake_score">النتيجة: %1$د</string>
+    <string name="game_snake_words">الكلمات: %1$د</string>
+    <string name="game_snake_game_over">انتهت اللعبة</string>
+    <string name="game_snake_final_score">النتيجة النهائية</string>
+    <string name="game_snake_next_format">التالي: %1$s</string>
+    <string name="game_snake_word_format">الكلمة: %1$s</string>
 </resources>

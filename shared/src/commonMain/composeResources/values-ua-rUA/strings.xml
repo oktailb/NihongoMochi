@@ -641,4 +641,14 @@
     <string name="game_crossword_completed_in">Таблиця завершена за %1$s</string>
     <string name="game_crossword_back_menu">Назад до меню</string>
     <string name="game_crossword_history_item">%1$d слова (%2$s)</string>
+    <string name="game_snake_title">Змія</string>
+    <string name="game_snake_subtitle">Вивчайте персонажів, їдаючи їх по порядку</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Їж фонетику по порядку</string>
+    <string name="game_snake_score">Оцінка: %1$d</string>
+    <string name="game_snake_words">Слова: %1$d</string>
+    <string name="game_snake_game_over">Гра закінчена</string>
+    <string name="game_snake_final_score">Остаточний рахунок</string>
+    <string name="game_snake_next_format">Далі: %1$s</string>
+    <string name="game_snake_word_format">Слово: %1$s</string>
 </resources>

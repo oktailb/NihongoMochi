@@ -13,6 +13,8 @@ import org.nihongo.mochi.ui.games.taquin.TaquinGameResult
 import org.nihongo.mochi.ui.games.kanadrop.KanaLinkResult
 import org.nihongo.mochi.ui.games.crossword.CrosswordGameResult
 import org.nihongo.mochi.ui.games.crossword.CrosswordMode
+import org.nihongo.mochi.ui.games.snake.SnakeGameResult
+import org.nihongo.mochi.ui.games.snake.SnakeMode
 
 class ScoreManager(
     private val database: MochiDatabase,
@@ -291,6 +293,33 @@ class ScoreManager(
         }
     }
 
+    override fun saveSnakeResult(result: SnakeGameResult) {
+        queries.insertGameResult(
+            "SNAKE",
+            result.score.toLong(),
+            null,
+            result.timeSeconds.toLong(),
+            null,
+            null,
+            null,
+            result.wordsCompleted.toLong(),
+            result.timestamp,
+            result.mode.name
+        )
+    }
+
+    override fun getSnakeHistory(): List<SnakeGameResult> {
+        return queries.getTopScores("SNAKE").executeAsList().map {
+            SnakeGameResult(
+                mode = try { SnakeMode.valueOf(it.metadata ?: "HIRAGANA") } catch(e: Exception) { SnakeMode.HIRAGANA },
+                score = it.score.toInt(),
+                wordsCompleted = it.wordsFound?.toInt() ?: 0,
+                timeSeconds = it.timeSeconds?.toInt() ?: 0,
+                timestamp = it.timestamp
+            )
+        }
+    }
+
     // --- Import/Export ---
 
     override fun getAllDataJson(): String {
@@ -324,6 +353,7 @@ class ScoreManager(
             put("taquin_history", Json.encodeToJsonElement(getTaquinHistory()))
             put("kana_link_history", Json.encodeToJsonElement(getKanaLinkHistory()))
             put("crossword_history", Json.encodeToJsonElement(getCrosswordHistory()))
+            put("snake_history", Json.encodeToJsonElement(getSnakeHistory()))
         }
 
         return Json.encodeToString(jsonObject)

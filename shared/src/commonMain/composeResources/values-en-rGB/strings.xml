@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">Grid completed in %1$s</string>
     <string name="game_crossword_back_menu">Back to menu</string>
     <string name="game_crossword_history_item">%1$d words (%2$s)</string>
+    <string name="game_snake_title">Snake</string>
+    <string name="game_snake_subtitle">Learn characters by eating them in order</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Eat phonetics in order</string>
+    <string name="game_snake_score">Score: %1$d</string>
+    <string name="game_snake_words">Words: %1$d</string>
+    <string name="game_snake_game_over">Game Over</string>
+    <string name="game_snake_final_score">Final Score</string>
+    <string name="game_snake_next_format">Next: %1$s</string>
+    <string name="game_snake_word_format">Word: %1$s</string>
 </resources>

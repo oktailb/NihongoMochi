@@ -26,12 +26,13 @@ Games:
   - [X] Taquin : redo the basic gojuon table hiragana/katakana
   - [X] Kana Drop : achieve words from selected level in Kana to make blocks disappear
   - [X] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary -> in progress
-  - [ ] Snake ?
+  - [X] Snake
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
   - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
   - [ ] Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
-  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou
+  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. 
+    -> Note technique: Automatiser via les composants (grap_kanji_components.py). Identifier les kanjis partageant les mêmes radicaux.
 
 KMP & Architecture Refactoring (Technical Debt):
  - [X] Refactor ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
@@ -39,6 +40,10 @@ KMP & Architecture Refactoring (Technical Debt):
  - [X] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
  - [X] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
  - [X] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
+ - [ ] Migration Base Kanji (XML -> SQLDelight) : 
+    -> Bénéfice: Requêtes relationnelles complexes pour Shadow Kanji (ex: trouver "frères" visuels). 
+    -> Bénéfice: Performance (chargement partiel JLPT).
+    -> Risque: Gérer les migrations de schéma et script d'import Python.
 
 Optimisations (Mémoire/CPU):
  - [X] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.

@@ -8,6 +8,18 @@ object ResourceUtils {
 
     private val stringResourceMap: Map<String, StringResource> by lazy {
         mutableMapOf<String, StringResource>().apply {
+            // Snake Game
+            put("game_snake_title", Res.string.game_snake_title)
+            put("game_snake_subtitle", Res.string.game_snake_subtitle)
+            put("game_snake_japanese_title", Res.string.game_snake_japanese_title)
+            put("game_snake_eat_phonetics", Res.string.game_snake_eat_phonetics)
+            put("game_snake_score", Res.string.game_snake_score)
+            put("game_snake_words", Res.string.game_snake_words)
+            put("game_snake_game_over", Res.string.game_snake_game_over)
+            put("game_snake_final_score", Res.string.game_snake_final_score)
+            put("game_snake_next_format", Res.string.game_snake_next_format)
+            put("game_snake_word_format", Res.string.game_snake_word_format)
+
             // Grammar Rules Descriptions
             put("verb_dict_form_desc", Res.string.verb_dict_form_desc)
             put("base_verbale_desc", Res.string.base_verbale_desc)

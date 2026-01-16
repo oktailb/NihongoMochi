@@ -639,4 +639,14 @@
     <string name="game_crossword_completed_in">Lưới hoàn thành sau %1$s</string>
     <string name="game_crossword_back_menu">Quay lại trình đơn</string>
     <string name="game_crossword_history_item">%1$d từ (%2$s)</string>
+    <string name="game_snake_title">Rắn</string>
+    <string name="game_snake_subtitle">Tìm hiểu các nhân vật bằng cách ăn chúng theo thứ tự</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Ăn ngữ âm theo thứ tự</string>
+    <string name="game_snake_score">Điểm: %1$d</string>
+    <string name="game_snake_words">Từ: %1$d</string>
+    <string name="game_snake_game_over">Trò chơi kết thúc</string>
+    <string name="game_snake_final_score">Điểm cuối cùng</string>
+    <string name="game_snake_next_format">Tiếp theo: %1$s</string>
+    <string name="game_snake_word_format">Từ: %1$s</string>
 </resources>

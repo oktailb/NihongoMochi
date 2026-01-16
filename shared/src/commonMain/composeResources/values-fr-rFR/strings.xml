@@ -597,14 +597,14 @@
     <string name="image_view_item_transform_content_description">Représente une vue d'image dans le
         article</string>
     <string name="game_config_title">Configuration</string>
-    <string name="game_history_title">Histoire</string>
+    <string name="game_history_title">Historique</string>
     <string name="game_replay_button">Rejouer</string>
     <string name="game_menu_button">Menu</string>
     <string name="game_simon_japanese_title">記憶</string>
     <string name="game_simon_mode_kana_same">Même syllabaire</string>
     <string name="game_simon_mode_kana_cross">Syllabaire croisé</string>
     <string name="game_simon_score_label">Score : %1$d</string>
-    <string name="game_simon_record_label">Enregistrement : %1$d</string>
+    <string name="game_simon_record_label">Meilleurs : %1$d</string>
     <string name="game_simon_time_label">Heure : %1$ds</string>
     <string name="game_taquin_mode_hiragana">Hiragana</string>
     <string name="game_taquin_mode_katakana">Katakana</string>
@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">Grille terminée en %1$s</string>
     <string name="game_crossword_back_menu">Retour au menu</string>
     <string name="game_crossword_history_item">%1$d mots (%2$s)</string>
+    <string name="game_snake_title">Serpent</string>
+    <string name="game_snake_subtitle">Apprenez les kanas en les mangeant dans l'ordre</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Mangez la phonétique dans l'ordre</string>
+    <string name="game_snake_score">Score : %1$d</string>
+    <string name="game_snake_words">Mots : %1$d</string>
+    <string name="game_snake_game_over">Jeu terminé</string>
+    <string name="game_snake_final_score">Score final</string>
+    <string name="game_snake_next_format">Suivant : %1$s</string>
+    <string name="game_snake_word_format">Mot : %1$s</string>
 </resources>

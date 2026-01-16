@@ -643,4 +643,14 @@
     <string name="game_crossword_completed_in">Grade concluída em %1$s</string>
     <string name="game_crossword_back_menu">Voltar ao cardápio</string>
     <string name="game_crossword_history_item">%1$d palavras (%2$s)</string>
+    <string name="game_snake_title">Cobra</string>
+    <string name="game_snake_subtitle">Aprenda os personagens comendo-os em ordem</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">Coma a fonética em ordem</string>
+    <string name="game_snake_score">Pontuação: %1$d</string>
+    <string name="game_snake_words">Palavras: %1$d</string>
+    <string name="game_snake_game_over">Game Over</string>
+    <string name="game_snake_final_score">Pontuação Final</string>
+    <string name="game_snake_next_format">Próximo: %1$s</string>
+    <string name="game_snake_word_format">Palavra: %1$s</string>
 </resources>

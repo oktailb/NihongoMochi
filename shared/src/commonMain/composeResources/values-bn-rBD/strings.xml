@@ -641,4 +641,14 @@
     <string name="game_crossword_completed_in">গ্রিড %1$s এ সম্পন্ন হয়েছে</string>
     <string name="game_crossword_back_menu">মেনুতে ফিরে যান</string>
     <string name="game_crossword_history_item">%1$d শব্দ (%2$s)</string>
+    <string name="game_snake_title">সাপ</string>
+    <string name="game_snake_subtitle">ক্রমানুসারে তাদের খাওয়া অক্ষর শিখুন</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">ক্রমানুসারে ধ্বনিতত্ত্ব খান</string>
+    <string name="game_snake_score">স্কোর: %1$d</string>
+    <string name="game_snake_words">শব্দ: %1$d</string>
+    <string name="game_snake_game_over">খেলা শেষ</string>
+    <string name="game_snake_final_score">ফাইনাল স্কোর</string>
+    <string name="game_snake_next_format">পরবর্তী: %1$s</string>
+    <string name="game_snake_word_format">শব্দ: %1$s</string>
 </resources>

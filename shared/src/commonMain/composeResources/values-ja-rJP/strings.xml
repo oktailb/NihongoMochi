@@ -641,4 +641,14 @@
     <string name="game_crossword_completed_in">グリッドは %1$s で完了しました</string>
     <string name="game_crossword_back_menu">メニューに戻る</string>
     <string name="game_crossword_history_item">%1$d 単語 (%2$s)</string>
+    <string name="game_snake_title">蛇</string>
+    <string name="game_snake_subtitle">順番に食べて文字を覚えましょう</string>
+    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_eat_phonetics">ふりがなを順番に食べる</string>
+    <string name="game_snake_score">スコア: %1$d</string>
+    <string name="game_snake_words">単語: %1$d</string>
+    <string name="game_snake_game_over">ゲームオーバー</string>
+    <string name="game_snake_final_score">最終スコア</string>
+    <string name="game_snake_next_format">次へ: %1$s</string>
+    <string name="game_snake_word_format">単語: %1$s</string>
 </resources>
