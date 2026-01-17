@@ -22,6 +22,7 @@ import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
+import org.nihongo.mochi.presentation.dictionary.WordDetailViewModel
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
 import org.nihongo.mochi.domain.game.RecognitionGameViewModel
@@ -81,6 +82,7 @@ val sharedModule = module {
 
     // --- ViewModels ---
     factoryOf(::KanjiDetailViewModel)
+    factoryOf(::WordDetailViewModel)
     factoryOf(::SettingsViewModel)
     factoryOf(::WordListViewModel)
     factoryOf(::HomeViewModel) 

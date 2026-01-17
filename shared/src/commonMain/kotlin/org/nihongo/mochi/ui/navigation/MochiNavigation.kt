@@ -41,6 +41,7 @@ import org.nihongo.mochi.presentation.HomeViewModel
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.SagaMapScreen
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
+import org.nihongo.mochi.presentation.dictionary.WordDetailViewModel
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.about.AboutScreen
@@ -48,6 +49,7 @@ import org.nihongo.mochi.ui.home.HomeScreen
 import org.nihongo.mochi.ui.dictionary.ComposeDrawingDialog
 import org.nihongo.mochi.ui.dictionary.DictionaryScreen
 import org.nihongo.mochi.ui.dictionary.KanjiDetailScreen
+import org.nihongo.mochi.ui.dictionary.WordDetailScreen
 import org.nihongo.mochi.ui.gamerecap.GameRecapScreen
 import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
 import org.nihongo.mochi.ui.games.GamesScreen
@@ -93,6 +95,9 @@ sealed class Screen(val route: String) {
     data object Dictionary : Screen("dictionary")
     data object KanjiDetail : Screen("kanji_detail/{kanjiId}") {
         fun createRoute(kanjiId: String) = "kanji_detail/$kanjiId"
+    }
+    data object WordDetail : Screen("word_detail/{wordText}") {
+        fun createRoute(wordText: String) = "word_detail/$wordText"
     }
     data object Grammar : Screen("grammar/{levelId}") {
         fun createRoute(levelId: String) = "grammar/$levelId"
@@ -267,6 +272,26 @@ fun MochiNavGraph(
                 onBackClick = { navController.popBackStack() },
                 onKanjiClick = { nextKanjiChar -> 
                     navController.navigate(Screen.KanjiDetail.createRoute(nextKanjiChar))
+                },
+                onWordClick = { wordText ->
+                    navController.navigate(Screen.WordDetail.createRoute(wordText))
+                }
+            )
+        }
+
+        composable(
+            route = Screen.WordDetail.route,
+            arguments = listOf(navArgument("wordText") { defaultValue = "" })
+        ) { backStackEntry ->
+            val wordText = backStackEntry.arguments?.getString("wordText") ?: ""
+            val wordViewModel: WordDetailViewModel = koinInject()
+
+            WordDetailScreen(
+                viewModel = wordViewModel,
+                wordText = wordText,
+                onBackClick = { navController.popBackStack() },
+                onKanjiClick = { kanjiId ->
+                    navController.navigate(Screen.KanjiDetail.createRoute(kanjiId))
                 }
             )
         }
