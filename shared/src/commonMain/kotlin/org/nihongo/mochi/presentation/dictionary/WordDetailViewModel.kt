@@ -18,6 +18,7 @@ import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.services.TextToSpeech
 import org.nihongo.mochi.domain.services.VoiceConfig
+import org.nihongo.mochi.domain.services.VoiceGender
 
 class WordDetailViewModel(
     private val wordRepository: WordRepository,
@@ -33,7 +34,11 @@ class WordDetailViewModel(
         val wordText: String = "",
         val phonetics: String = "",
         val meaning: String? = null,
-        val kanjiComponents: List<DictionaryItem> = emptyList()
+        val kanjiComponents: List<DictionaryItem> = emptyList(),
+        val currentLocaleCode: String = "",
+        val ttsGender: VoiceGender = VoiceGender.FEMALE,
+        val ttsRate: Float = 1.0f,
+        val selectedVoiceId: String? = null
     )
 
     private val _uiState = MutableStateFlow(WordDetailUiState())
@@ -77,18 +82,21 @@ class WordDetailViewModel(
                     isLoading = false,
                     phonetics = wordEntry?.phonetics ?: "",
                     meaning = wordMeaning,
-                    kanjiComponents = kanjiItems
+                    kanjiComponents = kanjiItems,
+                    currentLocaleCode = locale,
+                    ttsGender = settingsRepository.getTtsGender(locale),
+                    ttsRate = settingsRepository.getTtsRate(),
+                    selectedVoiceId = settingsRepository.getTtsVoiceId()
                 )
             }
         }
     }
 
     fun speak() {
-        val locale = settingsRepository.getAppLocale()
         val config = VoiceConfig(
-            rate = settingsRepository.getTtsRate(),
-            gender = settingsRepository.getTtsGender(locale),
-            voiceId = settingsRepository.getTtsVoiceId()
+            rate = _uiState.value.ttsRate,
+            gender = _uiState.value.ttsGender,
+            voiceId = _uiState.value.selectedVoiceId
         )
         
         val textToSpeak = _uiState.value.phonetics.ifEmpty { _uiState.value.wordText }

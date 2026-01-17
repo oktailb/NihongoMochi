@@ -2,6 +2,7 @@ package org.nihongo.mochi.services
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
+import android.speech.tts.Voice
 import android.util.Log
 import java.util.Locale
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -54,43 +55,51 @@ class AndroidTextToSpeech(private val context: Context) : MochiTextToSpeech, Tex
         }
 
         tts?.let { engine ->
-            val targetLocale = if (language == "ja") Locale.JAPANESE else Locale(language)
+            // Requirement: Always Japanese voice for this app's main functionality
+            val targetLocale = Locale.JAPANESE
             engine.language = targetLocale
             engine.setPitch(config.pitch)
             engine.setSpeechRate(config.rate)
 
-            val voices = engine.voices
-            val languageVoices = voices?.filter { 
+            // Get available Japanese voices
+            val japaneseVoices = engine.voices?.filter { 
                 it.locale.language == targetLocale.language 
             } ?: emptyList()
 
-            // 1. Try to find by explicit voiceId if provided
-            var selectedVoice = if (config.voiceId != null) {
-                languageVoices.firstOrNull { it.name == config.voiceId }
-            } else null
+            // 1/ Arabe => voix homme japonais dans tout les cas
+            // 2/ Pas arabe => le genre choisi dans les settings
+            val appLocale = context.resources.configuration.locale
+            val isArabic = appLocale.language == "ar"
+            val effectiveGender = if (isArabic) VoiceGender.MALE else config.gender
 
-            // 2. Fallback to gender-based search if no voiceId or not found
+            var selectedVoice: Voice? = null
+
+            // 1. Try explicit voiceId if provided AND NOT in forced Arabic mode
+            if (!isArabic && !config.voiceId.isNullOrBlank()) {
+                selectedVoice = japaneseVoices.firstOrNull { it.name == config.voiceId }
+            }
+
+            // 2. Fallback to gender-based search
             if (selectedVoice == null) {
-                selectedVoice = languageVoices.firstOrNull { voice ->
+                selectedVoice = japaneseVoices.firstOrNull { voice ->
                     val name = voice.name.lowercase()
-                    when (config.gender) {
-                        VoiceGender.MALE -> {
-                            name.contains("male") || name.contains("low") || 
-                            name.contains("-m-") || name.contains("guy") || 
-                            name.contains("man")
-                        }
-                        VoiceGender.FEMALE -> {
-                            name.contains("female") || name.contains("high") || 
-                            name.contains("-f-") || name.contains("girl") || 
-                            name.contains("woman")
-                        }
+                    if (effectiveGender == VoiceGender.MALE) {
+                        name.contains("male") || name.contains("low") || 
+                        name.contains("-m-") || name.contains("-m") || 
+                        name.contains("guy") || name.contains("man") || 
+                        name.contains("jad-local")
+                    } else {
+                        name.contains("female") || name.contains("high") || 
+                        name.contains("-f-") || name.contains("-f") || 
+                        name.contains("girl") || name.contains("woman") || 
+                        name.contains("jab-local")
                     }
                 }
             }
 
-            // 3. Last fallback to first available language voice
+            // 3. Ultimate fallback to first available Japanese voice
             if (selectedVoice == null) {
-                selectedVoice = languageVoices.firstOrNull()
+                selectedVoice = japaneseVoices.firstOrNull()
             }
 
             if (selectedVoice != null) {

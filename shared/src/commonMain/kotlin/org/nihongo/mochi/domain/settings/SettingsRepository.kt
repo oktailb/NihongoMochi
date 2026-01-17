@@ -35,7 +35,9 @@ class SettingsRepository(private val settings: Settings) {
 
     // TTS Settings
     fun getTtsGender(locale: String): VoiceGender {
-        val defaultGender = if (locale.startsWith("ar")) VoiceGender.MALE.name else VoiceGender.FEMALE.name
+        if (locale.startsWith("ar"))
+            return VoiceGender.MALE
+        val defaultGender = VoiceGender.FEMALE.name
         val genderName = settings.getString(TTS_GENDER_PREF_KEY, defaultGender)
         return try {
             VoiceGender.valueOf(genderName)

@@ -128,7 +128,10 @@ class SettingsViewModel(
     }
 
     fun onTtsGenderChanged(gender: VoiceGender) {
-        if (_uiState.value.currentLocaleCode.startsWith("ar") && gender == VoiceGender.FEMALE) return
+        // If Arabic, we don't allow changing gender in repository, it's always Male
+        if (_uiState.value.currentLocaleCode.startsWith("ar")) {
+            return
+        }
         settingsRepository.setTtsGender(gender)
         _uiState.update { it.copy(ttsGender = gender) }
     }
@@ -139,6 +142,7 @@ class SettingsViewModel(
     }
 
     fun onTtsVoiceSelected(voiceId: String?) {
+        if (_uiState.value.currentLocaleCode.startsWith("ar")) return
         settingsRepository.setTtsVoiceId(voiceId)
         _uiState.update { it.copy(selectedVoiceId = voiceId) }
     }
