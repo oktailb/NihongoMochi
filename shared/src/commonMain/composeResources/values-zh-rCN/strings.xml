@@ -657,4 +657,5 @@
     <string name="game_over">游戏结束</string>
     <string name="game_score_label">最终成绩</string>
     <string name="game_record_label">记录：%1$s</string>
+    <string name="settings_learning_mode">学习模式</string>
 </resources>

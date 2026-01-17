@@ -653,4 +653,5 @@
     <string name="game_over">Spiel vorbei</string>
     <string name="game_score_label">Endergebnis</string>
     <string name="game_record_label">Datensatz: %1$s</string>
+    <string name="settings_learning_mode">Lernmodus</string>
 </resources>

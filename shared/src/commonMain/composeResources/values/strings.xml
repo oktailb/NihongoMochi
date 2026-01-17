@@ -28,6 +28,7 @@
     <string name="settings_pronunciation">Pronunciation</string>
     <string name="settings_pronunciation_roman">Roman alphabet</string>
     <string name="settings_pronunciation_hiragana">Japanese Hiragana</string>
+    <string name="settings_learning_mode">Learning Mode</string>
     <string name="settings_default_user_list">Default user list</string>
     <string name="settings_add_wrong_answers">Automatically add wrong answers</string>
     <string name="settings_remove_good_answers">Automatically remove 10/10 words</string>

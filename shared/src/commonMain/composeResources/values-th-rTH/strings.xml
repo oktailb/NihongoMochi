@@ -657,4 +657,5 @@
     <string name="game_over">เกมโอเวอร์</string>
     <string name="game_score_label">คะแนนสุดท้าย</string>
     <string name="game_record_label">บันทึก: %1$s</string>
+    <string name="settings_learning_mode">โหมดการเรียนรู้</string>
 </resources>

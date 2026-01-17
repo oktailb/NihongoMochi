@@ -655,4 +655,5 @@
     <string name="game_over">ゲームオーバー</string>
     <string name="game_score_label">最終スコア</string>
     <string name="game_record_label">レコード: %1$s</string>
+    <string name="settings_learning_mode">学習モード</string>
 </resources>

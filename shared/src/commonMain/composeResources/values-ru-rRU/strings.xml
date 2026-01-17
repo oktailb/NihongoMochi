@@ -657,4 +657,5 @@
     <string name="game_over">Игра закончена</string>
     <string name="game_score_label">Окончательный счет</string>
     <string name="game_record_label">Запись: %1$s</string>
+    <string name="settings_learning_mode">Режим обучения</string>
 </resources>

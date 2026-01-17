@@ -657,4 +657,5 @@
     <string name="game_over">Permainan Berakhir</string>
     <string name="game_score_label">Nilai akhir</string>
     <string name="game_record_label">Catatan: %1$s</string>
+    <string name="settings_learning_mode">Modus Pembelajaran</string>
 </resources>

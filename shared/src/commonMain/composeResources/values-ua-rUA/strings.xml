@@ -655,4 +655,5 @@
     <string name="game_over">Гра закінчена</string>
     <string name="game_score_label">Остаточний рахунок</string>
     <string name="game_record_label">Запис: %1$s</string>
+    <string name="settings_learning_mode">Режим навчання</string>
 </resources>

@@ -653,4 +653,5 @@
     <string name="game_over">Trò chơi kết thúc</string>
     <string name="game_score_label">Điểm cuối cùng</string>
     <string name="game_record_label">Bản ghi: %1$s</string>
+    <string name="settings_learning_mode">Chế độ học tập</string>
 </resources>

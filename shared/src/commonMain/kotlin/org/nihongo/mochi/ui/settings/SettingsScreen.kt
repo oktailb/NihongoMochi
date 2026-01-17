@@ -174,7 +174,7 @@ fun SettingsScreen(
             Spacer(Modifier.height(16.dp))
             
             // Learning Mode Section (New: Dropdown instead of Radio)
-            SettingsSection(title = "Learning Mode") { 
+            SettingsSection(title = stringResource(Res.string.settings_learning_mode)) {
                 var expanded by remember { mutableStateOf(false) }
                 // Fallback to first if current mode is not in list
                 val rawSelectedMode = if (learningModes.contains(uiState.currentMode)) uiState.currentMode else learningModes.firstOrNull() ?: ""

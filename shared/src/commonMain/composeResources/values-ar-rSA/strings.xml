@@ -655,4 +655,5 @@
     <string name="game_over">انتهت اللعبة</string>
     <string name="game_score_label">النتيجة النهائية</string>
     <string name="game_record_label">السجل: %1$s</string>
+    <string name="settings_learning_mode">وضع التعلم</string>
 </resources>

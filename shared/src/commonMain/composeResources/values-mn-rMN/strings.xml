@@ -655,4 +655,5 @@
     <string name="game_over">Тоглоом дууслаа</string>
     <string name="game_score_label">Эцсийн оноо</string>
     <string name="game_record_label">Бичлэг: %1$s</string>
+    <string name="settings_learning_mode">Сурах горим</string>
 </resources>

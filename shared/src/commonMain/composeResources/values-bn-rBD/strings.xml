@@ -655,4 +655,5 @@
     <string name="game_over">খেলা শেষ</string>
     <string name="game_score_label">ফাইনাল স্কোর</string>
     <string name="game_record_label">রেকর্ড: %1$s</string>
+    <string name="settings_learning_mode">শেখার মোড</string>
 </resources>

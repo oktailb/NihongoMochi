@@ -657,4 +657,5 @@
     <string name="game_over">게임 오버</string>
     <string name="game_score_label">최종 점수</string>
     <string name="game_record_label">기록: %1$s</string>
+    <string name="settings_learning_mode">학습 모드</string>
 </resources>
