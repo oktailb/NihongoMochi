@@ -44,6 +44,7 @@ class DictionaryViewModel(
 ) : ViewModel() {
 
     var isDataLoaded = false
+    private var lastLoadedLocale: String? = null
     val allKanjiList = mutableListOf<DictionaryItem>()
     val kanjiDataMap = mutableMapOf<String, DictionaryItem>()
     
@@ -127,11 +128,11 @@ class DictionaryViewModel(
     }
     
     fun loadDictionaryData() {
-        if (isDataLoaded) return
+        val currentLocale = settingsRepository.getAppLocale()
+        if (isDataLoaded && lastLoadedLocale == currentLocale) return
         
         viewModelScope.launch {
-            val locale = settingsRepository.getAppLocale()
-            val meanings = meaningRepository.getMeanings(locale)
+            val meanings = meaningRepository.getMeanings(currentLocale)
             val allKanji = kanjiRepository.getAllKanji()
             
             val defs = levelsRepository.loadLevelDefinitions()
@@ -162,6 +163,7 @@ class DictionaryViewModel(
             }
             allKanjiList.addAll(kanjiDataMap.values.sortedBy { it.id.toIntOrNull() ?: 0 })
             isDataLoaded = true
+            lastLoadedLocale = currentLocale
             applyFilters()
         }
     }
