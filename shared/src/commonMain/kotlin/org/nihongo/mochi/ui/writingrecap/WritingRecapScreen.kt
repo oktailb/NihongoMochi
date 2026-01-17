@@ -25,7 +25,7 @@ import org.nihongo.mochi.shared.generated.resources.writing_game_recap_title
 
 @Composable
 fun WritingRecapScreen(
-    levelTitle: String, // This is the key, e.g. "n5"
+    levelTitle: String, // Technical key like "n5"
     kanjiListWithColors: List<Pair<KanjiEntry, Color>>,
     currentPage: Int,
     totalPages: Int,
@@ -34,15 +34,8 @@ fun WritingRecapScreen(
     onNextPage: () -> Unit,
     onPlayClick: () -> Unit
 ) {
-    @Composable
-    fun resolveTitle(key: String): String {
-        val resource = ResourceUtils.resolveStringResource(key.lowercase())
-        return if (resource != null) {
-            stringResource(resource)
-        } else {
-            key.replace("_", " ").replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
-        }
-    }
+    val levelResource = ResourceUtils.resolveStringResource(levelTitle.lowercase())
+    val resolvedTitle = if (levelResource != null) stringResource(levelResource) else levelTitle
 
     MochiBackground {
         Column(
@@ -58,7 +51,7 @@ fun WritingRecapScreen(
                 color = MaterialTheme.colorScheme.onBackground
             )
             Text(
-                text = resolveTitle(levelTitle),
+                text = resolvedTitle,
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onBackground
@@ -66,7 +59,7 @@ fun WritingRecapScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Kanji Grid (reuse from RecapComponents)
+            // Kanji Grid
             Column(modifier = Modifier.weight(1f)) {
                 RecapKanjiGrid(
                     kanjiList = kanjiListWithColors,
@@ -74,7 +67,7 @@ fun WritingRecapScreen(
                 )
             }
 
-            // Pagination Controls (reuse from RecapComponents)
+            // Pagination Controls
             PaginationControls(
                 currentPage = currentPage,
                 totalPages = totalPages,
