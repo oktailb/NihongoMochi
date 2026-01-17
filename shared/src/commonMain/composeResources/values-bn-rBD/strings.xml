@@ -656,4 +656,12 @@
     <string name="game_score_label">ফাইনাল স্কোর</string>
     <string name="game_record_label">রেকর্ড: %1$s</string>
     <string name="settings_learning_mode">শেখার মোড</string>
+    <string name="settings_tts_category">টেক্সট-টু-স্পিচ</string>
+    <string name="settings_tts_speed">ভয়েস স্পিড</string>
+    <string name="settings_tts_voice_selection">ভয়েস নির্বাচন</string>
+    <string name="settings_tts_available_voices">উপলব্ধ জাপানি ভয়েস</string>
+    <string name="settings_tts_voice_default">ডিফল্ট</string>
+    <string name="settings_tts_voice_male">পুরুষ (উচ্চ মানের)</string>
+    <string name="settings_tts_voice_female">মহিলা (উচ্চ মানের)</string>
+    <string name="settings_tts_voice_forced_arabic">পুরুষ (আরবি জন্য বাধ্য)</string>
 </resources>

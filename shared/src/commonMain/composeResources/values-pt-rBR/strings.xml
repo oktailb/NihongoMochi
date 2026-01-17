@@ -658,4 +658,12 @@
     <string name="game_score_label">Pontuação Final</string>
     <string name="game_record_label">Registro: %1$s</string>
     <string name="settings_learning_mode">Modo de aprendizagem</string>
+    <string name="settings_tts_category">Conversão de texto para fala</string>
+    <string name="settings_tts_speed">Velocidade de voz</string>
+    <string name="settings_tts_voice_selection">Seleção de voz</string>
+    <string name="settings_tts_available_voices">Vozes japonesas disponíveis</string>
+    <string name="settings_tts_voice_default">Padrão</string>
+    <string name="settings_tts_voice_male">Masculino (alta qualidade)</string>
+    <string name="settings_tts_voice_female">Feminino (alta qualidade)</string>
+    <string name="settings_tts_voice_forced_arabic">Masculino (forçado para árabe)</string>
 </resources>

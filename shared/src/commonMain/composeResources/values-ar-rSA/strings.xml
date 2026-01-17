@@ -656,4 +656,12 @@
     <string name="game_score_label">النتيجة النهائية</string>
     <string name="game_record_label">السجل: %1$s</string>
     <string name="settings_learning_mode">وضع التعلم</string>
+    <string name="settings_tts_category">تحويل النص إلى كلام</string>
+    <string name="settings_tts_speed">سرعة الصوت</string>
+    <string name="settings_tts_voice_selection">اختيار الصوت</string>
+    <string name="settings_tts_available_voices">الأصوات اليابانية المتاحة</string>
+    <string name="settings_tts_voice_default">تقصير</string>
+    <string name="settings_tts_voice_male">ذكر (جودة عالية)</string>
+    <string name="settings_tts_voice_female">أنثى (جودة عالية)</string>
+    <string name="settings_tts_voice_forced_arabic">ذكر (مجبر للغة العربية)</string>
 </resources>

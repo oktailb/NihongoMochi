@@ -16,13 +16,16 @@ import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.domain.services.TextToSpeech
+import org.nihongo.mochi.domain.services.VoiceConfig
 
 class WordDetailViewModel(
     private val wordRepository: WordRepository,
     private val kanjiRepository: KanjiRepository,
     private val meaningRepository: MeaningRepository,
     private val wordMeaningRepository: WordMeaningRepository,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val tts: TextToSpeech
 ) : ViewModel() {
 
     data class WordDetailUiState(
@@ -78,5 +81,24 @@ class WordDetailViewModel(
                 )
             }
         }
+    }
+
+    fun speak() {
+        val locale = settingsRepository.getAppLocale()
+        val config = VoiceConfig(
+            rate = settingsRepository.getTtsRate(),
+            gender = settingsRepository.getTtsGender(locale),
+            voiceId = settingsRepository.getTtsVoiceId()
+        )
+        
+        val textToSpeak = _uiState.value.phonetics.ifEmpty { _uiState.value.wordText }
+        if (textToSpeak.isNotEmpty()) {
+            tts.speak(textToSpeak, "ja", config)
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        tts.stop()
     }
 }

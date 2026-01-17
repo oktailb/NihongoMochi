@@ -654,4 +654,12 @@
     <string name="game_score_label">Điểm cuối cùng</string>
     <string name="game_record_label">Bản ghi: %1$s</string>
     <string name="settings_learning_mode">Chế độ học tập</string>
+    <string name="settings_tts_category">Chuyển văn bản thành giọng nói</string>
+    <string name="settings_tts_speed">Tốc độ giọng nói</string>
+    <string name="settings_tts_voice_selection">Lựa chọn giọng nói</string>
+    <string name="settings_tts_available_voices">Giọng nói tiếng Nhật có sẵn</string>
+    <string name="settings_tts_voice_default">Mặc định</string>
+    <string name="settings_tts_voice_male">Nam (Chất Lượng Cao)</string>
+    <string name="settings_tts_voice_female">Nữ (Chất Lượng Cao)</string>
+    <string name="settings_tts_voice_forced_arabic">Nam (Bắt buộc cho tiếng Ả Rập)</string>
 </resources>

@@ -656,4 +656,12 @@
     <string name="game_score_label">最終スコア</string>
     <string name="game_record_label">レコード: %1$s</string>
     <string name="settings_learning_mode">学習モード</string>
+    <string name="settings_tts_category">テキスト読み上げ</string>
+    <string name="settings_tts_speed">音声速度</string>
+    <string name="settings_tts_voice_selection">ボイスセレクション</string>
+    <string name="settings_tts_available_voices">日本語音声対応</string>
+    <string name="settings_tts_voice_default">デフォルト</string>
+    <string name="settings_tts_voice_male">男性（高品質）</string>
+    <string name="settings_tts_voice_female">女性（高品質）</string>
+    <string name="settings_tts_voice_forced_arabic">男性 (アラビア語を強制)</string>
 </resources>

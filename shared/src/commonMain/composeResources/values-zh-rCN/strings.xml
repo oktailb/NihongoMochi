@@ -658,4 +658,12 @@
     <string name="game_score_label">最终成绩</string>
     <string name="game_record_label">记录：%1$s</string>
     <string name="settings_learning_mode">学习模式</string>
+    <string name="settings_tts_category">文字转语音</string>
+    <string name="settings_tts_speed">语音速度</string>
+    <string name="settings_tts_voice_selection">语音选择</string>
+    <string name="settings_tts_available_voices">可用的日语语音</string>
+    <string name="settings_tts_voice_default">默认</string>
+    <string name="settings_tts_voice_male">男（高品质）</string>
+    <string name="settings_tts_voice_female">女（高品质）</string>
+    <string name="settings_tts_voice_forced_arabic">男（强制要求阿拉伯语）</string>
 </resources>

@@ -8,10 +8,14 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.services.VoiceGender
+import org.nihongo.mochi.domain.services.TextToSpeech
+import org.nihongo.mochi.domain.services.VoiceConfig
 
 class SettingsViewModel(
     private val settingsRepository: SettingsRepository,
-    private val levelsRepository: LevelsRepository
+    private val levelsRepository: LevelsRepository,
+    private val tts: TextToSpeech
 ) : ViewModel() {
 
     data class SettingsUiState(
@@ -23,7 +27,11 @@ class SettingsViewModel(
         val animationSpeed: Float = 1.0f,
         val isDarkMode: Boolean = false,
         val currentMode: String = "JLPT",
-        val availableModes: List<String> = emptyList()
+        val availableModes: List<String> = emptyList(),
+        val ttsGender: VoiceGender = VoiceGender.FEMALE,
+        val ttsRate: Float = 1.0f,
+        val availableVoices: List<String> = emptyList(),
+        val selectedVoiceId: String? = null
     )
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -31,24 +39,18 @@ class SettingsViewModel(
 
     init {
         loadInitialSettings()
+        observeVoices()
     }
 
     private fun loadInitialSettings() {
         viewModelScope.launch {
-            // Load dynamic modes from levels.json via repository
             val defs = levelsRepository.loadLevelDefinitions()
-            
-            // Use section IDs as modes (e.g. "jlpt", "school", "challenge")
-            // Filtering out "fundamentals" if it shouldn't be a main mode, 
-            // but based on levels.json, fundamentals is a section. 
-            // However, usually it's a dependency. 
-            // If the user wants to select it explicitly, we include it.
-            // Sorting to keep order consistent.
             val modes = defs.sections.keys.toList().sorted()
+            val currentLocale = settingsRepository.getAppLocale()
 
             _uiState.update {
                 it.copy(
-                    currentLocaleCode = settingsRepository.getAppLocale(),
+                    currentLocaleCode = currentLocale,
                     pronunciation = settingsRepository.getPronunciation(),
                     addWrongAnswers = settingsRepository.shouldAddWrongAnswers(),
                     removeGoodAnswers = settingsRepository.shouldRemoveGoodAnswers(),
@@ -56,8 +58,23 @@ class SettingsViewModel(
                     animationSpeed = settingsRepository.getAnimationSpeed(),
                     isDarkMode = settingsRepository.getTheme() == "dark",
                     currentMode = settingsRepository.getMode(),
-                    availableModes = modes
+                    availableModes = modes,
+                    ttsGender = settingsRepository.getTtsGender(currentLocale),
+                    ttsRate = settingsRepository.getTtsRate(),
+                    selectedVoiceId = settingsRepository.getTtsVoiceId()
                 )
+            }
+        }
+    }
+
+    private fun observeVoices() {
+        viewModelScope.launch {
+            tts.availableVoices.collect { voices ->
+                // Filter only for the voices requested by the user for Google TTS
+                val filteredVoices = voices.filter { 
+                    it.contains("jab-local") || it.contains("jad-local") 
+                }
+                _uiState.update { it.copy(availableVoices = filteredVoices) }
             }
         }
     }
@@ -65,7 +82,13 @@ class SettingsViewModel(
     fun onLocaleChanged(newLocaleCode: String) {
         if (newLocaleCode == _uiState.value.currentLocaleCode) return
         settingsRepository.setAppLocale(newLocaleCode)
-        _uiState.update { it.copy(currentLocaleCode = newLocaleCode) }
+        val newGender = settingsRepository.getTtsGender(newLocaleCode)
+        _uiState.update { 
+            it.copy(
+                currentLocaleCode = newLocaleCode,
+                ttsGender = newGender
+            ) 
+        }
     }
 
     fun onPronunciationChanged(newPronunciation: String) {
@@ -102,5 +125,35 @@ class SettingsViewModel(
     fun onModeChanged(newMode: String) {
         settingsRepository.setMode(newMode)
         _uiState.update { it.copy(currentMode = newMode) }
+    }
+
+    fun onTtsGenderChanged(gender: VoiceGender) {
+        if (_uiState.value.currentLocaleCode.startsWith("ar") && gender == VoiceGender.FEMALE) return
+        settingsRepository.setTtsGender(gender)
+        _uiState.update { it.copy(ttsGender = gender) }
+    }
+
+    fun onTtsRateChanged(rate: Float) {
+        settingsRepository.setTtsRate(rate)
+        _uiState.update { it.copy(ttsRate = rate) }
+    }
+
+    fun onTtsVoiceSelected(voiceId: String?) {
+        settingsRepository.setTtsVoiceId(voiceId)
+        _uiState.update { it.copy(selectedVoiceId = voiceId) }
+    }
+
+    fun testSpeak() {
+        val config = VoiceConfig(
+            rate = _uiState.value.ttsRate,
+            gender = _uiState.value.ttsGender,
+            voiceId = _uiState.value.selectedVoiceId
+        )
+        tts.speak("日本語を勉強しています", "ja", config)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        tts.stop()
     }
 }

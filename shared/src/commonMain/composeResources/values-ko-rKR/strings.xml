@@ -658,4 +658,12 @@
     <string name="game_score_label">최종 점수</string>
     <string name="game_record_label">기록: %1$s</string>
     <string name="settings_learning_mode">학습 모드</string>
+    <string name="settings_tts_category">텍스트 음성 변환</string>
+    <string name="settings_tts_speed">음성 속도</string>
+    <string name="settings_tts_voice_selection">음색 선택</string>
+    <string name="settings_tts_available_voices">사용 가능한 일본어 음성</string>
+    <string name="settings_tts_voice_default">기본</string>
+    <string name="settings_tts_voice_male">남성(고품질)</string>
+    <string name="settings_tts_voice_female">여성(고화질)</string>
+    <string name="settings_tts_voice_forced_arabic">남성(아랍어의 경우 강제)</string>
 </resources>

@@ -658,4 +658,12 @@
     <string name="game_score_label">คะแนนสุดท้าย</string>
     <string name="game_record_label">บันทึก: %1$s</string>
     <string name="settings_learning_mode">โหมดการเรียนรู้</string>
+    <string name="settings_tts_category">ข้อความเป็นคำพูด</string>
+    <string name="settings_tts_speed">ความเร็วเสียง</string>
+    <string name="settings_tts_voice_selection">การเลือกเสียง</string>
+    <string name="settings_tts_available_voices">มีเสียงภาษาญี่ปุ่น</string>
+    <string name="settings_tts_voice_default">ค่าเริ่มต้น</string>
+    <string name="settings_tts_voice_male">ชาย (คุณภาพสูง)</string>
+    <string name="settings_tts_voice_female">หญิง (คุณภาพสูง)</string>
+    <string name="settings_tts_voice_forced_arabic">ชาย (บังคับสำหรับภาษาอาหรับ)</string>
 </resources>

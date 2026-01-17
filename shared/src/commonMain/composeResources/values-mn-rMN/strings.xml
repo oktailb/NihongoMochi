@@ -656,4 +656,12 @@
     <string name="game_score_label">Эцсийн оноо</string>
     <string name="game_record_label">Бичлэг: %1$s</string>
     <string name="settings_learning_mode">Сурах горим</string>
+    <string name="settings_tts_category">Текстээс яриа</string>
+    <string name="settings_tts_speed">Дууны хурд</string>
+    <string name="settings_tts_voice_selection">Дууны сонголт</string>
+    <string name="settings_tts_available_voices">Боломжтой Япон дуу хоолой</string>
+    <string name="settings_tts_voice_default">Өгөгдмөл</string>
+    <string name="settings_tts_voice_male">Эрэгтэй (Өндөр чанартай)</string>
+    <string name="settings_tts_voice_female">Эмэгтэй (Өндөр чанартай)</string>
+    <string name="settings_tts_voice_forced_arabic">Эрэгтэй (Араб хэлээр албадан)</string>
 </resources>

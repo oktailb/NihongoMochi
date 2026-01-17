@@ -2,39 +2,14 @@ package org.nihongo.mochi.ui.settings
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Slider
-import androidx.compose.material3.Switch
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.DrawableResource
@@ -47,6 +22,7 @@ import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.ResourceUtils
+import org.nihongo.mochi.domain.services.VoiceGender
 
 // Data class for language items, now used in Compose
 data class LanguageItem(val code: String, val name: String, val flagRes: DrawableResource)
@@ -83,7 +59,6 @@ fun SettingsScreen(
         )
     }
 
-    // Dynamic learning modes from ViewModel
     val learningModes = uiState.availableModes.ifEmpty { 
         listOf("JLPT", "School", "Challenge") 
     }
@@ -141,7 +116,7 @@ fun SettingsScreen(
                                 },
                                 onClick = {
                                     viewModel.onLocaleChanged(language.code)
-                                    onLocaleChanged(language.code) // Notify Fragment to trigger system locale change
+                                    onLocaleChanged(language.code)
                                     expanded = false
                                 }
                             )
@@ -173,26 +148,98 @@ fun SettingsScreen(
             
             Spacer(Modifier.height(16.dp))
             
-            // Learning Mode Section (New: Dropdown instead of Radio)
+            // Text-to-Speech Section
+            SettingsSection(title = stringResource(Res.string.settings_tts_category)) {
+                // TTS Speed
+                Text(text = stringResource(Res.string.settings_tts_speed), color = MaterialTheme.colorScheme.onSurface)
+                SliderWithLabel(
+                    value = uiState.ttsRate,
+                    onValueChange = { viewModel.onTtsRateChanged(it) },
+                    valueRange = 0.5f..2.0f
+                )
+                
+                Spacer(Modifier.height(16.dp))
+
+                // TTS Voice Selection
+                Text(text = stringResource(Res.string.settings_tts_voice_selection), color = MaterialTheme.colorScheme.onSurface)
+                var expandedVoices by remember { mutableStateOf(false) }
+                
+                val isArabic = uiState.currentLocaleCode.startsWith("ar")
+                
+                // Helper to get friendly name
+                @Composable
+                fun getFriendlyName(voiceId: String?): String {
+                    return when {
+                        voiceId == null -> stringResource(Res.string.settings_tts_voice_default)
+                        voiceId.contains("jad-local") -> stringResource(Res.string.settings_tts_voice_male)
+                        voiceId.contains("jab-local") -> stringResource(Res.string.settings_tts_voice_female)
+                        else -> voiceId
+                    }
+                }
+
+                val selectedVoiceLabel = getFriendlyName(uiState.selectedVoiceId)
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    ExposedDropdownMenuBox(
+                        expanded = expandedVoices,
+                        onExpandedChange = { if (!isArabic) expandedVoices = !expandedVoices },
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        OutlinedTextField(
+                            value = if (isArabic) stringResource(Res.string.settings_tts_voice_forced_arabic) else selectedVoiceLabel,
+                            onValueChange = {},
+                            readOnly = true,
+                            enabled = !isArabic,
+                            label = { Text(stringResource(Res.string.settings_tts_available_voices)) },
+                            trailingIcon = { if (!isArabic) ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedVoices) },
+                            modifier = Modifier.fillMaxWidth().menuAnchor()
+                        )
+
+                        if (!isArabic) {
+                            ExposedDropdownMenu(expanded = expandedVoices, onDismissRequest = { expandedVoices = false }) {
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(Res.string.settings_tts_voice_default)) },
+                                    onClick = {
+                                        viewModel.onTtsVoiceSelected(null)
+                                        expandedVoices = false
+                                    }
+                                )
+                                uiState.availableVoices.forEach { voiceId ->
+                                    DropdownMenuItem(
+                                        text = { Text(getFriendlyName(voiceId)) },
+                                        onClick = {
+                                            viewModel.onTtsVoiceSelected(voiceId)
+                                            expandedVoices = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    
+                    Spacer(Modifier.width(8.dp))
+                    
+                    FilledIconButton(
+                        onClick = { viewModel.testSpeak() },
+                        modifier = Modifier.size(48.dp)
+                    ) {
+                        Icon(Icons.Default.PlayArrow, contentDescription = "Test Voice")
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(16.dp))
+            
+            // Learning Mode Section
             SettingsSection(title = stringResource(Res.string.settings_learning_mode)) {
                 var expanded by remember { mutableStateOf(false) }
-                // Fallback to first if current mode is not in list
                 val rawSelectedMode = if (learningModes.contains(uiState.currentMode)) uiState.currentMode else learningModes.firstOrNull() ?: ""
 
                 @Composable
                 fun getModeLabel(mode: String): String {
-                    // Try to resolve using ResourceUtils first
-                    // The keys for sections are usually mapped like "section_jlpt", "section_school" in ResourceUtils
-                    // We try to normalize the mode string to match potential keys.
                     val key = "section_" + mode.lowercase()
                     val resource = ResourceUtils.resolveStringResource(key) ?: ResourceUtils.resolveStringResource(mode.lowercase())
-                    
-                    return if (resource != null) {
-                        stringResource(resource)
-                    } else {
-                        // Fallback
-                        mode.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
-                    }
+                    return if (resource != null) stringResource(resource) else mode.replaceFirstChar { it.titlecase() }
                 }
 
                 ExposedDropdownMenuBox(
@@ -205,15 +252,10 @@ fun SettingsScreen(
                         readOnly = true,
                         label = { Text("Mode") },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .menuAnchor()
+                        modifier = Modifier.fillMaxWidth().menuAnchor()
                     )
 
-                    ExposedDropdownMenu(
-                        expanded = expanded,
-                        onDismissRequest = { expanded = false }
-                    ) {
+                    ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                         learningModes.forEach { mode ->
                             DropdownMenuItem(
                                 text = { Text(getModeLabel(mode)) },
@@ -230,7 +272,6 @@ fun SettingsScreen(
             Spacer(Modifier.height(16.dp))
 
             SettingsSection(title = stringResource(Res.string.settings_category_learning)) {
-                // Default User List
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(checked = uiState.addWrongAnswers, onCheckedChange = { viewModel.onAddWrongAnswersChanged(it) })
                     Text(stringResource(Res.string.settings_add_wrong_answers), color = MaterialTheme.colorScheme.onSurface)
@@ -244,19 +285,16 @@ fun SettingsScreen(
             Spacer(Modifier.height(16.dp))
 
             SettingsSection(title = stringResource(Res.string.settings_category_interface)) {
-                // Text Size
                 Text(stringResource(Res.string.settings_text_size), color = MaterialTheme.colorScheme.onSurface)
                 SliderWithLabel(value = uiState.textSize, onValueChange = { viewModel.onTextSizeChanged(it) })
                 
                 Spacer(Modifier.height(8.dp))
 
-                // Animation Speed
                 Text(stringResource(Res.string.settings_animation_speed), color = MaterialTheme.colorScheme.onSurface)
                 SliderWithLabel(value = uiState.animationSpeed, onValueChange = { viewModel.onAnimationSpeedChanged(it) })
                 
                 Spacer(Modifier.height(8.dp))
                 
-                // Theme
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
                     Text(stringResource(Res.string.settings_theme), color = MaterialTheme.colorScheme.onSurface)
                     Spacer(Modifier.weight(1f))
@@ -292,18 +330,19 @@ fun SettingsSection(title: String, content: @Composable () -> Unit) {
 }
 
 @Composable
-fun SliderWithLabel(value: Float, onValueChange: (Float) -> Unit) {
+fun SliderWithLabel(
+    value: Float, 
+    onValueChange: (Float) -> Unit,
+    valueRange: ClosedFloatingPointRange<Float> = 0.1f..4.0f
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Slider(
             value = value,
             onValueChange = onValueChange,
-            valueRange = 0.1f..4.0f,
-            steps = 38, // (4.0 - 0.1) / 0.1 - 1 = 39 - 1 = 38 steps for 39 intervals
+            valueRange = valueRange,
             modifier = Modifier.weight(1f)
         )
         Spacer(Modifier.width(8.dp))
-        // String format is not available in commonMain stdlib directly, using simple concatenation or expect/actual if precision needed
-        // For simplicity:
         val formattedValue = (Math.round(value * 10) / 10.0).toString() + "x"
         Text(
             text = formattedValue,

@@ -658,4 +658,12 @@
     <string name="game_score_label">Nilai akhir</string>
     <string name="game_record_label">Catatan: %1$s</string>
     <string name="settings_learning_mode">Modus Pembelajaran</string>
+    <string name="settings_tts_category">Teks-ke-Ucapan</string>
+    <string name="settings_tts_speed">Kecepatan Suara</string>
+    <string name="settings_tts_voice_selection">Pemilihan Suara</string>
+    <string name="settings_tts_available_voices">Suara Jepang yang Tersedia</string>
+    <string name="settings_tts_voice_default">Bawaan</string>
+    <string name="settings_tts_voice_male">Laki-laki (Kualitas Tinggi)</string>
+    <string name="settings_tts_voice_female">Wanita (Kualitas Tinggi)</string>
+    <string name="settings_tts_voice_forced_arabic">Laki-laki (Dipaksa untuk bahasa Arab)</string>
 </resources>

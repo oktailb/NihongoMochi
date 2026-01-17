@@ -37,6 +37,17 @@
     <string name="settings_theme">Theme (Light/Dark)</string>
     <string name="settings_reset_tutorial">Reset tutorial</string>
     <string name="settings_send_bug_report">Send bug report</string>
+
+    <!-- TTS Settings -->
+    <string name="settings_tts_category">Text-to-Speech</string>
+    <string name="settings_tts_speed">Voice Speed</string>
+    <string name="settings_tts_voice_selection">Voice Selection</string>
+    <string name="settings_tts_available_voices">Available Japanese Voices</string>
+    <string name="settings_tts_voice_default">Default</string>
+    <string name="settings_tts_voice_male">Male (High Quality)</string>
+    <string name="settings_tts_voice_female">Female (High Quality)</string>
+    <string name="settings_tts_voice_forced_arabic">Male (Forced for Arabic)</string>
+
     <string name="game_recap_title">Recognition game</string>
     <string name="game_recap_meaning">Meaning</string>
     <string name="game_recap_reading">Reading</string>

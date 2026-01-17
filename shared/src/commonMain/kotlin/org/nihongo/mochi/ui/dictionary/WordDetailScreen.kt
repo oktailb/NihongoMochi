@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -79,13 +80,28 @@ fun WordDetailScreen(
                                 textAlign = TextAlign.Center
                             )
                             
-                            if (uiState.phonetics.isNotEmpty()) {
-                                Text(
-                                    text = uiState.phonetics,
-                                    fontSize = 24.sp,
-                                    color = MaterialTheme.colorScheme.secondary,
-                                    modifier = Modifier.padding(top = 8.dp)
-                                )
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center,
+                                modifier = Modifier.padding(top = 8.dp)
+                            ) {
+                                if (uiState.phonetics.isNotEmpty()) {
+                                    Text(
+                                        text = uiState.phonetics,
+                                        fontSize = 24.sp,
+                                        color = MaterialTheme.colorScheme.secondary
+                                    )
+                                }
+                                
+                                Spacer(modifier = Modifier.width(8.dp))
+                                
+                                IconButton(onClick = { viewModel.speak() }) {
+                                    Icon(
+                                        imageVector = Icons.Default.VolumeUp,
+                                        contentDescription = "Speak",
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                }
                             }
                         }
                     }

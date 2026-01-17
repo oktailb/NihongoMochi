@@ -658,4 +658,12 @@
     <string name="game_score_label">Final Score</string>
     <string name="game_record_label">Record: %1$s</string>
     <string name="settings_learning_mode">Learning Mode</string>
+    <string name="settings_tts_category">Text-to-Speech</string>
+    <string name="settings_tts_speed">Voice Speed</string>
+    <string name="settings_tts_voice_selection">Voice Selection</string>
+    <string name="settings_tts_available_voices">Available Japanese Voices</string>
+    <string name="settings_tts_voice_default">Default</string>
+    <string name="settings_tts_voice_male">Male (High Quality)</string>
+    <string name="settings_tts_voice_female">Female (High Quality)</string>
+    <string name="settings_tts_voice_forced_arabic">Male (Forced for Arabic)</string>
 </resources>

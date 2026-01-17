@@ -656,4 +656,12 @@
     <string name="game_score_label">Остаточний рахунок</string>
     <string name="game_record_label">Запис: %1$s</string>
     <string name="settings_learning_mode">Режим навчання</string>
+    <string name="settings_tts_category">Синтез мовлення</string>
+    <string name="settings_tts_speed">Швидкість голосу</string>
+    <string name="settings_tts_voice_selection">Вибір голосу</string>
+    <string name="settings_tts_available_voices">Доступні японські голоси</string>
+    <string name="settings_tts_voice_default">За замовчуванням</string>
+    <string name="settings_tts_voice_male">Чоловік (висока якість)</string>
+    <string name="settings_tts_voice_female">Жінка (висока якість)</string>
+    <string name="settings_tts_voice_forced_arabic">Чоловік (примусово для арабської)</string>
 </resources>
