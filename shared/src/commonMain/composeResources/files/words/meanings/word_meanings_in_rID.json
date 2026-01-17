@@ -41,6 +41,6598 @@
       {
         "@id": "10",
         "meaning": "Menjadi"
+      },
+      {
+        "@id": "11",
+        "meaning": "Satu"
+      },
+      {
+        "@id": "12",
+        "meaning": "Tidak ada"
+      },
+      {
+        "@id": "13",
+        "meaning": "Dari"
+      },
+      {
+        "@id": "14",
+        "meaning": "Dua"
+      },
+      {
+        "@id": "15",
+        "meaning": "-nya"
+      },
+      {
+        "@id": "16",
+        "meaning": "Tn."
+      },
+      {
+        "@id": "17",
+        "meaning": "Tiga"
+      },
+      {
+        "@id": "18",
+        "meaning": "Sepuluh"
+      },
+      {
+        "@id": "19",
+        "meaning": "Yang ini"
+      },
+      {
+        "@id": "20",
+        "meaning": "Benda"
+      },
+      {
+        "@id": "21",
+        "meaning": "Target"
+      },
+      {
+        "@id": "22",
+        "meaning": "Dia"
+      },
+      {
+        "@id": "23",
+        "meaning": "Tuhan"
+      },
+      {
+        "@id": "24",
+        "meaning": "Tahun"
+      },
+      {
+        "@id": "25",
+        "meaning": "Datang"
+      },
+      {
+        "@id": "26",
+        "meaning": "Lima"
+      },
+      {
+        "@id": "27",
+        "meaning": "Memikirkan"
+      },
+      {
+        "@id": "28",
+        "meaning": "Lihat"
+      },
+      {
+        "@id": "29",
+        "meaning": "Pergi"
+      },
+      {
+        "@id": "30",
+        "meaning": "Empat"
+      },
+      {
+        "@id": "31",
+        "meaning": "Saya bisa melakukannya"
+      },
+      {
+        "@id": "32",
+        "meaning": "Ini dia"
+      },
+      {
+        "@id": "33",
+        "meaning": "Bagus"
+      },
+      {
+        "@id": "34",
+        "meaning": "Orang"
+      },
+      {
+        "@id": "35",
+        "meaning": "Saya"
+      },
+      {
+        "@id": "36",
+        "meaning": "Dll."
+      },
+      {
+        "@id": "37",
+        "meaning": "Bisa"
+      },
+      {
+        "@id": "38",
+        "meaning": "Tuan nona."
+      },
+      {
+        "@id": "39",
+        "meaning": "Karena"
+      },
+      {
+        "@id": "40",
+        "meaning": "Apa"
+      },
+      {
+        "@id": "41",
+        "meaning": "Ke"
+      },
+      {
+        "@id": "42",
+        "meaning": "Waktu"
+      },
+      {
+        "@id": "43",
+        "meaning": "Enam"
+      },
+      {
+        "@id": "44",
+        "meaning": "Dua puluh"
+      },
+      {
+        "@id": "45",
+        "meaning": "Rakyat"
+      },
+      {
+        "@id": "46",
+        "meaning": "Demi"
+      },
+      {
+        "@id": "47",
+        "meaning": "Bulan"
+      },
+      {
+        "@id": "48",
+        "meaning": "Delapan"
+      },
+      {
+        "@id": "49",
+        "meaning": "Kentut"
+      },
+      {
+        "@id": "50",
+        "meaning": "Teru"
+      },
+      {
+        "@id": "51",
+        "meaning": "Tidak."
+      },
+      {
+        "@id": "52",
+        "meaning": "Ya"
+      },
+      {
+        "@id": "53",
+        "meaning": "Tujuh"
+      },
+      {
+        "@id": "54",
+        "meaning": "Sembilan"
+      },
+      {
+        "@id": "55",
+        "meaning": "Hanya"
+      },
+      {
+        "@id": "56",
+        "meaning": "Jepang"
+      },
+      {
+        "@id": "57",
+        "meaning": "Mencapai"
+      },
+      {
+        "@id": "58",
+        "meaning": "Ikan air tawar"
+      },
+      {
+        "@id": "59",
+        "meaning": "Tembaga"
+      },
+      {
+        "@id": "60",
+        "meaning": "Sedang"
+      },
+      {
+        "@id": "61",
+        "meaning": "Membiarkan"
+      },
+      {
+        "@id": "62",
+        "meaning": "Juga"
+      },
+      {
+        "@id": "63",
+        "meaning": "Tiba"
+      },
+      {
+        "@id": "64",
+        "meaning": "Ribu"
+      },
+      {
+        "@id": "65",
+        "meaning": "Saya sendiri"
+      },
+      {
+        "@id": "66",
+        "meaning": "Tempat"
+      },
+      {
+        "@id": "67",
+        "meaning": "Tigapuluh"
+      },
+      {
+        "@id": "68",
+        "meaning": "Nol"
+      },
+      {
+        "@id": "69",
+        "meaning": "Itu saja"
+      },
+      {
+        "@id": "70",
+        "meaning": "Memikirkan"
+      },
+      {
+        "@id": "71",
+        "meaning": "Simpanlah itu"
+      },
+      {
+        "@id": "72",
+        "meaning": "Dua"
+      },
+      {
+        "@id": "73",
+        "meaning": "Namun"
+      },
+      {
+        "@id": "74",
+        "meaning": "Arah"
+      },
+      {
+        "@id": "75",
+        "meaning": "Kasus"
+      },
+      {
+        "@id": "76",
+        "meaning": "Tidak"
+      },
+      {
+        "@id": "77",
+        "meaning": "Sekarang"
+      },
+      {
+        "@id": "78",
+        "meaning": "Memiliki"
+      },
+      {
+        "@id": "79",
+        "meaning": "Dia"
+      },
+      {
+        "@id": "80",
+        "meaning": "Membelanjakan"
+      },
+      {
+        "@id": "81",
+        "meaning": "Dll."
+      },
+      {
+        "@id": "82",
+        "meaning": "Saya mengerti"
+      },
+      {
+        "@id": "83",
+        "meaning": "Hari"
+      },
+      {
+        "@id": "84",
+        "meaning": "Tempat"
+      },
+      {
+        "@id": "85",
+        "meaning": "Lima puluh"
+      },
+      {
+        "@id": "86",
+        "meaning": "Keluar"
+      },
+      {
+        "@id": "87",
+        "meaning": "Sebelum"
+      },
+      {
+        "@id": "88",
+        "meaning": "Mengadakan"
+      },
+      {
+        "@id": "89",
+        "meaning": "Mengambil"
+      },
+      {
+        "@id": "90",
+        "meaning": "Tari"
+      },
+      {
+        "@id": "91",
+        "meaning": "Lingkaran"
+      },
+      {
+        "@id": "92",
+        "meaning": "Sepuluh ribu"
+      },
+      {
+        "@id": "93",
+        "meaning": "Seks"
+      },
+      {
+        "@id": "94",
+        "meaning": "Sembilan ratus"
+      },
+      {
+        "@id": "95",
+        "meaning": "Alasan"
+      },
+      {
+        "@id": "96",
+        "meaning": "Ketika"
+      },
+      {
+        "@id": "97",
+        "meaning": "Perbedaan"
+      },
+      {
+        "@id": "98",
+        "meaning": "Ratus"
+      },
+      {
+        "@id": "99",
+        "meaning": "Berikan padaku"
+      },
+      {
+        "@id": "100",
+        "meaning": "Namun"
+      },
+      {
+        "@id": "101",
+        "meaning": "Masalah"
+      },
+      {
+        "@id": "102",
+        "meaning": "Membutuhkan"
+      },
+      {
+        "@id": "103",
+        "meaning": "Melawan"
+      },
+      {
+        "@id": "104",
+        "meaning": "Menggunakan"
+      },
+      {
+        "@id": "105",
+        "meaning": "Memutar"
+      },
+      {
+        "@id": "106",
+        "meaning": "Transformasi"
+      },
+      {
+        "@id": "107",
+        "meaning": "Waktu"
+      },
+      {
+        "@id": "108",
+        "meaning": "Mendengarkan"
+      },
+      {
+        "@id": "109",
+        "meaning": "Empat puluh"
+      },
+      {
+        "@id": "110",
+        "meaning": "Memberi"
+      },
+      {
+        "@id": "111",
+        "meaning": "Tahu"
+      },
+      {
+        "@id": "112",
+        "meaning": "Kematian"
+      },
+      {
+        "@id": "113",
+        "meaning": "Belakang"
+      },
+      {
+        "@id": "114",
+        "meaning": "Persen"
+      },
+      {
+        "@id": "115",
+        "meaning": "Dan"
+      },
+      {
+        "@id": "116",
+        "meaning": "Sudah"
+      },
+      {
+        "@id": "117",
+        "meaning": "Asosiasi"
+      },
+      {
+        "@id": "118",
+        "meaning": "Meletakkan"
+      },
+      {
+        "@id": "119",
+        "meaning": "Anak"
+      },
+      {
+        "@id": "120",
+        "meaning": "Seperti ini"
+      },
+      {
+        "@id": "121",
+        "meaning": "Memasuki"
+      },
+      {
+        "@id": "122",
+        "meaning": "Udara"
+      },
+      {
+        "@id": "123",
+        "meaning": "Membuat"
+      },
+      {
+        "@id": "124",
+        "meaning": "Hubungan"
+      },
+      {
+        "@id": "125",
+        "meaning": "Di sini"
+      },
+      {
+        "@id": "126",
+        "meaning": "Banyak"
+      },
+      {
+        "@id": "127",
+        "meaning": "Duduk"
+      },
+      {
+        "@id": "128",
+        "meaning": "Di sana"
+      },
+      {
+        "@id": "129",
+        "meaning": "Enam puluh"
+      },
+      {
+        "@id": "130",
+        "meaning": "Mata"
+      },
+      {
+        "@id": "131",
+        "meaning": "Sembilan puluh"
+      },
+      {
+        "@id": "132",
+        "meaning": "Derajat"
+      },
+      {
+        "@id": "133",
+        "meaning": "Moderasi"
+      },
+      {
+        "@id": "134",
+        "meaning": "Tentang"
+      },
+      {
+        "@id": "135",
+        "meaning": "Di atas"
+      },
+      {
+        "@id": "136",
+        "meaning": "Kota"
+      },
+      {
+        "@id": "137",
+        "meaning": "Delapan puluh"
+      },
+      {
+        "@id": "138",
+        "meaning": "Mengeluarkan"
+      },
+      {
+        "@id": "139",
+        "meaning": "Dan"
+      },
+      {
+        "@id": "140",
+        "meaning": "Masyarakat"
+      },
+      {
+        "@id": "141",
+        "meaning": "Cerita"
+      },
+      {
+        "@id": "142",
+        "meaning": "Anda"
+      },
+      {
+        "@id": "143",
+        "meaning": "Saya"
+      },
+      {
+        "@id": "144",
+        "meaning": "Tangan"
+      },
+      {
+        "@id": "145",
+        "meaning": "Itu saja"
+      },
+      {
+        "@id": "146",
+        "meaning": "Bisnis"
+      },
+      {
+        "@id": "147",
+        "meaning": "Usia"
+      },
+      {
+        "@id": "148",
+        "meaning": "Di dalam"
+      },
+      {
+        "@id": "149",
+        "meaning": "Semua"
+      },
+      {
+        "@id": "150",
+        "meaning": "Tujuh puluh"
+      },
+      {
+        "@id": "151",
+        "meaning": "Memakai"
+      },
+      {
+        "@id": "152",
+        "meaning": "Harus"
+      },
+      {
+        "@id": "153",
+        "meaning": "Terlampir"
+      },
+      {
+        "@id": "154",
+        "meaning": "Dunia"
+      },
+      {
+        "@id": "155",
+        "meaning": "Yang lain"
+      },
+      {
+        "@id": "156",
+        "meaning": "Titik"
+      },
+      {
+        "@id": "157",
+        "meaning": "Menerima"
+      },
+      {
+        "@id": "158",
+        "meaning": "Manusia"
+      },
+      {
+        "@id": "159",
+        "meaning": "2.000"
+      },
+      {
+        "@id": "160",
+        "meaning": "Berikutnya"
+      },
+      {
+        "@id": "161",
+        "meaning": "Sehat"
+      },
+      {
+        "@id": "162",
+        "meaning": "Kehidupan"
+      },
+      {
+        "@id": "163",
+        "meaning": "Hukum"
+      },
+      {
+        "@id": "164",
+        "meaning": "Sama"
+      },
+      {
+        "@id": "165",
+        "meaning": "Menulis"
+      },
+      {
+        "@id": "166",
+        "meaning": "Menerima"
+      },
+      {
+        "@id": "167",
+        "meaning": "Perusahaan"
+      },
+      {
+        "@id": "168",
+        "meaning": "Kapan"
+      },
+      {
+        "@id": "169",
+        "meaning": "Mahal"
+      },
+      {
+        "@id": "170",
+        "meaning": "Memperoleh"
+      },
+      {
+        "@id": "171",
+        "meaning": "Menggantung"
+      },
+      {
+        "@id": "172",
+        "meaning": "Artikel"
+      },
+      {
+        "@id": "173",
+        "meaning": "Seperti itu"
+      },
+      {
+        "@id": "174",
+        "meaning": "Pria"
+      },
+      {
+        "@id": "175",
+        "meaning": "Penelitian"
+      },
+      {
+        "@id": "176",
+        "meaning": "Wilayah"
+      },
+      {
+        "@id": "177",
+        "meaning": "Menghadapi"
+      },
+      {
+        "@id": "178",
+        "meaning": "Besar"
+      },
+      {
+        "@id": "179",
+        "meaning": "Informasi"
+      },
+      {
+        "@id": "180",
+        "meaning": "Arti"
+      },
+      {
+        "@id": "181",
+        "meaning": "Kali"
+      },
+      {
+        "@id": "182",
+        "meaning": "Dia"
+      },
+      {
+        "@id": "183",
+        "meaning": "Tahu"
+      },
+      {
+        "@id": "184",
+        "meaning": "Ambisi"
+      },
+      {
+        "@id": "185",
+        "meaning": "Angka"
+      },
+      {
+        "@id": "186",
+        "meaning": "Kata-kata"
+      },
+      {
+        "@id": "187",
+        "meaning": "Masukkan"
+      },
+      {
+        "@id": "188",
+        "meaning": "Negara"
+      },
+      {
+        "@id": "189",
+        "meaning": "Terkait"
+      },
+      {
+        "@id": "190",
+        "meaning": "Prefektur"
+      },
+      {
+        "@id": "191",
+        "meaning": "Sekolah"
+      },
+      {
+        "@id": "192",
+        "meaning": "Di antara"
+      },
+      {
+        "@id": "193",
+        "meaning": "Meningkatkan"
+      },
+      {
+        "@id": "194",
+        "meaning": "Hukum alam"
+      },
+      {
+        "@id": "195",
+        "meaning": "Bekerja"
+      },
+      {
+        "@id": "196",
+        "meaning": "Besar"
+      },
+      {
+        "@id": "197",
+        "meaning": "Satu orang"
+      },
+      {
+        "@id": "198",
+        "meaning": "Perusahaan"
+      },
+      {
+        "@id": "199",
+        "meaning": "Who"
+      },
+      {
+        "@id": "200",
+        "meaning": "Mungkin"
+      },
+      {
+        "@id": "201",
+        "meaning": "Menit"
+      },
+      {
+        "@id": "202",
+        "meaning": "Dua ratus"
+      },
+      {
+        "@id": "203",
+        "meaning": "Di mana"
+      },
+      {
+        "@id": "204",
+        "meaning": "Muncul"
+      },
+      {
+        "@id": "205",
+        "meaning": "Anggota komite"
+      },
+      {
+        "@id": "206",
+        "meaning": "Menerima"
+      },
+      {
+        "@id": "207",
+        "meaning": "Era"
+      },
+      {
+        "@id": "208",
+        "meaning": "Menggunakan"
+      },
+      {
+        "@id": "209",
+        "meaning": "Sedikit"
+      },
+      {
+        "@id": "210",
+        "meaning": "Hari ini"
+      },
+      {
+        "@id": "211",
+        "meaning": "Benar"
+      },
+      {
+        "@id": "212",
+        "meaning": "Miliknya"
+      },
+      {
+        "@id": "213",
+        "meaning": "Dua orang"
+      },
+      {
+        "@id": "214",
+        "meaning": "Dibutuhkan"
+      },
+      {
+        "@id": "215",
+        "meaning": "Semua"
+      },
+      {
+        "@id": "216",
+        "meaning": "Suara"
+      },
+      {
+        "@id": "217",
+        "meaning": "Saat ini"
+      },
+      {
+        "@id": "218",
+        "meaning": "Tidak"
+      },
+      {
+        "@id": "219",
+        "meaning": "Rumah"
+      },
+      {
+        "@id": "220",
+        "meaning": "Dari"
+      },
+      {
+        "@id": "221",
+        "meaning": "Metode"
+      },
+      {
+        "@id": "222",
+        "meaning": "Ekonomi"
+      },
+      {
+        "@id": "223",
+        "meaning": "Tetap"
+      },
+      {
+        "@id": "224",
+        "meaning": "Lain"
+      },
+      {
+        "@id": "225",
+        "meaning": "Wanita"
+      },
+      {
+        "@id": "226",
+        "meaning": "Yabari"
+      },
+      {
+        "@id": "227",
+        "meaning": "Makan"
+      },
+      {
+        "@id": "228",
+        "meaning": "Mengajar"
+      },
+      {
+        "@id": "229",
+        "meaning": "Sekitar waktu itu"
+      },
+      {
+        "@id": "230",
+        "meaning": "Jalan"
+      },
+      {
+        "@id": "231",
+        "meaning": "Bersama"
+      },
+      {
+        "@id": "232",
+        "meaning": "Jantung"
+      },
+      {
+        "@id": "233",
+        "meaning": "Tahun"
+      },
+      {
+        "@id": "234",
+        "meaning": "Aktivitas"
+      },
+      {
+        "@id": "235",
+        "meaning": "Berbeda"
+      },
+      {
+        "@id": "236",
+        "meaning": "Rusa"
+      },
+      {
+        "@id": "237",
+        "meaning": "Awal"
+      },
+      {
+        "@id": "238",
+        "meaning": "Lingkaran"
+      },
+      {
+        "@id": "239",
+        "meaning": "Lingkungan"
+      },
+      {
+        "@id": "240",
+        "meaning": "Besar"
+      },
+      {
+        "@id": "241",
+        "meaning": "Departemen"
+      },
+      {
+        "@id": "242",
+        "meaning": "Saya"
+      },
+      {
+        "@id": "243",
+        "meaning": "Tokyo"
+      },
+      {
+        "@id": "244",
+        "meaning": "Satu inci"
+      },
+      {
+        "@id": "245",
+        "meaning": "Tujuan"
+      },
+      {
+        "@id": "246",
+        "meaning": "Anak"
+      },
+      {
+        "@id": "247",
+        "meaning": "Telepon"
+      },
+      {
+        "@id": "248",
+        "meaning": "Hasil"
+      },
+      {
+        "@id": "249",
+        "meaning": "Penyelidikan"
+      },
+      {
+        "@id": "250",
+        "meaning": "Mengubah"
+      },
+      {
+        "@id": "251",
+        "meaning": "Terlalu banyak"
+      },
+      {
+        "@id": "252",
+        "meaning": "Chan"
+      },
+      {
+        "@id": "253",
+        "meaning": "Anda"
+      },
+      {
+        "@id": "254",
+        "meaning": "Mitra"
+      },
+      {
+        "@id": "255",
+        "meaning": "Panggilan"
+      },
+      {
+        "@id": "256",
+        "meaning": "Merasa"
+      },
+      {
+        "@id": "257",
+        "meaning": "Situasi"
+      },
+      {
+        "@id": "258",
+        "meaning": "Kuat"
+      },
+      {
+        "@id": "259",
+        "meaning": "Amerika"
+      },
+      {
+        "@id": "260",
+        "meaning": "Memaksa"
+      },
+      {
+        "@id": "261",
+        "meaning": "Wanita"
+      },
+      {
+        "@id": "262",
+        "meaning": "Pendidikan"
+      },
+      {
+        "@id": "263",
+        "meaning": "Membeli"
+      },
+      {
+        "@id": "264",
+        "meaning": "Bumi"
+      },
+      {
+        "@id": "265",
+        "meaning": "Rencana"
+      },
+      {
+        "@id": "266",
+        "meaning": "Teknologi"
+      },
+      {
+        "@id": "267",
+        "meaning": "Untuk"
+      },
+      {
+        "@id": "268",
+        "meaning": "Pertama"
+      },
+      {
+        "@id": "269",
+        "meaning": "Langsung"
+      },
+      {
+        "@id": "270",
+        "meaning": "Buruk"
+      },
+      {
+        "@id": "271",
+        "meaning": "Universitas"
+      },
+      {
+        "@id": "272",
+        "meaning": "Melanjutkan"
+      },
+      {
+        "@id": "273",
+        "meaning": "Guru"
+      },
+      {
+        "@id": "274",
+        "meaning": "Khususnya"
+      },
+      {
+        "@id": "275",
+        "meaning": "Hanya"
+      },
+      {
+        "@id": "276",
+        "meaning": "Apa?"
+      },
+      {
+        "@id": "277",
+        "meaning": "Isi"
+      },
+      {
+        "@id": "278",
+        "meaning": "Atau"
+      },
+      {
+        "@id": "279",
+        "meaning": "Kaligrafi"
+      },
+      {
+        "@id": "280",
+        "meaning": "Foto"
+      },
+      {
+        "@id": "281",
+        "meaning": "Tentang"
+      },
+      {
+        "@id": "282",
+        "meaning": "Asuransi"
+      },
+      {
+        "@id": "283",
+        "meaning": "Mentah"
+      },
+      {
+        "@id": "284",
+        "meaning": "Masalah"
+      },
+      {
+        "@id": "285",
+        "meaning": "Tempat"
+      },
+      {
+        "@id": "286",
+        "meaning": "Mobil"
+      },
+      {
+        "@id": "287",
+        "meaning": "Zaman showa"
+      },
+      {
+        "@id": "288",
+        "meaning": "Seharusnya begitu"
+      },
+      {
+        "@id": "289",
+        "meaning": "Remaja"
+      },
+      {
+        "@id": "290",
+        "meaning": "Situasi"
+      },
+      {
+        "@id": "291",
+        "meaning": "Umum"
+      },
+      {
+        "@id": "292",
+        "meaning": "Misalnya"
+      },
+      {
+        "@id": "293",
+        "meaning": "Sedikit"
+      },
+      {
+        "@id": "294",
+        "meaning": "Lima ratus"
+      },
+      {
+        "@id": "295",
+        "meaning": "Menggunakan"
+      },
+      {
+        "@id": "296",
+        "meaning": "Menunjukkan"
+      },
+      {
+        "@id": "297",
+        "meaning": "Bagian"
+      },
+      {
+        "@id": "298",
+        "meaning": "Aula"
+      },
+      {
+        "@id": "299",
+        "meaning": "Pemerintah"
+      },
+      {
+        "@id": "300",
+        "meaning": "Panjang"
+      },
+      {
+        "@id": "301",
+        "meaning": "Seperti ini"
+      },
+      {
+        "@id": "302",
+        "meaning": "Delapan ratus"
+      },
+      {
+        "@id": "303",
+        "meaning": "Heisei"
+      },
+      {
+        "@id": "304",
+        "meaning": "Halaman"
+      },
+      {
+        "@id": "305",
+        "meaning": "Tenaga kerja"
+      },
+      {
+        "@id": "306",
+        "meaning": "Menyukai"
+      },
+      {
+        "@id": "307",
+        "meaning": "Lebih awal"
+      },
+      {
+        "@id": "308",
+        "meaning": "Sistem"
+      },
+      {
+        "@id": "309",
+        "meaning": "Anggota"
+      },
+      {
+        "@id": "310",
+        "meaning": "Subjek"
+      },
+      {
+        "@id": "311",
+        "meaning": "Saya ingin"
+      },
+      {
+        "@id": "312",
+        "meaning": "Adanya"
+      },
+      {
+        "@id": "313",
+        "meaning": "Kembali"
+      },
+      {
+        "@id": "314",
+        "meaning": "Perkembangan"
+      },
+      {
+        "@id": "315",
+        "meaning": "Saya akan"
+      },
+      {
+        "@id": "316",
+        "meaning": "Merasa"
+      },
+      {
+        "@id": "317",
+        "meaning": "Memotong"
+      },
+      {
+        "@id": "318",
+        "meaning": "Dasar"
+      },
+      {
+        "@id": "319",
+        "meaning": "Tiga ratus"
+      },
+      {
+        "@id": "320",
+        "meaning": "Peraturan"
+      },
+      {
+        "@id": "321",
+        "meaning": "Tubuh"
+      },
+      {
+        "@id": "322",
+        "meaning": "Kepala"
+      },
+      {
+        "@id": "323",
+        "meaning": "Pertanyaan"
+      },
+      {
+        "@id": "324",
+        "meaning": "Ketentuan"
+      },
+      {
+        "@id": "325",
+        "meaning": "Penjelasan"
+      },
+      {
+        "@id": "326",
+        "meaning": "Membaca"
+      },
+      {
+        "@id": "327",
+        "meaning": "Tn."
+      },
+      {
+        "@id": "328",
+        "meaning": "Kementerian"
+      },
+      {
+        "@id": "329",
+        "meaning": "Air"
+      },
+      {
+        "@id": "330",
+        "meaning": "Mengapa"
+      },
+      {
+        "@id": "331",
+        "meaning": "Pelaksanaan"
+      },
+      {
+        "@id": "332",
+        "meaning": "Meja"
+      },
+      {
+        "@id": "333",
+        "meaning": "Sangat"
+      },
+      {
+        "@id": "334",
+        "meaning": "Penting"
+      },
+      {
+        "@id": "335",
+        "meaning": "Berdiri"
+      },
+      {
+        "@id": "336",
+        "meaning": "Fasilitas"
+      },
+      {
+        "@id": "337",
+        "meaning": "Hampir"
+      },
+      {
+        "@id": "338",
+        "meaning": "Apa"
+      },
+      {
+        "@id": "339",
+        "meaning": "Baru"
+      },
+      {
+        "@id": "340",
+        "meaning": "Bicara"
+      },
+      {
+        "@id": "341",
+        "meaning": "Cina"
+      },
+      {
+        "@id": "342",
+        "meaning": "Wilayah"
+      },
+      {
+        "@id": "343",
+        "meaning": "Bersama"
+      },
+      {
+        "@id": "344",
+        "meaning": "Nomor satu"
+      },
+      {
+        "@id": "345",
+        "meaning": "Pengelolaan"
+      },
+      {
+        "@id": "346",
+        "meaning": "Pengeluaran"
+      },
+      {
+        "@id": "347",
+        "meaning": "Partisipasi"
+      },
+      {
+        "@id": "348",
+        "meaning": "Mesin"
+      },
+      {
+        "@id": "349",
+        "meaning": "Mudah"
+      },
+      {
+        "@id": "350",
+        "meaning": "Kecil"
+      },
+      {
+        "@id": "351",
+        "meaning": "Ada"
+      },
+      {
+        "@id": "352",
+        "meaning": "Mulut"
+      },
+      {
+        "@id": "353",
+        "meaning": "Cetakan"
+      },
+      {
+        "@id": "354",
+        "meaning": "Baru-baru ini"
+      },
+      {
+        "@id": "355",
+        "meaning": "Membentuk"
+      },
+      {
+        "@id": "356",
+        "meaning": "Insiden"
+      },
+      {
+        "@id": "357",
+        "meaning": "Kata"
+      },
+      {
+        "@id": "358",
+        "meaning": "Rakyat"
+      },
+      {
+        "@id": "359",
+        "meaning": "Ratus juta"
+      },
+      {
+        "@id": "360",
+        "meaning": "Derajat"
+      },
+      {
+        "@id": "361",
+        "meaning": "Tentu saja"
+      },
+      {
+        "@id": "362",
+        "meaning": "Tengah"
+      },
+      {
+        "@id": "363",
+        "meaning": "Lembaga"
+      },
+      {
+        "@id": "364",
+        "meaning": "Sisa"
+      },
+      {
+        "@id": "365",
+        "meaning": "Tuntutan"
+      },
+      {
+        "@id": "366",
+        "meaning": "Memberi"
+      },
+      {
+        "@id": "367",
+        "meaning": "Banyak"
+      },
+      {
+        "@id": "368",
+        "meaning": "Ingin"
+      },
+      {
+        "@id": "369",
+        "meaning": "Tengah"
+      },
+      {
+        "@id": "370",
+        "meaning": "Hidup"
+      },
+      {
+        "@id": "371",
+        "meaning": "Kanan"
+      },
+      {
+        "@id": "372",
+        "meaning": "Budaya"
+      },
+      {
+        "@id": "373",
+        "meaning": "Minum"
+      },
+      {
+        "@id": "374",
+        "meaning": "Setiap"
+      },
+      {
+        "@id": "375",
+        "meaning": "Menyumbat"
+      },
+      {
+        "@id": "376",
+        "meaning": "Muda"
+      },
+      {
+        "@id": "377",
+        "meaning": "Pemeliharaan"
+      },
+      {
+        "@id": "378",
+        "meaning": "Setiap"
+      },
+      {
+        "@id": "379",
+        "meaning": "Internasional"
+      },
+      {
+        "@id": "380",
+        "meaning": "Jumlah"
+      },
+      {
+        "@id": "381",
+        "meaning": "Mengharapkan"
+      },
+      {
+        "@id": "382",
+        "meaning": "Tujuannya"
+      },
+      {
+        "@id": "383",
+        "meaning": "Angka"
+      },
+      {
+        "@id": "384",
+        "meaning": "Panjang"
+      },
+      {
+        "@id": "385",
+        "meaning": "Tawa"
+      },
+      {
+        "@id": "386",
+        "meaning": "Pertama"
+      },
+      {
+        "@id": "387",
+        "meaning": "Sebenarnya"
+      },
+      {
+        "@id": "388",
+        "meaning": "Ruang"
+      },
+      {
+        "@id": "389",
+        "meaning": "Merasa"
+      },
+      {
+        "@id": "390",
+        "meaning": "Tunggu"
+      },
+      {
+        "@id": "391",
+        "meaning": "Tampaknya"
+      },
+      {
+        "@id": "392",
+        "meaning": "Melanjutkan"
+      },
+      {
+        "@id": "393",
+        "meaning": "-ku"
+      },
+      {
+        "@id": "394",
+        "meaning": "Buah"
+      },
+      {
+        "@id": "395",
+        "meaning": "Mengikuti"
+      },
+      {
+        "@id": "396",
+        "meaning": "Sudah"
+      },
+      {
+        "@id": "397",
+        "meaning": "Prinsip"
+      },
+      {
+        "@id": "398",
+        "meaning": "Lebih-lebih lagi"
+      },
+      {
+        "@id": "399",
+        "meaning": "Baru"
+      },
+      {
+        "@id": "400",
+        "meaning": "Angin"
+      },
+      {
+        "@id": "401",
+        "meaning": "Evaluasi"
+      },
+      {
+        "@id": "402",
+        "meaning": "Emas"
+      },
+      {
+        "@id": "403",
+        "meaning": "Kecepatan"
+      },
+      {
+        "@id": "404",
+        "meaning": "Di dalam"
+      },
+      {
+        "@id": "405",
+        "meaning": "Lanjutkan"
+      },
+      {
+        "@id": "406",
+        "meaning": "Jenis apa"
+      },
+      {
+        "@id": "407",
+        "meaning": "Mengakui"
+      },
+      {
+        "@id": "408",
+        "meaning": "Alasan"
+      },
+      {
+        "@id": "409",
+        "meaning": "Ayo pergi"
+      },
+      {
+        "@id": "410",
+        "meaning": "Utuh"
+      },
+      {
+        "@id": "411",
+        "meaning": "Kebebasan"
+      },
+      {
+        "@id": "412",
+        "meaning": "Mengubah"
+      },
+      {
+        "@id": "413",
+        "meaning": "Produksi"
+      },
+      {
+        "@id": "414",
+        "meaning": "Selain daripada"
+      },
+      {
+        "@id": "415",
+        "meaning": "Biasanya"
+      },
+      {
+        "@id": "416",
+        "meaning": "Di bawah"
+      },
+      {
+        "@id": "417",
+        "meaning": "Pakar"
+      },
+      {
+        "@id": "418",
+        "meaning": "Menjawab"
+      },
+      {
+        "@id": "419",
+        "meaning": "Terakhir"
+      },
+      {
+        "@id": "420",
+        "meaning": "Akhir"
+      },
+      {
+        "@id": "421",
+        "meaning": "Membuka"
+      },
+      {
+        "@id": "422",
+        "meaning": "Samping"
+      },
+      {
+        "@id": "423",
+        "meaning": "Pertama kali"
+      },
+      {
+        "@id": "424",
+        "meaning": "Keluarga"
+      },
+      {
+        "@id": "425",
+        "meaning": "Memengaruhi"
+      },
+      {
+        "@id": "426",
+        "meaning": "Termasuk"
+      },
+      {
+        "@id": "427",
+        "meaning": "Jumlah"
+      },
+      {
+        "@id": "428",
+        "meaning": "Fungsi"
+      },
+      {
+        "@id": "429",
+        "meaning": "Rakyat"
+      },
+      {
+        "@id": "430",
+        "meaning": "Bertemu"
+      },
+      {
+        "@id": "431",
+        "meaning": "Di bawah"
+      },
+      {
+        "@id": "432",
+        "meaning": "Juga"
+      },
+      {
+        "@id": "433",
+        "meaning": "Bulan"
+      },
+      {
+        "@id": "434",
+        "meaning": "Kembali"
+      },
+      {
+        "@id": "435",
+        "meaning": "Pengaruh"
+      },
+      {
+        "@id": "436",
+        "meaning": "Memahami"
+      },
+      {
+        "@id": "437",
+        "meaning": "Tindakan balasan"
+      },
+      {
+        "@id": "438",
+        "meaning": "Ibu"
+      },
+      {
+        "@id": "439",
+        "meaning": "Gunung"
+      },
+      {
+        "@id": "440",
+        "meaning": "Merasa"
+      },
+      {
+        "@id": "441",
+        "meaning": "Kota"
+      },
+      {
+        "@id": "442",
+        "meaning": "Nomor"
+      },
+      {
+        "@id": "443",
+        "meaning": "Konsultasi"
+      },
+      {
+        "@id": "444",
+        "meaning": "Empat ratus"
+      },
+      {
+        "@id": "445",
+        "meaning": "Contoh"
+      },
+      {
+        "@id": "446",
+        "meaning": "Kesehatan"
+      },
+      {
+        "@id": "447",
+        "meaning": "Sistem"
+      },
+      {
+        "@id": "448",
+        "meaning": "Korespondensi"
+      },
+      {
+        "@id": "449",
+        "meaning": "Bangsal"
+      },
+      {
+        "@id": "450",
+        "meaning": "Berjalan"
+      },
+      {
+        "@id": "451",
+        "meaning": "Memukul"
+      },
+      {
+        "@id": "452",
+        "meaning": "Gerakan"
+      },
+      {
+        "@id": "453",
+        "meaning": "Paling"
+      },
+      {
+        "@id": "455",
+        "meaning": "Di sini"
+      },
+      {
+        "@id": "456",
+        "meaning": "Bisnis"
+      },
+      {
+        "@id": "457",
+        "meaning": "Biaya"
+      },
+      {
+        "@id": "458",
+        "meaning": "Sore"
+      },
+      {
+        "@id": "459",
+        "meaning": "Individu"
+      },
+      {
+        "@id": "460",
+        "meaning": "Malam"
+      },
+      {
+        "@id": "461",
+        "meaning": "Halangan"
+      },
+      {
+        "@id": "462",
+        "meaning": "Keadaan darurat"
+      },
+      {
+        "@id": "463",
+        "meaning": "Alam"
+      },
+      {
+        "@id": "464",
+        "meaning": "Barang-barang"
+      },
+      {
+        "@id": "465",
+        "meaning": "Studi"
+      },
+      {
+        "@id": "466",
+        "meaning": "Keamanan"
+      },
+      {
+        "@id": "467",
+        "meaning": "Pada saat itu"
+      },
+      {
+        "@id": "468",
+        "meaning": "Periode"
+      },
+      {
+        "@id": "469",
+        "meaning": "Rencana"
+      },
+      {
+        "@id": "470",
+        "meaning": "Politik"
+      },
+      {
+        "@id": "471",
+        "meaning": "Kota"
+      },
+      {
+        "@id": "472",
+        "meaning": "Perusahaan"
+      },
+      {
+        "@id": "473",
+        "meaning": "Ketentuan"
+      },
+      {
+        "@id": "474",
+        "meaning": "Menuju ke arah"
+      },
+      {
+        "@id": "475",
+        "meaning": "Mungkin"
+      },
+      {
+        "@id": "476",
+        "meaning": "Mantan"
+      },
+      {
+        "@id": "477",
+        "meaning": "Menteri"
+      },
+      {
+        "@id": "478",
+        "meaning": "Konfirmasi"
+      },
+      {
+        "@id": "479",
+        "meaning": "Panduan"
+      },
+      {
+        "@id": "480",
+        "meaning": "Menjadi"
+      },
+      {
+        "@id": "481",
+        "meaning": "Buku"
+      },
+      {
+        "@id": "482",
+        "meaning": "Bunga"
+      },
+      {
+        "@id": "483",
+        "meaning": "Kesadaran"
+      },
+      {
+        "@id": "484",
+        "meaning": "Diri"
+      },
+      {
+        "@id": "485",
+        "meaning": "Lagi"
+      },
+      {
+        "@id": "486",
+        "meaning": "Pernikahan"
+      },
+      {
+        "@id": "487",
+        "meaning": "Hanya"
+      },
+      {
+        "@id": "488",
+        "meaning": "Rumus"
+      },
+      {
+        "@id": "489",
+        "meaning": "Tubuh"
+      },
+      {
+        "@id": "490",
+        "meaning": "Nama yang diberikan"
+      },
+      {
+        "@id": "491",
+        "meaning": "Melayani"
+      },
+      {
+        "@id": "492",
+        "meaning": "Kokoro"
+      },
+      {
+        "@id": "493",
+        "meaning": "Pengelolaan"
+      },
+      {
+        "@id": "494",
+        "meaning": "Yui"
+      },
+      {
+        "@id": "495",
+        "meaning": "Ayah"
+      },
+      {
+        "@id": "496",
+        "meaning": "Permukaan"
+      },
+      {
+        "@id": "497",
+        "meaning": "Dalam"
+      },
+      {
+        "@id": "498",
+        "meaning": "Sistem"
+      },
+      {
+        "@id": "499",
+        "meaning": "Warna"
+      },
+      {
+        "@id": "500",
+        "meaning": "Barang dagangan"
+      },
+      {
+        "@id": "501",
+        "meaning": "Kali ini"
+      },
+      {
+        "@id": "502",
+        "meaning": "Biro"
+      },
+      {
+        "@id": "503",
+        "meaning": "Menunjukkan"
+      },
+      {
+        "@id": "504",
+        "meaning": "Toko"
+      },
+      {
+        "@id": "505",
+        "meaning": "Tahunan"
+      },
+      {
+        "@id": "506",
+        "meaning": "Pekerjaan kantor"
+      },
+      {
+        "@id": "507",
+        "meaning": "Pekerjaan"
+      },
+      {
+        "@id": "508",
+        "meaning": "Mati"
+      },
+      {
+        "@id": "509",
+        "meaning": "Enam ratus"
+      },
+      {
+        "@id": "510",
+        "meaning": "Nama"
+      },
+      {
+        "@id": "511",
+        "meaning": "Muda"
+      },
+      {
+        "@id": "512",
+        "meaning": "Promosi"
+      },
+      {
+        "@id": "513",
+        "meaning": "Suara"
+      },
+      {
+        "@id": "514",
+        "meaning": "Mengubah"
+      },
+      {
+        "@id": "515",
+        "meaning": "Meter"
+      },
+      {
+        "@id": "516",
+        "meaning": "Tindakan"
+      },
+      {
+        "@id": "517",
+        "meaning": "Sama"
+      },
+      {
+        "@id": "518",
+        "meaning": "Hukum"
+      },
+      {
+        "@id": "519",
+        "meaning": "Tujuh ratus"
+      },
+      {
+        "@id": "520",
+        "meaning": "Otomatis"
+      },
+      {
+        "@id": "521",
+        "meaning": "Tetap"
+      },
+      {
+        "@id": "522",
+        "meaning": "Kejadian"
+      },
+      {
+        "@id": "523",
+        "meaning": "Keputusan"
+      },
+      {
+        "@id": "524",
+        "meaning": "Sejarah"
+      },
+      {
+        "@id": "525",
+        "meaning": "Stasiun"
+      },
+      {
+        "@id": "526",
+        "meaning": "Industri"
+      },
+      {
+        "@id": "527",
+        "meaning": "Pesawat televisi"
+      },
+      {
+        "@id": "528",
+        "meaning": "Organisasi"
+      },
+      {
+        "@id": "529",
+        "meaning": "Toko"
+      },
+      {
+        "@id": "530",
+        "meaning": "E-mail"
+      },
+      {
+        "@id": "531",
+        "meaning": "Divisi"
+      },
+      {
+        "@id": "532",
+        "meaning": "Perbedaan"
+      },
+      {
+        "@id": "533",
+        "meaning": "Bermacam-macam"
+      },
+      {
+        "@id": "534",
+        "meaning": "Spesial"
+      },
+      {
+        "@id": "535",
+        "meaning": "Kerja sama"
+      },
+      {
+        "@id": "536",
+        "meaning": "Rsud"
+      },
+      {
+        "@id": "537",
+        "meaning": "Konsumsi"
+      },
+      {
+        "@id": "538",
+        "meaning": "Laporan"
+      },
+      {
+        "@id": "539",
+        "meaning": "Yakin"
+      },
+      {
+        "@id": "540",
+        "meaning": "Jalan"
+      },
+      {
+        "@id": "541",
+        "meaning": "Lezat"
+      },
+      {
+        "@id": "542",
+        "meaning": "Harga"
+      },
+      {
+        "@id": "543",
+        "meaning": "Proses"
+      },
+      {
+        "@id": "544",
+        "meaning": "Memilih"
+      },
+      {
+        "@id": "545",
+        "meaning": "Fakta"
+      },
+      {
+        "@id": "546",
+        "meaning": "Perlindungan"
+      },
+      {
+        "@id": "547",
+        "meaning": "Meningkatkan"
+      },
+      {
+        "@id": "548",
+        "meaning": "Tuhan"
+      },
+      {
+        "@id": "549",
+        "meaning": "Dilahirkan"
+      },
+      {
+        "@id": "550",
+        "meaning": "Menampilkan"
+      },
+      {
+        "@id": "551",
+        "meaning": "Cocok"
+      },
+      {
+        "@id": "552",
+        "meaning": "Kondisi"
+      },
+      {
+        "@id": "553",
+        "meaning": "Roh"
+      },
+      {
+        "@id": "554",
+        "meaning": "Pelanggan"
+      },
+      {
+        "@id": "555",
+        "meaning": "Bertindak"
+      },
+      {
+        "@id": "556",
+        "meaning": "Tanggung jawab"
+      },
+      {
+        "@id": "557",
+        "meaning": "Pindah"
+      },
+      {
+        "@id": "558",
+        "meaning": "Pasti"
+      },
+      {
+        "@id": "559",
+        "meaning": "Tidak ada"
+      },
+      {
+        "@id": "560",
+        "meaning": "Perawatan medis"
+      },
+      {
+        "@id": "561",
+        "meaning": "Ruang"
+      },
+      {
+        "@id": "562",
+        "meaning": "Pengaturan"
+      },
+      {
+        "@id": "563",
+        "meaning": "Luar biasa"
+      },
+      {
+        "@id": "564",
+        "meaning": "Menetapkan"
+      },
+      {
+        "@id": "565",
+        "meaning": "Pengalaman"
+      },
+      {
+        "@id": "566",
+        "meaning": "Kami"
+      },
+      {
+        "@id": "567",
+        "meaning": "Karakter"
+      },
+      {
+        "@id": "568",
+        "meaning": "Menambahkan"
+      },
+      {
+        "@id": "569",
+        "meaning": "Dimulai"
+      },
+      {
+        "@id": "570",
+        "meaning": "Dahulu kala"
+      },
+      {
+        "@id": "571",
+        "meaning": "Perkenalan"
+      },
+      {
+        "@id": "572",
+        "meaning": "Tentu saja"
+      },
+      {
+        "@id": "573",
+        "meaning": "Induk"
+      },
+      {
+        "@id": "574",
+        "meaning": "Kaki"
+      },
+      {
+        "@id": "575",
+        "meaning": "Mulai sekarang"
+      },
+      {
+        "@id": "576",
+        "meaning": "Tempat"
+      },
+      {
+        "@id": "577",
+        "meaning": "Pasar"
+      },
+      {
+        "@id": "578",
+        "meaning": "Bagian"
+      },
+      {
+        "@id": "579",
+        "meaning": "Garis"
+      },
+      {
+        "@id": "580",
+        "meaning": "Pendapat"
+      },
+      {
+        "@id": "581",
+        "meaning": "Berlari"
+      },
+      {
+        "@id": "582",
+        "meaning": "Lupa"
+      },
+      {
+        "@id": "583",
+        "meaning": "Terlibat"
+      },
+      {
+        "@id": "584",
+        "meaning": "Tanah"
+      },
+      {
+        "@id": "585",
+        "meaning": "Sisi mana"
+      },
+      {
+        "@id": "586",
+        "meaning": "Pohon"
+      },
+      {
+        "@id": "587",
+        "meaning": "Film"
+      },
+      {
+        "@id": "588",
+        "meaning": "Lembaran"
+      },
+      {
+        "@id": "589",
+        "meaning": "Kelompok"
+      },
+      {
+        "@id": "590",
+        "meaning": "Gozen"
+      },
+      {
+        "@id": "591",
+        "meaning": "Aduh buyung"
+      },
+      {
+        "@id": "592",
+        "meaning": "Tepian"
+      },
+      {
+        "@id": "593",
+        "meaning": "Bekerja"
+      },
+      {
+        "@id": "594",
+        "meaning": "Mengirim"
+      },
+      {
+        "@id": "595",
+        "meaning": "Perang"
+      },
+      {
+        "@id": "596",
+        "meaning": "Menyeberang"
+      },
+      {
+        "@id": "597",
+        "meaning": "Memutuskan"
+      },
+      {
+        "@id": "598",
+        "meaning": "Bahan"
+      },
+      {
+        "@id": "599",
+        "meaning": "Catatan"
+      },
+      {
+        "@id": "600",
+        "meaning": "Koran"
+      },
+      {
+        "@id": "601",
+        "meaning": "Negara"
+      },
+      {
+        "@id": "602",
+        "meaning": "Anak perempuan"
+      },
+      {
+        "@id": "603",
+        "meaning": "Serentak"
+      },
+      {
+        "@id": "604",
+        "meaning": "Terjadi"
+      },
+      {
+        "@id": "605",
+        "meaning": "Kesejahteraan"
+      },
+      {
+        "@id": "606",
+        "meaning": "Keputusan"
+      },
+      {
+        "@id": "607",
+        "meaning": "Bank"
+      },
+      {
+        "@id": "608",
+        "meaning": "Tiga ribu"
+      },
+      {
+        "@id": "609",
+        "meaning": "Berdasarkan"
+      },
+      {
+        "@id": "610",
+        "meaning": "Pajak"
+      },
+      {
+        "@id": "611",
+        "meaning": "Standar"
+      },
+      {
+        "@id": "612",
+        "meaning": "Perumahan"
+      },
+      {
+        "@id": "613",
+        "meaning": "Musim"
+      },
+      {
+        "@id": "614",
+        "meaning": "Mudah"
+      },
+      {
+        "@id": "615",
+        "meaning": "Tsutsu"
+      },
+      {
+        "@id": "616",
+        "meaning": "Administrasi"
+      },
+      {
+        "@id": "617",
+        "meaning": "Lalu lintas"
+      },
+      {
+        "@id": "618",
+        "meaning": "Struktur"
+      },
+      {
+        "@id": "619",
+        "meaning": "Pagi"
+      },
+      {
+        "@id": "620",
+        "meaning": "Melampaui"
+      },
+      {
+        "@id": "621",
+        "meaning": "Sungai"
+      },
+      {
+        "@id": "622",
+        "meaning": "Pagi"
+      },
+      {
+        "@id": "623",
+        "meaning": "Peran"
+      },
+      {
+        "@id": "624",
+        "meaning": "Kontrak"
+      },
+      {
+        "@id": "625",
+        "meaning": "Jadwal"
+      },
+      {
+        "@id": "626",
+        "meaning": "Nomor"
+      },
+      {
+        "@id": "627",
+        "meaning": "Perwakilan"
+      },
+      {
+        "@id": "628",
+        "meaning": "Mengerjakan"
+      },
+      {
+        "@id": "629",
+        "meaning": "Bekerja"
+      },
+      {
+        "@id": "630",
+        "meaning": "Kebijakan"
+      },
+      {
+        "@id": "631",
+        "meaning": "Berdiri"
+      },
+      {
+        "@id": "632",
+        "meaning": "Membandingkan"
+      },
+      {
+        "@id": "633",
+        "meaning": "Negara asing"
+      },
+      {
+        "@id": "634",
+        "meaning": "Abad"
+      },
+      {
+        "@id": "635",
+        "meaning": "Di dekat"
+      },
+      {
+        "@id": "636",
+        "meaning": "Langsung"
+      },
+      {
+        "@id": "637",
+        "meaning": "Rumah"
+      },
+      {
+        "@id": "638",
+        "meaning": "Bermacam-macam"
+      },
+      {
+        "@id": "639",
+        "meaning": "Pria"
+      },
+      {
+        "@id": "640",
+        "meaning": "Data"
+      },
+      {
+        "@id": "641",
+        "meaning": "Menggambar"
+      },
+      {
+        "@id": "642",
+        "meaning": "Mempertimbangkan"
+      },
+      {
+        "@id": "643",
+        "meaning": "Pilihan"
+      },
+      {
+        "@id": "644",
+        "meaning": "Menyebabkan"
+      },
+      {
+        "@id": "645",
+        "meaning": "Kecil"
+      },
+      {
+        "@id": "646",
+        "meaning": "Warga negara"
+      },
+      {
+        "@id": "647",
+        "meaning": "Sebelumnya"
+      },
+      {
+        "@id": "648",
+        "meaning": "Penjualan"
+      },
+      {
+        "@id": "649",
+        "meaning": "Di luar"
+      },
+      {
+        "@id": "650",
+        "meaning": "Melanjutkan"
+      },
+      {
+        "@id": "651",
+        "meaning": "Mendukung"
+      },
+      {
+        "@id": "652",
+        "meaning": "Polisi"
+      },
+      {
+        "@id": "653",
+        "meaning": "Penamaan"
+      },
+      {
+        "@id": "654",
+        "meaning": "Agen"
+      },
+      {
+        "@id": "655",
+        "meaning": "Diri sendiri"
+      },
+      {
+        "@id": "656",
+        "meaning": "Senyum"
+      },
+      {
+        "@id": "657",
+        "meaning": "Kecil"
+      },
+      {
+        "@id": "658",
+        "meaning": "Penting"
+      },
+      {
+        "@id": "659",
+        "meaning": "Tentara"
+      },
+      {
+        "@id": "660",
+        "meaning": "Memadai"
+      },
+      {
+        "@id": "661",
+        "meaning": "Desa"
+      },
+      {
+        "@id": "662",
+        "meaning": "Jernih"
+      },
+      {
+        "@id": "663",
+        "meaning": "Ulang"
+      },
+      {
+        "@id": "664",
+        "meaning": "Apa pun yang terjadi"
+      },
+      {
+        "@id": "665",
+        "meaning": "Nasional"
+      },
+      {
+        "@id": "666",
+        "meaning": "Memasak"
+      },
+      {
+        "@id": "667",
+        "meaning": "Investasi"
+      },
+      {
+        "@id": "668",
+        "meaning": "Selesai"
+      },
+      {
+        "@id": "669",
+        "meaning": "Teman"
+      },
+      {
+        "@id": "670",
+        "meaning": "Menggunakan"
+      },
+      {
+        "@id": "671",
+        "meaning": "Tidak bagus"
+      },
+      {
+        "@id": "672",
+        "meaning": "Benci"
+      },
+      {
+        "@id": "673",
+        "meaning": "Spesialisasi"
+      },
+      {
+        "@id": "674",
+        "meaning": "Pikiran"
+      },
+      {
+        "@id": "675",
+        "meaning": "Ekspresi"
+      },
+      {
+        "@id": "676",
+        "meaning": "Seru"
+      },
+      {
+        "@id": "677",
+        "meaning": "Perusahaan"
+      },
+      {
+        "@id": "678",
+        "meaning": "Bahkan"
+      },
+      {
+        "@id": "679",
+        "meaning": "Membuat"
+      },
+      {
+        "@id": "680",
+        "meaning": "Pensiun"
+      },
+      {
+        "@id": "681",
+        "meaning": "Harapan"
+      },
+      {
+        "@id": "682",
+        "meaning": "Wow"
+      },
+      {
+        "@id": "683",
+        "meaning": "Kemampuan"
+      },
+      {
+        "@id": "684",
+        "meaning": "Bergerak"
+      },
+      {
+        "@id": "685",
+        "meaning": "Menarik"
+      },
+      {
+        "@id": "686",
+        "meaning": "Transaksi"
+      },
+      {
+        "@id": "687",
+        "meaning": "Uji coba"
+      },
+      {
+        "@id": "688",
+        "meaning": "Bangsa"
+      },
+      {
+        "@id": "689",
+        "meaning": "Jenis"
+      },
+      {
+        "@id": "690",
+        "meaning": "Dia"
+      },
+      {
+        "@id": "691",
+        "meaning": "Berdiri"
+      },
+      {
+        "@id": "692",
+        "meaning": "Lain kali"
+      },
+      {
+        "@id": "693",
+        "meaning": "Sulit"
+      },
+      {
+        "@id": "694",
+        "meaning": "Memukul"
+      },
+      {
+        "@id": "695",
+        "meaning": "Berkah"
+      },
+      {
+        "@id": "696",
+        "meaning": "Khawatir"
+      },
+      {
+        "@id": "697",
+        "meaning": "Selamanya"
+      },
+      {
+        "@id": "698",
+        "meaning": "Berhenti"
+      },
+      {
+        "@id": "699",
+        "meaning": "Posisi"
+      },
+      {
+        "@id": "700",
+        "meaning": "Melindungi"
+      },
+      {
+        "@id": "701",
+        "meaning": "Modal"
+      },
+      {
+        "@id": "702",
+        "meaning": "Kecemasan"
+      },
+      {
+        "@id": "703",
+        "meaning": "Realitas"
+      },
+      {
+        "@id": "704",
+        "meaning": "Pria"
+      },
+      {
+        "@id": "705",
+        "meaning": "Muncul"
+      },
+      {
+        "@id": "706",
+        "meaning": "Lezat"
+      },
+      {
+        "@id": "707",
+        "meaning": "Sekitar"
+      },
+      {
+        "@id": "708",
+        "meaning": "Lantai"
+      },
+      {
+        "@id": "709",
+        "meaning": "Sarjana"
+      },
+      {
+        "@id": "710",
+        "meaning": "Kontak"
+      },
+      {
+        "@id": "711",
+        "meaning": "Sains"
+      },
+      {
+        "@id": "712",
+        "meaning": "Cukup"
+      },
+      {
+        "@id": "713",
+        "meaning": "Jalan"
+      },
+      {
+        "@id": "714",
+        "meaning": "Menarik"
+      },
+      {
+        "@id": "715",
+        "meaning": "Hidup"
+      },
+      {
+        "@id": "716",
+        "meaning": "Pemerintah"
+      },
+      {
+        "@id": "717",
+        "meaning": "Konstruksi"
+      },
+      {
+        "@id": "718",
+        "meaning": "Tengah"
+      },
+      {
+        "@id": "719",
+        "meaning": "Mutlak"
+      },
+      {
+        "@id": "720",
+        "meaning": "Berpesta"
+      },
+      {
+        "@id": "721",
+        "meaning": "Menikmati"
+      },
+      {
+        "@id": "722",
+        "meaning": "Ah"
+      },
+      {
+        "@id": "723",
+        "meaning": "Kemarin"
+      },
+      {
+        "@id": "724",
+        "meaning": "Konkret"
+      },
+      {
+        "@id": "725",
+        "meaning": "Sabar"
+      },
+      {
+        "@id": "726",
+        "meaning": "Serupa"
+      },
+      {
+        "@id": "727",
+        "meaning": "Setiap hari"
+      },
+      {
+        "@id": "728",
+        "meaning": "Lima ribu"
+      },
+      {
+        "@id": "729",
+        "meaning": "Pemain"
+      },
+      {
+        "@id": "730",
+        "meaning": "Melakukan yang terbaik"
+      },
+      {
+        "@id": "731",
+        "meaning": "Memberi tahu"
+      },
+      {
+        "@id": "732",
+        "meaning": "Perbandingan"
+      },
+      {
+        "@id": "733",
+        "meaning": "Komunikasi"
+      },
+      {
+        "@id": "734",
+        "meaning": "Pertemuan"
+      },
+      {
+        "@id": "735",
+        "meaning": "Lampu"
+      },
+      {
+        "@id": "736",
+        "meaning": "Memuat"
+      },
+      {
+        "@id": "737",
+        "meaning": "Tidak"
+      },
+      {
+        "@id": "738",
+        "meaning": "Mimpi"
+      },
+      {
+        "@id": "739",
+        "meaning": "Namun"
+      },
+      {
+        "@id": "740",
+        "meaning": "Tidak ada"
+      },
+      {
+        "@id": "741",
+        "meaning": "Cantik"
+      },
+      {
+        "@id": "742",
+        "meaning": "Aplikasi"
+      },
+      {
+        "@id": "743",
+        "meaning": "Skala"
+      },
+      {
+        "@id": "744",
+        "meaning": "Timbul"
+      },
+      {
+        "@id": "745",
+        "meaning": "Bisnis"
+      },
+      {
+        "@id": "746",
+        "meaning": "Menyarankan"
+      },
+      {
+        "@id": "747",
+        "meaning": "Menawarkan"
+      },
+      {
+        "@id": "748",
+        "meaning": "Komposisi"
+      },
+      {
+        "@id": "749",
+        "meaning": "Kerusakan"
+      },
+      {
+        "@id": "750",
+        "meaning": "Kecelakaan"
+      },
+      {
+        "@id": "751",
+        "meaning": "Kembali"
+      },
+      {
+        "@id": "752",
+        "meaning": "Meningkatkan"
+      },
+      {
+        "@id": "753",
+        "meaning": "Osaka"
+      },
+      {
+        "@id": "754",
+        "meaning": "Iku"
+      },
+      {
+        "@id": "755",
+        "meaning": "Arah"
+      },
+      {
+        "@id": "756",
+        "meaning": "Mengubah"
+      },
+      {
+        "@id": "757",
+        "meaning": "Balik"
+      },
+      {
+        "@id": "758",
+        "meaning": "Bagian-bagian"
+      },
+      {
+        "@id": "759",
+        "meaning": "Subjek"
+      },
+      {
+        "@id": "760",
+        "meaning": "Keuangan"
+      },
+      {
+        "@id": "761",
+        "meaning": "Melihat"
+      },
+      {
+        "@id": "762",
+        "meaning": "Menutup"
+      },
+      {
+        "@id": "763",
+        "meaning": "Rendah"
+      },
+      {
+        "@id": "764",
+        "meaning": "Berbeda"
+      },
+      {
+        "@id": "765",
+        "meaning": "Luas"
+      },
+      {
+        "@id": "766",
+        "meaning": "Naik"
+      },
+      {
+        "@id": "767",
+        "meaning": "Menghafalkan"
+      },
+      {
+        "@id": "768",
+        "meaning": "Koneksi"
+      },
+      {
+        "@id": "769",
+        "meaning": "Inspeksi"
+      },
+      {
+        "@id": "770",
+        "meaning": "Pangkat"
+      },
+      {
+        "@id": "771",
+        "meaning": "Perlakuan"
+      },
+      {
+        "@id": "772",
+        "meaning": "Tahun ini"
+      },
+      {
+        "@id": "773",
+        "meaning": "Negara"
+      },
+      {
+        "@id": "774",
+        "meaning": "Dana"
+      },
+      {
+        "@id": "775",
+        "meaning": "Senang"
+      },
+      {
+        "@id": "776",
+        "meaning": "Semua"
+      },
+      {
+        "@id": "777",
+        "meaning": "Musik"
+      },
+      {
+        "@id": "778",
+        "meaning": "Pertumbuhan"
+      },
+      {
+        "@id": "779",
+        "meaning": "Akumulasi"
+      },
+      {
+        "@id": "780",
+        "meaning": "Usia tua"
+      },
+      {
+        "@id": "781",
+        "meaning": "Lebar"
+      },
+      {
+        "@id": "782",
+        "meaning": "Sesuatu"
+      },
+      {
+        "@id": "783",
+        "meaning": "Identifikasi"
+      },
+      {
+        "@id": "784",
+        "meaning": "Istri"
+      },
+      {
+        "@id": "785",
+        "meaning": "Awal"
+      },
+      {
+        "@id": "786",
+        "meaning": "Teori"
+      },
+      {
+        "@id": "787",
+        "meaning": "Instalasi"
+      },
+      {
+        "@id": "788",
+        "meaning": "Siaran"
+      },
+      {
+        "@id": "789",
+        "meaning": "Selama"
+      },
+      {
+        "@id": "790",
+        "meaning": "Suami"
+      },
+      {
+        "@id": "791",
+        "meaning": "Menyelidiki"
+      },
+      {
+        "@id": "792",
+        "meaning": "Menemani"
+      },
+      {
+        "@id": "793",
+        "meaning": "Menyampaikan"
+      },
+      {
+        "@id": "794",
+        "meaning": "Perancis"
+      },
+      {
+        "@id": "795",
+        "meaning": "Tindakan"
+      },
+      {
+        "@id": "796",
+        "meaning": "Dan seterusnya"
+      },
+      {
+        "@id": "797",
+        "meaning": "Menyelesaikan"
+      },
+      {
+        "@id": "798",
+        "meaning": "Pembelian"
+      },
+      {
+        "@id": "799",
+        "meaning": "Kehidupan"
+      },
+      {
+        "@id": "800",
+        "meaning": "Atau"
+      },
+      {
+        "@id": "801",
+        "meaning": "Titik"
+      },
+      {
+        "@id": "802",
+        "meaning": "Stabil"
+      },
+      {
+        "@id": "803",
+        "meaning": "Bab"
+      },
+      {
+        "@id": "804",
+        "meaning": "Satu hari"
+      },
+      {
+        "@id": "805",
+        "meaning": "Mencari"
+      },
+      {
+        "@id": "806",
+        "meaning": "Nilai"
+      },
+      {
+        "@id": "807",
+        "meaning": "Anak laki-laki"
+      },
+      {
+        "@id": "808",
+        "meaning": "Non"
+      },
+      {
+        "@id": "809",
+        "meaning": "Membuka"
+      },
+      {
+        "@id": "810",
+        "meaning": "Melangkah"
+      },
+      {
+        "@id": "811",
+        "meaning": "Bangun"
+      },
+      {
+        "@id": "812",
+        "meaning": "Rumah"
+      },
+      {
+        "@id": "813",
+        "meaning": "Yaitu,"
+      },
+      {
+        "@id": "814",
+        "meaning": "Laut"
+      },
+      {
+        "@id": "815",
+        "meaning": "Bicara"
+      },
+      {
+        "@id": "816",
+        "meaning": "Bahaya"
+      },
+      {
+        "@id": "817",
+        "meaning": "Benih"
+      },
+      {
+        "@id": "818",
+        "meaning": "Banyak"
+      },
+      {
+        "@id": "819",
+        "meaning": "Meninggalkan"
+      },
+      {
+        "@id": "820",
+        "meaning": "Tidur"
+      },
+      {
+        "@id": "821",
+        "meaning": "Kanan"
+      },
+      {
+        "@id": "822",
+        "meaning": "Menunjukkan"
+      },
+      {
+        "@id": "823",
+        "meaning": "Menyelesaikan"
+      },
+      {
+        "@id": "824",
+        "meaning": "Pendaftaran"
+      },
+      {
+        "@id": "825",
+        "meaning": "Prefektur"
+      },
+      {
+        "@id": "826",
+        "meaning": "Lagu"
+      },
+      {
+        "@id": "827",
+        "meaning": "Rumah sakit"
+      },
+      {
+        "@id": "828",
+        "meaning": "Diri"
+      },
+      {
+        "@id": "829",
+        "meaning": "Hotel"
+      },
+      {
+        "@id": "830",
+        "meaning": "Makanan"
+      },
+      {
+        "@id": "831",
+        "meaning": "Perhitungan"
+      },
+      {
+        "@id": "832",
+        "meaning": "Besok"
+      },
+      {
+        "@id": "833",
+        "meaning": "Pasukan"
+      },
+      {
+        "@id": "834",
+        "meaning": "Dengan jelas"
+      },
+      {
+        "@id": "835",
+        "meaning": "Pergerakan"
+      },
+      {
+        "@id": "836",
+        "meaning": "Cantik"
+      },
+      {
+        "@id": "837",
+        "meaning": "Kecemasan"
+      },
+      {
+        "@id": "838",
+        "meaning": "Mencapai"
+      },
+      {
+        "@id": "839",
+        "meaning": "Terbaik"
+      },
+      {
+        "@id": "840",
+        "meaning": "Baru"
+      },
+      {
+        "@id": "841",
+        "meaning": "Catatan"
+      },
+      {
+        "@id": "842",
+        "meaning": "Di sisi lain"
+      },
+      {
+        "@id": "843",
+        "meaning": "Bugar"
+      },
+      {
+        "@id": "844",
+        "meaning": "Keras"
+      },
+      {
+        "@id": "845",
+        "meaning": "Meyakini"
+      },
+      {
+        "@id": "846",
+        "meaning": "Mustahil"
+      },
+      {
+        "@id": "847",
+        "meaning": "Bawa serta"
+      },
+      {
+        "@id": "848",
+        "meaning": "Referensi"
+      },
+      {
+        "@id": "849",
+        "meaning": "Foto"
+      },
+      {
+        "@id": "850",
+        "meaning": "Usia"
+      },
+      {
+        "@id": "851",
+        "meaning": "Upaya"
+      },
+      {
+        "@id": "852",
+        "meaning": "Sekolah menengah atas"
+      },
+      {
+        "@id": "853",
+        "meaning": "Blog"
+      },
+      {
+        "@id": "854",
+        "meaning": "Laba"
+      },
+      {
+        "@id": "855",
+        "meaning": "Membiarkan"
+      },
+      {
+        "@id": "856",
+        "meaning": "Perkembangan"
+      },
+      {
+        "@id": "857",
+        "meaning": "Setengah"
+      },
+      {
+        "@id": "858",
+        "meaning": "Klik"
+      },
+      {
+        "@id": "859",
+        "meaning": "Tubuh"
+      },
+      {
+        "@id": "860",
+        "meaning": "Direktur"
+      },
+      {
+        "@id": "861",
+        "meaning": "Kematian"
+      },
+      {
+        "@id": "862",
+        "meaning": "Menghilang"
+      },
+      {
+        "@id": "863",
+        "meaning": "Publik"
+      },
+      {
+        "@id": "864",
+        "meaning": "Membatasi"
+      },
+      {
+        "@id": "865",
+        "meaning": "Penggerak"
+      },
+      {
+        "@id": "866",
+        "meaning": "Pengumuman"
+      },
+      {
+        "@id": "867",
+        "meaning": "Kelompok"
+      },
+      {
+        "@id": "868",
+        "meaning": "Leher"
+      },
+      {
+        "@id": "869",
+        "meaning": "Dipegang"
+      },
+      {
+        "@id": "870",
+        "meaning": "Peningkatan"
+      },
+      {
+        "@id": "871",
+        "meaning": "Oposisi"
+      },
+      {
+        "@id": "872",
+        "meaning": "Energi"
+      },
+      {
+        "@id": "873",
+        "meaning": "Saya ingin mengatakannya"
+      },
+      {
+        "@id": "874",
+        "meaning": "Awal"
+      },
+      {
+        "@id": "875",
+        "meaning": "Meninggalkan"
+      },
+      {
+        "@id": "876",
+        "meaning": "Aman"
+      },
+      {
+        "@id": "877",
+        "meaning": "Bertanggung jawab"
+      },
+      {
+        "@id": "878",
+        "meaning": "Referensi"
+      },
+      {
+        "@id": "879",
+        "meaning": "Pada akhirnya"
+      },
+      {
+        "@id": "880",
+        "meaning": "Taman"
+      },
+      {
+        "@id": "881",
+        "meaning": "Semua"
+      },
+      {
+        "@id": "882",
+        "meaning": "Penyakit"
+      },
+      {
+        "@id": "883",
+        "meaning": "Tegas"
+      },
+      {
+        "@id": "884",
+        "meaning": "Yang disebut"
+      },
+      {
+        "@id": "885",
+        "meaning": "Ekspansi"
+      },
+      {
+        "@id": "886",
+        "meaning": "Sebentar"
+      },
+      {
+        "@id": "887",
+        "meaning": "Posisi"
+      },
+      {
+        "@id": "888",
+        "meaning": "Penduduk"
+      },
+      {
+        "@id": "889",
+        "meaning": "Lulus"
+      },
+      {
+        "@id": "890",
+        "meaning": "Teman"
+      },
+      {
+        "@id": "891",
+        "meaning": "Ah"
+      },
+      {
+        "@id": "892",
+        "meaning": "Pertanian"
+      },
+      {
+        "@id": "893",
+        "meaning": "Menguasai"
+      },
+      {
+        "@id": "894",
+        "meaning": "Asuhan keperawatan"
+      },
+      {
+        "@id": "895",
+        "meaning": "Duduk"
+      },
+      {
+        "@id": "896",
+        "meaning": "Penemuan"
+      },
+      {
+        "@id": "897",
+        "meaning": "Pembaruan"
+      },
+      {
+        "@id": "898",
+        "meaning": "Dada"
+      },
+      {
+        "@id": "899",
+        "meaning": "Persendian"
+      },
+      {
+        "@id": "900",
+        "meaning": "Pengalaman"
+      },
+      {
+        "@id": "901",
+        "meaning": "Larutan"
+      },
+      {
+        "@id": "902",
+        "meaning": "Mengayun"
+      },
+      {
+        "@id": "903",
+        "meaning": "Jatuh ke bawah"
+      },
+      {
+        "@id": "904",
+        "meaning": "Tujuannya"
+      },
+      {
+        "@id": "905",
+        "meaning": "Pengaturan"
+      },
+      {
+        "@id": "906",
+        "meaning": "Cepat"
+      },
+      {
+        "@id": "907",
+        "meaning": "Jenis"
+      },
+      {
+        "@id": "908",
+        "meaning": "Hewan"
+      },
+      {
+        "@id": "909",
+        "meaning": "Musim panas"
+      },
+      {
+        "@id": "910",
+        "meaning": "Bermain"
+      },
+      {
+        "@id": "911",
+        "meaning": "Masa lalu"
+      },
+      {
+        "@id": "912",
+        "meaning": "Pikiran"
+      },
+      {
+        "@id": "913",
+        "meaning": "Peran"
+      },
+      {
+        "@id": "914",
+        "meaning": "Bangun"
+      },
+      {
+        "@id": "915",
+        "meaning": "Diputuskan"
+      },
+      {
+        "@id": "916",
+        "meaning": "Setiap"
+      },
+      {
+        "@id": "917",
+        "meaning": "Mengurangi"
+      },
+      {
+        "@id": "918",
+        "meaning": "Hitam"
+      },
+      {
+        "@id": "919",
+        "meaning": "Kali"
+      },
+      {
+        "@id": "920",
+        "meaning": "Menempati"
+      },
+      {
+        "@id": "921",
+        "meaning": "Membunuh"
+      },
+      {
+        "@id": "922",
+        "meaning": "Menjawab"
+      },
+      {
+        "@id": "923",
+        "meaning": "Dolar"
+      },
+      {
+        "@id": "924",
+        "meaning": "Terkejut"
+      },
+      {
+        "@id": "925",
+        "meaning": "Perang"
+      },
+      {
+        "@id": "926",
+        "meaning": "Sistem"
+      },
+      {
+        "@id": "927",
+        "meaning": "Perjalanan"
+      },
+      {
+        "@id": "928",
+        "meaning": "Tes"
+      },
+      {
+        "@id": "929",
+        "meaning": "Rata-rata"
+      },
+      {
+        "@id": "930",
+        "meaning": "Dalam kesulitan"
+      },
+      {
+        "@id": "931",
+        "meaning": "Pekan"
+      },
+      {
+        "@id": "932",
+        "meaning": "Penyakit"
+      },
+      {
+        "@id": "933",
+        "meaning": "Penghasilan"
+      },
+      {
+        "@id": "934",
+        "meaning": "Jerman"
+      },
+      {
+        "@id": "935",
+        "meaning": "Penyebaran"
+      },
+      {
+        "@id": "936",
+        "meaning": "Ke atas"
+      },
+      {
+        "@id": "937",
+        "meaning": "Kecuali"
+      },
+      {
+        "@id": "938",
+        "meaning": "Persiapan"
+      },
+      {
+        "@id": "939",
+        "meaning": "Apakah kamu baik-baik saja?"
+      },
+      {
+        "@id": "940",
+        "meaning": "Ibu"
+      },
+      {
+        "@id": "941",
+        "meaning": "Serupa"
+      },
+      {
+        "@id": "942",
+        "meaning": "Menemukan"
+      },
+      {
+        "@id": "943",
+        "meaning": "Menanggapi"
+      },
+      {
+        "@id": "944",
+        "meaning": "Akrab dengan"
+      },
+      {
+        "@id": "945",
+        "meaning": "Masa depan"
+      },
+      {
+        "@id": "946",
+        "meaning": "Jangkauan"
+      },
+      {
+        "@id": "947",
+        "meaning": "Lagu"
+      },
+      {
+        "@id": "948",
+        "meaning": "Ingat"
+      },
+      {
+        "@id": "949",
+        "meaning": "Realisasi"
+      },
+      {
+        "@id": "950",
+        "meaning": "Gambar"
+      },
+      {
+        "@id": "951",
+        "meaning": "Mengulang"
+      },
+      {
+        "@id": "952",
+        "meaning": "Belajar"
+      },
+      {
+        "@id": "953",
+        "meaning": "Daerah"
+      },
+      {
+        "@id": "954",
+        "meaning": "Kehilangan"
+      },
+      {
+        "@id": "955",
+        "meaning": "Meiji"
+      },
+      {
+        "@id": "956",
+        "meaning": "Satu sama lain"
+      },
+      {
+        "@id": "957",
+        "meaning": "Pengetahuan"
+      },
+      {
+        "@id": "958",
+        "meaning": "Teman"
+      },
+      {
+        "@id": "959",
+        "meaning": "Putih"
+      },
+      {
+        "@id": "960",
+        "meaning": "Modal"
+      },
+      {
+        "@id": "961",
+        "meaning": "Ketat"
+      },
+      {
+        "@id": "962",
+        "meaning": "Mendengar"
+      },
+      {
+        "@id": "963",
+        "meaning": "Telinga"
+      },
+      {
+        "@id": "964",
+        "meaning": "Diskon"
+      },
+      {
+        "@id": "965",
+        "meaning": "Sekte"
+      },
+      {
+        "@id": "966",
+        "meaning": "Pertanyaan"
+      },
+      {
+        "@id": "967",
+        "meaning": "Putih"
+      },
+      {
+        "@id": "968",
+        "meaning": "Harapan"
+      },
+      {
+        "@id": "969",
+        "meaning": "Cm"
+      },
+      {
+        "@id": "970",
+        "meaning": "Kepopuleran"
+      },
+      {
+        "@id": "971",
+        "meaning": "Kanan"
+      },
+      {
+        "@id": "972",
+        "meaning": "Pengakuan"
+      },
+      {
+        "@id": "973",
+        "meaning": "Maksimum"
+      },
+      {
+        "@id": "974",
+        "meaning": "Menjual"
+      },
+      {
+        "@id": "975",
+        "meaning": "Sistem"
+      },
+      {
+        "@id": "976",
+        "meaning": "Belajar"
+      },
+      {
+        "@id": "977",
+        "meaning": "Lulus"
+      },
+      {
+        "@id": "978",
+        "meaning": "Imut-imut"
+      },
+      {
+        "@id": "979",
+        "meaning": "Mendaki"
+      },
+      {
+        "@id": "980",
+        "meaning": "Membuat"
+      },
+      {
+        "@id": "981",
+        "meaning": "Jumlah"
+      },
+      {
+        "@id": "982",
+        "meaning": "Termasuk"
+      },
+      {
+        "@id": "983",
+        "meaning": "Korea selatan"
+      },
+      {
+        "@id": "984",
+        "meaning": "Fitur"
+      },
+      {
+        "@id": "985",
+        "meaning": "Populasi"
+      },
+      {
+        "@id": "986",
+        "meaning": "Memaafkan"
+      },
+      {
+        "@id": "987",
+        "meaning": "Olahraga"
+      },
+      {
+        "@id": "988",
+        "meaning": "Bertanya"
+      },
+      {
+        "@id": "989",
+        "meaning": "Tujuan"
+      },
+      {
+        "@id": "990",
+        "meaning": "Bahan"
+      },
+      {
+        "@id": "991",
+        "meaning": "Aktiva"
+      },
+      {
+        "@id": "992",
+        "meaning": "Bidang"
+      },
+      {
+        "@id": "993",
+        "meaning": "Satu per satu"
+      },
+      {
+        "@id": "994",
+        "meaning": "Komputer"
+      },
+      {
+        "@id": "995",
+        "meaning": "Kecenderungan"
+      },
+      {
+        "@id": "996",
+        "meaning": "Luar negeri"
+      },
+      {
+        "@id": "997",
+        "meaning": "Murid"
+      },
+      {
+        "@id": "998",
+        "meaning": "Lagi"
+      },
+      {
+        "@id": "999",
+        "meaning": "Tinggi"
+      },
+      {
+        "@id": "1000",
+        "meaning": "Selalu"
+      },
+      {
+        "@id": "1001",
+        "meaning": "Kebetulan"
+      },
+      {
+        "@id": "1002",
+        "meaning": "Pencegahan"
+      },
+      {
+        "@id": "1003",
+        "meaning": "Produk"
+      },
+      {
+        "@id": "1004",
+        "meaning": "Bergerak"
+      },
+      {
+        "@id": "1005",
+        "meaning": "Kebun"
+      },
+      {
+        "@id": "1006",
+        "meaning": "Departemen"
+      },
+      {
+        "@id": "1007",
+        "meaning": "Sel"
+      },
+      {
+        "@id": "1008",
+        "meaning": "Biaya"
+      },
+      {
+        "@id": "1009",
+        "meaning": "Model"
+      },
+      {
+        "@id": "1010",
+        "meaning": "Kursi"
+      },
+      {
+        "@id": "1011",
+        "meaning": "Domestik"
+      },
+      {
+        "@id": "1012",
+        "meaning": "Di samping"
+      },
+      {
+        "@id": "1013",
+        "meaning": "Memutar"
+      },
+      {
+        "@id": "1014",
+        "meaning": "Saham"
+      },
+      {
+        "@id": "1015",
+        "meaning": "Gambar"
+      },
+      {
+        "@id": "1016",
+        "meaning": "Tingkat"
+      },
+      {
+        "@id": "1017",
+        "meaning": "Staf"
+      },
+      {
+        "@id": "1018",
+        "meaning": "Sekitar"
+      },
+      {
+        "@id": "1019",
+        "meaning": "Bergantung pada"
+      },
+      {
+        "@id": "1020",
+        "meaning": "Kaisar"
+      },
+      {
+        "@id": "1021",
+        "meaning": "Impor"
+      },
+      {
+        "@id": "1022",
+        "meaning": "Putra"
+      },
+      {
+        "@id": "1023",
+        "meaning": "Artikel"
+      },
+      {
+        "@id": "1024",
+        "meaning": "Perbedaan"
+      },
+      {
+        "@id": "1025",
+        "meaning": "Alkohol"
+      },
+      {
+        "@id": "1026",
+        "meaning": "Bebas"
+      },
+      {
+        "@id": "1027",
+        "meaning": "Prosedur"
+      },
+      {
+        "@id": "1028",
+        "meaning": "Penugasan"
+      },
+      {
+        "@id": "1029",
+        "meaning": "Dan"
+      },
+      {
+        "@id": "1031",
+        "meaning": "Penting"
+      },
+      {
+        "@id": "1032",
+        "meaning": "Selamat datang"
+      },
+      {
+        "@id": "1033",
+        "meaning": "Urusan"
+      },
+      {
+        "@id": "1034",
+        "meaning": "Mengendarai"
+      },
+      {
+        "@id": "1035",
+        "meaning": "Dewasa"
+      },
+      {
+        "@id": "1036",
+        "meaning": "Kesuksesan"
+      },
+      {
+        "@id": "1037",
+        "meaning": "Kyoto"
+      },
+      {
+        "@id": "1038",
+        "meaning": "Anjing"
+      },
+      {
+        "@id": "1039",
+        "meaning": "Kartu"
+      },
+      {
+        "@id": "1040",
+        "meaning": "Orang itu sendiri"
+      },
+      {
+        "@id": "1041",
+        "meaning": "Penampilan"
+      },
+      {
+        "@id": "1042",
+        "meaning": "Empat ribu"
+      },
+      {
+        "@id": "1043",
+        "meaning": "Tim"
+      },
+      {
+        "@id": "1044",
+        "meaning": "Memakai"
+      },
+      {
+        "@id": "1045",
+        "meaning": "Amandemen"
+      },
+      {
+        "@id": "1046",
+        "meaning": "Jarak"
+      },
+      {
+        "@id": "1047",
+        "meaning": "Menyanyi"
+      },
+      {
+        "@id": "1048",
+        "meaning": "Baik"
+      },
+      {
+        "@id": "1049",
+        "meaning": "Kapal"
+      },
+      {
+        "@id": "1050",
+        "meaning": "Bis"
+      },
+      {
+        "@id": "1051",
+        "meaning": "Merasa"
+      },
+      {
+        "@id": "1052",
+        "meaning": "Asia"
+      },
+      {
+        "@id": "1053",
+        "meaning": "Benar"
+      },
+      {
+        "@id": "1054",
+        "meaning": "Serikat"
+      },
+      {
+        "@id": "1055",
+        "meaning": "Kiri"
+      },
+      {
+        "@id": "1056",
+        "meaning": "Tidak pernah"
+      },
+      {
+        "@id": "1057",
+        "meaning": "Sangat buruk"
+      },
+      {
+        "@id": "1058",
+        "meaning": "Menjaga"
+      },
+      {
+        "@id": "1059",
+        "meaning": "Ponsel"
+      },
+      {
+        "@id": "1060",
+        "meaning": "Catatan"
+      },
+      {
+        "@id": "1061",
+        "meaning": "Bertindak"
+      },
+      {
+        "@id": "1062",
+        "meaning": "Manufaktur"
+      },
+      {
+        "@id": "1063",
+        "meaning": "Listrik"
+      },
+      {
+        "@id": "1064",
+        "meaning": "Akhir"
+      },
+      {
+        "@id": "1065",
+        "meaning": "Murah"
+      },
+      {
+        "@id": "1066",
+        "meaning": "Orang"
+      },
+      {
+        "@id": "1067",
+        "meaning": "Kuil"
+      },
+      {
+        "@id": "1068",
+        "meaning": "Kita"
+      },
+      {
+        "@id": "1069",
+        "meaning": "Anggaran"
+      },
+      {
+        "@id": "1070",
+        "meaning": "Hujan"
+      },
+      {
+        "@id": "1071",
+        "meaning": "Bencana"
+      },
+      {
+        "@id": "1072",
+        "meaning": "Bangunan"
+      },
+      {
+        "@id": "1073",
+        "meaning": "Keras"
+      },
+      {
+        "@id": "1074",
+        "meaning": "Mengeklaim"
+      },
+      {
+        "@id": "1075",
+        "meaning": "Reaksi"
+      },
+      {
+        "@id": "1076",
+        "meaning": "Dapat diambil"
+      },
+      {
+        "@id": "1077",
+        "meaning": "Minat"
+      },
+      {
+        "@id": "1078",
+        "meaning": "Dalam lingkaran"
+      },
+      {
+        "@id": "1079",
+        "meaning": "Perlahan-lahan"
+      },
+      {
+        "@id": "1080",
+        "meaning": "Lembut"
+      },
+      {
+        "@id": "1081",
+        "meaning": "Pembentukan"
+      },
+      {
+        "@id": "1082",
+        "meaning": "Lampu"
+      },
+      {
+        "@id": "1083",
+        "meaning": "Sejak itu"
+      },
+      {
+        "@id": "1084",
+        "meaning": "Perkenalan"
+      },
+      {
+        "@id": "1085",
+        "meaning": "Kelompok"
+      },
+      {
+        "@id": "1086",
+        "meaning": "Terakhir"
+      },
+      {
+        "@id": "1087",
+        "meaning": "Total"
+      },
+      {
+        "@id": "1088",
+        "meaning": "Inggris"
+      },
+      {
+        "@id": "1089",
+        "meaning": "Bahasa inggris"
+      },
+      {
+        "@id": "1090",
+        "meaning": "Murid"
+      },
+      {
+        "@id": "1091",
+        "meaning": "Tugas"
+      },
+      {
+        "@id": "1092",
+        "meaning": "Keuangan"
+      },
+      {
+        "@id": "1093",
+        "meaning": "Menyentuh"
+      },
+      {
+        "@id": "1094",
+        "meaning": "Mengajukan"
+      },
+      {
+        "@id": "1095",
+        "meaning": "Tua"
+      },
+      {
+        "@id": "1096",
+        "meaning": "Bumi"
+      },
+      {
+        "@id": "1097",
+        "meaning": "Ed"
+      },
+      {
+        "@id": "1098",
+        "meaning": "Mengalir"
+      },
+      {
+        "@id": "1099",
+        "meaning": "Dorongan"
+      },
+      {
+        "@id": "1100",
+        "meaning": "扠"
+      },
+      {
+        "@id": "1101",
+        "meaning": "Lebih tepatnya"
+      },
+      {
+        "@id": "1102",
+        "meaning": "Bahan"
+      },
+      {
+        "@id": "1103",
+        "meaning": "Kesehatan"
+      },
+      {
+        "@id": "1104",
+        "meaning": "Berlaku"
+      },
+      {
+        "@id": "1105",
+        "meaning": "Perbandingan"
+      },
+      {
+        "@id": "1106",
+        "meaning": "Proaktif"
+      },
+      {
+        "@id": "1107",
+        "meaning": "Orang tua"
+      },
+      {
+        "@id": "1108",
+        "meaning": "Raut wajah"
+      },
+      {
+        "@id": "1109",
+        "meaning": "Menggoyang"
+      },
+      {
+        "@id": "1110",
+        "meaning": "Terima kasih"
+      },
+      {
+        "@id": "1111",
+        "meaning": "Mengunjungi"
+      },
+      {
+        "@id": "1112",
+        "meaning": "Bagus"
+      },
+      {
+        "@id": "1113",
+        "meaning": "Timur"
+      },
+      {
+        "@id": "1114",
+        "meaning": "Di tengah"
+      },
+      {
+        "@id": "1115",
+        "meaning": "Bagus"
+      },
+      {
+        "@id": "1116",
+        "meaning": "Kilo"
+      },
+      {
+        "@id": "1117",
+        "meaning": "Dasar-dasar"
+      },
+      {
+        "@id": "1118",
+        "meaning": "Mencicipi"
+      },
+      {
+        "@id": "1119",
+        "meaning": "Peraturan"
+      },
+      {
+        "@id": "1120",
+        "meaning": "Analisa"
+      },
+      {
+        "@id": "1121",
+        "meaning": "Bagaimana"
+      },
+      {
+        "@id": "1122",
+        "meaning": "Kontrol"
+      },
+      {
+        "@id": "1123",
+        "meaning": "Anak-anak"
+      },
+      {
+        "@id": "1124",
+        "meaning": "Kasus"
+      },
+      {
+        "@id": "1125",
+        "meaning": "Biasanya"
+      },
+      {
+        "@id": "1126",
+        "meaning": "Menghilang"
+      },
+      {
+        "@id": "1127",
+        "meaning": "Mungkin"
+      },
+      {
+        "@id": "1128",
+        "meaning": "Bodoh"
+      },
+      {
+        "@id": "1129",
+        "meaning": "Ingatan"
+      },
+      {
+        "@id": "1130",
+        "meaning": "Kesalahan"
+      },
+      {
+        "@id": "1131",
+        "meaning": "Mengeklaim"
+      },
+      {
+        "@id": "1132",
+        "meaning": "Tamasya"
+      },
+      {
+        "@id": "1133",
+        "meaning": "Nomor"
+      },
+      {
+        "@id": "1134",
+        "meaning": "Meminta"
+      },
+      {
+        "@id": "1135",
+        "meaning": "Diskusi"
+      },
+      {
+        "@id": "1136",
+        "meaning": "Langit"
+      },
+      {
+        "@id": "1137",
+        "meaning": "Takut"
+      },
+      {
+        "@id": "1138",
+        "meaning": "Tepat"
+      },
+      {
+        "@id": "1139",
+        "meaning": "Sangat"
+      },
+      {
+        "@id": "1140",
+        "meaning": "Tiba-tiba"
+      },
+      {
+        "@id": "1141",
+        "meaning": "Mungkin"
+      },
+      {
+        "@id": "1142",
+        "meaning": "Peluang"
+      },
+      {
+        "@id": "1143",
+        "meaning": "Pintu"
+      },
+      {
+        "@id": "1144",
+        "meaning": "Menukarkan"
+      },
+      {
+        "@id": "1145",
+        "meaning": "Otonomi"
+      },
+      {
+        "@id": "1146",
+        "meaning": "Lokasi"
+      },
+      {
+        "@id": "1147",
+        "meaning": "Diri"
+      },
+      {
+        "@id": "1148",
+        "meaning": "Baik"
+      },
+      {
+        "@id": "1149",
+        "meaning": "Saraf"
+      },
+      {
+        "@id": "1150",
+        "meaning": "Berakhir"
+      },
+      {
+        "@id": "1151",
+        "meaning": "Konstruksi"
+      },
+      {
+        "@id": "1152",
+        "meaning": "Aplikasi"
+      },
+      {
+        "@id": "1153",
+        "meaning": "Membayar"
+      },
+      {
+        "@id": "1154",
+        "meaning": "Tanduk kelinci"
+      },
+      {
+        "@id": "1155",
+        "meaning": "Bersama"
+      },
+      {
+        "@id": "1156",
+        "meaning": "Penyerahan"
+      },
+      {
+        "@id": "1157",
+        "meaning": "Dihilangkan"
+      },
+      {
+        "@id": "1158",
+        "meaning": "Cobalah"
+      },
+      {
+        "@id": "1159",
+        "meaning": "Promosi"
+      },
+      {
+        "@id": "1160",
+        "meaning": "Ya"
+      },
+      {
+        "@id": "1161",
+        "meaning": "Daftar"
+      },
+      {
+        "@id": "1162",
+        "meaning": "Prinsip"
+      },
+      {
+        "@id": "1163",
+        "meaning": "Jendela"
+      },
+      {
+        "@id": "1164",
+        "meaning": "Mempelajari"
+      },
+      {
+        "@id": "1165",
+        "meaning": "Memeriksa"
+      },
+      {
+        "@id": "1166",
+        "meaning": "Intens"
+      },
+      {
+        "@id": "1167",
+        "meaning": "Ketajaman"
+      },
+      {
+        "@id": "1168",
+        "meaning": "Kakak"
+      },
+      {
+        "@id": "1169",
+        "meaning": "Penjualan"
+      },
+      {
+        "@id": "1170",
+        "meaning": "Pemanfaatan"
+      },
+      {
+        "@id": "1171",
+        "meaning": "Lebih awal"
+      },
+      {
+        "@id": "1172",
+        "meaning": "Dokter"
+      },
+      {
+        "@id": "1173",
+        "meaning": "Hari ini"
+      },
+      {
+        "@id": "1174",
+        "meaning": "Lengan"
+      },
+      {
+        "@id": "1175",
+        "meaning": "Yayara"
+      },
+      {
+        "@id": "1176",
+        "meaning": "Secara langsung"
+      },
+      {
+        "@id": "1177",
+        "meaning": "Rekan"
+      },
+      {
+        "@id": "1178",
+        "meaning": "Terkenal"
+      },
+      {
+        "@id": "1179",
+        "meaning": "Menyimpan"
+      },
+      {
+        "@id": "1180",
+        "meaning": "Keadaan"
+      },
+      {
+        "@id": "1181",
+        "meaning": "Bangkit"
+      },
+      {
+        "@id": "1182",
+        "meaning": "Raja"
+      },
+      {
+        "@id": "1183",
+        "meaning": "Rasa takjub"
+      },
+      {
+        "@id": "1184",
+        "meaning": "Tanah"
+      },
+      {
+        "@id": "1185",
+        "meaning": "Akhir"
+      },
+      {
+        "@id": "1186",
+        "meaning": "Selatan"
+      },
+      {
+        "@id": "1187",
+        "meaning": "Menyisipkan"
+      },
+      {
+        "@id": "1188",
+        "meaning": "Kalimat"
+      },
+      {
+        "@id": "1189",
+        "meaning": "Peningkatan"
+      },
+      {
+        "@id": "1190",
+        "meaning": "Bantuan"
+      },
+      {
+        "@id": "1191",
+        "meaning": "Dengan baik"
+      },
+      {
+        "@id": "1192",
+        "meaning": "Berbaris"
+      },
+      {
+        "@id": "1193",
+        "meaning": "Fax"
+      },
+      {
+        "@id": "1194",
+        "meaning": "Pabrik"
+      },
+      {
+        "@id": "1195",
+        "meaning": "Saya ingin sekali"
+      },
+      {
+        "@id": "1196",
+        "meaning": "Atom"
+      },
+      {
+        "@id": "1197",
+        "meaning": "Menangkap"
+      },
+      {
+        "@id": "1198",
+        "meaning": "Musim semi"
+      },
+      {
+        "@id": "1199",
+        "meaning": "Sah"
+      },
+      {
+        "@id": "1200",
+        "meaning": "Bermacam-macam"
+      },
+      {
+        "@id": "1201",
+        "meaning": "Mengatur"
+      },
+      {
+        "@id": "1202",
+        "meaning": "Menghubungkan"
+      },
+      {
+        "@id": "1203",
+        "meaning": "Permainan"
+      },
+      {
+        "@id": "1204",
+        "meaning": "Pribadi"
+      },
+      {
+        "@id": "1205",
+        "meaning": "Usul"
+      },
+      {
+        "@id": "1206",
+        "meaning": "Utara"
+      },
+      {
+        "@id": "1207",
+        "meaning": "Penyakit"
+      },
+      {
+        "@id": "1208",
+        "meaning": "Menyerang"
+      },
+      {
+        "@id": "1209",
+        "meaning": "Gambar"
+      },
+      {
+        "@id": "1210",
+        "meaning": "6.000"
+      },
+      {
+        "@id": "1211",
+        "meaning": "Kepribadian"
+      },
+      {
+        "@id": "1212",
+        "meaning": "Arsitektur"
+      },
+      {
+        "@id": "1213",
+        "meaning": "Keluar"
+      },
+      {
+        "@id": "1214",
+        "meaning": "Satu"
+      },
+      {
+        "@id": "1215",
+        "meaning": "Pinggang"
+      },
+      {
+        "@id": "1216",
+        "meaning": "Didirikan"
+      },
+      {
+        "@id": "1217",
+        "meaning": "Lokasi"
+      },
+      {
+        "@id": "1218",
+        "meaning": "Ramalan"
+      },
+      {
+        "@id": "1219",
+        "meaning": "Bertanya"
+      },
+      {
+        "@id": "1220",
+        "meaning": "Cinta"
+      },
+      {
+        "@id": "1221",
+        "meaning": "Kondisi"
+      },
+      {
+        "@id": "1222",
+        "meaning": "Eropa"
+      },
+      {
+        "@id": "1223",
+        "meaning": "Permainan"
+      },
+      {
+        "@id": "1224",
+        "meaning": "Bahu"
+      },
+      {
+        "@id": "1225",
+        "meaning": "Api"
+      },
+      {
+        "@id": "1226",
+        "meaning": "Turnamen"
+      },
+      {
+        "@id": "1227",
+        "meaning": "Pekerjaan"
+      },
+      {
+        "@id": "1228",
+        "meaning": "Barat"
+      },
+      {
+        "@id": "1229",
+        "meaning": "Desain"
+      },
+      {
+        "@id": "1230",
+        "meaning": "Membelanjakan"
+      },
+      {
+        "@id": "1231",
+        "meaning": "Tentu saja"
+      },
+      {
+        "@id": "1232",
+        "meaning": "Berat"
+      },
+      {
+        "@id": "1233",
+        "meaning": "Presiden"
+      },
+      {
+        "@id": "1234",
+        "meaning": "Pasangan"
+      },
+      {
+        "@id": "1235",
+        "meaning": "Secangkir"
+      },
+      {
+        "@id": "1236",
+        "meaning": "Surat"
+      },
+      {
+        "@id": "1237",
+        "meaning": "Mesin"
+      },
+      {
+        "@id": "1238",
+        "meaning": "Konstan"
+      },
+      {
+        "@id": "1239",
+        "meaning": "Lapisan"
+      },
+      {
+        "@id": "1240",
+        "meaning": "Jari"
+      },
+      {
+        "@id": "1241",
+        "meaning": "Persiapan"
+      },
+      {
+        "@id": "1242",
+        "meaning": "Dibutuhkan"
+      },
+      {
+        "@id": "1243",
+        "meaning": "Turun"
+      },
+      {
+        "@id": "1244",
+        "meaning": "Bola"
+      },
+      {
+        "@id": "1245",
+        "meaning": "Mendekati"
+      },
+      {
+        "@id": "1246",
+        "meaning": "Menangis"
+      },
+      {
+        "@id": "1247",
+        "meaning": "Agen"
+      },
+      {
+        "@id": "1248",
+        "meaning": "Dengan"
+      },
+      {
+        "@id": "1249",
+        "meaning": "Kelompok"
+      },
+      {
+        "@id": "1250",
+        "meaning": "Memenuhi"
+      },
+      {
+        "@id": "1251",
+        "meaning": "Bagian"
+      },
+      {
+        "@id": "1252",
+        "meaning": "Perolehan"
+      },
+      {
+        "@id": "1253",
+        "meaning": "Ruang angkasa"
+      },
+      {
+        "@id": "1254",
+        "meaning": "Menyebar"
+      },
+      {
+        "@id": "1255",
+        "meaning": "Kucing"
+      },
+      {
+        "@id": "1256",
+        "meaning": "Salam baik"
+      },
+      {
+        "@id": "1257",
+        "meaning": "Musim gugur"
+      },
+      {
+        "@id": "1258",
+        "meaning": "Menolak"
+      },
+      {
+        "@id": "1259",
+        "meaning": "Ketenangan pikiran"
+      },
+      {
+        "@id": "1260",
+        "meaning": "Mencapai"
+      },
+      {
+        "@id": "1261",
+        "meaning": "Dunia"
+      },
+      {
+        "@id": "1262",
+        "meaning": "Peralatan"
+      },
+      {
+        "@id": "1263",
+        "meaning": "Perut"
+      },
+      {
+        "@id": "1264",
+        "meaning": "Melompat"
+      },
+      {
+        "@id": "1265",
+        "meaning": "Imajinasi"
+      },
+      {
+        "@id": "1266",
+        "meaning": "Pemilihan"
+      },
+      {
+        "@id": "1267",
+        "meaning": "Kesan"
+      },
+      {
+        "@id": "1268",
+        "meaning": "Tiba-tiba"
+      },
+      {
+        "@id": "1269",
+        "meaning": "Agama"
+      },
+      {
+        "@id": "1270",
+        "meaning": "Klub"
+      },
+      {
+        "@id": "1271",
+        "meaning": "Lingkungan"
+      },
+      {
+        "@id": "1272",
+        "meaning": "Ayah"
+      },
+      {
+        "@id": "1273",
+        "meaning": "Di tempat"
+      },
+      {
+        "@id": "1274",
+        "meaning": "Terang"
+      },
+      {
+        "@id": "1275",
+        "meaning": "Profesor"
+      },
+      {
+        "@id": "1276",
+        "meaning": "Perasaan"
+      },
+      {
+        "@id": "1277",
+        "meaning": "Sayuran"
+      },
+      {
+        "@id": "1278",
+        "meaning": "Menekan"
+      },
+      {
+        "@id": "1279",
+        "meaning": "Dinding"
+      },
+      {
+        "@id": "1280",
+        "meaning": "Atau"
+      },
+      {
+        "@id": "1281",
+        "meaning": "Mengalir"
+      },
+      {
+        "@id": "1282",
+        "meaning": "Tawaran yang berhasil"
+      },
+      {
+        "@id": "1283",
+        "meaning": "Perbandingan"
+      },
+      {
+        "@id": "1284",
+        "meaning": "Utama"
+      },
+      {
+        "@id": "1285",
+        "meaning": "Berkumpul"
+      },
+      {
+        "@id": "1286",
+        "meaning": "Milik"
+      },
+      {
+        "@id": "1287",
+        "meaning": "Menatap"
+      },
+      {
+        "@id": "1288",
+        "meaning": "Praktik"
+      },
+      {
+        "@id": "1289",
+        "meaning": "Konvensional"
+      },
+      {
+        "@id": "1290",
+        "meaning": "Mengumpulkan"
+      },
+      {
+        "@id": "1291",
+        "meaning": "Berdagang"
+      },
+      {
+        "@id": "1292",
+        "meaning": "Kesulitan"
+      },
+      {
+        "@id": "1293",
+        "meaning": "Nilai"
+      },
+      {
+        "@id": "1294",
+        "meaning": "Memiliki"
+      },
+      {
+        "@id": "1295",
+        "meaning": "Semula"
+      },
+      {
+        "@id": "1296",
+        "meaning": "Percobaan"
+      },
+      {
+        "@id": "1297",
+        "meaning": "Penerbangan"
+      },
+      {
+        "@id": "1298",
+        "meaning": "Minat"
+      },
+      {
+        "@id": "1299",
+        "meaning": "Perhatian"
+      },
+      {
+        "@id": "1300",
+        "meaning": "Tindakan"
+      },
+      {
+        "@id": "1301",
+        "meaning": "Eksekusi"
+      },
+      {
+        "@id": "1302",
+        "meaning": "Di belakang"
+      },
+      {
+        "@id": "1303",
+        "meaning": "Pengganti"
+      },
+      {
+        "@id": "1304",
+        "meaning": "Kehidupan"
+      },
+      {
+        "@id": "1305",
+        "meaning": "Salju"
+      },
+      {
+        "@id": "1306",
+        "meaning": "Berhenti"
+      },
+      {
+        "@id": "1307",
+        "meaning": "Keterangan"
+      },
+      {
+        "@id": "1308",
+        "meaning": "Pabrikan"
+      },
+      {
+        "@id": "1309",
+        "meaning": "Yang lain"
+      },
+      {
+        "@id": "1310",
+        "meaning": "Buku"
+      },
+      {
+        "@id": "1311",
+        "meaning": "Pemenuhan"
+      },
+      {
+        "@id": "1312",
+        "meaning": "Membatasi"
+      },
+      {
+        "@id": "1313",
+        "meaning": "Emosi"
+      },
+      {
+        "@id": "1314",
+        "meaning": "Otak"
+      },
+      {
+        "@id": "1315",
+        "meaning": "Kelas"
+      },
+      {
+        "@id": "1316",
+        "meaning": "Publik"
+      },
+      {
+        "@id": "1317",
+        "meaning": "Kanker"
+      },
+      {
+        "@id": "1318",
+        "meaning": "Menggeliat"
+      },
+      {
+        "@id": "1319",
+        "meaning": "Gram"
+      },
+      {
+        "@id": "1320",
+        "meaning": "Kapal"
+      },
+      {
+        "@id": "1321",
+        "meaning": "Teh"
+      },
+      {
+        "@id": "1322",
+        "meaning": "Menukarkan"
+      },
+      {
+        "@id": "1323",
+        "meaning": "Berbahagialah"
+      },
+      {
+        "@id": "1324",
+        "meaning": "Darah"
+      },
+      {
+        "@id": "1325",
+        "meaning": "Kritik"
+      },
+      {
+        "@id": "1326",
+        "meaning": "Penggemar"
+      },
+      {
+        "@id": "1327",
+        "meaning": "Kejahatan"
+      },
+      {
+        "@id": "1328",
+        "meaning": "Pelanggaran"
+      },
+      {
+        "@id": "1329",
+        "meaning": "Program"
+      },
+      {
+        "@id": "1330",
+        "meaning": "Elektronik"
+      },
+      {
+        "@id": "1331",
+        "meaning": "Nuklir"
+      },
+      {
+        "@id": "1332",
+        "meaning": "Setengah"
+      },
+      {
+        "@id": "1333",
+        "meaning": "Novel"
+      },
+      {
+        "@id": "1334",
+        "meaning": "Peringatan"
+      },
+      {
+        "@id": "1335",
+        "meaning": "Menjawab"
+      },
+      {
+        "@id": "1336",
+        "meaning": "Edisi"
+      },
+      {
+        "@id": "1337",
+        "meaning": "Milik"
+      },
+      {
+        "@id": "1338",
+        "meaning": "Rekrutmen"
+      },
+      {
+        "@id": "1339",
+        "meaning": "Pertama kali"
+      },
+      {
+        "@id": "1340",
+        "meaning": "Cewek-cewek"
+      },
+      {
+        "@id": "1341",
+        "meaning": "Kesejahteraan masyarakat"
+      },
+      {
+        "@id": "1342",
+        "meaning": "Membuang"
+      },
+      {
+        "@id": "1343",
+        "meaning": "Bukti"
+      },
+      {
+        "@id": "1344",
+        "meaning": "Diskusi"
+      },
+      {
+        "@id": "1345",
+        "meaning": "Tas"
+      },
+      {
+        "@id": "1346",
+        "meaning": "Kehidupan sehari-hari"
+      },
+      {
+        "@id": "1347",
+        "meaning": "Sikap"
+      },
+      {
+        "@id": "1348",
+        "meaning": "Internet"
+      },
+      {
+        "@id": "1349",
+        "meaning": "Tua"
+      },
+      {
+        "@id": "1350",
+        "meaning": "Melawan"
+      },
+      {
+        "@id": "1351",
+        "meaning": "Layar"
+      },
+      {
+        "@id": "1352",
+        "meaning": "Fase"
+      },
+      {
+        "@id": "1353",
+        "meaning": "Pembuangan"
+      },
+      {
+        "@id": "1354",
+        "meaning": "Kembali"
+      },
+      {
+        "@id": "1355",
+        "meaning": "Pelatihan"
+      },
+      {
+        "@id": "1356",
+        "meaning": "Hanya"
+      },
+      {
+        "@id": "1357",
+        "meaning": "Dengan rapi"
+      },
+      {
+        "@id": "1358",
+        "meaning": "Rekrutmen"
+      },
+      {
+        "@id": "1359",
+        "meaning": "Guru"
+      },
+      {
+        "@id": "1360",
+        "meaning": "Asosiasi"
+      },
+      {
+        "@id": "1361",
+        "meaning": "Gadis"
+      },
+      {
+        "@id": "1362",
+        "meaning": "Banyak"
+      },
+      {
+        "@id": "1363",
+        "meaning": "Membawa"
+      },
+      {
+        "@id": "1364",
+        "meaning": "Kelahiran"
+      },
+      {
+        "@id": "1365",
+        "meaning": "Tahun sebelumnya"
+      },
+      {
+        "@id": "1366",
+        "meaning": "Gejala"
+      },
+      {
+        "@id": "1367",
+        "meaning": "Cinta"
+      },
+      {
+        "@id": "1368",
+        "meaning": "Sumber"
+      },
+      {
+        "@id": "1369",
+        "meaning": "Akuntansi"
+      },
+      {
+        "@id": "1370",
+        "meaning": "Operasi"
+      },
+      {
+        "@id": "1371",
+        "meaning": "Kemerdekaan"
+      },
+      {
+        "@id": "1372",
+        "meaning": "Pikiran"
+      },
+      {
+        "@id": "1373",
+        "meaning": "Kompetisi"
+      },
+      {
+        "@id": "1374",
+        "meaning": "Super"
+      },
+      {
+        "@id": "1375",
+        "meaning": "Mengangkat"
+      },
+      {
+        "@id": "1376",
+        "meaning": "Bersih"
+      },
+      {
+        "@id": "1377",
+        "meaning": "Musuh"
+      },
+      {
+        "@id": "1378",
+        "meaning": "Pengamatan"
+      },
+      {
+        "@id": "1379",
+        "meaning": "Gas"
+      },
+      {
+        "@id": "1380",
+        "meaning": "Industri"
+      },
+      {
+        "@id": "1381",
+        "meaning": "Makanan"
+      },
+      {
+        "@id": "1382",
+        "meaning": "Perdamaian"
+      },
+      {
+        "@id": "1383",
+        "meaning": "Umum"
+      },
+      {
+        "@id": "1384",
+        "meaning": "Cerita"
+      },
+      {
+        "@id": "1385",
+        "meaning": "Roti"
+      },
+      {
+        "@id": "1386",
+        "meaning": "Pemadam kebakaran"
+      },
+      {
+        "@id": "1387",
+        "meaning": "Perjalanan"
+      },
+      {
+        "@id": "1388",
+        "meaning": "Merangkul"
+      },
+      {
+        "@id": "1389",
+        "meaning": "Kuda"
+      },
+      {
+        "@id": "1390",
+        "meaning": "Pencegahan"
+      },
+      {
+        "@id": "1391",
+        "meaning": "Menugaskan"
+      },
+      {
+        "@id": "1392",
+        "meaning": "Kekurangan"
+      },
+      {
+        "@id": "1393",
+        "meaning": "Keras"
+      },
+      {
+        "@id": "1394",
+        "meaning": "Menghindari"
+      },
+      {
+        "@id": "1395",
+        "meaning": "Musim dingin"
+      },
+      {
+        "@id": "1396",
+        "meaning": "Titik waktu"
+      },
+      {
+        "@id": "1397",
+        "meaning": "Luar biasa"
+      },
+      {
+        "@id": "1398",
+        "meaning": "Lucu"
+      },
+      {
+        "@id": "1399",
+        "meaning": "Masalah"
+      },
+      {
+        "@id": "1400",
+        "meaning": "Tahun lalu"
+      },
+      {
+        "@id": "1401",
+        "meaning": "Delapan ribu"
+      },
+      {
+        "@id": "1402",
+        "meaning": "Karakter"
+      },
+      {
+        "@id": "1403",
+        "meaning": "Saya di sini"
+      },
+      {
+        "@id": "1404",
+        "meaning": "Bahasa"
+      },
+      {
+        "@id": "1405",
+        "meaning": "Bantu"
+      },
+      {
+        "@id": "1406",
+        "meaning": "Kepuasan"
+      },
+      {
+        "@id": "1407",
+        "meaning": "Bantuan"
+      },
+      {
+        "@id": "1408",
+        "meaning": "Bagaimana"
+      },
+      {
+        "@id": "1409",
+        "meaning": "Penyelesaian"
+      },
+      {
+        "@id": "1410",
+        "meaning": "Dingin"
+      },
+      {
+        "@id": "1411",
+        "meaning": "Itu menyakitkan"
+      },
+      {
+        "@id": "1412",
+        "meaning": "Pemulihan"
+      },
+      {
+        "@id": "1413",
+        "meaning": "Mengatur"
+      },
+      {
+        "@id": "1414",
+        "meaning": "Meningkatkan"
+      },
+      {
+        "@id": "1415",
+        "meaning": "Gempa bumi"
+      },
+      {
+        "@id": "1416",
+        "meaning": "Kantor pemerintah"
+      },
+      {
+        "@id": "1417",
+        "meaning": "Beras"
+      },
+      {
+        "@id": "1418",
+        "meaning": "Dingin"
+      },
+      {
+        "@id": "1419",
+        "meaning": "Paman"
+      },
+      {
+        "@id": "1420",
+        "meaning": "Sekolah menengah pertama"
+      },
+      {
+        "@id": "1421",
+        "meaning": "Kehidupan"
+      },
+      {
+        "@id": "1422",
+        "meaning": "Menggeliat"
+      },
+      {
+        "@id": "1423",
+        "meaning": "Menang"
+      },
+      {
+        "@id": "1424",
+        "meaning": "Penerbangan"
+      },
+      {
+        "@id": "1425",
+        "meaning": "Kursi"
+      },
+      {
+        "@id": "1426",
+        "meaning": "Meringkaskan"
+      },
+      {
+        "@id": "1427",
+        "meaning": "Garis"
+      },
+      {
+        "@id": "1428",
+        "meaning": "Ekspor"
+      },
+      {
+        "@id": "1429",
+        "meaning": "Spesifikasi"
+      },
+      {
+        "@id": "1430",
+        "meaning": "Proses"
+      },
+      {
+        "@id": "1431",
+        "meaning": "Kursus"
+      },
+      {
+        "@id": "1432",
+        "meaning": "Kaya"
+      },
+      {
+        "@id": "1433",
+        "meaning": "Bermacam-macam"
+      },
+      {
+        "@id": "1434",
+        "meaning": "Kegagalan"
+      },
+      {
+        "@id": "1435",
+        "meaning": "Pertahanan"
+      },
+      {
+        "@id": "1436",
+        "meaning": "Melewati"
+      },
+      {
+        "@id": "1437",
+        "meaning": "Udara"
+      },
+      {
+        "@id": "1438",
+        "meaning": "Di sebelah"
+      },
+      {
+        "@id": "1439",
+        "meaning": "Kelulusan"
+      },
+      {
+        "@id": "1440",
+        "meaning": "Anggota parlemen"
+      },
+      {
+        "@id": "1441",
+        "meaning": "Garu"
+      },
+      {
+        "@id": "1442",
+        "meaning": "Penitipan anak"
+      },
+      {
+        "@id": "1443",
+        "meaning": "Elemen"
+      },
+      {
+        "@id": "1444",
+        "meaning": "Menjatuhkan"
+      },
+      {
+        "@id": "1445",
+        "meaning": "Konsentrasi"
+      },
+      {
+        "@id": "1446",
+        "meaning": "Merah"
+      },
+      {
+        "@id": "1447",
+        "meaning": "Kualifikasi"
+      },
+      {
+        "@id": "1448",
+        "meaning": "Penghasilan"
+      },
+      {
+        "@id": "1449",
+        "meaning": "Mengikat"
+      },
+      {
+        "@id": "1450",
+        "meaning": "Tembakau"
+      },
+      {
+        "@id": "1451",
+        "meaning": "Semesta"
+      },
+      {
+        "@id": "1452",
+        "meaning": "Sejarah"
+      },
+      {
+        "@id": "1453",
+        "meaning": "Kk"
+      },
+      {
+        "@id": "1454",
+        "meaning": "Piutang"
+      },
+      {
+        "@id": "1455",
+        "meaning": "Pendek"
+      },
+      {
+        "@id": "1456",
+        "meaning": "Karyawan"
+      },
+      {
+        "@id": "1457",
+        "meaning": "Kamera"
+      },
+      {
+        "@id": "1458",
+        "meaning": "Air mata"
+      },
+      {
+        "@id": "1459",
+        "meaning": "Mengangguk"
+      },
+      {
+        "@id": "1460",
+        "meaning": "Biaya"
+      },
+      {
+        "@id": "1461",
+        "meaning": "Cara"
+      },
+      {
+        "@id": "1462",
+        "meaning": "Sikap"
+      },
+      {
+        "@id": "1463",
+        "meaning": "Tebakan"
+      },
+      {
+        "@id": "1464",
+        "meaning": "Tema"
+      },
+      {
+        "@id": "1465",
+        "meaning": "Ikan"
+      },
+      {
+        "@id": "1466",
+        "meaning": "Terlampir"
+      },
+      {
+        "@id": "1467",
+        "meaning": "Tanaman"
+      },
+      {
+        "@id": "1468",
+        "meaning": "Utang"
+      },
+      {
+        "@id": "1469",
+        "meaning": "Menghasilkan"
+      },
+      {
+        "@id": "1470",
+        "meaning": "Obat"
+      },
+      {
+        "@id": "1471",
+        "meaning": "Etnis"
+      },
+      {
+        "@id": "1472",
+        "meaning": "Satuan"
+      },
+      {
+        "@id": "1473",
+        "meaning": "Metode"
+      },
+      {
+        "@id": "1474",
+        "meaning": "Dengan kasar"
+      },
+      {
+        "@id": "1475",
+        "meaning": "Meja"
+      },
+      {
+        "@id": "1476",
+        "meaning": "Demokrasi"
+      },
+      {
+        "@id": "1477",
+        "meaning": "Tempat tidur"
+      },
+      {
+        "@id": "1478",
+        "meaning": "Kembali"
+      },
+      {
+        "@id": "1479",
+        "meaning": "Napas"
+      },
+      {
+        "@id": "1480",
+        "meaning": "Setiap orang"
+      },
+      {
+        "@id": "1481",
+        "meaning": "Pesona"
+      },
+      {
+        "@id": "1482",
+        "meaning": "Kebahagiaan"
+      },
+      {
+        "@id": "1483",
+        "meaning": "Tujuh ribu"
+      },
+      {
+        "@id": "1484",
+        "meaning": "Bau"
+      },
+      {
+        "@id": "1485",
+        "meaning": "Diam"
+      },
+      {
+        "@id": "1486",
+        "meaning": "Semula"
+      },
+      {
+        "@id": "1487",
+        "meaning": "Lambat"
+      },
+      {
+        "@id": "1488",
+        "meaning": "Profesional"
+      },
+      {
+        "@id": "1489",
+        "meaning": "Terlambat"
+      },
+      {
+        "@id": "1490",
+        "meaning": "Melarikan diri"
+      },
+      {
+        "@id": "1491",
+        "meaning": "Intern"
+      },
+      {
+        "@id": "1492",
+        "meaning": "Janji"
+      },
+      {
+        "@id": "1493",
+        "meaning": "Jangka panjang"
+      },
+      {
+        "@id": "1494",
+        "meaning": "Kebijakan"
+      },
+      {
+        "@id": "1495",
+        "meaning": "Suasana"
+      },
+      {
+        "@id": "1496",
+        "meaning": "Makhluk hidup"
+      },
+      {
+        "@id": "1497",
+        "meaning": "Atas"
+      },
+      {
+        "@id": "1498",
+        "meaning": "Teori"
+      },
+      {
+        "@id": "1499",
+        "meaning": "Sesuai"
+      },
+      {
+        "@id": "1500",
+        "meaning": "Sembilan ribu"
+      },
+      {
+        "@id": "1501",
+        "meaning": "Tradisi"
+      },
+      {
+        "@id": "1502",
+        "meaning": "Generasi"
+      },
+      {
+        "@id": "1503",
+        "meaning": "Latar belakang"
+      },
+      {
+        "@id": "1504",
+        "meaning": "Majalah"
+      },
+      {
+        "@id": "1505",
+        "meaning": "Sama sekali tidak"
+      },
+      {
+        "@id": "1506",
+        "meaning": "Pakaian"
+      },
+      {
+        "@id": "1507",
+        "meaning": "Di dalam"
+      },
+      {
+        "@id": "1508",
+        "meaning": "Tidur"
+      },
+      {
+        "@id": "1509",
+        "meaning": "Lihat"
+      },
+      {
+        "@id": "1510",
+        "meaning": "Cd"
+      },
+      {
+        "@id": "1511",
+        "meaning": "Membagi"
+      },
+      {
+        "@id": "1512",
+        "meaning": "Bekerja pada"
+      },
+      {
+        "@id": "1513",
+        "meaning": "Reproduksi"
+      },
+      {
+        "@id": "1514",
+        "meaning": "Tombol"
+      },
+      {
+        "@id": "1515",
+        "meaning": "Hidup"
+      },
+      {
+        "@id": "1516",
+        "meaning": "Lingkungan"
+      },
+      {
+        "@id": "1517",
+        "meaning": "Seni"
+      },
+      {
+        "@id": "1518",
+        "meaning": "Komputer"
+      },
+      {
+        "@id": "1519",
+        "meaning": "Petunjuk"
+      },
+      {
+        "@id": "1520",
+        "meaning": "Poi"
+      },
+      {
+        "@id": "1521",
+        "meaning": "Masukan"
+      },
+      {
+        "@id": "1522",
+        "meaning": "Mengeluarkan"
+      },
+      {
+        "@id": "1523",
+        "meaning": "Aneh"
+      },
+      {
+        "@id": "1524",
+        "meaning": "Memanggang"
+      },
+      {
+        "@id": "1525",
+        "meaning": "Mengatakan"
+      },
+      {
+        "@id": "1526",
+        "meaning": "Bersembunyi"
+      },
+      {
+        "@id": "1527",
+        "meaning": "Izin"
+      },
+      {
+        "@id": "1528",
+        "meaning": "Pada"
+      },
+      {
+        "@id": "1529",
+        "meaning": "Departemen"
+      },
+      {
+        "@id": "1530",
+        "meaning": "Akhirnya"
+      },
+      {
+        "@id": "1531",
+        "meaning": "Panduan"
+      },
+      {
+        "@id": "1532",
+        "meaning": "Wakil"
+      },
+      {
+        "@id": "1533",
+        "meaning": "Bawah tanah"
+      },
+      {
+        "@id": "1534",
+        "meaning": "Hutan"
+      },
+      {
+        "@id": "1535",
+        "meaning": "Keras"
+      },
+      {
+        "@id": "1536",
+        "meaning": "Setiap jenis"
+      },
+      {
+        "@id": "1537",
+        "meaning": "Gejala"
+      },
+      {
+        "@id": "1538",
+        "meaning": "Sunting"
+      },
+      {
+        "@id": "1539",
+        "meaning": "Operasi"
+      },
+      {
+        "@id": "1540",
+        "meaning": "Pengajaran"
+      },
+      {
+        "@id": "1541",
+        "meaning": "Momen"
+      },
+      {
+        "@id": "1542",
+        "meaning": "Memercayai"
+      },
+      {
+        "@id": "1543",
+        "meaning": "Merebut"
+      },
+      {
+        "@id": "1544",
+        "meaning": "Mendirikan"
+      },
+      {
+        "@id": "1545",
+        "meaning": "Makanan"
+      },
+      {
+        "@id": "1546",
+        "meaning": "Wanita tua"
+      },
+      {
+        "@id": "1547",
+        "meaning": "Gigi"
+      },
+      {
+        "@id": "1548",
+        "meaning": "Daging"
+      },
+      {
+        "@id": "1549",
+        "meaning": "Lokal"
+      },
+      {
+        "@id": "1550",
+        "meaning": "Perut"
+      },
+      {
+        "@id": "1551",
+        "meaning": "Mengecewakan"
+      },
+      {
+        "@id": "1552",
+        "meaning": "Memperbaiki"
+      },
+      {
+        "@id": "1553",
+        "meaning": "Berapa harganya"
+      },
+      {
+        "@id": "1554",
+        "meaning": "Menangani"
+      },
+      {
+        "@id": "1555",
+        "meaning": "Panggung"
+      },
+      {
+        "@id": "1556",
+        "meaning": "Zaman modern"
+      },
+      {
+        "@id": "1557",
+        "meaning": "Mengejar"
+      },
+      {
+        "@id": "1558",
+        "meaning": "Keamanan"
+      },
+      {
+        "@id": "1559",
+        "meaning": "Berteriak"
+      },
+      {
+        "@id": "1560",
+        "meaning": "Mencapai"
+      },
+      {
+        "@id": "1561",
+        "meaning": "Ya"
+      },
+      {
+        "@id": "1562",
+        "meaning": "Reservasi"
+      },
+      {
+        "@id": "1563",
+        "meaning": "Mendukung"
+      },
+      {
+        "@id": "1564",
+        "meaning": "Tuntutan"
+      },
+      {
+        "@id": "1565",
+        "meaning": "Sebelum dan sesudah"
+      },
+      {
+        "@id": "1566",
+        "meaning": "Rumah tangga"
+      },
+      {
+        "@id": "1567",
+        "meaning": "Literatur"
+      },
+      {
+        "@id": "1568",
+        "meaning": "Konstitusi"
+      },
+      {
+        "@id": "1569",
+        "meaning": "Menemani"
+      },
+      {
+        "@id": "1570",
+        "meaning": "Memasok"
+      },
+      {
+        "@id": "1571",
+        "meaning": "Jernih"
+      },
+      {
+        "@id": "1572",
+        "meaning": "Efisiensi"
+      },
+      {
+        "@id": "1573",
+        "meaning": "Pencegahan bencana"
+      },
+      {
+        "@id": "1574",
+        "meaning": "Tingkat"
+      },
+      {
+        "@id": "1575",
+        "meaning": "Pria dan wanita"
+      },
+      {
+        "@id": "1576",
+        "meaning": "Publikasi"
+      },
+      {
+        "@id": "1577",
+        "meaning": "Itu"
+      },
+      {
+        "@id": "1578",
+        "meaning": "Dokumen"
+      },
+      {
+        "@id": "1579",
+        "meaning": "Lemah"
+      },
+      {
+        "@id": "1580",
+        "meaning": "Transisi"
+      },
+      {
+        "@id": "1581",
+        "meaning": "Mengunjungi"
+      },
+      {
+        "@id": "1582",
+        "meaning": "Bahkan lebih"
+      },
+      {
+        "@id": "1583",
+        "meaning": "Beras"
+      },
+      {
+        "@id": "1584",
+        "meaning": "Kebijaksanaan"
+      },
+      {
+        "@id": "1585",
+        "meaning": "Lantai"
+      },
+      {
+        "@id": "1586",
+        "meaning": "Perawatan"
+      },
+      {
+        "@id": "1587",
+        "meaning": "Dilarang"
+      },
+      {
+        "@id": "1588",
+        "meaning": "Egoisme"
+      },
+      {
+        "@id": "1589",
+        "meaning": "Beragam"
+      },
+      {
+        "@id": "1590",
+        "meaning": "Saling"
+      },
+      {
+        "@id": "1591",
+        "meaning": "Berbohong"
+      },
+      {
+        "@id": "1592",
+        "meaning": "Pekerjaan"
+      },
+      {
+        "@id": "1593",
+        "meaning": "Seni"
+      },
+      {
+        "@id": "1594",
+        "meaning": "Memperpanjang"
+      },
+      {
+        "@id": "1595",
+        "meaning": "Faktor"
+      },
+      {
+        "@id": "1596",
+        "meaning": "Kabinet"
+      },
+      {
+        "@id": "1597",
+        "meaning": "Perlahan-lahan"
+      },
+      {
+        "@id": "1598",
+        "meaning": "Keseimbangan"
+      },
+      {
+        "@id": "1599",
+        "meaning": "Penyelidikan"
+      },
+      {
+        "@id": "1600",
+        "meaning": "Okinawa"
+      },
+      {
+        "@id": "1601",
+        "meaning": "Membina"
+      },
+      {
+        "@id": "1602",
+        "meaning": "Mengunjungi"
+      },
+      {
+        "@id": "1603",
+        "meaning": "Angka"
+      },
+      {
+        "@id": "1604",
+        "meaning": "Rencana"
+      },
+      {
+        "@id": "1605",
+        "meaning": "Penyangkalan"
+      },
+      {
+        "@id": "1606",
+        "meaning": "Garam"
+      },
+      {
+        "@id": "1607",
+        "meaning": "Gambar"
+      },
+      {
+        "@id": "1608",
+        "meaning": "Makan"
+      },
+      {
+        "@id": "1609",
+        "meaning": "Perundingan"
+      },
+      {
+        "@id": "1610",
+        "meaning": "Pergi berkeliling"
+      },
+      {
+        "@id": "1611",
+        "meaning": "Tetap"
+      },
+      {
+        "@id": "1612",
+        "meaning": "Pulau"
+      },
+      {
+        "@id": "1613",
+        "meaning": "Menjamin"
+      },
+      {
+        "@id": "1614",
+        "meaning": "Marah"
+      },
+      {
+        "@id": "1615",
+        "meaning": "Samping"
+      },
+      {
+        "@id": "1616",
+        "meaning": "Pohon"
+      },
+      {
+        "@id": "1617",
+        "meaning": "Kalimat"
+      },
+      {
+        "@id": "1618",
+        "meaning": "Kertas"
+      },
+      {
+        "@id": "1619",
+        "meaning": "Tipis"
+      },
+      {
+        "@id": "1620",
+        "meaning": "Rambut"
+      },
+      {
+        "@id": "1621",
+        "meaning": "Tanggal dan waktu"
+      },
+      {
+        "@id": "1622",
+        "meaning": "Presiden"
+      },
+      {
+        "@id": "1623",
+        "meaning": "Di luar"
+      },
+      {
+        "@id": "1624",
+        "meaning": "Surat"
+      },
+      {
+        "@id": "1625",
+        "meaning": "Menguntungkan"
+      },
+      {
+        "@id": "1626",
+        "meaning": "Bertanya"
+      },
+      {
+        "@id": "1627",
+        "meaning": "Kimia"
+      },
+      {
+        "@id": "1628",
+        "meaning": "Guru"
+      },
+      {
+        "@id": "1629",
+        "meaning": "Melepaskan"
+      },
+      {
+        "@id": "1630",
+        "meaning": "Desain"
+      },
+      {
+        "@id": "1631",
+        "meaning": "Berat"
+      },
+      {
+        "@id": "1632",
+        "meaning": "Dibuat"
+      },
+      {
+        "@id": "1633",
+        "meaning": "Kelompok"
+      },
+      {
+        "@id": "1634",
+        "meaning": "Statistik"
+      },
+      {
+        "@id": "1635",
+        "meaning": "Memperpanjang"
+      },
+      {
+        "@id": "1636",
+        "meaning": "Pertimbangan"
+      },
+      {
+        "@id": "1637",
+        "meaning": "Kotak"
+      },
+      {
+        "@id": "1638",
+        "meaning": "Mama"
+      },
+      {
+        "@id": "1639",
+        "meaning": "Pascaperang"
+      },
+      {
+        "@id": "1640",
+        "meaning": "Kontinu"
+      },
+      {
+        "@id": "1641",
+        "meaning": "Seru"
+      },
+      {
+        "@id": "1642",
+        "meaning": "Memegang"
+      },
+      {
+        "@id": "1643",
+        "meaning": "Tenaga surya"
+      },
+      {
+        "@id": "1644",
+        "meaning": "Jumlah besar"
+      },
+      {
+        "@id": "1645",
+        "meaning": "Kelainan"
+      },
+      {
+        "@id": "1646",
+        "meaning": "Kastil"
+      },
+      {
+        "@id": "1647",
+        "meaning": "Saran"
+      },
+      {
+        "@id": "1648",
+        "meaning": "Situasi"
+      },
+      {
+        "@id": "1649",
+        "meaning": "Konservasi"
+      },
+      {
+        "@id": "1650",
+        "meaning": "Untuk saat ini"
+      },
+      {
+        "@id": "1651",
+        "meaning": "Benda"
+      },
+      {
+        "@id": "1652",
+        "meaning": "Setara"
+      },
+      {
+        "@id": "1653",
+        "meaning": "Menari"
+      },
+      {
+        "@id": "1654",
+        "meaning": "Bertarung"
+      },
+      {
+        "@id": "1655",
+        "meaning": "Waktu"
+      },
+      {
+        "@id": "1656",
+        "meaning": "Salam"
+      },
+      {
+        "@id": "1657",
+        "meaning": "Bertemu"
+      },
+      {
+        "@id": "1658",
+        "meaning": "Eksekusi"
+      },
+      {
+        "@id": "1659",
+        "meaning": "Korea"
+      },
+      {
+        "@id": "1660",
+        "meaning": "Perangkat"
       }
     ]
   }

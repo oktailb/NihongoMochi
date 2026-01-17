@@ -41,6 +41,6598 @@
       {
         "@id": "10",
         "meaning": "Trở nên"
+      },
+      {
+        "@id": "11",
+        "meaning": "Một"
+      },
+      {
+        "@id": "12",
+        "meaning": "Không có"
+      },
+      {
+        "@id": "13",
+        "meaning": "Từ"
+      },
+      {
+        "@id": "14",
+        "meaning": "Hai"
+      },
+      {
+        "@id": "15",
+        "meaning": "Của nó"
+      },
+      {
+        "@id": "16",
+        "meaning": "Ông"
+      },
+      {
+        "@id": "17",
+        "meaning": "Ba"
+      },
+      {
+        "@id": "18",
+        "meaning": "Mười"
+      },
+      {
+        "@id": "19",
+        "meaning": "Cái này"
+      },
+      {
+        "@id": "20",
+        "meaning": "Điều"
+      },
+      {
+        "@id": "21",
+        "meaning": "Mục tiêu"
+      },
+      {
+        "@id": "22",
+        "meaning": "Nó"
+      },
+      {
+        "@id": "23",
+        "meaning": "Chúa"
+      },
+      {
+        "@id": "24",
+        "meaning": "Năm"
+      },
+      {
+        "@id": "25",
+        "meaning": "Đến"
+      },
+      {
+        "@id": "26",
+        "meaning": "Năm"
+      },
+      {
+        "@id": "27",
+        "meaning": "Nghĩ"
+      },
+      {
+        "@id": "28",
+        "meaning": "Nhìn"
+      },
+      {
+        "@id": "29",
+        "meaning": "Đi"
+      },
+      {
+        "@id": "30",
+        "meaning": "Bốn"
+      },
+      {
+        "@id": "31",
+        "meaning": "Tôi có thể làm được"
+      },
+      {
+        "@id": "32",
+        "meaning": "Đây là nó"
+      },
+      {
+        "@id": "33",
+        "meaning": "Tốt"
+      },
+      {
+        "@id": "34",
+        "meaning": "Người"
+      },
+      {
+        "@id": "35",
+        "meaning": "Tôi"
+      },
+      {
+        "@id": "36",
+        "meaning": "Vân vân."
+      },
+      {
+        "@id": "37",
+        "meaning": "Có thể"
+      },
+      {
+        "@id": "38",
+        "meaning": "Thưa cô."
+      },
+      {
+        "@id": "39",
+        "meaning": "Bởi vì"
+      },
+      {
+        "@id": "40",
+        "meaning": "Gì"
+      },
+      {
+        "@id": "41",
+        "meaning": "Đến"
+      },
+      {
+        "@id": "42",
+        "meaning": "Thời gian"
+      },
+      {
+        "@id": "43",
+        "meaning": "Sáu"
+      },
+      {
+        "@id": "44",
+        "meaning": "Hai mươi"
+      },
+      {
+        "@id": "45",
+        "meaning": "Mọi người"
+      },
+      {
+        "@id": "46",
+        "meaning": "Vì lợi ích của"
+      },
+      {
+        "@id": "47",
+        "meaning": "Tháng"
+      },
+      {
+        "@id": "48",
+        "meaning": "Tám"
+      },
+      {
+        "@id": "49",
+        "meaning": "Xì hơi"
+      },
+      {
+        "@id": "50",
+        "meaning": "Teru"
+      },
+      {
+        "@id": "51",
+        "meaning": "Không."
+      },
+      {
+        "@id": "52",
+        "meaning": "Đúng"
+      },
+      {
+        "@id": "53",
+        "meaning": "Bảy"
+      },
+      {
+        "@id": "54",
+        "meaning": "Chín"
+      },
+      {
+        "@id": "55",
+        "meaning": "Chỉ một"
+      },
+      {
+        "@id": "56",
+        "meaning": "Nhật bản"
+      },
+      {
+        "@id": "57",
+        "meaning": "Với tới"
+      },
+      {
+        "@id": "58",
+        "meaning": "Cá tráp biển"
+      },
+      {
+        "@id": "59",
+        "meaning": "Đồng"
+      },
+      {
+        "@id": "60",
+        "meaning": "Trung bình"
+      },
+      {
+        "@id": "61",
+        "meaning": "Cho phép"
+      },
+      {
+        "@id": "62",
+        "meaning": "Mà còn"
+      },
+      {
+        "@id": "63",
+        "meaning": "Đến"
+      },
+      {
+        "@id": "64",
+        "meaning": "Nghìn"
+      },
+      {
+        "@id": "65",
+        "meaning": "Bản thân tôi"
+      },
+      {
+        "@id": "66",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "67",
+        "meaning": "Ba mươi"
+      },
+      {
+        "@id": "68",
+        "meaning": "Không"
+      },
+      {
+        "@id": "69",
+        "meaning": "Thế thôi"
+      },
+      {
+        "@id": "70",
+        "meaning": "Nghĩ"
+      },
+      {
+        "@id": "71",
+        "meaning": "Cất nó đi"
+      },
+      {
+        "@id": "72",
+        "meaning": "Hai"
+      },
+      {
+        "@id": "73",
+        "meaning": "Tuy nhiên"
+      },
+      {
+        "@id": "74",
+        "meaning": "Phương hướng"
+      },
+      {
+        "@id": "75",
+        "meaning": "Trường hợp"
+      },
+      {
+        "@id": "76",
+        "meaning": "Na"
+      },
+      {
+        "@id": "77",
+        "meaning": "Hiện nay"
+      },
+      {
+        "@id": "78",
+        "meaning": "Có"
+      },
+      {
+        "@id": "79",
+        "meaning": "Anh ta"
+      },
+      {
+        "@id": "80",
+        "meaning": "Tiêu"
+      },
+      {
+        "@id": "81",
+        "meaning": "Vân vân."
+      },
+      {
+        "@id": "82",
+        "meaning": "Tôi hiểu"
+      },
+      {
+        "@id": "83",
+        "meaning": "Ngày"
+      },
+      {
+        "@id": "84",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "85",
+        "meaning": "Năm mươi"
+      },
+      {
+        "@id": "86",
+        "meaning": "Đi ra ngoài"
+      },
+      {
+        "@id": "87",
+        "meaning": "Trước"
+      },
+      {
+        "@id": "88",
+        "meaning": "Chỉ đạo"
+      },
+      {
+        "@id": "89",
+        "meaning": "Lấy"
+      },
+      {
+        "@id": "90",
+        "meaning": "Tari"
+      },
+      {
+        "@id": "91",
+        "meaning": "Vòng tròn"
+      },
+      {
+        "@id": "92",
+        "meaning": "Mười nghìn"
+      },
+      {
+        "@id": "93",
+        "meaning": "Tình dục"
+      },
+      {
+        "@id": "94",
+        "meaning": "Chín trăm"
+      },
+      {
+        "@id": "95",
+        "meaning": "Lý do"
+      },
+      {
+        "@id": "96",
+        "meaning": "Trong khi"
+      },
+      {
+        "@id": "97",
+        "meaning": "Sự khác biệt"
+      },
+      {
+        "@id": "98",
+        "meaning": "Trăm"
+      },
+      {
+        "@id": "99",
+        "meaning": "Đưa nó cho tôi"
+      },
+      {
+        "@id": "100",
+        "meaning": "Tuy nhiên"
+      },
+      {
+        "@id": "101",
+        "meaning": "Vấn đề"
+      },
+      {
+        "@id": "102",
+        "meaning": "Nhu cầu"
+      },
+      {
+        "@id": "103",
+        "meaning": "Chống lại"
+      },
+      {
+        "@id": "104",
+        "meaning": "Sử dụng"
+      },
+      {
+        "@id": "105",
+        "meaning": "Xoắn"
+      },
+      {
+        "@id": "106",
+        "meaning": "Sự biến đổi"
+      },
+      {
+        "@id": "107",
+        "meaning": "Thời gian"
+      },
+      {
+        "@id": "108",
+        "meaning": "Nghe"
+      },
+      {
+        "@id": "109",
+        "meaning": "Bốn mươi"
+      },
+      {
+        "@id": "110",
+        "meaning": "Đưa cho"
+      },
+      {
+        "@id": "111",
+        "meaning": "Biết"
+      },
+      {
+        "@id": "112",
+        "meaning": "Cái chết"
+      },
+      {
+        "@id": "113",
+        "meaning": "Ở phía sau"
+      },
+      {
+        "@id": "114",
+        "meaning": "Phần trăm"
+      },
+      {
+        "@id": "115",
+        "meaning": "Và"
+      },
+      {
+        "@id": "116",
+        "meaning": "Đã"
+      },
+      {
+        "@id": "117",
+        "meaning": "Sự kết hợp"
+      },
+      {
+        "@id": "118",
+        "meaning": "Đặt"
+      },
+      {
+        "@id": "119",
+        "meaning": "Đứa trẻ"
+      },
+      {
+        "@id": "120",
+        "meaning": "Như thế này"
+      },
+      {
+        "@id": "121",
+        "meaning": "Đi vào"
+      },
+      {
+        "@id": "122",
+        "meaning": "Không khí"
+      },
+      {
+        "@id": "123",
+        "meaning": "Làm"
+      },
+      {
+        "@id": "124",
+        "meaning": "Mối quan hệ"
+      },
+      {
+        "@id": "125",
+        "meaning": "Đây"
+      },
+      {
+        "@id": "126",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "127",
+        "meaning": "Ngồi xuống"
+      },
+      {
+        "@id": "128",
+        "meaning": "Ở đó"
+      },
+      {
+        "@id": "129",
+        "meaning": "Sáu mươi"
+      },
+      {
+        "@id": "130",
+        "meaning": "Mắt"
+      },
+      {
+        "@id": "131",
+        "meaning": "Chín mươi"
+      },
+      {
+        "@id": "132",
+        "meaning": "Bằng cấp"
+      },
+      {
+        "@id": "133",
+        "meaning": "Điều độ"
+      },
+      {
+        "@id": "134",
+        "meaning": "Về"
+      },
+      {
+        "@id": "135",
+        "meaning": "Bên trên"
+      },
+      {
+        "@id": "136",
+        "meaning": "Thành phố"
+      },
+      {
+        "@id": "137",
+        "meaning": "Tám mươi"
+      },
+      {
+        "@id": "138",
+        "meaning": "Dập tắt"
+      },
+      {
+        "@id": "139",
+        "meaning": "Và"
+      },
+      {
+        "@id": "140",
+        "meaning": "Xã hội"
+      },
+      {
+        "@id": "141",
+        "meaning": "Câu chuyện"
+      },
+      {
+        "@id": "142",
+        "meaning": "Bạn"
+      },
+      {
+        "@id": "143",
+        "meaning": "Tôi"
+      },
+      {
+        "@id": "144",
+        "meaning": "Tay"
+      },
+      {
+        "@id": "145",
+        "meaning": "Thế thôi"
+      },
+      {
+        "@id": "146",
+        "meaning": "Việc kinh doanh"
+      },
+      {
+        "@id": "147",
+        "meaning": "Tuổi"
+      },
+      {
+        "@id": "148",
+        "meaning": "Bên trong"
+      },
+      {
+        "@id": "149",
+        "meaning": "Tất cả"
+      },
+      {
+        "@id": "150",
+        "meaning": "Bảy mươi"
+      },
+      {
+        "@id": "151",
+        "meaning": "Mặc"
+      },
+      {
+        "@id": "152",
+        "meaning": "Phải"
+      },
+      {
+        "@id": "153",
+        "meaning": "Đính kèm"
+      },
+      {
+        "@id": "154",
+        "meaning": "Thế giới"
+      },
+      {
+        "@id": "155",
+        "meaning": "Người khác"
+      },
+      {
+        "@id": "156",
+        "meaning": "Điểm"
+      },
+      {
+        "@id": "157",
+        "meaning": "Nhận được"
+      },
+      {
+        "@id": "158",
+        "meaning": "Nhân loại"
+      },
+      {
+        "@id": "159",
+        "meaning": "2.000"
+      },
+      {
+        "@id": "160",
+        "meaning": "Kế tiếp"
+      },
+      {
+        "@id": "161",
+        "meaning": "Tốt"
+      },
+      {
+        "@id": "162",
+        "meaning": "Mạng sống"
+      },
+      {
+        "@id": "163",
+        "meaning": "Pháp luật"
+      },
+      {
+        "@id": "164",
+        "meaning": "Như nhau"
+      },
+      {
+        "@id": "165",
+        "meaning": "Viết"
+      },
+      {
+        "@id": "166",
+        "meaning": "Nhận được"
+      },
+      {
+        "@id": "167",
+        "meaning": "Công ty"
+      },
+      {
+        "@id": "168",
+        "meaning": "Khi"
+      },
+      {
+        "@id": "169",
+        "meaning": "Đắt"
+      },
+      {
+        "@id": "170",
+        "meaning": "Đạt được"
+      },
+      {
+        "@id": "171",
+        "meaning": "Treo"
+      },
+      {
+        "@id": "172",
+        "meaning": "Bài báo"
+      },
+      {
+        "@id": "173",
+        "meaning": "Như thế"
+      },
+      {
+        "@id": "174",
+        "meaning": "Người đàn ông"
+      },
+      {
+        "@id": "175",
+        "meaning": "Nghiên cứu"
+      },
+      {
+        "@id": "176",
+        "meaning": "Vùng đất"
+      },
+      {
+        "@id": "177",
+        "meaning": "Khuôn mặt"
+      },
+      {
+        "@id": "178",
+        "meaning": "Lớn"
+      },
+      {
+        "@id": "179",
+        "meaning": "Thông tin"
+      },
+      {
+        "@id": "180",
+        "meaning": "Nghĩa"
+      },
+      {
+        "@id": "181",
+        "meaning": "Lần"
+      },
+      {
+        "@id": "182",
+        "meaning": "Cô ấy"
+      },
+      {
+        "@id": "183",
+        "meaning": "Biết"
+      },
+      {
+        "@id": "184",
+        "meaning": "Tham vọng"
+      },
+      {
+        "@id": "185",
+        "meaning": "Nhân vật"
+      },
+      {
+        "@id": "186",
+        "meaning": "Từ"
+      },
+      {
+        "@id": "187",
+        "meaning": "Đưa vào"
+      },
+      {
+        "@id": "188",
+        "meaning": "Quốc gia"
+      },
+      {
+        "@id": "189",
+        "meaning": "Có liên quan"
+      },
+      {
+        "@id": "190",
+        "meaning": "Tỉnh"
+      },
+      {
+        "@id": "191",
+        "meaning": "Trường học"
+      },
+      {
+        "@id": "192",
+        "meaning": "Giữa"
+      },
+      {
+        "@id": "193",
+        "meaning": "Tăng"
+      },
+      {
+        "@id": "194",
+        "meaning": "Quy luật tự nhiên"
+      },
+      {
+        "@id": "195",
+        "meaning": "Công việc"
+      },
+      {
+        "@id": "196",
+        "meaning": "To lớn"
+      },
+      {
+        "@id": "197",
+        "meaning": "Một người"
+      },
+      {
+        "@id": "198",
+        "meaning": "Công ty"
+      },
+      {
+        "@id": "199",
+        "meaning": "Ai"
+      },
+      {
+        "@id": "200",
+        "meaning": "Khả thi"
+      },
+      {
+        "@id": "201",
+        "meaning": "Phút"
+      },
+      {
+        "@id": "202",
+        "meaning": "Hai trăm"
+      },
+      {
+        "@id": "203",
+        "meaning": "Ở đâu"
+      },
+      {
+        "@id": "204",
+        "meaning": "Xuất hiện"
+      },
+      {
+        "@id": "205",
+        "meaning": "Thành viên ủy ban"
+      },
+      {
+        "@id": "206",
+        "meaning": "Nhận được"
+      },
+      {
+        "@id": "207",
+        "meaning": "Thời đại"
+      },
+      {
+        "@id": "208",
+        "meaning": "Sử dụng"
+      },
+      {
+        "@id": "209",
+        "meaning": "Một chút"
+      },
+      {
+        "@id": "210",
+        "meaning": "Hôm nay"
+      },
+      {
+        "@id": "211",
+        "meaning": "Đúng vậy"
+      },
+      {
+        "@id": "212",
+        "meaning": "Của anh ấy"
+      },
+      {
+        "@id": "213",
+        "meaning": "Hai người"
+      },
+      {
+        "@id": "214",
+        "meaning": "Phải mất"
+      },
+      {
+        "@id": "215",
+        "meaning": "Tất cả"
+      },
+      {
+        "@id": "216",
+        "meaning": "Tiếng nói"
+      },
+      {
+        "@id": "217",
+        "meaning": "Hiện tại"
+      },
+      {
+        "@id": "218",
+        "meaning": "Không"
+      },
+      {
+        "@id": "219",
+        "meaning": "Căn nhà"
+      },
+      {
+        "@id": "220",
+        "meaning": "Của"
+      },
+      {
+        "@id": "221",
+        "meaning": "Phương pháp"
+      },
+      {
+        "@id": "222",
+        "meaning": "Kinh tế"
+      },
+      {
+        "@id": "223",
+        "meaning": "Vẫn"
+      },
+      {
+        "@id": "224",
+        "meaning": "Khác"
+      },
+      {
+        "@id": "225",
+        "meaning": "Đàn bà"
+      },
+      {
+        "@id": "226",
+        "meaning": "Yabari"
+      },
+      {
+        "@id": "227",
+        "meaning": "Ăn"
+      },
+      {
+        "@id": "228",
+        "meaning": "Dạy bảo"
+      },
+      {
+        "@id": "229",
+        "meaning": "Vào khoảng thời gian"
+      },
+      {
+        "@id": "230",
+        "meaning": "Đường phố"
+      },
+      {
+        "@id": "231",
+        "meaning": "Cùng nhau"
+      },
+      {
+        "@id": "232",
+        "meaning": "Trái tim"
+      },
+      {
+        "@id": "233",
+        "meaning": "Năm"
+      },
+      {
+        "@id": "234",
+        "meaning": "Hoạt động"
+      },
+      {
+        "@id": "235",
+        "meaning": "Khác biệt"
+      },
+      {
+        "@id": "236",
+        "meaning": "Con nai"
+      },
+      {
+        "@id": "237",
+        "meaning": "Bắt đầu"
+      },
+      {
+        "@id": "238",
+        "meaning": "Vòng tròn"
+      },
+      {
+        "@id": "239",
+        "meaning": "Môi trường"
+      },
+      {
+        "@id": "240",
+        "meaning": "To lớn"
+      },
+      {
+        "@id": "241",
+        "meaning": "Phòng"
+      },
+      {
+        "@id": "242",
+        "meaning": "Tôi"
+      },
+      {
+        "@id": "243",
+        "meaning": "Tokyo"
+      },
+      {
+        "@id": "244",
+        "meaning": "Một inch"
+      },
+      {
+        "@id": "245",
+        "meaning": "Điểm đến"
+      },
+      {
+        "@id": "246",
+        "meaning": "Đứa trẻ"
+      },
+      {
+        "@id": "247",
+        "meaning": "Điện thoại"
+      },
+      {
+        "@id": "248",
+        "meaning": "Kết quả"
+      },
+      {
+        "@id": "249",
+        "meaning": "Cuộc điều tra"
+      },
+      {
+        "@id": "250",
+        "meaning": "Thay đổi"
+      },
+      {
+        "@id": "251",
+        "meaning": "Quá nhiều"
+      },
+      {
+        "@id": "252",
+        "meaning": "Chấn"
+      },
+      {
+        "@id": "253",
+        "meaning": "Bạn"
+      },
+      {
+        "@id": "254",
+        "meaning": "Cộng sự"
+      },
+      {
+        "@id": "255",
+        "meaning": "Gọi"
+      },
+      {
+        "@id": "256",
+        "meaning": "Cảm thấy"
+      },
+      {
+        "@id": "257",
+        "meaning": "Tình huống"
+      },
+      {
+        "@id": "258",
+        "meaning": "Mạnh"
+      },
+      {
+        "@id": "259",
+        "meaning": "Mỹ"
+      },
+      {
+        "@id": "260",
+        "meaning": "Lực lượng"
+      },
+      {
+        "@id": "261",
+        "meaning": "Đàn bà"
+      },
+      {
+        "@id": "262",
+        "meaning": "Giáo dục"
+      },
+      {
+        "@id": "263",
+        "meaning": "Mua"
+      },
+      {
+        "@id": "264",
+        "meaning": "Trái đất"
+      },
+      {
+        "@id": "265",
+        "meaning": "Kế hoạch"
+      },
+      {
+        "@id": "266",
+        "meaning": "Công nghệ"
+      },
+      {
+        "@id": "267",
+        "meaning": "Vì"
+      },
+      {
+        "@id": "268",
+        "meaning": "Đầu tiên"
+      },
+      {
+        "@id": "269",
+        "meaning": "Ngay lập tức"
+      },
+      {
+        "@id": "270",
+        "meaning": "Xấu"
+      },
+      {
+        "@id": "271",
+        "meaning": "Trường đại học"
+      },
+      {
+        "@id": "272",
+        "meaning": "Tiếp tục"
+      },
+      {
+        "@id": "273",
+        "meaning": "Giáo viên"
+      },
+      {
+        "@id": "274",
+        "meaning": "Đặc biệt"
+      },
+      {
+        "@id": "275",
+        "meaning": "Chỉ một"
+      },
+      {
+        "@id": "276",
+        "meaning": "Cái gì?"
+      },
+      {
+        "@id": "277",
+        "meaning": "Nội dung"
+      },
+      {
+        "@id": "278",
+        "meaning": "Hoặc"
+      },
+      {
+        "@id": "279",
+        "meaning": "Thư pháp"
+      },
+      {
+        "@id": "280",
+        "meaning": "Bức ảnh"
+      },
+      {
+        "@id": "281",
+        "meaning": "Về"
+      },
+      {
+        "@id": "282",
+        "meaning": "Bảo hiểm"
+      },
+      {
+        "@id": "283",
+        "meaning": "Thô"
+      },
+      {
+        "@id": "284",
+        "meaning": "Vấn đề"
+      },
+      {
+        "@id": "285",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "286",
+        "meaning": "Xe hơi"
+      },
+      {
+        "@id": "287",
+        "meaning": "Thời đại showa"
+      },
+      {
+        "@id": "288",
+        "meaning": "Nên"
+      },
+      {
+        "@id": "289",
+        "meaning": "Thiếu niên"
+      },
+      {
+        "@id": "290",
+        "meaning": "Tình huống"
+      },
+      {
+        "@id": "291",
+        "meaning": "Tổng quan"
+      },
+      {
+        "@id": "292",
+        "meaning": "Ví dụ"
+      },
+      {
+        "@id": "293",
+        "meaning": "Một vài"
+      },
+      {
+        "@id": "294",
+        "meaning": "Năm trăm"
+      },
+      {
+        "@id": "295",
+        "meaning": "Sử dụng"
+      },
+      {
+        "@id": "296",
+        "meaning": "Trình diễn"
+      },
+      {
+        "@id": "297",
+        "meaning": "Phần"
+      },
+      {
+        "@id": "298",
+        "meaning": "Sảnh"
+      },
+      {
+        "@id": "299",
+        "meaning": "Chính phủ"
+      },
+      {
+        "@id": "300",
+        "meaning": "Dài"
+      },
+      {
+        "@id": "301",
+        "meaning": "Như thế này"
+      },
+      {
+        "@id": "302",
+        "meaning": "Tám trăm"
+      },
+      {
+        "@id": "303",
+        "meaning": "Heisei"
+      },
+      {
+        "@id": "304",
+        "meaning": "Trang"
+      },
+      {
+        "@id": "305",
+        "meaning": "Nhân công"
+      },
+      {
+        "@id": "306",
+        "meaning": "Giống"
+      },
+      {
+        "@id": "307",
+        "meaning": "Sớm"
+      },
+      {
+        "@id": "308",
+        "meaning": "Hệ thống"
+      },
+      {
+        "@id": "309",
+        "meaning": "Thành viên"
+      },
+      {
+        "@id": "310",
+        "meaning": "Chủ thể"
+      },
+      {
+        "@id": "311",
+        "meaning": "Tôi muốn"
+      },
+      {
+        "@id": "312",
+        "meaning": "Sự tồn tại"
+      },
+      {
+        "@id": "313",
+        "meaning": "Trở lại"
+      },
+      {
+        "@id": "314",
+        "meaning": "Phát triển"
+      },
+      {
+        "@id": "315",
+        "meaning": "Tôi sẽ"
+      },
+      {
+        "@id": "316",
+        "meaning": "Cảm giác"
+      },
+      {
+        "@id": "317",
+        "meaning": "Cắt"
+      },
+      {
+        "@id": "318",
+        "meaning": "Nền tảng"
+      },
+      {
+        "@id": "319",
+        "meaning": "Ba trăm"
+      },
+      {
+        "@id": "320",
+        "meaning": "Quy định"
+      },
+      {
+        "@id": "321",
+        "meaning": "Thân hình"
+      },
+      {
+        "@id": "322",
+        "meaning": "Cái đầu"
+      },
+      {
+        "@id": "323",
+        "meaning": "Câu hỏi"
+      },
+      {
+        "@id": "324",
+        "meaning": "Thuật ngữ"
+      },
+      {
+        "@id": "325",
+        "meaning": "Lời giải thích"
+      },
+      {
+        "@id": "326",
+        "meaning": "Đọc"
+      },
+      {
+        "@id": "327",
+        "meaning": "Ông"
+      },
+      {
+        "@id": "328",
+        "meaning": "Bộ"
+      },
+      {
+        "@id": "329",
+        "meaning": "Nước"
+      },
+      {
+        "@id": "330",
+        "meaning": "Tại sao"
+      },
+      {
+        "@id": "331",
+        "meaning": "Thực hiện"
+      },
+      {
+        "@id": "332",
+        "meaning": "Bàn"
+      },
+      {
+        "@id": "333",
+        "meaning": "Tuyệt đối"
+      },
+      {
+        "@id": "334",
+        "meaning": "Quan trọng"
+      },
+      {
+        "@id": "335",
+        "meaning": "Đứng"
+      },
+      {
+        "@id": "336",
+        "meaning": "Cơ sở"
+      },
+      {
+        "@id": "337",
+        "meaning": "Hầu hết"
+      },
+      {
+        "@id": "338",
+        "meaning": "Cái gì"
+      },
+      {
+        "@id": "339",
+        "meaning": "Mới"
+      },
+      {
+        "@id": "340",
+        "meaning": "Nói chuyện"
+      },
+      {
+        "@id": "341",
+        "meaning": "Trung quốc"
+      },
+      {
+        "@id": "342",
+        "meaning": "Vùng đất"
+      },
+      {
+        "@id": "343",
+        "meaning": "Cùng nhau"
+      },
+      {
+        "@id": "344",
+        "meaning": "Số một"
+      },
+      {
+        "@id": "345",
+        "meaning": "Sự quản lý"
+      },
+      {
+        "@id": "346",
+        "meaning": "Chi phí"
+      },
+      {
+        "@id": "347",
+        "meaning": "Sự tham gia"
+      },
+      {
+        "@id": "348",
+        "meaning": "Máy móc"
+      },
+      {
+        "@id": "349",
+        "meaning": "Dễ"
+      },
+      {
+        "@id": "350",
+        "meaning": "Bé nhỏ"
+      },
+      {
+        "@id": "351",
+        "meaning": "Có"
+      },
+      {
+        "@id": "352",
+        "meaning": "Miệng"
+      },
+      {
+        "@id": "353",
+        "meaning": "Khuôn"
+      },
+      {
+        "@id": "354",
+        "meaning": "Gần đây"
+      },
+      {
+        "@id": "355",
+        "meaning": "Hình dạng"
+      },
+      {
+        "@id": "356",
+        "meaning": "Sự cố"
+      },
+      {
+        "@id": "357",
+        "meaning": "Từ"
+      },
+      {
+        "@id": "358",
+        "meaning": "Mọi người"
+      },
+      {
+        "@id": "359",
+        "meaning": "Trăm triệu"
+      },
+      {
+        "@id": "360",
+        "meaning": "Bằng cấp"
+      },
+      {
+        "@id": "361",
+        "meaning": "Tất nhiên rồi"
+      },
+      {
+        "@id": "362",
+        "meaning": "Trung tâm"
+      },
+      {
+        "@id": "363",
+        "meaning": "Tổ chức"
+      },
+      {
+        "@id": "364",
+        "meaning": "Phần còn lại"
+      },
+      {
+        "@id": "365",
+        "meaning": "Yêu cầu"
+      },
+      {
+        "@id": "366",
+        "meaning": "Đưa cho"
+      },
+      {
+        "@id": "367",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "368",
+        "meaning": "Muốn"
+      },
+      {
+        "@id": "369",
+        "meaning": "Trung tâm"
+      },
+      {
+        "@id": "370",
+        "meaning": "Sống"
+      },
+      {
+        "@id": "371",
+        "meaning": "Phải"
+      },
+      {
+        "@id": "372",
+        "meaning": "Văn hoá"
+      },
+      {
+        "@id": "373",
+        "meaning": "Uống"
+      },
+      {
+        "@id": "374",
+        "meaning": "Mỗi"
+      },
+      {
+        "@id": "375",
+        "meaning": "Tắc nghẽn"
+      },
+      {
+        "@id": "376",
+        "meaning": "Trẻ"
+      },
+      {
+        "@id": "377",
+        "meaning": "Bảo trì"
+      },
+      {
+        "@id": "378",
+        "meaning": "Mỗi"
+      },
+      {
+        "@id": "379",
+        "meaning": "Quốc tế"
+      },
+      {
+        "@id": "380",
+        "meaning": "Số lượng"
+      },
+      {
+        "@id": "381",
+        "meaning": "Ước"
+      },
+      {
+        "@id": "382",
+        "meaning": "Mục đích"
+      },
+      {
+        "@id": "383",
+        "meaning": "Nhân vật"
+      },
+      {
+        "@id": "384",
+        "meaning": "Dài"
+      },
+      {
+        "@id": "385",
+        "meaning": "Tiếng cười"
+      },
+      {
+        "@id": "386",
+        "meaning": "Đầu tiên"
+      },
+      {
+        "@id": "387",
+        "meaning": "Thật sự"
+      },
+      {
+        "@id": "388",
+        "meaning": "Phòng"
+      },
+      {
+        "@id": "389",
+        "meaning": "Cảm giác"
+      },
+      {
+        "@id": "390",
+        "meaning": "Chờ đợi"
+      },
+      {
+        "@id": "391",
+        "meaning": "Rõ ràng"
+      },
+      {
+        "@id": "392",
+        "meaning": "Tiếp tục"
+      },
+      {
+        "@id": "393",
+        "meaning": "Của tôi"
+      },
+      {
+        "@id": "394",
+        "meaning": "Hoa quả"
+      },
+      {
+        "@id": "395",
+        "meaning": "Theo"
+      },
+      {
+        "@id": "396",
+        "meaning": "Đã"
+      },
+      {
+        "@id": "397",
+        "meaning": "Nguyên tắc"
+      },
+      {
+        "@id": "398",
+        "meaning": "Hơn nữa"
+      },
+      {
+        "@id": "399",
+        "meaning": "Mới"
+      },
+      {
+        "@id": "400",
+        "meaning": "Gió"
+      },
+      {
+        "@id": "401",
+        "meaning": "Sự đánh giá"
+      },
+      {
+        "@id": "402",
+        "meaning": "Vàng"
+      },
+      {
+        "@id": "403",
+        "meaning": "Tỷ lệ"
+      },
+      {
+        "@id": "404",
+        "meaning": "Trong"
+      },
+      {
+        "@id": "405",
+        "meaning": "Tiếp tục"
+      },
+      {
+        "@id": "406",
+        "meaning": "Loại gì"
+      },
+      {
+        "@id": "407",
+        "meaning": "Thừa nhận"
+      },
+      {
+        "@id": "408",
+        "meaning": "Lý do"
+      },
+      {
+        "@id": "409",
+        "meaning": "Đi thôi"
+      },
+      {
+        "@id": "410",
+        "meaning": "Trọn"
+      },
+      {
+        "@id": "411",
+        "meaning": "Tự do"
+      },
+      {
+        "@id": "412",
+        "meaning": "Thay đổi"
+      },
+      {
+        "@id": "413",
+        "meaning": "Sản xuất"
+      },
+      {
+        "@id": "414",
+        "meaning": "Khác với"
+      },
+      {
+        "@id": "415",
+        "meaning": "Thường xuyên"
+      },
+      {
+        "@id": "416",
+        "meaning": "Dưới"
+      },
+      {
+        "@id": "417",
+        "meaning": "Chuyên gia"
+      },
+      {
+        "@id": "418",
+        "meaning": "Trả lời"
+      },
+      {
+        "@id": "419",
+        "meaning": "Cuối cùng"
+      },
+      {
+        "@id": "420",
+        "meaning": "Kết thúc"
+      },
+      {
+        "@id": "421",
+        "meaning": "Mở"
+      },
+      {
+        "@id": "422",
+        "meaning": "Bên"
+      },
+      {
+        "@id": "423",
+        "meaning": "Lần đầu tiên"
+      },
+      {
+        "@id": "424",
+        "meaning": "Gia đình"
+      },
+      {
+        "@id": "425",
+        "meaning": "Tác dụng"
+      },
+      {
+        "@id": "426",
+        "meaning": "Bao gồm"
+      },
+      {
+        "@id": "427",
+        "meaning": "Số lượng"
+      },
+      {
+        "@id": "428",
+        "meaning": "Chức năng"
+      },
+      {
+        "@id": "429",
+        "meaning": "Mọi người"
+      },
+      {
+        "@id": "430",
+        "meaning": "Gặp"
+      },
+      {
+        "@id": "431",
+        "meaning": "Dưới"
+      },
+      {
+        "@id": "432",
+        "meaning": "Cũng"
+      },
+      {
+        "@id": "433",
+        "meaning": "Tháng"
+      },
+      {
+        "@id": "434",
+        "meaning": "Trở lại"
+      },
+      {
+        "@id": "435",
+        "meaning": "Ảnh hưởng"
+      },
+      {
+        "@id": "436",
+        "meaning": "Sự hiểu biết"
+      },
+      {
+        "@id": "437",
+        "meaning": "Biện pháp đối phó"
+      },
+      {
+        "@id": "438",
+        "meaning": "Mẹ"
+      },
+      {
+        "@id": "439",
+        "meaning": "Núi"
+      },
+      {
+        "@id": "440",
+        "meaning": "Cảm giác"
+      },
+      {
+        "@id": "441",
+        "meaning": "Thành phố"
+      },
+      {
+        "@id": "442",
+        "meaning": "Con số"
+      },
+      {
+        "@id": "443",
+        "meaning": "Tư vấn"
+      },
+      {
+        "@id": "444",
+        "meaning": "Bốn trăm"
+      },
+      {
+        "@id": "445",
+        "meaning": "Ví dụ"
+      },
+      {
+        "@id": "446",
+        "meaning": "Sức khỏe"
+      },
+      {
+        "@id": "447",
+        "meaning": "Hệ thống"
+      },
+      {
+        "@id": "448",
+        "meaning": "Thư từ"
+      },
+      {
+        "@id": "449",
+        "meaning": "Phường"
+      },
+      {
+        "@id": "450",
+        "meaning": "Đi bộ"
+      },
+      {
+        "@id": "451",
+        "meaning": "Đánh"
+      },
+      {
+        "@id": "452",
+        "meaning": "Cử động"
+      },
+      {
+        "@id": "453",
+        "meaning": "Hầu hết"
+      },
+      {
+        "@id": "455",
+        "meaning": "Đây"
+      },
+      {
+        "@id": "456",
+        "meaning": "Việc kinh doanh"
+      },
+      {
+        "@id": "457",
+        "meaning": "Phí"
+      },
+      {
+        "@id": "458",
+        "meaning": "Buổi chiều"
+      },
+      {
+        "@id": "459",
+        "meaning": "Cá nhân"
+      },
+      {
+        "@id": "460",
+        "meaning": "Đêm"
+      },
+      {
+        "@id": "461",
+        "meaning": "Sự cản trở"
+      },
+      {
+        "@id": "462",
+        "meaning": "Khẩn cấp"
+      },
+      {
+        "@id": "463",
+        "meaning": "Thiên nhiên"
+      },
+      {
+        "@id": "464",
+        "meaning": "Hàng hóa"
+      },
+      {
+        "@id": "465",
+        "meaning": "Nghiên cứu"
+      },
+      {
+        "@id": "466",
+        "meaning": "Sự an toàn"
+      },
+      {
+        "@id": "467",
+        "meaning": "Lúc đó"
+      },
+      {
+        "@id": "468",
+        "meaning": "Giai đoạn"
+      },
+      {
+        "@id": "469",
+        "meaning": "Kế hoạch"
+      },
+      {
+        "@id": "470",
+        "meaning": "Chính trị"
+      },
+      {
+        "@id": "471",
+        "meaning": "Thị trấn"
+      },
+      {
+        "@id": "472",
+        "meaning": "Công ty"
+      },
+      {
+        "@id": "473",
+        "meaning": "Thuật ngữ"
+      },
+      {
+        "@id": "474",
+        "meaning": "Hướng tới"
+      },
+      {
+        "@id": "475",
+        "meaning": "Khả thi"
+      },
+      {
+        "@id": "476",
+        "meaning": "Trước"
+      },
+      {
+        "@id": "477",
+        "meaning": "Bộ trưởng"
+      },
+      {
+        "@id": "478",
+        "meaning": "Xác nhận"
+      },
+      {
+        "@id": "479",
+        "meaning": "Hướng dẫn"
+      },
+      {
+        "@id": "480",
+        "meaning": "Trở nên"
+      },
+      {
+        "@id": "481",
+        "meaning": "Sách"
+      },
+      {
+        "@id": "482",
+        "meaning": "Hoa"
+      },
+      {
+        "@id": "483",
+        "meaning": "Ý thức"
+      },
+      {
+        "@id": "484",
+        "meaning": "Bản thân anh ấy"
+      },
+      {
+        "@id": "485",
+        "meaning": "Hơn"
+      },
+      {
+        "@id": "486",
+        "meaning": "Kết hôn"
+      },
+      {
+        "@id": "487",
+        "meaning": "Chỉ một"
+      },
+      {
+        "@id": "488",
+        "meaning": "Công thức"
+      },
+      {
+        "@id": "489",
+        "meaning": "Thân hình"
+      },
+      {
+        "@id": "490",
+        "meaning": "Tên riêng"
+      },
+      {
+        "@id": "491",
+        "meaning": "Dịch vụ"
+      },
+      {
+        "@id": "492",
+        "meaning": "Kokoro"
+      },
+      {
+        "@id": "493",
+        "meaning": "Sự quản lý"
+      },
+      {
+        "@id": "494",
+        "meaning": "Yui"
+      },
+      {
+        "@id": "495",
+        "meaning": "Bố"
+      },
+      {
+        "@id": "496",
+        "meaning": "Bề mặt"
+      },
+      {
+        "@id": "497",
+        "meaning": "Sâu"
+      },
+      {
+        "@id": "498",
+        "meaning": "Hệ thống"
+      },
+      {
+        "@id": "499",
+        "meaning": "Màu sắc"
+      },
+      {
+        "@id": "500",
+        "meaning": "Hàng hóa"
+      },
+      {
+        "@id": "501",
+        "meaning": "Lần này"
+      },
+      {
+        "@id": "502",
+        "meaning": "Cục"
+      },
+      {
+        "@id": "503",
+        "meaning": "Trình diễn"
+      },
+      {
+        "@id": "504",
+        "meaning": "Cửa hàng"
+      },
+      {
+        "@id": "505",
+        "meaning": "Hàng năm"
+      },
+      {
+        "@id": "506",
+        "meaning": "Công việc văn phòng"
+      },
+      {
+        "@id": "507",
+        "meaning": "Công việc"
+      },
+      {
+        "@id": "508",
+        "meaning": "Chết"
+      },
+      {
+        "@id": "509",
+        "meaning": "Sáu trăm"
+      },
+      {
+        "@id": "510",
+        "meaning": "Tên"
+      },
+      {
+        "@id": "511",
+        "meaning": "Trẻ"
+      },
+      {
+        "@id": "512",
+        "meaning": "Khuyến mãi"
+      },
+      {
+        "@id": "513",
+        "meaning": "Âm thanh"
+      },
+      {
+        "@id": "514",
+        "meaning": "Thay đổi"
+      },
+      {
+        "@id": "515",
+        "meaning": "Mét"
+      },
+      {
+        "@id": "516",
+        "meaning": "Hoạt động"
+      },
+      {
+        "@id": "517",
+        "meaning": "Như nhau"
+      },
+      {
+        "@id": "518",
+        "meaning": "Pháp luật"
+      },
+      {
+        "@id": "519",
+        "meaning": "Bảy trăm"
+      },
+      {
+        "@id": "520",
+        "meaning": "Tự động"
+      },
+      {
+        "@id": "521",
+        "meaning": "Duy trì"
+      },
+      {
+        "@id": "522",
+        "meaning": "Sự xuất hiện"
+      },
+      {
+        "@id": "523",
+        "meaning": "Phán quyết"
+      },
+      {
+        "@id": "524",
+        "meaning": "Lịch sử"
+      },
+      {
+        "@id": "525",
+        "meaning": "Ga tàu"
+      },
+      {
+        "@id": "526",
+        "meaning": "Ngành công nghiệp"
+      },
+      {
+        "@id": "527",
+        "meaning": "Tivi"
+      },
+      {
+        "@id": "528",
+        "meaning": "Tổ chức"
+      },
+      {
+        "@id": "529",
+        "meaning": "Cửa hàng"
+      },
+      {
+        "@id": "530",
+        "meaning": "E-mail"
+      },
+      {
+        "@id": "531",
+        "meaning": "Phân công"
+      },
+      {
+        "@id": "532",
+        "meaning": "Sự khác biệt"
+      },
+      {
+        "@id": "533",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "534",
+        "meaning": "Đặc biệt"
+      },
+      {
+        "@id": "535",
+        "meaning": "Sự hợp tác"
+      },
+      {
+        "@id": "536",
+        "meaning": "Bệnh viện"
+      },
+      {
+        "@id": "537",
+        "meaning": "Sự tiêu thụ"
+      },
+      {
+        "@id": "538",
+        "meaning": "Báo cáo"
+      },
+      {
+        "@id": "539",
+        "meaning": "Chắc chắn"
+      },
+      {
+        "@id": "540",
+        "meaning": "Đường"
+      },
+      {
+        "@id": "541",
+        "meaning": "Thơm ngon"
+      },
+      {
+        "@id": "542",
+        "meaning": "Giá"
+      },
+      {
+        "@id": "543",
+        "meaning": "Quá trình"
+      },
+      {
+        "@id": "544",
+        "meaning": "Chọn"
+      },
+      {
+        "@id": "545",
+        "meaning": "Sự thật"
+      },
+      {
+        "@id": "546",
+        "meaning": "Sự bảo vệ"
+      },
+      {
+        "@id": "547",
+        "meaning": "Tăng"
+      },
+      {
+        "@id": "548",
+        "meaning": "Chúa"
+      },
+      {
+        "@id": "549",
+        "meaning": "Sinh"
+      },
+      {
+        "@id": "550",
+        "meaning": "Trưng bày"
+      },
+      {
+        "@id": "551",
+        "meaning": "Cuộc thi đấu"
+      },
+      {
+        "@id": "552",
+        "meaning": "Điều kiện"
+      },
+      {
+        "@id": "553",
+        "meaning": "Tinh thần"
+      },
+      {
+        "@id": "554",
+        "meaning": "Khách hàng"
+      },
+      {
+        "@id": "555",
+        "meaning": "Hành động"
+      },
+      {
+        "@id": "556",
+        "meaning": "Trách nhiệm"
+      },
+      {
+        "@id": "557",
+        "meaning": "Tiếp tục"
+      },
+      {
+        "@id": "558",
+        "meaning": "Chắc chắn"
+      },
+      {
+        "@id": "559",
+        "meaning": "Không có gì"
+      },
+      {
+        "@id": "560",
+        "meaning": "Chăm sóc y tế"
+      },
+      {
+        "@id": "561",
+        "meaning": "Phòng"
+      },
+      {
+        "@id": "562",
+        "meaning": "Cài đặt"
+      },
+      {
+        "@id": "563",
+        "meaning": "Tuyệt vời"
+      },
+      {
+        "@id": "564",
+        "meaning": "Quy định"
+      },
+      {
+        "@id": "565",
+        "meaning": "Kinh nghiệm"
+      },
+      {
+        "@id": "566",
+        "meaning": "Chúng tôi"
+      },
+      {
+        "@id": "567",
+        "meaning": "Tính cách"
+      },
+      {
+        "@id": "568",
+        "meaning": "Thêm vào"
+      },
+      {
+        "@id": "569",
+        "meaning": "Bắt đầu"
+      },
+      {
+        "@id": "570",
+        "meaning": "Từ lâu rồi"
+      },
+      {
+        "@id": "571",
+        "meaning": "Giới thiệu"
+      },
+      {
+        "@id": "572",
+        "meaning": "Đương nhiên"
+      },
+      {
+        "@id": "573",
+        "meaning": "Cha mẹ"
+      },
+      {
+        "@id": "574",
+        "meaning": "Bàn chân"
+      },
+      {
+        "@id": "575",
+        "meaning": "Kể từ bây giờ"
+      },
+      {
+        "@id": "576",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "577",
+        "meaning": "Chợ"
+      },
+      {
+        "@id": "578",
+        "meaning": "Phần"
+      },
+      {
+        "@id": "579",
+        "meaning": "Đường kẻ"
+      },
+      {
+        "@id": "580",
+        "meaning": "Ý kiến"
+      },
+      {
+        "@id": "581",
+        "meaning": "Chạy"
+      },
+      {
+        "@id": "582",
+        "meaning": "Quên"
+      },
+      {
+        "@id": "583",
+        "meaning": "Được tham gia"
+      },
+      {
+        "@id": "584",
+        "meaning": "Đất"
+      },
+      {
+        "@id": "585",
+        "meaning": "Bên nào"
+      },
+      {
+        "@id": "586",
+        "meaning": "Cây"
+      },
+      {
+        "@id": "587",
+        "meaning": "Bộ phim"
+      },
+      {
+        "@id": "588",
+        "meaning": "Tờ giấy"
+      },
+      {
+        "@id": "589",
+        "meaning": "Nhóm"
+      },
+      {
+        "@id": "590",
+        "meaning": "Gozen"
+      },
+      {
+        "@id": "591",
+        "meaning": "Ôi trời ơi"
+      },
+      {
+        "@id": "592",
+        "meaning": "Bờ rìa"
+      },
+      {
+        "@id": "593",
+        "meaning": "Công việc"
+      },
+      {
+        "@id": "594",
+        "meaning": "Gửi"
+      },
+      {
+        "@id": "595",
+        "meaning": "Chiến tranh"
+      },
+      {
+        "@id": "596",
+        "meaning": "Đi qua"
+      },
+      {
+        "@id": "597",
+        "meaning": "Quyết định"
+      },
+      {
+        "@id": "598",
+        "meaning": "Nguyên vật liệu"
+      },
+      {
+        "@id": "599",
+        "meaning": "Ghi chú"
+      },
+      {
+        "@id": "600",
+        "meaning": "Báo"
+      },
+      {
+        "@id": "601",
+        "meaning": "Tình trạng"
+      },
+      {
+        "@id": "602",
+        "meaning": "Con gái"
+      },
+      {
+        "@id": "603",
+        "meaning": "Đồng thời"
+      },
+      {
+        "@id": "604",
+        "meaning": "Xảy ra"
+      },
+      {
+        "@id": "605",
+        "meaning": "Phúc lợi"
+      },
+      {
+        "@id": "606",
+        "meaning": "Sự phán xét"
+      },
+      {
+        "@id": "607",
+        "meaning": "Ngân hàng"
+      },
+      {
+        "@id": "608",
+        "meaning": "Ba nghìn"
+      },
+      {
+        "@id": "609",
+        "meaning": "Dựa trên"
+      },
+      {
+        "@id": "610",
+        "meaning": "Thuế"
+      },
+      {
+        "@id": "611",
+        "meaning": "Tiêu chuẩn"
+      },
+      {
+        "@id": "612",
+        "meaning": "Nhà ở"
+      },
+      {
+        "@id": "613",
+        "meaning": "Mùa"
+      },
+      {
+        "@id": "614",
+        "meaning": "Dễ"
+      },
+      {
+        "@id": "615",
+        "meaning": "Tsutsu"
+      },
+      {
+        "@id": "616",
+        "meaning": "Sự quản lý"
+      },
+      {
+        "@id": "617",
+        "meaning": "Giao thông"
+      },
+      {
+        "@id": "618",
+        "meaning": "Kết cấu"
+      },
+      {
+        "@id": "619",
+        "meaning": "Buổi sáng"
+      },
+      {
+        "@id": "620",
+        "meaning": "Vượt qua"
+      },
+      {
+        "@id": "621",
+        "meaning": "Dòng sông"
+      },
+      {
+        "@id": "622",
+        "meaning": "Buổi sáng"
+      },
+      {
+        "@id": "623",
+        "meaning": "Vai trò"
+      },
+      {
+        "@id": "624",
+        "meaning": "Hợp đồng"
+      },
+      {
+        "@id": "625",
+        "meaning": "Lịch trình"
+      },
+      {
+        "@id": "626",
+        "meaning": "Con số"
+      },
+      {
+        "@id": "627",
+        "meaning": "Tiêu biểu"
+      },
+      {
+        "@id": "628",
+        "meaning": "Làm"
+      },
+      {
+        "@id": "629",
+        "meaning": "Công việc"
+      },
+      {
+        "@id": "630",
+        "meaning": "Chính sách"
+      },
+      {
+        "@id": "631",
+        "meaning": "Đứng lên"
+      },
+      {
+        "@id": "632",
+        "meaning": "So sánh"
+      },
+      {
+        "@id": "633",
+        "meaning": "Nước ngoài"
+      },
+      {
+        "@id": "634",
+        "meaning": "Thế kỷ"
+      },
+      {
+        "@id": "635",
+        "meaning": "Gần"
+      },
+      {
+        "@id": "636",
+        "meaning": "Trực tiếp"
+      },
+      {
+        "@id": "637",
+        "meaning": "Trang chủ"
+      },
+      {
+        "@id": "638",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "639",
+        "meaning": "Nam giới"
+      },
+      {
+        "@id": "640",
+        "meaning": "Dữ liệu"
+      },
+      {
+        "@id": "641",
+        "meaning": "Vẽ tranh"
+      },
+      {
+        "@id": "642",
+        "meaning": "Coi như"
+      },
+      {
+        "@id": "643",
+        "meaning": "Sự lựa chọn"
+      },
+      {
+        "@id": "644",
+        "meaning": "Gây ra"
+      },
+      {
+        "@id": "645",
+        "meaning": "Bé nhỏ"
+      },
+      {
+        "@id": "646",
+        "meaning": "Công dân"
+      },
+      {
+        "@id": "647",
+        "meaning": "Trước đây"
+      },
+      {
+        "@id": "648",
+        "meaning": "Doanh thu"
+      },
+      {
+        "@id": "649",
+        "meaning": "Ngoài"
+      },
+      {
+        "@id": "650",
+        "meaning": "Tiếp tục"
+      },
+      {
+        "@id": "651",
+        "meaning": "Ủng hộ"
+      },
+      {
+        "@id": "652",
+        "meaning": "Cảnh sát"
+      },
+      {
+        "@id": "653",
+        "meaning": "Sự chỉ định"
+      },
+      {
+        "@id": "654",
+        "meaning": "Hãng"
+      },
+      {
+        "@id": "655",
+        "meaning": "Bản thân"
+      },
+      {
+        "@id": "656",
+        "meaning": "Nụ cười"
+      },
+      {
+        "@id": "657",
+        "meaning": "Bé nhỏ"
+      },
+      {
+        "@id": "658",
+        "meaning": "Quan trọng"
+      },
+      {
+        "@id": "659",
+        "meaning": "Quân đội"
+      },
+      {
+        "@id": "660",
+        "meaning": "Hợp lý"
+      },
+      {
+        "@id": "661",
+        "meaning": "Làng bản"
+      },
+      {
+        "@id": "662",
+        "meaning": "Thông thoáng"
+      },
+      {
+        "@id": "663",
+        "meaning": "Nốt rê"
+      },
+      {
+        "@id": "664",
+        "meaning": "Dù bằng cách nào"
+      },
+      {
+        "@id": "665",
+        "meaning": "Toàn quốc"
+      },
+      {
+        "@id": "666",
+        "meaning": "Nấu nướng"
+      },
+      {
+        "@id": "667",
+        "meaning": "Sự đầu tư"
+      },
+      {
+        "@id": "668",
+        "meaning": "Hoàn thành"
+      },
+      {
+        "@id": "669",
+        "meaning": "Người bạn"
+      },
+      {
+        "@id": "670",
+        "meaning": "Sử dụng"
+      },
+      {
+        "@id": "671",
+        "meaning": "Không tốt"
+      },
+      {
+        "@id": "672",
+        "meaning": "Không thích"
+      },
+      {
+        "@id": "673",
+        "meaning": "Đặc sản"
+      },
+      {
+        "@id": "674",
+        "meaning": "Nghĩ"
+      },
+      {
+        "@id": "675",
+        "meaning": "Sự biểu lộ"
+      },
+      {
+        "@id": "676",
+        "meaning": "Vui vẻ"
+      },
+      {
+        "@id": "677",
+        "meaning": "Tập đoàn"
+      },
+      {
+        "@id": "678",
+        "meaning": "Thậm chí"
+      },
+      {
+        "@id": "679",
+        "meaning": "Tạo nên"
+      },
+      {
+        "@id": "680",
+        "meaning": "Lương hưu"
+      },
+      {
+        "@id": "681",
+        "meaning": "Mong đợi"
+      },
+      {
+        "@id": "682",
+        "meaning": "Ồ"
+      },
+      {
+        "@id": "683",
+        "meaning": "Khả năng"
+      },
+      {
+        "@id": "684",
+        "meaning": "Di chuyển"
+      },
+      {
+        "@id": "685",
+        "meaning": "Sự lôi kéo"
+      },
+      {
+        "@id": "686",
+        "meaning": "Giao dịch"
+      },
+      {
+        "@id": "687",
+        "meaning": "Sự thử nghiệm"
+      },
+      {
+        "@id": "688",
+        "meaning": "Quốc gia"
+      },
+      {
+        "@id": "689",
+        "meaning": "Các loại"
+      },
+      {
+        "@id": "690",
+        "meaning": "Anh ta"
+      },
+      {
+        "@id": "691",
+        "meaning": "Đứng"
+      },
+      {
+        "@id": "692",
+        "meaning": "Lần sau"
+      },
+      {
+        "@id": "693",
+        "meaning": "Khó"
+      },
+      {
+        "@id": "694",
+        "meaning": "Đánh đập"
+      },
+      {
+        "@id": "695",
+        "meaning": "Duyên dáng"
+      },
+      {
+        "@id": "696",
+        "meaning": "Lo âu"
+      },
+      {
+        "@id": "697",
+        "meaning": "Mãi mãi"
+      },
+      {
+        "@id": "698",
+        "meaning": "Dừng lại"
+      },
+      {
+        "@id": "699",
+        "meaning": "Chức vụ"
+      },
+      {
+        "@id": "700",
+        "meaning": "Bảo vệ"
+      },
+      {
+        "@id": "701",
+        "meaning": "Thủ đô"
+      },
+      {
+        "@id": "702",
+        "meaning": "Sự lo lắng"
+      },
+      {
+        "@id": "703",
+        "meaning": "Thực tế"
+      },
+      {
+        "@id": "704",
+        "meaning": "Chàng trai"
+      },
+      {
+        "@id": "705",
+        "meaning": "Xuất hiện"
+      },
+      {
+        "@id": "706",
+        "meaning": "Thơm ngon"
+      },
+      {
+        "@id": "707",
+        "meaning": "Xung quanh"
+      },
+      {
+        "@id": "708",
+        "meaning": "Sàn nhà"
+      },
+      {
+        "@id": "709",
+        "meaning": "Học giả"
+      },
+      {
+        "@id": "710",
+        "meaning": "Liên hệ"
+      },
+      {
+        "@id": "711",
+        "meaning": "Khoa học"
+      },
+      {
+        "@id": "712",
+        "meaning": "Khá"
+      },
+      {
+        "@id": "713",
+        "meaning": "Đường"
+      },
+      {
+        "@id": "714",
+        "meaning": "Hấp dẫn"
+      },
+      {
+        "@id": "715",
+        "meaning": "Sống"
+      },
+      {
+        "@id": "716",
+        "meaning": "Chính phủ"
+      },
+      {
+        "@id": "717",
+        "meaning": "Sự thi công"
+      },
+      {
+        "@id": "718",
+        "meaning": "Trung tâm"
+      },
+      {
+        "@id": "719",
+        "meaning": "Tuyệt đối"
+      },
+      {
+        "@id": "720",
+        "meaning": "Buổi tiệc"
+      },
+      {
+        "@id": "721",
+        "meaning": "Thưởng thức"
+      },
+      {
+        "@id": "722",
+        "meaning": "À"
+      },
+      {
+        "@id": "723",
+        "meaning": "Hôm qua"
+      },
+      {
+        "@id": "724",
+        "meaning": "Bê tông"
+      },
+      {
+        "@id": "725",
+        "meaning": "Kiên nhẫn"
+      },
+      {
+        "@id": "726",
+        "meaning": "Tương tự"
+      },
+      {
+        "@id": "727",
+        "meaning": "Mỗi ngày"
+      },
+      {
+        "@id": "728",
+        "meaning": "Năm nghìn"
+      },
+      {
+        "@id": "729",
+        "meaning": "Người chơi"
+      },
+      {
+        "@id": "730",
+        "meaning": "Làm hết sức mình"
+      },
+      {
+        "@id": "731",
+        "meaning": "Kể"
+      },
+      {
+        "@id": "732",
+        "meaning": "So sánh"
+      },
+      {
+        "@id": "733",
+        "meaning": "Giao tiếp"
+      },
+      {
+        "@id": "734",
+        "meaning": "Cuộc họp"
+      },
+      {
+        "@id": "735",
+        "meaning": "Ánh sáng"
+      },
+      {
+        "@id": "736",
+        "meaning": "Trọng tải"
+      },
+      {
+        "@id": "737",
+        "meaning": "Không"
+      },
+      {
+        "@id": "738",
+        "meaning": "Mơ"
+      },
+      {
+        "@id": "739",
+        "meaning": "Tuy nhiên"
+      },
+      {
+        "@id": "740",
+        "meaning": "Không có"
+      },
+      {
+        "@id": "741",
+        "meaning": "Xinh đẹp"
+      },
+      {
+        "@id": "742",
+        "meaning": "Ứng dụng"
+      },
+      {
+        "@id": "743",
+        "meaning": "Tỉ lệ"
+      },
+      {
+        "@id": "744",
+        "meaning": "Phát sinh"
+      },
+      {
+        "@id": "745",
+        "meaning": "Việc kinh doanh"
+      },
+      {
+        "@id": "746",
+        "meaning": "Gợi ý"
+      },
+      {
+        "@id": "747",
+        "meaning": "Lời đề nghị"
+      },
+      {
+        "@id": "748",
+        "meaning": "Thành phần"
+      },
+      {
+        "@id": "749",
+        "meaning": "Hư hại"
+      },
+      {
+        "@id": "750",
+        "meaning": "Tai nạn"
+      },
+      {
+        "@id": "751",
+        "meaning": "Mặt sau"
+      },
+      {
+        "@id": "752",
+        "meaning": "Tăng"
+      },
+      {
+        "@id": "753",
+        "meaning": "Osaka"
+      },
+      {
+        "@id": "754",
+        "meaning": "Iku"
+      },
+      {
+        "@id": "755",
+        "meaning": "Phương hướng"
+      },
+      {
+        "@id": "756",
+        "meaning": "Thay đổi"
+      },
+      {
+        "@id": "757",
+        "meaning": "Đảo ngược"
+      },
+      {
+        "@id": "758",
+        "meaning": "Miếng"
+      },
+      {
+        "@id": "759",
+        "meaning": "Chủ thể"
+      },
+      {
+        "@id": "760",
+        "meaning": "Tài chính"
+      },
+      {
+        "@id": "761",
+        "meaning": "Để ý"
+      },
+      {
+        "@id": "762",
+        "meaning": "Đóng"
+      },
+      {
+        "@id": "763",
+        "meaning": "Thấp"
+      },
+      {
+        "@id": "764",
+        "meaning": "Khác biệt"
+      },
+      {
+        "@id": "765",
+        "meaning": "Toàn diện"
+      },
+      {
+        "@id": "766",
+        "meaning": "Đi lên"
+      },
+      {
+        "@id": "767",
+        "meaning": "Học thuộc lòng"
+      },
+      {
+        "@id": "768",
+        "meaning": "Sự liên quan"
+      },
+      {
+        "@id": "769",
+        "meaning": "Điều tra"
+      },
+      {
+        "@id": "770",
+        "meaning": "Thứ hạng"
+      },
+      {
+        "@id": "771",
+        "meaning": "Sự đối đãi"
+      },
+      {
+        "@id": "772",
+        "meaning": "Năm nay"
+      },
+      {
+        "@id": "773",
+        "meaning": "Tình trạng"
+      },
+      {
+        "@id": "774",
+        "meaning": "Quỹ"
+      },
+      {
+        "@id": "775",
+        "meaning": "Vui mừng"
+      },
+      {
+        "@id": "776",
+        "meaning": "Tất cả"
+      },
+      {
+        "@id": "777",
+        "meaning": "Âm nhạc"
+      },
+      {
+        "@id": "778",
+        "meaning": "Sự phát triển"
+      },
+      {
+        "@id": "779",
+        "meaning": "Sự tích lũy"
+      },
+      {
+        "@id": "780",
+        "meaning": "Tuổi già"
+      },
+      {
+        "@id": "781",
+        "meaning": "Rộng"
+      },
+      {
+        "@id": "782",
+        "meaning": "Thứ gì đó"
+      },
+      {
+        "@id": "783",
+        "meaning": "Nhận dạng"
+      },
+      {
+        "@id": "784",
+        "meaning": "Vợ"
+      },
+      {
+        "@id": "785",
+        "meaning": "Sự khởi đầu"
+      },
+      {
+        "@id": "786",
+        "meaning": "Lý thuyết"
+      },
+      {
+        "@id": "787",
+        "meaning": "Cài đặt"
+      },
+      {
+        "@id": "788",
+        "meaning": "Phát tin"
+      },
+      {
+        "@id": "789",
+        "meaning": "Miễn là"
+      },
+      {
+        "@id": "790",
+        "meaning": "Chồng"
+      },
+      {
+        "@id": "791",
+        "meaning": "Khảo sát"
+      },
+      {
+        "@id": "792",
+        "meaning": "Đi cùng"
+      },
+      {
+        "@id": "793",
+        "meaning": "Giao tiếp"
+      },
+      {
+        "@id": "794",
+        "meaning": "Pháp"
+      },
+      {
+        "@id": "795",
+        "meaning": "Đo"
+      },
+      {
+        "@id": "796",
+        "meaning": "Trở đi"
+      },
+      {
+        "@id": "797",
+        "meaning": "Hoàn thành"
+      },
+      {
+        "@id": "798",
+        "meaning": "Mua"
+      },
+      {
+        "@id": "799",
+        "meaning": "Mạng sống"
+      },
+      {
+        "@id": "800",
+        "meaning": "Hoặc"
+      },
+      {
+        "@id": "801",
+        "meaning": "Điểm"
+      },
+      {
+        "@id": "802",
+        "meaning": "Ổn định"
+      },
+      {
+        "@id": "803",
+        "meaning": "Chương"
+      },
+      {
+        "@id": "804",
+        "meaning": "Một ngày"
+      },
+      {
+        "@id": "805",
+        "meaning": "Tìm kiếm"
+      },
+      {
+        "@id": "806",
+        "meaning": "Giá trị"
+      },
+      {
+        "@id": "807",
+        "meaning": "Con trai"
+      },
+      {
+        "@id": "808",
+        "meaning": "Không"
+      },
+      {
+        "@id": "809",
+        "meaning": "Mở"
+      },
+      {
+        "@id": "810",
+        "meaning": "Bước chân"
+      },
+      {
+        "@id": "811",
+        "meaning": "Thức dậy"
+      },
+      {
+        "@id": "812",
+        "meaning": "Trang chủ"
+      },
+      {
+        "@id": "813",
+        "meaning": "Đó là,"
+      },
+      {
+        "@id": "814",
+        "meaning": "Biển"
+      },
+      {
+        "@id": "815",
+        "meaning": "Nói chuyện"
+      },
+      {
+        "@id": "816",
+        "meaning": "Sự nguy hiểm"
+      },
+      {
+        "@id": "817",
+        "meaning": "Hạt giống"
+      },
+      {
+        "@id": "818",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "819",
+        "meaning": "Rời khỏi"
+      },
+      {
+        "@id": "820",
+        "meaning": "Ngủ"
+      },
+      {
+        "@id": "821",
+        "meaning": "Phải"
+      },
+      {
+        "@id": "822",
+        "meaning": "Chỉ ra"
+      },
+      {
+        "@id": "823",
+        "meaning": "Hoàn thành"
+      },
+      {
+        "@id": "824",
+        "meaning": "Sự đăng ký"
+      },
+      {
+        "@id": "825",
+        "meaning": "Tỉnh"
+      },
+      {
+        "@id": "826",
+        "meaning": "Bài hát"
+      },
+      {
+        "@id": "827",
+        "meaning": "Bệnh xá"
+      },
+      {
+        "@id": "828",
+        "meaning": "Chính mình"
+      },
+      {
+        "@id": "829",
+        "meaning": "Khách sạn"
+      },
+      {
+        "@id": "830",
+        "meaning": "Bữa ăn"
+      },
+      {
+        "@id": "831",
+        "meaning": "Tính toán"
+      },
+      {
+        "@id": "832",
+        "meaning": "Ngày mai"
+      },
+      {
+        "@id": "833",
+        "meaning": "Đội hình"
+      },
+      {
+        "@id": "834",
+        "meaning": "Rõ ràng"
+      },
+      {
+        "@id": "835",
+        "meaning": "Sự chuyển động"
+      },
+      {
+        "@id": "836",
+        "meaning": "Xinh đẹp"
+      },
+      {
+        "@id": "837",
+        "meaning": "Sự lo lắng"
+      },
+      {
+        "@id": "838",
+        "meaning": "Với tới"
+      },
+      {
+        "@id": "839",
+        "meaning": "Điều tốt nhất"
+      },
+      {
+        "@id": "840",
+        "meaning": "Mới"
+      },
+      {
+        "@id": "841",
+        "meaning": "Ghi"
+      },
+      {
+        "@id": "842",
+        "meaning": "Mặt khác"
+      },
+      {
+        "@id": "843",
+        "meaning": "Phù hợp"
+      },
+      {
+        "@id": "844",
+        "meaning": "Cứng"
+      },
+      {
+        "@id": "845",
+        "meaning": "Tin tưởng"
+      },
+      {
+        "@id": "846",
+        "meaning": "Không thể nào"
+      },
+      {
+        "@id": "847",
+        "meaning": "Mang theo"
+      },
+      {
+        "@id": "848",
+        "meaning": "Thẩm quyền giải quyết"
+      },
+      {
+        "@id": "849",
+        "meaning": "Bức ảnh"
+      },
+      {
+        "@id": "850",
+        "meaning": "Tuổi"
+      },
+      {
+        "@id": "851",
+        "meaning": "Cố gắng"
+      },
+      {
+        "@id": "852",
+        "meaning": "Trường trung học"
+      },
+      {
+        "@id": "853",
+        "meaning": "Blog"
+      },
+      {
+        "@id": "854",
+        "meaning": "Lợi nhuận"
+      },
+      {
+        "@id": "855",
+        "meaning": "Cho phép"
+      },
+      {
+        "@id": "856",
+        "meaning": "Phát triển"
+      },
+      {
+        "@id": "857",
+        "meaning": "Một nửa"
+      },
+      {
+        "@id": "858",
+        "meaning": "Bấm vào"
+      },
+      {
+        "@id": "859",
+        "meaning": "Thân hình"
+      },
+      {
+        "@id": "860",
+        "meaning": "Giám đốc"
+      },
+      {
+        "@id": "861",
+        "meaning": "Cái chết"
+      },
+      {
+        "@id": "862",
+        "meaning": "Biến mất"
+      },
+      {
+        "@id": "863",
+        "meaning": "Công cộng"
+      },
+      {
+        "@id": "864",
+        "meaning": "Giới hạn"
+      },
+      {
+        "@id": "865",
+        "meaning": "Lái xe"
+      },
+      {
+        "@id": "866",
+        "meaning": "Thông báo"
+      },
+      {
+        "@id": "867",
+        "meaning": "Nhóm"
+      },
+      {
+        "@id": "868",
+        "meaning": "Cổ"
+      },
+      {
+        "@id": "869",
+        "meaning": "Cầm"
+      },
+      {
+        "@id": "870",
+        "meaning": "Sự cải tiến"
+      },
+      {
+        "@id": "871",
+        "meaning": "Sự phản đối"
+      },
+      {
+        "@id": "872",
+        "meaning": "Năng lượng"
+      },
+      {
+        "@id": "873",
+        "meaning": "Tôi muốn nói"
+      },
+      {
+        "@id": "874",
+        "meaning": "Bắt đầu"
+      },
+      {
+        "@id": "875",
+        "meaning": "Rời khỏi"
+      },
+      {
+        "@id": "876",
+        "meaning": "Chắc chắn"
+      },
+      {
+        "@id": "877",
+        "meaning": "Phụ trách"
+      },
+      {
+        "@id": "878",
+        "meaning": "Thẩm quyền giải quyết"
+      },
+      {
+        "@id": "879",
+        "meaning": "Cuối cùng"
+      },
+      {
+        "@id": "880",
+        "meaning": "Công viên"
+      },
+      {
+        "@id": "881",
+        "meaning": "Tất cả"
+      },
+      {
+        "@id": "882",
+        "meaning": "Bệnh"
+      },
+      {
+        "@id": "883",
+        "meaning": "Vững chãi"
+      },
+      {
+        "@id": "884",
+        "meaning": "Cái gọi là"
+      },
+      {
+        "@id": "885",
+        "meaning": "Mở rộng"
+      },
+      {
+        "@id": "886",
+        "meaning": "Một lúc"
+      },
+      {
+        "@id": "887",
+        "meaning": "Chức vụ"
+      },
+      {
+        "@id": "888",
+        "meaning": "Cư dân"
+      },
+      {
+        "@id": "889",
+        "meaning": "Vượt qua"
+      },
+      {
+        "@id": "890",
+        "meaning": "Người bạn"
+      },
+      {
+        "@id": "891",
+        "meaning": "À"
+      },
+      {
+        "@id": "892",
+        "meaning": "Nông nghiệp"
+      },
+      {
+        "@id": "893",
+        "meaning": "Bậc thầy"
+      },
+      {
+        "@id": "894",
+        "meaning": "Chăm sóc điều dưỡng"
+      },
+      {
+        "@id": "895",
+        "meaning": "Ngồi"
+      },
+      {
+        "@id": "896",
+        "meaning": "Khám phá"
+      },
+      {
+        "@id": "897",
+        "meaning": "Cải cách"
+      },
+      {
+        "@id": "898",
+        "meaning": "Ngực"
+      },
+      {
+        "@id": "899",
+        "meaning": "Chung"
+      },
+      {
+        "@id": "900",
+        "meaning": "Kinh nghiệm"
+      },
+      {
+        "@id": "901",
+        "meaning": "Giải pháp"
+      },
+      {
+        "@id": "902",
+        "meaning": "Xích đu"
+      },
+      {
+        "@id": "903",
+        "meaning": "Thả xuống"
+      },
+      {
+        "@id": "904",
+        "meaning": "Mục tiêu"
+      },
+      {
+        "@id": "905",
+        "meaning": "Điều chỉnh"
+      },
+      {
+        "@id": "906",
+        "meaning": "Thể hiện"
+      },
+      {
+        "@id": "907",
+        "meaning": "Kiểu"
+      },
+      {
+        "@id": "908",
+        "meaning": "Động vật"
+      },
+      {
+        "@id": "909",
+        "meaning": "Mùa hè"
+      },
+      {
+        "@id": "910",
+        "meaning": "Chơi"
+      },
+      {
+        "@id": "911",
+        "meaning": "Quá khứ"
+      },
+      {
+        "@id": "912",
+        "meaning": "Nghĩ"
+      },
+      {
+        "@id": "913",
+        "meaning": "Vai trò"
+      },
+      {
+        "@id": "914",
+        "meaning": "Thức dậy"
+      },
+      {
+        "@id": "915",
+        "meaning": "Quyết định"
+      },
+      {
+        "@id": "916",
+        "meaning": "Mọi"
+      },
+      {
+        "@id": "917",
+        "meaning": "Giảm bớt"
+      },
+      {
+        "@id": "918",
+        "meaning": "Đen"
+      },
+      {
+        "@id": "919",
+        "meaning": "Lần"
+      },
+      {
+        "@id": "920",
+        "meaning": "Chiếm giữ"
+      },
+      {
+        "@id": "921",
+        "meaning": "Giết"
+      },
+      {
+        "@id": "922",
+        "meaning": "Trả lời"
+      },
+      {
+        "@id": "923",
+        "meaning": "Đô la"
+      },
+      {
+        "@id": "924",
+        "meaning": "Ngạc nhiên"
+      },
+      {
+        "@id": "925",
+        "meaning": "Chiến tranh"
+      },
+      {
+        "@id": "926",
+        "meaning": "Hệ thống"
+      },
+      {
+        "@id": "927",
+        "meaning": "Chuyến đi"
+      },
+      {
+        "@id": "928",
+        "meaning": "Bài kiểm tra"
+      },
+      {
+        "@id": "929",
+        "meaning": "Trung bình"
+      },
+      {
+        "@id": "930",
+        "meaning": "Gặp rắc rối"
+      },
+      {
+        "@id": "931",
+        "meaning": "Tuần"
+      },
+      {
+        "@id": "932",
+        "meaning": "Bệnh"
+      },
+      {
+        "@id": "933",
+        "meaning": "Thu nhập"
+      },
+      {
+        "@id": "934",
+        "meaning": "Nước đức"
+      },
+      {
+        "@id": "935",
+        "meaning": "Triển khai"
+      },
+      {
+        "@id": "936",
+        "meaning": "Hướng lên"
+      },
+      {
+        "@id": "937",
+        "meaning": "Ngoại trừ"
+      },
+      {
+        "@id": "938",
+        "meaning": "Sự chuẩn bị"
+      },
+      {
+        "@id": "939",
+        "meaning": "Bạn có ổn không"
+      },
+      {
+        "@id": "940",
+        "meaning": "Mẹ"
+      },
+      {
+        "@id": "941",
+        "meaning": "Tương tự"
+      },
+      {
+        "@id": "942",
+        "meaning": "Tìm thấy"
+      },
+      {
+        "@id": "943",
+        "meaning": "Trả lời"
+      },
+      {
+        "@id": "944",
+        "meaning": "Làm quen với"
+      },
+      {
+        "@id": "945",
+        "meaning": "Tương lai"
+      },
+      {
+        "@id": "946",
+        "meaning": "Phạm vi"
+      },
+      {
+        "@id": "947",
+        "meaning": "Bài hát"
+      },
+      {
+        "@id": "948",
+        "meaning": "Nhớ"
+      },
+      {
+        "@id": "949",
+        "meaning": "Hiện thực hóa"
+      },
+      {
+        "@id": "950",
+        "meaning": "Hình ảnh"
+      },
+      {
+        "@id": "951",
+        "meaning": "Lặp lại"
+      },
+      {
+        "@id": "952",
+        "meaning": "Học"
+      },
+      {
+        "@id": "953",
+        "meaning": "Huyện"
+      },
+      {
+        "@id": "954",
+        "meaning": "Thua"
+      },
+      {
+        "@id": "955",
+        "meaning": "Minh trị"
+      },
+      {
+        "@id": "956",
+        "meaning": "Nhau"
+      },
+      {
+        "@id": "957",
+        "meaning": "Kiến thức"
+      },
+      {
+        "@id": "958",
+        "meaning": "Người bạn"
+      },
+      {
+        "@id": "959",
+        "meaning": "Trắng"
+      },
+      {
+        "@id": "960",
+        "meaning": "Thủ đô"
+      },
+      {
+        "@id": "961",
+        "meaning": "Nghiêm ngặt"
+      },
+      {
+        "@id": "962",
+        "meaning": "Nghe"
+      },
+      {
+        "@id": "963",
+        "meaning": "Tai"
+      },
+      {
+        "@id": "964",
+        "meaning": "Giảm giá"
+      },
+      {
+        "@id": "965",
+        "meaning": "Giáo phái"
+      },
+      {
+        "@id": "966",
+        "meaning": "Cuộc điều tra"
+      },
+      {
+        "@id": "967",
+        "meaning": "Trắng"
+      },
+      {
+        "@id": "968",
+        "meaning": "Mong"
+      },
+      {
+        "@id": "969",
+        "meaning": "Cmt"
+      },
+      {
+        "@id": "970",
+        "meaning": "Mức độ phổ biến"
+      },
+      {
+        "@id": "971",
+        "meaning": "Phải"
+      },
+      {
+        "@id": "972",
+        "meaning": "Sự công nhận"
+      },
+      {
+        "@id": "973",
+        "meaning": "Tối đa"
+      },
+      {
+        "@id": "974",
+        "meaning": "Bán"
+      },
+      {
+        "@id": "975",
+        "meaning": "Hệ thống"
+      },
+      {
+        "@id": "976",
+        "meaning": "Học"
+      },
+      {
+        "@id": "977",
+        "meaning": "Vượt qua"
+      },
+      {
+        "@id": "978",
+        "meaning": "Dễ thương"
+      },
+      {
+        "@id": "979",
+        "meaning": "Leo"
+      },
+      {
+        "@id": "980",
+        "meaning": "Làm"
+      },
+      {
+        "@id": "981",
+        "meaning": "Số lượng"
+      },
+      {
+        "@id": "982",
+        "meaning": "Bao gồm"
+      },
+      {
+        "@id": "983",
+        "meaning": "Hàn quốc"
+      },
+      {
+        "@id": "984",
+        "meaning": "Đặc trưng"
+      },
+      {
+        "@id": "985",
+        "meaning": "Dân số"
+      },
+      {
+        "@id": "986",
+        "meaning": "Tha thứ"
+      },
+      {
+        "@id": "987",
+        "meaning": "Các môn thể thao"
+      },
+      {
+        "@id": "988",
+        "meaning": "Hỏi"
+      },
+      {
+        "@id": "989",
+        "meaning": "Mục tiêu"
+      },
+      {
+        "@id": "990",
+        "meaning": "Vật liệu"
+      },
+      {
+        "@id": "991",
+        "meaning": "Tài sản"
+      },
+      {
+        "@id": "992",
+        "meaning": "Cánh đồng"
+      },
+      {
+        "@id": "993",
+        "meaning": "Từng cái một"
+      },
+      {
+        "@id": "994",
+        "meaning": "Máy tính"
+      },
+      {
+        "@id": "995",
+        "meaning": "Xu hướng"
+      },
+      {
+        "@id": "996",
+        "meaning": "Ở nước ngoài"
+      },
+      {
+        "@id": "997",
+        "meaning": "Học sinh"
+      },
+      {
+        "@id": "998",
+        "meaning": "Lại"
+      },
+      {
+        "@id": "999",
+        "meaning": "Cao"
+      },
+      {
+        "@id": "1000",
+        "meaning": "Luôn luôn"
+      },
+      {
+        "@id": "1001",
+        "meaning": "Ngẫu nhiên"
+      },
+      {
+        "@id": "1002",
+        "meaning": "Phòng ngừa"
+      },
+      {
+        "@id": "1003",
+        "meaning": "Sản phẩm"
+      },
+      {
+        "@id": "1004",
+        "meaning": "Di chuyển"
+      },
+      {
+        "@id": "1005",
+        "meaning": "Vườn"
+      },
+      {
+        "@id": "1006",
+        "meaning": "Phòng"
+      },
+      {
+        "@id": "1007",
+        "meaning": "Tế bào"
+      },
+      {
+        "@id": "1008",
+        "meaning": "Trị giá"
+      },
+      {
+        "@id": "1009",
+        "meaning": "Người mẫu"
+      },
+      {
+        "@id": "1010",
+        "meaning": "Ghế"
+      },
+      {
+        "@id": "1011",
+        "meaning": "Nội địa"
+      },
+      {
+        "@id": "1012",
+        "meaning": "Bên cạnh"
+      },
+      {
+        "@id": "1013",
+        "meaning": "Quay"
+      },
+      {
+        "@id": "1014",
+        "meaning": "Cổ phần"
+      },
+      {
+        "@id": "1015",
+        "meaning": "Hình ảnh"
+      },
+      {
+        "@id": "1016",
+        "meaning": "Mức độ"
+      },
+      {
+        "@id": "1017",
+        "meaning": "Nhân viên"
+      },
+      {
+        "@id": "1018",
+        "meaning": "Xung quanh"
+      },
+      {
+        "@id": "1019",
+        "meaning": "Phụ thuộc vào"
+      },
+      {
+        "@id": "1020",
+        "meaning": "Hoàng đế"
+      },
+      {
+        "@id": "1021",
+        "meaning": "Nhập khẩu"
+      },
+      {
+        "@id": "1022",
+        "meaning": "Con trai"
+      },
+      {
+        "@id": "1023",
+        "meaning": "Bài báo"
+      },
+      {
+        "@id": "1024",
+        "meaning": "Sự khác biệt"
+      },
+      {
+        "@id": "1025",
+        "meaning": "Rượu bia"
+      },
+      {
+        "@id": "1026",
+        "meaning": "Miễn phí"
+      },
+      {
+        "@id": "1027",
+        "meaning": "Thủ tục"
+      },
+      {
+        "@id": "1028",
+        "meaning": "Phân công"
+      },
+      {
+        "@id": "1029",
+        "meaning": "Và"
+      },
+      {
+        "@id": "1031",
+        "meaning": "Quan trọng"
+      },
+      {
+        "@id": "1032",
+        "meaning": "Chào mừng"
+      },
+      {
+        "@id": "1033",
+        "meaning": "Vấn đề"
+      },
+      {
+        "@id": "1034",
+        "meaning": "Lái"
+      },
+      {
+        "@id": "1035",
+        "meaning": "Người lớn"
+      },
+      {
+        "@id": "1036",
+        "meaning": "Thành công"
+      },
+      {
+        "@id": "1037",
+        "meaning": "Kyoto"
+      },
+      {
+        "@id": "1038",
+        "meaning": "Chó"
+      },
+      {
+        "@id": "1039",
+        "meaning": "Thẻ"
+      },
+      {
+        "@id": "1040",
+        "meaning": "Bản thân người đó"
+      },
+      {
+        "@id": "1041",
+        "meaning": "Vẻ bề ngoài"
+      },
+      {
+        "@id": "1042",
+        "meaning": "Bốn nghìn"
+      },
+      {
+        "@id": "1043",
+        "meaning": "Đội"
+      },
+      {
+        "@id": "1044",
+        "meaning": "Mặc"
+      },
+      {
+        "@id": "1045",
+        "meaning": "Sửa đổi"
+      },
+      {
+        "@id": "1046",
+        "meaning": "Khoảng cách"
+      },
+      {
+        "@id": "1047",
+        "meaning": "Hát"
+      },
+      {
+        "@id": "1048",
+        "meaning": "Loại"
+      },
+      {
+        "@id": "1049",
+        "meaning": "Tàu"
+      },
+      {
+        "@id": "1050",
+        "meaning": "Xe buýt"
+      },
+      {
+        "@id": "1051",
+        "meaning": "Cảm giác"
+      },
+      {
+        "@id": "1052",
+        "meaning": "Châu á"
+      },
+      {
+        "@id": "1053",
+        "meaning": "Chính xác"
+      },
+      {
+        "@id": "1054",
+        "meaning": "Sự đoàn kết"
+      },
+      {
+        "@id": "1055",
+        "meaning": "Bên trái"
+      },
+      {
+        "@id": "1056",
+        "meaning": "Không bao giờ"
+      },
+      {
+        "@id": "1057",
+        "meaning": "Kinh khủng"
+      },
+      {
+        "@id": "1058",
+        "meaning": "Duy trì"
+      },
+      {
+        "@id": "1059",
+        "meaning": "Điện thoại di động"
+      },
+      {
+        "@id": "1060",
+        "meaning": "Ghi chú"
+      },
+      {
+        "@id": "1061",
+        "meaning": "Hành động"
+      },
+      {
+        "@id": "1062",
+        "meaning": "Chế tạo"
+      },
+      {
+        "@id": "1063",
+        "meaning": "Điện"
+      },
+      {
+        "@id": "1064",
+        "meaning": "Kết thúc"
+      },
+      {
+        "@id": "1065",
+        "meaning": "Rẻ"
+      },
+      {
+        "@id": "1066",
+        "meaning": "Người"
+      },
+      {
+        "@id": "1067",
+        "meaning": "Ngôi đền"
+      },
+      {
+        "@id": "1068",
+        "meaning": "Chúng ta"
+      },
+      {
+        "@id": "1069",
+        "meaning": "Ngân sách"
+      },
+      {
+        "@id": "1070",
+        "meaning": "Cơn mưa"
+      },
+      {
+        "@id": "1071",
+        "meaning": "Thảm họa"
+      },
+      {
+        "@id": "1072",
+        "meaning": "Xây dựng"
+      },
+      {
+        "@id": "1073",
+        "meaning": "Cứng"
+      },
+      {
+        "@id": "1074",
+        "meaning": "Khẳng định"
+      },
+      {
+        "@id": "1075",
+        "meaning": "Sự phản ứng lại"
+      },
+      {
+        "@id": "1076",
+        "meaning": "Có thể được thực hiện"
+      },
+      {
+        "@id": "1077",
+        "meaning": "Quan tâm"
+      },
+      {
+        "@id": "1078",
+        "meaning": "Trong một vòng tròn"
+      },
+      {
+        "@id": "1079",
+        "meaning": "Chậm"
+      },
+      {
+        "@id": "1080",
+        "meaning": "Mềm mại"
+      },
+      {
+        "@id": "1081",
+        "meaning": "Sự hình thành"
+      },
+      {
+        "@id": "1082",
+        "meaning": "Ánh sáng"
+      },
+      {
+        "@id": "1083",
+        "meaning": "Kể từ đó"
+      },
+      {
+        "@id": "1084",
+        "meaning": "Giới thiệu"
+      },
+      {
+        "@id": "1085",
+        "meaning": "Nhóm"
+      },
+      {
+        "@id": "1086",
+        "meaning": "Cuối cùng"
+      },
+      {
+        "@id": "1087",
+        "meaning": "Tổng cộng"
+      },
+      {
+        "@id": "1088",
+        "meaning": "Nước anh"
+      },
+      {
+        "@id": "1089",
+        "meaning": "Tiếng anh"
+      },
+      {
+        "@id": "1090",
+        "meaning": "Học sinh"
+      },
+      {
+        "@id": "1091",
+        "meaning": "Nhiệm vụ"
+      },
+      {
+        "@id": "1092",
+        "meaning": "Tài chính"
+      },
+      {
+        "@id": "1093",
+        "meaning": "Chạm"
+      },
+      {
+        "@id": "1094",
+        "meaning": "Tài liệu"
+      },
+      {
+        "@id": "1095",
+        "meaning": "Cũ"
+      },
+      {
+        "@id": "1096",
+        "meaning": "Trái đất"
+      },
+      {
+        "@id": "1097",
+        "meaning": "Ed"
+      },
+      {
+        "@id": "1098",
+        "meaning": "Chảy"
+      },
+      {
+        "@id": "1099",
+        "meaning": "Xô"
+      },
+      {
+        "@id": "1100",
+        "meaning": "扠"
+      },
+      {
+        "@id": "1101",
+        "meaning": "Hơn là"
+      },
+      {
+        "@id": "1102",
+        "meaning": "Vật liệu"
+      },
+      {
+        "@id": "1103",
+        "meaning": "Sức khỏe"
+      },
+      {
+        "@id": "1104",
+        "meaning": "Áp dụng"
+      },
+      {
+        "@id": "1105",
+        "meaning": "Tỷ lệ"
+      },
+      {
+        "@id": "1106",
+        "meaning": "Chủ động"
+      },
+      {
+        "@id": "1107",
+        "meaning": "Ông già"
+      },
+      {
+        "@id": "1108",
+        "meaning": "Nét mặt"
+      },
+      {
+        "@id": "1109",
+        "meaning": "Lắc"
+      },
+      {
+        "@id": "1110",
+        "meaning": "Cảm ơn"
+      },
+      {
+        "@id": "1111",
+        "meaning": "Thăm nom"
+      },
+      {
+        "@id": "1112",
+        "meaning": "Khỏe"
+      },
+      {
+        "@id": "1113",
+        "meaning": "Phía đông"
+      },
+      {
+        "@id": "1114",
+        "meaning": "Ở giữa"
+      },
+      {
+        "@id": "1115",
+        "meaning": "Khỏe"
+      },
+      {
+        "@id": "1116",
+        "meaning": "Kg"
+      },
+      {
+        "@id": "1117",
+        "meaning": "Điều cơ bản"
+      },
+      {
+        "@id": "1118",
+        "meaning": "Nếm"
+      },
+      {
+        "@id": "1119",
+        "meaning": "Quy định"
+      },
+      {
+        "@id": "1120",
+        "meaning": "Phân tích"
+      },
+      {
+        "@id": "1121",
+        "meaning": "Làm sao"
+      },
+      {
+        "@id": "1122",
+        "meaning": "Điều khiển"
+      },
+      {
+        "@id": "1123",
+        "meaning": "Những đứa trẻ"
+      },
+      {
+        "@id": "1124",
+        "meaning": "Trường hợp"
+      },
+      {
+        "@id": "1125",
+        "meaning": "Thường xuyên"
+      },
+      {
+        "@id": "1126",
+        "meaning": "Biến mất"
+      },
+      {
+        "@id": "1127",
+        "meaning": "Có lẽ"
+      },
+      {
+        "@id": "1128",
+        "meaning": "Ngu xuẩn"
+      },
+      {
+        "@id": "1129",
+        "meaning": "Ký ức"
+      },
+      {
+        "@id": "1130",
+        "meaning": "Lỗi"
+      },
+      {
+        "@id": "1131",
+        "meaning": "Khẳng định"
+      },
+      {
+        "@id": "1132",
+        "meaning": "Tham quan"
+      },
+      {
+        "@id": "1133",
+        "meaning": "Con số"
+      },
+      {
+        "@id": "1134",
+        "meaning": "Lời yêu cầu"
+      },
+      {
+        "@id": "1135",
+        "meaning": "Cuộc thảo luận"
+      },
+      {
+        "@id": "1136",
+        "meaning": "Bầu trời"
+      },
+      {
+        "@id": "1137",
+        "meaning": "Sợ hãi"
+      },
+      {
+        "@id": "1138",
+        "meaning": "Chính xác"
+      },
+      {
+        "@id": "1139",
+        "meaning": "Vô cùng"
+      },
+      {
+        "@id": "1140",
+        "meaning": "Đột nhiên"
+      },
+      {
+        "@id": "1141",
+        "meaning": "Có lẽ"
+      },
+      {
+        "@id": "1142",
+        "meaning": "Cơ hội"
+      },
+      {
+        "@id": "1143",
+        "meaning": "Cửa"
+      },
+      {
+        "@id": "1144",
+        "meaning": "Trao đổi"
+      },
+      {
+        "@id": "1145",
+        "meaning": "Quyền tự chủ"
+      },
+      {
+        "@id": "1146",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "1147",
+        "meaning": "Chính nó"
+      },
+      {
+        "@id": "1148",
+        "meaning": "Loại"
+      },
+      {
+        "@id": "1149",
+        "meaning": "Dây thần kinh"
+      },
+      {
+        "@id": "1150",
+        "meaning": "Đã kết thúc"
+      },
+      {
+        "@id": "1151",
+        "meaning": "Sự thi công"
+      },
+      {
+        "@id": "1152",
+        "meaning": "Ứng dụng"
+      },
+      {
+        "@id": "1153",
+        "meaning": "Chi trả"
+      },
+      {
+        "@id": "1154",
+        "meaning": "Sừng thỏ"
+      },
+      {
+        "@id": "1155",
+        "meaning": "Cùng nhau"
+      },
+      {
+        "@id": "1156",
+        "meaning": "Trình"
+      },
+      {
+        "@id": "1157",
+        "meaning": "Bỏ qua"
+      },
+      {
+        "@id": "1158",
+        "meaning": "Hãy thử nó"
+      },
+      {
+        "@id": "1159",
+        "meaning": "Khuyến mãi"
+      },
+      {
+        "@id": "1160",
+        "meaning": "Đúng"
+      },
+      {
+        "@id": "1161",
+        "meaning": "Danh sách"
+      },
+      {
+        "@id": "1162",
+        "meaning": "Nguyên tắc"
+      },
+      {
+        "@id": "1163",
+        "meaning": "Cửa sổ"
+      },
+      {
+        "@id": "1164",
+        "meaning": "Học hỏi"
+      },
+      {
+        "@id": "1165",
+        "meaning": "Kiểm tra"
+      },
+      {
+        "@id": "1166",
+        "meaning": "Mãnh liệt"
+      },
+      {
+        "@id": "1167",
+        "meaning": "Sự sắc bén"
+      },
+      {
+        "@id": "1168",
+        "meaning": "Anh trai"
+      },
+      {
+        "@id": "1169",
+        "meaning": "Việc bán hàng"
+      },
+      {
+        "@id": "1170",
+        "meaning": "Sử dụng"
+      },
+      {
+        "@id": "1171",
+        "meaning": "Trước đó"
+      },
+      {
+        "@id": "1172",
+        "meaning": "Bác sĩ"
+      },
+      {
+        "@id": "1173",
+        "meaning": "Ngày nay"
+      },
+      {
+        "@id": "1174",
+        "meaning": "Cánh tay"
+      },
+      {
+        "@id": "1175",
+        "meaning": "Yayara"
+      },
+      {
+        "@id": "1176",
+        "meaning": "Trực tiếp"
+      },
+      {
+        "@id": "1177",
+        "meaning": "Đồng nghiệp"
+      },
+      {
+        "@id": "1178",
+        "meaning": "Nổi tiếng"
+      },
+      {
+        "@id": "1179",
+        "meaning": "Giữ"
+      },
+      {
+        "@id": "1180",
+        "meaning": "Trường hợp"
+      },
+      {
+        "@id": "1181",
+        "meaning": "Tăng lên"
+      },
+      {
+        "@id": "1182",
+        "meaning": "Nhà vua"
+      },
+      {
+        "@id": "1183",
+        "meaning": "Thắc mắc"
+      },
+      {
+        "@id": "1184",
+        "meaning": "Đất"
+      },
+      {
+        "@id": "1185",
+        "meaning": "Kết thúc"
+      },
+      {
+        "@id": "1186",
+        "meaning": "Phía nam"
+      },
+      {
+        "@id": "1187",
+        "meaning": "Chèn"
+      },
+      {
+        "@id": "1188",
+        "meaning": "Câu"
+      },
+      {
+        "@id": "1189",
+        "meaning": "Sự cải tiến"
+      },
+      {
+        "@id": "1190",
+        "meaning": "Tăng cường"
+      },
+      {
+        "@id": "1191",
+        "meaning": "Đúng cách"
+      },
+      {
+        "@id": "1192",
+        "meaning": "Xếp hàng"
+      },
+      {
+        "@id": "1193",
+        "meaning": "Fax"
+      },
+      {
+        "@id": "1194",
+        "meaning": "Nhà máy"
+      },
+      {
+        "@id": "1195",
+        "meaning": "Tôi rất muốn"
+      },
+      {
+        "@id": "1196",
+        "meaning": "Nguyên tử"
+      },
+      {
+        "@id": "1197",
+        "meaning": "Chiếm lấy"
+      },
+      {
+        "@id": "1198",
+        "meaning": "Mùa xuân"
+      },
+      {
+        "@id": "1199",
+        "meaning": "Có hiệu lực"
+      },
+      {
+        "@id": "1200",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "1201",
+        "meaning": "Bộ"
+      },
+      {
+        "@id": "1202",
+        "meaning": "Kết nối"
+      },
+      {
+        "@id": "1203",
+        "meaning": "Trò chơi"
+      },
+      {
+        "@id": "1204",
+        "meaning": "Riêng tư"
+      },
+      {
+        "@id": "1205",
+        "meaning": "Đề xuất"
+      },
+      {
+        "@id": "1206",
+        "meaning": "Phía bắc"
+      },
+      {
+        "@id": "1207",
+        "meaning": "Bệnh"
+      },
+      {
+        "@id": "1208",
+        "meaning": "Tấn công"
+      },
+      {
+        "@id": "1209",
+        "meaning": "Hình ảnh"
+      },
+      {
+        "@id": "1210",
+        "meaning": "6.000"
+      },
+      {
+        "@id": "1211",
+        "meaning": "Nhân cách"
+      },
+      {
+        "@id": "1212",
+        "meaning": "Ngành kiến ​​​​trúc"
+      },
+      {
+        "@id": "1213",
+        "meaning": "Đi ra ngoài"
+      },
+      {
+        "@id": "1214",
+        "meaning": "Một"
+      },
+      {
+        "@id": "1215",
+        "meaning": "Thắt lưng"
+      },
+      {
+        "@id": "1216",
+        "meaning": "Thành lập"
+      },
+      {
+        "@id": "1217",
+        "meaning": "Địa điểm"
+      },
+      {
+        "@id": "1218",
+        "meaning": "Dự đoán"
+      },
+      {
+        "@id": "1219",
+        "meaning": "Hỏi"
+      },
+      {
+        "@id": "1220",
+        "meaning": "Yêu"
+      },
+      {
+        "@id": "1221",
+        "meaning": "Tình trạng"
+      },
+      {
+        "@id": "1222",
+        "meaning": "Châu âu"
+      },
+      {
+        "@id": "1223",
+        "meaning": "Trò chơi"
+      },
+      {
+        "@id": "1224",
+        "meaning": "Vai"
+      },
+      {
+        "@id": "1225",
+        "meaning": "Ngọn lửa"
+      },
+      {
+        "@id": "1226",
+        "meaning": "Giải đấu"
+      },
+      {
+        "@id": "1227",
+        "meaning": "Thuê người làm"
+      },
+      {
+        "@id": "1228",
+        "meaning": "Hướng tây"
+      },
+      {
+        "@id": "1229",
+        "meaning": "Thiết kế"
+      },
+      {
+        "@id": "1230",
+        "meaning": "Tiêu"
+      },
+      {
+        "@id": "1231",
+        "meaning": "Đương nhiên"
+      },
+      {
+        "@id": "1232",
+        "meaning": "Nặng"
+      },
+      {
+        "@id": "1233",
+        "meaning": "Chủ tịch"
+      },
+      {
+        "@id": "1234",
+        "meaning": "Cặp đôi"
+      },
+      {
+        "@id": "1235",
+        "meaning": "Một cái cốc"
+      },
+      {
+        "@id": "1236",
+        "meaning": "Thư"
+      },
+      {
+        "@id": "1237",
+        "meaning": "Máy móc"
+      },
+      {
+        "@id": "1238",
+        "meaning": "Không thay đổi"
+      },
+      {
+        "@id": "1239",
+        "meaning": "Lớp"
+      },
+      {
+        "@id": "1240",
+        "meaning": "Ngón tay"
+      },
+      {
+        "@id": "1241",
+        "meaning": "Sự chuẩn bị"
+      },
+      {
+        "@id": "1242",
+        "meaning": "Phải mất"
+      },
+      {
+        "@id": "1243",
+        "meaning": "Đi xuống"
+      },
+      {
+        "@id": "1244",
+        "meaning": "Quả bóng"
+      },
+      {
+        "@id": "1245",
+        "meaning": "Tiếp cận"
+      },
+      {
+        "@id": "1246",
+        "meaning": "Khóc"
+      },
+      {
+        "@id": "1247",
+        "meaning": "Đại lý"
+      },
+      {
+        "@id": "1248",
+        "meaning": "Với"
+      },
+      {
+        "@id": "1249",
+        "meaning": "Nhóm"
+      },
+      {
+        "@id": "1250",
+        "meaning": "Thực hiện"
+      },
+      {
+        "@id": "1251",
+        "meaning": "Phần"
+      },
+      {
+        "@id": "1252",
+        "meaning": "Sự mua lại"
+      },
+      {
+        "@id": "1253",
+        "meaning": "Không gian"
+      },
+      {
+        "@id": "1254",
+        "meaning": "Lây lan"
+      },
+      {
+        "@id": "1255",
+        "meaning": "Con mèo"
+      },
+      {
+        "@id": "1256",
+        "meaning": "Trân trọng"
+      },
+      {
+        "@id": "1257",
+        "meaning": "Mùa thu"
+      },
+      {
+        "@id": "1258",
+        "meaning": "Sự suy sụp"
+      },
+      {
+        "@id": "1259",
+        "meaning": "Yên tâm"
+      },
+      {
+        "@id": "1260",
+        "meaning": "Với tới"
+      },
+      {
+        "@id": "1261",
+        "meaning": "Thế giới"
+      },
+      {
+        "@id": "1262",
+        "meaning": "Thiết bị"
+      },
+      {
+        "@id": "1263",
+        "meaning": "Cái bụng"
+      },
+      {
+        "@id": "1264",
+        "meaning": "Nhảy"
+      },
+      {
+        "@id": "1265",
+        "meaning": "Trí tưởng tượng"
+      },
+      {
+        "@id": "1266",
+        "meaning": "Cuộc bầu cử"
+      },
+      {
+        "@id": "1267",
+        "meaning": "Ấn tượng"
+      },
+      {
+        "@id": "1268",
+        "meaning": "Đột nhiên"
+      },
+      {
+        "@id": "1269",
+        "meaning": "Tôn giáo"
+      },
+      {
+        "@id": "1270",
+        "meaning": "Câu lạc bộ"
+      },
+      {
+        "@id": "1271",
+        "meaning": "Hàng xóm"
+      },
+      {
+        "@id": "1272",
+        "meaning": "Bố"
+      },
+      {
+        "@id": "1273",
+        "meaning": "Tại chỗ"
+      },
+      {
+        "@id": "1274",
+        "meaning": "Sáng"
+      },
+      {
+        "@id": "1275",
+        "meaning": "Giáo sư"
+      },
+      {
+        "@id": "1276",
+        "meaning": "Cảm xúc"
+      },
+      {
+        "@id": "1277",
+        "meaning": "Rau"
+      },
+      {
+        "@id": "1278",
+        "meaning": "Giữ chặt"
+      },
+      {
+        "@id": "1279",
+        "meaning": "Tường"
+      },
+      {
+        "@id": "1280",
+        "meaning": "Hoặc"
+      },
+      {
+        "@id": "1281",
+        "meaning": "Chảy"
+      },
+      {
+        "@id": "1282",
+        "meaning": "Đấu giá thành công"
+      },
+      {
+        "@id": "1283",
+        "meaning": "Tỷ lệ"
+      },
+      {
+        "@id": "1284",
+        "meaning": "Chủ yếu"
+      },
+      {
+        "@id": "1285",
+        "meaning": "Gặp nhau"
+      },
+      {
+        "@id": "1286",
+        "meaning": "Chiếm hữu"
+      },
+      {
+        "@id": "1287",
+        "meaning": "Nhìn chằm chằm"
+      },
+      {
+        "@id": "1288",
+        "meaning": "Luyện tập"
+      },
+      {
+        "@id": "1289",
+        "meaning": "Thông thường"
+      },
+      {
+        "@id": "1290",
+        "meaning": "Sưu tầm"
+      },
+      {
+        "@id": "1291",
+        "meaning": "Buôn bán"
+      },
+      {
+        "@id": "1292",
+        "meaning": "Khó khăn"
+      },
+      {
+        "@id": "1293",
+        "meaning": "Giá trị"
+      },
+      {
+        "@id": "1294",
+        "meaning": "Có"
+      },
+      {
+        "@id": "1295",
+        "meaning": "Ban đầu"
+      },
+      {
+        "@id": "1296",
+        "meaning": "Cuộc thí nghiệm"
+      },
+      {
+        "@id": "1297",
+        "meaning": "Hàng không"
+      },
+      {
+        "@id": "1298",
+        "meaning": "Quan tâm"
+      },
+      {
+        "@id": "1299",
+        "meaning": "Chú ý"
+      },
+      {
+        "@id": "1300",
+        "meaning": "Hoạt động"
+      },
+      {
+        "@id": "1301",
+        "meaning": "Thi hành án"
+      },
+      {
+        "@id": "1302",
+        "meaning": "Phía sau"
+      },
+      {
+        "@id": "1303",
+        "meaning": "Thay thế"
+      },
+      {
+        "@id": "1304",
+        "meaning": "Mạng sống"
+      },
+      {
+        "@id": "1305",
+        "meaning": "Tuyết"
+      },
+      {
+        "@id": "1306",
+        "meaning": "Dừng lại"
+      },
+      {
+        "@id": "1307",
+        "meaning": "Sự miêu tả"
+      },
+      {
+        "@id": "1308",
+        "meaning": "Nhà sản xuất"
+      },
+      {
+        "@id": "1309",
+        "meaning": "Người khác"
+      },
+      {
+        "@id": "1310",
+        "meaning": "Sách"
+      },
+      {
+        "@id": "1311",
+        "meaning": "Sự hoàn thành"
+      },
+      {
+        "@id": "1312",
+        "meaning": "Giới hạn"
+      },
+      {
+        "@id": "1313",
+        "meaning": "Cảm xúc"
+      },
+      {
+        "@id": "1314",
+        "meaning": "Não"
+      },
+      {
+        "@id": "1315",
+        "meaning": "Lớp học"
+      },
+      {
+        "@id": "1316",
+        "meaning": "Công cộng"
+      },
+      {
+        "@id": "1317",
+        "meaning": "Bệnh ung thư"
+      },
+      {
+        "@id": "1318",
+        "meaning": "Kéo dài"
+      },
+      {
+        "@id": "1319",
+        "meaning": "Gram"
+      },
+      {
+        "@id": "1320",
+        "meaning": "Thuyền"
+      },
+      {
+        "@id": "1321",
+        "meaning": "Trà"
+      },
+      {
+        "@id": "1322",
+        "meaning": "Trao đổi"
+      },
+      {
+        "@id": "1323",
+        "meaning": "Hãy hạnh phúc"
+      },
+      {
+        "@id": "1324",
+        "meaning": "Máu"
+      },
+      {
+        "@id": "1325",
+        "meaning": "Chỉ trích"
+      },
+      {
+        "@id": "1326",
+        "meaning": "Cái quạt"
+      },
+      {
+        "@id": "1327",
+        "meaning": "Tội phạm"
+      },
+      {
+        "@id": "1328",
+        "meaning": "Vi phạm"
+      },
+      {
+        "@id": "1329",
+        "meaning": "Chương trình"
+      },
+      {
+        "@id": "1330",
+        "meaning": "Điện tử"
+      },
+      {
+        "@id": "1331",
+        "meaning": "Hạt nhân"
+      },
+      {
+        "@id": "1332",
+        "meaning": "Một nửa"
+      },
+      {
+        "@id": "1333",
+        "meaning": "Cuốn tiểu thuyết"
+      },
+      {
+        "@id": "1334",
+        "meaning": "Đài tưởng niệm"
+      },
+      {
+        "@id": "1335",
+        "meaning": "Trả lời"
+      },
+      {
+        "@id": "1336",
+        "meaning": "Ấn bản"
+      },
+      {
+        "@id": "1337",
+        "meaning": "Tài sản"
+      },
+      {
+        "@id": "1338",
+        "meaning": "Tuyển dụng"
+      },
+      {
+        "@id": "1339",
+        "meaning": "Lần đầu tiên"
+      },
+      {
+        "@id": "1340",
+        "meaning": "Cô gái"
+      },
+      {
+        "@id": "1341",
+        "meaning": "Phúc lợi công cộng"
+      },
+      {
+        "@id": "1342",
+        "meaning": "Vứt bỏ"
+      },
+      {
+        "@id": "1343",
+        "meaning": "Bằng chứng"
+      },
+      {
+        "@id": "1344",
+        "meaning": "Cuộc thảo luận"
+      },
+      {
+        "@id": "1345",
+        "meaning": "Cái túi"
+      },
+      {
+        "@id": "1346",
+        "meaning": "Cuộc sống hàng ngày"
+      },
+      {
+        "@id": "1347",
+        "meaning": "Thái độ"
+      },
+      {
+        "@id": "1348",
+        "meaning": "Internet"
+      },
+      {
+        "@id": "1349",
+        "meaning": "Cũ"
+      },
+      {
+        "@id": "1350",
+        "meaning": "So với"
+      },
+      {
+        "@id": "1351",
+        "meaning": "Màn hình"
+      },
+      {
+        "@id": "1352",
+        "meaning": "Giai đoạn"
+      },
+      {
+        "@id": "1353",
+        "meaning": "Xử lý"
+      },
+      {
+        "@id": "1354",
+        "meaning": "Trở lại"
+      },
+      {
+        "@id": "1355",
+        "meaning": "Đào tạo"
+      },
+      {
+        "@id": "1356",
+        "meaning": "Chỉ"
+      },
+      {
+        "@id": "1357",
+        "meaning": "Gọn gàng"
+      },
+      {
+        "@id": "1358",
+        "meaning": "Tuyển dụng"
+      },
+      {
+        "@id": "1359",
+        "meaning": "Giáo viên"
+      },
+      {
+        "@id": "1360",
+        "meaning": "Sự kết hợp"
+      },
+      {
+        "@id": "1361",
+        "meaning": "Con gái"
+      },
+      {
+        "@id": "1362",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "1363",
+        "meaning": "Mang"
+      },
+      {
+        "@id": "1364",
+        "meaning": "Sinh"
+      },
+      {
+        "@id": "1365",
+        "meaning": "Năm trước"
+      },
+      {
+        "@id": "1366",
+        "meaning": "Triệu chứng"
+      },
+      {
+        "@id": "1367",
+        "meaning": "Yêu"
+      },
+      {
+        "@id": "1368",
+        "meaning": "Tài nguyên"
+      },
+      {
+        "@id": "1369",
+        "meaning": "Kế toán"
+      },
+      {
+        "@id": "1370",
+        "meaning": "Hoạt động"
+      },
+      {
+        "@id": "1371",
+        "meaning": "Độc lập"
+      },
+      {
+        "@id": "1372",
+        "meaning": "Nghĩ"
+      },
+      {
+        "@id": "1373",
+        "meaning": "Cuộc thi"
+      },
+      {
+        "@id": "1374",
+        "meaning": "Siêu"
+      },
+      {
+        "@id": "1375",
+        "meaning": "Nâng lên"
+      },
+      {
+        "@id": "1376",
+        "meaning": "Mạng lưới"
+      },
+      {
+        "@id": "1377",
+        "meaning": "Kẻ thù"
+      },
+      {
+        "@id": "1378",
+        "meaning": "Quan sát"
+      },
+      {
+        "@id": "1379",
+        "meaning": "Khí đốt"
+      },
+      {
+        "@id": "1380",
+        "meaning": "Ngành công nghiệp"
+      },
+      {
+        "@id": "1381",
+        "meaning": "Đồ ăn"
+      },
+      {
+        "@id": "1382",
+        "meaning": "Hòa bình"
+      },
+      {
+        "@id": "1383",
+        "meaning": "Chung"
+      },
+      {
+        "@id": "1384",
+        "meaning": "Câu chuyện"
+      },
+      {
+        "@id": "1385",
+        "meaning": "Bánh mỳ"
+      },
+      {
+        "@id": "1386",
+        "meaning": "Sở cứu hỏa"
+      },
+      {
+        "@id": "1387",
+        "meaning": "Hành trình"
+      },
+      {
+        "@id": "1388",
+        "meaning": "Ôm"
+      },
+      {
+        "@id": "1389",
+        "meaning": "Ngựa"
+      },
+      {
+        "@id": "1390",
+        "meaning": "Phòng ngừa"
+      },
+      {
+        "@id": "1391",
+        "meaning": "Gửi đi"
+      },
+      {
+        "@id": "1392",
+        "meaning": "Thiếu"
+      },
+      {
+        "@id": "1393",
+        "meaning": "Cứng"
+      },
+      {
+        "@id": "1394",
+        "meaning": "Tránh xa"
+      },
+      {
+        "@id": "1395",
+        "meaning": "Mùa đông"
+      },
+      {
+        "@id": "1396",
+        "meaning": "Thời điểm"
+      },
+      {
+        "@id": "1397",
+        "meaning": "Tuyệt vời"
+      },
+      {
+        "@id": "1398",
+        "meaning": "Buồn cười"
+      },
+      {
+        "@id": "1399",
+        "meaning": "Vấn đề"
+      },
+      {
+        "@id": "1400",
+        "meaning": "Năm ngoái"
+      },
+      {
+        "@id": "1401",
+        "meaning": "Tám nghìn"
+      },
+      {
+        "@id": "1402",
+        "meaning": "Tính cách"
+      },
+      {
+        "@id": "1403",
+        "meaning": "Tôi ở đây"
+      },
+      {
+        "@id": "1404",
+        "meaning": "Ngôn ngữ"
+      },
+      {
+        "@id": "1405",
+        "meaning": "Phụ trợ"
+      },
+      {
+        "@id": "1406",
+        "meaning": "Sự hài lòng"
+      },
+      {
+        "@id": "1407",
+        "meaning": "Hỗ trợ"
+      },
+      {
+        "@id": "1408",
+        "meaning": "Làm sao"
+      },
+      {
+        "@id": "1409",
+        "meaning": "Hoàn thành"
+      },
+      {
+        "@id": "1410",
+        "meaning": "Lạnh lẽo"
+      },
+      {
+        "@id": "1411",
+        "meaning": "Nó đau"
+      },
+      {
+        "@id": "1412",
+        "meaning": "Sự hồi phục"
+      },
+      {
+        "@id": "1413",
+        "meaning": "Tổ chức"
+      },
+      {
+        "@id": "1414",
+        "meaning": "Tăng"
+      },
+      {
+        "@id": "1415",
+        "meaning": "Trận động đất"
+      },
+      {
+        "@id": "1416",
+        "meaning": "Văn phòng chính phủ"
+      },
+      {
+        "@id": "1417",
+        "meaning": "Cơm"
+      },
+      {
+        "@id": "1418",
+        "meaning": "Mát mẻ"
+      },
+      {
+        "@id": "1419",
+        "meaning": "Chú"
+      },
+      {
+        "@id": "1420",
+        "meaning": "Trường trung học cơ sở"
+      },
+      {
+        "@id": "1421",
+        "meaning": "Mạng sống"
+      },
+      {
+        "@id": "1422",
+        "meaning": "Kéo dài"
+      },
+      {
+        "@id": "1423",
+        "meaning": "Thắng"
+      },
+      {
+        "@id": "1424",
+        "meaning": "Chuyến bay"
+      },
+      {
+        "@id": "1425",
+        "meaning": "Cái ghế"
+      },
+      {
+        "@id": "1426",
+        "meaning": "Tóm tắt"
+      },
+      {
+        "@id": "1427",
+        "meaning": "Đường kẻ"
+      },
+      {
+        "@id": "1428",
+        "meaning": "Xuất khẩu"
+      },
+      {
+        "@id": "1429",
+        "meaning": "Đặc điểm kỹ thuật"
+      },
+      {
+        "@id": "1430",
+        "meaning": "Quá trình"
+      },
+      {
+        "@id": "1431",
+        "meaning": "Khóa học"
+      },
+      {
+        "@id": "1432",
+        "meaning": "Giàu có"
+      },
+      {
+        "@id": "1433",
+        "meaning": "Nhiều"
+      },
+      {
+        "@id": "1434",
+        "meaning": "Sự thất bại"
+      },
+      {
+        "@id": "1435",
+        "meaning": "Phòng thủ"
+      },
+      {
+        "@id": "1436",
+        "meaning": "Đi qua"
+      },
+      {
+        "@id": "1437",
+        "meaning": "Không khí"
+      },
+      {
+        "@id": "1438",
+        "meaning": "Bên cạnh"
+      },
+      {
+        "@id": "1439",
+        "meaning": "Tốt nghiệp"
+      },
+      {
+        "@id": "1440",
+        "meaning": "Thành viên quốc hội"
+      },
+      {
+        "@id": "1441",
+        "meaning": "Garu"
+      },
+      {
+        "@id": "1442",
+        "meaning": "Chăm sóc trẻ em"
+      },
+      {
+        "@id": "1443",
+        "meaning": "Yếu tố"
+      },
+      {
+        "@id": "1444",
+        "meaning": "Làm rơi"
+      },
+      {
+        "@id": "1445",
+        "meaning": "Sự tập trung"
+      },
+      {
+        "@id": "1446",
+        "meaning": "Màu đỏ"
+      },
+      {
+        "@id": "1447",
+        "meaning": "Trình độ chuyên môn"
+      },
+      {
+        "@id": "1448",
+        "meaning": "Thu nhập"
+      },
+      {
+        "@id": "1449",
+        "meaning": "Cà vạt"
+      },
+      {
+        "@id": "1450",
+        "meaning": "Thuốc lá"
+      },
+      {
+        "@id": "1451",
+        "meaning": "Vũ trụ"
+      },
+      {
+        "@id": "1452",
+        "meaning": "Lịch sử"
+      },
+      {
+        "@id": "1453",
+        "meaning": "Kk"
+      },
+      {
+        "@id": "1454",
+        "meaning": "Khoản phải thu"
+      },
+      {
+        "@id": "1455",
+        "meaning": "Ngắn"
+      },
+      {
+        "@id": "1456",
+        "meaning": "Người lao động"
+      },
+      {
+        "@id": "1457",
+        "meaning": "Máy ảnh"
+      },
+      {
+        "@id": "1458",
+        "meaning": "Nước mắt"
+      },
+      {
+        "@id": "1459",
+        "meaning": "Gật đầu"
+      },
+      {
+        "@id": "1460",
+        "meaning": "Phí"
+      },
+      {
+        "@id": "1461",
+        "meaning": "Có nghĩa"
+      },
+      {
+        "@id": "1462",
+        "meaning": "Tư thế"
+      },
+      {
+        "@id": "1463",
+        "meaning": "Đoán"
+      },
+      {
+        "@id": "1464",
+        "meaning": "Chủ đề"
+      },
+      {
+        "@id": "1465",
+        "meaning": "Cá"
+      },
+      {
+        "@id": "1466",
+        "meaning": "Đính kèm"
+      },
+      {
+        "@id": "1467",
+        "meaning": "Thực vật"
+      },
+      {
+        "@id": "1468",
+        "meaning": "Món nợ"
+      },
+      {
+        "@id": "1469",
+        "meaning": "Mang lại"
+      },
+      {
+        "@id": "1470",
+        "meaning": "Thuốc"
+      },
+      {
+        "@id": "1471",
+        "meaning": "Chủng tộc"
+      },
+      {
+        "@id": "1472",
+        "meaning": "Đơn vị"
+      },
+      {
+        "@id": "1473",
+        "meaning": "Phương pháp"
+      },
+      {
+        "@id": "1474",
+        "meaning": "Đại khái"
+      },
+      {
+        "@id": "1475",
+        "meaning": "Bàn"
+      },
+      {
+        "@id": "1476",
+        "meaning": "Nền dân chủ"
+      },
+      {
+        "@id": "1477",
+        "meaning": "Giường"
+      },
+      {
+        "@id": "1478",
+        "meaning": "Mặt sau"
+      },
+      {
+        "@id": "1479",
+        "meaning": "Hơi thở"
+      },
+      {
+        "@id": "1480",
+        "meaning": "Mọi người"
+      },
+      {
+        "@id": "1481",
+        "meaning": "Quyến rũ"
+      },
+      {
+        "@id": "1482",
+        "meaning": "Niềm hạnh phúc"
+      },
+      {
+        "@id": "1483",
+        "meaning": "Bảy nghìn"
+      },
+      {
+        "@id": "1484",
+        "meaning": "Mùi"
+      },
+      {
+        "@id": "1485",
+        "meaning": "Im lặng"
+      },
+      {
+        "@id": "1486",
+        "meaning": "Ban đầu"
+      },
+      {
+        "@id": "1487",
+        "meaning": "Chậm"
+      },
+      {
+        "@id": "1488",
+        "meaning": "Chuyên nghiệp"
+      },
+      {
+        "@id": "1489",
+        "meaning": "Muộn"
+      },
+      {
+        "@id": "1490",
+        "meaning": "Chạy trốn"
+      },
+      {
+        "@id": "1491",
+        "meaning": "Nội bộ"
+      },
+      {
+        "@id": "1492",
+        "meaning": "Hứa"
+      },
+      {
+        "@id": "1493",
+        "meaning": "Lâu dài"
+      },
+      {
+        "@id": "1494",
+        "meaning": "Chính sách"
+      },
+      {
+        "@id": "1495",
+        "meaning": "Bầu không khí"
+      },
+      {
+        "@id": "1496",
+        "meaning": "Sinh vật sống"
+      },
+      {
+        "@id": "1497",
+        "meaning": "Đứng đầu"
+      },
+      {
+        "@id": "1498",
+        "meaning": "Lý thuyết"
+      },
+      {
+        "@id": "1499",
+        "meaning": "Phù hợp"
+      },
+      {
+        "@id": "1500",
+        "meaning": "Chín nghìn"
+      },
+      {
+        "@id": "1501",
+        "meaning": "Truyền thống"
+      },
+      {
+        "@id": "1502",
+        "meaning": "Thế hệ"
+      },
+      {
+        "@id": "1503",
+        "meaning": "Lý lịch"
+      },
+      {
+        "@id": "1504",
+        "meaning": "Tạp chí"
+      },
+      {
+        "@id": "1505",
+        "meaning": "Không có gì"
+      },
+      {
+        "@id": "1506",
+        "meaning": "Quần áo"
+      },
+      {
+        "@id": "1507",
+        "meaning": "Trong"
+      },
+      {
+        "@id": "1508",
+        "meaning": "Ngủ"
+      },
+      {
+        "@id": "1509",
+        "meaning": "Nhìn vào"
+      },
+      {
+        "@id": "1510",
+        "meaning": "Đĩa cd"
+      },
+      {
+        "@id": "1511",
+        "meaning": "Chia"
+      },
+      {
+        "@id": "1512",
+        "meaning": "Làm việc tiếp"
+      },
+      {
+        "@id": "1513",
+        "meaning": "Sinh sản"
+      },
+      {
+        "@id": "1514",
+        "meaning": "Cái nút"
+      },
+      {
+        "@id": "1515",
+        "meaning": "Sống"
+      },
+      {
+        "@id": "1516",
+        "meaning": "Môi trường xung quanh"
+      },
+      {
+        "@id": "1517",
+        "meaning": "Nghệ thuật"
+      },
+      {
+        "@id": "1518",
+        "meaning": "Máy tính"
+      },
+      {
+        "@id": "1519",
+        "meaning": "Chỉ dẫn"
+      },
+      {
+        "@id": "1520",
+        "meaning": "Poi"
+      },
+      {
+        "@id": "1521",
+        "meaning": "Đầu vào"
+      },
+      {
+        "@id": "1522",
+        "meaning": "Kéo ra"
+      },
+      {
+        "@id": "1523",
+        "meaning": "Lạ lùng"
+      },
+      {
+        "@id": "1524",
+        "meaning": "Nướng"
+      },
+      {
+        "@id": "1525",
+        "meaning": "Nói"
+      },
+      {
+        "@id": "1526",
+        "meaning": "Trốn"
+      },
+      {
+        "@id": "1527",
+        "meaning": "Sự cho phép"
+      },
+      {
+        "@id": "1528",
+        "meaning": "Tại"
+      },
+      {
+        "@id": "1529",
+        "meaning": "Phòng"
+      },
+      {
+        "@id": "1530",
+        "meaning": "Cuối cùng"
+      },
+      {
+        "@id": "1531",
+        "meaning": "Hướng dẫn"
+      },
+      {
+        "@id": "1532",
+        "meaning": "Phó"
+      },
+      {
+        "@id": "1533",
+        "meaning": "Bí mật"
+      },
+      {
+        "@id": "1534",
+        "meaning": "Rừng"
+      },
+      {
+        "@id": "1535",
+        "meaning": "Cứng"
+      },
+      {
+        "@id": "1536",
+        "meaning": "Mọi loại"
+      },
+      {
+        "@id": "1537",
+        "meaning": "Hiện tượng"
+      },
+      {
+        "@id": "1538",
+        "meaning": "Biên tập"
+      },
+      {
+        "@id": "1539",
+        "meaning": "Ca phẫu thuật"
+      },
+      {
+        "@id": "1540",
+        "meaning": "Giảng dạy"
+      },
+      {
+        "@id": "1541",
+        "meaning": "Chốc lát"
+      },
+      {
+        "@id": "1542",
+        "meaning": "Lòng tin"
+      },
+      {
+        "@id": "1543",
+        "meaning": "Vồ lấy"
+      },
+      {
+        "@id": "1544",
+        "meaning": "Thành lập"
+      },
+      {
+        "@id": "1545",
+        "meaning": "Đồ ăn"
+      },
+      {
+        "@id": "1546",
+        "meaning": "Bà già"
+      },
+      {
+        "@id": "1547",
+        "meaning": "Răng"
+      },
+      {
+        "@id": "1548",
+        "meaning": "Thịt"
+      },
+      {
+        "@id": "1549",
+        "meaning": "Địa phương"
+      },
+      {
+        "@id": "1550",
+        "meaning": "Cái bụng"
+      },
+      {
+        "@id": "1551",
+        "meaning": "Đáng thất vọng"
+      },
+      {
+        "@id": "1552",
+        "meaning": "Sửa chữa"
+      },
+      {
+        "@id": "1553",
+        "meaning": "Bao nhiêu"
+      },
+      {
+        "@id": "1554",
+        "meaning": "Xử lý"
+      },
+      {
+        "@id": "1555",
+        "meaning": "Sân khấu"
+      },
+      {
+        "@id": "1556",
+        "meaning": "Thời hiện đại"
+      },
+      {
+        "@id": "1557",
+        "meaning": "Theo đuổi"
+      },
+      {
+        "@id": "1558",
+        "meaning": "Bảo vệ"
+      },
+      {
+        "@id": "1559",
+        "meaning": "Hét lên"
+      },
+      {
+        "@id": "1560",
+        "meaning": "Với tới"
+      },
+      {
+        "@id": "1561",
+        "meaning": "Vâng"
+      },
+      {
+        "@id": "1562",
+        "meaning": "Sự đặt chỗ"
+      },
+      {
+        "@id": "1563",
+        "meaning": "Ủng hộ"
+      },
+      {
+        "@id": "1564",
+        "meaning": "Yêu cầu"
+      },
+      {
+        "@id": "1565",
+        "meaning": "Trước và sau"
+      },
+      {
+        "@id": "1566",
+        "meaning": "Hộ gia đình"
+      },
+      {
+        "@id": "1567",
+        "meaning": "Văn học"
+      },
+      {
+        "@id": "1568",
+        "meaning": "Cấu tạo"
+      },
+      {
+        "@id": "1569",
+        "meaning": "Giữ công ty"
+      },
+      {
+        "@id": "1570",
+        "meaning": "Cung cấp"
+      },
+      {
+        "@id": "1571",
+        "meaning": "Thông thoáng"
+      },
+      {
+        "@id": "1572",
+        "meaning": "Hiệu quả"
+      },
+      {
+        "@id": "1573",
+        "meaning": "Phòng chống thiên tai"
+      },
+      {
+        "@id": "1574",
+        "meaning": "Mức độ"
+      },
+      {
+        "@id": "1575",
+        "meaning": "Người đàn ông và người phụ nữ"
+      },
+      {
+        "@id": "1576",
+        "meaning": "Công bố"
+      },
+      {
+        "@id": "1577",
+        "meaning": "Các"
+      },
+      {
+        "@id": "1578",
+        "meaning": "Tài liệu"
+      },
+      {
+        "@id": "1579",
+        "meaning": "Yếu đuối"
+      },
+      {
+        "@id": "1580",
+        "meaning": "Chuyển tiếp"
+      },
+      {
+        "@id": "1581",
+        "meaning": "Thăm nom"
+      },
+      {
+        "@id": "1582",
+        "meaning": "Thậm chí nhiều hơn"
+      },
+      {
+        "@id": "1583",
+        "meaning": "Cơm"
+      },
+      {
+        "@id": "1584",
+        "meaning": "Khôn ngoan"
+      },
+      {
+        "@id": "1585",
+        "meaning": "Sàn nhà"
+      },
+      {
+        "@id": "1586",
+        "meaning": "Điều dưỡng"
+      },
+      {
+        "@id": "1587",
+        "meaning": "Bị cấm"
+      },
+      {
+        "@id": "1588",
+        "meaning": "Sự ích kỷ"
+      },
+      {
+        "@id": "1589",
+        "meaning": "Phong phú"
+      },
+      {
+        "@id": "1590",
+        "meaning": "Qua lại"
+      },
+      {
+        "@id": "1591",
+        "meaning": "Nói dối"
+      },
+      {
+        "@id": "1592",
+        "meaning": "Nghề nghiệp"
+      },
+      {
+        "@id": "1593",
+        "meaning": "Nghệ thuật"
+      },
+      {
+        "@id": "1594",
+        "meaning": "Mở rộng"
+      },
+      {
+        "@id": "1595",
+        "meaning": "Nhân tố"
+      },
+      {
+        "@id": "1596",
+        "meaning": "Tủ"
+      },
+      {
+        "@id": "1597",
+        "meaning": "Dần dần"
+      },
+      {
+        "@id": "1598",
+        "meaning": "Thăng bằng"
+      },
+      {
+        "@id": "1599",
+        "meaning": "Bài kiểm tra"
+      },
+      {
+        "@id": "1600",
+        "meaning": "Okinawa"
+      },
+      {
+        "@id": "1601",
+        "meaning": "Nuôi dưỡng"
+      },
+      {
+        "@id": "1602",
+        "meaning": "Thăm nom"
+      },
+      {
+        "@id": "1603",
+        "meaning": "Con số"
+      },
+      {
+        "@id": "1604",
+        "meaning": "Kế hoạch"
+      },
+      {
+        "@id": "1605",
+        "meaning": "Phủ nhận"
+      },
+      {
+        "@id": "1606",
+        "meaning": "Muối"
+      },
+      {
+        "@id": "1607",
+        "meaning": "Hình ảnh"
+      },
+      {
+        "@id": "1608",
+        "meaning": "Ăn"
+      },
+      {
+        "@id": "1609",
+        "meaning": "Đàm phán"
+      },
+      {
+        "@id": "1610",
+        "meaning": "Đi vòng quanh"
+      },
+      {
+        "@id": "1611",
+        "meaning": "Đã sửa"
+      },
+      {
+        "@id": "1612",
+        "meaning": "Hòn đảo"
+      },
+      {
+        "@id": "1613",
+        "meaning": "Bảo đảm"
+      },
+      {
+        "@id": "1614",
+        "meaning": "Tức giận"
+      },
+      {
+        "@id": "1615",
+        "meaning": "Bên"
+      },
+      {
+        "@id": "1616",
+        "meaning": "Cây"
+      },
+      {
+        "@id": "1617",
+        "meaning": "Câu"
+      },
+      {
+        "@id": "1618",
+        "meaning": "Giấy"
+      },
+      {
+        "@id": "1619",
+        "meaning": "Gầy"
+      },
+      {
+        "@id": "1620",
+        "meaning": "Tóc"
+      },
+      {
+        "@id": "1621",
+        "meaning": "Ngày và giờ"
+      },
+      {
+        "@id": "1622",
+        "meaning": "Chủ tịch"
+      },
+      {
+        "@id": "1623",
+        "meaning": "Vượt ra"
+      },
+      {
+        "@id": "1624",
+        "meaning": "Thư"
+      },
+      {
+        "@id": "1625",
+        "meaning": "Thuận lợi"
+      },
+      {
+        "@id": "1626",
+        "meaning": "Hỏi"
+      },
+      {
+        "@id": "1627",
+        "meaning": "Hoá học"
+      },
+      {
+        "@id": "1628",
+        "meaning": "Giáo viên"
+      },
+      {
+        "@id": "1629",
+        "meaning": "Giải phóng"
+      },
+      {
+        "@id": "1630",
+        "meaning": "Thiết kế"
+      },
+      {
+        "@id": "1631",
+        "meaning": "Nặng"
+      },
+      {
+        "@id": "1632",
+        "meaning": "Làm ra"
+      },
+      {
+        "@id": "1633",
+        "meaning": "Nhóm"
+      },
+      {
+        "@id": "1634",
+        "meaning": "Thống kê"
+      },
+      {
+        "@id": "1635",
+        "meaning": "Mở rộng"
+      },
+      {
+        "@id": "1636",
+        "meaning": "Cân nhắc"
+      },
+      {
+        "@id": "1637",
+        "meaning": "Hộp"
+      },
+      {
+        "@id": "1638",
+        "meaning": "Mẹ"
+      },
+      {
+        "@id": "1639",
+        "meaning": "Thời hậu chiến"
+      },
+      {
+        "@id": "1640",
+        "meaning": "Liên tục"
+      },
+      {
+        "@id": "1641",
+        "meaning": "Vui vẻ"
+      },
+      {
+        "@id": "1642",
+        "meaning": "Giữ"
+      },
+      {
+        "@id": "1643",
+        "meaning": "Mặt trời"
+      },
+      {
+        "@id": "1644",
+        "meaning": "Số lượng lớn"
+      },
+      {
+        "@id": "1645",
+        "meaning": "Bất thường"
+      },
+      {
+        "@id": "1646",
+        "meaning": "Lâu đài"
+      },
+      {
+        "@id": "1647",
+        "meaning": "Gợi ý"
+      },
+      {
+        "@id": "1648",
+        "meaning": "Tình huống"
+      },
+      {
+        "@id": "1649",
+        "meaning": "Bảo tồn"
+      },
+      {
+        "@id": "1650",
+        "meaning": "Hiện tại"
+      },
+      {
+        "@id": "1651",
+        "meaning": "Điều"
+      },
+      {
+        "@id": "1652",
+        "meaning": "Tương đương"
+      },
+      {
+        "@id": "1653",
+        "meaning": "Nhảy"
+      },
+      {
+        "@id": "1654",
+        "meaning": "Trận đánh"
+      },
+      {
+        "@id": "1655",
+        "meaning": "Thời gian"
+      },
+      {
+        "@id": "1656",
+        "meaning": "Lời chào"
+      },
+      {
+        "@id": "1657",
+        "meaning": "Bắt gặp"
+      },
+      {
+        "@id": "1658",
+        "meaning": "Thi hành án"
+      },
+      {
+        "@id": "1659",
+        "meaning": "Hàn quốc"
+      },
+      {
+        "@id": "1660",
+        "meaning": "Thiết bị"
       }
     ]
   }

@@ -41,6 +41,6998 @@
       {
         "@id": "10",
         "meaning": "Werden"
+      },
+      {
+        "@id": "11",
+        "meaning": "Eins"
+      },
+      {
+        "@id": "12",
+        "meaning": "Keiner"
+      },
+      {
+        "@id": "13",
+        "meaning": "Aus"
+      },
+      {
+        "@id": "14",
+        "meaning": "Zwei"
+      },
+      {
+        "@id": "15",
+        "meaning": "Es ist"
+      },
+      {
+        "@id": "16",
+        "meaning": "Herr."
+      },
+      {
+        "@id": "17",
+        "meaning": "Drei"
+      },
+      {
+        "@id": "18",
+        "meaning": "Zehn"
+      },
+      {
+        "@id": "19",
+        "meaning": "Dieses hier"
+      },
+      {
+        "@id": "20",
+        "meaning": "Ding"
+      },
+      {
+        "@id": "21",
+        "meaning": "Ziel"
+      },
+      {
+        "@id": "22",
+        "meaning": "Es"
+      },
+      {
+        "@id": "23",
+        "meaning": "Gott"
+      },
+      {
+        "@id": "24",
+        "meaning": "Jahr"
+      },
+      {
+        "@id": "25",
+        "meaning": "Kommen"
+      },
+      {
+        "@id": "26",
+        "meaning": "Fünf"
+      },
+      {
+        "@id": "27",
+        "meaning": "Denken"
+      },
+      {
+        "@id": "28",
+        "meaning": "Sehen"
+      },
+      {
+        "@id": "29",
+        "meaning": "Gehen"
+      },
+      {
+        "@id": "30",
+        "meaning": "Vier"
+      },
+      {
+        "@id": "31",
+        "meaning": "Ich kann es schaffen"
+      },
+      {
+        "@id": "32",
+        "meaning": "Das ist es"
+      },
+      {
+        "@id": "33",
+        "meaning": "Gut"
+      },
+      {
+        "@id": "34",
+        "meaning": "Person"
+      },
+      {
+        "@id": "35",
+        "meaning": "Ich"
+      },
+      {
+        "@id": "36",
+        "meaning": "Usw."
+      },
+      {
+        "@id": "37",
+        "meaning": "Können"
+      },
+      {
+        "@id": "38",
+        "meaning": "Herr fräulein."
+      },
+      {
+        "@id": "39",
+        "meaning": "Wegen"
+      },
+      {
+        "@id": "40",
+        "meaning": "Was"
+      },
+      {
+        "@id": "41",
+        "meaning": "Zu"
+      },
+      {
+        "@id": "42",
+        "meaning": "Zeit"
+      },
+      {
+        "@id": "43",
+        "meaning": "Sechs"
+      },
+      {
+        "@id": "44",
+        "meaning": "Zwanzig"
+      },
+      {
+        "@id": "45",
+        "meaning": "Menschen"
+      },
+      {
+        "@id": "46",
+        "meaning": "Um des willens willen"
+      },
+      {
+        "@id": "47",
+        "meaning": "Monat"
+      },
+      {
+        "@id": "48",
+        "meaning": "Acht"
+      },
+      {
+        "@id": "49",
+        "meaning": "Furz"
+      },
+      {
+        "@id": "50",
+        "meaning": "Teru"
+      },
+      {
+        "@id": "51",
+        "meaning": "Nein."
+      },
+      {
+        "@id": "52",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "53",
+        "meaning": "Sieben"
+      },
+      {
+        "@id": "54",
+        "meaning": "Neun"
+      },
+      {
+        "@id": "55",
+        "meaning": "Nur"
+      },
+      {
+        "@id": "56",
+        "meaning": "Japan"
+      },
+      {
+        "@id": "57",
+        "meaning": "Erreichen"
+      },
+      {
+        "@id": "58",
+        "meaning": "Seebrasse"
+      },
+      {
+        "@id": "59",
+        "meaning": "Kupfer"
+      },
+      {
+        "@id": "60",
+        "meaning": "Medium"
+      },
+      {
+        "@id": "61",
+        "meaning": "Lassen"
+      },
+      {
+        "@id": "62",
+        "meaning": "Auch"
+      },
+      {
+        "@id": "63",
+        "meaning": "Ankommen"
+      },
+      {
+        "@id": "64",
+        "meaning": "Tausend"
+      },
+      {
+        "@id": "65",
+        "meaning": "Ich selbst"
+      },
+      {
+        "@id": "66",
+        "meaning": "Ort"
+      },
+      {
+        "@id": "67",
+        "meaning": "Dreißig"
+      },
+      {
+        "@id": "68",
+        "meaning": "Null"
+      },
+      {
+        "@id": "69",
+        "meaning": "Das ist es"
+      },
+      {
+        "@id": "70",
+        "meaning": "Denken"
+      },
+      {
+        "@id": "71",
+        "meaning": "Leg es weg"
+      },
+      {
+        "@id": "72",
+        "meaning": "Zwei"
+      },
+      {
+        "@id": "73",
+        "meaning": "Jedoch"
+      },
+      {
+        "@id": "74",
+        "meaning": "Richtung"
+      },
+      {
+        "@id": "75",
+        "meaning": "Fall"
+      },
+      {
+        "@id": "76",
+        "meaning": "N / a"
+      },
+      {
+        "@id": "77",
+        "meaning": "Jetzt"
+      },
+      {
+        "@id": "78",
+        "meaning": "Haben"
+      },
+      {
+        "@id": "79",
+        "meaning": "Er"
+      },
+      {
+        "@id": "80",
+        "meaning": "Ausgeben"
+      },
+      {
+        "@id": "81",
+        "meaning": "Usw."
+      },
+      {
+        "@id": "82",
+        "meaning": "Ich verstehe"
+      },
+      {
+        "@id": "83",
+        "meaning": "Tag"
+      },
+      {
+        "@id": "84",
+        "meaning": "Ort"
+      },
+      {
+        "@id": "85",
+        "meaning": "Fünfzig"
+      },
+      {
+        "@id": "86",
+        "meaning": "Herauskommen"
+      },
+      {
+        "@id": "87",
+        "meaning": "Vor"
+      },
+      {
+        "@id": "88",
+        "meaning": "Benehmen"
+      },
+      {
+        "@id": "89",
+        "meaning": "Nehmen"
+      },
+      {
+        "@id": "90",
+        "meaning": "Tari"
+      },
+      {
+        "@id": "91",
+        "meaning": "Kreis"
+      },
+      {
+        "@id": "92",
+        "meaning": "Zehntausend"
+      },
+      {
+        "@id": "93",
+        "meaning": "Sex"
+      },
+      {
+        "@id": "94",
+        "meaning": "Neunhundert"
+      },
+      {
+        "@id": "95",
+        "meaning": "Grund"
+      },
+      {
+        "@id": "96",
+        "meaning": "Während"
+      },
+      {
+        "@id": "97",
+        "meaning": "Unterschied"
+      },
+      {
+        "@id": "98",
+        "meaning": "Hundert"
+      },
+      {
+        "@id": "99",
+        "meaning": "Gib es mir"
+      },
+      {
+        "@id": "100",
+        "meaning": "Jedoch"
+      },
+      {
+        "@id": "101",
+        "meaning": "Problem"
+      },
+      {
+        "@id": "102",
+        "meaning": "Brauchen"
+      },
+      {
+        "@id": "103",
+        "meaning": "Gegen"
+      },
+      {
+        "@id": "104",
+        "meaning": "Verwenden"
+      },
+      {
+        "@id": "105",
+        "meaning": "Twist"
+      },
+      {
+        "@id": "106",
+        "meaning": "Transformation"
+      },
+      {
+        "@id": "107",
+        "meaning": "Zeit"
+      },
+      {
+        "@id": "108",
+        "meaning": "Hören"
+      },
+      {
+        "@id": "109",
+        "meaning": "Vierzig"
+      },
+      {
+        "@id": "110",
+        "meaning": "Geben"
+      },
+      {
+        "@id": "111",
+        "meaning": "Wissen"
+      },
+      {
+        "@id": "112",
+        "meaning": "Tod"
+      },
+      {
+        "@id": "113",
+        "meaning": "Hinteren"
+      },
+      {
+        "@id": "114",
+        "meaning": "Prozent"
+      },
+      {
+        "@id": "115",
+        "meaning": "Und"
+      },
+      {
+        "@id": "116",
+        "meaning": "Bereits"
+      },
+      {
+        "@id": "117",
+        "meaning": "Verein"
+      },
+      {
+        "@id": "118",
+        "meaning": "Setzen"
+      },
+      {
+        "@id": "119",
+        "meaning": "Kind"
+      },
+      {
+        "@id": "120",
+        "meaning": "So was"
+      },
+      {
+        "@id": "121",
+        "meaning": "Eingeben"
+      },
+      {
+        "@id": "122",
+        "meaning": "Luft"
+      },
+      {
+        "@id": "123",
+        "meaning": "Machen"
+      },
+      {
+        "@id": "124",
+        "meaning": "Beziehung"
+      },
+      {
+        "@id": "125",
+        "meaning": "Hier"
+      },
+      {
+        "@id": "126",
+        "meaning": "Viele"
+      },
+      {
+        "@id": "127",
+        "meaning": "Hinsetzen"
+      },
+      {
+        "@id": "128",
+        "meaning": "Dort"
+      },
+      {
+        "@id": "129",
+        "meaning": "Sechzig"
+      },
+      {
+        "@id": "130",
+        "meaning": "Auge"
+      },
+      {
+        "@id": "131",
+        "meaning": "Neunzig"
+      },
+      {
+        "@id": "132",
+        "meaning": "Grad"
+      },
+      {
+        "@id": "133",
+        "meaning": "Mäßigung"
+      },
+      {
+        "@id": "134",
+        "meaning": "Um"
+      },
+      {
+        "@id": "135",
+        "meaning": "Über"
+      },
+      {
+        "@id": "136",
+        "meaning": "Stadt"
+      },
+      {
+        "@id": "137",
+        "meaning": "Achtzig"
+      },
+      {
+        "@id": "138",
+        "meaning": "Herausgeben"
+      },
+      {
+        "@id": "139",
+        "meaning": "Und"
+      },
+      {
+        "@id": "140",
+        "meaning": "Gesellschaft"
+      },
+      {
+        "@id": "141",
+        "meaning": "Geschichte"
+      },
+      {
+        "@id": "142",
+        "meaning": "Du"
+      },
+      {
+        "@id": "143",
+        "meaning": "Ich"
+      },
+      {
+        "@id": "144",
+        "meaning": "Hand"
+      },
+      {
+        "@id": "145",
+        "meaning": "Das ist alles"
+      },
+      {
+        "@id": "146",
+        "meaning": "Geschäft"
+      },
+      {
+        "@id": "147",
+        "meaning": "Alter"
+      },
+      {
+        "@id": "148",
+        "meaning": "Innen"
+      },
+      {
+        "@id": "149",
+        "meaning": "Alle"
+      },
+      {
+        "@id": "150",
+        "meaning": "Siebzig"
+      },
+      {
+        "@id": "151",
+        "meaning": "Tragen"
+      },
+      {
+        "@id": "152",
+        "meaning": "Muss"
+      },
+      {
+        "@id": "153",
+        "meaning": "Beigefügt"
+      },
+      {
+        "@id": "154",
+        "meaning": "Welt"
+      },
+      {
+        "@id": "155",
+        "meaning": "Andere"
+      },
+      {
+        "@id": "156",
+        "meaning": "Punkt"
+      },
+      {
+        "@id": "157",
+        "meaning": "Erhalten"
+      },
+      {
+        "@id": "158",
+        "meaning": "Menschlich"
+      },
+      {
+        "@id": "159",
+        "meaning": "2.000"
+      },
+      {
+        "@id": "160",
+        "meaning": "Nächste"
+      },
+      {
+        "@id": "161",
+        "meaning": "Also"
+      },
+      {
+        "@id": "162",
+        "meaning": "Leben"
+      },
+      {
+        "@id": "163",
+        "meaning": "Gesetz"
+      },
+      {
+        "@id": "164",
+        "meaning": "Dasselbe"
+      },
+      {
+        "@id": "165",
+        "meaning": "Schreiben"
+      },
+      {
+        "@id": "166",
+        "meaning": "Erhalten"
+      },
+      {
+        "@id": "167",
+        "meaning": "Unternehmen"
+      },
+      {
+        "@id": "168",
+        "meaning": "Wann"
+      },
+      {
+        "@id": "169",
+        "meaning": "Teuer"
+      },
+      {
+        "@id": "170",
+        "meaning": "Erhalten"
+      },
+      {
+        "@id": "171",
+        "meaning": "Aufhängen"
+      },
+      {
+        "@id": "172",
+        "meaning": "Artikel"
+      },
+      {
+        "@id": "173",
+        "meaning": "So"
+      },
+      {
+        "@id": "174",
+        "meaning": "Mann"
+      },
+      {
+        "@id": "175",
+        "meaning": "Die studie"
+      },
+      {
+        "@id": "176",
+        "meaning": "Region"
+      },
+      {
+        "@id": "177",
+        "meaning": "Gesicht"
+      },
+      {
+        "@id": "178",
+        "meaning": "Groß"
+      },
+      {
+        "@id": "179",
+        "meaning": "Information"
+      },
+      {
+        "@id": "180",
+        "meaning": "Bedeutung"
+      },
+      {
+        "@id": "181",
+        "meaning": "Mal"
+      },
+      {
+        "@id": "182",
+        "meaning": "Sie"
+      },
+      {
+        "@id": "183",
+        "meaning": "Wissen"
+      },
+      {
+        "@id": "184",
+        "meaning": "Ehrgeiz"
+      },
+      {
+        "@id": "185",
+        "meaning": "Figur"
+      },
+      {
+        "@id": "186",
+        "meaning": "Worte"
+      },
+      {
+        "@id": "187",
+        "meaning": "Einstellen"
+      },
+      {
+        "@id": "188",
+        "meaning": "Land"
+      },
+      {
+        "@id": "189",
+        "meaning": "Verwandt"
+      },
+      {
+        "@id": "190",
+        "meaning": "Präfektur"
+      },
+      {
+        "@id": "191",
+        "meaning": "Schule"
+      },
+      {
+        "@id": "192",
+        "meaning": "Zwischen"
+      },
+      {
+        "@id": "193",
+        "meaning": "Zunahme"
+      },
+      {
+        "@id": "194",
+        "meaning": "Das naturgesetz"
+      },
+      {
+        "@id": "195",
+        "meaning": "Arbeiten"
+      },
+      {
+        "@id": "196",
+        "meaning": "Groß"
+      },
+      {
+        "@id": "197",
+        "meaning": "Eine person"
+      },
+      {
+        "@id": "198",
+        "meaning": "Unternehmen"
+      },
+      {
+        "@id": "199",
+        "meaning": "Who"
+      },
+      {
+        "@id": "200",
+        "meaning": "Möglich"
+      },
+      {
+        "@id": "201",
+        "meaning": "Minuten"
+      },
+      {
+        "@id": "202",
+        "meaning": "Zweihundert"
+      },
+      {
+        "@id": "203",
+        "meaning": "Wo"
+      },
+      {
+        "@id": "204",
+        "meaning": "Erscheinen"
+      },
+      {
+        "@id": "205",
+        "meaning": "Ausschussmitglied"
+      },
+      {
+        "@id": "206",
+        "meaning": "Erhalten"
+      },
+      {
+        "@id": "207",
+        "meaning": "Epoche"
+      },
+      {
+        "@id": "208",
+        "meaning": "Verwenden"
+      },
+      {
+        "@id": "209",
+        "meaning": "Ein bisschen"
+      },
+      {
+        "@id": "210",
+        "meaning": "Heute"
+      },
+      {
+        "@id": "211",
+        "meaning": "Wahr"
+      },
+      {
+        "@id": "212",
+        "meaning": "Sein"
+      },
+      {
+        "@id": "213",
+        "meaning": "Zwei personen"
+      },
+      {
+        "@id": "214",
+        "meaning": "Es dauert"
+      },
+      {
+        "@id": "215",
+        "meaning": "Alle"
+      },
+      {
+        "@id": "216",
+        "meaning": "Stimme"
+      },
+      {
+        "@id": "217",
+        "meaning": "Die jetzige"
+      },
+      {
+        "@id": "218",
+        "meaning": "Nein"
+      },
+      {
+        "@id": "219",
+        "meaning": "Haus"
+      },
+      {
+        "@id": "220",
+        "meaning": "Von"
+      },
+      {
+        "@id": "221",
+        "meaning": "Verfahren"
+      },
+      {
+        "@id": "222",
+        "meaning": "Wirtschaft"
+      },
+      {
+        "@id": "223",
+        "meaning": "Trotzdem"
+      },
+      {
+        "@id": "224",
+        "meaning": "Ein anderer"
+      },
+      {
+        "@id": "225",
+        "meaning": "Frau"
+      },
+      {
+        "@id": "226",
+        "meaning": "Yabari"
+      },
+      {
+        "@id": "227",
+        "meaning": "Essen"
+      },
+      {
+        "@id": "228",
+        "meaning": "Unterrichten"
+      },
+      {
+        "@id": "229",
+        "meaning": "Ungefähr zu der zeit"
+      },
+      {
+        "@id": "230",
+        "meaning": "Straße"
+      },
+      {
+        "@id": "231",
+        "meaning": "Zusammen"
+      },
+      {
+        "@id": "232",
+        "meaning": "Herz"
+      },
+      {
+        "@id": "233",
+        "meaning": "Jahr"
+      },
+      {
+        "@id": "234",
+        "meaning": "Aktivität"
+      },
+      {
+        "@id": "235",
+        "meaning": "Anders"
+      },
+      {
+        "@id": "236",
+        "meaning": "Reh"
+      },
+      {
+        "@id": "237",
+        "meaning": "Start"
+      },
+      {
+        "@id": "238",
+        "meaning": "Kreis"
+      },
+      {
+        "@id": "239",
+        "meaning": "Umfeld"
+      },
+      {
+        "@id": "240",
+        "meaning": "Groß"
+      },
+      {
+        "@id": "241",
+        "meaning": "Abteilung"
+      },
+      {
+        "@id": "242",
+        "meaning": "Ich"
+      },
+      {
+        "@id": "243",
+        "meaning": "Tokio"
+      },
+      {
+        "@id": "244",
+        "meaning": "Ein zoll"
+      },
+      {
+        "@id": "245",
+        "meaning": "Ziel"
+      },
+      {
+        "@id": "246",
+        "meaning": "Kind"
+      },
+      {
+        "@id": "247",
+        "meaning": "Telefon"
+      },
+      {
+        "@id": "248",
+        "meaning": "Ergebnis"
+      },
+      {
+        "@id": "249",
+        "meaning": "Untersuchung"
+      },
+      {
+        "@id": "250",
+        "meaning": "Ändern"
+      },
+      {
+        "@id": "251",
+        "meaning": "Zu viel"
+      },
+      {
+        "@id": "252",
+        "meaning": "Chan"
+      },
+      {
+        "@id": "253",
+        "meaning": "Du"
+      },
+      {
+        "@id": "254",
+        "meaning": "Partner"
+      },
+      {
+        "@id": "255",
+        "meaning": "Anruf"
+      },
+      {
+        "@id": "256",
+        "meaning": "Fühlen"
+      },
+      {
+        "@id": "257",
+        "meaning": "Situation"
+      },
+      {
+        "@id": "258",
+        "meaning": "Stark"
+      },
+      {
+        "@id": "259",
+        "meaning": "Amerika"
+      },
+      {
+        "@id": "260",
+        "meaning": "Gewalt"
+      },
+      {
+        "@id": "261",
+        "meaning": "Frau"
+      },
+      {
+        "@id": "262",
+        "meaning": "Ausbildung"
+      },
+      {
+        "@id": "263",
+        "meaning": "Kaufen"
+      },
+      {
+        "@id": "264",
+        "meaning": "Erde"
+      },
+      {
+        "@id": "265",
+        "meaning": "Planen"
+      },
+      {
+        "@id": "266",
+        "meaning": "Technologie"
+      },
+      {
+        "@id": "267",
+        "meaning": "Für"
+      },
+      {
+        "@id": "268",
+        "meaning": "Erstens"
+      },
+      {
+        "@id": "269",
+        "meaning": "Sofort"
+      },
+      {
+        "@id": "270",
+        "meaning": "Schlecht"
+      },
+      {
+        "@id": "271",
+        "meaning": "Universität"
+      },
+      {
+        "@id": "272",
+        "meaning": "Weitermachen"
+      },
+      {
+        "@id": "273",
+        "meaning": "Lehrer"
+      },
+      {
+        "@id": "274",
+        "meaning": "Besonders"
+      },
+      {
+        "@id": "275",
+        "meaning": "Nur"
+      },
+      {
+        "@id": "276",
+        "meaning": "Was?"
+      },
+      {
+        "@id": "277",
+        "meaning": "Inhalt"
+      },
+      {
+        "@id": "278",
+        "meaning": "Oder"
+      },
+      {
+        "@id": "279",
+        "meaning": "Kalligraphie"
+      },
+      {
+        "@id": "280",
+        "meaning": "Foto"
+      },
+      {
+        "@id": "281",
+        "meaning": "Um"
+      },
+      {
+        "@id": "282",
+        "meaning": "Versicherung"
+      },
+      {
+        "@id": "283",
+        "meaning": "Roh"
+      },
+      {
+        "@id": "284",
+        "meaning": "Ausgabe"
+      },
+      {
+        "@id": "285",
+        "meaning": "Ort"
+      },
+      {
+        "@id": "286",
+        "meaning": "Auto"
+      },
+      {
+        "@id": "287",
+        "meaning": "Showa-ära"
+      },
+      {
+        "@id": "288",
+        "meaning": "Sollte sein"
+      },
+      {
+        "@id": "289",
+        "meaning": "Teenager"
+      },
+      {
+        "@id": "290",
+        "meaning": "Situation"
+      },
+      {
+        "@id": "291",
+        "meaning": "Allgemein"
+      },
+      {
+        "@id": "292",
+        "meaning": "Zum beispiel"
+      },
+      {
+        "@id": "293",
+        "meaning": "Wenige"
+      },
+      {
+        "@id": "294",
+        "meaning": "Fünfhundert"
+      },
+      {
+        "@id": "295",
+        "meaning": "Verwenden"
+      },
+      {
+        "@id": "296",
+        "meaning": "Zeigen"
+      },
+      {
+        "@id": "297",
+        "meaning": "Portion"
+      },
+      {
+        "@id": "298",
+        "meaning": "Saal"
+      },
+      {
+        "@id": "299",
+        "meaning": "Regierung"
+      },
+      {
+        "@id": "300",
+        "meaning": "Lang"
+      },
+      {
+        "@id": "301",
+        "meaning": "So was"
+      },
+      {
+        "@id": "302",
+        "meaning": "Achthundert"
+      },
+      {
+        "@id": "303",
+        "meaning": "Heisei"
+      },
+      {
+        "@id": "304",
+        "meaning": "Seite"
+      },
+      {
+        "@id": "305",
+        "meaning": "Arbeit"
+      },
+      {
+        "@id": "306",
+        "meaning": "Wie"
+      },
+      {
+        "@id": "307",
+        "meaning": "Früh"
+      },
+      {
+        "@id": "308",
+        "meaning": "System"
+      },
+      {
+        "@id": "309",
+        "meaning": "Mitglied"
+      },
+      {
+        "@id": "310",
+        "meaning": "Thema"
+      },
+      {
+        "@id": "311",
+        "meaning": "Ich möchte"
+      },
+      {
+        "@id": "312",
+        "meaning": "Existenz"
+      },
+      {
+        "@id": "313",
+        "meaning": "Zurückkehren"
+      },
+      {
+        "@id": "314",
+        "meaning": "Entwicklung"
+      },
+      {
+        "@id": "315",
+        "meaning": "Ich werde"
+      },
+      {
+        "@id": "316",
+        "meaning": "Gefühl"
+      },
+      {
+        "@id": "317",
+        "meaning": "Schneiden"
+      },
+      {
+        "@id": "318",
+        "meaning": "Basic"
+      },
+      {
+        "@id": "319",
+        "meaning": "Dreihundert"
+      },
+      {
+        "@id": "320",
+        "meaning": "Vorschriften"
+      },
+      {
+        "@id": "321",
+        "meaning": "Körper"
+      },
+      {
+        "@id": "322",
+        "meaning": "Kopf"
+      },
+      {
+        "@id": "323",
+        "meaning": "Frage"
+      },
+      {
+        "@id": "324",
+        "meaning": "Begriff"
+      },
+      {
+        "@id": "325",
+        "meaning": "Erläuterung"
+      },
+      {
+        "@id": "326",
+        "meaning": "Lesen"
+      },
+      {
+        "@id": "327",
+        "meaning": "Herr."
+      },
+      {
+        "@id": "328",
+        "meaning": "Ministerium"
+      },
+      {
+        "@id": "329",
+        "meaning": "Wasser"
+      },
+      {
+        "@id": "330",
+        "meaning": "Warum"
+      },
+      {
+        "@id": "331",
+        "meaning": "Durchführung"
+      },
+      {
+        "@id": "332",
+        "meaning": "Tisch"
+      },
+      {
+        "@id": "333",
+        "meaning": "Absolut"
+      },
+      {
+        "@id": "334",
+        "meaning": "Wichtig"
+      },
+      {
+        "@id": "335",
+        "meaning": "Stand"
+      },
+      {
+        "@id": "336",
+        "meaning": "Einrichtung"
+      },
+      {
+        "@id": "337",
+        "meaning": "Fast"
+      },
+      {
+        "@id": "338",
+        "meaning": "Was"
+      },
+      {
+        "@id": "339",
+        "meaning": "Neu"
+      },
+      {
+        "@id": "340",
+        "meaning": "Sprechen"
+      },
+      {
+        "@id": "341",
+        "meaning": "China"
+      },
+      {
+        "@id": "342",
+        "meaning": "Region"
+      },
+      {
+        "@id": "343",
+        "meaning": "Zusammen"
+      },
+      {
+        "@id": "344",
+        "meaning": "Nummer eins"
+      },
+      {
+        "@id": "345",
+        "meaning": "Management"
+      },
+      {
+        "@id": "346",
+        "meaning": "Aufwand"
+      },
+      {
+        "@id": "347",
+        "meaning": "Teilnahme"
+      },
+      {
+        "@id": "348",
+        "meaning": "Maschine"
+      },
+      {
+        "@id": "349",
+        "meaning": "Einfach"
+      },
+      {
+        "@id": "350",
+        "meaning": "Klein"
+      },
+      {
+        "@id": "351",
+        "meaning": "Es gibt"
+      },
+      {
+        "@id": "352",
+        "meaning": "Mund"
+      },
+      {
+        "@id": "353",
+        "meaning": "Schimmel"
+      },
+      {
+        "@id": "354",
+        "meaning": "Kürzlich"
+      },
+      {
+        "@id": "355",
+        "meaning": "Form"
+      },
+      {
+        "@id": "356",
+        "meaning": "Vorfall"
+      },
+      {
+        "@id": "357",
+        "meaning": "Wort"
+      },
+      {
+        "@id": "358",
+        "meaning": "Menschen"
+      },
+      {
+        "@id": "359",
+        "meaning": "Hundert millionen"
+      },
+      {
+        "@id": "360",
+        "meaning": "Grad"
+      },
+      {
+        "@id": "361",
+        "meaning": "Natürlich"
+      },
+      {
+        "@id": "362",
+        "meaning": "Center"
+      },
+      {
+        "@id": "363",
+        "meaning": "Institution"
+      },
+      {
+        "@id": "364",
+        "meaning": "Rest"
+      },
+      {
+        "@id": "365",
+        "meaning": "Nachfrage"
+      },
+      {
+        "@id": "366",
+        "meaning": "Geben"
+      },
+      {
+        "@id": "367",
+        "meaning": "Viele"
+      },
+      {
+        "@id": "368",
+        "meaning": "Wollen"
+      },
+      {
+        "@id": "369",
+        "meaning": "Center"
+      },
+      {
+        "@id": "370",
+        "meaning": "Live"
+      },
+      {
+        "@id": "371",
+        "meaning": "Rechts"
+      },
+      {
+        "@id": "372",
+        "meaning": "Kultur"
+      },
+      {
+        "@id": "373",
+        "meaning": "Trinken"
+      },
+      {
+        "@id": "374",
+        "meaning": "Jede"
+      },
+      {
+        "@id": "375",
+        "meaning": "Verstopfen"
+      },
+      {
+        "@id": "376",
+        "meaning": "Jung"
+      },
+      {
+        "@id": "377",
+        "meaning": "Wartung"
+      },
+      {
+        "@id": "378",
+        "meaning": "Jede"
+      },
+      {
+        "@id": "379",
+        "meaning": "International"
+      },
+      {
+        "@id": "380",
+        "meaning": "Menge"
+      },
+      {
+        "@id": "381",
+        "meaning": "Wunsch"
+      },
+      {
+        "@id": "382",
+        "meaning": "Der zweck"
+      },
+      {
+        "@id": "383",
+        "meaning": "Figur"
+      },
+      {
+        "@id": "384",
+        "meaning": "Lang"
+      },
+      {
+        "@id": "385",
+        "meaning": "Lachen"
+      },
+      {
+        "@id": "386",
+        "meaning": "Erste"
+      },
+      {
+        "@id": "387",
+        "meaning": "Tatsächlich"
+      },
+      {
+        "@id": "388",
+        "meaning": "Zimmer"
+      },
+      {
+        "@id": "389",
+        "meaning": "Gefühl"
+      },
+      {
+        "@id": "390",
+        "meaning": "Warten"
+      },
+      {
+        "@id": "391",
+        "meaning": "Scheinbar"
+      },
+      {
+        "@id": "392",
+        "meaning": "Weitermachen"
+      },
+      {
+        "@id": "393",
+        "meaning": "Mein"
+      },
+      {
+        "@id": "394",
+        "meaning": "Obst"
+      },
+      {
+        "@id": "395",
+        "meaning": "Folgen"
+      },
+      {
+        "@id": "396",
+        "meaning": "Bereits"
+      },
+      {
+        "@id": "397",
+        "meaning": "Prinzip"
+      },
+      {
+        "@id": "398",
+        "meaning": "Außerdem"
+      },
+      {
+        "@id": "399",
+        "meaning": "Neu"
+      },
+      {
+        "@id": "400",
+        "meaning": "Wind"
+      },
+      {
+        "@id": "401",
+        "meaning": "Auswertung"
+      },
+      {
+        "@id": "402",
+        "meaning": "Gold"
+      },
+      {
+        "@id": "403",
+        "meaning": "Rate"
+      },
+      {
+        "@id": "404",
+        "meaning": "In"
+      },
+      {
+        "@id": "405",
+        "meaning": "Steig ein"
+      },
+      {
+        "@id": "406",
+        "meaning": "Was für eine"
+      },
+      {
+        "@id": "407",
+        "meaning": "Zugeben"
+      },
+      {
+        "@id": "408",
+        "meaning": "Grund"
+      },
+      {
+        "@id": "409",
+        "meaning": "Lass uns gehen"
+      },
+      {
+        "@id": "410",
+        "meaning": "Ganz"
+      },
+      {
+        "@id": "411",
+        "meaning": "Freiheit"
+      },
+      {
+        "@id": "412",
+        "meaning": "Ändern"
+      },
+      {
+        "@id": "413",
+        "meaning": "Produktion"
+      },
+      {
+        "@id": "414",
+        "meaning": "Anders als"
+      },
+      {
+        "@id": "415",
+        "meaning": "Normalerweise"
+      },
+      {
+        "@id": "416",
+        "meaning": "Unter"
+      },
+      {
+        "@id": "417",
+        "meaning": "Experte"
+      },
+      {
+        "@id": "418",
+        "meaning": "Antwort"
+      },
+      {
+        "@id": "419",
+        "meaning": "Zuletzt"
+      },
+      {
+        "@id": "420",
+        "meaning": "Ende"
+      },
+      {
+        "@id": "421",
+        "meaning": "Offen"
+      },
+      {
+        "@id": "422",
+        "meaning": "Seite"
+      },
+      {
+        "@id": "423",
+        "meaning": "Zum ersten mal"
+      },
+      {
+        "@id": "424",
+        "meaning": "Familie"
+      },
+      {
+        "@id": "425",
+        "meaning": "Wirkung"
+      },
+      {
+        "@id": "426",
+        "meaning": "Enthalten"
+      },
+      {
+        "@id": "427",
+        "meaning": "Menge"
+      },
+      {
+        "@id": "428",
+        "meaning": "Funktion"
+      },
+      {
+        "@id": "429",
+        "meaning": "Menschen"
+      },
+      {
+        "@id": "430",
+        "meaning": "Treffen"
+      },
+      {
+        "@id": "431",
+        "meaning": "Unten"
+      },
+      {
+        "@id": "432",
+        "meaning": "Auch"
+      },
+      {
+        "@id": "433",
+        "meaning": "Monat"
+      },
+      {
+        "@id": "434",
+        "meaning": "Zurückkehren"
+      },
+      {
+        "@id": "435",
+        "meaning": "Beeinflussen"
+      },
+      {
+        "@id": "436",
+        "meaning": "Verständnis"
+      },
+      {
+        "@id": "437",
+        "meaning": "Gegenmaßnahme"
+      },
+      {
+        "@id": "438",
+        "meaning": "Mutter"
+      },
+      {
+        "@id": "439",
+        "meaning": "Berg"
+      },
+      {
+        "@id": "440",
+        "meaning": "Gefühl"
+      },
+      {
+        "@id": "441",
+        "meaning": "Stadt"
+      },
+      {
+        "@id": "442",
+        "meaning": "Nummer"
+      },
+      {
+        "@id": "443",
+        "meaning": "Beratung"
+      },
+      {
+        "@id": "444",
+        "meaning": "Vierhundert"
+      },
+      {
+        "@id": "445",
+        "meaning": "Beispiel"
+      },
+      {
+        "@id": "446",
+        "meaning": "Gesundheit"
+      },
+      {
+        "@id": "447",
+        "meaning": "System"
+      },
+      {
+        "@id": "448",
+        "meaning": "Korrespondenz"
+      },
+      {
+        "@id": "449",
+        "meaning": "Station"
+      },
+      {
+        "@id": "450",
+        "meaning": "Gehen"
+      },
+      {
+        "@id": "451",
+        "meaning": "Schlag"
+      },
+      {
+        "@id": "452",
+        "meaning": "Bewegung"
+      },
+      {
+        "@id": "453",
+        "meaning": "Am meisten"
+      },
+      {
+        "@id": "455",
+        "meaning": "Hier"
+      },
+      {
+        "@id": "456",
+        "meaning": "Geschäft"
+      },
+      {
+        "@id": "457",
+        "meaning": "Gebühr"
+      },
+      {
+        "@id": "458",
+        "meaning": "Nachmittag"
+      },
+      {
+        "@id": "459",
+        "meaning": "Person"
+      },
+      {
+        "@id": "460",
+        "meaning": "Nacht"
+      },
+      {
+        "@id": "461",
+        "meaning": "Behinderung"
+      },
+      {
+        "@id": "462",
+        "meaning": "Notfall"
+      },
+      {
+        "@id": "463",
+        "meaning": "Natur"
+      },
+      {
+        "@id": "464",
+        "meaning": "Waren"
+      },
+      {
+        "@id": "465",
+        "meaning": "Studien"
+      },
+      {
+        "@id": "466",
+        "meaning": "Sicherheit"
+      },
+      {
+        "@id": "467",
+        "meaning": "Damals"
+      },
+      {
+        "@id": "468",
+        "meaning": "Zeitraum"
+      },
+      {
+        "@id": "469",
+        "meaning": "Planen"
+      },
+      {
+        "@id": "470",
+        "meaning": "Politik"
+      },
+      {
+        "@id": "471",
+        "meaning": "Stadt"
+      },
+      {
+        "@id": "472",
+        "meaning": "Unternehmen"
+      },
+      {
+        "@id": "473",
+        "meaning": "Begriff"
+      },
+      {
+        "@id": "474",
+        "meaning": "Auf dem weg dorthin"
+      },
+      {
+        "@id": "475",
+        "meaning": "Möglich"
+      },
+      {
+        "@id": "476",
+        "meaning": "Ehemalig"
+      },
+      {
+        "@id": "477",
+        "meaning": "Minister"
+      },
+      {
+        "@id": "478",
+        "meaning": "Bestätigung"
+      },
+      {
+        "@id": "479",
+        "meaning": "Anleitung"
+      },
+      {
+        "@id": "480",
+        "meaning": "Werden"
+      },
+      {
+        "@id": "481",
+        "meaning": "Buch"
+      },
+      {
+        "@id": "482",
+        "meaning": "Blume"
+      },
+      {
+        "@id": "483",
+        "meaning": "Bewusstsein"
+      },
+      {
+        "@id": "484",
+        "meaning": "Sich selbst"
+      },
+      {
+        "@id": "485",
+        "meaning": "Mehr"
+      },
+      {
+        "@id": "486",
+        "meaning": "Hochzeit"
+      },
+      {
+        "@id": "487",
+        "meaning": "Nur"
+      },
+      {
+        "@id": "488",
+        "meaning": "Formel"
+      },
+      {
+        "@id": "489",
+        "meaning": "Körper"
+      },
+      {
+        "@id": "490",
+        "meaning": "Vorname"
+      },
+      {
+        "@id": "491",
+        "meaning": "Service"
+      },
+      {
+        "@id": "492",
+        "meaning": "Kokoro"
+      },
+      {
+        "@id": "493",
+        "meaning": "Management"
+      },
+      {
+        "@id": "494",
+        "meaning": "Yui"
+      },
+      {
+        "@id": "495",
+        "meaning": "Vater"
+      },
+      {
+        "@id": "496",
+        "meaning": "Oberfläche"
+      },
+      {
+        "@id": "497",
+        "meaning": "Tief"
+      },
+      {
+        "@id": "498",
+        "meaning": "System"
+      },
+      {
+        "@id": "499",
+        "meaning": "Farbe"
+      },
+      {
+        "@id": "500",
+        "meaning": "Waren"
+      },
+      {
+        "@id": "501",
+        "meaning": "Diesmal"
+      },
+      {
+        "@id": "502",
+        "meaning": "Büro"
+      },
+      {
+        "@id": "503",
+        "meaning": "Zeigen"
+      },
+      {
+        "@id": "504",
+        "meaning": "Geschäft"
+      },
+      {
+        "@id": "505",
+        "meaning": "Jährlich"
+      },
+      {
+        "@id": "506",
+        "meaning": "Büroarbeit"
+      },
+      {
+        "@id": "507",
+        "meaning": "Die arbeit"
+      },
+      {
+        "@id": "508",
+        "meaning": "Sterben"
+      },
+      {
+        "@id": "509",
+        "meaning": "Sechshundert"
+      },
+      {
+        "@id": "510",
+        "meaning": "Name"
+      },
+      {
+        "@id": "511",
+        "meaning": "Jung"
+      },
+      {
+        "@id": "512",
+        "meaning": "Förderung"
+      },
+      {
+        "@id": "513",
+        "meaning": "Klang"
+      },
+      {
+        "@id": "514",
+        "meaning": "Ändern"
+      },
+      {
+        "@id": "515",
+        "meaning": "Meter"
+      },
+      {
+        "@id": "516",
+        "meaning": "Aktion"
+      },
+      {
+        "@id": "517",
+        "meaning": "Dasselbe"
+      },
+      {
+        "@id": "518",
+        "meaning": "Gesetz"
+      },
+      {
+        "@id": "519",
+        "meaning": "Siebenhundert"
+      },
+      {
+        "@id": "520",
+        "meaning": "Automatisch"
+      },
+      {
+        "@id": "521",
+        "meaning": "Bleiben"
+      },
+      {
+        "@id": "522",
+        "meaning": "Auftreten"
+      },
+      {
+        "@id": "523",
+        "meaning": "Entscheidung"
+      },
+      {
+        "@id": "524",
+        "meaning": "Geschichte"
+      },
+      {
+        "@id": "525",
+        "meaning": "Station"
+      },
+      {
+        "@id": "526",
+        "meaning": "Industrie"
+      },
+      {
+        "@id": "527",
+        "meaning": "Fernseher"
+      },
+      {
+        "@id": "528",
+        "meaning": "Organisation"
+      },
+      {
+        "@id": "529",
+        "meaning": "Geschäft"
+      },
+      {
+        "@id": "530",
+        "meaning": "E-mail"
+      },
+      {
+        "@id": "531",
+        "meaning": "Division"
+      },
+      {
+        "@id": "532",
+        "meaning": "Unterschied"
+      },
+      {
+        "@id": "533",
+        "meaning": "Verschieden"
+      },
+      {
+        "@id": "534",
+        "meaning": "Besonders"
+      },
+      {
+        "@id": "535",
+        "meaning": "Zusammenarbeit"
+      },
+      {
+        "@id": "536",
+        "meaning": "Krankenhaus"
+      },
+      {
+        "@id": "537",
+        "meaning": "Verbrauch"
+      },
+      {
+        "@id": "538",
+        "meaning": "Bericht"
+      },
+      {
+        "@id": "539",
+        "meaning": "Bestimmt"
+      },
+      {
+        "@id": "540",
+        "meaning": "Straße"
+      },
+      {
+        "@id": "541",
+        "meaning": "Lecker"
+      },
+      {
+        "@id": "542",
+        "meaning": "Preis"
+      },
+      {
+        "@id": "543",
+        "meaning": "Verfahren"
+      },
+      {
+        "@id": "544",
+        "meaning": "Wählen"
+      },
+      {
+        "@id": "545",
+        "meaning": "Tatsache"
+      },
+      {
+        "@id": "546",
+        "meaning": "Schutz"
+      },
+      {
+        "@id": "547",
+        "meaning": "Zunahme"
+      },
+      {
+        "@id": "548",
+        "meaning": "Gott"
+      },
+      {
+        "@id": "549",
+        "meaning": "Geboren"
+      },
+      {
+        "@id": "550",
+        "meaning": "Anzeige"
+      },
+      {
+        "@id": "551",
+        "meaning": "Übereinstimmen"
+      },
+      {
+        "@id": "552",
+        "meaning": "Bedingungen"
+      },
+      {
+        "@id": "553",
+        "meaning": "Geist"
+      },
+      {
+        "@id": "554",
+        "meaning": "Kunde"
+      },
+      {
+        "@id": "555",
+        "meaning": "Akt"
+      },
+      {
+        "@id": "556",
+        "meaning": "Verantwortung"
+      },
+      {
+        "@id": "557",
+        "meaning": "Weitergehen"
+      },
+      {
+        "@id": "558",
+        "meaning": "Sicherlich"
+      },
+      {
+        "@id": "559",
+        "meaning": "Nichts"
+      },
+      {
+        "@id": "560",
+        "meaning": "Medizinische versorgung"
+      },
+      {
+        "@id": "561",
+        "meaning": "Zimmer"
+      },
+      {
+        "@id": "562",
+        "meaning": "Einstellung"
+      },
+      {
+        "@id": "563",
+        "meaning": "Toll"
+      },
+      {
+        "@id": "564",
+        "meaning": "Festlegen"
+      },
+      {
+        "@id": "565",
+        "meaning": "Erfahrung"
+      },
+      {
+        "@id": "566",
+        "meaning": "Wir"
+      },
+      {
+        "@id": "567",
+        "meaning": "Charakter"
+      },
+      {
+        "@id": "568",
+        "meaning": "Hinzufügen"
+      },
+      {
+        "@id": "569",
+        "meaning": "Beginnt"
+      },
+      {
+        "@id": "570",
+        "meaning": "Längst"
+      },
+      {
+        "@id": "571",
+        "meaning": "Einführung"
+      },
+      {
+        "@id": "572",
+        "meaning": "Natürlich"
+      },
+      {
+        "@id": "573",
+        "meaning": "Elternteil"
+      },
+      {
+        "@id": "574",
+        "meaning": "Füße"
+      },
+      {
+        "@id": "575",
+        "meaning": "Von nun an"
+      },
+      {
+        "@id": "576",
+        "meaning": "Ort"
+      },
+      {
+        "@id": "577",
+        "meaning": "Markt"
+      },
+      {
+        "@id": "578",
+        "meaning": "Teil"
+      },
+      {
+        "@id": "579",
+        "meaning": "Linie"
+      },
+      {
+        "@id": "580",
+        "meaning": "Meinung"
+      },
+      {
+        "@id": "581",
+        "meaning": "Laufen"
+      },
+      {
+        "@id": "582",
+        "meaning": "Vergessen"
+      },
+      {
+        "@id": "583",
+        "meaning": "Beteiligt sein"
+      },
+      {
+        "@id": "584",
+        "meaning": "Land"
+      },
+      {
+        "@id": "585",
+        "meaning": "Welche seite"
+      },
+      {
+        "@id": "586",
+        "meaning": "Baum"
+      },
+      {
+        "@id": "587",
+        "meaning": "Film"
+      },
+      {
+        "@id": "588",
+        "meaning": "Blatt"
+      },
+      {
+        "@id": "589",
+        "meaning": "Gruppe"
+      },
+      {
+        "@id": "590",
+        "meaning": "Gozen"
+      },
+      {
+        "@id": "591",
+        "meaning": "Oh je"
+      },
+      {
+        "@id": "592",
+        "meaning": "Rand"
+      },
+      {
+        "@id": "593",
+        "meaning": "Arbeiten"
+      },
+      {
+        "@id": "594",
+        "meaning": "Schicken"
+      },
+      {
+        "@id": "595",
+        "meaning": "Krieg"
+      },
+      {
+        "@id": "596",
+        "meaning": "Kreuzen"
+      },
+      {
+        "@id": "597",
+        "meaning": "Entscheiden"
+      },
+      {
+        "@id": "598",
+        "meaning": "Materialien"
+      },
+      {
+        "@id": "599",
+        "meaning": "Notiz"
+      },
+      {
+        "@id": "600",
+        "meaning": "Zeitung"
+      },
+      {
+        "@id": "601",
+        "meaning": "Zustand"
+      },
+      {
+        "@id": "602",
+        "meaning": "Tochter"
+      },
+      {
+        "@id": "603",
+        "meaning": "Gleichzeitig"
+      },
+      {
+        "@id": "604",
+        "meaning": "Passieren"
+      },
+      {
+        "@id": "605",
+        "meaning": "Wohlfahrt"
+      },
+      {
+        "@id": "606",
+        "meaning": "Urteil"
+      },
+      {
+        "@id": "607",
+        "meaning": "Bank"
+      },
+      {
+        "@id": "608",
+        "meaning": "Dreitausend"
+      },
+      {
+        "@id": "609",
+        "meaning": "Bezogen auf"
+      },
+      {
+        "@id": "610",
+        "meaning": "Steuer"
+      },
+      {
+        "@id": "611",
+        "meaning": "Standard"
+      },
+      {
+        "@id": "612",
+        "meaning": "Gehäuse"
+      },
+      {
+        "@id": "613",
+        "meaning": "Jahreszeit"
+      },
+      {
+        "@id": "614",
+        "meaning": "Einfach"
+      },
+      {
+        "@id": "615",
+        "meaning": "Tsutsu"
+      },
+      {
+        "@id": "616",
+        "meaning": "Verwaltung"
+      },
+      {
+        "@id": "617",
+        "meaning": "Verkehr"
+      },
+      {
+        "@id": "618",
+        "meaning": "Struktur"
+      },
+      {
+        "@id": "619",
+        "meaning": "Morgen"
+      },
+      {
+        "@id": "620",
+        "meaning": "Übertreffen"
+      },
+      {
+        "@id": "621",
+        "meaning": "Fluss"
+      },
+      {
+        "@id": "622",
+        "meaning": "Morgen"
+      },
+      {
+        "@id": "623",
+        "meaning": "Rolle"
+      },
+      {
+        "@id": "624",
+        "meaning": "Vertrag"
+      },
+      {
+        "@id": "625",
+        "meaning": "Zeitplan"
+      },
+      {
+        "@id": "626",
+        "meaning": "Nummer"
+      },
+      {
+        "@id": "627",
+        "meaning": "Vertreter"
+      },
+      {
+        "@id": "628",
+        "meaning": "Tun"
+      },
+      {
+        "@id": "629",
+        "meaning": "Arbeiten"
+      },
+      {
+        "@id": "630",
+        "meaning": "Politik"
+      },
+      {
+        "@id": "631",
+        "meaning": "Aufstehen"
+      },
+      {
+        "@id": "632",
+        "meaning": "Vergleichen"
+      },
+      {
+        "@id": "633",
+        "meaning": "Fremdes land"
+      },
+      {
+        "@id": "634",
+        "meaning": "Jahrhundert"
+      },
+      {
+        "@id": "635",
+        "meaning": "Nahe"
+      },
+      {
+        "@id": "636",
+        "meaning": "Direkt"
+      },
+      {
+        "@id": "637",
+        "meaning": "Heim"
+      },
+      {
+        "@id": "638",
+        "meaning": "Verschieden"
+      },
+      {
+        "@id": "639",
+        "meaning": "Männlich"
+      },
+      {
+        "@id": "640",
+        "meaning": "Daten"
+      },
+      {
+        "@id": "641",
+        "meaning": "Ziehen"
+      },
+      {
+        "@id": "642",
+        "meaning": "In betracht ziehen"
+      },
+      {
+        "@id": "643",
+        "meaning": "Auswahl"
+      },
+      {
+        "@id": "644",
+        "meaning": "Ursache"
+      },
+      {
+        "@id": "645",
+        "meaning": "Klein"
+      },
+      {
+        "@id": "646",
+        "meaning": "Bürger"
+      },
+      {
+        "@id": "647",
+        "meaning": "Vorher"
+      },
+      {
+        "@id": "648",
+        "meaning": "Verkauf"
+      },
+      {
+        "@id": "649",
+        "meaning": "Draußen"
+      },
+      {
+        "@id": "650",
+        "meaning": "Fortfahren"
+      },
+      {
+        "@id": "651",
+        "meaning": "Unterstützung"
+      },
+      {
+        "@id": "652",
+        "meaning": "Polizei"
+      },
+      {
+        "@id": "653",
+        "meaning": "Bezeichnung"
+      },
+      {
+        "@id": "654",
+        "meaning": "Agentur"
+      },
+      {
+        "@id": "655",
+        "meaning": "Selbst"
+      },
+      {
+        "@id": "656",
+        "meaning": "Lächeln"
+      },
+      {
+        "@id": "657",
+        "meaning": "Klein"
+      },
+      {
+        "@id": "658",
+        "meaning": "Wichtig"
+      },
+      {
+        "@id": "659",
+        "meaning": "Armee"
+      },
+      {
+        "@id": "660",
+        "meaning": "Ausreichend"
+      },
+      {
+        "@id": "661",
+        "meaning": "Dorf"
+      },
+      {
+        "@id": "662",
+        "meaning": "Klar"
+      },
+      {
+        "@id": "663",
+        "meaning": "Re"
+      },
+      {
+        "@id": "664",
+        "meaning": "So oder so"
+      },
+      {
+        "@id": "665",
+        "meaning": "Bundesweit"
+      },
+      {
+        "@id": "666",
+        "meaning": "Kochen"
+      },
+      {
+        "@id": "667",
+        "meaning": "Investition"
+      },
+      {
+        "@id": "668",
+        "meaning": "Fertig"
+      },
+      {
+        "@id": "669",
+        "meaning": "Freund"
+      },
+      {
+        "@id": "670",
+        "meaning": "Verwenden"
+      },
+      {
+        "@id": "671",
+        "meaning": "Nicht gut"
+      },
+      {
+        "@id": "672",
+        "meaning": "Abneigung"
+      },
+      {
+        "@id": "673",
+        "meaning": "Spezialität"
+      },
+      {
+        "@id": "674",
+        "meaning": "Gedanke"
+      },
+      {
+        "@id": "675",
+        "meaning": "Ausdruck"
+      },
+      {
+        "@id": "676",
+        "meaning": "Spaß"
+      },
+      {
+        "@id": "677",
+        "meaning": "Gesellschaft"
+      },
+      {
+        "@id": "678",
+        "meaning": "Sogar"
+      },
+      {
+        "@id": "679",
+        "meaning": "Erstellen"
+      },
+      {
+        "@id": "680",
+        "meaning": "Pension"
+      },
+      {
+        "@id": "681",
+        "meaning": "Erwartungen"
+      },
+      {
+        "@id": "682",
+        "meaning": "Wow"
+      },
+      {
+        "@id": "683",
+        "meaning": "Fähigkeit"
+      },
+      {
+        "@id": "684",
+        "meaning": "Bewegen"
+      },
+      {
+        "@id": "685",
+        "meaning": "Ziehen"
+      },
+      {
+        "@id": "686",
+        "meaning": "Transaktion"
+      },
+      {
+        "@id": "687",
+        "meaning": "Versuch"
+      },
+      {
+        "@id": "688",
+        "meaning": "Nation"
+      },
+      {
+        "@id": "689",
+        "meaning": "Arten"
+      },
+      {
+        "@id": "690",
+        "meaning": "Ihn"
+      },
+      {
+        "@id": "691",
+        "meaning": "Stand"
+      },
+      {
+        "@id": "692",
+        "meaning": "Nächstes mal"
+      },
+      {
+        "@id": "693",
+        "meaning": "Schwierig"
+      },
+      {
+        "@id": "694",
+        "meaning": "Schlagen"
+      },
+      {
+        "@id": "695",
+        "meaning": "Anmut"
+      },
+      {
+        "@id": "696",
+        "meaning": "Betroffen"
+      },
+      {
+        "@id": "697",
+        "meaning": "Für immer"
+      },
+      {
+        "@id": "698",
+        "meaning": "Stoppen"
+      },
+      {
+        "@id": "699",
+        "meaning": "Position"
+      },
+      {
+        "@id": "700",
+        "meaning": "Schützen"
+      },
+      {
+        "@id": "701",
+        "meaning": "Hauptstadt"
+      },
+      {
+        "@id": "702",
+        "meaning": "Angst"
+      },
+      {
+        "@id": "703",
+        "meaning": "Wirklichkeit"
+      },
+      {
+        "@id": "704",
+        "meaning": "Kerl"
+      },
+      {
+        "@id": "705",
+        "meaning": "Erscheinen"
+      },
+      {
+        "@id": "706",
+        "meaning": "Lecker"
+      },
+      {
+        "@id": "707",
+        "meaning": "Um"
+      },
+      {
+        "@id": "708",
+        "meaning": "Boden"
+      },
+      {
+        "@id": "709",
+        "meaning": "Gelehrte"
+      },
+      {
+        "@id": "710",
+        "meaning": "Kontakt"
+      },
+      {
+        "@id": "711",
+        "meaning": "Wissenschaft"
+      },
+      {
+        "@id": "712",
+        "meaning": "Ziemlich"
+      },
+      {
+        "@id": "713",
+        "meaning": "Straße"
+      },
+      {
+        "@id": "714",
+        "meaning": "Interessant"
+      },
+      {
+        "@id": "715",
+        "meaning": "Live"
+      },
+      {
+        "@id": "716",
+        "meaning": "Regierung"
+      },
+      {
+        "@id": "717",
+        "meaning": "Konstruktion"
+      },
+      {
+        "@id": "718",
+        "meaning": "Center"
+      },
+      {
+        "@id": "719",
+        "meaning": "Absolute"
+      },
+      {
+        "@id": "720",
+        "meaning": "Party"
+      },
+      {
+        "@id": "721",
+        "meaning": "Genießen"
+      },
+      {
+        "@id": "722",
+        "meaning": "Ah"
+      },
+      {
+        "@id": "723",
+        "meaning": "Gestern"
+      },
+      {
+        "@id": "724",
+        "meaning": "Beton"
+      },
+      {
+        "@id": "725",
+        "meaning": "Geduldig"
+      },
+      {
+        "@id": "726",
+        "meaning": "Ähnlich"
+      },
+      {
+        "@id": "727",
+        "meaning": "Täglich"
+      },
+      {
+        "@id": "728",
+        "meaning": "Fünftausend"
+      },
+      {
+        "@id": "729",
+        "meaning": "Spieler"
+      },
+      {
+        "@id": "730",
+        "meaning": "Gib mein bestes"
+      },
+      {
+        "@id": "731",
+        "meaning": "Erzählen"
+      },
+      {
+        "@id": "732",
+        "meaning": "Vergleich"
+      },
+      {
+        "@id": "733",
+        "meaning": "Kommunikation"
+      },
+      {
+        "@id": "734",
+        "meaning": "Treffen"
+      },
+      {
+        "@id": "735",
+        "meaning": "Licht"
+      },
+      {
+        "@id": "736",
+        "meaning": "Laden"
+      },
+      {
+        "@id": "737",
+        "meaning": "Nein"
+      },
+      {
+        "@id": "738",
+        "meaning": "Traum"
+      },
+      {
+        "@id": "739",
+        "meaning": "Jedoch"
+      },
+      {
+        "@id": "740",
+        "meaning": "Keiner"
+      },
+      {
+        "@id": "741",
+        "meaning": "Schön"
+      },
+      {
+        "@id": "742",
+        "meaning": "Anwendung"
+      },
+      {
+        "@id": "743",
+        "meaning": "Skala"
+      },
+      {
+        "@id": "744",
+        "meaning": "Entstehen"
+      },
+      {
+        "@id": "745",
+        "meaning": "Geschäft"
+      },
+      {
+        "@id": "746",
+        "meaning": "Empfehlen"
+      },
+      {
+        "@id": "747",
+        "meaning": "Angebot"
+      },
+      {
+        "@id": "748",
+        "meaning": "Zusammensetzung"
+      },
+      {
+        "@id": "749",
+        "meaning": "Schaden"
+      },
+      {
+        "@id": "750",
+        "meaning": "Unfall"
+      },
+      {
+        "@id": "751",
+        "meaning": "Zurück"
+      },
+      {
+        "@id": "752",
+        "meaning": "Zunahme"
+      },
+      {
+        "@id": "753",
+        "meaning": "Osaka"
+      },
+      {
+        "@id": "754",
+        "meaning": "Iku"
+      },
+      {
+        "@id": "755",
+        "meaning": "Richtung"
+      },
+      {
+        "@id": "756",
+        "meaning": "Ändern"
+      },
+      {
+        "@id": "757",
+        "meaning": "Umkehren"
+      },
+      {
+        "@id": "758",
+        "meaning": "Stücke"
+      },
+      {
+        "@id": "759",
+        "meaning": "Thema"
+      },
+      {
+        "@id": "760",
+        "meaning": "Finanzen"
+      },
+      {
+        "@id": "761",
+        "meaning": "Beachten"
+      },
+      {
+        "@id": "762",
+        "meaning": "Schließen"
+      },
+      {
+        "@id": "763",
+        "meaning": "Niedrig"
+      },
+      {
+        "@id": "764",
+        "meaning": "Anders"
+      },
+      {
+        "@id": "765",
+        "meaning": "Umfassend"
+      },
+      {
+        "@id": "766",
+        "meaning": "Steigen"
+      },
+      {
+        "@id": "767",
+        "meaning": "Auswendig lernen"
+      },
+      {
+        "@id": "768",
+        "meaning": "Verbindung"
+      },
+      {
+        "@id": "769",
+        "meaning": "Inspektion"
+      },
+      {
+        "@id": "770",
+        "meaning": "Rang"
+      },
+      {
+        "@id": "771",
+        "meaning": "Behandlung"
+      },
+      {
+        "@id": "772",
+        "meaning": "Dieses jahr"
+      },
+      {
+        "@id": "773",
+        "meaning": "Zustand"
+      },
+      {
+        "@id": "774",
+        "meaning": "Mittel"
+      },
+      {
+        "@id": "775",
+        "meaning": "Glücklich"
+      },
+      {
+        "@id": "776",
+        "meaning": "Alle"
+      },
+      {
+        "@id": "777",
+        "meaning": "Musik"
+      },
+      {
+        "@id": "778",
+        "meaning": "Wachstum"
+      },
+      {
+        "@id": "779",
+        "meaning": "Akkumulation"
+      },
+      {
+        "@id": "780",
+        "meaning": "Alter"
+      },
+      {
+        "@id": "781",
+        "meaning": "Breit"
+      },
+      {
+        "@id": "782",
+        "meaning": "Etwas"
+      },
+      {
+        "@id": "783",
+        "meaning": "Identifikation"
+      },
+      {
+        "@id": "784",
+        "meaning": "Gattin"
+      },
+      {
+        "@id": "785",
+        "meaning": "Anfang"
+      },
+      {
+        "@id": "786",
+        "meaning": "Theorie"
+      },
+      {
+        "@id": "787",
+        "meaning": "Installation"
+      },
+      {
+        "@id": "788",
+        "meaning": "Übertragen"
+      },
+      {
+        "@id": "789",
+        "meaning": "Solange"
+      },
+      {
+        "@id": "790",
+        "meaning": "Ehemann"
+      },
+      {
+        "@id": "791",
+        "meaning": "Untersuchen"
+      },
+      {
+        "@id": "792",
+        "meaning": "Begleiten"
+      },
+      {
+        "@id": "793",
+        "meaning": "Kommunizieren"
+      },
+      {
+        "@id": "794",
+        "meaning": "Frankreich"
+      },
+      {
+        "@id": "795",
+        "meaning": "Maßnahmen"
+      },
+      {
+        "@id": "796",
+        "meaning": "Weiter"
+      },
+      {
+        "@id": "797",
+        "meaning": "Erreichen"
+      },
+      {
+        "@id": "798",
+        "meaning": "Kaufen"
+      },
+      {
+        "@id": "799",
+        "meaning": "Leben"
+      },
+      {
+        "@id": "800",
+        "meaning": "Oder"
+      },
+      {
+        "@id": "801",
+        "meaning": "Punkt"
+      },
+      {
+        "@id": "802",
+        "meaning": "Stabil"
+      },
+      {
+        "@id": "803",
+        "meaning": "Kapitel"
+      },
+      {
+        "@id": "804",
+        "meaning": "Einmal"
+      },
+      {
+        "@id": "805",
+        "meaning": "Suchen"
+      },
+      {
+        "@id": "806",
+        "meaning": "Wert"
+      },
+      {
+        "@id": "807",
+        "meaning": "Junge"
+      },
+      {
+        "@id": "808",
+        "meaning": "Nicht"
+      },
+      {
+        "@id": "809",
+        "meaning": "Offen"
+      },
+      {
+        "@id": "810",
+        "meaning": "Schritt"
+      },
+      {
+        "@id": "811",
+        "meaning": "Aufstehen"
+      },
+      {
+        "@id": "812",
+        "meaning": "Heim"
+      },
+      {
+        "@id": "813",
+        "meaning": "Das heißt,"
+      },
+      {
+        "@id": "814",
+        "meaning": "Meer"
+      },
+      {
+        "@id": "815",
+        "meaning": "Sprechen"
+      },
+      {
+        "@id": "816",
+        "meaning": "Gefahr"
+      },
+      {
+        "@id": "817",
+        "meaning": "Samen"
+      },
+      {
+        "@id": "818",
+        "meaning": "Viele"
+      },
+      {
+        "@id": "819",
+        "meaning": "Verlassen"
+      },
+      {
+        "@id": "820",
+        "meaning": "Schlafen"
+      },
+      {
+        "@id": "821",
+        "meaning": "Rechts"
+      },
+      {
+        "@id": "822",
+        "meaning": "Darauf hinweisen"
+      },
+      {
+        "@id": "823",
+        "meaning": "Vollständig"
+      },
+      {
+        "@id": "824",
+        "meaning": "Anmeldung"
+      },
+      {
+        "@id": "825",
+        "meaning": "Präfektur"
+      },
+      {
+        "@id": "826",
+        "meaning": "Lied"
+      },
+      {
+        "@id": "827",
+        "meaning": "Krankenstation"
+      },
+      {
+        "@id": "828",
+        "meaning": "Sich"
+      },
+      {
+        "@id": "829",
+        "meaning": "Hotel"
+      },
+      {
+        "@id": "830",
+        "meaning": "Mahlzeit"
+      },
+      {
+        "@id": "831",
+        "meaning": "Berechnung"
+      },
+      {
+        "@id": "832",
+        "meaning": "Morgen"
+      },
+      {
+        "@id": "833",
+        "meaning": "Kader"
+      },
+      {
+        "@id": "834",
+        "meaning": "Deutlich"
+      },
+      {
+        "@id": "835",
+        "meaning": "Bewegung"
+      },
+      {
+        "@id": "836",
+        "meaning": "Schön"
+      },
+      {
+        "@id": "837",
+        "meaning": "Angst"
+      },
+      {
+        "@id": "838",
+        "meaning": "Erreichen"
+      },
+      {
+        "@id": "839",
+        "meaning": "Der beste"
+      },
+      {
+        "@id": "840",
+        "meaning": "Neu"
+      },
+      {
+        "@id": "841",
+        "meaning": "Aufzeichnen"
+      },
+      {
+        "@id": "842",
+        "meaning": "Auf der anderen seite"
+      },
+      {
+        "@id": "843",
+        "meaning": "Fit"
+      },
+      {
+        "@id": "844",
+        "meaning": "Hart"
+      },
+      {
+        "@id": "845",
+        "meaning": "Glauben"
+      },
+      {
+        "@id": "846",
+        "meaning": "Unmöglich"
+      },
+      {
+        "@id": "847",
+        "meaning": "Mitnehmen"
+      },
+      {
+        "@id": "848",
+        "meaning": "Referenz"
+      },
+      {
+        "@id": "849",
+        "meaning": "Foto"
+      },
+      {
+        "@id": "850",
+        "meaning": "Alter"
+      },
+      {
+        "@id": "851",
+        "meaning": "Bemühung"
+      },
+      {
+        "@id": "852",
+        "meaning": "Gymnasium"
+      },
+      {
+        "@id": "853",
+        "meaning": "Blog"
+      },
+      {
+        "@id": "854",
+        "meaning": "Profitieren"
+      },
+      {
+        "@id": "855",
+        "meaning": "Lassen"
+      },
+      {
+        "@id": "856",
+        "meaning": "Entwicklung"
+      },
+      {
+        "@id": "857",
+        "meaning": "Hälfte"
+      },
+      {
+        "@id": "858",
+        "meaning": "Klicken"
+      },
+      {
+        "@id": "859",
+        "meaning": "Körper"
+      },
+      {
+        "@id": "860",
+        "meaning": "Direktor"
+      },
+      {
+        "@id": "861",
+        "meaning": "Tod"
+      },
+      {
+        "@id": "862",
+        "meaning": "Verschwinden"
+      },
+      {
+        "@id": "863",
+        "meaning": "Öffentlich"
+      },
+      {
+        "@id": "864",
+        "meaning": "Limit"
+      },
+      {
+        "@id": "865",
+        "meaning": "Fahren"
+      },
+      {
+        "@id": "866",
+        "meaning": "Bekanntmachung"
+      },
+      {
+        "@id": "867",
+        "meaning": "Gruppe"
+      },
+      {
+        "@id": "868",
+        "meaning": "Nacken"
+      },
+      {
+        "@id": "869",
+        "meaning": "Gehalten"
+      },
+      {
+        "@id": "870",
+        "meaning": "Verbesserung"
+      },
+      {
+        "@id": "871",
+        "meaning": "Opposition"
+      },
+      {
+        "@id": "872",
+        "meaning": "Energie"
+      },
+      {
+        "@id": "873",
+        "meaning": "Ich möchte sagen"
+      },
+      {
+        "@id": "874",
+        "meaning": "Start"
+      },
+      {
+        "@id": "875",
+        "meaning": "Verlassen"
+      },
+      {
+        "@id": "876",
+        "meaning": "Sicher"
+      },
+      {
+        "@id": "877",
+        "meaning": "Verantwortlich"
+      },
+      {
+        "@id": "878",
+        "meaning": "Referenz"
+      },
+      {
+        "@id": "879",
+        "meaning": "Am ende"
+      },
+      {
+        "@id": "880",
+        "meaning": "Park"
+      },
+      {
+        "@id": "881",
+        "meaning": "Alle"
+      },
+      {
+        "@id": "882",
+        "meaning": "Krankheit"
+      },
+      {
+        "@id": "883",
+        "meaning": "Firma"
+      },
+      {
+        "@id": "884",
+        "meaning": "Sog"
+      },
+      {
+        "@id": "885",
+        "meaning": "Erweiterung"
+      },
+      {
+        "@id": "886",
+        "meaning": "Für eine weile"
+      },
+      {
+        "@id": "887",
+        "meaning": "Position"
+      },
+      {
+        "@id": "888",
+        "meaning": "Bewohner"
+      },
+      {
+        "@id": "889",
+        "meaning": "Passieren"
+      },
+      {
+        "@id": "890",
+        "meaning": "Freund"
+      },
+      {
+        "@id": "891",
+        "meaning": "Ah"
+      },
+      {
+        "@id": "892",
+        "meaning": "Landwirtschaft"
+      },
+      {
+        "@id": "893",
+        "meaning": "Master"
+      },
+      {
+        "@id": "894",
+        "meaning": "Pflege"
+      },
+      {
+        "@id": "895",
+        "meaning": "Sitzen"
+      },
+      {
+        "@id": "896",
+        "meaning": "Entdeckung"
+      },
+      {
+        "@id": "897",
+        "meaning": "Reform"
+      },
+      {
+        "@id": "898",
+        "meaning": "Brust"
+      },
+      {
+        "@id": "899",
+        "meaning": "Gemeinsam"
+      },
+      {
+        "@id": "900",
+        "meaning": "Erfahrung"
+      },
+      {
+        "@id": "901",
+        "meaning": "Lösung"
+      },
+      {
+        "@id": "902",
+        "meaning": "Swing"
+      },
+      {
+        "@id": "903",
+        "meaning": "Runterfallen"
+      },
+      {
+        "@id": "904",
+        "meaning": "Das ziel"
+      },
+      {
+        "@id": "905",
+        "meaning": "Einstellung"
+      },
+      {
+        "@id": "906",
+        "meaning": "Äußern"
+      },
+      {
+        "@id": "907",
+        "meaning": "Typ"
+      },
+      {
+        "@id": "908",
+        "meaning": "Tier"
+      },
+      {
+        "@id": "909",
+        "meaning": "Sommer"
+      },
+      {
+        "@id": "910",
+        "meaning": "Spielen"
+      },
+      {
+        "@id": "911",
+        "meaning": "Vergangenheit"
+      },
+      {
+        "@id": "912",
+        "meaning": "Gedanke"
+      },
+      {
+        "@id": "913",
+        "meaning": "Rolle"
+      },
+      {
+        "@id": "914",
+        "meaning": "Aufwachen"
+      },
+      {
+        "@id": "915",
+        "meaning": "Entschieden"
+      },
+      {
+        "@id": "916",
+        "meaning": "Jeder"
+      },
+      {
+        "@id": "917",
+        "meaning": "Verringern"
+      },
+      {
+        "@id": "918",
+        "meaning": "Schwarz"
+      },
+      {
+        "@id": "919",
+        "meaning": "Mal"
+      },
+      {
+        "@id": "920",
+        "meaning": "Besetzen"
+      },
+      {
+        "@id": "921",
+        "meaning": "Töten"
+      },
+      {
+        "@id": "922",
+        "meaning": "Antwort"
+      },
+      {
+        "@id": "923",
+        "meaning": "Dollar"
+      },
+      {
+        "@id": "924",
+        "meaning": "Überrascht"
+      },
+      {
+        "@id": "925",
+        "meaning": "Krieg"
+      },
+      {
+        "@id": "926",
+        "meaning": "System"
+      },
+      {
+        "@id": "927",
+        "meaning": "Reise"
+      },
+      {
+        "@id": "928",
+        "meaning": "Prüfen"
+      },
+      {
+        "@id": "929",
+        "meaning": "Durchschnitt"
+      },
+      {
+        "@id": "930",
+        "meaning": "In schwierigkeiten"
+      },
+      {
+        "@id": "931",
+        "meaning": "Woche"
+      },
+      {
+        "@id": "932",
+        "meaning": "Krankheit"
+      },
+      {
+        "@id": "933",
+        "meaning": "Einkommen"
+      },
+      {
+        "@id": "934",
+        "meaning": "Deutschland"
+      },
+      {
+        "@id": "935",
+        "meaning": "Einsatz"
+      },
+      {
+        "@id": "936",
+        "meaning": "Hoch"
+      },
+      {
+        "@id": "937",
+        "meaning": "Außer"
+      },
+      {
+        "@id": "938",
+        "meaning": "Vorbereitung"
+      },
+      {
+        "@id": "939",
+        "meaning": "Geht es dir gut"
+      },
+      {
+        "@id": "940",
+        "meaning": "Mutter"
+      },
+      {
+        "@id": "941",
+        "meaning": "Ähnlich"
+      },
+      {
+        "@id": "942",
+        "meaning": "Finden"
+      },
+      {
+        "@id": "943",
+        "meaning": "Antworten"
+      },
+      {
+        "@id": "944",
+        "meaning": "Vertraut sein"
+      },
+      {
+        "@id": "945",
+        "meaning": "Zukunft"
+      },
+      {
+        "@id": "946",
+        "meaning": "Reichweite"
+      },
+      {
+        "@id": "947",
+        "meaning": "Lied"
+      },
+      {
+        "@id": "948",
+        "meaning": "Erinnern"
+      },
+      {
+        "@id": "949",
+        "meaning": "Realisierung"
+      },
+      {
+        "@id": "950",
+        "meaning": "Bild"
+      },
+      {
+        "@id": "951",
+        "meaning": "Wiederholen"
+      },
+      {
+        "@id": "952",
+        "meaning": "Studie"
+      },
+      {
+        "@id": "953",
+        "meaning": "Bezirk"
+      },
+      {
+        "@id": "954",
+        "meaning": "Verlieren"
+      },
+      {
+        "@id": "955",
+        "meaning": "Meiji"
+      },
+      {
+        "@id": "956",
+        "meaning": "Gegenseitig"
+      },
+      {
+        "@id": "957",
+        "meaning": "Wissen"
+      },
+      {
+        "@id": "958",
+        "meaning": "Freund"
+      },
+      {
+        "@id": "959",
+        "meaning": "Weiß"
+      },
+      {
+        "@id": "960",
+        "meaning": "Hauptstadt"
+      },
+      {
+        "@id": "961",
+        "meaning": "Strikt"
+      },
+      {
+        "@id": "962",
+        "meaning": "Hören"
+      },
+      {
+        "@id": "963",
+        "meaning": "Ohr"
+      },
+      {
+        "@id": "964",
+        "meaning": "Rabatt"
+      },
+      {
+        "@id": "965",
+        "meaning": "Sekte"
+      },
+      {
+        "@id": "966",
+        "meaning": "Anfrage"
+      },
+      {
+        "@id": "967",
+        "meaning": "Weiß"
+      },
+      {
+        "@id": "968",
+        "meaning": "Hoffnung"
+      },
+      {
+        "@id": "969",
+        "meaning": "Cm"
+      },
+      {
+        "@id": "970",
+        "meaning": "Popularität"
+      },
+      {
+        "@id": "971",
+        "meaning": "Rechts"
+      },
+      {
+        "@id": "972",
+        "meaning": "Erkennung"
+      },
+      {
+        "@id": "973",
+        "meaning": "Maximal"
+      },
+      {
+        "@id": "974",
+        "meaning": "Verkaufen"
+      },
+      {
+        "@id": "975",
+        "meaning": "System"
+      },
+      {
+        "@id": "976",
+        "meaning": "Studie"
+      },
+      {
+        "@id": "977",
+        "meaning": "Passieren"
+      },
+      {
+        "@id": "978",
+        "meaning": "Niedlich"
+      },
+      {
+        "@id": "979",
+        "meaning": "Aufstieg"
+      },
+      {
+        "@id": "980",
+        "meaning": "Herstellung"
+      },
+      {
+        "@id": "981",
+        "meaning": "Menge"
+      },
+      {
+        "@id": "982",
+        "meaning": "Enthalten"
+      },
+      {
+        "@id": "983",
+        "meaning": "Südkorea"
+      },
+      {
+        "@id": "984",
+        "meaning": "Merkmale"
+      },
+      {
+        "@id": "985",
+        "meaning": "Bevölkerung"
+      },
+      {
+        "@id": "986",
+        "meaning": "Verzeihen"
+      },
+      {
+        "@id": "987",
+        "meaning": "Sport"
+      },
+      {
+        "@id": "988",
+        "meaning": "Fragen"
+      },
+      {
+        "@id": "989",
+        "meaning": "Ziel"
+      },
+      {
+        "@id": "990",
+        "meaning": "Material"
+      },
+      {
+        "@id": "991",
+        "meaning": "Vermögenswerte"
+      },
+      {
+        "@id": "992",
+        "meaning": "Feld"
+      },
+      {
+        "@id": "993",
+        "meaning": "Eins nach dem anderen"
+      },
+      {
+        "@id": "994",
+        "meaning": "Computer"
+      },
+      {
+        "@id": "995",
+        "meaning": "Tendenz"
+      },
+      {
+        "@id": "996",
+        "meaning": "Im ausland"
+      },
+      {
+        "@id": "997",
+        "meaning": "Student"
+      },
+      {
+        "@id": "998",
+        "meaning": "Wieder"
+      },
+      {
+        "@id": "999",
+        "meaning": "Hoch"
+      },
+      {
+        "@id": "1000",
+        "meaning": "Stets"
+      },
+      {
+        "@id": "1001",
+        "meaning": "Übrigens"
+      },
+      {
+        "@id": "1002",
+        "meaning": "Verhütung"
+      },
+      {
+        "@id": "1003",
+        "meaning": "Produkt"
+      },
+      {
+        "@id": "1004",
+        "meaning": "Bewegen"
+      },
+      {
+        "@id": "1005",
+        "meaning": "Garten"
+      },
+      {
+        "@id": "1006",
+        "meaning": "Abteilung"
+      },
+      {
+        "@id": "1007",
+        "meaning": "Zelle"
+      },
+      {
+        "@id": "1008",
+        "meaning": "Kosten"
+      },
+      {
+        "@id": "1009",
+        "meaning": "Modell"
+      },
+      {
+        "@id": "1010",
+        "meaning": "Sitz"
+      },
+      {
+        "@id": "1011",
+        "meaning": "Inländisch"
+      },
+      {
+        "@id": "1012",
+        "meaning": "Neben"
+      },
+      {
+        "@id": "1013",
+        "meaning": "Drehen"
+      },
+      {
+        "@id": "1014",
+        "meaning": "Aktie"
+      },
+      {
+        "@id": "1015",
+        "meaning": "Bild"
+      },
+      {
+        "@id": "1016",
+        "meaning": "Ebene"
+      },
+      {
+        "@id": "1017",
+        "meaning": "Personal"
+      },
+      {
+        "@id": "1018",
+        "meaning": "Um"
+      },
+      {
+        "@id": "1019",
+        "meaning": "Hängen davon ab"
+      },
+      {
+        "@id": "1020",
+        "meaning": "Kaiser"
+      },
+      {
+        "@id": "1021",
+        "meaning": "Import"
+      },
+      {
+        "@id": "1022",
+        "meaning": "Sohn"
+      },
+      {
+        "@id": "1023",
+        "meaning": "Artikel"
+      },
+      {
+        "@id": "1024",
+        "meaning": "Unterschied"
+      },
+      {
+        "@id": "1025",
+        "meaning": "Alkohol"
+      },
+      {
+        "@id": "1026",
+        "meaning": "Frei"
+      },
+      {
+        "@id": "1027",
+        "meaning": "Verfahren"
+      },
+      {
+        "@id": "1028",
+        "meaning": "Abtretung"
+      },
+      {
+        "@id": "1029",
+        "meaning": "Und"
+      },
+      {
+        "@id": "1031",
+        "meaning": "Wichtig"
+      },
+      {
+        "@id": "1032",
+        "meaning": "Willkommen"
+      },
+      {
+        "@id": "1033",
+        "meaning": "Gegenstand"
+      },
+      {
+        "@id": "1034",
+        "meaning": "Fahrt"
+      },
+      {
+        "@id": "1035",
+        "meaning": "Erwachsene"
+      },
+      {
+        "@id": "1036",
+        "meaning": "Erfolg"
+      },
+      {
+        "@id": "1037",
+        "meaning": "Kyoto"
+      },
+      {
+        "@id": "1038",
+        "meaning": "Hund"
+      },
+      {
+        "@id": "1039",
+        "meaning": "Karte"
+      },
+      {
+        "@id": "1040",
+        "meaning": "Der mensch selbst"
+      },
+      {
+        "@id": "1041",
+        "meaning": "Aussehen"
+      },
+      {
+        "@id": "1042",
+        "meaning": "Viertausend"
+      },
+      {
+        "@id": "1043",
+        "meaning": "Team"
+      },
+      {
+        "@id": "1044",
+        "meaning": "Tragen"
+      },
+      {
+        "@id": "1045",
+        "meaning": "Änderung"
+      },
+      {
+        "@id": "1046",
+        "meaning": "Distanz"
+      },
+      {
+        "@id": "1047",
+        "meaning": "Singen"
+      },
+      {
+        "@id": "1048",
+        "meaning": "Art"
+      },
+      {
+        "@id": "1049",
+        "meaning": "Schiff"
+      },
+      {
+        "@id": "1050",
+        "meaning": "Bus"
+      },
+      {
+        "@id": "1051",
+        "meaning": "Gefühl"
+      },
+      {
+        "@id": "1052",
+        "meaning": "Asien"
+      },
+      {
+        "@id": "1053",
+        "meaning": "Richtig"
+      },
+      {
+        "@id": "1054",
+        "meaning": "Union"
+      },
+      {
+        "@id": "1055",
+        "meaning": "Links"
+      },
+      {
+        "@id": "1056",
+        "meaning": "Niemals"
+      },
+      {
+        "@id": "1057",
+        "meaning": "Schrecklich"
+      },
+      {
+        "@id": "1058",
+        "meaning": "Pflegen"
+      },
+      {
+        "@id": "1059",
+        "meaning": "Handy"
+      },
+      {
+        "@id": "1060",
+        "meaning": "Notiz"
+      },
+      {
+        "@id": "1061",
+        "meaning": "Akt"
+      },
+      {
+        "@id": "1062",
+        "meaning": "Herstellung"
+      },
+      {
+        "@id": "1063",
+        "meaning": "Strom"
+      },
+      {
+        "@id": "1064",
+        "meaning": "Ende"
+      },
+      {
+        "@id": "1065",
+        "meaning": "Billig"
+      },
+      {
+        "@id": "1066",
+        "meaning": "Person"
+      },
+      {
+        "@id": "1067",
+        "meaning": "Tempel"
+      },
+      {
+        "@id": "1068",
+        "meaning": "Uns"
+      },
+      {
+        "@id": "1069",
+        "meaning": "Budget"
+      },
+      {
+        "@id": "1070",
+        "meaning": "Regen"
+      },
+      {
+        "@id": "1071",
+        "meaning": "Katastrophe"
+      },
+      {
+        "@id": "1072",
+        "meaning": "Gebäude"
+      },
+      {
+        "@id": "1073",
+        "meaning": "Hart"
+      },
+      {
+        "@id": "1074",
+        "meaning": "Beanspruchen"
+      },
+      {
+        "@id": "1075",
+        "meaning": "Reaktion"
+      },
+      {
+        "@id": "1076",
+        "meaning": "Kann genommen werden"
+      },
+      {
+        "@id": "1077",
+        "meaning": "Interesse"
+      },
+      {
+        "@id": "1078",
+        "meaning": "Im kreis"
+      },
+      {
+        "@id": "1079",
+        "meaning": "Langsam"
+      },
+      {
+        "@id": "1080",
+        "meaning": "Weich"
+      },
+      {
+        "@id": "1081",
+        "meaning": "Bildung"
+      },
+      {
+        "@id": "1082",
+        "meaning": "Licht"
+      },
+      {
+        "@id": "1083",
+        "meaning": "Seitdem"
+      },
+      {
+        "@id": "1084",
+        "meaning": "Einführung"
+      },
+      {
+        "@id": "1085",
+        "meaning": "Gruppe"
+      },
+      {
+        "@id": "1086",
+        "meaning": "Finale"
+      },
+      {
+        "@id": "1087",
+        "meaning": "Gesamt"
+      },
+      {
+        "@id": "1088",
+        "meaning": "England"
+      },
+      {
+        "@id": "1089",
+        "meaning": "Englisch"
+      },
+      {
+        "@id": "1090",
+        "meaning": "Student"
+      },
+      {
+        "@id": "1091",
+        "meaning": "Pflicht"
+      },
+      {
+        "@id": "1092",
+        "meaning": "Finanzen"
+      },
+      {
+        "@id": "1093",
+        "meaning": "Berühren"
+      },
+      {
+        "@id": "1094",
+        "meaning": "Datei"
+      },
+      {
+        "@id": "1095",
+        "meaning": "Alt"
+      },
+      {
+        "@id": "1096",
+        "meaning": "Erde"
+      },
+      {
+        "@id": "1097",
+        "meaning": "Hrsg"
+      },
+      {
+        "@id": "1098",
+        "meaning": "Fließend"
+      },
+      {
+        "@id": "1099",
+        "meaning": "Drücken"
+      },
+      {
+        "@id": "1100",
+        "meaning": "扠"
+      },
+      {
+        "@id": "1101",
+        "meaning": "Eher"
+      },
+      {
+        "@id": "1102",
+        "meaning": "Material"
+      },
+      {
+        "@id": "1103",
+        "meaning": "Gesundheit"
+      },
+      {
+        "@id": "1104",
+        "meaning": "Anwendbar"
+      },
+      {
+        "@id": "1105",
+        "meaning": "Verhältnis"
+      },
+      {
+        "@id": "1106",
+        "meaning": "Proaktiv"
+      },
+      {
+        "@id": "1107",
+        "meaning": "Alter mann"
+      },
+      {
+        "@id": "1108",
+        "meaning": "Gesichtsausdruck"
+      },
+      {
+        "@id": "1109",
+        "meaning": "Shake"
+      },
+      {
+        "@id": "1110",
+        "meaning": "Danke"
+      },
+      {
+        "@id": "1111",
+        "meaning": "Besuchen"
+      },
+      {
+        "@id": "1112",
+        "meaning": "Bußgeld"
+      },
+      {
+        "@id": "1113",
+        "meaning": "Ost"
+      },
+      {
+        "@id": "1114",
+        "meaning": "Mitten drin"
+      },
+      {
+        "@id": "1115",
+        "meaning": "Bußgeld"
+      },
+      {
+        "@id": "1116",
+        "meaning": "Kilo"
+      },
+      {
+        "@id": "1117",
+        "meaning": "Grundlagen"
+      },
+      {
+        "@id": "1118",
+        "meaning": "Schmecken"
+      },
+      {
+        "@id": "1119",
+        "meaning": "Verordnung"
+      },
+      {
+        "@id": "1120",
+        "meaning": "Analyse"
+      },
+      {
+        "@id": "1121",
+        "meaning": "Wie"
+      },
+      {
+        "@id": "1122",
+        "meaning": "Kontrolle"
+      },
+      {
+        "@id": "1123",
+        "meaning": "Kinder"
+      },
+      {
+        "@id": "1124",
+        "meaning": "Fall"
+      },
+      {
+        "@id": "1125",
+        "meaning": "Normalerweise"
+      },
+      {
+        "@id": "1126",
+        "meaning": "Verschwinden"
+      },
+      {
+        "@id": "1127",
+        "meaning": "Vielleicht"
+      },
+      {
+        "@id": "1128",
+        "meaning": "Narr"
+      },
+      {
+        "@id": "1129",
+        "meaning": "Erinnerung"
+      },
+      {
+        "@id": "1130",
+        "meaning": "Fehler"
+      },
+      {
+        "@id": "1131",
+        "meaning": "Beanspruchen"
+      },
+      {
+        "@id": "1132",
+        "meaning": "Besichtigungen"
+      },
+      {
+        "@id": "1133",
+        "meaning": "Nummer"
+      },
+      {
+        "@id": "1134",
+        "meaning": "Anfrage"
+      },
+      {
+        "@id": "1135",
+        "meaning": "Diskussion"
+      },
+      {
+        "@id": "1136",
+        "meaning": "Himmel"
+      },
+      {
+        "@id": "1137",
+        "meaning": "Verängstigt"
+      },
+      {
+        "@id": "1138",
+        "meaning": "Genau"
+      },
+      {
+        "@id": "1139",
+        "meaning": "Äußerst"
+      },
+      {
+        "@id": "1140",
+        "meaning": "Plötzlich"
+      },
+      {
+        "@id": "1141",
+        "meaning": "Vielleicht"
+      },
+      {
+        "@id": "1142",
+        "meaning": "Gelegenheit"
+      },
+      {
+        "@id": "1143",
+        "meaning": "Tür"
+      },
+      {
+        "@id": "1144",
+        "meaning": "Austausch"
+      },
+      {
+        "@id": "1145",
+        "meaning": "Autonomie"
+      },
+      {
+        "@id": "1146",
+        "meaning": "Website"
+      },
+      {
+        "@id": "1147",
+        "meaning": "Selbst"
+      },
+      {
+        "@id": "1148",
+        "meaning": "Art"
+      },
+      {
+        "@id": "1149",
+        "meaning": "Nerv"
+      },
+      {
+        "@id": "1150",
+        "meaning": "Beendet"
+      },
+      {
+        "@id": "1151",
+        "meaning": "Konstruktion"
+      },
+      {
+        "@id": "1152",
+        "meaning": "Anwendung"
+      },
+      {
+        "@id": "1153",
+        "meaning": "Zahlen"
+      },
+      {
+        "@id": "1154",
+        "meaning": "Kaninchenhorn"
+      },
+      {
+        "@id": "1155",
+        "meaning": "Zusammen"
+      },
+      {
+        "@id": "1156",
+        "meaning": "Vorlage"
+      },
+      {
+        "@id": "1157",
+        "meaning": "Weggelassen"
+      },
+      {
+        "@id": "1158",
+        "meaning": "Probieren sie es aus"
+      },
+      {
+        "@id": "1159",
+        "meaning": "Förderung"
+      },
+      {
+        "@id": "1160",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "1161",
+        "meaning": "Auflistung"
+      },
+      {
+        "@id": "1162",
+        "meaning": "Prinzip"
+      },
+      {
+        "@id": "1163",
+        "meaning": "Fenster"
+      },
+      {
+        "@id": "1164",
+        "meaning": "Lernen"
+      },
+      {
+        "@id": "1165",
+        "meaning": "Überprüfen"
+      },
+      {
+        "@id": "1166",
+        "meaning": "Intensiv"
+      },
+      {
+        "@id": "1167",
+        "meaning": "Schärfe"
+      },
+      {
+        "@id": "1168",
+        "meaning": "Älterer bruder"
+      },
+      {
+        "@id": "1169",
+        "meaning": "Verkäufe"
+      },
+      {
+        "@id": "1170",
+        "meaning": "Verwendung"
+      },
+      {
+        "@id": "1171",
+        "meaning": "Früher"
+      },
+      {
+        "@id": "1172",
+        "meaning": "Arzt"
+      },
+      {
+        "@id": "1173",
+        "meaning": "Heutige tag"
+      },
+      {
+        "@id": "1174",
+        "meaning": "Arm"
+      },
+      {
+        "@id": "1175",
+        "meaning": "Yayara"
+      },
+      {
+        "@id": "1176",
+        "meaning": "Direkt"
+      },
+      {
+        "@id": "1177",
+        "meaning": "Gefährte"
+      },
+      {
+        "@id": "1178",
+        "meaning": "Berühmt"
+      },
+      {
+        "@id": "1179",
+        "meaning": "Halten"
+      },
+      {
+        "@id": "1180",
+        "meaning": "Umstände"
+      },
+      {
+        "@id": "1181",
+        "meaning": "Erheben"
+      },
+      {
+        "@id": "1182",
+        "meaning": "König"
+      },
+      {
+        "@id": "1183",
+        "meaning": "Wunder"
+      },
+      {
+        "@id": "1184",
+        "meaning": "Boden"
+      },
+      {
+        "@id": "1185",
+        "meaning": "Ende"
+      },
+      {
+        "@id": "1186",
+        "meaning": "Süden"
+      },
+      {
+        "@id": "1187",
+        "meaning": "Einfügen"
+      },
+      {
+        "@id": "1188",
+        "meaning": "Satz"
+      },
+      {
+        "@id": "1189",
+        "meaning": "Verbesserung"
+      },
+      {
+        "@id": "1190",
+        "meaning": "Verstärkung"
+      },
+      {
+        "@id": "1191",
+        "meaning": "Richtig"
+      },
+      {
+        "@id": "1192",
+        "meaning": "Ausrichten"
+      },
+      {
+        "@id": "1193",
+        "meaning": "Fax"
+      },
+      {
+        "@id": "1194",
+        "meaning": "Fabrik"
+      },
+      {
+        "@id": "1195",
+        "meaning": "Ich würde gerne"
+      },
+      {
+        "@id": "1196",
+        "meaning": "Atom"
+      },
+      {
+        "@id": "1197",
+        "meaning": "Erfassen"
+      },
+      {
+        "@id": "1198",
+        "meaning": "Frühling"
+      },
+      {
+        "@id": "1199",
+        "meaning": "Gültig"
+      },
+      {
+        "@id": "1200",
+        "meaning": "Verschieden"
+      },
+      {
+        "@id": "1201",
+        "meaning": "Satz"
+      },
+      {
+        "@id": "1202",
+        "meaning": "Verbinden"
+      },
+      {
+        "@id": "1203",
+        "meaning": "Spiel"
+      },
+      {
+        "@id": "1204",
+        "meaning": "Privat"
+      },
+      {
+        "@id": "1205",
+        "meaning": "Vorschlag"
+      },
+      {
+        "@id": "1206",
+        "meaning": "Norden"
+      },
+      {
+        "@id": "1207",
+        "meaning": "Krankheit"
+      },
+      {
+        "@id": "1208",
+        "meaning": "Angriff"
+      },
+      {
+        "@id": "1209",
+        "meaning": "Bild"
+      },
+      {
+        "@id": "1210",
+        "meaning": "6.000"
+      },
+      {
+        "@id": "1211",
+        "meaning": "Persönlichkeit"
+      },
+      {
+        "@id": "1212",
+        "meaning": "Architektur"
+      },
+      {
+        "@id": "1213",
+        "meaning": "Hinausgehen"
+      },
+      {
+        "@id": "1214",
+        "meaning": "Eins"
+      },
+      {
+        "@id": "1215",
+        "meaning": "Taille"
+      },
+      {
+        "@id": "1216",
+        "meaning": "Gegründet"
+      },
+      {
+        "@id": "1217",
+        "meaning": "Veranstaltungsort"
+      },
+      {
+        "@id": "1218",
+        "meaning": "Vorhersage"
+      },
+      {
+        "@id": "1219",
+        "meaning": "Fragen"
+      },
+      {
+        "@id": "1220",
+        "meaning": "Liebe"
+      },
+      {
+        "@id": "1221",
+        "meaning": "Zustand"
+      },
+      {
+        "@id": "1222",
+        "meaning": "Europa"
+      },
+      {
+        "@id": "1223",
+        "meaning": "Spiel"
+      },
+      {
+        "@id": "1224",
+        "meaning": "Schulter"
+      },
+      {
+        "@id": "1225",
+        "meaning": "Feuer"
+      },
+      {
+        "@id": "1226",
+        "meaning": "Turnier"
+      },
+      {
+        "@id": "1227",
+        "meaning": "Anstellung"
+      },
+      {
+        "@id": "1228",
+        "meaning": "Westen"
+      },
+      {
+        "@id": "1229",
+        "meaning": "Design"
+      },
+      {
+        "@id": "1230",
+        "meaning": "Ausgeben"
+      },
+      {
+        "@id": "1231",
+        "meaning": "Natürlich"
+      },
+      {
+        "@id": "1232",
+        "meaning": "Schwer"
+      },
+      {
+        "@id": "1233",
+        "meaning": "Präsident"
+      },
+      {
+        "@id": "1234",
+        "meaning": "Paar"
+      },
+      {
+        "@id": "1235",
+        "meaning": "Eine tasse"
+      },
+      {
+        "@id": "1236",
+        "meaning": "Brief"
+      },
+      {
+        "@id": "1237",
+        "meaning": "Maschine"
+      },
+      {
+        "@id": "1238",
+        "meaning": "Konstante"
+      },
+      {
+        "@id": "1239",
+        "meaning": "Schicht"
+      },
+      {
+        "@id": "1240",
+        "meaning": "Finger"
+      },
+      {
+        "@id": "1241",
+        "meaning": "Vorbereitung"
+      },
+      {
+        "@id": "1242",
+        "meaning": "Es dauert"
+      },
+      {
+        "@id": "1243",
+        "meaning": "Absteigen"
+      },
+      {
+        "@id": "1244",
+        "meaning": "Ball"
+      },
+      {
+        "@id": "1245",
+        "meaning": "Ansatz"
+      },
+      {
+        "@id": "1246",
+        "meaning": "Weinen"
+      },
+      {
+        "@id": "1247",
+        "meaning": "Agent"
+      },
+      {
+        "@id": "1248",
+        "meaning": "Mit"
+      },
+      {
+        "@id": "1249",
+        "meaning": "Gruppe"
+      },
+      {
+        "@id": "1250",
+        "meaning": "Erfüllen"
+      },
+      {
+        "@id": "1251",
+        "meaning": "Teil"
+      },
+      {
+        "@id": "1252",
+        "meaning": "Erwerb"
+      },
+      {
+        "@id": "1253",
+        "meaning": "Raum"
+      },
+      {
+        "@id": "1254",
+        "meaning": "Verbreiten"
+      },
+      {
+        "@id": "1255",
+        "meaning": "Katze"
+      },
+      {
+        "@id": "1256",
+        "meaning": "Mit freundlichen grüße"
+      },
+      {
+        "@id": "1257",
+        "meaning": "Herbst"
+      },
+      {
+        "@id": "1258",
+        "meaning": "Abfall"
+      },
+      {
+        "@id": "1259",
+        "meaning": "Seelenfrieden"
+      },
+      {
+        "@id": "1260",
+        "meaning": "Erreichen"
+      },
+      {
+        "@id": "1261",
+        "meaning": "Welt"
+      },
+      {
+        "@id": "1262",
+        "meaning": "Ausrüstung"
+      },
+      {
+        "@id": "1263",
+        "meaning": "Magen"
+      },
+      {
+        "@id": "1264",
+        "meaning": "Springen"
+      },
+      {
+        "@id": "1265",
+        "meaning": "Vorstellung"
+      },
+      {
+        "@id": "1266",
+        "meaning": "Wahl"
+      },
+      {
+        "@id": "1267",
+        "meaning": "Eindruck"
+      },
+      {
+        "@id": "1268",
+        "meaning": "Plötzlich"
+      },
+      {
+        "@id": "1269",
+        "meaning": "Religion"
+      },
+      {
+        "@id": "1270",
+        "meaning": "Verein"
+      },
+      {
+        "@id": "1271",
+        "meaning": "Nachbarschaft"
+      },
+      {
+        "@id": "1272",
+        "meaning": "Vater"
+      },
+      {
+        "@id": "1273",
+        "meaning": "Vor ort"
+      },
+      {
+        "@id": "1274",
+        "meaning": "Hell"
+      },
+      {
+        "@id": "1275",
+        "meaning": "Professor"
+      },
+      {
+        "@id": "1276",
+        "meaning": "Gefühle"
+      },
+      {
+        "@id": "1277",
+        "meaning": "Gemüse"
+      },
+      {
+        "@id": "1278",
+        "meaning": "Gedrückt halten"
+      },
+      {
+        "@id": "1279",
+        "meaning": "Wand"
+      },
+      {
+        "@id": "1280",
+        "meaning": "Oder"
+      },
+      {
+        "@id": "1281",
+        "meaning": "Fließen"
+      },
+      {
+        "@id": "1282",
+        "meaning": "Erfolgreiches angebot"
+      },
+      {
+        "@id": "1283",
+        "meaning": "Verhältnis"
+      },
+      {
+        "@id": "1284",
+        "meaning": "Hauptsächlich"
+      },
+      {
+        "@id": "1285",
+        "meaning": "Zusammenkommen"
+      },
+      {
+        "@id": "1286",
+        "meaning": "Besitz"
+      },
+      {
+        "@id": "1287",
+        "meaning": "Starren"
+      },
+      {
+        "@id": "1288",
+        "meaning": "Üben"
+      },
+      {
+        "@id": "1289",
+        "meaning": "Konventionell"
+      },
+      {
+        "@id": "1290",
+        "meaning": "Sammeln"
+      },
+      {
+        "@id": "1291",
+        "meaning": "Handel"
+      },
+      {
+        "@id": "1292",
+        "meaning": "Schwierigkeit"
+      },
+      {
+        "@id": "1293",
+        "meaning": "Wert"
+      },
+      {
+        "@id": "1294",
+        "meaning": "Haben"
+      },
+      {
+        "@id": "1295",
+        "meaning": "Ursprünglich"
+      },
+      {
+        "@id": "1296",
+        "meaning": "Experiment"
+      },
+      {
+        "@id": "1297",
+        "meaning": "Luftfahrt"
+      },
+      {
+        "@id": "1298",
+        "meaning": "Interesse"
+      },
+      {
+        "@id": "1299",
+        "meaning": "Aufmerksamkeit"
+      },
+      {
+        "@id": "1300",
+        "meaning": "Aktion"
+      },
+      {
+        "@id": "1301",
+        "meaning": "Ausführung"
+      },
+      {
+        "@id": "1302",
+        "meaning": "Hinter"
+      },
+      {
+        "@id": "1303",
+        "meaning": "Ersatz"
+      },
+      {
+        "@id": "1304",
+        "meaning": "Leben"
+      },
+      {
+        "@id": "1305",
+        "meaning": "Schnee"
+      },
+      {
+        "@id": "1306",
+        "meaning": "Stoppen"
+      },
+      {
+        "@id": "1307",
+        "meaning": "Beschreibung"
+      },
+      {
+        "@id": "1308",
+        "meaning": "Hersteller"
+      },
+      {
+        "@id": "1309",
+        "meaning": "Andere"
+      },
+      {
+        "@id": "1310",
+        "meaning": "Bücher"
+      },
+      {
+        "@id": "1311",
+        "meaning": "Erfüllung"
+      },
+      {
+        "@id": "1312",
+        "meaning": "Limit"
+      },
+      {
+        "@id": "1313",
+        "meaning": "Emotionen"
+      },
+      {
+        "@id": "1314",
+        "meaning": "Gehirn"
+      },
+      {
+        "@id": "1315",
+        "meaning": "Klassenzimmer"
+      },
+      {
+        "@id": "1316",
+        "meaning": "Öffentlich"
+      },
+      {
+        "@id": "1317",
+        "meaning": "Krebs"
+      },
+      {
+        "@id": "1318",
+        "meaning": "Strecken"
+      },
+      {
+        "@id": "1319",
+        "meaning": "Gramm"
+      },
+      {
+        "@id": "1320",
+        "meaning": "Boot"
+      },
+      {
+        "@id": "1321",
+        "meaning": "Tee"
+      },
+      {
+        "@id": "1322",
+        "meaning": "Austausch"
+      },
+      {
+        "@id": "1323",
+        "meaning": "Sei glücklich"
+      },
+      {
+        "@id": "1324",
+        "meaning": "Blut"
+      },
+      {
+        "@id": "1325",
+        "meaning": "Kritik"
+      },
+      {
+        "@id": "1326",
+        "meaning": "Lüfter"
+      },
+      {
+        "@id": "1327",
+        "meaning": "Verbrechen"
+      },
+      {
+        "@id": "1328",
+        "meaning": "Verstoß"
+      },
+      {
+        "@id": "1329",
+        "meaning": "Programm"
+      },
+      {
+        "@id": "1330",
+        "meaning": "Elektronisch"
+      },
+      {
+        "@id": "1331",
+        "meaning": "Nuklear"
+      },
+      {
+        "@id": "1332",
+        "meaning": "Hälfte"
+      },
+      {
+        "@id": "1333",
+        "meaning": "Roman"
+      },
+      {
+        "@id": "1334",
+        "meaning": "Denkmal"
+      },
+      {
+        "@id": "1335",
+        "meaning": "Antwort"
+      },
+      {
+        "@id": "1336",
+        "meaning": "Ausgabe"
+      },
+      {
+        "@id": "1337",
+        "meaning": "Eigentum"
+      },
+      {
+        "@id": "1338",
+        "meaning": "Werbung"
+      },
+      {
+        "@id": "1339",
+        "meaning": "Zum ersten mal"
+      },
+      {
+        "@id": "1340",
+        "meaning": "Mädchen"
+      },
+      {
+        "@id": "1341",
+        "meaning": "Gemeinwohl"
+      },
+      {
+        "@id": "1342",
+        "meaning": "Entsorgen"
+      },
+      {
+        "@id": "1343",
+        "meaning": "Nachweisen"
+      },
+      {
+        "@id": "1344",
+        "meaning": "Diskussion"
+      },
+      {
+        "@id": "1345",
+        "meaning": "Tasche"
+      },
+      {
+        "@id": "1346",
+        "meaning": "Alltag"
+      },
+      {
+        "@id": "1347",
+        "meaning": "Attitüde"
+      },
+      {
+        "@id": "1348",
+        "meaning": "Internet"
+      },
+      {
+        "@id": "1349",
+        "meaning": "Alt"
+      },
+      {
+        "@id": "1350",
+        "meaning": "Gegen"
+      },
+      {
+        "@id": "1351",
+        "meaning": "Bildschirm"
+      },
+      {
+        "@id": "1352",
+        "meaning": "Phase"
+      },
+      {
+        "@id": "1353",
+        "meaning": "Entsorgung"
+      },
+      {
+        "@id": "1354",
+        "meaning": "Zurückkehren"
+      },
+      {
+        "@id": "1355",
+        "meaning": "Ausbildung"
+      },
+      {
+        "@id": "1356",
+        "meaning": "Nur"
+      },
+      {
+        "@id": "1357",
+        "meaning": "Ordentlich"
+      },
+      {
+        "@id": "1358",
+        "meaning": "Werbung"
+      },
+      {
+        "@id": "1359",
+        "meaning": "Lehrer"
+      },
+      {
+        "@id": "1360",
+        "meaning": "Verein"
+      },
+      {
+        "@id": "1361",
+        "meaning": "Mädchen"
+      },
+      {
+        "@id": "1362",
+        "meaning": "Viele"
+      },
+      {
+        "@id": "1363",
+        "meaning": "Tragen"
+      },
+      {
+        "@id": "1364",
+        "meaning": "Geburt"
+      },
+      {
+        "@id": "1365",
+        "meaning": "Vorjahr"
+      },
+      {
+        "@id": "1366",
+        "meaning": "Symptome"
+      },
+      {
+        "@id": "1367",
+        "meaning": "Liebe"
+      },
+      {
+        "@id": "1368",
+        "meaning": "Ressource"
+      },
+      {
+        "@id": "1369",
+        "meaning": "Buchhaltung"
+      },
+      {
+        "@id": "1370",
+        "meaning": "Betrieb"
+      },
+      {
+        "@id": "1371",
+        "meaning": "Unabhängigkeit"
+      },
+      {
+        "@id": "1372",
+        "meaning": "Gedanke"
+      },
+      {
+        "@id": "1373",
+        "meaning": "Wettbewerb"
+      },
+      {
+        "@id": "1374",
+        "meaning": "Super"
+      },
+      {
+        "@id": "1375",
+        "meaning": "Erheben"
+      },
+      {
+        "@id": "1376",
+        "meaning": "Netto"
+      },
+      {
+        "@id": "1377",
+        "meaning": "Feind"
+      },
+      {
+        "@id": "1378",
+        "meaning": "Beobachtung"
+      },
+      {
+        "@id": "1379",
+        "meaning": "Gas"
+      },
+      {
+        "@id": "1380",
+        "meaning": "Industrie"
+      },
+      {
+        "@id": "1381",
+        "meaning": "Essen"
+      },
+      {
+        "@id": "1382",
+        "meaning": "Frieden"
+      },
+      {
+        "@id": "1383",
+        "meaning": "Gemeinsam"
+      },
+      {
+        "@id": "1384",
+        "meaning": "Geschichte"
+      },
+      {
+        "@id": "1385",
+        "meaning": "Brot"
+      },
+      {
+        "@id": "1386",
+        "meaning": "Feuerwehr"
+      },
+      {
+        "@id": "1387",
+        "meaning": "Reise"
+      },
+      {
+        "@id": "1388",
+        "meaning": "Umarmen"
+      },
+      {
+        "@id": "1389",
+        "meaning": "Pferd"
+      },
+      {
+        "@id": "1390",
+        "meaning": "Verhütung"
+      },
+      {
+        "@id": "1391",
+        "meaning": "Versenden"
+      },
+      {
+        "@id": "1392",
+        "meaning": "Mangel"
+      },
+      {
+        "@id": "1393",
+        "meaning": "Hart"
+      },
+      {
+        "@id": "1394",
+        "meaning": "Vermeiden"
+      },
+      {
+        "@id": "1395",
+        "meaning": "Winter"
+      },
+      {
+        "@id": "1396",
+        "meaning": "Zeitpunkt"
+      },
+      {
+        "@id": "1397",
+        "meaning": "Wunderbar"
+      },
+      {
+        "@id": "1398",
+        "meaning": "Lustig"
+      },
+      {
+        "@id": "1399",
+        "meaning": "Ausgabe"
+      },
+      {
+        "@id": "1400",
+        "meaning": "Letztes jahr"
+      },
+      {
+        "@id": "1401",
+        "meaning": "Achttausend"
+      },
+      {
+        "@id": "1402",
+        "meaning": "Charakter"
+      },
+      {
+        "@id": "1403",
+        "meaning": "Ich bin hier"
+      },
+      {
+        "@id": "1404",
+        "meaning": "Sprache"
+      },
+      {
+        "@id": "1405",
+        "meaning": "Hilfs-"
+      },
+      {
+        "@id": "1406",
+        "meaning": "Zufriedenheit"
+      },
+      {
+        "@id": "1407",
+        "meaning": "Hilfe"
+      },
+      {
+        "@id": "1408",
+        "meaning": "Wie"
+      },
+      {
+        "@id": "1409",
+        "meaning": "Fertigstellung"
+      },
+      {
+        "@id": "1410",
+        "meaning": "Kalt"
+      },
+      {
+        "@id": "1411",
+        "meaning": "Es tut weh"
+      },
+      {
+        "@id": "1412",
+        "meaning": "Erholung"
+      },
+      {
+        "@id": "1413",
+        "meaning": "Organisieren"
+      },
+      {
+        "@id": "1414",
+        "meaning": "Zunahme"
+      },
+      {
+        "@id": "1415",
+        "meaning": "Erdbeben"
+      },
+      {
+        "@id": "1416",
+        "meaning": "Regierungsbüro"
+      },
+      {
+        "@id": "1417",
+        "meaning": "Reis"
+      },
+      {
+        "@id": "1418",
+        "meaning": "Cool"
+      },
+      {
+        "@id": "1419",
+        "meaning": "Onkel"
+      },
+      {
+        "@id": "1420",
+        "meaning": "Mittelschule"
+      },
+      {
+        "@id": "1421",
+        "meaning": "Leben"
+      },
+      {
+        "@id": "1422",
+        "meaning": "Strecken"
+      },
+      {
+        "@id": "1423",
+        "meaning": "Gewinnen"
+      },
+      {
+        "@id": "1424",
+        "meaning": "Flug"
+      },
+      {
+        "@id": "1425",
+        "meaning": "Stuhl"
+      },
+      {
+        "@id": "1426",
+        "meaning": "Zusammenfassen"
+      },
+      {
+        "@id": "1427",
+        "meaning": "Linie"
+      },
+      {
+        "@id": "1428",
+        "meaning": "Export"
+      },
+      {
+        "@id": "1429",
+        "meaning": "Spezifikation"
+      },
+      {
+        "@id": "1430",
+        "meaning": "Verfahren"
+      },
+      {
+        "@id": "1431",
+        "meaning": "Kurs"
+      },
+      {
+        "@id": "1432",
+        "meaning": "Reich"
+      },
+      {
+        "@id": "1433",
+        "meaning": "Verschieden"
+      },
+      {
+        "@id": "1434",
+        "meaning": "Versagen"
+      },
+      {
+        "@id": "1435",
+        "meaning": "Verteidigung"
+      },
+      {
+        "@id": "1436",
+        "meaning": "Durchlaufen"
+      },
+      {
+        "@id": "1437",
+        "meaning": "Luft"
+      },
+      {
+        "@id": "1438",
+        "meaning": "Nebenan"
+      },
+      {
+        "@id": "1439",
+        "meaning": "Abschluss"
+      },
+      {
+        "@id": "1440",
+        "meaning": "Mitglied des parlaments"
+      },
+      {
+        "@id": "1441",
+        "meaning": "Garu"
+      },
+      {
+        "@id": "1442",
+        "meaning": "Kinderbetreuung"
+      },
+      {
+        "@id": "1443",
+        "meaning": "Element"
+      },
+      {
+        "@id": "1444",
+        "meaning": "Fallen"
+      },
+      {
+        "@id": "1445",
+        "meaning": "Konzentration"
+      },
+      {
+        "@id": "1446",
+        "meaning": "Rot"
+      },
+      {
+        "@id": "1447",
+        "meaning": "Qualifikation"
+      },
+      {
+        "@id": "1448",
+        "meaning": "Einkommen"
+      },
+      {
+        "@id": "1449",
+        "meaning": "Binden"
+      },
+      {
+        "@id": "1450",
+        "meaning": "Tabak"
+      },
+      {
+        "@id": "1451",
+        "meaning": "Universum"
+      },
+      {
+        "@id": "1452",
+        "meaning": "Geschichte"
+      },
+      {
+        "@id": "1453",
+        "meaning": "Kk"
+      },
+      {
+        "@id": "1454",
+        "meaning": "Forderungen"
+      },
+      {
+        "@id": "1455",
+        "meaning": "Kurz"
+      },
+      {
+        "@id": "1456",
+        "meaning": "Mitarbeiter"
+      },
+      {
+        "@id": "1457",
+        "meaning": "Kamera"
+      },
+      {
+        "@id": "1458",
+        "meaning": "Tränen"
+      },
+      {
+        "@id": "1459",
+        "meaning": "Nicken"
+      },
+      {
+        "@id": "1460",
+        "meaning": "Gebühr"
+      },
+      {
+        "@id": "1461",
+        "meaning": "Bedeutet"
+      },
+      {
+        "@id": "1462",
+        "meaning": "Haltung"
+      },
+      {
+        "@id": "1463",
+        "meaning": "Erraten"
+      },
+      {
+        "@id": "1464",
+        "meaning": "Thema"
+      },
+      {
+        "@id": "1465",
+        "meaning": "Fisch"
+      },
+      {
+        "@id": "1466",
+        "meaning": "Beigefügt"
+      },
+      {
+        "@id": "1467",
+        "meaning": "Anlage"
+      },
+      {
+        "@id": "1468",
+        "meaning": "Schulden"
+      },
+      {
+        "@id": "1469",
+        "meaning": "Bewirken"
+      },
+      {
+        "@id": "1470",
+        "meaning": "Medizin"
+      },
+      {
+        "@id": "1471",
+        "meaning": "Ethnische zugehörigkeit"
+      },
+      {
+        "@id": "1472",
+        "meaning": "Einheit"
+      },
+      {
+        "@id": "1473",
+        "meaning": "Verfahren"
+      },
+      {
+        "@id": "1474",
+        "meaning": "Rund"
+      },
+      {
+        "@id": "1475",
+        "meaning": "Tisch"
+      },
+      {
+        "@id": "1476",
+        "meaning": "Demokratie"
+      },
+      {
+        "@id": "1477",
+        "meaning": "Bett"
+      },
+      {
+        "@id": "1478",
+        "meaning": "Zurück"
+      },
+      {
+        "@id": "1479",
+        "meaning": "Atem"
+      },
+      {
+        "@id": "1480",
+        "meaning": "Alle"
+      },
+      {
+        "@id": "1481",
+        "meaning": "Charme"
+      },
+      {
+        "@id": "1482",
+        "meaning": "Glück"
+      },
+      {
+        "@id": "1483",
+        "meaning": "Siebentausend"
+      },
+      {
+        "@id": "1484",
+        "meaning": "Geruch"
+      },
+      {
+        "@id": "1485",
+        "meaning": "Ruhig"
+      },
+      {
+        "@id": "1486",
+        "meaning": "Ursprünglich"
+      },
+      {
+        "@id": "1487",
+        "meaning": "Langsam"
+      },
+      {
+        "@id": "1488",
+        "meaning": "Professional"
+      },
+      {
+        "@id": "1489",
+        "meaning": "Spät"
+      },
+      {
+        "@id": "1490",
+        "meaning": "Weglaufen"
+      },
+      {
+        "@id": "1491",
+        "meaning": "Intern"
+      },
+      {
+        "@id": "1492",
+        "meaning": "Versprechen"
+      },
+      {
+        "@id": "1493",
+        "meaning": "Langfristig"
+      },
+      {
+        "@id": "1494",
+        "meaning": "Politik"
+      },
+      {
+        "@id": "1495",
+        "meaning": "Atmosphäre"
+      },
+      {
+        "@id": "1496",
+        "meaning": "Lebewesen"
+      },
+      {
+        "@id": "1497",
+        "meaning": "Spitze"
+      },
+      {
+        "@id": "1498",
+        "meaning": "Theorie"
+      },
+      {
+        "@id": "1499",
+        "meaning": "Geeignet"
+      },
+      {
+        "@id": "1500",
+        "meaning": "Neuntausend"
+      },
+      {
+        "@id": "1501",
+        "meaning": "Tradition"
+      },
+      {
+        "@id": "1502",
+        "meaning": "Generation"
+      },
+      {
+        "@id": "1503",
+        "meaning": "Hintergrund"
+      },
+      {
+        "@id": "1504",
+        "meaning": "Magazin"
+      },
+      {
+        "@id": "1505",
+        "meaning": "Gar nicht"
+      },
+      {
+        "@id": "1506",
+        "meaning": "Kleidung"
+      },
+      {
+        "@id": "1507",
+        "meaning": "In"
+      },
+      {
+        "@id": "1508",
+        "meaning": "Schlafen"
+      },
+      {
+        "@id": "1509",
+        "meaning": "Anschauen"
+      },
+      {
+        "@id": "1510",
+        "meaning": "Cd"
+      },
+      {
+        "@id": "1511",
+        "meaning": "Teilen"
+      },
+      {
+        "@id": "1512",
+        "meaning": "Daran arbeiten"
+      },
+      {
+        "@id": "1513",
+        "meaning": "Reproduktion"
+      },
+      {
+        "@id": "1514",
+        "meaning": "Taste"
+      },
+      {
+        "@id": "1515",
+        "meaning": "Live"
+      },
+      {
+        "@id": "1516",
+        "meaning": "Umgebung"
+      },
+      {
+        "@id": "1517",
+        "meaning": "Kunst"
+      },
+      {
+        "@id": "1518",
+        "meaning": "Computer"
+      },
+      {
+        "@id": "1519",
+        "meaning": "Anweisung"
+      },
+      {
+        "@id": "1520",
+        "meaning": "Poi"
+      },
+      {
+        "@id": "1521",
+        "meaning": "Eingang"
+      },
+      {
+        "@id": "1522",
+        "meaning": "Herausziehen"
+      },
+      {
+        "@id": "1523",
+        "meaning": "Seltsam"
+      },
+      {
+        "@id": "1524",
+        "meaning": "Backen"
+      },
+      {
+        "@id": "1525",
+        "meaning": "Sagen"
+      },
+      {
+        "@id": "1526",
+        "meaning": "Verstecken"
+      },
+      {
+        "@id": "1527",
+        "meaning": "Erlaubnis"
+      },
+      {
+        "@id": "1528",
+        "meaning": "Bei"
+      },
+      {
+        "@id": "1529",
+        "meaning": "Abteilung"
+      },
+      {
+        "@id": "1530",
+        "meaning": "Endlich"
+      },
+      {
+        "@id": "1531",
+        "meaning": "Anleitung"
+      },
+      {
+        "@id": "1532",
+        "meaning": "Stellvertreter"
+      },
+      {
+        "@id": "1533",
+        "meaning": "Unterirdisch"
+      },
+      {
+        "@id": "1534",
+        "meaning": "Wald"
+      },
+      {
+        "@id": "1535",
+        "meaning": "Hart"
+      },
+      {
+        "@id": "1536",
+        "meaning": "Jede art"
+      },
+      {
+        "@id": "1537",
+        "meaning": "Phänomen"
+      },
+      {
+        "@id": "1538",
+        "meaning": "Bearbeiten"
+      },
+      {
+        "@id": "1539",
+        "meaning": "Operation"
+      },
+      {
+        "@id": "1540",
+        "meaning": "Lehre"
+      },
+      {
+        "@id": "1541",
+        "meaning": "Moment"
+      },
+      {
+        "@id": "1542",
+        "meaning": "Vertrauen"
+      },
+      {
+        "@id": "1543",
+        "meaning": "Greifen"
+      },
+      {
+        "@id": "1544",
+        "meaning": "Gründen"
+      },
+      {
+        "@id": "1545",
+        "meaning": "Essen"
+      },
+      {
+        "@id": "1546",
+        "meaning": "Alte"
+      },
+      {
+        "@id": "1547",
+        "meaning": "Zähne"
+      },
+      {
+        "@id": "1548",
+        "meaning": "Fleisch"
+      },
+      {
+        "@id": "1549",
+        "meaning": "Lokal"
+      },
+      {
+        "@id": "1550",
+        "meaning": "Magen"
+      },
+      {
+        "@id": "1551",
+        "meaning": "Enttäuschend"
+      },
+      {
+        "@id": "1552",
+        "meaning": "Fix"
+      },
+      {
+        "@id": "1553",
+        "meaning": "Wie viel"
+      },
+      {
+        "@id": "1554",
+        "meaning": "Handhaben"
+      },
+      {
+        "@id": "1555",
+        "meaning": "Bühne"
+      },
+      {
+        "@id": "1556",
+        "meaning": "Moderne zeiten"
+      },
+      {
+        "@id": "1557",
+        "meaning": "Verfolgen"
+      },
+      {
+        "@id": "1558",
+        "meaning": "Sicherheit"
+      },
+      {
+        "@id": "1559",
+        "meaning": "Schreien"
+      },
+      {
+        "@id": "1560",
+        "meaning": "Erreichen"
+      },
+      {
+        "@id": "1561",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "1562",
+        "meaning": "Reservierung"
+      },
+      {
+        "@id": "1563",
+        "meaning": "Unterstützung"
+      },
+      {
+        "@id": "1564",
+        "meaning": "Nachfrage"
+      },
+      {
+        "@id": "1565",
+        "meaning": "Vorher und nachher"
+      },
+      {
+        "@id": "1566",
+        "meaning": "Haushalt"
+      },
+      {
+        "@id": "1567",
+        "meaning": "Literatur"
+      },
+      {
+        "@id": "1568",
+        "meaning": "Verfassung"
+      },
+      {
+        "@id": "1569",
+        "meaning": "Gesellschaft leisten"
+      },
+      {
+        "@id": "1570",
+        "meaning": "Liefern"
+      },
+      {
+        "@id": "1571",
+        "meaning": "Klar"
+      },
+      {
+        "@id": "1572",
+        "meaning": "Effizienz"
+      },
+      {
+        "@id": "1573",
+        "meaning": "Katastrophenvorsorge"
+      },
+      {
+        "@id": "1574",
+        "meaning": "Ebene"
+      },
+      {
+        "@id": "1575",
+        "meaning": "Mann und frau"
+      },
+      {
+        "@id": "1576",
+        "meaning": "Veröffentlichung"
+      },
+      {
+        "@id": "1577",
+        "meaning": "Der"
+      },
+      {
+        "@id": "1578",
+        "meaning": "Dokumentieren"
+      },
+      {
+        "@id": "1579",
+        "meaning": "Schwach"
+      },
+      {
+        "@id": "1580",
+        "meaning": "Übergang"
+      },
+      {
+        "@id": "1581",
+        "meaning": "Besuchen"
+      },
+      {
+        "@id": "1582",
+        "meaning": "Noch mehr"
+      },
+      {
+        "@id": "1583",
+        "meaning": "Reis"
+      },
+      {
+        "@id": "1584",
+        "meaning": "Weisheit"
+      },
+      {
+        "@id": "1585",
+        "meaning": "Boden"
+      },
+      {
+        "@id": "1586",
+        "meaning": "Pflege"
+      },
+      {
+        "@id": "1587",
+        "meaning": "Verboten"
+      },
+      {
+        "@id": "1588",
+        "meaning": "Selbstsucht"
+      },
+      {
+        "@id": "1589",
+        "meaning": "Vielfältig"
+      },
+      {
+        "@id": "1590",
+        "meaning": "Gegenseitig"
+      },
+      {
+        "@id": "1591",
+        "meaning": "Lüge"
+      },
+      {
+        "@id": "1592",
+        "meaning": "Beruf"
+      },
+      {
+        "@id": "1593",
+        "meaning": "Kunst"
+      },
+      {
+        "@id": "1594",
+        "meaning": "Verlängern"
+      },
+      {
+        "@id": "1595",
+        "meaning": "Faktor"
+      },
+      {
+        "@id": "1596",
+        "meaning": "Kabinett"
+      },
+      {
+        "@id": "1597",
+        "meaning": "Schrittweise"
+      },
+      {
+        "@id": "1598",
+        "meaning": "Gleichgewicht"
+      },
+      {
+        "@id": "1599",
+        "meaning": "Prüfung"
+      },
+      {
+        "@id": "1600",
+        "meaning": "Okinawa"
+      },
+      {
+        "@id": "1601",
+        "meaning": "Nähren"
+      },
+      {
+        "@id": "1602",
+        "meaning": "Besuchen"
+      },
+      {
+        "@id": "1603",
+        "meaning": "Zahlen"
+      },
+      {
+        "@id": "1604",
+        "meaning": "Planen"
+      },
+      {
+        "@id": "1605",
+        "meaning": "Verweigerung"
+      },
+      {
+        "@id": "1606",
+        "meaning": "Salz"
+      },
+      {
+        "@id": "1607",
+        "meaning": "Bild"
+      },
+      {
+        "@id": "1608",
+        "meaning": "Essen"
+      },
+      {
+        "@id": "1609",
+        "meaning": "Verhandlung"
+      },
+      {
+        "@id": "1610",
+        "meaning": "Geh umher"
+      },
+      {
+        "@id": "1611",
+        "meaning": "Behoben"
+      },
+      {
+        "@id": "1612",
+        "meaning": "Insel"
+      },
+      {
+        "@id": "1613",
+        "meaning": "Garantie"
+      },
+      {
+        "@id": "1614",
+        "meaning": "Werde wütend"
+      },
+      {
+        "@id": "1615",
+        "meaning": "Seite"
+      },
+      {
+        "@id": "1616",
+        "meaning": "Baum"
+      },
+      {
+        "@id": "1617",
+        "meaning": "Satz"
+      },
+      {
+        "@id": "1618",
+        "meaning": "Papier"
+      },
+      {
+        "@id": "1619",
+        "meaning": "Dünn"
+      },
+      {
+        "@id": "1620",
+        "meaning": "Haar"
+      },
+      {
+        "@id": "1621",
+        "meaning": "Datum und uhrzeit"
+      },
+      {
+        "@id": "1622",
+        "meaning": "Präsident"
+      },
+      {
+        "@id": "1623",
+        "meaning": "Darüber hinaus"
+      },
+      {
+        "@id": "1624",
+        "meaning": "Post"
+      },
+      {
+        "@id": "1625",
+        "meaning": "Vorteilhaft"
+      },
+      {
+        "@id": "1626",
+        "meaning": "Fragen"
+      },
+      {
+        "@id": "1627",
+        "meaning": "Chemie"
+      },
+      {
+        "@id": "1628",
+        "meaning": "Lehrer"
+      },
+      {
+        "@id": "1629",
+        "meaning": "Freigeben"
+      },
+      {
+        "@id": "1630",
+        "meaning": "Design"
+      },
+      {
+        "@id": "1631",
+        "meaning": "Schwer"
+      },
+      {
+        "@id": "1632",
+        "meaning": "Gemacht"
+      },
+      {
+        "@id": "1633",
+        "meaning": "Gruppe"
+      },
+      {
+        "@id": "1634",
+        "meaning": "Statistiken"
+      },
+      {
+        "@id": "1635",
+        "meaning": "Verlängern"
+      },
+      {
+        "@id": "1636",
+        "meaning": "Überlegung"
+      },
+      {
+        "@id": "1637",
+        "meaning": "Kasten"
+      },
+      {
+        "@id": "1638",
+        "meaning": "Mama"
+      },
+      {
+        "@id": "1639",
+        "meaning": "Nachkriegszeit"
+      },
+      {
+        "@id": "1640",
+        "meaning": "Kontinuierlich"
+      },
+      {
+        "@id": "1641",
+        "meaning": "Spaß"
+      },
+      {
+        "@id": "1642",
+        "meaning": "Halten"
+      },
+      {
+        "@id": "1643",
+        "meaning": "Solar-"
+      },
+      {
+        "@id": "1644",
+        "meaning": "Große menge"
+      },
+      {
+        "@id": "1645",
+        "meaning": "Anomalie"
+      },
+      {
+        "@id": "1646",
+        "meaning": "Schloss"
+      },
+      {
+        "@id": "1647",
+        "meaning": "Anregung"
+      },
+      {
+        "@id": "1648",
+        "meaning": "Situation"
+      },
+      {
+        "@id": "1649",
+        "meaning": "Erhaltung"
+      },
+      {
+        "@id": "1650",
+        "meaning": "Zur zeit"
+      },
+      {
+        "@id": "1651",
+        "meaning": "Ding"
+      },
+      {
+        "@id": "1652",
+        "meaning": "Äquivalent"
+      },
+      {
+        "@id": "1653",
+        "meaning": "Tanzen"
+      },
+      {
+        "@id": "1654",
+        "meaning": "Kämpfen"
+      },
+      {
+        "@id": "1655",
+        "meaning": "Zeit"
+      },
+      {
+        "@id": "1656",
+        "meaning": "Gruß"
+      },
+      {
+        "@id": "1657",
+        "meaning": "Begegnen"
+      },
+      {
+        "@id": "1658",
+        "meaning": "Ausführung"
+      },
+      {
+        "@id": "1659",
+        "meaning": "Korea"
+      },
+      {
+        "@id": "1660",
+        "meaning": "Gerät"
+      },
+      {
+        "@id": "1661",
+        "meaning": "Klasse"
+      },
+      {
+        "@id": "1662",
+        "meaning": "Vertrag"
+      },
+      {
+        "@id": "1663",
+        "meaning": "Sagen"
+      },
+      {
+        "@id": "1664",
+        "meaning": "Müde"
+      },
+      {
+        "@id": "1665",
+        "meaning": "Wesentlich"
+      },
+      {
+        "@id": "1666",
+        "meaning": "Eisenbahn"
+      },
+      {
+        "@id": "1667",
+        "meaning": "Aktuelle situation"
+      },
+      {
+        "@id": "1668",
+        "meaning": "Wunsch"
+      },
+      {
+        "@id": "1669",
+        "meaning": "Höhe"
+      },
+      {
+        "@id": "1670",
+        "meaning": "Endlich"
+      },
+      {
+        "@id": "1671",
+        "meaning": "Zweifeln"
+      },
+      {
+        "@id": "1672",
+        "meaning": "Schwester"
+      },
+      {
+        "@id": "1673",
+        "meaning": "Aufschlag"
+      },
+      {
+        "@id": "1674",
+        "meaning": "Netzwerk"
+      },
+      {
+        "@id": "1675",
+        "meaning": "Rot"
+      },
+      {
+        "@id": "1676",
+        "meaning": "Mitglied"
+      },
+      {
+        "@id": "1677",
+        "meaning": "Dunkel"
+      },
+      {
+        "@id": "1678",
+        "meaning": "Adresse"
+      },
+      {
+        "@id": "1679",
+        "meaning": "Bewegen"
+      },
+      {
+        "@id": "1680",
+        "meaning": "Vor einiger zeit"
+      },
+      {
+        "@id": "1681",
+        "meaning": "Haut"
+      },
+      {
+        "@id": "1682",
+        "meaning": "Strategie"
+      },
+      {
+        "@id": "1683",
+        "meaning": "Gebäude"
+      },
+      {
+        "@id": "1684",
+        "meaning": "Programm"
+      },
+      {
+        "@id": "1685",
+        "meaning": "Speisekarte"
+      },
+      {
+        "@id": "1686",
+        "meaning": "Befehl"
+      },
+      {
+        "@id": "1687",
+        "meaning": "Artikel"
+      },
+      {
+        "@id": "1688",
+        "meaning": "Arbeiten"
+      },
+      {
+        "@id": "1689",
+        "meaning": "Geh zu"
+      },
+      {
+        "@id": "1690",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "1691",
+        "meaning": "Revolution"
+      },
+      {
+        "@id": "1692",
+        "meaning": "Löschen"
+      },
+      {
+        "@id": "1693",
+        "meaning": "Normalerweise"
+      },
+      {
+        "@id": "1694",
+        "meaning": "Erhalten"
+      },
+      {
+        "@id": "1695",
+        "meaning": "Vertrauen"
+      },
+      {
+        "@id": "1696",
+        "meaning": "Verringern"
+      },
+      {
+        "@id": "1697",
+        "meaning": "Glas"
+      },
+      {
+        "@id": "1698",
+        "meaning": "Hokkaido"
+      },
+      {
+        "@id": "1699",
+        "meaning": "Verschieden"
+      },
+      {
+        "@id": "1700",
+        "meaning": "Ehemann"
+      },
+      {
+        "@id": "1701",
+        "meaning": "Akzeptieren"
+      },
+      {
+        "@id": "1702",
+        "meaning": "Satz"
+      },
+      {
+        "@id": "1703",
+        "meaning": "Loch"
+      },
+      {
+        "@id": "1704",
+        "meaning": "Popularisierung"
+      },
+      {
+        "@id": "1705",
+        "meaning": "Gespräch"
+      },
+      {
+        "@id": "1706",
+        "meaning": "Gefunden werden"
+      },
+      {
+        "@id": "1707",
+        "meaning": "Hitze"
+      },
+      {
+        "@id": "1708",
+        "meaning": "Kugel"
+      },
+      {
+        "@id": "1709",
+        "meaning": "Niedrig"
+      },
+      {
+        "@id": "1710",
+        "meaning": "Sicht"
+      },
+      {
+        "@id": "1711",
+        "meaning": "Psychologie"
+      },
+      {
+        "@id": "1712",
+        "meaning": "Anweisungen"
+      },
+      {
+        "@id": "1713",
+        "meaning": "Theorie"
+      },
+      {
+        "@id": "1714",
+        "meaning": "Ja"
+      },
+      {
+        "@id": "1715",
+        "meaning": "Schwarz"
+      },
+      {
+        "@id": "1716",
+        "meaning": "Russland"
+      },
+      {
+        "@id": "1717",
+        "meaning": "Yahoo"
+      },
+      {
+        "@id": "1718",
+        "meaning": "Verteidigung"
+      },
+      {
+        "@id": "1719",
+        "meaning": "Grundschule"
+      },
+      {
+        "@id": "1720",
+        "meaning": "Ich"
+      },
+      {
+        "@id": "1721",
+        "meaning": "Bearbeitet"
+      },
+      {
+        "@id": "1722",
+        "meaning": "Noch nicht"
+      },
+      {
+        "@id": "1723",
+        "meaning": "Etwas"
+      },
+      {
+        "@id": "1724",
+        "meaning": "Nutzen"
+      },
+      {
+        "@id": "1725",
+        "meaning": "Krise"
+      },
+      {
+        "@id": "1726",
+        "meaning": "Wie wäre es"
+      },
+      {
+        "@id": "1727",
+        "meaning": "Verlieren"
+      },
+      {
+        "@id": "1728",
+        "meaning": "Immer mehr"
+      },
+      {
+        "@id": "1729",
+        "meaning": "Verwaltung"
+      },
+      {
+        "@id": "1730",
+        "meaning": "Ausleihen"
+      },
+      {
+        "@id": "1731",
+        "meaning": "Eltern"
+      },
+      {
+        "@id": "1732",
+        "meaning": "Suchen"
+      },
+      {
+        "@id": "1733",
+        "meaning": "Lebensdauer"
+      },
+      {
+        "@id": "1734",
+        "meaning": "Länder"
+      },
+      {
+        "@id": "1735",
+        "meaning": "Stadt"
+      },
+      {
+        "@id": "1736",
+        "meaning": "Premierminister"
+      },
+      {
+        "@id": "1737",
+        "meaning": "Aber"
+      },
+      {
+        "@id": "1738",
+        "meaning": "Schlag"
+      },
+      {
+        "@id": "1739",
+        "meaning": "Fortschritt"
+      },
+      {
+        "@id": "1740",
+        "meaning": "Start"
+      },
+      {
+        "@id": "1741",
+        "meaning": "Weit"
+      },
+      {
+        "@id": "1742",
+        "meaning": "Vorübergehend"
+      },
+      {
+        "@id": "1743",
+        "meaning": "Klasse"
+      },
+      {
+        "@id": "1744",
+        "meaning": "Leistung"
+      },
+      {
+        "@id": "1745",
+        "meaning": "Ernährung"
+      },
+      {
+        "@id": "1746",
+        "meaning": "Grün"
+      },
+      {
+        "@id": "1747",
+        "meaning": "Nachricht"
+      },
+      {
+        "@id": "1748",
+        "meaning": "Format"
+      },
+      {
+        "@id": "1749",
+        "meaning": "Schlüssel"
+      },
+      {
+        "@id": "1750",
+        "meaning": "Schlag"
+      },
+      {
+        "@id": "1751",
+        "meaning": "Süß"
+      },
+      {
+        "@id": "1752",
+        "meaning": "Mann"
+      },
+      {
+        "@id": "1753",
+        "meaning": "Geburtsort"
+      },
+      {
+        "@id": "1754",
+        "meaning": "Drehung"
+      },
+      {
+        "@id": "1755",
+        "meaning": "Am meisten"
+      },
+      {
+        "@id": "1756",
+        "meaning": "Förderung"
+      },
+      {
+        "@id": "1757",
+        "meaning": "Aushändigen"
+      },
+      {
+        "@id": "1758",
+        "meaning": "Fortsetzung"
+      },
+      {
+        "@id": "1759",
+        "meaning": "Thema"
+      },
+      {
+        "@id": "1760",
+        "meaning": "Gegenseitig"
       }
     ]
   }
