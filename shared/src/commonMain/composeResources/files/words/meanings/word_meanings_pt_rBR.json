@@ -6633,6 +6633,406 @@
       {
         "@id": "1660",
         "meaning": "Dispositivo"
+      },
+      {
+        "@id": "1661",
+        "meaning": "Aula"
+      },
+      {
+        "@id": "1662",
+        "meaning": "Tratado"
+      },
+      {
+        "@id": "1663",
+        "meaning": "Dizer"
+      },
+      {
+        "@id": "1664",
+        "meaning": "Cansado"
+      },
+      {
+        "@id": "1665",
+        "meaning": "Principal"
+      },
+      {
+        "@id": "1666",
+        "meaning": "Ferrovia"
+      },
+      {
+        "@id": "1667",
+        "meaning": "Situação atual"
+      },
+      {
+        "@id": "1668",
+        "meaning": "Desejar"
+      },
+      {
+        "@id": "1669",
+        "meaning": "Altitude"
+      },
+      {
+        "@id": "1670",
+        "meaning": "Finalmente"
+      },
+      {
+        "@id": "1671",
+        "meaning": "Dúvida"
+      },
+      {
+        "@id": "1672",
+        "meaning": "Irmã"
+      },
+      {
+        "@id": "1673",
+        "meaning": "Servir"
+      },
+      {
+        "@id": "1674",
+        "meaning": "Rede"
+      },
+      {
+        "@id": "1675",
+        "meaning": "Vermelho"
+      },
+      {
+        "@id": "1676",
+        "meaning": "Membro"
+      },
+      {
+        "@id": "1677",
+        "meaning": "Escuro"
+      },
+      {
+        "@id": "1678",
+        "meaning": "Endereço"
+      },
+      {
+        "@id": "1679",
+        "meaning": "Mover"
+      },
+      {
+        "@id": "1680",
+        "meaning": "Há algum tempo"
+      },
+      {
+        "@id": "1681",
+        "meaning": "Pele"
+      },
+      {
+        "@id": "1682",
+        "meaning": "Estratégia"
+      },
+      {
+        "@id": "1683",
+        "meaning": "Prédio"
+      },
+      {
+        "@id": "1684",
+        "meaning": "Programa"
+      },
+      {
+        "@id": "1685",
+        "meaning": "Menu"
+      },
+      {
+        "@id": "1686",
+        "meaning": "Ordem"
+      },
+      {
+        "@id": "1687",
+        "meaning": "Item"
+      },
+      {
+        "@id": "1688",
+        "meaning": "Trabalhar"
+      },
+      {
+        "@id": "1689",
+        "meaning": "Vá para"
+      },
+      {
+        "@id": "1690",
+        "meaning": "Sim"
+      },
+      {
+        "@id": "1691",
+        "meaning": "Revolução"
+      },
+      {
+        "@id": "1692",
+        "meaning": "Excluir"
+      },
+      {
+        "@id": "1693",
+        "meaning": "Normalmente"
+      },
+      {
+        "@id": "1694",
+        "meaning": "Receber"
+      },
+      {
+        "@id": "1695",
+        "meaning": "Confiança"
+      },
+      {
+        "@id": "1696",
+        "meaning": "Diminuir"
+      },
+      {
+        "@id": "1697",
+        "meaning": "Vidro"
+      },
+      {
+        "@id": "1698",
+        "meaning": "Hokkaido"
+      },
+      {
+        "@id": "1699",
+        "meaning": "Vários"
+      },
+      {
+        "@id": "1700",
+        "meaning": "Marido"
+      },
+      {
+        "@id": "1701",
+        "meaning": "Aceitar"
+      },
+      {
+        "@id": "1702",
+        "meaning": "Definir"
+      },
+      {
+        "@id": "1703",
+        "meaning": "Buraco"
+      },
+      {
+        "@id": "1704",
+        "meaning": "Popularização"
+      },
+      {
+        "@id": "1705",
+        "meaning": "Conversa"
+      },
+      {
+        "@id": "1706",
+        "meaning": "Ser encontrado"
+      },
+      {
+        "@id": "1707",
+        "meaning": "Aquecer"
+      },
+      {
+        "@id": "1708",
+        "meaning": "Esfera"
+      },
+      {
+        "@id": "1709",
+        "meaning": "Baixo"
+      },
+      {
+        "@id": "1710",
+        "meaning": "Visualizar"
+      },
+      {
+        "@id": "1711",
+        "meaning": "Psicologia"
+      },
+      {
+        "@id": "1712",
+        "meaning": "Instruções"
+      },
+      {
+        "@id": "1713",
+        "meaning": "Teoria"
+      },
+      {
+        "@id": "1714",
+        "meaning": "Sim"
+      },
+      {
+        "@id": "1715",
+        "meaning": "Preto"
+      },
+      {
+        "@id": "1716",
+        "meaning": "Rússia"
+      },
+      {
+        "@id": "1717",
+        "meaning": "Yahoo"
+      },
+      {
+        "@id": "1718",
+        "meaning": "Defesa"
+      },
+      {
+        "@id": "1719",
+        "meaning": "Escola primária"
+      },
+      {
+        "@id": "1720",
+        "meaning": "Eu"
+      },
+      {
+        "@id": "1721",
+        "meaning": "Editado"
+      },
+      {
+        "@id": "1722",
+        "meaning": "Ainda não"
+      },
+      {
+        "@id": "1723",
+        "meaning": "De alguma forma"
+      },
+      {
+        "@id": "1724",
+        "meaning": "Fazer uso de"
+      },
+      {
+        "@id": "1725",
+        "meaning": "Crise"
+      },
+      {
+        "@id": "1726",
+        "meaning": "Que tal"
+      },
+      {
+        "@id": "1727",
+        "meaning": "Perder"
+      },
+      {
+        "@id": "1728",
+        "meaning": "Cada vez mais"
+      },
+      {
+        "@id": "1729",
+        "meaning": "Administração"
+      },
+      {
+        "@id": "1730",
+        "meaning": "Emprestar"
+      },
+      {
+        "@id": "1731",
+        "meaning": "Pais"
+      },
+      {
+        "@id": "1732",
+        "meaning": "Procurar"
+      },
+      {
+        "@id": "1733",
+        "meaning": "Vida"
+      },
+      {
+        "@id": "1734",
+        "meaning": "Países"
+      },
+      {
+        "@id": "1735",
+        "meaning": "Cidade"
+      },
+      {
+        "@id": "1736",
+        "meaning": "Primeiro-ministro"
+      },
+      {
+        "@id": "1737",
+        "meaning": "Mas"
+      },
+      {
+        "@id": "1738",
+        "meaning": "Bater"
+      },
+      {
+        "@id": "1739",
+        "meaning": "Progresso"
+      },
+      {
+        "@id": "1740",
+        "meaning": "Começar"
+      },
+      {
+        "@id": "1741",
+        "meaning": "Distante"
+      },
+      {
+        "@id": "1742",
+        "meaning": "Temporário"
+      },
+      {
+        "@id": "1743",
+        "meaning": "Aula"
+      },
+      {
+        "@id": "1744",
+        "meaning": "Conquista"
+      },
+      {
+        "@id": "1745",
+        "meaning": "Nutrição"
+      },
+      {
+        "@id": "1746",
+        "meaning": "Verde"
+      },
+      {
+        "@id": "1747",
+        "meaning": "Notícias"
+      },
+      {
+        "@id": "1748",
+        "meaning": "Formatar"
+      },
+      {
+        "@id": "1749",
+        "meaning": "Chave"
+      },
+      {
+        "@id": "1750",
+        "meaning": "Bater"
+      },
+      {
+        "@id": "1751",
+        "meaning": "Doce"
+      },
+      {
+        "@id": "1752",
+        "meaning": "Homem"
+      },
+      {
+        "@id": "1753",
+        "meaning": "Local de nascimento"
+      },
+      {
+        "@id": "1754",
+        "meaning": "Rotação"
+      },
+      {
+        "@id": "1755",
+        "meaning": "Maioria"
+      },
+      {
+        "@id": "1756",
+        "meaning": "Promoção"
+      },
+      {
+        "@id": "1757",
+        "meaning": "Entregar"
+      },
+      {
+        "@id": "1758",
+        "meaning": "Continuação"
+      },
+      {
+        "@id": "1759",
+        "meaning": "Tópico"
+      },
+      {
+        "@id": "1760",
+        "meaning": "Uns aos outros"
       }
     ]
   }

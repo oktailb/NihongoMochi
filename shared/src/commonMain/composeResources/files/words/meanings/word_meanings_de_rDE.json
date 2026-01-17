@@ -7033,6 +7033,406 @@
       {
         "@id": "1760",
         "meaning": "Gegenseitig"
+      },
+      {
+        "@id": "1761",
+        "meaning": "Besonders"
+      },
+      {
+        "@id": "1762",
+        "meaning": "Sicherheit"
+      },
+      {
+        "@id": "1763",
+        "meaning": "Jugend"
+      },
+      {
+        "@id": "1764",
+        "meaning": "Interpretation"
+      },
+      {
+        "@id": "1765",
+        "meaning": "Fragen"
+      },
+      {
+        "@id": "1766",
+        "meaning": "Flughafen"
+      },
+      {
+        "@id": "1767",
+        "meaning": "Betrieb"
+      },
+      {
+        "@id": "1768",
+        "meaning": "Tatsächliche situation"
+      },
+      {
+        "@id": "1769",
+        "meaning": "Shimo"
+      },
+      {
+        "@id": "1770",
+        "meaning": "Wie erwartet"
+      },
+      {
+        "@id": "1771",
+        "meaning": "Links und rechts"
+      },
+      {
+        "@id": "1772",
+        "meaning": "Gewöhne dich daran"
+      },
+      {
+        "@id": "1773",
+        "meaning": "Diät"
+      },
+      {
+        "@id": "1774",
+        "meaning": "Blatt"
+      },
+      {
+        "@id": "1775",
+        "meaning": "Stein"
+      },
+      {
+        "@id": "1776",
+        "meaning": "Verbinden"
+      },
+      {
+        "@id": "1777",
+        "meaning": "Genau"
+      },
+      {
+        "@id": "1778",
+        "meaning": "Motor"
+      },
+      {
+        "@id": "1779",
+        "meaning": "Heiße quelle"
+      },
+      {
+        "@id": "1780",
+        "meaning": "Ergebnisse"
+      },
+      {
+        "@id": "1781",
+        "meaning": "Produzieren"
+      },
+      {
+        "@id": "1782",
+        "meaning": "Abschnitt"
+      },
+      {
+        "@id": "1783",
+        "meaning": "Bilden"
+      },
+      {
+        "@id": "1784",
+        "meaning": "Bedeckt"
+      },
+      {
+        "@id": "1785",
+        "meaning": "Premierminister"
+      },
+      {
+        "@id": "1786",
+        "meaning": "Kashira"
+      },
+      {
+        "@id": "1787",
+        "meaning": "Fließen"
+      },
+      {
+        "@id": "1788",
+        "meaning": "Zustand"
+      },
+      {
+        "@id": "1789",
+        "meaning": "Vergeben"
+      },
+      {
+        "@id": "1790",
+        "meaning": "Zweite hälfte"
+      },
+      {
+        "@id": "1791",
+        "meaning": "Exzellent"
+      },
+      {
+        "@id": "1792",
+        "meaning": "Ding"
+      },
+      {
+        "@id": "1793",
+        "meaning": "Garten"
+      },
+      {
+        "@id": "1794",
+        "meaning": "Standpunkt"
+      },
+      {
+        "@id": "1795",
+        "meaning": "Werbung"
+      },
+      {
+        "@id": "1796",
+        "meaning": "Vorläufig"
+      },
+      {
+        "@id": "1797",
+        "meaning": "Diagnose"
+      },
+      {
+        "@id": "1798",
+        "meaning": "Detail"
+      },
+      {
+        "@id": "1799",
+        "meaning": "Stil"
+      },
+      {
+        "@id": "1800",
+        "meaning": "Base"
+      },
+      {
+        "@id": "1801",
+        "meaning": "Untersuchung"
+      },
+      {
+        "@id": "1802",
+        "meaning": "Anfang"
+      },
+      {
+        "@id": "1803",
+        "meaning": "Beruhige dich"
+      },
+      {
+        "@id": "1804",
+        "meaning": "Schweiß"
+      },
+      {
+        "@id": "1805",
+        "meaning": "Einfach"
+      },
+      {
+        "@id": "1806",
+        "meaning": "Auf geht's"
+      },
+      {
+        "@id": "1807",
+        "meaning": "Ankommen"
+      },
+      {
+        "@id": "1808",
+        "meaning": "Sekunden"
+      },
+      {
+        "@id": "1809",
+        "meaning": "Kaffee"
+      },
+      {
+        "@id": "1810",
+        "meaning": "Betrieb"
+      },
+      {
+        "@id": "1811",
+        "meaning": "Ruhestand"
+      },
+      {
+        "@id": "1812",
+        "meaning": "Abfahrt"
+      },
+      {
+        "@id": "1813",
+        "meaning": "Udssr"
+      },
+      {
+        "@id": "1814",
+        "meaning": "Drama"
+      },
+      {
+        "@id": "1815",
+        "meaning": "Gründung"
+      },
+      {
+        "@id": "1816",
+        "meaning": "Hauptsitz"
+      },
+      {
+        "@id": "1817",
+        "meaning": "Entfernen"
+      },
+      {
+        "@id": "1818",
+        "meaning": "Zahlung"
+      },
+      {
+        "@id": "1819",
+        "meaning": "Billion"
+      },
+      {
+        "@id": "1820",
+        "meaning": "Dvd"
+      },
+      {
+        "@id": "1821",
+        "meaning": "Absicht"
+      },
+      {
+        "@id": "1822",
+        "meaning": "Kommentar"
+      },
+      {
+        "@id": "1823",
+        "meaning": "Beschränkt"
+      },
+      {
+        "@id": "1824",
+        "meaning": "Zertifizierung"
+      },
+      {
+        "@id": "1825",
+        "meaning": "Standard"
+      },
+      {
+        "@id": "1826",
+        "meaning": "Fallen"
+      },
+      {
+        "@id": "1827",
+        "meaning": "Mädchen"
+      },
+      {
+        "@id": "1828",
+        "meaning": "Wertpapiere"
+      },
+      {
+        "@id": "1829",
+        "meaning": "Kosten"
+      },
+      {
+        "@id": "1830",
+        "meaning": "Jährlich"
+      },
+      {
+        "@id": "1831",
+        "meaning": "Aufnehmen"
+      },
+      {
+        "@id": "1832",
+        "meaning": "Kontrolle"
+      },
+      {
+        "@id": "1833",
+        "meaning": "Aussteigen"
+      },
+      {
+        "@id": "1834",
+        "meaning": "Innerhalb"
+      },
+      {
+        "@id": "1835",
+        "meaning": "Festival"
+      },
+      {
+        "@id": "1836",
+        "meaning": "Qualität"
+      },
+      {
+        "@id": "1837",
+        "meaning": "Rezeption"
+      },
+      {
+        "@id": "1838",
+        "meaning": "Aktiv"
+      },
+      {
+        "@id": "1839",
+        "meaning": "Zustimmung"
+      },
+      {
+        "@id": "1840",
+        "meaning": "Union"
+      },
+      {
+        "@id": "1841",
+        "meaning": "Schritt"
+      },
+      {
+        "@id": "1842",
+        "meaning": "Adler, ich"
+      },
+      {
+        "@id": "1843",
+        "meaning": "Spannung"
+      },
+      {
+        "@id": "1844",
+        "meaning": "Beweis"
+      },
+      {
+        "@id": "1845",
+        "meaning": "Verbindung"
+      },
+      {
+        "@id": "1846",
+        "meaning": "Überrascht"
+      },
+      {
+        "@id": "1847",
+        "meaning": "Kind"
+      },
+      {
+        "@id": "1848",
+        "meaning": "Schmerz"
+      },
+      {
+        "@id": "1849",
+        "meaning": "Genetik"
+      },
+      {
+        "@id": "1850",
+        "meaning": "Fassen"
+      },
+      {
+        "@id": "1851",
+        "meaning": "Warm"
+      },
+      {
+        "@id": "1852",
+        "meaning": "Baseball"
+      },
+      {
+        "@id": "1853",
+        "meaning": "Zug"
+      },
+      {
+        "@id": "1854",
+        "meaning": "Streben"
+      },
+      {
+        "@id": "1855",
+        "meaning": "Dokumentieren"
+      },
+      {
+        "@id": "1856",
+        "meaning": "Sorge"
+      },
+      {
+        "@id": "1857",
+        "meaning": "Anfänglich"
+      },
+      {
+        "@id": "1858",
+        "meaning": "Aufschreiben"
+      },
+      {
+        "@id": "1859",
+        "meaning": "Ei"
+      },
+      {
+        "@id": "1860",
+        "meaning": "Infektion"
       }
     ]
   }
