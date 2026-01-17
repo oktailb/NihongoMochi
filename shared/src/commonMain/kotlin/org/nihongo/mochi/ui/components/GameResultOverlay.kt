@@ -19,7 +19,7 @@ import org.nihongo.mochi.shared.generated.resources.*
 @Composable
 fun GameResultOverlay(
     isVictory: Boolean,
-    title: String = if (isVictory) "SUCCESS" else "GAME OVER",
+    title: String = if (isVictory) stringResource(Res.string.game_success) else stringResource(Res.string.game_over),
     score: String? = null,
     bestScore: String? = null,
     stats: List<Pair<String, String>> = emptyList(),
@@ -78,7 +78,7 @@ fun GameResultOverlay(
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = "SCORE",
+                        text = stringResource(Res.string.game_score_label).uppercase(),
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Medium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -88,7 +88,7 @@ fun GameResultOverlay(
                 if (bestScore != null) {
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "RECORD: $bestScore",
+                        text = stringResource(Res.string.game_record_label, bestScore),
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.secondary

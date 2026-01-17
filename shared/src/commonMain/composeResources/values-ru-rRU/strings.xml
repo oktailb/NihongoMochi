@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">Окончательный счет</string>
     <string name="game_snake_next_format">Далее: %1$s</string>
     <string name="game_snake_word_format">Слово: %1$s</string>
+    <string name="game_success">Успех</string>
+    <string name="game_over">Игра закончена</string>
+    <string name="game_score_label">Окончательный счет</string>
+    <string name="game_record_label">Запись: %1$s</string>
 </resources>

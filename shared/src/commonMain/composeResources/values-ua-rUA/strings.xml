@@ -129,7 +129,7 @@
     <string name="results_frequency_x_words">%1$d найчастіших слів</string>
     <string name="results_hiragana">Хірагани - %1$d%%</string>
     <string name="results_katakana">Катакани - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n5">JLPT N5 – %1$d%%</string>
     <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
     <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
     <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
@@ -651,4 +651,8 @@
     <string name="game_snake_final_score">Остаточний рахунок</string>
     <string name="game_snake_next_format">Далі: %1$s</string>
     <string name="game_snake_word_format">Слово: %1$s</string>
+    <string name="game_success">Успіх</string>
+    <string name="game_over">Гра закінчена</string>
+    <string name="game_score_label">Остаточний рахунок</string>
+    <string name="game_record_label">Запис: %1$s</string>
 </resources>

@@ -649,4 +649,8 @@
     <string name="game_snake_final_score">Puntuación final</string>
     <string name="game_snake_next_format">Siguiente: %1$s</string>
     <string name="game_snake_word_format">Palabra: %1$s</string>
+    <string name="game_success">Éxito</string>
+    <string name="game_over">Juego terminado</string>
+    <string name="game_score_label">Puntuación final</string>
+    <string name="game_record_label">Registro: %1$s</string>
 </resources>

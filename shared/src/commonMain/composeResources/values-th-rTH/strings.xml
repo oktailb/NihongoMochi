@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">คะแนนสุดท้าย</string>
     <string name="game_snake_next_format">ถัดไป: %1$s</string>
     <string name="game_snake_word_format">คำ: %1$s</string>
+    <string name="game_success">ความสำเร็จ</string>
+    <string name="game_over">เกมโอเวอร์</string>
+    <string name="game_score_label">คะแนนสุดท้าย</string>
+    <string name="game_record_label">บันทึก: %1$s</string>
 </resources>

@@ -651,4 +651,8 @@
     <string name="game_snake_final_score">Эцсийн оноо</string>
     <string name="game_snake_next_format">Дараа нь: %1$s</string>
     <string name="game_snake_word_format">Үг: %1$s</string>
+    <string name="game_success">Амжилт</string>
+    <string name="game_over">Тоглоом дууслаа</string>
+    <string name="game_score_label">Эцсийн оноо</string>
+    <string name="game_record_label">Бичлэг: %1$s</string>
 </resources>

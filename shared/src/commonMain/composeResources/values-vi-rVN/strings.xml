@@ -649,4 +649,8 @@
     <string name="game_snake_final_score">Điểm cuối cùng</string>
     <string name="game_snake_next_format">Tiếp theo: %1$s</string>
     <string name="game_snake_word_format">Từ: %1$s</string>
+    <string name="game_success">Thành công</string>
+    <string name="game_over">Trò chơi kết thúc</string>
+    <string name="game_score_label">Điểm cuối cùng</string>
+    <string name="game_record_label">Bản ghi: %1$s</string>
 </resources>

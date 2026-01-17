@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">Nilai akhir</string>
     <string name="game_snake_next_format">Berikutnya: %1$s</string>
     <string name="game_snake_word_format">Kata: %1$s</string>
+    <string name="game_success">Kesuksesan</string>
+    <string name="game_over">Permainan Berakhir</string>
+    <string name="game_score_label">Nilai akhir</string>
+    <string name="game_record_label">Catatan: %1$s</string>
 </resources>

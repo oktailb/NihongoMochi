@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">Final Score</string>
     <string name="game_snake_next_format">Next: %1$s</string>
     <string name="game_snake_word_format">Word: %1$s</string>
+    <string name="game_success">Success</string>
+    <string name="game_over">Game Over</string>
+    <string name="game_score_label">Final Score</string>
+    <string name="game_record_label">Record: %1$s</string>
 </resources>

@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">最终成绩</string>
     <string name="game_snake_next_format">下一个：%1$s</string>
     <string name="game_snake_word_format">字：%1$s</string>
+    <string name="game_success">成功</string>
+    <string name="game_over">游戏结束</string>
+    <string name="game_score_label">最终成绩</string>
+    <string name="game_record_label">记录：%1$s</string>
 </resources>

@@ -47,7 +47,7 @@
     <string name="game_writing_correction">修正</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
-    <string name="recognition_title">見覚えのある</string>
+    <string name="recognition_title">見覚</string>
     <string name="recognition_subtitle">漢字のグループを選択し、それらのさまざまな基本的な意味を認識することを学びます</string>
     <string name="recognition_fundamentals">基本</string>
     <string name="recognition_jlpt">日本語能力試験</string>
@@ -651,4 +651,8 @@
     <string name="game_snake_final_score">最終スコア</string>
     <string name="game_snake_next_format">次へ: %1$s</string>
     <string name="game_snake_word_format">単語: %1$s</string>
+    <string name="game_success">成功</string>
+    <string name="game_over">ゲームオーバー</string>
+    <string name="game_score_label">最終スコア</string>
+    <string name="game_record_label">レコード: %1$s</string>
 </resources>

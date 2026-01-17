@@ -84,7 +84,11 @@ fun GameHUD(
 }
 
 private fun formatGameTime(seconds: Int): String {
-    val m = seconds / 60
-    val s = seconds % 60
-    return if (m > 0) "${m}m ${s}s" else "${s}s"
+    val m = (seconds / 60)
+    val s = (seconds % 60)
+    var sm = m.toString()
+    var ss = s.toString()
+    if (s < 10) ss = "0" + ss
+    if (m < 10) sm = "0" + sm
+    return if (m > 0) "${sm}:${ss}" else ss
 }

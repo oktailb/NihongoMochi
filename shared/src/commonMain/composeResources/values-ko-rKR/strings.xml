@@ -653,4 +653,8 @@
     <string name="game_snake_final_score">최종 점수</string>
     <string name="game_snake_next_format">다음: %1$s</string>
     <string name="game_snake_word_format">단어: %1$s</string>
+    <string name="game_success">성공</string>
+    <string name="game_over">게임 오버</string>
+    <string name="game_score_label">최종 점수</string>
+    <string name="game_record_label">기록: %1$s</string>
 </resources>
