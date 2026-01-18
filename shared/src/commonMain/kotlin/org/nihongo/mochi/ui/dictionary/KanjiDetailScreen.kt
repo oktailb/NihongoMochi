@@ -64,7 +64,8 @@ fun KanjiDetailScreen(
     viewModel: KanjiDetailViewModel,
     kanjiId: String,
     onBackClick: () -> Unit,
-    onKanjiClick: (String) -> Unit
+    onKanjiClick: (String) -> Unit,
+    onWordClick: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
@@ -78,21 +79,6 @@ fun KanjiDetailScreen(
     
     MochiBackground {
         Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(stringResource(Res.string.menu_dictionary)) },
-                    navigationIcon = {
-                        IconButton(onClick = onBackClick) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.Transparent,
-                        titleContentColor = MaterialTheme.colorScheme.onBackground,
-                        navigationIconContentColor = MaterialTheme.colorScheme.onBackground
-                    )
-                )
-            },
             containerColor = Color.Transparent
         ) { paddingValues ->
             if (uiState.isLoading) {
@@ -320,7 +306,10 @@ fun KanjiDetailScreen(
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         uiState.examples.forEach { example ->
-                            ExampleItem(example)
+                            ExampleItem(
+                                item = example,
+                                onClick = { onWordClick(example.word) }
+                            )
                         }
                     }
                 }
@@ -402,7 +391,7 @@ fun ReadingColumn(
 }
 
 @Composable
-fun ExampleItem(item: KanjiDetailViewModel.ExampleItem) {
+fun ExampleItem(item: KanjiDetailViewModel.ExampleItem, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .background(
@@ -414,6 +403,7 @@ fun ExampleItem(item: KanjiDetailViewModel.ExampleItem) {
                 color = MaterialTheme.colorScheme.outlineVariant,
                 shape = RoundedCornerShape(8.dp)
             )
+            .clickable(onClick = onClick)
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

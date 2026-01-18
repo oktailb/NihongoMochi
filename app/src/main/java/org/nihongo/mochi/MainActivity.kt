@@ -115,7 +115,16 @@ class MainActivity : AppCompatActivity() {
 
         val localeTag = localeCode.replace('_', '-')
         val appLocale = LocaleListCompat.forLanguageTags(localeTag)
+        
+        // Appliquer le changement de locale
         AppCompatDelegate.setApplicationLocales(appLocale)
+        
+        // Workaround pour Android 9 / Tablettes : Forcer la recréation de l'activité
+        // car setApplicationLocales peut ne pas déclencher de rafraîchissement complet
+        // sur les versions anciennes ou certaines configurations.
+        window.decorView.postDelayed({
+            recreate()
+        }, 100)
     }
     
     private fun openUrl(url: String) {

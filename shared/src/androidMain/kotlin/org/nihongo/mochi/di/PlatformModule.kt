@@ -11,8 +11,10 @@ import org.nihongo.mochi.domain.game.TextNormalizer
 import org.nihongo.mochi.domain.recognition.HandwritingRecognizer
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.services.CloudSaveService
+import org.nihongo.mochi.domain.services.TextToSpeech
 import org.nihongo.mochi.services.AndroidAudioPlayer
 import org.nihongo.mochi.services.AndroidCloudSaveService
+import org.nihongo.mochi.services.AndroidTextToSpeech
 import org.nihongo.mochi.ui.dictionary.AndroidMlKitRecognizer
 import org.nihongo.mochi.ui.writinggame.AndroidTextNormalizer
 import org.koin.core.qualifier.named
@@ -23,6 +25,9 @@ val platformModule = module {
 
     // Audio
     single<AudioPlayer> { AndroidAudioPlayer(androidContext()) }
+    
+    // Text To Speech
+    single<TextToSpeech> { AndroidTextToSpeech(androidContext()) }
 
     // Shared Settings (legacy)
     single<Settings> {

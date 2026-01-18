@@ -342,6 +342,8 @@ object ResourceUtils {
             put("n2", Res.string.level_n2)
             put("level_n1", Res.string.level_n1)
             put("n1", Res.string.level_n1)
+            put("level_user_custom_list", Res.string.level_user_custom_list)
+            put("user_custom_list", Res.string.level_user_custom_list)
 
             // Grades mappings
             put("level_grade_1", Res.string.level_grade_1)

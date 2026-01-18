@@ -60,6 +60,11 @@ fun DictionaryScreen(
     
     val focusManager = LocalFocusManager.current
     var filterExpanded by remember { mutableStateOf(false) }
+
+    // Ensure data is refreshed when screen is shown (handles locale changes)
+    LaunchedEffect(Unit) {
+        viewModel.loadDictionaryData()
+    }
     
     @Composable
     fun resolveStringResource(key: String): String {

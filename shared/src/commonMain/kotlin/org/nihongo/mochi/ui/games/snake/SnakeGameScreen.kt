@@ -5,8 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -17,15 +15,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameHUD
+import org.nihongo.mochi.ui.components.GameResultOverlay
 import kotlin.math.abs
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SnakeGameScreen(
     viewModel: SnakeViewModel,
@@ -36,33 +34,10 @@ fun SnakeGameScreen(
     val selectedMode by viewModel.selectedMode.collectAsState()
 
     MochiBackground {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { 
-                        Text(
-                            text = stringResource(Res.string.game_snake_title),
-                            color = MaterialTheme.colorScheme.onBackground
-                        ) 
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = onBackClick) {
-                            Icon(
-                                Icons.Default.ArrowBack, 
-                                contentDescription = "Back",
-                                tint = MaterialTheme.colorScheme.onBackground
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
-                )
-            },
-            containerColor = Color.Transparent
-        ) { padding ->
+        Box(modifier = Modifier.fillMaxSize()) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(padding)
                     .pointerInput(Unit) {
                         detectDragGestures(
                             onDragStart = { dragAmount = Offset.Zero },
@@ -83,16 +58,11 @@ fun SnakeGameScreen(
                     },
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Info Header (Score)
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    GameStatItem(label = stringResource(Res.string.game_kana_link_score_label), value = state.score.toString())
-                    if (state.wordsCompleted > 0) {
-                        GameStatItem(label = stringResource(Res.string.game_kana_link_words_label), value = state.wordsCompleted.toString())
-                    }
-                }
+                // Factorized HUD (Title and Stats)
+                GameHUD(
+                    primaryStat = stringResource(Res.string.game_snake_title) to "",
+                    secondaryStat = stringResource(Res.string.game_kana_link_score_label) to state.score.toString()
+                )
 
                 // Target Word/Item Box
                 Surface(
@@ -111,8 +81,7 @@ fun SnakeGameScreen(
                             text = state.currentTargetLabel,
                             style = MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary,
-                            textAlign = TextAlign.Center
+                            color = MaterialTheme.colorScheme.primary
                         )
                         if (selectedMode == SnakeMode.WORDS) {
                             Text(
@@ -138,7 +107,7 @@ fun SnakeGameScreen(
                     val cellSizePx = with(density) { cellSize.toPx() }
 
                     Canvas(modifier = Modifier.fillMaxSize()) {
-                        // Draw Target Item (Circle)
+                        // Draw Target Item
                         state.targetItem?.let { item ->
                             drawCircle(
                                 color = Color(0xFF4CAF50),
@@ -150,7 +119,7 @@ fun SnakeGameScreen(
                             )
                         }
 
-                        // Draw Distractions (Circle)
+                        // Draw Distractions
                         state.distractions.forEach { item ->
                             drawCircle(
                                 color = Color.Gray.copy(alpha = 0.4f),
@@ -162,10 +131,10 @@ fun SnakeGameScreen(
                             )
                         }
 
-                        // Draw Snake (Circles)
+                        // Draw Snake
                         state.snake.forEachIndexed { index, point ->
                             val color = if (index == 0) Color(0xFF2E7D32) else Color(0xFF4CAF50)
-                            val scale = if (index == 0) 0.55f else 0.45f // Head slightly larger
+                            val scale = if (index == 0) 0.55f else 0.45f
                             drawCircle(
                                 color = color,
                                 radius = cellSizePx * scale,
@@ -185,24 +154,21 @@ fun SnakeGameScreen(
                         SnakeItemLabel(item.character, item.position, cellSize, MaterialTheme.colorScheme.onSurface)
                     }
                 }
+            }
 
-                if (state.isGameOver) {
-                    GameOverDialog(
-                        score = state.score,
-                        onReplay = { viewModel.startGame() },
-                        onMenu = onBackClick
-                    )
-                }
+            // Game Result Overlay
+            if (state.isGameOver) {
+                GameResultOverlay(
+                    isVictory = false,
+                    score = state.score.toString(),
+                    stats = if (state.wordsCompleted > 0) listOf(
+                        stringResource(Res.string.game_kana_link_words_label) to state.wordsCompleted.toString()
+                    ) else emptyList(),
+                    onReplayClick = { viewModel.startGame() },
+                    onMenuClick = onBackClick
+                )
             }
         }
-    }
-}
-
-@Composable
-fun GameStatItem(label: String, value: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
-        Text(text = value, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -218,44 +184,7 @@ fun SnakeItemLabel(text: String, position: Point, cellSize: androidx.compose.ui.
             text = text,
             color = color,
             fontSize = (cellSize.value * 0.75f).sp,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
+            fontWeight = FontWeight.Bold
         )
     }
-}
-
-@Composable
-fun GameOverDialog(score: Int, onReplay: () -> Unit, onMenu: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = { },
-        title = { 
-            Text(
-                text = stringResource(Res.string.game_snake_game_over),
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            ) 
-        },
-        text = { 
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                Text(text = stringResource(Res.string.game_snake_final_score), style = MaterialTheme.typography.bodyMedium)
-                Text(text = score.toString(), style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            }
-        },
-        confirmButton = {
-            Button(
-                onClick = onReplay,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(Res.string.game_replay_button))
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = onMenu,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(Res.string.game_menu_button))
-            }
-        }
-    )
 }

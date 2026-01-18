@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
@@ -73,6 +72,7 @@ class MemorizeViewModel(
 
     private var firstSelectedCardIndex: Int? = null
     private var timerJob: Job? = null
+    private var matchingJob: Job? = null
 
     init {
         viewModelScope.launch {
@@ -141,6 +141,7 @@ class MemorizeViewModel(
     }
 
     fun startGame() {
+        abandonGame() // Ensure everything is cleaned up first
         viewModelScope.launch {
             val levelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
             val lowerLevel = levelId.lowercase()
@@ -212,28 +213,36 @@ class MemorizeViewModel(
             firstSelectedCardIndex = null 
             _moves.update { it + 1 }
             
-            viewModelScope.launch {
-                _isProcessing.value = true 
+            // Fix race condition: set processing to true IMMEDIATELY
+            _isProcessing.value = true
+            
+            matchingJob?.cancel()
+            matchingJob = viewModelScope.launch {
                 delay(400) 
                 
                 val updatedCards = _cards.value
-                if (updatedCards[firstIndex].item.id == updatedCards[index].item.id) {
-                    audioPlayer.playSound("sounds/correct.mp3")
-                    _cards.update { list ->
-                        list.mapIndexed { i, card ->
-                            if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
+                // Safety check to ensure we didn't reset the game during delay
+                if (firstIndex in updatedCards.indices && index in updatedCards.indices) {
+                    if (updatedCards[firstIndex].item.id == updatedCards[index].item.id) {
+                        audioPlayer.playSound("sounds/correct.mp3")
+                        _cards.update { list ->
+                            list.mapIndexed { i, card ->
+                                if (i == firstIndex || i == index) card.copy(isMatched = true, isFaceUp = true) else card
+                            }
                         }
+                        _isProcessing.value = false
+                        checkGameFinished()
+                    } else {
+                        audioPlayer.playSound("sounds/incorrect.mp3")
+                        delay(600) 
+                        _cards.update { list ->
+                            list.mapIndexed { i, card ->
+                                if (i == firstIndex || i == index) card.copy(isFaceUp = false) else card
+                            }
+                        }
+                        _isProcessing.value = false
                     }
-                    _isProcessing.value = false
-                    checkGameFinished()
                 } else {
-                    audioPlayer.playSound("sounds/incorrect.mp3")
-                    delay(600) 
-                    _cards.update { list ->
-                        list.mapIndexed { i, card ->
-                            if (i == firstIndex || i == index) card.copy(isFaceUp = false) else card
-                        }
-                    }
                     _isProcessing.value = false
                 }
             }
@@ -241,7 +250,7 @@ class MemorizeViewModel(
     }
 
     private fun checkGameFinished() {
-        if (_cards.value.all { it.isMatched }) {
+        if (_cards.value.isNotEmpty() && _cards.value.all { it.isMatched }) {
             _isGameFinished.value = true
             timerJob?.cancel()
             saveFinalScore()
@@ -269,17 +278,21 @@ class MemorizeViewModel(
 
     fun abandonGame() {
         timerJob?.cancel()
+        matchingJob?.cancel() // Cancel any pending card processing
         if (!_isGameFinished.value && _cards.value.isNotEmpty()) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }
         _cards.value = emptyList()
         _isGameFinished.value = false
+        _isProcessing.value = false
+        firstSelectedCardIndex = null
         updateLevelInfo()
     }
 
     override fun onCleared() {
         super.onCleared()
         timerJob?.cancel()
+        matchingJob?.cancel()
         audioPlayer.stopAll()
     }
 }

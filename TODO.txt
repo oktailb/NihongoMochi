@@ -1,54 +1,23 @@
 Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
-Bugs:
- - [X] Rotation pendant un quiz -> reinitialisation non voulue -> soit on gere, soit on bloque la rotation
- - [X] KanaDrop en mode semble ne plus fonctionner correctement -> pb de wordlist ?
- - [TBC] Memorise en 5x6 plante souvent apres + de 30 mouvements -> fuite memoire ? pb threading ?
- - [X] Crossword -> au croisement avec un mot horizontal et un mot vertical, le prochain kana est vole par l'axe vertical
- - [X] Crossword -> quand il y a 3 lignes de kanas, cela oblige acroller, c'est fatiguant
- - [X] Crossword -> le pool de kanas + perturbateurs doit être le même pour tout le mot, là c'est pour chaque kana et dans le désordre. Ca evite certes la dichotomie, mais ca fatigue vite (en option pour la difficulté ?)
-
 Todo:
- - [X] More i18n : Mogolian and Japanese
  - [WIP] Meanings of wordlists
  - [ ] Find better sounds
- - [X] Better translations for meanings : Source English + Japanese => other languages
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
- - [X] enhance HTML/CSS for grammar lessons
- - [X] enhance grammar exercices display
- - [X] Simon : harmoniser les boutons avec ceux des quizz (ils sont trop petits la)
 
 Games:
-  - [X] memorize: hidden card pairs -> retrieve couples, different modes -> kanji/kanji kanji/meaning kanji/reading reading/meaning
-  - [X] Simon : enforce kanji remembering by sequence
-  - [X] Taquin : redo the basic gojuon table hiragana/katakana
-  - [X] Kana Drop : achieve words from selected level in Kana to make blocks disappear
-  - [X] Crosswords (Mochi-Cross) : crossword generator using JLPT vocabulary -> in progress
-  - [X] Snake
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
   - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
   - [ ] Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
   - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. 
-    -> Note technique: Automatiser via les composants (grap_kanji_components.py). Identifier les kanjis partageant les mêmes radicaux.
+        -> Alimenter avec des kanjis partageant les mêmes radicaux.
 
 KMP & Architecture Refactoring (Technical Debt):
- - [X] Refactor ScoreManager : transformer l'object Singleton en class injectée via Koin (supprimer le .init())
- - [X] ResourceUtils : le mapping manuel Res.string est fragile. Remplacé par une HashMap O(1).
- - [X] Audio : Créer une interface AudioPlayer dans commonMain pour gérer les sons/musiques de manière agnostique.
- - [X] Abstraction Services : S'assurer que CloudSaveService et HandwritingRecognizer ont des implémentations par défaut (No-op) pour faciliter le portage iOS/Desktop.
- - [X] Clean API : Isoler ResourceUtils pour que les ViewModels ne dépendent pas directement de l'objet Res de Compose.
- - [ ] Migration Base Kanji (XML -> SQLDelight) : 
+ - [?] Migration Base Kanji (XML -> SQLDelight) : utile en entree ou pas ?
     -> Bénéfice: Requêtes relationnelles complexes pour Shadow Kanji (ex: trouver "frères" visuels). 
     -> Bénéfice: Performance (chargement partiel JLPT).
     -> Risque: Gérer les migrations de schéma et script d'import Python.
 
-Optimisations (Mémoire/CPU):
- - [X] Persistence des données : ScoreManager sérialise toute la base en un seul JSON string. Risque de pic mémoire/CPU. Passer à SQLDelight pour une gestion granulaire.
- - [X] Kana Drop : Minimiser les allocations d'objets dans applyGravity (évitement de .map { .map { ... } } à chaque mouvement).
- - [X] Lookup de ressources : Remplacer le "when" massif de ResourceUtils par une HashMap initialisée une seule fois (O(1) lookup).
- - [X] Ressources Graphiques : Convertir les PNG (assets/screenshots) en WebP pour réduire le poids de l'APK et l'empreinte mémoire.
- - [X] Game Init : Mettre en cache les kanaPools par niveau JLPT au lieu de les recalculer à chaque lancement de jeu.
- - [X] Recomposition UI : S'assurer que les ticks du timer dans KanaDrop n'entraînent pas une recomposition complète de la grille (stabilité des modèles).

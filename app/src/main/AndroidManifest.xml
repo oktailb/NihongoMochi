@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Déclaration de l'attribution pour éviter les erreurs de logs sur Android 11+ -->
+    <attribution android:tag="org.nihongo.mochi" android:label="@string/app_name" />
+
     <application
         android:name=".MochiApplication"
         android:allowBackup="true"

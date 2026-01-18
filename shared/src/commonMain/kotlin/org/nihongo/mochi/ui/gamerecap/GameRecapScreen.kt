@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.ui.components.ModeSelector
 import org.nihongo.mochi.ui.components.PaginationControls
 import org.nihongo.mochi.ui.components.PlayButton
@@ -26,7 +27,7 @@ import org.nihongo.mochi.shared.generated.resources.*
 
 @Composable
 fun GameRecapScreen(
-    levelTitle: String,
+    levelTitle: String, // Technical key like "n5"
     kanjiListWithColors: List<Pair<KanjiEntry, Color>>,
     currentPage: Int,
     totalPages: Int,
@@ -41,6 +42,9 @@ fun GameRecapScreen(
     onReadingModeChange: (String) -> Unit,
     onPlayClick: () -> Unit
 ) {
+    val levelResource = ResourceUtils.resolveStringResource(levelTitle.lowercase())
+    val resolvedTitle = if (levelResource != null) stringResource(levelResource) else levelTitle
+
     MochiBackground {
         Column(
             modifier = Modifier
@@ -55,7 +59,7 @@ fun GameRecapScreen(
                 color = MaterialTheme.colorScheme.onBackground
             )
             Text(
-                text = levelTitle,
+                text = resolvedTitle,
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onBackground
@@ -86,8 +90,6 @@ fun GameRecapScreen(
                 ),
                 selectedOption = gameMode,
                 onOptionSelected = onGameModeChange,
-                // This is a simplified enabled logic. The original disabled specific buttons.
-                // We might need to pass individual enabled states if that's required.
                 enabled = isMeaningEnabled || isReadingEnabled 
             )
             

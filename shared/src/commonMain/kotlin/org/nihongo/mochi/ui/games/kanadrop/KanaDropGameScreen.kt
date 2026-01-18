@@ -6,13 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -20,11 +17,12 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameHUD
+import org.nihongo.mochi.ui.components.GameResultOverlay
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KanaDropGameScreen(
     viewModel: KanaDropViewModel,
@@ -33,30 +31,11 @@ fun KanaDropGameScreen(
     val state by viewModel.state.collectAsState()
 
     MochiBackground {
-        Scaffold(
-            containerColor = Color.Transparent,
-            topBar = {
-                TopAppBar(
-                    title = { Text("Kana Link", color = MaterialTheme.colorScheme.onSurface) },
-                    navigationIcon = {
-                        IconButton(onClick = onBackClick) {
-                            Icon(
-                                Icons.Default.ArrowBack, 
-                                contentDescription = "Back",
-                                tint = MaterialTheme.colorScheme.onSurface
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
-                )
-            }
-        ) { padding ->
+        Box(modifier = Modifier.fillMaxSize()) {
             if (state.isLoading) {
                 Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                 }
-            } else if (state.isGameOver) {
-                GameOverView(state, onBackClick)
             } else {
                 val backgroundColor by animateColorAsState(
                     if (state.errorFlash) Color.Red.copy(alpha = 0.3f) else Color.Transparent,
@@ -66,24 +45,18 @@ fun KanaDropGameScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(padding)
                         .background(backgroundColor)
-                        .padding(16.dp),
+                        .padding(horizontal = 16.dp, vertical = 4.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    // Header Stats
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        StatItem("Score", state.score.toString())
-
-                        // Optimized Timer
-                        TimerDisplay(viewModel.state)
-                        
-                        StatItem("Words", state.wordsFound.toString(), Alignment.End)
-                    }
+                    // Factorized HUD (Contains Game Title and Stats)
+                    GameHUD(
+                        primaryStat = "カナリンク" to "",
+                        secondaryStat = "Score" to state.score.toString(),
+                        timerFlow = viewModel.state.map { it.timeRemaining },
+                        initialTimerValue = state.timeRemaining,
+                        isCountDown = true
+                    )
 
                     Surface(
                         shape = RoundedCornerShape(16.dp),
@@ -154,7 +127,7 @@ fun KanaDropGameScreen(
                     // Last Word Meaning
                     state.lastValidWord?.let { word ->
                         Card(
-                            modifier = Modifier.padding(top = 16.dp).fillMaxWidth(),
+                            modifier = Modifier.padding(vertical = 16.dp).fillMaxWidth(),
                             colors = CardDefaults.cardColors(
                                 containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.9f)
                             )
@@ -180,94 +153,20 @@ fun KanaDropGameScreen(
                     }
                 }
             }
-        }
-    }
-}
 
-@Composable
-private fun StatItem(label: String, value: String, alignment: Alignment.Horizontal = Alignment.Start) {
-    Column(horizontalAlignment = alignment) {
-        Text(
-            label, 
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-        )
-        Text(
-            value,
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onBackground
-        )
-    }
-}
-
-@Composable
-private fun TimerDisplay(stateFlow: StateFlow<KanaDropGameState>) {
-    val timeRemaining by stateFlow.map { it.timeRemaining }.collectAsState(initial = 0)
-    
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            "Time", 
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-        )
-        Text(
-            timeRemaining.toString(),
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-            color = if (timeRemaining < 10 && timeRemaining > 0) Color.Red else MaterialTheme.colorScheme.onBackground
-        )
-    }
-}
-
-@Composable
-fun GameOverView(state: KanaDropGameState, onBackClick: () -> Unit) {
-    Column(
-        modifier = Modifier.fillMaxSize().padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            "GAME OVER", 
-            style = MaterialTheme.typography.displayMedium, 
-            fontWeight = FontWeight.ExtraBold, 
-            color = MaterialTheme.colorScheme.error
-        )
-        Spacer(modifier = Modifier.height(24.dp))
-        
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
-        ) {
-            Column(modifier = Modifier.padding(24.dp)) {
-                ScoreStatRow("Final Score", state.score.toString(), MaterialTheme.colorScheme.primary)
-                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp), color = MaterialTheme.colorScheme.outlineVariant)
-                ScoreStatRow("Words Found", state.wordsFound.toString(), MaterialTheme.colorScheme.secondary)
+            // Game Result Overlay
+            if (state.isGameOver) {
+                GameResultOverlay(
+                    isVictory = false,
+                    score = state.score.toString(),
+                    stats = listOf(
+                        "Words Found" to state.wordsFound.toString()
+                    ),
+                    onReplayClick = { viewModel.resetGame() },
+                    onMenuClick = onBackClick
+                )
             }
         }
-        
-        Spacer(modifier = Modifier.height(48.dp))
-        
-        Button(
-            onClick = onBackClick,
-            modifier = Modifier.fillMaxWidth().height(56.dp),
-            shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-        ) {
-            Text("RETURN TO MENU", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onPrimary)
-        }
-    }
-}
-
-@Composable
-fun ScoreStatRow(label: String, value: String, valueColor: Color) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(label, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSurface)
-        Text(value, style = MaterialTheme.typography.displaySmall, fontWeight = FontWeight.Bold, color = valueColor)
     }
 }
 
@@ -278,8 +177,6 @@ fun KanaCellItem(
     isSelected: Boolean
 ) {
     val targetY = size * cell.row
-    val isNew = cell.id.startsWith("n_")
-    
     val animatedY by animateDpAsState(
         targetValue = targetY,
         animationSpec = spring(dampingRatio = 0.7f, stiffness = 300f),
