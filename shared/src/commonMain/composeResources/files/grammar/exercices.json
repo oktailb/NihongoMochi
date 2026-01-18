@@ -125,9 +125,9 @@
     {
       "id": "gen_012",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["noms_temps"],
       "payload": {
-        "sentence": "今日は1月1日です。先生や友達に会いましたか？この時、どんな挨拶が適切でしょうか？ __",
+        "sentence": "今日は1月1日です。先生や友達に会いましたか？この時、どんな挨拶 dが適切でしょうか？ __",
         "correct": "明けましておめでとうございます",
         "distractors": ["お誕生日おめでとう", "こんにちは", "おやすみなさい"]
       }
@@ -155,7 +155,7 @@
     {
       "id": "gen_015",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "__が悪いです。早く帰ってもいいですか。",
         "correct": "きぶん",
@@ -175,7 +175,7 @@
     {
       "id": "gen_017",
       "type": "FILL_BLANK",
-      "tags": ["to_iu"],
+      "tags": ["to_iu", "adjectifs_na"],
       "payload": {
         "sentence": "中島さんが元気__を聞いて、安心しました。",
         "correct": "だということ",
@@ -205,17 +205,17 @@
     {
       "id": "gen_020",
       "type": "FILL_BLANK",
-      "tags": ["hazu"],
+      "tags": ["hazu", "te_iru"],
       "payload": {
         "sentence": "鈴木さんは、もう大学を出て働いている__だ。",
         "correct": "はず",
-        "distractors": ["はずる", "はずを", "はずが"]
+        "distractors": ["はずる", "はず lを", "はずが"]
       }
     },
     {
       "id": "gen_021",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["forme_nai"],
       "payload": {
         "sentence": "あのホテルは__しないと泊まれませんよ。",
         "correct": "よやく",
@@ -235,7 +235,7 @@
     {
       "id": "gen_023",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adverbes"],
       "payload": {
         "sentence": "中島さんは__帰りましたよ。",
         "correct": "さっき",
@@ -255,7 +255,7 @@
     {
       "id": "gen_025",
       "type": "FILL_BLANK",
-      "tags": ["adjectifs_na"],
+      "tags": ["adjectifs_na", "particule_ga"],
       "payload": {
         "sentence": "私はサッカーが好きですが、上手__。",
         "correct": "じゃありません",
@@ -265,7 +265,7 @@
     {
       "id": "gen_026",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["mo_mada"],
       "payload": {
         "sentence": "鈴木さんは、__よく遅刻しますね。",
         "correct": "さいきん",
@@ -285,7 +285,7 @@
     {
       "id": "gen_028",
       "type": "FILL_BLANK",
-      "tags": ["hodo"],
+      "tags": ["hodo", "forme_ta"],
       "payload": {
         "sentence": "あの人の話がおもしろくて、涙が出る__笑った。",
         "correct": "ほど",
@@ -295,7 +295,7 @@
     {
       "id": "gen_029",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["forme_te"],
       "payload": {
         "sentence": "休む場合は__電話して下さい。",
         "correct": "事前に",
@@ -325,7 +325,7 @@
     {
       "id": "gen_032",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["forme_nai"],
       "payload": {
         "sentence": "__英語が話せませんでした。",
         "correct": "はじめに",
@@ -345,7 +345,7 @@
     {
       "id": "gen_034",
       "type": "FILL_BLANK",
-      "tags": ["te_iru"],
+      "tags": ["te_iru", "noms_temps"],
       "payload": {
         "sentence": "近くの店は夜９時まで__。",
         "correct": "あいています",
@@ -355,7 +355,7 @@
     {
       "id": "gen_035",
       "type": "FILL_BLANK",
-      "tags": ["keigo_bases"],
+      "tags": ["keigo_bases", "noms_temps"],
       "payload": {
         "sentence": "では、本日の５時ごろ会社で__。",
         "correct": "おまちしています",
@@ -375,7 +375,7 @@
     {
       "id": "gen_037",
       "type": "FILL_BLANK",
-      "tags": ["te_aru"],
+      "tags": ["te_aru", "forme_te"],
       "payload": {
         "sentence": "この書類には使い方が書いて__。",
         "correct": "あります",
@@ -385,7 +385,7 @@
     {
       "id": "gen_038",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["nombres"],
       "payload": {
         "sentence": "16を5で割ると__は1だ。",
         "correct": "のこり",
@@ -405,7 +405,7 @@
     {
       "id": "gen_040",
       "type": "FILL_BLANK",
-      "tags": ["particule_ha", "particule_ga"],
+      "tags": ["particule_ha", "particule_ga", "adjectifs_i"],
       "payload": {
         "sentence": "私_頭_いたいです。",
         "correct": "は / が",
@@ -415,7 +415,7 @@
     {
       "id": "gen_041",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "この薬は風邪によく__く。",
         "correct": "きく",
@@ -435,7 +435,7 @@
     {
       "id": "gen_043",
       "type": "FILL_BLANK",
-      "tags": ["base_shidai"],
+      "tags": ["base_shidai", "noms_temps"],
       "payload": {
         "sentence": "明日の予定が__連絡します。",
         "correct": "わかりしだい",
@@ -445,7 +445,7 @@
     {
       "id": "gen_044",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "sentence": "__、新宿駅に到着します。",
         "correct": "まもなく",
@@ -465,7 +465,7 @@
     {
       "id": "gen_046",
       "type": "FILL_BLANK",
-      "tags": ["yo_ni_suru_naru"],
+      "tags": ["yo_ni_suru_naru", "forme_te"],
       "payload": {
         "sentence": "日本語を練習して,だんだん__。",
         "correct": "話せるようになってきた",
@@ -475,7 +475,7 @@
     {
       "id": "gen_047",
       "type": "FILL_BLANK",
-      "tags": ["naru"],
+      "tags": ["naru", "forme_ta"],
       "payload": {
         "sentence": "日本の生活にもう__。",
         "correct": "なれましたか",
@@ -495,7 +495,7 @@
     {
       "id": "gen_049",
       "type": "FILL_BLANK",
-      "tags": ["koto_ga_dekiru"],
+      "tags": ["koto_ga_dekiru", "forme_nai"],
       "payload": {
         "sentence": "漢字はぜんぜん__ことが出来ません。",
         "correct": "かく",
@@ -515,7 +515,7 @@
     {
       "id": "gen_051",
       "type": "FILL_BLANK",
-      "tags": ["te_iru"],
+      "tags": ["te_iru", "noms_temps"],
       "payload": {
         "sentence": "近くの店は夜10時まで__。",
         "correct": "あいています",
@@ -525,7 +525,7 @@
     {
       "id": "gen_052",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "早く熱を__方法はありますか?",
         "correct": "さげる",
@@ -545,7 +545,7 @@
     {
       "id": "gen_054",
       "type": "FILL_BLANK",
-      "tags": ["kara_made"],
+      "tags": ["kara_made", "te_iru"],
       "payload": {
         "sentence": "本日、日本に来ました。来月の５日__います。",
         "correct": "まで",
@@ -555,7 +555,7 @@
     {
       "id": "gen_055",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "sentence": "この場所から駅までどのくらい時間が__。",
         "correct": "かかります",
@@ -575,7 +575,7 @@
     {
       "id": "gen_057",
       "type": "FILL_BLANK",
-      "tags": ["base_nagara"],
+      "tags": ["base_nagara", "forme_conjecturale"],
       "payload": {
         "sentence": "レストランで__話しましょう。",
         "correct": "食べながら",
@@ -585,7 +585,7 @@
     {
       "id": "gen_058",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "私のパソコンは__のが遅いです。",
         "correct": "うごく",
@@ -605,7 +605,7 @@
     {
       "id": "gen_060",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["forme_ta"],
       "payload": {
         "sentence": "部屋の電気を__寝てしまった。",
         "correct": "つけたまま",
@@ -645,7 +645,7 @@
     {
       "id": "gen_064",
       "type": "FILL_BLANK",
-      "tags": ["ho_ga_ii"],
+      "tags": ["ho_ga_ii", "adjectifs_i", "forme_ta"],
       "payload": {
         "sentence": "外は暑いですので帽子を__ほうがいいですよ。",
         "correct": "かぶった",
@@ -665,7 +665,7 @@
     {
       "id": "gen_066",
       "type": "FILL_BLANK",
-      "tags": ["kara_made"],
+      "tags": ["kara_made", "noms_temps"],
       "payload": {
         "sentence": "明日__いよいよ夏休みが始まります。",
         "correct": "から",
@@ -685,7 +685,7 @@
     {
       "id": "gen_068",
       "type": "FILL_BLANK",
-      "tags": ["te_kuru"],
+      "tags": ["te_kuru", "forme_te", "noms_lieux"],
       "payload": {
         "sentence": "朝、会社に来る前に、お弁当を買って__。",
         "correct": "きました",
@@ -695,7 +695,7 @@
     {
       "id": "gen_069",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "このビルは高いですね。何__まであるのでしょうか。",
         "correct": "階",
@@ -715,7 +715,7 @@
     {
       "id": "gen_071",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["mo_mada"],
       "payload": {
         "sentence": "山田さん、__よく遅刻しますね。",
         "correct": "さいきん",
@@ -735,7 +735,7 @@
     {
       "id": "gen_073",
       "type": "FILL_BLANK",
-      "tags": ["made_ni"],
+      "tags": ["made_ni", "noms_temps"],
       "payload": {
         "sentence": "今日は9時__会社に行かなくてはいけません。",
         "correct": "までに",
@@ -745,7 +745,7 @@
     {
       "id": "gen_074",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "sentence": "事務所まで遠いので、毎日電車で__のは大変です。",
         "correct": "かよう",
@@ -765,7 +765,7 @@
     {
       "id": "gen_076",
       "type": "FILL_BLANK",
-      "tags": ["dake_shika_nomi"],
+      "tags": ["wo_towazu_ha_towazu"],
       "payload": {
         "sentence": "社員募集は、年齢、性別、学歴の有無__採用します。",
         "correct": "をとわず",
@@ -775,7 +775,7 @@
     {
       "id": "gen_077",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "sentence": "会社から駅までやく500__です。",
         "correct": "メートル",
@@ -787,7 +787,7 @@
       "type": "UNDERLINE_WRITING",
       "tags": [],
       "payload": {
-        "sentence": "もう少し「れんしゅう」 すると上手になりますよ。この「」中の言葉の正しい漢字はどれですか？",
+        "sentence": "もう少し「れんしゅう」 すると上手になりますよ. この「」中の言葉の正しい漢字はどれですか？",
         "correct": "練習",
         "distractors": ["練習", "練修", "連習"]
       }
@@ -795,7 +795,7 @@
     {
       "id": "gen_079",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["ue_de", "forme_ta"],
       "payload": {
         "sentence": "上司と相談__、お返事いたします。",
         "correct": "した上で",
@@ -805,7 +805,7 @@
     {
       "id": "gen_080",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "コーヒーに__うを入れますか？",
         "correct": "さとう",
@@ -825,7 +825,7 @@
     {
       "id": "gen_082",
       "type": "FILL_BLANK",
-      "tags": ["chu_ju"],
+      "tags": ["saichu_ni", "te_iru"],
       "payload": {
         "sentence": "映画を見ている__、携帯電話が鳴った。",
         "correct": "最中に",
@@ -835,7 +835,7 @@
     {
       "id": "gen_083",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "私はテニスの基本的な__を分かりません。",
         "correct": "ルール",
@@ -865,7 +865,7 @@
     {
       "id": "gen_086",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "果物では__が一番好きです。",
         "correct": "りんご ",
@@ -885,7 +885,7 @@
     {
       "id": "gen_088",
       "type": "FILL_BLANK",
-      "tags": ["dake_shika_nomi"],
+      "tags": ["dake_shika_nomi", "particule_mo"],
       "payload": {
         "sentence": "彼は日本語__、英語も話せる。",
         "correct": "だけでなく",
@@ -895,7 +895,7 @@
     {
       "id": "gen_089",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["noms"],
       "payload": {
         "base_sentence": "「期限」の意味は何ですか？",
         "correct": "締め切り",
@@ -915,7 +915,7 @@
     {
       "id": "gen_091",
       "type": "FILL_BLANK",
-      "tags": ["particule_ni"],
+      "tags": ["particule_ni", "noms_temps"],
       "payload": {
         "sentence": "昨日、友達と映画を_に行きました。",
         "correct": "見",
@@ -935,7 +935,7 @@
     {
       "id": "gen_093",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "base_sentence": "「忘れ物」の意味はどれですか？",
         "correct": "置いてきた物",
@@ -965,7 +965,7 @@
     {
       "id": "gen_096",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["adjectifs_i"],
       "payload": {
         "sentence": "日本の__はとても高いです。",
         "correct": "物価",
@@ -975,7 +975,7 @@
     {
       "id": "gen_097",
       "type": "FILL_BLANK",
-      "tags": ["yo_ni_n3"],
+      "tags": ["yo_ni_n3", "forme_nai"],
       "payload": {
         "sentence": "忘れない__、メモしてください。",
         "correct": "ように",
@@ -995,7 +995,7 @@
     {
       "id": "gen_099",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "base_sentence": "「図書館」でできる事はどれですか？__",
         "correct": "本を読む",
@@ -1035,7 +1035,7 @@
     {
       "id": "gen_103",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["hitsuyo"],
       "payload": {
         "base_sentence": "「必要」の意味は何ですか？__",
         "correct": "大切なこと",
@@ -1045,7 +1045,7 @@
     {
       "id": "gen_104",
       "type": "FILL_BLANK",
-      "tags": ["te_kara"],
+      "tags": ["te_kara", "forme_te"],
       "payload": {
         "sentence": "テレビを__から、宿題をします。",
         "correct": "みて",
@@ -1065,7 +1065,7 @@
     {
       "id": "gen_106",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["okage_de", "forme_ta"],
       "payload": {
         "sentence": "留学した__、英語が上手になった。",
         "correct": "おかげで",
@@ -1075,7 +1075,7 @@
     {
       "id": "gen_107",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["noms_lieux"],
       "payload": {
         "base_sentence": "「会場」の意味は何ですか？",
         "correct": "イベントなどを行う場所",
@@ -1125,7 +1125,7 @@
     {
       "id": "gen_112",
       "type": "FILL_BLANK",
-      "tags": ["koto_ni_suru_naru_kimeru"],
+      "tags": ["koto_ni_suru_naru_kimeru", "noms_temps"],
       "payload": {
         "sentence": "来週 引っ越しを__ことに なりました。",
         "correct": "する",
@@ -1165,7 +1165,7 @@
     {
       "id": "gen_116",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "base_sentence": "「確認」の意味は何ですか？",
         "correct": "もう一度調べること",
@@ -1175,7 +1175,7 @@
     {
       "id": "gen_117",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes", "forme_nai"],
       "payload": {
         "sentence": "勉強しないと、テストに__。",
         "correct": "落ちます",
@@ -1195,7 +1195,7 @@
     {
       "id": "gen_119",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "base_sentence": "「返事」の意味は何ですか？",
         "correct": "答えること",
@@ -1205,7 +1205,7 @@
     {
       "id": "gen_120",
       "type": "FILL_BLANK",
-      "tags": ["ta_totan"],
+      "tags": ["ta_totan", "forme_ta", "noms_lieux"],
       "payload": {
         "sentence": "駅に着いたとたん、__。",
         "correct": "電車が出た",
@@ -1225,7 +1225,7 @@
     {
       "id": "gen_122",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "会議で新しいルールが__された。",
         "correct": "決定",
@@ -1245,7 +1245,7 @@
     {
       "id": "gen_124",
       "type": "FILL_BLANK",
-      "tags": ["conditionnel_naraba"],
+      "tags": ["conditionnel_naraba", "adjectifs_i"],
       "payload": {
         "sentence": "毎日運動する__、健康にいいです。",
         "correct": "なら",
@@ -1255,7 +1255,7 @@
     {
       "id": "gen_125",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "お客様の個人__は厳しく管理されます。",
         "correct": "情報",
@@ -1275,7 +1275,7 @@
     {
       "id": "gen_127",
       "type": "FILL_BLANK",
-      "tags": ["noni"],
+      "tags": ["noni", "forme_ta"],
       "payload": {
         "sentence": "彼は一生懸命勉強した__、試験に合格することはできなかった。",
         "correct": "のに",
@@ -1285,7 +1285,7 @@
     {
       "id": "gen_128",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "会議の資料を事前に__してください。",
         "correct": "準備",
@@ -1295,7 +1295,7 @@
     {
       "id": "gen_129",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "彼は試験に合格する__、毎日勉強している。",
         "correct": "ために",
@@ -1305,7 +1305,7 @@
     {
       "id": "gen_130",
       "type": "PARAPHRASE",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "base_sentence": "「解決」の意味は何ですか？",
         "correct": "問題をなくすこと",
@@ -1315,7 +1315,7 @@
     {
       "id": "gen_131",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes", "forme_ta"],
       "payload": {
         "sentence": "このパソコンの__がわからないので、説明書を読みました。",
         "correct": "使い方",
@@ -1325,7 +1325,7 @@
     {
       "id": "gen_132",
       "type": "FILL_BLANK",
-      "tags": ["hodo"],
+      "tags": ["hodo", "forme_masu"],
       "payload": {
         "sentence": "この問題は、説明を聞けば聞く__わからなくなった。",
         "correct": "ほど",
@@ -1345,7 +1345,7 @@
     {
       "id": "gen_134",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["forme_ta", "adjectifs_i"],
       "payload": {
         "sentence": "今の生活がこんなに大変だとは__。",
         "correct": "思わなかった",
@@ -1365,7 +1365,7 @@
     {
       "id": "gen_136",
       "type": "FILL_BLANK",
-      "tags": [],
+      "tags": ["verbes"],
       "payload": {
         "sentence": "準備",
         "correct": "じゅんび",
