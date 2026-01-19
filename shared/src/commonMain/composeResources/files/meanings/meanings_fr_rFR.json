@@ -5640,7 +5640,6 @@
         "@id": "671",
         "meaning": [
           "Diminuer",
-          "Diminuer",
           "Réduire",
           "Déclin",
           "Réduire",
@@ -5770,7 +5769,6 @@
       {
         "@id": "685",
         "meaning": [
-          "Preuve",
           "Preuve",
           "Certificat"
         ]
@@ -5920,7 +5918,7 @@
         "meaning": [
           "Transport",
           "Envoyer",
-          "Soyez inférieur"
+          "Etre inférieur"
         ]
       },
       {
@@ -5938,7 +5936,6 @@
           "Rapport",
           "Taux",
           "Proportion",
-          {},
           "Facteur",
           "Plomb",
           "Fer de lance",
@@ -6061,7 +6058,7 @@
           "Restaurer",
           "Retour à",
           "Revenir",
-          "CV"
+          "Reprendre"
         ]
       },
       {
@@ -6093,7 +6090,7 @@
       {
         "@id": "719",
         "meaning": [
-          "ONU-",
+          "De-",
           "Erreur",
           "Négatif",
           "Injustice",
@@ -6197,12 +6194,14 @@
       },
       {
         "@id": "730",
-        "meaning": "Billet"
+        "meaning": [
+          "Ticket",
+          "Billet"
+        ]
       },
       {
         "@id": "731",
         "meaning": [
-          "Déchirer",
           "Déchirer",
           "Larme",
           "Casser",
@@ -6216,7 +6215,6 @@
         "meaning": [
           "Compilation",
           "Tricoter",
-          "Tresser",
           "Tresser",
           "Torsion",
           "Édition",
@@ -6385,7 +6383,6 @@
         "@id": "750",
         "meaning": [
           "Interdiction",
-          "Interdire",
           "Interdire"
         ]
       },
@@ -6592,7 +6589,6 @@
           "Dommage",
           "Perte",
           "Inconvénient",
-          "Blesser",
           "Blesser"
         ]
       },
@@ -7233,7 +7229,7 @@
         "@id": "844",
         "meaning": [
           "Maison",
-          "Maison",
+          "Foyer",
           "Résidence",
           "Notre maison",
           "Mon mari"
@@ -7579,7 +7575,6 @@
           "Rare",
           "Différent",
           "Étrangeté",
-          "Étrangeté",
           "Merveilleux",
           "Curieux",
           "Inhabituel"
@@ -7695,7 +7690,7 @@
       {
         "@id": "894",
         "meaning": [
-          "Regardez vers",
+          "Regarder vers",
           "Affronter",
           "Rencontrer",
           "Affronter",
