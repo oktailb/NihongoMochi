@@ -407,7 +407,7 @@
       "type": "FILL_BLANK",
       "tags": ["particule_ha", "particule_ga", "adjectifs_i"],
       "payload": {
-        "sentence": "私_頭_いたいです。",
+        "sentence": "私__頭__いたいです。",
         "correct": "は / が",
         "distractors": ["が / は", "を / に", "で / を"]
       }
@@ -917,7 +917,7 @@
       "type": "FILL_BLANK",
       "tags": ["particule_ni", "noms_temps"],
       "payload": {
-        "sentence": "昨日、友達と映画を_に行きました。",
+        "sentence": "昨日、友達と映画を__に行きました。",
         "correct": "見",
         "distractors": ["見て", "見に", "見る"]
       }
