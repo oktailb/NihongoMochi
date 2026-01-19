@@ -35,7 +35,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -173,13 +179,13 @@ fun GameQuestionCard(
         shape = RoundedCornerShape(24.dp)
     ) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
             if (rotation <= 90f) {
                 // Front Side
                 Text(
-                    text = text,
+                    text = formatQuestionText(text),
                     fontSize = fontSize,
                     textAlign = TextAlign.Center,
                     lineHeight = (fontSize.value * 1.2).sp,
@@ -200,11 +206,31 @@ fun GameQuestionCard(
                         fontSize = secondaryFontSize,
                         textAlign = TextAlign.Center,
                         lineHeight = (secondaryFontSize.value * 1.2).sp,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.padding(16.dp)
+                        color = MaterialTheme.colorScheme.primary
                     )
                 }
             }
         }
+    }
+}
+
+private fun formatQuestionText(text: String): AnnotatedString {
+    return buildAnnotatedString {
+        var lastIndex = 0
+        val regex = Regex("「([^」]+)」")
+        regex.findAll(text).forEach { matchResult ->
+            append(text.substring(lastIndex, matchResult.range.first))
+            
+            withStyle(style = SpanStyle(
+                fontWeight = FontWeight.Bold,
+                textDecoration = TextDecoration.Underline,
+                color = Color(0xFFD32F2F) // Un rouge discret pour attirer l'oeil sans être agressif
+            )) {
+                append("「${matchResult.groupValues[1]}」")
+            }
+            
+            lastIndex = matchResult.range.last + 1
+        }
+        append(text.substring(lastIndex))
     }
 }

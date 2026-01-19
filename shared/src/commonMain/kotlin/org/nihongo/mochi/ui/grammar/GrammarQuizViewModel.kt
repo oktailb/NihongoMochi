@@ -17,8 +17,7 @@ import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
 
 data class GrammarQuizState(
-    val exercises: List<Exercise> = emptyList(),
-    val currentIndex: Int = 0,
+    val currentExercise: Exercise? = null,
     val score: Int = 0,
     val isFinished: Boolean = false,
     val isLoading: Boolean = true,
@@ -26,7 +25,7 @@ data class GrammarQuizState(
     val currentOptions: List<String> = emptyList(),
     val selectedOption: String? = null,
     val isAnswerCorrect: Boolean? = null,
-    val progressHistory: List<GameStatus> = emptyList(),
+    val progressHistory: List<GameStatus> = List(10) { GameStatus.NOT_ANSWERED },
     val currentStarIndex: Int = 0
 )
 
@@ -41,6 +40,12 @@ class GrammarQuizViewModel(
     private val _state = MutableStateFlow(GrammarQuizState())
     val state: StateFlow<GrammarQuizState> = _state.asStateFlow()
 
+    private var allExercises = listOf<Exercise>()
+    private var currentSet = listOf<Exercise>()
+    private val revisionList = mutableListOf<Exercise>()
+    private val exercisesStatus = mutableMapOf<String, GameStatus>()
+    private var exercisesListPosition = 0
+
     init {
         loadExercises()
     }
@@ -49,38 +54,66 @@ class GrammarQuizViewModel(
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true)
             
-            // Fetch exercises for ALL tags and limit total to 100
             val allPossibleExercises = mutableListOf<Exercise>()
             grammarTags.forEach { tag ->
-                // Fetch up to 10 exercises per tag to ensure variety, then we'll shuffle and take 100
                 allPossibleExercises.addAll(exerciseRepository.getExercisesForTag(tag, limit = 10))
             }
             
-            val exercises = allPossibleExercises.shuffled().take(100)
+            allExercises = allPossibleExercises.shuffled()
             
-            if (exercises.isNotEmpty()) {
-                setupQuestion(exercises, 0, emptyList())
+            if (allExercises.isNotEmpty()) {
+                if (startNewSet()) {
+                    setupQuestion()
+                } else {
+                    _state.value = _state.value.copy(isFinished = true, isLoading = false)
+                }
             } else {
                 _state.value = _state.value.copy(isFinished = true, isLoading = false)
             }
         }
     }
 
-    private fun setupQuestion(exercises: List<Exercise>, index: Int, history: List<GameStatus>) {
-        val exercise = exercises[index]
+    private fun startNewSet(): Boolean {
+        revisionList.clear()
+        exercisesStatus.clear()
+
+        if (exercisesListPosition >= allExercises.size) {
+            return false
+        }
+
+        currentSet = allExercises.drop(exercisesListPosition).take(10)
+        exercisesListPosition += currentSet.size
+
+        revisionList.addAll(currentSet)
+        currentSet.forEach {
+            exercisesStatus[it.id] = GameStatus.NOT_ANSWERED
+        }
+        return true
+    }
+
+    private fun setupQuestion() {
+        val exercise = revisionList.randomOrNull()
+        if (exercise == null) {
+            if (startNewSet()) {
+                setupQuestion()
+            } else {
+                _state.value = _state.value.copy(isFinished = true)
+            }
+            return
+        }
+
         val payload = exerciseRepository.parsePayload(exercise)
         val options = generateOptions(payload)
         val starIndex = if (payload is ExercisePayload.SentenceOrder) Random.nextInt(payload.blocks.size) else 0
         
         _state.value = _state.value.copy(
-            exercises = exercises,
-            currentIndex = index,
+            currentExercise = exercise,
             currentExercisePayload = payload,
             currentOptions = options,
             currentStarIndex = starIndex,
             selectedOption = null,
             isAnswerCorrect = null,
-            progressHistory = history + List(exercises.size - history.size) { GameStatus.NOT_ANSWERED },
+            progressHistory = currentSet.map { exercisesStatus[it.id] ?: GameStatus.NOT_ANSWERED },
             isLoading = false
         )
     }
@@ -112,6 +145,7 @@ class GrammarQuizViewModel(
 
     fun onOptionSelected(option: String) {
         val currentState = _state.value
+        val exercise = currentState.currentExercise ?: return
         if (currentState.selectedOption != null) return
 
         val isCorrect = checkAnswer(option, currentState.currentExercisePayload, currentState.currentStarIndex)
@@ -122,28 +156,28 @@ class GrammarQuizViewModel(
             audioPlayer.playSound("sounds/incorrect.mp3")
         }
 
-        // Save score for each tag associated with the rule
-        val currentExercise = currentState.exercises.getOrNull(currentState.currentIndex)
-        currentExercise?.tags?.forEach { tag ->
+        exercise.tags.forEach { tag ->
             scoreRepository.saveScore(tag, isCorrect, ScoreManager.ScoreType.GRAMMAR)
         }
 
-        val newHistory = currentState.progressHistory.toMutableList()
-        if (currentState.currentIndex < newHistory.size) {
-            newHistory[currentState.currentIndex] = if (isCorrect) GameStatus.CORRECT else GameStatus.INCORRECT
+        if (isCorrect) {
+            exercisesStatus[exercise.id] = GameStatus.CORRECT
+            revisionList.remove(exercise)
+        } else {
+            exercisesStatus[exercise.id] = GameStatus.INCORRECT
         }
 
         _state.value = currentState.copy(
             selectedOption = option,
             isAnswerCorrect = isCorrect,
             score = if (isCorrect) currentState.score + 1 else currentState.score,
-            progressHistory = newHistory
+            progressHistory = currentSet.map { exercisesStatus[it.id] ?: GameStatus.NOT_ANSWERED }
         )
 
         viewModelScope.launch {
             val factor = settingsRepository.getAnimationSpeed()
             delay((1000 * factor).toLong())
-            nextQuestion()
+            setupQuestion()
         }
     }
 
@@ -159,17 +193,6 @@ class GrammarQuizViewModel(
                 } else false
             }
             else -> false
-        }
-    }
-
-    private fun nextQuestion() {
-        val currentState = _state.value
-        val nextIndex = currentState.currentIndex + 1
-        
-        if (nextIndex < currentState.exercises.size) {
-            setupQuestion(currentState.exercises, nextIndex, currentState.progressHistory.take(nextIndex))
-        } else {
-            _state.value = _state.value.copy(isFinished = true)
         }
     }
 

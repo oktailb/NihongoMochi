@@ -36,7 +36,7 @@ fun GrammarQuizScreen(
                 Column(modifier = Modifier.padding(top = 16.dp)) {
                     GameProgressBar(
                         statuses = state.progressHistory,
-                        maxItems = state.exercises.size.coerceAtLeast(1)
+                        maxItems = 10
                     )
                 }
             }

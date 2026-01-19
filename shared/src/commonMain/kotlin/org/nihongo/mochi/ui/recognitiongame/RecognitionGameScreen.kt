@@ -111,7 +111,7 @@ fun RecognitionGameScreen(
                                 state = getState(0),
                                 enabled = buttonsEnabled,
                                 modifier = Modifier.weight(1f).padding(4.dp),
-                                fontSizeSp = calculateFontSize(row1[0], direction) * 3 / 2,
+                                fontSizeSp = calculateFontSize(row1[0], direction) * 5 / 4,
                                 onClick = { onAnswerClick(0, row1[0]) }
                             )
                             if (row1.size > 1) {
@@ -120,7 +120,7 @@ fun RecognitionGameScreen(
                                     state = getState(1),
                                     enabled = buttonsEnabled,
                                     modifier = Modifier.weight(1f).padding(4.dp),
-                                    fontSizeSp = calculateFontSize(row1[1], direction) * 3 / 2,
+                                    fontSizeSp = calculateFontSize(row1[1], direction) * 5 / 4,
                                     onClick = { onAnswerClick(1, row1[1]) }
                                 )
                             } else {
@@ -136,7 +136,7 @@ fun RecognitionGameScreen(
                                 state = getState(2),
                                 enabled = buttonsEnabled,
                                 modifier = Modifier.weight(1f).padding(4.dp),
-                                fontSizeSp = calculateFontSize(row2[0], direction) * 3 / 2,
+                                fontSizeSp = calculateFontSize(row2[0], direction) * 5 / 4,
                                 onClick = { onAnswerClick(2, row2[0]) }
                             )
                             if (row2.size > 1) {
@@ -145,7 +145,7 @@ fun RecognitionGameScreen(
                                     state = getState(3),
                                     enabled = buttonsEnabled,
                                     modifier = Modifier.weight(1f).padding(4.dp),
-                                    fontSizeSp = calculateFontSize(row2[1], direction) * 3 / 2,
+                                    fontSizeSp = calculateFontSize(row2[1], direction) * 5 / 4,
                                     onClick = { onAnswerClick(3, row2[1]) }
                                 )
                             } else {

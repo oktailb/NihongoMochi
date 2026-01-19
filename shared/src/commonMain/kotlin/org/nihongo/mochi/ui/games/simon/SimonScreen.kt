@@ -214,7 +214,7 @@ fun SimonGameScreen(
                                     state = AnswerButtonState.DEFAULT,
                                     enabled = isButtonsVisible,
                                     modifier = Modifier.weight(1f).padding(8.dp),
-                                    fontSizeSp = calculateFontSize(label, QuestionDirection.REVERSE) * 3 / 2,
+                                    fontSizeSp = calculateFontSize(label, QuestionDirection.REVERSE) * 5 / 4,
                                     onClick = { viewModel.onAnswerClick(playable) }
                                 )
                             }

@@ -235,7 +235,7 @@
         "@id": "32",
         "meaning": [
           "Esprit",
-          "Esprit",
+          "Energie",
           "Air",
           "Atmosphère",
           "Humeur"
@@ -326,7 +326,10 @@
       },
       {
         "@id": "45",
-        "meaning": "Mâle"
+        "meaning": [
+          "Homme",
+          "Mâle"
+        ]
       },
       {
         "@id": "46",
@@ -397,8 +400,8 @@
         "meaning": [
           "Jambe",
           "Pied",
-          "Soyez suffisant",
-          "Comptoir Pour Paires De Chaussures"
+          "Etre suffisant",
+          "Compteur pour Paires De Chaussures"
         ]
       },
       {
@@ -415,7 +418,7 @@
       {
         "@id": "58",
         "meaning": [
-          "Personnage",
+          "Caractere",
           "Lettre",
           "Mot",
           "Section du village"
@@ -594,7 +597,7 @@
       {
         "@id": "87",
         "meaning": [
-          "En allant",
+          "Aller",
           "Voyage",
           "Effectuer",
           "Conduire",
@@ -817,7 +820,7 @@
       {
         "@id": "114",
         "meaning": [
-          "Viens",
+          "Venir",
           "Exigible",
           "Suivant",
           "Cause",
@@ -867,7 +870,7 @@
       },
       {
         "@id": "120",
-        "meaning": "Pense"
+        "meaning": "Penser"
       },
       {
         "@id": "121",
@@ -1111,7 +1114,7 @@
           "Régime",
           "Époque",
           "Période",
-          "(Corée du Nord"
+          "(Corée du Nord)"
         ]
       },
       {
@@ -1126,13 +1129,12 @@
         "meaning": [
           "Piédestal",
           "Un stand",
-          "Comptoir pour machines et véhicules"
+          "Compteur pour machines et véhicules"
         ]
       },
       {
         "@id": "151",
         "meaning": [
-          "Large",
           "Large",
           "Spacieux"
         ]
@@ -1168,7 +1170,7 @@
         "@id": "156",
         "meaning": [
           "Arrêt",
-          "Arrêt"
+          "Stop"
         ]
       },
       {
@@ -1182,7 +1184,6 @@
       {
         "@id": "158",
         "meaning": [
-          "Couper",
           "Couper",
           "Être tranchant"
         ]
@@ -1255,7 +1256,7 @@
       {
         "@id": "169",
         "meaning": [
-          "Mère",
+          "Parent",
           "Intimité",
           "Relatif",
           "Familiarité",
@@ -1274,7 +1275,7 @@
         "@id": "171",
         "meaning": [
           "Tête",
-          "Comptoir pour grands animaux"
+          "Compteur pour grands animaux"
         ]
       },
       {
@@ -1292,7 +1293,7 @@
         "@id": "174",
         "meaning": [
           "Solution",
-          "Répondre"
+          "Réponse"
         ]
       },
       {
@@ -1305,7 +1306,7 @@
       {
         "@id": "176",
         "meaning": [
-          "Retour à la maison",
+          "Revenir à la maison",
           "Arriver à",
           "Mener à",
           "Aboutir à"
@@ -1436,7 +1437,7 @@
         "@id": "194",
         "meaning": [
           "Porte",
-          "Comptoir pour les maisons",
+          "Compteur pour les maisons",
           "Porte Radicale (n°63)"
         ]
       },
@@ -1499,7 +1500,7 @@
         "@id": "206",
         "meaning": [
           "Bateau",
-          "Bateau"
+          "Embarcation"
         ]
       },
       {
@@ -1679,11 +1680,11 @@
       },
       {
         "@id": "234",
-        "meaning": "Sœur cadette"
+        "meaning": ["Petite Sœur", "Sœur cadette"]
       },
       {
         "@id": "235",
-        "meaning": "Sœur aînée"
+        "meaning": ["Grande Sœur", "Sœur ainée"]
       },
       {
         "@id": "236",
@@ -1718,7 +1719,6 @@
       {
         "@id": "240",
         "meaning": [
-          "Vapeur",
           "Vapeur"
         ]
       },
@@ -1765,7 +1765,6 @@
           "Département",
           "Classe",
           "Copie",
-          "Partie",
           "Partie",
           "Compteur de copies d'un journal ou d'un magazine"
         ]
@@ -1881,7 +1880,6 @@
         "@id": "256",
         "meaning": [
           "Entier",
-          "Entier",
           "Tous",
           "Complet",
           "Remplir"
@@ -1935,7 +1933,6 @@
       {
         "@id": "261",
         "meaning": [
-          "Sujet",
           "Sujet"
         ]
       },
@@ -2166,7 +2163,6 @@
           "Estime",
           "Respect",
           "Entasser",
-          "Entasser",
           "Nid De Boîtes",
           "-pli"
         ]
@@ -2277,7 +2273,6 @@
       {
         "@id": "298",
         "meaning": [
-          "Commencer",
           "Commencer"
         ]
       },
@@ -2388,7 +2383,6 @@
         "@id": "310",
         "meaning": [
           "Libérer",
-          "Libérer",
           "Feu",
           "Tirer",
           "Émettre",
@@ -2406,7 +2400,7 @@
       {
         "@id": "312",
         "meaning": [
-          "Dépêchez-vous",
+          "Se Dépêcher",
           "Urgence",
           "Soudain",
           "Raide"
@@ -2457,7 +2451,7 @@
       {
         "@id": "318",
         "meaning": [
-          "polonais",
+          "Polir",
           "Étude de",
           "Aiguiser"
         ]
@@ -2465,8 +2459,6 @@
       {
         "@id": "319",
         "meaning": [
-          "Éteindre",
-          "Éteindre",
           "Éteindre",
           "Neutraliser",
           "Annuler"
@@ -2528,7 +2520,7 @@
           "Enfiler",
           "Arriver",
           "Porter",
-          "Comptoir pour costumes de vêtements"
+          "Compteur pour costumes de vêtements"
         ]
       },
       {
@@ -2538,9 +2530,8 @@
           "Pouvoir",
           "Multiplication",
           "Enregistrer",
-          "Comptoir pour véhicules",
+          "Compteur pour véhicules",
           "Conseil",
-          "Monter",
           "Rejoindre"
         ]
       },
@@ -2556,7 +2547,6 @@
       {
         "@id": "329",
         "meaning": [
-          "Je vais",
           "Malade"
         ]
       },
@@ -2636,7 +2626,7 @@
       {
         "@id": "339",
         "meaning": [
-          "Automne",
+          "Tomber",
           "Baisse",
           "Descendre",
           "Village",
@@ -2683,7 +2673,6 @@
         "meaning": [
           "Défaite",
           "Négatif",
-          {},
           "Moins",
           "Ours",
           "Devoir",
@@ -2737,7 +2726,6 @@
       {
         "@id": "350",
         "meaning": [
-          "Organiser",
           "Organiser",
           "Régler",
           "Tonifier",
@@ -2794,7 +2782,7 @@
         "meaning": [
           "Verser",
           "Irriguer",
-          "Pleurer)",
+          "Pleurer",
           "Flux dans",
           "Concentrez-vous sur",
           "Remarques",
@@ -2807,7 +2795,7 @@
         "meaning": [
           "Étage",
           "Marche",
-          "Comptoir pour les étages d'un immeuble"
+          "Compteur pour les étages d'un immeuble"
         ]
       },
       {
@@ -2825,7 +2813,6 @@
           "Mauvais",
           "Vice",
           "Coquin",
-          "FAUX",
           "Mal",
           "Faux"
         ]
@@ -2851,7 +2838,6 @@
         "meaning": [
           "Invité",
           "Visiteur",
-          "Client",
           "Client"
         ]
       },
@@ -2865,7 +2851,6 @@
       {
         "@id": "365",
         "meaning": [
-          "Rapide",
           "Rapide"
         ]
       },
@@ -2934,7 +2919,7 @@
           "Moyens",
           "Posséder",
           "Ingrédients",
-          "Comptoir Pour Armures, Costumes, Ensembles De Meubles"
+          "Compteur pour Armures, Costumes, Ensembles De Meubles"
         ]
       },
       {
@@ -2970,7 +2955,6 @@
       {
         "@id": "377",
         "meaning": [
-          "Brillant",
           "Brillant"
         ]
       },
@@ -2994,7 +2978,7 @@
       {
         "@id": "380",
         "meaning": [
-          "Médecine",
+          "Medicament",
           "Chimique",
           "Émail",
           "Poudre à canon",
@@ -3039,7 +3023,7 @@
         "@id": "386",
         "meaning": [
           "Voyage",
-          "Voyage"
+          "Voyager"
         ]
       },
       {
@@ -3065,7 +3049,7 @@
           "Brillant",
           "Former",
           "Percer",
-          "polonais",
+          "Polir",
           "Affiner"
         ]
       },
@@ -3124,7 +3108,7 @@
         "@id": "396",
         "meaning": [
           "Entrepôt",
-          "Entrepôt"
+          "Remise"
         ]
       },
       {
@@ -3189,7 +3173,7 @@
         "@id": "404",
         "meaning": [
           "Boire",
-          "Fumée",
+          "Fumer",
           "Prendre"
         ]
       },
@@ -3238,7 +3222,6 @@
         "@id": "410",
         "meaning": [
           "Effort",
-          "Effort",
           "Encourager",
           "Aspirer",
           "Faire des efforts",
@@ -3260,7 +3243,6 @@
         "@id": "412",
         "meaning": [
           "Peau",
-          "Peau",
           "Cacher",
           "Cuir",
           "Peau Radicale (n°107)"
@@ -3269,7 +3251,6 @@
       {
         "@id": "413",
         "meaning": [
-          "Dent",
           "Dent"
         ]
       },
@@ -3377,7 +3358,7 @@
           "Rue",
           "Salle",
           "Ville",
-          "Comptoir pour armes à feu, outils, feuilles ou gâteaux de quelque chose",
+          "Compteur pour armes à feu, outils, feuilles ou gâteaux de quelque chose",
           "Nombre pair",
           "4ème signe du calendrier"
         ]
@@ -3398,8 +3379,8 @@
         "@id": "429",
         "meaning": [
           "Boîte",
-          "Poitrine",
-          "Cas",
+          "Coffre",
+          "Rangement",
           "Poubelle",
           "Wagon de chemin de fer"
         ]
@@ -3474,7 +3455,7 @@
         "@id": "438",
         "meaning": [
           "Plat",
-          "Une aide",
+          "Un support",
           "Plaque"
         ]
       },
@@ -3505,7 +3486,7 @@
       {
         "@id": "442",
         "meaning": [
-          "Personnes",
+          "Peuple",
           "Nation",
           "Sujets"
         ]
@@ -3513,11 +3494,11 @@
       {
         "@id": "443",
         "meaning": [
-          "Emporter avec vous",
-          "Plomb",
+          "Emporter avec soi",
+          "Mener",
           "Rejoindre",
           "Connecter",
-          "Faire la fête",
+          "Parti",
           "Gang",
           "Clique"
         ]
@@ -3561,7 +3542,7 @@
         "@id": "448",
         "meaning": [
           "Nom de famille",
-          "Nom de famille",
+          "Surnom",
           "Clan"
         ]
       },
@@ -3632,7 +3613,6 @@
       {
         "@id": "455",
         "meaning": [
-          "Devenir",
           "Devenir",
           "Obtenir",
           "Grandir",
@@ -3760,13 +3740,10 @@
           "Gagner",
           "Obtenir",
           "Trouver",
-          "Gagner",
           "Acquérir",
-          "Peut",
           "Peut",
           "Capable de",
           "Profit",
-          "Avantage",
           "Avantage"
         ]
       },
@@ -3865,8 +3842,7 @@
           "Demande",
           "Vouloir",
           "Souhaiter",
-          "Exiger",
-          "Demande"
+          "Exiger"
         ]
       },
       {
@@ -3899,7 +3875,6 @@
       {
         "@id": "481",
         "meaning": [
-          "Chaque",
           "Chaque",
           "Soit"
         ]
@@ -3950,7 +3925,6 @@
           "Aucun",
           "N'est-ce pas",
           "Rien",
-          "Néant",
           "Pas"
         ]
       },
@@ -4353,7 +4327,6 @@
           "Climat",
           "Saison",
           "Météo",
-          "Attendre",
           "Attendre"
         ]
       },
@@ -4544,7 +4517,6 @@
         "@id": "549",
         "meaning": [
           "Salaire",
-          "Salaire",
           "Cadeau",
           "Permettre",
           "Accorder",
@@ -4592,7 +4564,6 @@
       {
         "@id": "554",
         "meaning": [
-          "Naviguer",
           "Naviguer",
           "Croisière",
           "Voler"
@@ -4663,7 +4634,7 @@
           "Cercle",
           "Lien",
           "Boucle",
-          "Comptoir Pour Roues Et Fleurs"
+          "Compteur pour Roues Et Fleurs"
         ]
       },
       {
@@ -4680,7 +4651,6 @@
         "@id": "562",
         "meaning": [
           "Pur",
-          "Purifier",
           "Purifier",
           "Exorciser",
           "Dynastie Mandchoue"
@@ -4729,7 +4699,6 @@
       {
         "@id": "567",
         "meaning": [
-          "Arrêt",
           "Arrêt"
         ]
       },
@@ -4940,7 +4909,7 @@
           "Bas",
           "Seul",
           "Profondeur",
-          "Prix ​​​​bas",
+          "Prix bas",
           "Base",
           "Gentil",
           "Trier"
@@ -5051,9 +5020,7 @@
           "Strophe",
           "Honneur",
           "Articulation",
-          "Articulation",
           "Bouton",
-          "Noeud",
           "Régler",
           "Mélodie"
         ]
@@ -5673,7 +5640,6 @@
         "@id": "671",
         "meaning": [
           "Diminuer",
-          "Diminuer",
           "Réduire",
           "Déclin",
           "Réduire",
@@ -5803,7 +5769,6 @@
       {
         "@id": "685",
         "meaning": [
-          "Preuve",
           "Preuve",
           "Certificat"
         ]
@@ -5953,7 +5918,7 @@
         "meaning": [
           "Transport",
           "Envoyer",
-          "Soyez inférieur"
+          "Etre inférieur"
         ]
       },
       {
@@ -5971,7 +5936,6 @@
           "Rapport",
           "Taux",
           "Proportion",
-          {},
           "Facteur",
           "Plomb",
           "Fer de lance",
@@ -6094,7 +6058,7 @@
           "Restaurer",
           "Retour à",
           "Revenir",
-          "CV"
+          "Reprendre"
         ]
       },
       {
@@ -6126,7 +6090,7 @@
       {
         "@id": "719",
         "meaning": [
-          "ONU-",
+          "De-",
           "Erreur",
           "Négatif",
           "Injustice",
@@ -6230,12 +6194,14 @@
       },
       {
         "@id": "730",
-        "meaning": "Billet"
+        "meaning": [
+          "Ticket",
+          "Billet"
+        ]
       },
       {
         "@id": "731",
         "meaning": [
-          "Déchirer",
           "Déchirer",
           "Larme",
           "Casser",
@@ -6249,7 +6215,6 @@
         "meaning": [
           "Compilation",
           "Tricoter",
-          "Tresser",
           "Tresser",
           "Torsion",
           "Édition",
@@ -6418,7 +6383,6 @@
         "@id": "750",
         "meaning": [
           "Interdiction",
-          "Interdire",
           "Interdire"
         ]
       },
@@ -6625,7 +6589,6 @@
           "Dommage",
           "Perte",
           "Inconvénient",
-          "Blesser",
           "Blesser"
         ]
       },
@@ -7005,7 +6968,7 @@
           "Bifurquer",
           "Brindille",
           "Membre",
-          "Comptoir pour succursales"
+          "Compteur pour succursales"
         ]
       },
       {
@@ -7048,7 +7011,7 @@
           "Sac",
           "Balle",
           "Sac",
-          "Comptoir pour sacs"
+          "Compteur pour sacs"
         ]
       },
       {
@@ -7266,7 +7229,7 @@
         "@id": "844",
         "meaning": [
           "Maison",
-          "Maison",
+          "Foyer",
           "Résidence",
           "Notre maison",
           "Mon mari"
@@ -7331,7 +7294,7 @@
           "Souche",
           "Actions",
           "Action",
-          "Comptoir pour petites plantes"
+          "Compteur pour petites plantes"
         ]
       },
       {
@@ -7612,7 +7575,6 @@
           "Rare",
           "Différent",
           "Étrangeté",
-          "Étrangeté",
           "Merveilleux",
           "Curieux",
           "Inhabituel"
@@ -7728,7 +7690,7 @@
       {
         "@id": "894",
         "meaning": [
-          "Regardez vers",
+          "Regarder vers",
           "Affronter",
           "Rencontrer",
           "Affronter",
@@ -7920,7 +7882,7 @@
           "Porter",
           "Arrivée",
           "Arrivée (course)",
-          "Comptoir pour costumes de vêtements",
+          "Compteur pour costumes de vêtements",
           "Œuvre littéraire"
         ]
       },
@@ -7993,7 +7955,7 @@
         "@id": "922",
         "meaning": [
           "Feuille de...",
-          "Comptoir pour objets ou feuilles plats et fins"
+          "Compteur pour objets ou feuilles plats et fins"
         ]
       },
       {
@@ -9127,7 +9089,7 @@
         "@id": "1055",
         "meaning": [
           "Offre",
-          "Comptoir pour boissons",
+          "Compteur pour boissons",
           "Présent",
           "Offre"
         ]
@@ -9869,7 +9831,7 @@
         "meaning": [
           "Queue",
           "Fin",
-          "Comptoir Pour Poisson",
+          "Compteur pour Poisson",
           "Pente inférieure de la montagne"
         ]
       },
@@ -11353,7 +11315,7 @@
         "@id": "1296",
         "meaning": [
           "Lit",
-          "Comptoir pour lits",
+          "Compteur pour lits",
           "Sol",
           "Rembourrage",
           "Tatamis"
@@ -11632,7 +11594,7 @@
       {
         "@id": "1330",
         "meaning": [
-          "Comptoir pour tasses",
+          "Compteur pour tasses",
           "Verre à vin",
           "Verre",
           "Griller"
@@ -12532,7 +12494,7 @@
         "meaning": [
           "Égal",
           "Tête",
-          "Comptoir pour petits animaux",
+          "Compteur pour petits animaux",
           "Rouleau de tissu"
         ]
       },
@@ -12752,7 +12714,7 @@
         "@id": "1459",
         "meaning": [
           "Appartements",
-          "Comptoir pour les maisons",
+          "Compteur pour les maisons",
           "Avant-toits"
         ]
       },
@@ -13522,7 +13484,7 @@
         "@id": "1549",
         "meaning": [
           "Navires",
-          "Comptoir pour navires",
+          "Compteur pour navires",
           "Poisson",
           "Oiseaux",
           "Flèches",
@@ -14294,7 +14256,7 @@
         "@id": "1640",
         "meaning": [
           "Tatami",
-          "Comptoir pour tatamis",
+          "Compteur pour tatamis",
           "Pli",
           "Fermez-la",
           "Supprimer"
@@ -14453,7 +14415,7 @@
         "meaning": [
           "Équestre",
           "Monter à cheval",
-          "Comptoir pour cavaliers"
+          "Compteur pour cavaliers"
         ]
       },
       {
@@ -17676,7 +17638,7 @@
           "Hache",
           "1,32 livre",
           "Méchant",
-          "Comptoir pour miches de pain",
+          "Compteur pour miches de pain",
           "Hache radicale (n°69)"
         ]
       },
@@ -19369,7 +19331,7 @@
       {
         "@id": "2324",
         "meaning": [
-          "Comptoir pour armes à feu, bâtons d'encre, palanquins, pousse-pousse",
+          "Compteur pour armes à feu, bâtons d'encre, palanquins, pousse-pousse",
           "Courageusement bénévole"
         ]
       },
@@ -22627,7 +22589,7 @@
           "Pouvoir",
           "Multiplication",
           "Enregistrer",
-          "Comptoir pour véhicules"
+          "Compteur pour véhicules"
         ]
       },
       {
@@ -23380,7 +23342,7 @@
         "@id": "2891",
         "meaning": [
           "Tatamis",
-          "Comptoir pour tatamis",
+          "Compteur pour tatamis",
           "Pli",
           "Fermez-la",
           "Supprimer"
@@ -28368,7 +28330,7 @@
         "meaning": [
           "Ancienne pièce japonaise",
           "Les deux",
-          "Comptoir pour véhicules",
+          "Compteur pour véhicules",
           "Deux"
         ]
       },
@@ -52046,7 +52008,7 @@
       {
         "@id": "7825",
         "meaning": [
-          "Comptoir pour tatamis",
+          "Compteur pour tatamis",
           "Pli"
         ]
       },
@@ -60284,7 +60246,7 @@
         "@id": "9317",
         "meaning": [
           "Rester",
-          "Comptoir pour véhicules"
+          "Compteur pour véhicules"
         ]
       },
       {
@@ -60570,7 +60532,7 @@
       },
       {
         "@id": "9363",
-        "meaning": "Comptoir pour petits bateaux"
+        "meaning": "Compteur pour petits bateaux"
       },
       {
         "@id": "9364",
@@ -68778,7 +68740,7 @@
       },
       {
         "@id": "10883",
-        "meaning": "Comptoir pour gros véhicules"
+        "meaning": "Compteur pour gros véhicules"
       },
       {
         "@id": "10884",
