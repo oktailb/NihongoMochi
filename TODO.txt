@@ -6,6 +6,9 @@ Todo:
  - [ ] Find better sounds
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
+ - [ ] add more lines on cards when it is meaning
+ - [ ] adjust grammar screen view (some overlaps) and over screen links (allow horizontal scroll)
+ - [ ] Quizz grammaire -> barre en haut ne respecte pas le comportement des autres quiz (blocs de 10)
 
 Games:
   - [ ] Tetris ou candycrush like
@@ -20,4 +23,4 @@ KMP & Architecture Refactoring (Technical Debt):
     -> Bénéfice: Requêtes relationnelles complexes pour Shadow Kanji (ex: trouver "frères" visuels). 
     -> Bénéfice: Performance (chargement partiel JLPT).
     -> Risque: Gérer les migrations de schéma et script d'import Python.
-
+  ==> a faire quand toutes les bases seront stabilisées pour eciter des allers/retours d'import
