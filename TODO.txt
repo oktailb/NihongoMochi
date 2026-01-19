@@ -8,7 +8,7 @@ Todo:
  - [ ] Achieve google play connexion
  - [ ] add more lines on cards when it is meaning
  - [ ] adjust grammar screen view (some overlaps) and over screen links (allow horizontal scroll)
- - [ ] Quizz grammaire -> barre en haut ne respecte pas le comportement des autres quiz (blocs de 10)
+ - [X] Quizz grammaire -> barre en haut ne respecte pas le comportement des autres quiz (blocs de 10)
 
 Games:
   - [ ] Tetris ou candycrush like
