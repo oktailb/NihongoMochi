@@ -1,7 +1,6 @@
 package org.nihongo.mochi.ui.wordlist
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,7 +19,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,7 +28,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -71,10 +68,9 @@ fun WordListScreen(
     onWordTypeChange: (Pair<String, String>) -> Unit,
     onPrevPage: () -> Unit,
     onNextPage: () -> Unit,
-    onPlayClick: () -> Unit
+    onPlayClick: () -> Unit,
+    onWordClick: (String) -> Unit
 ) {
-    var selectedWordForMeaning by remember { mutableStateOf<Pair<String, String>?>(null) }
-
     MochiBackground {
         Column(
             modifier = Modifier
@@ -151,15 +147,11 @@ fun WordListScreen(
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     verticalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    wordsWithColors.forEach { (word, color, meaning) ->
+                    wordsWithColors.forEach { (word, color, _) ->
                         WordChip(
                             text = word.text,
                             backgroundColor = color,
-                            onClick = {
-                                if (meaning != null) {
-                                    selectedWordForMeaning = word.text to meaning
-                                }
-                            }
+                            onClick = { onWordClick(word.text) }
                         )
                     }
                 }
@@ -179,25 +171,6 @@ fun WordListScreen(
             PlayButton(onClick = onPlayClick)
         }
     }
-
-    // Meaning Dialog
-    selectedWordForMeaning?.let { (word, meaning) ->
-        AlertDialog(
-            onDismissRequest = { selectedWordForMeaning = null },
-            title = { Text(text = word) },
-            text = { Text(text = meaning) },
-            confirmButton = {
-                辅助TextButton(onClick = { selectedWordForMeaning = null }) {
-                    Text("OK")
-                }
-            }
-        )
-    }
-}
-
-@Composable
-fun 辅助TextButton(onClick: () -> Unit, content: @Composable () -> Unit) {
-    TextButton(onClick = onClick) { content() }
 }
 
 @Composable

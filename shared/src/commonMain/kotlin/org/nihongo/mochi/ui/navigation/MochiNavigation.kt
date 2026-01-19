@@ -607,7 +607,7 @@ fun MochiNavGraph(
                 currentPage = currentPage,
                 totalPages = totalPages,
                 onKanjiClick = { kanji ->
-                    navController.navigate(Screen.KanjiDetail.createRoute(kanji.id))
+                    navController.navigate(Screen.WordDetail.createRoute(kanji.character))
                 },
                 onPrevPage = { viewModel.prevPage() },
                 onNextPage = { viewModel.nextPage() },
@@ -813,6 +813,9 @@ fun MochiNavGraph(
                 onNextPage = { viewModel.nextPage() },
                 onPlayClick = {
                     navController.navigate(Screen.WordQuiz.createRoute(levelId))
+                },
+                onWordClick = { wordText ->
+                    navController.navigate(Screen.WordDetail.createRoute(wordText))
                 }
             )
         }
