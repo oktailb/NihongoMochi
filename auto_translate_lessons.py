@@ -32,33 +32,25 @@ def translate_html(html_content, target_lang):
     soup = BeautifulSoup(html_content, 'html.parser')
     translator = GoogleTranslator(source=SOURCE_LANG, target=target_lang)
     
-    # On traduit le contenu des balises textuelles courantes
-    tags_to_translate = ['h1', 'h2', 'h3', 'p', 'li', 'th', 'td', 'strong', 'em']
+    # On définit les balises contenant du texte à traduire
+    tags_to_translate = ['h1', 'h2', 'h3', 'p', 'li', 'th', 'td', 'strong', 'em', 'b', 'i']
     
     for tag_name in tags_to_translate:
         for tag in soup.find_all(tag_name):
-            # Ne traduire que si la balise contient du texte direct et n'est pas vide
-            if tag.string and tag.string.strip():
-                try:
-                    translated = translator.translate(tag.string)
-                    if translated:
-                        tag.string.replace_with(translated)
-                    time.sleep(0.1) # Petit délai pour le rate limit
-                except Exception as e:
-                    print(f"Erreur de traduction pour '{tag.string[:20]}...': {e}")
-            
-            # Gérer les balises avec des enfants (ex: <p>Texte <strong>Gras</strong> Texte</p>)
-            # Pour simplifier et éviter de casser le HTML, on traite les segments de texte
-            elif len(tag.contents) > 1:
-                for content in tag.contents:
-                    if hasattr(content, 'name') is False and content.strip(): # C'est un NavigableString
-                        try:
-                            translated = translator.translate(content)
-                            if translated:
-                                content.replace_with(translated)
-                            time.sleep(0.1)
-                        except Exception as e:
-                            print(f"Erreur de traduction segment: {e}")
+            # On parcourt les éléments contenus dans la balise
+            # On ne traduit que les segments de texte directs (NavigableString)
+            # Les balises imbriquées seront traitées séparément par la boucle principale
+            for content in list(tag.contents): # list() pour éviter les problèmes de modification en cours d'itération
+                # Dans BeautifulSoup, les segments de texte ont .name == None
+                if content.name is None and content.strip():
+                    try:
+                        text_to_translate = str(content)
+                        translated = translator.translate(text_to_translate)
+                        if translated:
+                            content.replace_with(translated)
+                        time.sleep(0.05)
+                    except Exception as e:
+                        print(f"Erreur de traduction segment: {e}")
 
     return str(soup)
 
