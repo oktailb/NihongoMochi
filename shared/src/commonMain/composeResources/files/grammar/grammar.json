@@ -90,10 +90,31 @@
       "dependencies": ["noms"]
     },
     {
+      "id": "particule_ga",
+      "description": "particule_ga_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": []
+    },
+    {
+      "id": "particule_ni",
+      "description": "particule_ni_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": []
+    },
+    {
+      "id": "particule_ya",
+      "description": "particule_ya_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": []
+    },
+    {
       "id": "particules_de_base",
       "description":  "particules_de_base_desc",
       "level": "n5",
-      "dependencies": []
+      "dependencies": ["particule_ya","particule_ha","particule_ni","particule_no","particule_to","particule_wo","particule_mo","particule_de"]
     }
   ],
 
@@ -105,6 +126,14 @@
       "level": "n5",
       "dependencies": ["verb_dict_form", "particule_ga"],
       "tags": ["existence", "présence"]
+    },
+    {
+      "id": "desu_masu",
+      "description": "desu_masu_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["noms", "adjectifs_na"],
+      "tags": ["politesse", "forme_formelle"]
     },
     {
       "id": "ato_de",
@@ -209,14 +238,6 @@
       "level": "n5",
       "dependencies": ["base_verbale"],
       "tags": ["desir"]
-    },
-    {
-      "id": "particule_ga",
-      "description":  "particule_ga_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["sujet"]
     },
     {
       "id": "particule_ha",
@@ -347,14 +368,6 @@
       "tags": ["confirmation"]
     },
     {
-      "id": "particule_ni",
-      "description":  "particule_ni_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["destination", "temps"]
-    },
-    {
       "id": "particule_no",
       "description":  "particule_no_desc",
       "category": "particules",
@@ -441,14 +454,6 @@
       "level": "n5",
       "dependencies": [],
       "tags": ["objet_direct"]
-    },
-    {
-      "id": "particule_ya",
-      "description":  "particule_ya_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["enumeration"]
     },
     {
       "id": "particule_yo",
@@ -595,6 +600,22 @@
       "tags": ["causatif"]
     },
     {
+      "id": "forme_potentiel_nai",
+      "description": "forme_potentiel_nai_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["forme_eru_rareru", "forme_nai"],
+      "tags": ["negation", "capacite"]
+    },
+    {
+      "id": "forme_causatif_te",
+      "description": "forme_causatif_te_desc",
+      "category": "conjugaison",
+      "level": "n3",
+      "dependencies": ["forme_aseru_saseru", "forme_te"],
+      "tags": ["causatif", "permission"]
+    },
+    {
       "id": "forme_eru_rareru",
       "description":  "forme_eru_rareru_desc",
       "category": "conjugaison",
@@ -739,12 +760,44 @@
       "tags": ["temps"]
     },
     {
+      "id": "n_desu",
+      "description": "n_desu_desc",
+      "category": "expressions",
+      "level": "n4",
+      "dependencies": ["verb_dict_form", "adjectifs_i", "noms"],
+      "tags": ["explication", "raison"]
+    },
+    {
+      "id": "tame_ni",
+      "description": "tame_ni_desc",
+      "category": "conjonctions",
+      "level": "n4",
+      "dependencies": ["verb_dict_form", "noms"],
+      "tags": ["but", "finalité"]
+    },
+    {
       "id": "ta_bakari",
       "description":  "ta_bakari_desc",
       "category": "expressions",
       "level": "n4",
       "dependencies": ["forme_ta"],
       "tags": ["temps_recent"]
+    },
+    {
+      "id": "bakari",
+      "description": "bakari_desc",
+      "category": "particules",
+      "level": "n3",
+      "dependencies": ["verb_dict_form", "noms"],
+      "tags": ["quantité", "limitation"]
+    },
+    {
+      "id": "fukushi",
+      "description": "fukushi_desc",
+      "category": "adverbes",
+      "level": "n3",
+      "dependencies": ["adjectifs_i", "adjectifs_na"],
+      "tags": ["transformation", "forme_adverbiale"]
     },
     {
       "id": "ta_ra_do_desu_ka",
