@@ -9,6 +9,7 @@ data class GrammarDefinition(
     val version: String,
     val metadata: GrammarMetadata,
     val dependencies_basics: List<GrammarRule>,
+    val conjugaison: List<GrammarRule> = emptyList(),
     val rules: List<GrammarRule>
 )
 
@@ -87,7 +88,7 @@ class GrammarRepository(
 
     suspend fun getAllRules(): List<GrammarRule> {
         val def = loadGrammarDefinition()
-        return def.dependencies_basics + def.rules
+        return def.dependencies_basics + def.conjugaison + def.rules
     }
 
     suspend fun getRuleById(id: String): GrammarRule? {
@@ -101,6 +102,25 @@ class GrammarRepository(
         if (maxLevelIndex == -1) return emptyList()
 
         return getAllRules().filter { rule ->
+            val ruleLevelIndex = levelsOrder.indexOf(rule.level)
+            ruleLevelIndex != -1 && ruleLevelIndex <= maxLevelIndex
+        }
+    }
+
+    suspend fun getRulesByBlock(block: String, maxLevelId: String): List<GrammarRule> {
+        val def = loadGrammarDefinition()
+        val rulesInBlock = when (block) {
+            "dependencies_basics" -> def.dependencies_basics
+            "conjugaison" -> def.conjugaison
+            "rules" -> def.rules
+            else -> getAllRules()
+        }
+
+        val levelsOrder = def.metadata.levels
+        val maxLevelIndex = levelsOrder.indexOf(maxLevelId)
+        if (maxLevelIndex == -1) return rulesInBlock
+
+        return rulesInBlock.filter { rule ->
             val ruleLevelIndex = levelsOrder.indexOf(rule.level)
             ruleLevelIndex != -1 && ruleLevelIndex <= maxLevelIndex
         }

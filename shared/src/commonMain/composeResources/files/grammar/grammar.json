@@ -21,45 +21,6 @@
 
   "dependencies_basics": [
     {
-      "id": "verb_dict_form",
-      "description":  "verb_dict_form_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": []
-    },
-    {
-      "id": "base_verbale",
-      "description":  "base_verbale_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["verb_dict_form"]
-    },
-    {
-      "id": "forme_nai",
-      "description":  "forme_nai_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["verb_dict_form"]
-    },
-    {
-      "id": "forme_ta",
-      "description":  "forme_ta_desc",
-      "level": "n5",
-      "dependencies": ["verb_dict_form"]
-    },
-    {
-      "id": "forme_te",
-      "description":  "forme_te_desc",
-      "level": "n5",
-      "dependencies": ["verb_dict_form"]
-    },
-    {
-      "id": "conjugaison_conditionnel",
-      "description":  "conjugaison_conditionnel_desc",
-      "level": "n4",
-      "dependencies": ["verb_dict_form"]
-    },
-    {
       "id": "adjectifs_i",
       "description":  "adjectifs_i_desc",
       "level": "n5",
@@ -115,17 +76,151 @@
       "description":  "particules_de_base_desc",
       "level": "n5",
       "dependencies": ["particule_ya","particule_ha","particule_ni","particule_no","particule_to","particule_wo","particule_mo","particule_de"]
+    },
+    {
+      "id": "particule_mo",
+      "description":  "particule_mo_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["addition"]
+    },
+    {
+      "id": "particule_de",
+      "description":  "particule_de_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["particule_de_base"]
+    },
+    {
+      "id": "particule_ha",
+      "description":  "particule_ha_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["theme"]
+    },
+    {
+      "id": "particule_ka",
+      "description":  "particule_ka_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["interrogation"]
+    },
+    {
+      "id": "kara_made",
+      "description":  "kara_made_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["temps", "espace"]
+    },
+    {
+      "id": "particule_ne",
+      "description":  "particule_ne_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["confirmation"]
+    },
+    {
+      "id": "particule_no",
+      "description":  "particule_no_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["possession"]
+    },
+    {
+      "id": "particule_to",
+      "description":  "particule_to_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["conjonction", "citation"]
+    },
+    {
+      "id": "particule_wo",
+      "description":  "particule_wo_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["objet_direct"]
+    },
+    {
+      "id": "particule_yo",
+      "description":  "particule_yo_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["affirmation"]
+    },
+    {
+      "id": "particule_yori",
+      "description":  "particule_yori_desc",
+      "category": "particules",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["comparaison"]
     }
   ],
-
-  "rules": [
+  "conjugaison": [
     {
-      "id": "aru_iru",
-      "description":  "aru_iru_desc",
-      "category": "verbes",
+      "id": "verb_dict_form",
+      "description":  "verb_dict_form_desc",
+      "category": "conjugaison",
       "level": "n5",
-      "dependencies": ["verb_dict_form", "particule_ga"],
-      "tags": ["existence", "présence"]
+      "dependencies": []
+    },
+    {
+      "id": "base_verbale",
+      "description":  "base_verbale_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["verb_dict_form"]
+    },
+    {
+      "id": "forme_nai",
+      "description":  "forme_nai_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["verb_dict_form"]
+    },
+    {
+      "id": "forme_ta",
+      "description":  "forme_ta_desc",
+      "level": "n5",
+      "dependencies": ["verb_dict_form"]
+    },
+    {
+      "id": "forme_te",
+      "description":  "forme_te_desc",
+      "level": "n5",
+      "dependencies": ["verb_dict_form"]
+    },
+    {
+      "id": "conjugaison_conditionnel",
+      "description":  "conjugaison_conditionnel_desc",
+      "level": "n4",
+      "dependencies": ["verb_dict_form"]
+    },
+    {
+      "id": "forme_dict",
+      "description":  "forme_dict_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": [],
+      "tags": ["forme_de_base"]
+    },
+    {
+      "id": "forme_tai",
+      "description":  "forme_tai_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["base_verbale"],
+      "tags": ["desir"]
     },
     {
       "id": "desu_masu",
@@ -134,6 +229,128 @@
       "level": "n5",
       "dependencies": ["noms", "adjectifs_na"],
       "tags": ["politesse", "forme_formelle"]
+    },
+    {
+      "id": "forme_conjonctive_i",
+      "description":  "forme_conjonctive_i_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["verb_dict_form"],
+      "tags": ["conjugaison", "base"]
+    },
+    {
+      "id": "forme_masu",
+      "description":  "forme_masu_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["base_verbale"],
+      "tags": ["politesse"]
+    },
+    {
+      "id": "ta_ri_shimasu",
+      "description":  "ta_ri_shimasu_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["forme_ta"],
+      "tags": ["enumeration"]
+    },
+    {
+      "id": "te_iru",
+      "description":  "te_iru_desc",
+      "category": "conjugaison",
+      "level": "n5",
+      "dependencies": ["forme_te"],
+      "tags": ["progressif"]
+    },
+    {
+      "id": "forme_areru",
+      "description":  "forme_areru_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["verb_dict_form"],
+      "tags": ["passif"]
+    },
+    {
+      "id": "forme_aseru_saseru",
+      "description":  "forme_aseru_saseru_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["verb_dict_form"],
+      "tags": ["causatif"]
+    },
+    {
+      "id": "forme_potentiel_nai",
+      "description": "forme_potentiel_nai_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["forme_eru_rareru", "forme_nai"],
+      "tags": ["negation", "capacite"]
+    },
+    {
+      "id": "forme_causatif_te",
+      "description": "forme_causatif_te_desc",
+      "category": "conjugaison",
+      "level": "n3",
+      "dependencies": ["forme_aseru_saseru", "forme_te"],
+      "tags": ["causatif", "permission"]
+    },
+    {
+      "id": "forme_eru_rareru",
+      "description":  "forme_eru_rareru_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["verb_dict_form"],
+      "tags": ["potentiel"]
+    },
+    {
+      "id": "forme_nasai",
+      "description":  "forme_nasai_desc",
+      "category": "imperatif",
+      "level": "n4",
+      "dependencies": ["base_verbale"],
+      "tags": ["ordre"]
+    },
+    {
+      "id": "forme_saserareru",
+      "description":  "forme_saserareru_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["forme_aseru_saseru", "forme_areru"],
+      "tags": ["causatif_passif"]
+    },
+    {
+      "id": "forme_conjecturale",
+      "description":  "forme_conjecturale_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["base_verbale"],
+      "tags": ["invitation", "intention"]
+    },
+    {
+      "id": "te_aru",
+      "description":  "te_aru_desc",
+      "category": "conjugaison",
+      "level": "n4",
+      "dependencies": ["forme_te"],
+      "tags": ["etat"]
+    },
+    {
+      "id": "mai",
+      "description":  "mai_desc",
+      "category": "conjugaison",
+      "level": "n2",
+      "dependencies": ["verb_dict_form"],
+      "tags": ["negation_volitive"]
+    }
+  ],
+  "rules": [
+    {
+      "id": "aru_iru",
+      "description":  "aru_iru_desc",
+      "category": "verbes",
+      "level": "n5",
+      "dependencies": ["verb_dict_form", "particule_ga"],
+      "tags": ["existence", "présence"]
     },
     {
       "id": "ato_de",
@@ -184,14 +401,6 @@
       "tags": ["temps", "espace"]
     },
     {
-      "id": "particule_de",
-      "description":  "particule_de_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["particule_de_base"]
-    },
-    {
       "id": "desho_daro",
       "description":  "desho_daro_desc",
       "category": "expressions",
@@ -200,52 +409,12 @@
       "tags": ["probabilité"]
     },
     {
-      "id": "forme_conjonctive_i",
-      "description":  "forme_conjonctive_i_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["verb_dict_form"],
-      "tags": ["conjugaison", "base"]
-    },
-    {
-      "id": "forme_masu",
-      "description":  "forme_masu_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["base_verbale"],
-      "tags": ["politesse"]
-    },
-    {
       "id": "forme_naide_kudasai",
       "description":  "forme_naide_kudasai_desc",
       "category": "imperatif",
       "level": "n5",
       "dependencies": ["forme_nai"],
       "tags": ["interdiction", "politesse"]
-    },
-    {
-      "id": "forme_dict",
-      "description":  "forme_dict_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["forme_de_base"]
-    },
-    {
-      "id": "forme_tai",
-      "description":  "forme_tai_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["base_verbale"],
-      "tags": ["desir"]
-    },
-    {
-      "id": "particule_ha",
-      "description":  "particule_ha_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["theme"]
     },
     {
       "id": "ha_ikemasen",
@@ -262,22 +431,6 @@
       "level": "n5",
       "dependencies": ["forme_ta", "forme_nai"],
       "tags": ["conseil"]
-    },
-    {
-      "id": "particule_ka",
-      "description":  "particule_ka_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["interrogation"]
-    },
-    {
-      "id": "kara_made",
-      "description":  "kara_made_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["temps", "espace"]
     },
     {
       "id": "kara_node",
@@ -302,14 +455,6 @@
       "level": "n5",
       "dependencies": ["verb_dict_form"],
       "tags": ["temps"]
-    },
-    {
-      "id": "particule_mo",
-      "description":  "particule_mo_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["addition"]
     },
     {
       "id": "mo_ii_desu",
@@ -360,36 +505,12 @@
       "tags": ["changement"]
     },
     {
-      "id": "particule_ne",
-      "description":  "particule_ne_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["confirmation"]
-    },
-    {
-      "id": "particule_no",
-      "description":  "particule_no_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["possession"]
-    },
-    {
       "id": "no_desu",
       "description":  "no_desu_desc",
       "category": "expressions",
       "level": "n5",
       "dependencies": ["verb_dict_form", "adjectifs_i", "noms"],
       "tags": ["explication"]
-    },
-    {
-      "id": "particule_to",
-      "description":  "particule_to_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["conjonction", "citation"]
     },
     {
       "id": "to_iu",
@@ -424,52 +545,12 @@
       "tags": ["experience"]
     },
     {
-      "id": "ta_ri_shimasu",
-      "description":  "ta_ri_shimasu_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["forme_ta"],
-      "tags": ["enumeration"]
-    },
-    {
-      "id": "te_iru",
-      "description":  "te_iru_desc",
-      "category": "conjugaison",
-      "level": "n5",
-      "dependencies": ["forme_te"],
-      "tags": ["progressif"]
-    },
-    {
       "id": "te_kara",
       "description":  "te_kara_desc",
       "category": "conjonctions",
       "level": "n5",
       "dependencies": ["forme_te"],
       "tags": ["temps"]
-    },
-    {
-      "id": "particule_wo",
-      "description":  "particule_wo_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["objet_direct"]
-    },
-    {
-      "id": "particule_yo",
-      "description":  "particule_yo_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["affirmation"]
-    },
-    {
-      "id": "particule_yori",
-      "description":  "particule_yori_desc",
-      "category": "particules",
-      "level": "n5",
-      "dependencies": [],
-      "tags": ["comparaison"]
     },
     {
       "id": "yori_no_ho_ga",
@@ -584,76 +665,12 @@
       "tags": ["tentative"]
     },
     {
-      "id": "forme_areru",
-      "description":  "forme_areru_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["verb_dict_form"],
-      "tags": ["passif"]
-    },
-    {
-      "id": "forme_aseru_saseru",
-      "description":  "forme_aseru_saseru_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["verb_dict_form"],
-      "tags": ["causatif"]
-    },
-    {
-      "id": "forme_potentiel_nai",
-      "description": "forme_potentiel_nai_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["forme_eru_rareru", "forme_nai"],
-      "tags": ["negation", "capacite"]
-    },
-    {
-      "id": "forme_causatif_te",
-      "description": "forme_causatif_te_desc",
-      "category": "conjugaison",
-      "level": "n3",
-      "dependencies": ["forme_aseru_saseru", "forme_te"],
-      "tags": ["causatif", "permission"]
-    },
-    {
-      "id": "forme_eru_rareru",
-      "description":  "forme_eru_rareru_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["verb_dict_form"],
-      "tags": ["potentiel"]
-    },
-    {
-      "id": "forme_nasai",
-      "description":  "forme_nasai_desc",
-      "category": "imperatif",
-      "level": "n4",
-      "dependencies": ["base_verbale"],
-      "tags": ["ordre"]
-    },
-    {
-      "id": "forme_saserareru",
-      "description":  "forme_saserareru_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["forme_aseru_saseru", "forme_areru"],
-      "tags": ["causatif_passif"]
-    },
-    {
       "id": "forme_zuni_naide",
       "description":  "forme_zuni_naide_desc",
       "category": "conjonctions",
       "level": "n4",
       "dependencies": ["forme_nai"],
       "tags": ["negation"]
-    },
-    {
-      "id": "forme_conjecturale",
-      "description":  "forme_conjecturale_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["base_verbale"],
-      "tags": ["invitation", "intention"]
     },
     {
       "id": "garu",
@@ -814,14 +831,6 @@
       "level": "n4",
       "dependencies": ["forme_te"],
       "tags": ["bienveillance"]
-    },
-    {
-      "id": "te_aru",
-      "description":  "te_aru_desc",
-      "category": "conjugaison",
-      "level": "n4",
-      "dependencies": ["forme_te"],
-      "tags": ["etat"]
     },
     {
       "id": "te_bakari_iru",
@@ -1646,14 +1655,6 @@
       "level": "n2",
       "dependencies": ["verb_dict_form", "adjectifs_i", "noms"],
       "tags": ["degré"]
-    },
-    {
-      "id": "mai",
-      "description":  "mai_desc",
-      "category": "conjugaison",
-      "level": "n2",
-      "dependencies": ["verb_dict_form"],
-      "tags": ["negation_volitive"]
     },
     {
       "id": "mai_ka",

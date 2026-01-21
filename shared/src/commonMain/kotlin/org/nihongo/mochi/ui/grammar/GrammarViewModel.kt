@@ -57,6 +57,9 @@ class GrammarViewModel(
 
     private val _currentLevelId = MutableStateFlow("N5")
     val currentLevelId: StateFlow<String> = _currentLevelId.asStateFlow()
+    
+    private val _currentBlock = MutableStateFlow<String?>("rules")
+    val currentBlock: StateFlow<String?> = _currentBlock.asStateFlow()
 
     private val _selectedLessonHtml = MutableStateFlow<String?>(null)
     val selectedLessonHtml: StateFlow<String?> = _selectedLessonHtml.asStateFlow()
@@ -67,8 +70,9 @@ class GrammarViewModel(
     private val _selectedQuizTags = MutableStateFlow<List<String>?>(null)
     val selectedQuizTags: StateFlow<List<String>?> = _selectedQuizTags.asStateFlow()
 
-    fun loadGraph(maxLevelId: String) {
+    fun loadGraph(maxLevelId: String, block: String? = "rules") {
         _currentLevelId.value = maxLevelId
+        _currentBlock.value = block
         viewModelScope.launch {
             _isLoading.value = true
             
@@ -148,6 +152,7 @@ class GrammarViewModel(
 
     private suspend fun refreshGraph() {
         val currentMaxLevelId = _currentLevelId.value
+        val block = _currentBlock.value
         val def = grammarRepository.loadGrammarDefinition()
         
         val (rules, levelsToShow) = if (currentMaxLevelId == REVISION_LEVEL_ID) {
@@ -158,9 +163,13 @@ class GrammarViewModel(
             revisionRules to listOf(REVISION_LEVEL_ID)
         } else {
             val allLevels = def.metadata.levels
-            val targetLevelIndex = allLevels.indexOf(currentMaxLevelId).takeIf { it != -1 } ?: allLevels.size - 1
+            val targetLevelIndex = allLevels.indexOf(currentMaxLevelId.lowercase()).takeIf { it != -1 } ?: allLevels.size - 1
             val levelsToShow = allLevels.take(targetLevelIndex + 1)
-            val rules = grammarRepository.getRulesUntilLevel(currentMaxLevelId)
+            val rules = if (block != null) {
+                grammarRepository.getRulesByBlock(block, currentMaxLevelId)
+            } else {
+                grammarRepository.getRulesUntilLevel(currentMaxLevelId)
+            }
             rules to levelsToShow
         }
         
@@ -210,14 +219,14 @@ class GrammarViewModel(
         val rulesByLevel = if (isRevisionMode) {
             mapOf(REVISION_LEVEL_ID to rules)
         } else {
-            rules.groupBy { it.level }
+            rules.groupBy { it.level.lowercase() }
         }
 
         var currentSlot = 0f
         
         levels.forEach { levelId ->
             currentSlot += 0.5f 
-            val levelRules = rulesByLevel[levelId] ?: emptyList()
+            val levelRules = rulesByLevel[levelId.lowercase()] ?: emptyList()
             val ruleIds = levelRules.map { it.id }
 
             if (levelRules.isNotEmpty()) {
@@ -236,7 +245,7 @@ class GrammarViewModel(
         currentSlot = 0f
         
          levels.forEach { levelId ->
-            val levelRules = rulesByLevel[levelId] ?: emptyList()
+            val levelRules = rulesByLevel[levelId.lowercase()] ?: emptyList()
             currentSlot += 0.5f
             
             if (levelRules.isNotEmpty()) {
@@ -257,7 +266,7 @@ class GrammarViewModel(
 
                 sortedRules.forEach { rule ->
                     val intraLevelParentId = rule.dependencies.firstOrNull { depId ->
-                        rulesMap[depId]?.level == levelId && assignedSides.containsKey(depId)
+                        rulesMap[depId]?.level?.lowercase() == levelId.lowercase() && assignedSides.containsKey(depId)
                     }
                     val preferredSide = if (intraLevelParentId != null) assignedSides[intraLevelParentId] else null
                     assignSide(rule.id, preferredSide)
@@ -281,7 +290,7 @@ class GrammarViewModel(
         val normalizedNodes = finalNodes.map { it.copy(y = it.y / totalSlots) }
         val normalizedSeparators = rawSeparators.map { triple ->
             val levelId = triple.first
-            val levelRules = rulesByLevel[levelId] ?: emptyList()
+            val levelRules = rulesByLevel[levelId.lowercase()] ?: emptyList()
             val completion = if (levelRules.isNotEmpty()) {
                 val successfulNodes = levelRules.count { rule ->
                     val score = scoreRepository.getScore(rule.id, ScoreManager.ScoreType.GRAMMAR)
