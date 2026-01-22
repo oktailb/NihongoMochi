@@ -166,6 +166,10 @@
             "WRITING": {
               "dataFile": "kanji_details",
               "enabled": true
+            },
+            "GRAMMAR": {
+              "dataFile": "jlpt_grammar_n1",
+              "enabled": true
             }
           }
         }
