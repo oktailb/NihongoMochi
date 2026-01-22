@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "metadata": {
-    "levels": ["n5", "n4", "n3", "n2", "unclassified"],
+    "levels": ["n5", "n4", "n3", "n2", "n1"],
     "categories": [
       "verbes",
       "particules",
@@ -2372,7 +2372,7 @@
       "id": "base_naosu",
       "description":  "base_naosu_desc",
       "category": "verbes_composes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["base_verbale"],
       "tags": ["répétition"]
     },
@@ -2380,7 +2380,7 @@
       "id": "base_owaru",
       "description":  "base_owaru_desc",
       "category": "verbes_composes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["base_verbale"],
       "tags": ["achèvement"]
     },
@@ -2388,7 +2388,7 @@
       "id": "conjecturale_to_omou",
       "description":  "conjecturale_to_omou_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["forme_conjecturale"],
       "tags": ["intention"]
     },
@@ -2396,7 +2396,7 @@
       "id": "goro_gurai_yaku",
       "description":  "goro_gurai_yaku_desc",
       "category": "particules",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["noms_temps"],
       "tags": ["approximation"]
     },
@@ -2404,7 +2404,7 @@
       "id": "hitsuyo",
       "description":  "hitsuyo_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["noms"],
       "tags": ["nécessité"]
     },
@@ -2412,7 +2412,7 @@
       "id": "ichio",
       "description":  "ichio_desc",
       "category": "adverbes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": [],
       "tags": ["précaution"]
     },
@@ -2420,7 +2420,7 @@
       "id": "nidoto",
       "description":  "nidoto_desc",
       "category": "adverbes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["forme_nai"],
       "tags": ["négation_forte"]
     },
@@ -2428,7 +2428,7 @@
       "id": "sonna_ni",
       "description":  "sonna_ni_desc",
       "category": "adverbes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["forme_nai"],
       "tags": ["quantité"]
     },
@@ -2436,7 +2436,7 @@
       "id": "tada_no_tan_ni",
       "description":  "tada_no_tan_ni_desc",
       "category": "adverbes",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["noms"],
       "tags": ["simplicité"]
     },
@@ -2444,7 +2444,7 @@
       "id": "to_iu_no_ha",
       "description":  "to_iu_no_ha_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["to_iu"],
       "tags": ["explication"]
     },
@@ -2452,7 +2452,7 @@
       "id": "eba_ii_noni",
       "description":  "eba_ii_noni_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["conjugaison_conditionnel"],
       "tags": ["regret", "suggestion"]
     },
@@ -2460,7 +2460,7 @@
       "id": "ta_ra_ii_desu_ka",
       "description":  "ta_ra_ii_desu_ka_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["conditionnel_tara"],
       "tags": ["conseil"]
     },
@@ -2468,7 +2468,7 @@
       "id": "te_mo_shoganai_shikataganai",
       "description":  "te_mo_shoganai_shikataganai_desc",
       "category": "expressions",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": ["forme_te"],
       "tags": ["inutilité"]
     },
@@ -2476,7 +2476,7 @@
       "id": "zutsu",
       "description":  "zutsu_desc",
       "category": "particules",
-      "level": "unclassified",
+      "level": "n1",
       "dependencies": [],
       "tags": ["distribution"]
     }
