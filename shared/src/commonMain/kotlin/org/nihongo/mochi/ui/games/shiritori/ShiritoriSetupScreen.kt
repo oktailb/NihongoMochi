@@ -46,10 +46,7 @@ fun ShiritoriSetupScreen(
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
-                Text(text = "• Word must start with the last syllable of the previous word.", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(text = "• Don't end with 'N' (ん)!", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(text = "• Words cannot be repeated.", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(text = "• AI is limited to your current JLPT level.", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = stringResource(Res.string.shiritori_rules), fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
 
@@ -114,14 +111,6 @@ fun ShiritoriSetupScreen(
                     }
                 }
             }
-        }
-        
-        OutlinedButton(
-            onClick = onBackClick,
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp)
-        ) {
-            Text("Back to Games")
         }
     }
 }

@@ -46,6 +46,13 @@ fun ShiritoriGameScreen(
     val listState = rememberLazyListState()
     val audioPlayer: org.nihongo.mochi.domain.services.AudioPlayer = koinInject()
 
+    // Lancement automatique du jeu dès l'entrée sur l'écran
+    LaunchedEffect(Unit) {
+        if (gameState == ShiritoriGameState.IDLE) {
+            viewModel.startGame()
+        }
+    }
+
     LaunchedEffect(playedWords.size) {
         if (playedWords.isNotEmpty()) {
             listState.animateScrollToItem(playedWords.size - 1)
@@ -65,7 +72,7 @@ fun ShiritoriGameScreen(
                 )
 
                 // --- Indicateur de Kana Cible ---
-                if (gameState != ShiritoriGameState.GAME_OVER) {
+                if (gameState != ShiritoriGameState.GAME_OVER && gameState != ShiritoriGameState.IDLE) {
                     Surface(
                         shape = RoundedCornerShape(16.dp),
                         color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.8f),
@@ -107,6 +114,14 @@ fun ShiritoriGameScreen(
                     if (gameState == ShiritoriGameState.AI_TURN) {
                         item {
                             TypingIndicator()
+                        }
+                    }
+                    
+                    if (gameState == ShiritoriGameState.LOADING) {
+                        item {
+                            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                                CircularProgressIndicator()
+                            }
                         }
                     }
                 }

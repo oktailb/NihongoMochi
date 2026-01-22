@@ -15,6 +15,7 @@ import org.nihongo.mochi.ui.games.crossword.CrosswordGameResult
 import org.nihongo.mochi.ui.games.crossword.CrosswordMode
 import org.nihongo.mochi.ui.games.snake.SnakeGameResult
 import org.nihongo.mochi.ui.games.snake.SnakeMode
+import org.nihongo.mochi.ui.games.shiritori.ShiritoriGameResult
 
 class ScoreManager(
     private val database: MochiDatabase,
@@ -320,6 +321,32 @@ class ScoreManager(
         }
     }
 
+    override fun saveShiritoriResult(result: ShiritoriGameResult) {
+        queries.insertGameResult(
+            "SHIRITORI",
+            result.score.toLong(),
+            null,
+            result.timeSeconds.toLong(),
+            null,
+            null,
+            null,
+            result.score.toLong(),
+            result.timestamp,
+            result.levelId
+        )
+    }
+
+    override fun getShiritoriHistory(): List<ShiritoriGameResult> {
+        return queries.getTopScoresByWordsFound("SHIRITORI").executeAsList().map {
+            ShiritoriGameResult(
+                score = it.wordsFound?.toInt() ?: 0,
+                timeSeconds = it.timeSeconds?.toInt() ?: 0,
+                levelId = it.metadata ?: "",
+                timestamp = it.timestamp
+            )
+        }
+    }
+
     // --- Import/Export ---
 
     override fun getAllDataJson(): String {
@@ -354,6 +381,7 @@ class ScoreManager(
             put("kana_link_history", Json.encodeToJsonElement(getKanaLinkHistory()))
             put("crossword_history", Json.encodeToJsonElement(getCrosswordHistory()))
             put("snake_history", Json.encodeToJsonElement(getSnakeHistory()))
+            put("shiritori_history", Json.encodeToJsonElement(getShiritoriHistory()))
         }
 
         return Json.encodeToString(jsonObject)

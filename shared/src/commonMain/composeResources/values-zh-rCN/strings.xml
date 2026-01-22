@@ -81,11 +81,11 @@
     <string name="menu_dictionary">字典</string>
     <string name="menu_results">结果</string>
     <string name="menu_about">关于</string>
-    <string name="level_n5">N5</string>
-    <string name="level_n4">N4</string>
-    <string name="level_n3">N3</string>
-    <string name="level_n2">氮气</string>
-    <string name="level_n1">N1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_class_1">1级</string>
     <string name="level_class_2">2级</string>
     <string name="level_class_3">3级</string>
@@ -96,12 +96,12 @@
     <string name="level_high_school_2">3级测试</string>
     <string name="level_high_school_3">准2级测试</string>
     <string name="level_high_school_4">2级测试</string>
-    <string name="level_hiragana">平假名</string>
-    <string name="level_katakana">片假名</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">学习识别汉字并记住它们的基本含义。</string>
     <string name="home_reading_subtitle">学习如何阅读整个单词以及如何在不同上下文中发音</string>
     <string name="home_writing_subtitle">练习书写单词并将汉字刻入你的记忆中。</string>
-    <string name="title_home">森宽二</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">游戏回顾</string>
     <string name="about_category_informations">信息</string>
     <string name="about_category_credits">制作人员</string>
@@ -674,4 +674,5 @@
     <string name="in_memoriam">纪念我心爱的小狗エビ</string>
     <string name="reading">通过阅读</string>
     <string name="meaning">按意思</string>
+    <string name="shiritori_rules">• 单词必须从前一个单词的最后一个音节开始。\n• 不要以“N”(ん) 结尾！\n• 单词不能重复。\n• AI 仅限于您当前的 JLPT 级别。</string>
 </resources>

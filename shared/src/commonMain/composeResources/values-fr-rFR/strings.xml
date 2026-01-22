@@ -62,7 +62,7 @@
     <string name="activity_type_writing">Écriture et tracé</string>
     <string name="activity_type_vocabulary">Vocabulaire</string>
     <string name="activity_type_grammar">Grammaire</string>
-    <string name="activity_type_grammar_bases">Bases</string>
+    <string name="activity_type_grammar_bases">Socles</string>
     <string name="activity_type_grammar_verbs">Verbes</string>
     <string name="activity_type_grammar_syntax">Syntaxe</string>
     <string name="activity_type_games">Jeux et défis</string>
@@ -160,11 +160,11 @@
     <string name="menu_dictionary">Dictionnaire</string>
     <string name="menu_results">Résultats</string>
     <string name="menu_about">À propos</string>
-    <string name="level_n5">JLPT N5</string>
-    <string name="level_n4">JLPT N4</string>
-    <string name="level_n3">JLPT N3</string>
-    <string name="level_n2">JLPT N2</string>
-    <string name="level_n1">JLPT N1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_grade_1">1re année</string>
     <string name="level_grade_2">2e année</string>
     <string name="level_grade_3">3e année</string>
@@ -192,12 +192,12 @@
     <string name="level_high_school_2">Essai 3</string>
     <string name="level_high_school_3">Test Pre-2</string>
     <string name="level_high_school_4">Essai 2</string>
-    <string name="level_hiragana">Hiragana</string>
-    <string name="level_katakana">Katakana</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">Apprendre à reconnaître les kanji et à se rappeler leurs significations de base.</string>
     <string name="home_reading_subtitle">Apprenez à lire des mots en entier et comment les prononcer dans différents contextes</string>
     <string name="home_writing_subtitle">Entraînez-vous à écrire des mots et à graver le kanji dans votre mémoire.</string>
-    <string name="title_home">Nihongo Mochi</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">Récapitulatif du jeu</string>
     <string name="about_category_informations">Informations</string>
     <string name="about_category_credits">Crédits</string>
@@ -674,4 +674,5 @@
     <string name="in_memoriam">En mémoire de エビ, mon toutounet adoré</string>
     <string name="reading">Par lecture</string>
     <string name="meaning">Par sens</string>
+    <string name="shiritori_rules">• Le mot doit commencer par la dernière syllabe du mot précédent.\n• Ne terminez pas par 'N' (ん) !\n• Les mots ne peuvent pas être répétés.\n• L'IA est limitée à votre niveau JLPT actuel."</string>
 </resources>

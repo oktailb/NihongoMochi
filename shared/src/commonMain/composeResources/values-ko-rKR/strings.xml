@@ -81,11 +81,11 @@
     <string name="menu_dictionary">사전</string>
     <string name="menu_results">결과</string>
     <string name="menu_about">정보</string>
-    <string name="level_n5">N5</string>
-    <string name="level_n4">N4</string>
-    <string name="level_n3">N3</string>
-    <string name="level_n2">N2</string>
-    <string name="level_n1">N1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_class_1">1급</string>
     <string name="level_class_2">2급</string>
     <string name="level_class_3">3급</string>
@@ -96,12 +96,12 @@
     <string name="level_high_school_2">3급 시험</string>
     <string name="level_high_school_3">준2급 시험</string>
     <string name="level_high_school_4">2급 시험</string>
-    <string name="level_hiragana">히라가나</string>
-    <string name="level_katakana">가타카나</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">한자를 인식하고 기본 의미를 기억하는 법을 배웁니다.</string>
     <string name="home_reading_subtitle">전체 단어를 읽고 다른 맥락에서 발음하는 법을 배웁니다.</string>
     <string name="home_writing_subtitle">단어 쓰기를 연습하고 한자를 기억에 새깁니다.</string>
-    <string name="title_home">모리 칸지</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">게임 요약</string>
     <string name="about_category_informations">정보</string>
     <string name="about_category_credits">크레딧</string>
@@ -674,4 +674,5 @@
     <string name="in_memoriam">사랑하는 강아지 에비를 기리며</string>
     <string name="reading">독서로</string>
     <string name="meaning">의미로</string>
+    <string name="shiritori_rules">• 단어는 이전 단어의 마지막 음절로 시작해야 합니다.\n• 'N'(ん)으로 끝나지 마세요.\n• 단어를 반복할 수 없습니다.\n• AI는 현재 JLPT 수준으로 제한됩니다.</string>
 </resources>

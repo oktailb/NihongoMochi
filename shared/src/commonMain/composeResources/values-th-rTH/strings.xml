@@ -81,11 +81,11 @@
     <string name="menu_dictionary">พจนานุกรม</string>
     <string name="menu_results">ผลลัพธ์</string>
     <string name="menu_about">เกี่ยวกับ</string>
-    <string name="level_n5">N5</string>
-    <string name="level_n4">N4</string>
-    <string name="level_n3">N3</string>
-    <string name="level_n2">น2</string>
-    <string name="level_n1">N1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_class_1">ชั้นเรียน 1</string>
     <string name="level_class_2">ชั้นเรียน 2</string>
     <string name="level_class_3">ชั้นเรียน 3</string>
@@ -96,12 +96,12 @@
     <string name="level_high_school_2">ทดสอบ 3</string>
     <string name="level_high_school_3">การทดสอบก่อน 2</string>
     <string name="level_high_school_4">ทดสอบ 2</string>
-    <string name="level_hiragana">ฮิรางานะ</string>
-    <string name="level_katakana">คาตาคานะ</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">เรียนรู้ที่จะจดจำคันจิและจดจำความหมายพื้นฐานของพวกเขา</string>
     <string name="home_reading_subtitle">เรียนรู้ที่จะอ่านคำทั้งคำและวิธีการออกเสียงในบริบทที่แตกต่างกัน</string>
     <string name="home_writing_subtitle">ฝึกเขียนคำและจดจำคันจิในความจำของคุณ</string>
-    <string name="title_home">คันจิ โมริ</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">สรุปเกม</string>
     <string name="about_category_informations">ข้อมูล</string>
     <string name="about_category_credits">เครดิต</string>
@@ -674,4 +674,5 @@
     <string name="in_memoriam">เพื่อรำลึกถึง エビ ลูกหมาที่รักของฉัน</string>
     <string name="reading">โดยการอ่าน</string>
     <string name="meaning">ตามความหมาย</string>
+    <string name="shiritori_rules">• คำต้องขึ้นต้นด้วยพยางค์สุดท้ายของคำก่อนหน้า\n• อย่าลงท้ายด้วย 'N' (ん)!\n• ไม่สามารถพูดซ้ำคำได้\n• AI ถูกจำกัดไว้ที่ระดับ JLPT ปัจจุบันของคุณ"</string>
 </resources>

@@ -79,11 +79,11 @@
     <string name="menu_dictionary">القاموس</string>
     <string name="menu_results">النتائج</string>
     <string name="menu_about">حول</string>
-    <string name="level_n5">ن5</string>
-    <string name="level_n4">ن4</string>
-    <string name="level_n3">ن3</string>
-    <string name="level_n2">ن2</string>
-    <string name="level_n1">ن1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_class_1">الفصل 1</string>
     <string name="level_class_2">الفصل 2</string>
     <string name="level_class_3">الفصل 3</string>
@@ -94,12 +94,12 @@
     <string name="level_high_school_2">اختبار 3</string>
     <string name="level_high_school_3">اختبار ما قبل 2</string>
     <string name="level_high_school_4">اختبار 2</string>
-    <string name="level_hiragana">هيراغانا</string>
-    <string name="level_katakana">كاتاكانا</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">تعلم كيفية التعرف على الكانجي وتذكر معانيها الأساسية.</string>
     <string name="home_reading_subtitle">تعلم قراءة الكلمات الكاملة وكيفية نطقها في سياقات مختلفة</string>
     <string name="home_writing_subtitle">تدرب على كتابة الكلمات وحفر الكانجي في ذاكرتك.</string>
-    <string name="title_home">كانجي موري</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">ملخص اللعبة</string>
     <string name="about_category_informations">معلومات</string>
     <string name="about_category_credits">الاعتمادات</string>
@@ -672,4 +672,5 @@
     <string name="in_memoriam">في ذكرى エビ، جروي الحبيب</string>
     <string name="reading">بالقراءة</string>
     <string name="meaning">بالمعنى</string>
+    <string name="shiritori_rules">• يجب أن تبدأ الكلمة بالمقطع الأخير من الكلمة السابقة.\n• لا تنتهي بـ 'N' (ん)!\n• لا يمكن تكرار الكلمات.\n• يقتصر الذكاء الاصطناعي على مستوى JLPT الحالي."</string>
 </resources>

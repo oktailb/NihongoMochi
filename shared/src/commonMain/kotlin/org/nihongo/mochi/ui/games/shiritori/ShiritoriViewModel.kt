@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
+import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.kana.RomajiToKana
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
@@ -94,36 +95,52 @@ class ShiritoriViewModel(
         viewModelScope.launch {
             RomajiToKana.init(kanaRepository)
             loadHistory()
-            // On pré-charge les mots pour qu'ils soient prêts au clic sur Play
             allWords = wordRepository.getAllWordEntriesSuspend()
         }
     }
 
     private fun loadHistory() {
-        _scoresHistory.value = emptyList()
-        _bestScore.value = 0
+        val history = scoreRepository.getShiritoriHistory()
+        _scoresHistory.value = history
+        _bestScore.value = history.maxByOrNull { it.score }?.score ?: 0
     }
 
     fun startGame() {
         viewModelScope.launch {
+            _gameState.value = ShiritoriGameState.LOADING
+            
+            // On récupère le niveau et on construit la banque de mots comme dans KanaDrop
+            val rawLevel = settingsRepository.getSelectedLevel().lowercase().ifEmpty { "n5" }
+            val allJlptLevels = listOf("n5", "n4", "n3", "n2", "n1")
+            
+            // Normalisation pour trouver l'index JLPT (ex: "jlpt_n5" -> "n5")
+            val normalizedLevel = allJlptLevels.find { rawLevel.contains(it) } ?: rawLevel
+            val selectedLevelIndex = allJlptLevels.indexOf(normalizedLevel)
+            
+            val levelsToInclude = if (selectedLevelIndex != -1) {
+                allJlptLevels.take(selectedLevelIndex + 1)
+            } else {
+                listOf(rawLevel) 
+            }
+
+            val entries = mutableListOf<WordEntry>()
+            levelsToInclude.forEach { lvl ->
+                try {
+                    val words = wordRepository.getWordEntriesForLevelSuspend(lvl)
+                    entries.addAll(words)
+                } catch (_: Exception) {}
+            }
+            
+            // Fallback si vide
+            if (entries.isEmpty()) {
+                entries.addAll(wordRepository.getWordEntriesForLevelSuspend("n5"))
+            }
+
+            aiAvailableWords = entries.distinctBy { it.text + it.phonetics }
+            
+            // On s'assure que tout le dictionnaire est prêt pour le joueur
             if (allWords.isEmpty()) {
-                _gameState.value = ShiritoriGameState.LOADING
                 allWords = wordRepository.getAllWordEntriesSuspend()
-            }
-            
-            val selectedLevel = settingsRepository.getSelectedLevel().lowercase()
-            val maxRank = when (selectedLevel) {
-                "n5" -> 2000 
-                "n4" -> 5000
-                "n3" -> 10000
-                "n2" -> 25000
-                "n1" -> 50000
-                else -> 100000
-            }
-            
-            aiAvailableWords = allWords.filter { 
-                val rank = it.rank?.toIntOrNull() ?: 999999
-                rank <= maxRank
             }
 
             usedPhonetics.clear()
@@ -134,7 +151,12 @@ class ShiritoriViewModel(
             _error.value = ShiritoriError.None
             _gameTimeSeconds.value = 0
             
-            val firstWordCandidates = aiAvailableWords.filter { !it.phonetics.endsWith("ん") }
+            // L'IA commence
+            val firstWordCandidates = aiAvailableWords.filter { 
+                val hira = KanaUtils.katakanaToHiragana(it.phonetics)
+                !hira.endsWith("ん") && !hira.endsWith("ン") 
+            }
+            
             if (firstWordCandidates.isNotEmpty()) {
                 val firstWord = firstWordCandidates.random()
                 addWord(firstWord.text, firstWord.phonetics, false)
@@ -142,6 +164,8 @@ class ShiritoriViewModel(
                 _gameState.value = ShiritoriGameState.PLAYER_TURN
                 startTimer()
             } else {
+                // Si vraiment rien, on laisse le joueur commencer
+                _lastKana.value = ""
                 _gameState.value = ShiritoriGameState.PLAYER_TURN
                 startTimer()
             }
@@ -177,7 +201,14 @@ class ShiritoriViewModel(
         val input = _inputText.value.trim()
         if (input.isEmpty()) return
 
-        val wordEntry = allWords.find { it.text == input || it.phonetics == input }
+        val normalizedInput = KanaUtils.katakanaToHiragana(input)
+        
+        // Recherche souple : texte exact ou phonétique normalisée
+        val wordEntry = allWords.find { 
+            it.text == input || 
+            KanaUtils.katakanaToHiragana(it.phonetics) == normalizedInput ||
+            it.phonetics == input 
+        }
         
         if (wordEntry == null) {
             _error.value = ShiritoriError.WordNotFound
@@ -185,8 +216,9 @@ class ShiritoriViewModel(
         }
 
         val phonetics = wordEntry.phonetics
+        val normalizedPhonetics = KanaUtils.katakanaToHiragana(phonetics)
 
-        if (phonetics.endsWith("ん")) {
+        if (normalizedPhonetics.endsWith("ん")) {
             _error.value = ShiritoriError.EndsInN
             gameOver(false)
             return
@@ -197,7 +229,7 @@ class ShiritoriViewModel(
             return
         }
 
-        if (usedPhonetics.contains(phonetics)) {
+        if (usedPhonetics.contains(normalizedPhonetics)) {
             _error.value = ShiritoriError.AlreadyUsed
             return
         }
@@ -223,7 +255,8 @@ class ShiritoriViewModel(
             val possibleWords = aiAvailableWords.filter { 
                 isValidStart(it.phonetics, targetKana) && 
                 !it.phonetics.endsWith("ん") &&
-                !usedPhonetics.contains(it.phonetics)
+                !it.phonetics.endsWith("ン") &&
+                !usedPhonetics.contains(KanaUtils.katakanaToHiragana(it.phonetics))
             }
 
             if (possibleWords.isEmpty()) {
@@ -240,21 +273,25 @@ class ShiritoriViewModel(
     private fun addWord(text: String, phonetics: String, isPlayer: Boolean) {
         val newWord = ShiritoriWord(text, phonetics, isPlayer)
         _playedWords.value = _playedWords.value + newWord
-        usedPhonetics.add(phonetics)
+        usedPhonetics.add(KanaUtils.katakanaToHiragana(phonetics))
     }
 
     private fun isValidStart(phonetics: String, targetKana: String): Boolean {
         if (phonetics.isEmpty()) return false
-        val firstChar = phonetics.take(1)
-        return firstChar == targetKana
+        val firstChar = KanaUtils.katakanaToHiragana(phonetics.take(1))
+        val normalizedTarget = KanaUtils.katakanaToHiragana(targetKana)
+        return firstChar == normalizedTarget
     }
 
     private fun getNextTargetKana(phonetics: String): String {
         if (phonetics.isEmpty()) return ""
-        var lastChar = phonetics.takeLast(1)
-        if (lastChar == "ー" && phonetics.length > 1) {
-            lastChar = phonetics.substring(phonetics.length - 2, phonetics.length - 1)
+        val hiraPhonetics = KanaUtils.katakanaToHiragana(phonetics)
+        var lastChar = hiraPhonetics.takeLast(1)
+        
+        if (lastChar == "ー" && hiraPhonetics.length > 1) {
+            lastChar = hiraPhonetics.substring(hiraPhonetics.length - 2, hiraPhonetics.length - 1)
         }
+        
         val normalizationMap = mapOf(
             "ゃ" to "や", "ゅ" to "ゆ", "ょ" to "よ",
             "ぁ" to "あ", "ぃ" to "い", "ぅ" to "う", "ぇ" to "え", "ぉ" to "お",
@@ -281,13 +318,8 @@ class ShiritoriViewModel(
             score = _score.value,
             timeSeconds = _gameTimeSeconds.value
         )
-        val currentHistory = _scoresHistory.value.toMutableList()
-        currentHistory.add(0, result)
-        _scoresHistory.value = currentHistory.take(5)
-        
-        if (_score.value > _bestScore.value) {
-            _bestScore.value = _score.value
-        }
+        scoreRepository.saveShiritoriResult(result)
+        loadHistory()
     }
 
     fun abandonGame() {

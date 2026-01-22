@@ -81,11 +81,11 @@
     <string name="menu_dictionary">辞書</string>
     <string name="menu_results">結果</string>
     <string name="menu_about">について</string>
-    <string name="level_n5">N5</string>
-    <string name="level_n4">N4</string>
-    <string name="level_n3">N3</string>
-    <string name="level_n2">N2</string>
-    <string name="level_n1">N1</string>
+    <string name="level_n5" translatable="false">N5</string>
+    <string name="level_n4" translatable="false">N4</string>
+    <string name="level_n3" translatable="false">N3</string>
+    <string name="level_n2" translatable="false">N2</string>
+    <string name="level_n1" translatable="false">N1</string>
     <string name="level_class_1">クラス1</string>
     <string name="level_class_2">クラス2</string>
     <string name="level_class_3">クラス3</string>
@@ -96,12 +96,12 @@
     <string name="level_high_school_2">テスト 3</string>
     <string name="level_high_school_3">準2級テスト</string>
     <string name="level_high_school_4">テスト2</string>
-    <string name="level_hiragana">ひらがな</string>
-    <string name="level_katakana">カタカナ</string>
+    <string name="level_hiragana" translatable="false">Hiragana</string>
+    <string name="level_katakana" translatable="false">Katakana</string>
     <string name="home_recognition_subtitle">漢字を認識し、その基本的な意味を覚えることを学びます。</string>
     <string name="home_reading_subtitle">単語全体を読み、さまざまな文脈で発音する方法を学びます。</string>
     <string name="home_writing_subtitle">言葉を書く練習をして、漢字を記憶に焼き付けましょう。</string>
-    <string name="title_home">森恒二</string>
+    <string name="title_home" translatable="false">Nihongo Mochi</string>
     <string name="title_game_recap">ゲームの概要</string>
     <string name="about_retribution">報復</string>
     <string name="about_patreon">Patreonでサポートしてください</string>
@@ -672,4 +672,5 @@
     <string name="in_memoriam">私の最愛の子犬エビを偲んで</string>
     <string name="reading">読むことで</string>
     <string name="meaning">意味的には</string>
+    <string name="shiritori_rules">• 単語は前の単語の最後の音節で始まる必要があります。\n• 'N' (ん) で終わらないでください!\n• 単語を繰り返すことはできません。\n• AI は現在の JLPT レベルに制限されています。</string>
 </resources>
