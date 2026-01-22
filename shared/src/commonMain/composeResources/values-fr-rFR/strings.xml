@@ -60,7 +60,11 @@
     <string name="activity_type_recognition">Reconnaissance de caractères</string>
     <string name="activity_type_reading">Lecture et prononciation</string>
     <string name="activity_type_writing">Écriture et tracé</string>
+    <string name="activity_type_vocabulary">Vocabulaire</string>
     <string name="activity_type_grammar">Grammaire</string>
+    <string name="activity_type_grammar_bases">Bases</string>
+    <string name="activity_type_grammar_verbs">Verbes</string>
+    <string name="activity_type_grammar_syntax">Syntaxe</string>
     <string name="activity_type_games">Jeux et défis</string>
     <string name="games_title">Jeux</string>
     <string name="game_taquin_title">Taquin</string>

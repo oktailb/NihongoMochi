@@ -232,8 +232,13 @@
     <string name="activity_type_recognition">Character recognition</string>
     <string name="activity_type_reading">Reading and pronunciation</string>
     <string name="activity_type_writing">Writing and plotting</string>
+    <string name="activity_type_vocabulary">Vocabulary</string>
     <string name="activity_type_grammar">Grammar and structure</string>
+    <string name="activity_type_grammar_bases">Bases</string>
+    <string name="activity_type_grammar_verbs">Verbs</string>
+    <string name="activity_type_grammar_syntax">Syntax</string>
     <string name="activity_type_games">Interactive games and challenges</string>
+    <string name="activity_type_dictionary">Search Kanji and Words</string>
     <string name="level_grade_1">Grade 1</string>
     <string name="level_grade_2">Grade 2</string>
     <string name="level_grade_3">Grade 3</string>

@@ -188,7 +188,7 @@ class GrammarViewModel(
         _totalLayoutSlots.value = totalSlots
     }
 
-    private fun buildGraphLayout(rules: List<GrammarRule>, levels: List<String>): Triple<List<GrammarNode>, List<GrammarLevelSeparator>, Float> {
+    private suspend fun buildGraphLayout(rules: List<GrammarRule>, levels: List<String>): Triple<List<GrammarNode>, List<GrammarLevelSeparator>, Float> {
         val slotHeightPerNode = 1.0f 
         val paddingSlotsPerLevel = 3.0f
 

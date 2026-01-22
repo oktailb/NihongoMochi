@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Scoreboard
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
@@ -56,7 +57,7 @@ fun HomeScreen(
     onRecognitionClick: () -> Unit,
     onReadingClick: () -> Unit,
     onWritingClick: () -> Unit,
-    onGrammarClick: () -> Unit,
+    onGrammarClick: (String) -> Unit,
     onGamesClick: () -> Unit,
     onDictionaryClick: () -> Unit,
     onResultsClick: () -> Unit,
@@ -97,91 +98,232 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
-            BigModeCard(
-                title = stringResource(Res.string.menu_recognition),
-                subtitle = stringResource(Res.string.home_recognition_subtitle),
-                kanjiTitle = stringResource(Res.string.recognition_title),
-                enabled = isRecognitionEnabled,
-                onClick = onRecognitionClick
+            // Vocabulary Section (Recognition, Reading, Writing)
+            VocabularySplitSection(
+                isRecognitionEnabled = isRecognitionEnabled,
+                onRecognitionClick = onRecognitionClick,
+                isReadingEnabled = isReadingEnabled,
+                onReadingClick = onReadingClick,
+                isWritingEnabled = isWritingEnabled,
+                onWritingClick = onWritingClick
             )
             
             Spacer(modifier = Modifier.height(12.dp))
 
-            BigModeCard(
-                title = stringResource(Res.string.menu_reading),
-                subtitle = stringResource(Res.string.home_reading_subtitle),
-                kanjiTitle = stringResource(Res.string.reading_title),
-                enabled = isReadingEnabled,
-                onClick = onReadingClick
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            BigModeCard(
-                title = stringResource(Res.string.menu_writing),
-                subtitle = stringResource(Res.string.home_writing_subtitle),
-                kanjiTitle = stringResource(Res.string.writing_title),
-                enabled = isWritingEnabled,
-                onClick = onWritingClick
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            BigModeCard(
-                title = stringResource(Res.string.activity_type_grammar),
-                subtitle = stringResource(Res.string.section_fundamentals_desc),
-                kanjiTitle = "文法", 
+            // Grammar Section
+            GrammarSplitSection(
                 enabled = isGrammarEnabled,
-                onClick = onGrammarClick
+                onGrammarClick = onGrammarClick
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            BigModeCard(
-                title = stringResource(Res.string.games_title),
-                subtitle = stringResource(Res.string.activity_type_games),
-                kanjiTitle = "遊び", 
-                enabled = true,
-                onClick = onGamesClick
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Row(modifier = Modifier.fillMaxWidth()) {
+            // Games and Dictionary on the same line
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                SmallUtilityCard(
+                    title = stringResource(Res.string.games_title),
+                    icon = Icons.Default.Scoreboard,
+                    onClick = onGamesClick,
+                    modifier = Modifier.weight(1f)
+                )
                 SmallUtilityCard(
                     title = stringResource(Res.string.menu_dictionary),
                     icon = Icons.Default.Search,
                     onClick = onDictionaryClick,
-                    modifier = Modifier.weight(1f).padding(end = 8.dp)
-                )
-                
-                SmallUtilityCard(
-                    title = stringResource(Res.string.menu_results),
-                    icon = Icons.Default.Star, 
-                    onClick = onResultsClick,
-                    modifier = Modifier.weight(1f).padding(start = 8.dp)
+                    modifier = Modifier.weight(1f)
                 )
             }
-            
+
             Spacer(modifier = Modifier.height(12.dp))
 
-            Row(modifier = Modifier.fillMaxWidth()) {
+            // Results, Settings, and About on the same line
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 SmallUtilityCard(
-                    title = stringResource(Res.string.settings_title),
-                    icon = Icons.Default.Settings, 
-                    onClick = onOptionsClick,
-                    modifier = Modifier.weight(1f).padding(end = 8.dp)
+                    title = stringResource(Res.string.menu_results),
+                    icon = Icons.Default.Star,
+                    onClick = onResultsClick,
+                    modifier = Modifier.weight(1f)
                 )
                 
                 SmallUtilityCard(
+                    title = stringResource(Res.string.settings_title),
+                    icon = Icons.Default.Settings,
+                    onClick = onOptionsClick,
+                    modifier = Modifier.weight(1f)
+                )
+
+                SmallUtilityCard(
                     title = stringResource(Res.string.menu_about),
-                    icon = Icons.Default.Info, 
+                    icon = Icons.Default.Info,
                     onClick = onAboutClick,
-                    modifier = Modifier.weight(1f).padding(start = 8.dp)
+                    modifier = Modifier.weight(1f)
                 )
             }
             
             Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+fun VocabularySplitSection(
+    isRecognitionEnabled: Boolean,
+    onRecognitionClick: () -> Unit,
+    isReadingEnabled: Boolean,
+    onReadingClick: () -> Unit,
+    isWritingEnabled: Boolean,
+    onWritingClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.75f)
+        ),
+        elevation = CardDefaults.cardElevation(1.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            Text(
+                text = stringResource(Res.string.activity_type_vocabulary),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(bottom = 12.dp, start = 4.dp)
+            )
+            
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                HomeBlockCard(
+                    title = stringResource(Res.string.menu_recognition),
+                    kanji = stringResource(Res.string.recognition_title),
+                    modifier = Modifier.weight(1f),
+                    enabled = isRecognitionEnabled,
+                    onClick = onRecognitionClick
+                )
+                HomeBlockCard(
+                    title = stringResource(Res.string.menu_reading),
+                    kanji = stringResource(Res.string.reading_title),
+                    modifier = Modifier.weight(1f),
+                    enabled = isReadingEnabled,
+                    onClick = onReadingClick
+                )
+                HomeBlockCard(
+                    title = stringResource(Res.string.menu_writing),
+                    kanji = stringResource(Res.string.writing_title),
+                    modifier = Modifier.weight(1f),
+                    enabled = isWritingEnabled,
+                    onClick = onWritingClick
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun GrammarSplitSection(
+    enabled: Boolean,
+    onGrammarClick: (String) -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.75f)
+        ),
+        elevation = CardDefaults.cardElevation(1.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            Text(
+                text = stringResource(Res.string.activity_type_grammar),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.padding(bottom = 12.dp, start = 4.dp)
+            )
+            
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                HomeBlockCard(
+                    title = stringResource(Res.string.activity_type_grammar_bases),
+                    kanji = "基本",
+                    modifier = Modifier.weight(1f),
+                    enabled = enabled,
+                    onClick = { onGrammarClick("dependencies_basics") }
+                )
+                HomeBlockCard(
+                    title = stringResource(Res.string.activity_type_grammar_verbs),
+                    kanji = "活用",
+                    modifier = Modifier.weight(1f),
+                    enabled = enabled,
+                    onClick = { onGrammarClick("conjugaison") }
+                )
+                HomeBlockCard(
+                    title = stringResource(Res.string.activity_type_grammar_syntax),
+                    kanji = "文法",
+                    modifier = Modifier.weight(1f),
+                    enabled = enabled,
+                    onClick = { onGrammarClick("rules") }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun HomeBlockCard(
+    title: String,
+    kanji: String,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    onClick: () -> Unit
+) {
+    val alpha = if (enabled) 1f else 0.5f
+    Card(
+        modifier = modifier
+            .height(100.dp)
+            .clickable(enabled = enabled, onClick = onClick),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(if (enabled) 2.dp else 0.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface.copy(alpha = if (enabled) 0.9f else 0.5f)
+        )
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = kanji,
+                fontSize = 28.sp,
+                color = MaterialTheme.colorScheme.primary.copy(alpha = alpha),
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = title,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = alpha),
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
@@ -255,13 +397,14 @@ fun BigModeCard(
     title: String,
     subtitle: String,
     kanjiTitle: String,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     val alpha = if (enabled) 1f else 0.5f
     
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(enabled = enabled, onClick = onClick),
         shape = RoundedCornerShape(16.dp),
@@ -295,9 +438,9 @@ fun BigModeCard(
             
             Text(
                 text = kanjiTitle,
-                fontSize = 48.sp,
+                fontSize = 40.sp, // Slightly smaller to fit in row
                 color = MaterialTheme.colorScheme.primary.copy(alpha = alpha),
-                modifier = Modifier.padding(start = 8.dp)
+                modifier = Modifier.padding(start = 4.dp)
             )
         }
     }
@@ -320,7 +463,7 @@ fun SmallUtilityCard(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -328,14 +471,15 @@ fun SmallUtilityCard(
                 imageVector = icon,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(36.dp).padding(bottom = 8.dp)
+                modifier = Modifier.size(28.dp).padding(bottom = 4.dp)
             )
             
             Text(
                 text = title,
-                fontSize = 18.sp,
+                fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center
             )
         }
     }

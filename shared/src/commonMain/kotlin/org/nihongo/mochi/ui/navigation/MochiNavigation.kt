@@ -99,8 +99,8 @@ sealed class Screen(val route: String) {
     data object WordDetail : Screen("word_detail/{wordText}") {
         fun createRoute(wordText: String) = "word_detail/$wordText"
     }
-    data object Grammar : Screen("grammar/{levelId}") {
-        fun createRoute(levelId: String) = "grammar/$levelId"
+    data object Grammar : Screen("grammar/{levelId}/{block}") {
+        fun createRoute(levelId: String, block: String) = "grammar/$levelId/$block"
     }
     data object Games : Screen("games")
     data object SimonSetup : Screen("simon_setup")
@@ -180,7 +180,6 @@ fun MochiNavGraph(
                     }
                 },
                 onReadingClick = {
-                    // Navigation par identifiant de niveau pour permettre le filtrage correct
                     navController.navigate(Screen.WordList.createRoute(uiState.selectedLevelId))
                 },
                 onWritingClick = {
@@ -201,8 +200,8 @@ fun MochiNavGraph(
                 onOptionsClick = {
                     navController.navigate(Screen.Settings.route)
                 },
-                onGrammarClick = {
-                    navController.navigate(Screen.Grammar.createRoute(uiState.selectedLevelId))
+                onGrammarClick = { block ->
+                    navController.navigate(Screen.Grammar.createRoute(uiState.selectedLevelId, block))
                 }
             )
         }
@@ -298,13 +297,17 @@ fun MochiNavGraph(
 
         composable(
             route = Screen.Grammar.route,
-            arguments = listOf(navArgument("levelId") { defaultValue = "N5" })
+            arguments = listOf(
+                navArgument("levelId") { defaultValue = "N5" },
+                navArgument("block") { defaultValue = "rules" }
+            )
         ) { backStackEntry ->
             val levelId = backStackEntry.arguments?.getString("levelId") ?: "N5"
+            val block = backStackEntry.arguments?.getString("block") ?: "rules"
             val grammarViewModel: GrammarViewModel = koinInject()
             
-            remember(levelId) {
-                grammarViewModel.loadGraph(levelId)
+            remember(levelId, block) {
+                grammarViewModel.loadGraph(levelId, block)
                 true
             }
 
@@ -533,7 +536,6 @@ fun MochiNavGraph(
                 true
             }
 
-            // --- Auto-exit if finished ---
             LaunchedEffect(gameState) {
                 if (gameState == GameState.Finished) {
                     navController.popBackStack()
@@ -635,7 +637,6 @@ fun MochiNavGraph(
                 true
             }
 
-            // --- Auto-exit if finished ---
             LaunchedEffect(gameState) {
                 if (gameState == GameState.Finished) {
                     navController.popBackStack()

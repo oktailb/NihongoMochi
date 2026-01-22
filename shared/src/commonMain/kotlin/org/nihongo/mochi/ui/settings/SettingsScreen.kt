@@ -70,15 +70,18 @@ fun SettingsScreen(
                 .verticalScroll(scrollState)
                 .padding(16.dp)
         ) {
-            Text(
-                text = stringResource(Res.string.settings_title),
-                fontSize = 34.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(bottom = 24.dp)
-            )
+            // Text-to-Speech Section
+            SettingsSection(title = stringResource(Res.string.settings_category_interface)) {
 
-            SettingsSection(title = stringResource(Res.string.settings_category_general)) {
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(Res.string.settings_theme), color = MaterialTheme.colorScheme.onSurface)
+                    Spacer(Modifier.weight(1f))
+                    Switch(checked = uiState.isDarkMode, onCheckedChange = {
+                        viewModel.onThemeChanged(it)
+                        onThemeChanged(it)
+                    })
+                }
+
                 // Language Spinner
                 var expanded by remember { mutableStateOf(false) }
                 val selectedLanguage = languages.find { it.code == uiState.currentLocaleCode } ?: languages.first()
@@ -107,7 +110,7 @@ fun SettingsScreen(
                     ) {
                         languages.forEach { language ->
                             DropdownMenuItem(
-                                text = { 
+                                text = {
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         Image(painter = painterResource(language.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
                                         Spacer(Modifier.width(8.dp))
@@ -124,32 +127,11 @@ fun SettingsScreen(
                     }
                 }
 
-                Spacer(Modifier.height(16.dp))
-                
-                // Pronunciation
-                Text(
-                    text = stringResource(Res.string.settings_pronunciation),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Column {
-                    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { viewModel.onPronunciationChanged("Roman") }) {
-                        RadioButton(selected = uiState.pronunciation == "Roman", onClick = { viewModel.onPronunciationChanged("Roman") })
-                        Text(stringResource(Res.string.settings_pronunciation_roman), color = MaterialTheme.colorScheme.onSurface)
-                    }
-                    Spacer(Modifier.height(8.dp))
-                    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { viewModel.onPronunciationChanged("Hiragana") }) {
-                        RadioButton(selected = uiState.pronunciation == "Hiragana", onClick = { viewModel.onPronunciationChanged("Hiragana") })
-                        Text(stringResource(Res.string.settings_pronunciation_hiragana), color = MaterialTheme.colorScheme.onSurface)
-                    }
-                }
-            }
-            
-            Spacer(Modifier.height(16.dp))
-            
-            // Text-to-Speech Section
-            SettingsSection(title = stringResource(Res.string.settings_tts_category)) {
+                Spacer(Modifier.height(8.dp))
+
+                Text(stringResource(Res.string.settings_animation_speed), color = MaterialTheme.colorScheme.onSurface)
+                SliderWithLabel(value = uiState.animationSpeed, onValueChange = { viewModel.onAnimationSpeedChanged(it) })
+
                 // TTS Speed
                 Text(text = stringResource(Res.string.settings_tts_speed), color = MaterialTheme.colorScheme.onSurface)
                 SliderWithLabel(
@@ -158,8 +140,6 @@ fun SettingsScreen(
                     valueRange = 0.5f..2.0f
                 )
                 
-                Spacer(Modifier.height(16.dp))
-
                 // TTS Voice Selection
                 Text(text = stringResource(Res.string.settings_tts_voice_selection), color = MaterialTheme.colorScheme.onSurface)
                 var expandedVoices by remember { mutableStateOf(false) }
@@ -267,11 +247,29 @@ fun SettingsScreen(
                         }
                     }
                 }
-            }
 
-            Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(16.dp))
 
-            SettingsSection(title = stringResource(Res.string.settings_category_learning)) {
+                // Pronunciation
+                Text(
+                    text = stringResource(Res.string.settings_pronunciation),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { viewModel.onPronunciationChanged("Roman") }) {
+                        RadioButton(selected = uiState.pronunciation == "Roman", onClick = { viewModel.onPronunciationChanged("Roman") })
+                        Text(stringResource(Res.string.settings_pronunciation_roman), color = MaterialTheme.colorScheme.onSurface)
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { viewModel.onPronunciationChanged("Hiragana") }) {
+                        RadioButton(selected = uiState.pronunciation == "Hiragana", onClick = { viewModel.onPronunciationChanged("Hiragana") })
+                        Text(stringResource(Res.string.settings_pronunciation_hiragana), color = MaterialTheme.colorScheme.onSurface)
+                    }
+                }
+
+                Spacer(Modifier.height(16.dp))
+
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(checked = uiState.addWrongAnswers, onCheckedChange = { viewModel.onAddWrongAnswersChanged(it) })
                     Text(stringResource(Res.string.settings_add_wrong_answers), color = MaterialTheme.colorScheme.onSurface)
@@ -279,29 +277,6 @@ fun SettingsScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(checked = uiState.removeGoodAnswers, onCheckedChange = { viewModel.onRemoveGoodAnswersChanged(it) })
                     Text(stringResource(Res.string.settings_remove_good_answers), color = MaterialTheme.colorScheme.onSurface)
-                }
-            }
-            
-            Spacer(Modifier.height(16.dp))
-
-            SettingsSection(title = stringResource(Res.string.settings_category_interface)) {
-                Text(stringResource(Res.string.settings_text_size), color = MaterialTheme.colorScheme.onSurface)
-                SliderWithLabel(value = uiState.textSize, onValueChange = { viewModel.onTextSizeChanged(it) })
-                
-                Spacer(Modifier.height(8.dp))
-
-                Text(stringResource(Res.string.settings_animation_speed), color = MaterialTheme.colorScheme.onSurface)
-                SliderWithLabel(value = uiState.animationSpeed, onValueChange = { viewModel.onAnimationSpeedChanged(it) })
-                
-                Spacer(Modifier.height(8.dp))
-                
-                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-                    Text(stringResource(Res.string.settings_theme), color = MaterialTheme.colorScheme.onSurface)
-                    Spacer(Modifier.weight(1f))
-                    Switch(checked = uiState.isDarkMode, onCheckedChange = {
-                        viewModel.onThemeChanged(it)
-                        onThemeChanged(it)
-                    })
                 }
             }
         }
