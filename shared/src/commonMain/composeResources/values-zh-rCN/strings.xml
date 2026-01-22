@@ -47,7 +47,6 @@
     <string name="enter_your_answer">输入你的答案</string>
     <string name="submit">提交</string>
     <string name="game_writing_correction">更正</string>
-    <string name="recognition_title">见覚え</string>
     <string name="recognition_subtitle">选择一组汉字并学习识别它们的基本含义。</string>
     <string name="recognition_fundamentals">基础</string>
     <string name="recognition_jlpt">日语能力测试</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">本土挑战</string>
     <string name="challenge_no_reading">无读音</string>
     <string name="challenge_no_meaning">无意义</string>
-    <string name="writing_title">书き方</string>
     <string name="writing_game_recap_title">写作游戏</string>
     <string name="writing_subtitle">选择一组单词并学习如何书写它们。</string>
     <string name="writing_kanji_tree">汉字树</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">查找汉字</string>
     <string name="writing_lists">列表</string>
     <string name="writing_user_lists">用户列表/学习列表</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">选择一组单词并学习它们的发音。</string>
     <string name="reading_kanji_tree_subtitle">如果单词包含你还没有学过的汉字:\n(在识别游戏中10/10)</string>
     <string name="reading_user_list">用户列表</string>
@@ -645,7 +642,7 @@
     <string name="game_crossword_history_item">%1$d 个字（%2$s）</string>
     <string name="game_snake_title">蛇</string>
     <string name="game_snake_subtitle">通过按顺序吃字符来学习字符</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">按顺序吃语音</string>
     <string name="game_snake_score">得分：%1$d</string>
     <string name="game_snake_words">字数：%1$d</string>
@@ -666,4 +663,15 @@
     <string name="settings_tts_voice_male">男（高品质）</string>
     <string name="settings_tts_voice_female">女（高品质）</string>
     <string name="settings_tts_voice_forced_arabic">男（强制要求阿拉伯语）</string>
+    <string name="activity_type_vocabulary">词汇</string>
+    <string name="activity_type_grammar_bases">基地</string>
+    <string name="activity_type_grammar_verbs">动词</string>
+    <string name="activity_type_grammar_syntax">句法</string>
+    <string name="activity_type_dictionary">搜索汉字和单词</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">纪念我心爱的小狗エビ</string>
+    <string name="reading">通过阅读</string>
+    <string name="meaning">按意思</string>
 </resources>

@@ -1,4 +1,7 @@
 import java.util.Properties
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 plugins {
     alias(libs.plugins.android.application)
@@ -42,6 +45,9 @@ android {
         versionName = "0.7.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val buildDate = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault()).format(Date())
+        buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
     }
 
     buildTypes {

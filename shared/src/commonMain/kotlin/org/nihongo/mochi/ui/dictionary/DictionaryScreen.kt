@@ -109,7 +109,7 @@ fun DictionaryScreen(
                             onClick = onOpenDrawing,
                             modifier = Modifier
                                 .padding(start = 8.dp)
-                                .size(48.dp)
+                                .size(64.dp)
                         ) {
                             Icon(
                                 imageVector = Icons.Default.Edit,
@@ -117,6 +117,26 @@ fun DictionaryScreen(
                                 tint = MaterialTheme.colorScheme.primary
                             )
                         }
+                    }
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(selected = searchMode == SearchMode.READING, onClick = { viewModel.setSearchMode(SearchMode.READING) })
+                        Text(
+                            text = stringResource(Res.string.reading),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.clickable { viewModel.setSearchMode(SearchMode.READING) }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        RadioButton(selected = searchMode == SearchMode.MEANING, onClick = { viewModel.setSearchMode(SearchMode.MEANING) })
+                        Text(
+                            text = stringResource(Res.string.meaning),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.clickable { viewModel.setSearchMode(SearchMode.MEANING) }
+                        )
                     }
 
                     // Level Filter Dropdown & Search Mode
@@ -155,16 +175,6 @@ fun DictionaryScreen(
                                 }
                             }
                         }
-
-                        Spacer(modifier = Modifier.width(16.dp))
-
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            RadioButton(selected = searchMode == SearchMode.READING, onClick = { viewModel.setSearchMode(SearchMode.READING) })
-                            Text(text = "Read", style = MaterialTheme.typography.bodySmall, modifier = Modifier.clickable { viewModel.setSearchMode(SearchMode.READING) })
-                            Spacer(modifier = Modifier.width(8.dp))
-                            RadioButton(selected = searchMode == SearchMode.MEANING, onClick = { viewModel.setSearchMode(SearchMode.MEANING) })
-                            Text(text = "Mean", style = MaterialTheme.typography.bodySmall, modifier = Modifier.clickable { viewModel.setSearchMode(SearchMode.MEANING) })
-                        }
                     }
 
                     // Stroke Count, Exact Match, Native Thumbnail
@@ -195,7 +205,11 @@ fun DictionaryScreen(
                             }
                         ) {
                             Checkbox(checked = viewModel.exactMatch, onCheckedChange = { viewModel.exactMatch = it; viewModel.applyFilters() })
-                            Text(text = stringResource(Res.string.dictionary_match_exact), style = MaterialTheme.typography.bodySmall)
+                            Text(
+                                text = stringResource(Res.string.dictionary_match_exact),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
                         }
 
                         Spacer(modifier = Modifier.weight(1f))
@@ -243,6 +257,8 @@ fun DrawingThumbnail(
     strokes: List<RecognitionStroke>,
     modifier: Modifier = Modifier
 ) {
+    val strokeColor = MaterialTheme.colorScheme.onSurface
+
     Canvas(modifier = modifier.padding(4.dp)) {
         if (strokes.isEmpty()) return@Canvas
 
@@ -277,7 +293,7 @@ fun DrawingThumbnail(
             }
             drawPath(
                 path = path,
-                color = Color.Black,
+                color = strokeColor,
                 style = Stroke(width = 2.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round)
             )
         }
@@ -305,11 +321,11 @@ fun DictionaryItemRow(item: DictionaryItem, onClick: (DictionaryItem) -> Unit) {
                 if (onReadings.isNotEmpty()) append("On: " + onReadings.joinToString(", "))
                 if (kunReadings.isNotEmpty()) { if (isNotEmpty()) append("  "); append("Kun: " + kunReadings.joinToString(", ")) }
             }
-            Text(text = readingText, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            Text(text = readingText, fontSize = 16.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onSurface)
             Text(text = item.meanings.joinToString(", "), fontSize = 14.sp, maxLines = 2, overflow = TextOverflow.Ellipsis, color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (levelText.isNotEmpty()) Text(text = levelText, fontSize = 12.sp, color = MaterialTheme.colorScheme.secondary, modifier = Modifier.padding(top = 4.dp))
         }
-        Text(text = "${item.strokeCount} traits", fontSize = 12.sp)
+        Text(text = "${item.strokeCount} traits", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
 

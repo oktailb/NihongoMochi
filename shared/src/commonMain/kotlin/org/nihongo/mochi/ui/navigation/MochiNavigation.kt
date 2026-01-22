@@ -151,7 +151,7 @@ sealed class Screen(val route: String) {
 fun MochiNavGraph(
     navController: NavHostController,
     versionName: String,
-    currentDate: String,
+    buildDate: String,
     onOpenUrl: (String) -> Unit,
     onThemeChanged: (Boolean) -> Unit,
     onLocaleChanged: (String) -> Unit
@@ -209,7 +209,7 @@ fun MochiNavGraph(
         composable(Screen.About.route) {
             AboutScreen(
                 versionName = versionName,
-                currentDate = currentDate,
+                buildDate = buildDate,
                 onIssueTrackerClick = { onOpenUrl("https://github.com/oktailb/KanjiMori/issues") },
                 onRateAppClick = { onOpenUrl("market://details?id=org.nihongo.mochi") },
                 onPatreonClick = { onOpenUrl("https://www.patreon.com/Oktail") },

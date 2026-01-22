@@ -43,7 +43,6 @@
     <string name="enter_your_answer">أدخل إجابتك</string>
     <string name="submit">إرسال</string>
     <string name="game_writing_correction">تصحيح</string>
-    <string name="recognition_title">يعني</string>
     <string name="recognition_subtitle">اختر مجموعة من الكانجي وتعلم كيفية التعرف على معانيها الأساسية المختلفة</string>
     <string name="recognition_fundamentals">الأساسيات</string>
     <string name="recognition_jlpt">اختبار إتقان اللغة اليابانية</string>
@@ -53,7 +52,6 @@
     <string name="challenge_native">التحدي الأصلي</string>
     <string name="challenge_no_reading">بدون قراءة</string>
     <string name="challenge_no_meaning">بدون معنى</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">لعبة الكتابة</string>
     <string name="writing_subtitle">اختر مجموعة من الكلمات وتعلم كيفية كتابتها.</string>
     <string name="writing_kanji_tree">شجرة الكانجي</string>
@@ -66,7 +64,6 @@
     <string name="writing_find_kanji">ابحث عن كانجي</string>
     <string name="writing_lists">القوائم</string>
     <string name="writing_user_lists">قائمة المستخدم / قوائم الدراسة</string>
-    <string name="reading_title">نعم</string>
     <string name="reading_subtitle">اختر مجموعة من الكلمات وتعلم نطقها.</string>
     <string name="reading_kanji_tree_subtitle">إذا كانت الكلمة تحتوي على كانجي لم تتعلمه بعد:
 (10/10 في لعبة التعرف)</string>
@@ -643,7 +640,7 @@
     <string name="game_crossword_history_item">%1$d كلمة (%2$s)</string>
     <string name="game_snake_title">ثعبان</string>
     <string name="game_snake_subtitle">تعلم الشخصيات عن طريق تناولها بالترتيب</string>
-    <string name="game_snake_japanese_title">ヘビゲム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">تناول الصوتيات بالترتيب</string>
     <string name="game_snake_score">النتيجة: %1$د</string>
     <string name="game_snake_words">الكلمات: %1$د</string>
@@ -664,4 +661,15 @@
     <string name="settings_tts_voice_male">ذكر (جودة عالية)</string>
     <string name="settings_tts_voice_female">أنثى (جودة عالية)</string>
     <string name="settings_tts_voice_forced_arabic">ذكر (مجبر للغة العربية)</string>
+    <string name="activity_type_vocabulary">مفردات</string>
+    <string name="activity_type_grammar_bases">قواعد</string>
+    <string name="activity_type_grammar_verbs">أفعال</string>
+    <string name="activity_type_grammar_syntax">بناء الجملة</string>
+    <string name="activity_type_dictionary">بحث كانجي والكلمات</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">في ذكرى エビ، جروي الحبيب</string>
+    <string name="reading">بالقراءة</string>
+    <string name="meaning">بالمعنى</string>
 </resources>

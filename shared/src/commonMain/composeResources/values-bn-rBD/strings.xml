@@ -43,7 +43,6 @@
     <string name="enter_your_answer">আপনার উত্তর লিখুন</string>
     <string name="submit">জমা দিন</string>
     <string name="game_writing_correction">সংশোধন</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">কাঞ্জির একটি গ্রুপ চয়ন করুন এবং তাদের বিভিন্ন মৌলিক অর্থ চিনতে শিখুন</string>
     <string name="recognition_fundamentals">মৌলিক</string>
     <string name="recognition_jlpt">জাপানি ভাষা দক্ষতা পরীক্ষা</string>
@@ -53,7 +52,6 @@
     <string name="challenge_native">দেশীয় চ্যালেঞ্জ</string>
     <string name="challenge_no_reading">পড়া নেই</string>
     <string name="challenge_no_meaning">অর্থ নেই</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">লেখার খেলা</string>
     <string name="writing_subtitle">শব্দের একটি গ্রুপ চয়ন করুন এবং সেগুলি লিখতে শিখুন।</string>
     <string name="writing_kanji_tree">কাঞ্জি ট্রি</string>
@@ -66,7 +64,6 @@
     <string name="writing_find_kanji">কাঞ্জি খুঁজুন</string>
     <string name="writing_lists">তালিকা</string>
     <string name="writing_user_lists">ব্যবহারকারী তালিকা / অধ্যয়ন তালিকা</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">শব্দের একটি গ্রুপ চয়ন করুন এবং তাদের উচ্চারণ শিখুন।</string>
     <string name="reading_kanji_tree_subtitle">যদি শব্দটিতে এমন কাঞ্জি থাকে যা আপনি এখনও শেখেননি:
 (স্বীকৃতি গেমে ১০/১০)</string>
@@ -643,7 +640,7 @@
     <string name="game_crossword_history_item">%1$d শব্দ (%2$s)</string>
     <string name="game_snake_title">সাপ</string>
     <string name="game_snake_subtitle">ক্রমানুসারে তাদের খাওয়া অক্ষর শিখুন</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">ক্রমানুসারে ধ্বনিতত্ত্ব খান</string>
     <string name="game_snake_score">স্কোর: %1$d</string>
     <string name="game_snake_words">শব্দ: %1$d</string>
@@ -664,4 +661,15 @@
     <string name="settings_tts_voice_male">পুরুষ (উচ্চ মানের)</string>
     <string name="settings_tts_voice_female">মহিলা (উচ্চ মানের)</string>
     <string name="settings_tts_voice_forced_arabic">পুরুষ (আরবি জন্য বাধ্য)</string>
+    <string name="activity_type_vocabulary">শব্দভান্ডার</string>
+    <string name="activity_type_grammar_bases">ঘাঁটি</string>
+    <string name="activity_type_grammar_verbs">ক্রিয়াপদ</string>
+    <string name="activity_type_grammar_syntax">সিনট্যাক্স</string>
+    <string name="activity_type_dictionary">কাঞ্জি এবং শব্দ অনুসন্ধান করুন</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">エビ এর স্মৃতিতে, আমার প্রিয় কুকুরছানা</string>
+    <string name="reading">পড়ে</string>
+    <string name="meaning">অর্থ দিয়ে</string>
 </resources>

@@ -47,7 +47,6 @@
     <string name="enter_your_answer">ป้อนคำตอบของคุณ</string>
     <string name="submit">ส่ง</string>
     <string name="game_writing_correction">การแก้ไข</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">เลือกกลุ่มของคันจิและเรียนรู้ที่จะจดจำความหมายพื้นฐานที่แตกต่างกัน</string>
     <string name="recognition_fundamentals">พื้นฐาน</string>
     <string name="recognition_jlpt">การสอบวัดระดับภาษาญี่ปุ่น</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">ความท้าทายแบบเนทีฟ</string>
     <string name="challenge_no_reading">ไม่มีการอ่าน</string>
     <string name="challenge_no_meaning">ไม่มีความหมาย</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">เกมการเขียน</string>
     <string name="writing_subtitle">เลือกกลุ่มคำและเรียนรู้วิธีการเขียน</string>
     <string name="writing_kanji_tree">ต้นไม้คันจิ</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">ค้นหาคันจิ</string>
     <string name="writing_lists">รายการ</string>
     <string name="writing_user_lists">รายการผู้ใช้ / รายการศึกษา</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">เลือกกลุ่มคำและเรียนรู้การออกเสียง</string>
     <string name="reading_kanji_tree_subtitle">หากคำนั้นมีคันจิที่คุณยังไม่ได้เรียนรู้:\n(10/10 ในเกมการจดจำ)</string>
     <string name="reading_user_list">รายการผู้ใช้</string>
@@ -645,7 +642,7 @@
     <string name="game_crossword_history_item">%1$d คำ (%2$s)</string>
     <string name="game_snake_title">งู</string>
     <string name="game_snake_subtitle">เรียนรู้ตัวละครโดยการกินตามลำดับ</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">กินสัทศาสตร์ตามลำดับ</string>
     <string name="game_snake_score">คะแนน: %1$d</string>
     <string name="game_snake_words">คำ: %1$d</string>
@@ -666,4 +663,15 @@
     <string name="settings_tts_voice_male">ชาย (คุณภาพสูง)</string>
     <string name="settings_tts_voice_female">หญิง (คุณภาพสูง)</string>
     <string name="settings_tts_voice_forced_arabic">ชาย (บังคับสำหรับภาษาอาหรับ)</string>
+    <string name="activity_type_vocabulary">คำศัพท์</string>
+    <string name="activity_type_grammar_bases">ฐาน</string>
+    <string name="activity_type_grammar_verbs">กริยา</string>
+    <string name="activity_type_grammar_syntax">ไวยากรณ์</string>
+    <string name="activity_type_dictionary">ค้นหาคันจิและคำ</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">เพื่อรำลึกถึง エビ ลูกหมาที่รักของฉัน</string>
+    <string name="reading">โดยการอ่าน</string>
+    <string name="meaning">ตามความหมาย</string>
 </resources>

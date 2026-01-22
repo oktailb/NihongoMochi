@@ -47,7 +47,6 @@
     <string name="game_writing_correction">修正</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
-    <string name="recognition_title">見覚</string>
     <string name="recognition_subtitle">漢字のグループを選択し、それらのさまざまな基本的な意味を認識することを学びます</string>
     <string name="recognition_fundamentals">基本</string>
     <string name="recognition_jlpt">日本語能力試験</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">ネイティブチャレンジ</string>
     <string name="challenge_no_reading">読み取り禁止</string>
     <string name="challenge_no_meaning">意味がない</string>
-    <string name="writing_title">書く</string>
     <string name="writing_game_recap_title">ライティングゲーム</string>
     <string name="writing_subtitle">単語のグループを選択し、その書き方を学びます。</string>
     <string name="writing_kanji_tree">漢字の木</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">漢字を探す</string>
     <string name="writing_lists">リスト</string>
     <string name="writing_user_lists">ユーザーリスト/スタディリスト</string>
-    <string name="reading_title">察</string>
     <string name="reading_subtitle">単語のグループを選択して、その発音を学びます。</string>
     <string name="reading_kanji_tree_subtitle">単語にまだ学習していない漢字が含まれている場合:\n(認識ゲームでは 10/10)</string>
     <string name="reading_user_list">ユーザーリスト</string>
@@ -643,7 +640,7 @@
     <string name="game_crossword_history_item">%1$d 単語 (%2$s)</string>
     <string name="game_snake_title">蛇</string>
     <string name="game_snake_subtitle">順番に食べて文字を覚えましょう</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">ふりがなを順番に食べる</string>
     <string name="game_snake_score">スコア: %1$d</string>
     <string name="game_snake_words">単語: %1$d</string>
@@ -664,4 +661,15 @@
     <string name="settings_tts_voice_male">男性（高品質）</string>
     <string name="settings_tts_voice_female">女性（高品質）</string>
     <string name="settings_tts_voice_forced_arabic">男性 (アラビア語を強制)</string>
+    <string name="activity_type_vocabulary">語彙</string>
+    <string name="activity_type_grammar_bases">拠点</string>
+    <string name="activity_type_grammar_verbs">動詞</string>
+    <string name="activity_type_grammar_syntax">構文</string>
+    <string name="activity_type_dictionary">漢字や言葉を調べる</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">私の最愛の子犬エビを偲んで</string>
+    <string name="reading">読むことで</string>
+    <string name="meaning">意味的には</string>
 </resources>

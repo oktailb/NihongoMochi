@@ -47,7 +47,6 @@
     <string name="enter_your_answer">Введите свой ответ</string>
     <string name="submit">Отправить</string>
     <string name="game_writing_correction">Исправление</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Выберите группу кандзи и научитесь распознавать их основные значения.</string>
     <string name="recognition_fundamentals">Основы</string>
     <string name="recognition_jlpt">Тест на знание японского языка</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">Родной вызов</string>
     <string name="challenge_no_reading">Без чтения</string>
     <string name="challenge_no_meaning">Без значения</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Игра в письмо</string>
     <string name="writing_subtitle">Выберите группу слов и научитесь их писать.</string>
     <string name="writing_kanji_tree">Дерево кандзи</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">Найти кандзи</string>
     <string name="writing_lists">Списки</string>
     <string name="writing_user_lists">Списки пользователей / учебные списки</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Выберите группу слов и выучите их произношение.</string>
     <string name="reading_kanji_tree_subtitle">Если слово содержит кандзи, которые вы еще не выучили:\n(10/10 в игре на распознавание)</string>
     <string name="reading_user_list">Список пользователей</string>
@@ -645,7 +642,7 @@
     <string name="game_crossword_history_item">%1$d слов (%2$s)</string>
     <string name="game_snake_title">Змея</string>
     <string name="game_snake_subtitle">Изучайте персонажей, съедая их по порядку.</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Ешьте фонетику по порядку</string>
     <string name="game_snake_score">Оценка: %1$d</string>
     <string name="game_snake_words">Слова: %1$d</string>
@@ -666,4 +663,15 @@
     <string name="settings_tts_voice_male">Мужской (высокое качество)</string>
     <string name="settings_tts_voice_female">Женский (высокое качество)</string>
     <string name="settings_tts_voice_forced_arabic">Мужской (обязательно для арабского языка)</string>
+    <string name="activity_type_vocabulary">Словарный запас</string>
+    <string name="activity_type_grammar_bases">Базы</string>
+    <string name="activity_type_grammar_verbs">Глаголы</string>
+    <string name="activity_type_grammar_syntax">Синтаксис</string>
+    <string name="activity_type_dictionary">Поиск кандзи и слов</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">В память о エビ, моем любимом щенке</string>
+    <string name="reading">Читая</string>
+    <string name="meaning">По смыслу</string>
 </resources>

@@ -44,7 +44,6 @@
     <string name="enter_your_answer">Nhập câu trả lời của bạn</string>
     <string name="submit">Gửi</string>
     <string name="game_writing_correction">Sửa</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Chọn một nhóm kanji và học cách nhận biết các ý nghĩa cơ bản khác nhau của chúng</string>
     <string name="recognition_fundamentals">Cơ bản</string>
     <string name="recognition_jlpt">Kỳ thi năng lực tiếng Nhật</string>
@@ -54,7 +53,6 @@
     <string name="challenge_native">Thử thách bản địa</string>
     <string name="challenge_no_reading">Không có cách đọc</string>
     <string name="challenge_no_meaning">Không có ý nghĩa</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Trò chơi viết</string>
     <string name="writing_subtitle">Chọn một nhóm từ và học cách viết chúng.</string>
     <string name="writing_kanji_tree">Cây Kanji</string>
@@ -66,7 +64,6 @@
     <string name="writing_find_kanji">Tìm một Kanji</string>
     <string name="writing_lists">Danh sách</string>
     <string name="writing_user_lists">Danh sách người dùng / danh sách học</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Chọn một nhóm từ và học cách phát âm của chúng.</string>
     <string name="reading_kanji_tree_subtitle">Nếu từ đó chứa kanji bạn chưa học:\n(10/10 trong trò chơi nhận dạng)</string>
     <string name="reading_user_list">Danh sách người dùng</string>
@@ -641,7 +638,7 @@
     <string name="game_crossword_history_item">%1$d từ (%2$s)</string>
     <string name="game_snake_title">Rắn</string>
     <string name="game_snake_subtitle">Tìm hiểu các nhân vật bằng cách ăn chúng theo thứ tự</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Ăn ngữ âm theo thứ tự</string>
     <string name="game_snake_score">Điểm: %1$d</string>
     <string name="game_snake_words">Từ: %1$d</string>
@@ -662,4 +659,15 @@
     <string name="settings_tts_voice_male">Nam (Chất Lượng Cao)</string>
     <string name="settings_tts_voice_female">Nữ (Chất Lượng Cao)</string>
     <string name="settings_tts_voice_forced_arabic">Nam (Bắt buộc cho tiếng Ả Rập)</string>
+    <string name="activity_type_vocabulary">Từ vựng</string>
+    <string name="activity_type_grammar_bases">căn cứ</string>
+    <string name="activity_type_grammar_verbs">Động từ</string>
+    <string name="activity_type_grammar_syntax">Cú pháp</string>
+    <string name="activity_type_dictionary">Tìm kiếm Kanji và từ</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">Để tưởng nhớ エビ, chú cún yêu quý của tôi</string>
+    <string name="reading">Bằng cách đọc</string>
+    <string name="meaning">Theo ý nghĩa</string>
 </resources>

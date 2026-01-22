@@ -47,7 +47,6 @@
     <string name="game_writing_correction">Виправлення</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Виберіть групу кандзі та навчіться розпізнавати їх різні основні значення</string>
     <string name="recognition_fundamentals">основи</string>
     <string name="recognition_jlpt">Тест на знання японської мови</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">Рідний виклик</string>
     <string name="challenge_no_reading">Без читання</string>
     <string name="challenge_no_meaning">Жодного сенсу</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Гра «Написання».</string>
     <string name="writing_subtitle">Виберіть групу слів і навчіться їх писати.</string>
     <string name="writing_kanji_tree">Дерево кандзі</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">Знайдіть кандзі</string>
     <string name="writing_lists">списки</string>
     <string name="writing_user_lists">Список користувачів / списки досліджень</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Виберіть групу слів і вивчіть їхню вимову.</string>
     <string name="reading_kanji_tree_subtitle">Якщо слово містить кандзі, який ви ще не вивчили:\n(10/10 у грі на розпізнавання)</string>
     <string name="reading_user_list">Список користувачів</string>
@@ -643,7 +640,7 @@
     <string name="game_crossword_history_item">%1$d слова (%2$s)</string>
     <string name="game_snake_title">Змія</string>
     <string name="game_snake_subtitle">Вивчайте персонажів, їдаючи їх по порядку</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Їж фонетику по порядку</string>
     <string name="game_snake_score">Оцінка: %1$d</string>
     <string name="game_snake_words">Слова: %1$d</string>
@@ -664,4 +661,15 @@
     <string name="settings_tts_voice_male">Чоловік (висока якість)</string>
     <string name="settings_tts_voice_female">Жінка (висока якість)</string>
     <string name="settings_tts_voice_forced_arabic">Чоловік (примусово для арабської)</string>
+    <string name="activity_type_vocabulary">Словниковий запас</string>
+    <string name="activity_type_grammar_bases">Бази</string>
+    <string name="activity_type_grammar_verbs">Дієслова</string>
+    <string name="activity_type_grammar_syntax">Синтаксис</string>
+    <string name="activity_type_dictionary">Шукайте кандзі та слова</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">На згадку про エビ, моє улюблене цуценя</string>
+    <string name="reading">Читаючи</string>
+    <string name="meaning">За змістом</string>
 </resources>

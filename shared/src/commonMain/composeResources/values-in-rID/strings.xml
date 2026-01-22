@@ -48,7 +48,6 @@
     <string name="enter_your_answer">Masukkan jawaban Anda</string>
     <string name="submit">Kirim</string>
     <string name="game_writing_correction">Koreksi</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Pilih grup kanji dan pelajari cara mengenali arti dasarnya.</string>
     <string name="recognition_fundamentals">Dasar-dasar</string>
     <string name="recognition_jlpt">Tes Kemampuan Bahasa Jepang</string>
@@ -58,7 +57,6 @@
     <string name="challenge_native">Tantangan Asli</string>
     <string name="challenge_no_reading">Tanpa Bacaan</string>
     <string name="challenge_no_meaning">Tanpa Arti</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Game Menulis</string>
     <string name="writing_subtitle">Pilih grup kata dan pelajari cara menulisnya.</string>
     <string name="writing_kanji_tree">Pohon Kanji</string>
@@ -70,7 +68,6 @@
     <string name="writing_find_kanji">Temukan Kanji</string>
     <string name="writing_lists">Daftar</string>
     <string name="writing_user_lists">Daftar pengguna/daftar belajar</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Pilih grup kata dan pelajari pelafalannya.</string>
     <string name="reading_kanji_tree_subtitle">Jika kata tersebut mengandung kanji yang belum Anda pelajari:\n(10/10 dalam game pengenalan)</string>
     <string name="reading_user_list">Daftar pengguna</string>
@@ -645,7 +642,7 @@
     <string name="game_crossword_history_item">%1$d kata (%2$s)</string>
     <string name="game_snake_title">Ular</string>
     <string name="game_snake_subtitle">Pelajari karakter dengan memakannya secara berurutan</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Makan fonetik secara berurutan</string>
     <string name="game_snake_score">Skor: %1$d</string>
     <string name="game_snake_words">Kata-kata: %1$d</string>
@@ -666,4 +663,15 @@
     <string name="settings_tts_voice_male">Laki-laki (Kualitas Tinggi)</string>
     <string name="settings_tts_voice_female">Wanita (Kualitas Tinggi)</string>
     <string name="settings_tts_voice_forced_arabic">Laki-laki (Dipaksa untuk bahasa Arab)</string>
+    <string name="activity_type_vocabulary">Kosakata</string>
+    <string name="activity_type_grammar_bases">Pangkalan</string>
+    <string name="activity_type_grammar_verbs">kata kerja</string>
+    <string name="activity_type_grammar_syntax">Sintaksis</string>
+    <string name="activity_type_dictionary">Cari Kanji dan Kata-kata</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">Untuk mengenang エビ, anak anjing kesayanganku</string>
+    <string name="reading">Dengan membaca</string>
+    <string name="meaning">Secara makna</string>
 </resources>

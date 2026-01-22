@@ -47,7 +47,6 @@
     <string name="game_writing_correction">Залруулга</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Бүлэг ханз сонгож, тэдгээрийн үндсэн утгыг таньж сур</string>
     <string name="recognition_fundamentals">Үндсэн ойлголтууд</string>
     <string name="recognition_jlpt">Япон хэлний түвшин тогтоох шалгалт</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">Төрөлхийн сорилт</string>
     <string name="challenge_no_reading">Уншихгүй</string>
     <string name="challenge_no_meaning">Утгагүй</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Бичих тоглоом</string>
     <string name="writing_subtitle">Бүлэг үгсийг сонгож, тэдгээрийг хэрхэн бичиж сур.</string>
     <string name="writing_kanji_tree">Ханз мод</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">Ханз олоорой</string>
     <string name="writing_lists">Жагсаалтууд</string>
     <string name="writing_user_lists">Хэрэглэгчийн жагсаалт / судалгааны жагсаалт</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Бүлэг үгсийг сонгоод дуудлагыг нь сур.</string>
     <string name="reading_kanji_tree_subtitle">Хэрэв энэ үгэнд ханз үсэг орсон бол та хараахан сураагүй байгаа бол:\n(таних тоглоомд 10/10)</string>
     <string name="reading_user_list">Хэрэглэгчийн жагсаалт</string>
@@ -643,7 +640,7 @@
     <string name="game_crossword_history_item">%1$d үг (%2$s)</string>
     <string name="game_snake_title">Могой</string>
     <string name="game_snake_subtitle">Дүрүүдийг дарааллаар нь идэж сур</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Фонетикийг дарааллаар нь идээрэй</string>
     <string name="game_snake_score">Оноо: %1$d</string>
     <string name="game_snake_words">Үг: %1$d</string>
@@ -664,4 +661,15 @@
     <string name="settings_tts_voice_male">Эрэгтэй (Өндөр чанартай)</string>
     <string name="settings_tts_voice_female">Эмэгтэй (Өндөр чанартай)</string>
     <string name="settings_tts_voice_forced_arabic">Эрэгтэй (Араб хэлээр албадан)</string>
+    <string name="activity_type_vocabulary">Тайлбар толь</string>
+    <string name="activity_type_grammar_bases">Суурь</string>
+    <string name="activity_type_grammar_verbs">Үйл үг</string>
+    <string name="activity_type_grammar_syntax">Синтакс</string>
+    <string name="activity_type_dictionary">Канжи болон үг хайх</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">Миний хайртай гөлөг エビ-ийн дурсгалд зориулж</string>
+    <string name="reading">Унших замаар</string>
+    <string name="meaning">Утгаар нь</string>
 </resources>

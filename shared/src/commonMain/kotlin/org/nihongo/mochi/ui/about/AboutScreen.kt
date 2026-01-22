@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -41,7 +42,7 @@ import org.nihongo.mochi.shared.generated.resources.*
 @Composable
 fun AboutScreen(
     versionName: String,
-    currentDate: String,
+    buildDate: String,
     onIssueTrackerClick: () -> Unit,
     onRateAppClick: () -> Unit,
     onPatreonClick: () -> Unit,
@@ -78,13 +79,6 @@ fun AboutScreen(
                 )
             }
 
-            Text(
-                text = stringResource(Res.string.about_version_info),
-                fontSize = 16.sp,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(bottom = 24.dp)
-            )
-
             AboutSectionCard(
                 title = stringResource(Res.string.about_category_informations),
                 icon = Icons.Default.Info
@@ -109,8 +103,27 @@ fun AboutScreen(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = currentDate,
+                        text = buildDate,
                         color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                ) {
+                    Image(
+                        painter = painterResource(Res.drawable.ebi),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Text(
+                        text = stringResource(Res.string.in_memoriam),
+                        fontSize = 14.sp,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                     )
                 }
 

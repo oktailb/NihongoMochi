@@ -47,7 +47,6 @@
     <string name="enter_your_answer">답을 입력하세요</string>
     <string name="submit">제출</string>
     <string name="game_writing_correction">수정</string>
-    <string name="recognition_title">봐봐</string>
     <string name="recognition_subtitle">한자 그룹을 선택하고 기본 의미를 인식하는 법을 배웁니다.</string>
     <string name="recognition_fundamentals">기초</string>
     <string name="recognition_jlpt">일본어 능력 시험</string>
@@ -57,7 +56,6 @@
     <string name="challenge_native">네이티브 챌린지</string>
     <string name="challenge_no_reading">읽기 없음</string>
     <string name="challenge_no_meaning">의미 없음</string>
-    <string name="writing_title">서기방</string>
     <string name="writing_game_recap_title">쓰기 게임</string>
     <string name="writing_subtitle">단어 그룹을 선택하고 쓰는 법을 배웁니다.</string>
     <string name="writing_kanji_tree">한자 트리</string>
@@ -69,7 +67,6 @@
     <string name="writing_find_kanji">한자 찾기</string>
     <string name="writing_lists">목록</string>
     <string name="writing_user_lists">사용자 목록/학습 목록</string>
-    <string name="reading_title">설명하다</string>
     <string name="reading_subtitle">단어 그룹을 선택하고 발음을 배웁니다.</string>
     <string name="reading_kanji_tree_subtitle">단어에 아직 배우지 않은 한자가 포함된 경우:\n(인식 게임에서 10/10)</string>
     <string name="reading_user_list">사용자 목록</string>
@@ -645,7 +642,7 @@
     <string name="game_crossword_history_item">%1$d단어(%2$s)</string>
     <string name="game_snake_title">뱀</string>
     <string name="game_snake_subtitle">캐릭터를 순서대로 먹으면서 배워보세요</string>
-    <string name="game_snake_japanese_title">헤비게임</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">음성학을 순서대로 먹어라</string>
     <string name="game_snake_score">점수: %1$d</string>
     <string name="game_snake_words">단어: %1$d</string>
@@ -666,4 +663,15 @@
     <string name="settings_tts_voice_male">남성(고품질)</string>
     <string name="settings_tts_voice_female">여성(고화질)</string>
     <string name="settings_tts_voice_forced_arabic">남성(아랍어의 경우 강제)</string>
+    <string name="activity_type_vocabulary">어휘</string>
+    <string name="activity_type_grammar_bases">기지</string>
+    <string name="activity_type_grammar_verbs">동사</string>
+    <string name="activity_type_grammar_syntax">통사론</string>
+    <string name="activity_type_dictionary">한자와 단어 검색</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">사랑하는 강아지 에비를 기리며</string>
+    <string name="reading">독서로</string>
+    <string name="meaning">의미로</string>
 </resources>

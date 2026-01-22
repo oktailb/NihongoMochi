@@ -22,8 +22,6 @@ import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.ui.navigation.MochiNavGraph
 import org.nihongo.mochi.ui.theme.AppTheme
 import org.nihongo.mochi.workers.DecayWorker
-import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
@@ -80,15 +78,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContent {
-            val sdf = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault())
-            val currentDate = sdf.format(Date())
-
             AppTheme {
                 val navController = rememberNavController()
                 MochiNavGraph(
                     navController = navController,
                     versionName = BuildConfig.VERSION_NAME,
-                    currentDate = currentDate,
+                    buildDate = BuildConfig.BUILD_DATE,
                     onOpenUrl = { url -> openUrl(url) },
                     onThemeChanged = { isDark -> changeTheme(isDark) },
                     onLocaleChanged = { newLocale -> changeLocale(newLocale) }

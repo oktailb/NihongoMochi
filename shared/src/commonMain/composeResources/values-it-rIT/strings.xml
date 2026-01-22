@@ -44,7 +44,6 @@
     <string name="enter_your_answer">Inserisci la tua risposta</string>
     <string name="submit">Invia</string>
     <string name="game_writing_correction">Correzione</string>
-    <string name="recognition_title">見覚え</string>
     <string name="recognition_subtitle">Scegli un gruppo di kanji e impara a riconoscere i loro diversi significati di base</string>
     <string name="recognition_fundamentals">Fondamenti</string>
     <string name="recognition_jlpt">Test di competenza della lingua giapponese</string>
@@ -54,7 +53,6 @@
     <string name="challenge_native">Sfida nativa</string>
     <string name="challenge_no_reading">Nessuna lettura</string>
     <string name="challenge_no_meaning">Nessun significato</string>
-    <string name="writing_title">書き方</string>
     <string name="writing_game_recap_title">Gioco di scrittura</string>
     <string name="writing_subtitle">Scegli un gruppo di parole e impara a scriverle.</string>
     <string name="writing_kanji_tree">Albero dei Kanji</string>
@@ -66,7 +64,6 @@
     <string name="writing_find_kanji">Trova un Kanji</string>
     <string name="writing_lists">Elenchi</string>
     <string name="writing_user_lists">Elenco utenti / elenchi di studio</string>
-    <string name="reading_title">読み方</string>
     <string name="reading_subtitle">Scegli un gruppo di parole e impara le loro pronunce.</string>
     <string name="reading_kanji_tree_subtitle">Se la parola contiene kanji che non hai ancora imparato:\n(10/10 nel gioco di riconoscimento)</string>
     <string name="reading_user_list">Elenco utenti</string>
@@ -641,7 +638,7 @@
     <string name="game_crossword_history_item">%1$d parole (%2$s)</string>
     <string name="game_snake_title">Serpente</string>
     <string name="game_snake_subtitle">Impara i personaggi mangiandoli in ordine</string>
-    <string name="game_snake_japanese_title">ヘビゲーム</string>
+    <string name="game_snake_japanese_title" translatable="false">ヘビゲーム</string>
     <string name="game_snake_eat_phonetics">Mangia la fonetica in ordine</string>
     <string name="game_snake_score">Punteggio: %1$d</string>
     <string name="game_snake_words">Parole: %1$d</string>
@@ -662,4 +659,15 @@
     <string name="settings_tts_voice_male">Maschio (alta qualità)</string>
     <string name="settings_tts_voice_female">Femmina (alta qualità)</string>
     <string name="settings_tts_voice_forced_arabic">Maschio (forzato per l'arabo)</string>
+    <string name="activity_type_vocabulary">Vocabolario</string>
+    <string name="activity_type_grammar_bases">Basi</string>
+    <string name="activity_type_grammar_verbs">Verbi</string>
+    <string name="activity_type_grammar_syntax">Sintassi</string>
+    <string name="activity_type_dictionary">Cerca Kanji e parole</string>
+    <string name="recognition_title" translatable="false">見覚え</string>
+    <string name="writing_title" translatable="false">書き方</string>
+    <string name="reading_title" translatable="false">読み方</string>
+    <string name="in_memoriam">In ricordo di エビ, il mio amato cucciolo</string>
+    <string name="reading">Leggendo</string>
+    <string name="meaning">Per significato</string>
 </resources>
