@@ -72,6 +72,9 @@ import org.nihongo.mochi.ui.games.crossword.CrosswordViewModel
 import org.nihongo.mochi.ui.games.snake.SnakeSetupScreen
 import org.nihongo.mochi.ui.games.snake.SnakeGameScreen
 import org.nihongo.mochi.ui.games.snake.SnakeViewModel
+import org.nihongo.mochi.ui.games.shiritori.ShiritoriSetupScreen
+import org.nihongo.mochi.ui.games.shiritori.ShiritoriGameScreen
+import org.nihongo.mochi.ui.games.shiritori.ShiritoriViewModel
 import org.nihongo.mochi.ui.grammar.GrammarScreen
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
@@ -117,6 +120,8 @@ sealed class Screen(val route: String) {
     data object CrosswordGame : Screen("crossword_game")
     data object SnakeSetup : Screen("snake_setup")
     data object SnakeGame : Screen("snake_game")
+    data object ShiritoriSetup : Screen("shiritori_setup")
+    data object ShiritoriGame : Screen("shiritori_game")
     
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
@@ -336,7 +341,7 @@ fun MochiNavGraph(
                 onSnakeClick = { navController.navigate(Screen.SnakeSetup.route) },
                 onParticlesClick = { /* TODO */ },
                 onForgeClick = { /* TODO */ },
-                onShiritoriClick = { /* TODO */ },
+                onShiritoriClick = { navController.navigate(Screen.ShiritoriSetup.route) },
                 onShadowClick = { /* TODO */ }
             )
         }
@@ -461,6 +466,23 @@ fun MochiNavGraph(
         composable(Screen.SnakeGame.route) {
             val viewModel: SnakeViewModel = koinInject()
             SnakeGameScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.ShiritoriSetup.route) {
+            val viewModel: ShiritoriViewModel = koinInject()
+            ShiritoriSetupScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() },
+                onStartGame = { navController.navigate(Screen.ShiritoriGame.route) }
+            )
+        }
+
+        composable(Screen.ShiritoriGame.route) {
+            val viewModel: ShiritoriViewModel = koinInject()
+            ShiritoriGameScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )

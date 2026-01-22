@@ -139,7 +139,7 @@ fun GamesScreen(
                     title = stringResource(Res.string.game_shiritori_title),
                     subtitle = stringResource(Res.string.game_shiritori_subtitle),
                     kanjiTitle = "しりとり",
-                    onClick = { showComingSoon() }
+                    onClick = onShiritoriClick
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
