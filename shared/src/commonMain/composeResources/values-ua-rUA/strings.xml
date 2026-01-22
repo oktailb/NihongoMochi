@@ -672,5 +672,15 @@
     <string name="in_memoriam">На згадку про エビ, моє улюблене цуценя</string>
     <string name="reading">Читаючи</string>
     <string name="meaning">За змістом</string>
-    <string name="shiritori_rules">• Слово має починатися з останнього складу попереднього слова.\n• Не закінчуйте на «N» (ん)!\n• Слова не можна повторювати.\n• ШІ обмежено вашим поточним рівнем JLPT.»</string>
+    <string name="shiritori_rules_desc">• Слово має починатися з останнього складу попереднього слова.\n• Не закінчувати на «N» (ん)!\n• Слова не можна повторювати.\n• ШІ обмежено вашим поточним рівнем JLPT.</string>
+    <string name="shiritori_next">далі:</string>
+    <string name="shiritori_starts_by">Почнемо з</string>
+    <string name="shiritori_finishes_by">Завершує 'ん' !</string>
+    <string name="shiritori_taken">Вже забрали!</string>
+    <string name="shiritori_unknown_word">Невідоме слово</string>
+    <string name="shiritori_typing">Введіть Romaji...</string>
+    <string name="shiritori_words_found">Слова знайдені</string>
+    <string name="shiritori_time">час</string>
+    <string name="shiritori_ia_sink">ІА думає...</string>
+    <string name="shiritori_rules">правила</string>
 </resources>

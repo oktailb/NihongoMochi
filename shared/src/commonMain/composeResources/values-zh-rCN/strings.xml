@@ -674,5 +674,15 @@
     <string name="in_memoriam">纪念我心爱的小狗エビ</string>
     <string name="reading">通过阅读</string>
     <string name="meaning">按意思</string>
-    <string name="shiritori_rules">• 单词必须从前一个单词的最后一个音节开始。\n• 不要以“N”(ん) 结尾！\n• 单词不能重复。\n• AI 仅限于您当前的 JLPT 级别。</string>
+    <string name="shiritori_rules_desc">• 单词必须从前一个单词的最后一个音节开始。\n• 不要以“N”(ん) 结尾！\n• 单词不能重复。\n• AI 仅限于您当前的 JLPT 级别。</string>
+    <string name="shiritori_next">下一个 ：</string>
+    <string name="shiritori_starts_by">应开始于</string>
+    <string name="shiritori_finishes_by">以‘ん’结束！</string>
+    <string name="shiritori_taken">已经采取 ！</string>
+    <string name="shiritori_unknown_word">未知词</string>
+    <string name="shiritori_typing">输入罗马字...</string>
+    <string name="shiritori_words_found">找到的单词</string>
+    <string name="shiritori_time">时间</string>
+    <string name="shiritori_ia_sink">IA正在想...</string>
+    <string name="shiritori_rules">规则</string>
 </resources>

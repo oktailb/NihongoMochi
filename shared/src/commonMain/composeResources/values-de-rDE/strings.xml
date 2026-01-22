@@ -670,5 +670,15 @@
     <string name="in_memoriam">In Erinnerung an エビ, meinen geliebten Welpen</string>
     <string name="reading">Durch Lesen</string>
     <string name="meaning">Durch Bedeutung</string>
-    <string name="shiritori_rules">• Das Wort muss mit der letzten Silbe des vorherigen Wortes beginnen.\n• Nicht mit „N“ (ん) enden!\n• Wörter können nicht wiederholt werden.\n• AI ist auf Ihr aktuelles JLPT-Level beschränkt.“</string>
+    <string name="shiritori_rules_desc">• Das Wort muss mit der letzten Silbe des vorherigen Wortes beginnen.\n• Nicht mit „N“ (ん) enden!\n• Wörter können nicht wiederholt werden.\n• AI ist auf Ihr aktuelles JLPT-Level beschränkt.</string>
+    <string name="shiritori_next">Nächste :</string>
+    <string name="shiritori_starts_by">Soll damit beginnen</string>
+    <string name="shiritori_finishes_by">Beendet mit 'ん'!</string>
+    <string name="shiritori_taken">Bereits vergeben!</string>
+    <string name="shiritori_unknown_word">Unbekanntes Wort</string>
+    <string name="shiritori_typing">Geben Sie Romaji ein...</string>
+    <string name="shiritori_words_found">Wörter gefunden</string>
+    <string name="shiritori_time">Zeit</string>
+    <string name="shiritori_ia_sink">IA denkt...</string>
+    <string name="shiritori_rules">Regeln</string>
 </resources>

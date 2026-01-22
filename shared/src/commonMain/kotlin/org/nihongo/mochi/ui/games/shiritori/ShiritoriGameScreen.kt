@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.shiritori
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -46,6 +47,11 @@ fun ShiritoriGameScreen(
     val listState = rememberLazyListState()
     val audioPlayer: org.nihongo.mochi.domain.services.AudioPlayer = koinInject()
 
+    // Gérer l'abandon via le bouton retour système
+    BackHandler(enabled = gameState != ShiritoriGameState.GAME_OVER && gameState != ShiritoriGameState.IDLE) {
+        viewModel.abandonGame()
+    }
+
     // Lancement automatique du jeu dès l'entrée sur l'écran
     LaunchedEffect(Unit) {
         if (gameState == ShiritoriGameState.IDLE) {
@@ -83,7 +89,7 @@ fun ShiritoriGameScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(
-                                text = "Suivant : ", 
+                                text = stringResource(Res.string.shiritori_next),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSecondaryContainer
                             )
@@ -135,10 +141,10 @@ fun ShiritoriGameScreen(
                     ) {
                         Text(
                             text = when (error) {
-                                ShiritoriError.InvalidStart -> "Doit commencer par $lastKana"
-                                ShiritoriError.EndsInN -> "Finit par 'ん' !"
-                                ShiritoriError.AlreadyUsed -> "Déjà utilisé !"
-                                ShiritoriError.WordNotFound -> "Mot inconnu"
+                                ShiritoriError.InvalidStart -> stringResource(Res.string.shiritori_starts_by) + " $lastKana"
+                                ShiritoriError.EndsInN -> stringResource(Res.string.shiritori_finishes_by)
+                                ShiritoriError.AlreadyUsed -> stringResource(Res.string.shiritori_taken)
+                                ShiritoriError.WordNotFound -> stringResource(Res.string.shiritori_unknown_word)
                                 else -> ""
                             },
                             color = MaterialTheme.colorScheme.onErrorContainer,
@@ -168,7 +174,7 @@ fun ShiritoriGameScreen(
                             modifier = Modifier.weight(1f),
                             placeholder = { 
                                 Text(
-                                    text = "Tapez en Romaji...",
+                                    text = stringResource(Res.string.shiritori_typing),
                                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                                 ) 
                             },
@@ -222,8 +228,8 @@ fun ShiritoriGameScreen(
                     score = score.toString(),
                     bestScore = bestScore.toString(),
                     stats = listOf(
-                        "Mots trouvés" to score.toString(),
-                        "Temps" to formatGameTimeHUD(gameTimeSeconds)
+                        stringResource(Res.string.shiritori_words_found) to score.toString(),
+                        stringResource(Res.string.shiritori_time) to formatGameTimeHUD(gameTimeSeconds)
                     ),
                     onReplayClick = { viewModel.startGame() },
                     onMenuClick = { 
@@ -280,7 +286,7 @@ fun WordBubble(shiritoriWord: ShiritoriWord) {
 @Composable
 fun TypingIndicator() {
     Text(
-        text = "L'IA réfléchit...",
+        text = stringResource(Res.string.shiritori_ia_sink),
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
         modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp)

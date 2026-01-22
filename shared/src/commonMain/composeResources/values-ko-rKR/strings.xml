@@ -674,5 +674,15 @@
     <string name="in_memoriam">사랑하는 강아지 에비를 기리며</string>
     <string name="reading">독서로</string>
     <string name="meaning">의미로</string>
-    <string name="shiritori_rules">• 단어는 이전 단어의 마지막 음절로 시작해야 합니다.\n• 'N'(ん)으로 끝나지 마세요.\n• 단어를 반복할 수 없습니다.\n• AI는 현재 JLPT 수준으로 제한됩니다.</string>
+    <string name="shiritori_rules_desc">• 단어는 이전 단어의 마지막 음절로 시작해야 합니다.\n• 'N'(ん)으로 끝나지 마세요.\n• 단어를 반복할 수 없습니다.\n• AI는 현재 JLPT 수준으로 제한됩니다.</string>
+    <string name="shiritori_next">다음 :</string>
+    <string name="shiritori_starts_by">다음부터 시작합니다</string>
+    <string name="shiritori_finishes_by">'응'으로 끝납니다!</string>
+    <string name="shiritori_taken">이미 촬영되었습니다!</string>
+    <string name="shiritori_unknown_word">알 수 없는 단어</string>
+    <string name="shiritori_typing">로마자로 입력하세요...</string>
+    <string name="shiritori_words_found">찾은 단어</string>
+    <string name="shiritori_time">시간</string>
+    <string name="shiritori_ia_sink">IA는 생각 중입니다...</string>
+    <string name="shiritori_rules">규칙</string>
 </resources>

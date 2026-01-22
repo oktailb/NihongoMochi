@@ -41,12 +41,12 @@ fun ShiritoriSetupScreen(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = "Rules",
+                    text = stringResource(Res.string.shiritori_rules),
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
-                Text(text = stringResource(Res.string.shiritori_rules), fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = stringResource(Res.string.shiritori_rules_desc), fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
 

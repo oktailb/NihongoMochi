@@ -672,5 +672,15 @@
     <string name="in_memoriam">في ذكرى エビ، جروي الحبيب</string>
     <string name="reading">بالقراءة</string>
     <string name="meaning">بالمعنى</string>
-    <string name="shiritori_rules">• يجب أن تبدأ الكلمة بالمقطع الأخير من الكلمة السابقة.\n• لا تنتهي بـ 'N' (ん)!\n• لا يمكن تكرار الكلمات.\n• يقتصر الذكاء الاصطناعي على مستوى JLPT الحالي."</string>
+    <string name="shiritori_rules_desc">• يجب أن تبدأ الكلمة بالمقطع الأخير من الكلمة السابقة.\n• لا تنتهي بـ 'N' (ん)!\n• لا يمكن تكرار الكلمات.\n• يقتصر الذكاء الاصطناعي على مستوى JLPT الحالي.</string>
+    <string name="shiritori_next">التالي :</string>
+    <string name="shiritori_starts_by">يجب أن تبدأ بها</string>
+    <string name="shiritori_finishes_by">انتهى بواسطة 'ん'!</string>
+    <string name="shiritori_taken">مأخوذة !</string>
+    <string name="shiritori_unknown_word">كلمة غير معروفة</string>
+    <string name="shiritori_typing">اكتب بالروماجي...</string>
+    <string name="shiritori_words_found">تم العثور على الكلمات</string>
+    <string name="shiritori_time">وقت</string>
+    <string name="shiritori_ia_sink">اي ايه تفكر...</string>
+    <string name="shiritori_rules">قواعد</string>
 </resources>

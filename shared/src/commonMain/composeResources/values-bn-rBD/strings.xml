@@ -672,5 +672,15 @@
     <string name="in_memoriam">エビ এর স্মৃতিতে, আমার প্রিয় কুকুরছানা</string>
     <string name="reading">পড়ে</string>
     <string name="meaning">অর্থ দিয়ে</string>
-    <string name="shiritori_rules">• শব্দটি পূর্ববর্তী শব্দের শেষ শব্দাংশ দিয়ে শুরু করতে হবে।\n• 'N' (ん) দিয়ে শেষ করবেন না!\n• শব্দের পুনরাবৃত্তি করা যাবে না।\n• AI আপনার বর্তমান JLPT স্তরে সীমাবদ্ধ।"</string>
+    <string name="shiritori_rules_desc">• শব্দটি অবশ্যই পূর্ববর্তী শব্দের শেষ শব্দাংশ দিয়ে শুরু করতে হবে।\n• 'N' (ん) দিয়ে শেষ করবেন না!\n• শব্দের পুনরাবৃত্তি করা যাবে না।\n• AI আপনার বর্তমান JLPT স্তরে সীমাবদ্ধ।</string>
+    <string name="shiritori_next">পরবর্তী:</string>
+    <string name="shiritori_starts_by">শুরু হবে</string>
+    <string name="shiritori_finishes_by">'ん' দ্বারা শেষ হয়!</string>
+    <string name="shiritori_taken">ইতিমধ্যে নেওয়া হয়েছে!</string>
+    <string name="shiritori_unknown_word">অজানা শব্দ</string>
+    <string name="shiritori_typing">রোমাজিতে টাইপ করুন...</string>
+    <string name="shiritori_words_found">শব্দ পাওয়া গেছে</string>
+    <string name="shiritori_time">সময়</string>
+    <string name="shiritori_ia_sink">আইএ ভাবছে...</string>
+    <string name="shiritori_rules">নিয়ম</string>
 </resources>

@@ -674,5 +674,15 @@
     <string name="in_memoriam">เพื่อรำลึกถึง エビ ลูกหมาที่รักของฉัน</string>
     <string name="reading">โดยการอ่าน</string>
     <string name="meaning">ตามความหมาย</string>
-    <string name="shiritori_rules">• คำต้องขึ้นต้นด้วยพยางค์สุดท้ายของคำก่อนหน้า\n• อย่าลงท้ายด้วย 'N' (ん)!\n• ไม่สามารถพูดซ้ำคำได้\n• AI ถูกจำกัดไว้ที่ระดับ JLPT ปัจจุบันของคุณ"</string>
+    <string name="shiritori_rules_desc">• คำต้องขึ้นต้นด้วยพยางค์สุดท้ายของคำก่อนหน้า\n• อย่าลงท้ายด้วย 'N' (ん)!\n• ไม่สามารถพูดซ้ำคำได้\n• AI ถูกจำกัดไว้ที่ระดับ JLPT ปัจจุบันของคุณ</string>
+    <string name="shiritori_next">ต่อไป :</string>
+    <string name="shiritori_starts_by">จะเริ่มโดย</string>
+    <string name="shiritori_finishes_by">จบโดย 'ん' !</string>
+    <string name="shiritori_taken">เอาแล้ว!</string>
+    <string name="shiritori_unknown_word">คำที่ไม่รู้จัก</string>
+    <string name="shiritori_typing">พิมพ์อักษรโรมันจิ...</string>
+    <string name="shiritori_words_found">พบคำ</string>
+    <string name="shiritori_time">เวลา</string>
+    <string name="shiritori_ia_sink">ไอเอกำลังคิด...</string>
+    <string name="shiritori_rules">กฎ</string>
 </resources>

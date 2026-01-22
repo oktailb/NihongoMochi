@@ -672,5 +672,15 @@
     <string name="in_memoriam">私の最愛の子犬エビを偲んで</string>
     <string name="reading">読むことで</string>
     <string name="meaning">意味的には</string>
-    <string name="shiritori_rules">• 単語は前の単語の最後の音節で始まる必要があります。\n• 'N' (ん) で終わらないでください!\n• 単語を繰り返すことはできません。\n• AI は現在の JLPT レベルに制限されています。</string>
+    <string name="shiritori_rules_desc">• 単語は前の単語の最後の音節で始まる必要があります。\n• 'N' (ん) で終わらないでください!\n• 単語を繰り返すことはできません。\n• AI は現在の JLPT レベルに限定されます。</string>
+    <string name="shiritori_next">次 ：</string>
+    <string name="shiritori_starts_by">から始めましょう</string>
+    <string name="shiritori_finishes_by">「ん」で終了！</string>
+    <string name="shiritori_taken">すでに取られた ！</string>
+    <string name="shiritori_unknown_word">未知の単語</string>
+    <string name="shiritori_typing">ローマ字を入力して…</string>
+    <string name="shiritori_words_found">見つかった単語</string>
+    <string name="shiritori_time">時間</string>
+    <string name="shiritori_ia_sink">IAは考えています...</string>
+    <string name="shiritori_rules">ルール</string>
 </resources>

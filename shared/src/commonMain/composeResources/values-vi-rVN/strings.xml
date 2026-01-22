@@ -670,5 +670,15 @@
     <string name="in_memoriam">Để tưởng nhớ エビ, chú cún yêu quý của tôi</string>
     <string name="reading">Bằng cách đọc</string>
     <string name="meaning">Theo ý nghĩa</string>
-    <string name="shiritori_rules">• Từ phải bắt đầu bằng âm tiết cuối cùng của từ trước đó.\n^ Không kết thúc bằng 'N' (ん)!\n^ Các từ không thể lặp lại.\n AI bị giới hạn ở cấp độ JLPT hiện tại của bạn."</string>
+    <string name="shiritori_rules_desc">• Từ phải bắt đầu bằng âm tiết cuối cùng của từ trước đó.\n^ Không kết thúc bằng 'N' (ん)!\n^ Các từ không thể lặp lại.\n AI bị giới hạn ở cấp độ JLPT hiện tại của bạn.</string>
+    <string name="shiritori_next">Kế tiếp :</string>
+    <string name="shiritori_starts_by">Sẽ bắt đầu bằng</string>
+    <string name="shiritori_finishes_by">Kết thúc bằng 'ん' !</string>
+    <string name="shiritori_taken">Đã chụp rồi!</string>
+    <string name="shiritori_unknown_word">Từ không xác định</string>
+    <string name="shiritori_typing">Nhập Romaji...</string>
+    <string name="shiritori_words_found">Từ được tìm thấy</string>
+    <string name="shiritori_time">Thời gian</string>
+    <string name="shiritori_ia_sink">IA đang suy nghĩ...</string>
+    <string name="shiritori_rules">Quy tắc</string>
 </resources>

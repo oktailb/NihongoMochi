@@ -674,5 +674,15 @@
     <string name="in_memoriam">Untuk mengenang エビ, anak anjing kesayanganku</string>
     <string name="reading">Dengan membaca</string>
     <string name="meaning">Secara makna</string>
-    <string name="shiritori_rules">• Kata harus dimulai dengan suku kata terakhir dari kata sebelumnya.\n• Jangan diakhiri dengan 'N' (ん)!\n• Kata tidak boleh diulang.\n• AI terbatas pada level JLPT Anda saat ini."</string>
+    <string name="shiritori_rules_desc">• Kata harus dimulai dengan suku kata terakhir dari kata sebelumnya.\n• Jangan diakhiri dengan 'N' (ん)!\n• Kata tidak boleh diulang.\n• AI terbatas pada level JLPT Anda saat ini.</string>
+    <string name="shiritori_next">Berikutnya :</string>
+    <string name="shiritori_starts_by">Akan dimulai dengan</string>
+    <string name="shiritori_finishes_by">Diakhiri dengan 'ん' !</string>
+    <string name="shiritori_taken">Sudah diambil!</string>
+    <string name="shiritori_unknown_word">Kata yang tidak diketahui</string>
+    <string name="shiritori_typing">Ketik Romaji...</string>
+    <string name="shiritori_words_found">Kata-kata ditemukan</string>
+    <string name="shiritori_time">Waktu</string>
+    <string name="shiritori_ia_sink">IA sedang berpikir...</string>
+    <string name="shiritori_rules">Aturan</string>
 </resources>

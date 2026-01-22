@@ -674,5 +674,15 @@
     <string name="in_memoriam">В память о エビ, моем любимом щенке</string>
     <string name="reading">Читая</string>
     <string name="meaning">По смыслу</string>
-    <string name="shiritori_rules">• Слово должно начинаться с последнего слога предыдущего слова.\n• Не заканчивайтесь на «N» (ん)!\n• Слова не могут повторяться.\n• ИИ ограничен вашим текущим уровнем JLPT».</string>
+    <string name="shiritori_rules_desc">• Слово должно начинаться с последнего слога предыдущего слова.\n• Не заканчивайтесь на «N» (ん)!\n• Слова не могут повторяться.\n• AI ограничен вашим текущим уровнем JLPT.</string>
+    <string name="shiritori_next">Следующий :</string>
+    <string name="shiritori_starts_by">Начнем с</string>
+    <string name="shiritori_finishes_by">Заканчивается на 'ん' !</string>
+    <string name="shiritori_taken">Уже занят !</string>
+    <string name="shiritori_unknown_word">Неизвестное слово</string>
+    <string name="shiritori_typing">Введите ромадзи...</string>
+    <string name="shiritori_words_found">Слова найдены</string>
+    <string name="shiritori_time">Время</string>
+    <string name="shiritori_ia_sink">ИИ думает...</string>
+    <string name="shiritori_rules">Правила</string>
 </resources>

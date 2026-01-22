@@ -675,5 +675,15 @@
     <string name="in_memoriam">In memory of エビ, my beloved puppy</string>
     <string name="reading">By reading</string>
     <string name="meaning">By meaning</string>
-    <string name="shiritori_rules">• Word must start with the last syllable of the previous word.\n• Don't end with 'N' (ん)!\n• Words cannot be repeated.\n• AI is limited to your current JLPT level."</string>
+    <string name="shiritori_rules">Rules</string>
+    <string name="shiritori_rules_desc">• Word must start with the last syllable of the previous word.\n• Don't end with 'N' (ん)!\n• Words cannot be repeated.\n• AI is limited to your current JLPT level.</string>
+    <string name="shiritori_next">Next : </string>
+    <string name="shiritori_starts_by">Shall start by </string>
+    <string name="shiritori_finishes_by">Finishes by 'ん' !</string>
+    <string name="shiritori_taken">Already taken !</string>
+    <string name="shiritori_unknown_word">Unknown word</string>
+    <string name="shiritori_typing">Type in Romaji...</string>
+    <string name="shiritori_words_found">Words found</string>
+    <string name="shiritori_time">Time</string>
+    <string name="shiritori_ia_sink">IA is thinking...</string>
 </resources>

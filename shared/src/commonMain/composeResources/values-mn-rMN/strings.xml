@@ -672,5 +672,15 @@
     <string name="in_memoriam">Миний хайртай гөлөг エビ-ийн дурсгалд зориулж</string>
     <string name="reading">Унших замаар</string>
     <string name="meaning">Утгаар нь</string>
-    <string name="shiritori_rules">• Үг нь өмнөх үгийн сүүлчийн үеээр эхлэх ёстой.\n• 'N' (ん)-ээр төгсөж болохгүй!\n• Үгийг давтах боломжгүй.\n• AI нь таны одоогийн JLPT түвшинд хязгаарлагддаг."</string>
+    <string name="shiritori_rules_desc">• Үг нь өмнөх үгийн сүүлчийн үеээр эхлэх ёстой.\n• 'N' (ん)-ээр төгсөж болохгүй!\n• Үгийг давтах боломжгүй.\n• AI нь таны одоогийн JLPT түвшинд хязгаарлагддаг.</string>
+    <string name="shiritori_next">Дараа нь:</string>
+    <string name="shiritori_starts_by">-аас эхэлнэ</string>
+    <string name="shiritori_finishes_by">'ん'-ээр төгсдөг!</string>
+    <string name="shiritori_taken">Аль хэдийн авсан!</string>
+    <string name="shiritori_unknown_word">Үл мэдэгдэх үг</string>
+    <string name="shiritori_typing">Ромажи гэж бичнэ үү...</string>
+    <string name="shiritori_words_found">Үг олдсон</string>
+    <string name="shiritori_time">Цаг хугацаа</string>
+    <string name="shiritori_ia_sink">IA бодож байна ...</string>
+    <string name="shiritori_rules">Дүрэм</string>
 </resources>
