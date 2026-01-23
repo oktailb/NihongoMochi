@@ -50,6 +50,10 @@ kotlin {
 
             // SQLDelight
             implementation(libs.sqldelight.coroutines.extensions)
+
+            // Network & IO
+            implementation(libs.ktor.client.core)
+            implementation(libs.okio)
         }
 
         androidMain.dependencies {
@@ -57,13 +61,14 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.mlkit.digital.ink)
             implementation(libs.play.services.games)
-            // Correction ici : tirets remplacés par des points
             implementation(libs.sqldelight.android.driver)
+            
+            implementation(libs.ktor.client.okhttp)
         }
 
         iosMain.dependencies {
-            // Correction ici : tirets remplacés par des points
             implementation(libs.sqldelight.native.driver)
+            implementation(libs.ktor.client.darwin)
         }
 
         commonTest.dependencies {

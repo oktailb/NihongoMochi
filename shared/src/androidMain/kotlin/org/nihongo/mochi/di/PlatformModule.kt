@@ -18,6 +18,7 @@ import org.nihongo.mochi.services.AndroidTextToSpeech
 import org.nihongo.mochi.ui.dictionary.AndroidMlKitRecognizer
 import org.nihongo.mochi.ui.writinggame.AndroidTextNormalizer
 import org.koin.core.qualifier.named
+import okio.Path.Companion.toPath
 
 val platformModule = module {
     // Database
@@ -28,6 +29,11 @@ val platformModule = module {
     
     // Text To Speech
     single<TextToSpeech> { AndroidTextToSpeech(androidContext()) }
+
+    // Storage Path for Language Packs
+    single<okio.Path> { 
+        androidContext().filesDir.absolutePath.toPath() 
+    }
 
     // Shared Settings (legacy)
     single<Settings> {

@@ -30,6 +30,8 @@ playServicesGames = "21.0.0"
 mlkitDigitalInk = "18.1.0"
 richEditor = "1.0.0-rc10" 
 sqldelight = "2.0.2"
+ktor = "2.3.12"
+okio = "3.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -81,6 +83,12 @@ mlkit-digital-ink = { group = "com.google.mlkit", name = "digital-ink-recognitio
 
 # Third Party
 rich-editor = { group = "com.mohamedrejeb.richeditor", name = "richeditor-compose", version.ref = "richEditor" }
+
+# Network & IO
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

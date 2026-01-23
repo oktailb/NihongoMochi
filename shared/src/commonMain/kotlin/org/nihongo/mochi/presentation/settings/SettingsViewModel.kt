@@ -11,11 +11,14 @@ import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.services.VoiceGender
 import org.nihongo.mochi.domain.services.TextToSpeech
 import org.nihongo.mochi.domain.services.VoiceConfig
+import org.nihongo.mochi.domain.services.LanguagePackManager
+import org.nihongo.mochi.domain.services.DownloadStatus
 
 class SettingsViewModel(
     private val settingsRepository: SettingsRepository,
     private val levelsRepository: LevelsRepository,
-    private val tts: TextToSpeech
+    private val tts: TextToSpeech,
+    private val languagePackManager: LanguagePackManager
 ) : ViewModel() {
 
     data class SettingsUiState(
@@ -31,7 +34,8 @@ class SettingsViewModel(
         val ttsGender: VoiceGender = VoiceGender.FEMALE,
         val ttsRate: Float = 1.0f,
         val availableVoices: List<String> = emptyList(),
-        val selectedVoiceId: String? = null
+        val selectedVoiceId: String? = null,
+        val downloadStatus: DownloadStatus = DownloadStatus.IDLE
     )
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -40,6 +44,7 @@ class SettingsViewModel(
     init {
         loadInitialSettings()
         observeVoices()
+        observeLanguagePacks()
     }
 
     private fun loadInitialSettings() {
@@ -61,7 +66,8 @@ class SettingsViewModel(
                     availableModes = modes,
                     ttsGender = settingsRepository.getTtsGender(currentLocale),
                     ttsRate = settingsRepository.getTtsRate(),
-                    selectedVoiceId = settingsRepository.getTtsVoiceId()
+                    selectedVoiceId = settingsRepository.getTtsVoiceId(),
+                    downloadStatus = if (languagePackManager.isPackDownloaded(currentLocale)) DownloadStatus.SUCCESS else DownloadStatus.IDLE
                 )
             }
         }
@@ -70,7 +76,6 @@ class SettingsViewModel(
     private fun observeVoices() {
         viewModelScope.launch {
             tts.availableVoices.collect { voices ->
-                // Filter only for the voices requested by the user for Google TTS
                 val filteredVoices = voices.filter { 
                     it.contains("jab-local") || it.contains("jad-local") 
                 }
@@ -79,15 +84,45 @@ class SettingsViewModel(
         }
     }
 
+    private fun observeLanguagePacks() {
+        viewModelScope.launch {
+            languagePackManager.status.collect { statusMap ->
+                val current = _uiState.value.currentLocaleCode
+                if (current.isNotEmpty()) {
+                    val status = statusMap[current] ?: if (languagePackManager.isPackDownloaded(current)) DownloadStatus.SUCCESS else DownloadStatus.IDLE
+                    _uiState.update { it.copy(downloadStatus = status) }
+                }
+            }
+        }
+    }
+
     fun onLocaleChanged(newLocaleCode: String) {
         if (newLocaleCode == _uiState.value.currentLocaleCode) return
+        
         settingsRepository.setAppLocale(newLocaleCode)
         val newGender = settingsRepository.getTtsGender(newLocaleCode)
+        
         _uiState.update { 
             it.copy(
                 currentLocaleCode = newLocaleCode,
                 ttsGender = newGender
             ) 
+        }
+
+        // Auto-download language pack if not English
+        if (newLocaleCode != "en_GB" && !languagePackManager.isPackDownloaded(newLocaleCode)) {
+            viewModelScope.launch {
+                languagePackManager.downloadPack(newLocaleCode)
+            }
+        }
+    }
+
+    fun forceUpdateLanguagePack() {
+        val current = _uiState.value.currentLocaleCode
+        if (current.isNotEmpty() && current != "en_GB") {
+            viewModelScope.launch {
+                languagePackManager.downloadPack(current)
+            }
         }
     }
 
@@ -128,7 +163,6 @@ class SettingsViewModel(
     }
 
     fun onTtsGenderChanged(gender: VoiceGender) {
-        // If Arabic, we don't allow changing gender in repository, it's always Male
         if (_uiState.value.currentLocaleCode.startsWith("ar")) {
             return
         }

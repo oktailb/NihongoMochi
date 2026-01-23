@@ -38,6 +38,12 @@
     <string name="settings_reset_tutorial">Reset tutorial</string>
     <string name="settings_send_bug_report">Send bug report</string>
 
+    <!-- Language Pack Settings -->
+    <string name="settings_downloading_pack">Downloading language pack...</string>
+    <string name="settings_download_success">Language pack ready!</string>
+    <string name="settings_download_error">Download failed. Check your connection.</string>
+    <string name="settings_update_pack">Update language pack</string>
+
     <!-- TTS Settings -->
     <string name="settings_tts_category">Text-to-Speech</string>
     <string name="settings_tts_speed">Voice Speed</string>

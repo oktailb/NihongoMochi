@@ -15,14 +15,15 @@ import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.domain.services.VoiceGender
+import org.nihongo.mochi.domain.services.DownloadStatus
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 
 // Data class for language items, now used in Compose
 data class LanguageItem(val code: String, val name: String, val flagRes: DrawableResource)
@@ -70,7 +71,7 @@ fun SettingsScreen(
                 .verticalScroll(scrollState)
                 .padding(16.dp)
         ) {
-            // Text-to-Speech Section
+            // Interface Section
             SettingsSection(title = stringResource(Res.string.settings_category_interface)) {
 
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
@@ -96,7 +97,14 @@ fun SettingsScreen(
                         readOnly = true,
                         label = { Text(stringResource(Res.string.settings_language)) },
                         leadingIcon = {
-                            Image(painter = painterResource(selectedLanguage.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
+                            if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(20.dp),
+                                    strokeWidth = 2.dp
+                                )
+                            } else {
+                                Image(painter = painterResource(selectedLanguage.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
+                            }
                         },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                         modifier = Modifier

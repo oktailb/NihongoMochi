@@ -1,5 +1,7 @@
 package org.nihongo.mochi.di
 
+import io.ktor.client.*
+import okio.FileSystem
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
@@ -44,10 +46,20 @@ import org.nihongo.mochi.ui.writingrecap.WritingRecapViewModel
 import org.koin.core.qualifier.named
 import org.nihongo.mochi.db.DatabaseDriverFactory
 import org.nihongo.mochi.db.MochiDatabase
+import org.nihongo.mochi.domain.services.LanguagePackManager
 import org.nihongo.mochi.domain.services.StringProvider
 import org.nihongo.mochi.ui.ComposeStringProvider
 
 val sharedModule = module {
+    // --- Network & IO ---
+    single { HttpClient() }
+    single { FileSystem.SYSTEM }
+    // appStorageDir must be provided by platform-specific modules (Android/iOS)
+    
+    // --- Services ---
+    singleOf(::LanguagePackManager)
+    single<StringProvider> { ComposeStringProvider() }
+
     // --- Database ---
     single { 
         val driver = get<DatabaseDriverFactory>().createDriver()
@@ -55,7 +67,14 @@ val sharedModule = module {
     }
 
     // --- Data / Repositories ---
-    single<ResourceLoader> { ComposeResourceLoader() }
+    single<ResourceLoader> { 
+        val settings: SettingsRepository = get()
+        ComposeResourceLoader(
+            languagePackManager = get(),
+            currentLocaleProvider = { settings.getAppLocale() }
+        ) 
+    }
+    
     singleOf(::KanaRepository)
     singleOf(::LevelsRepository)
     single { KanjiRepository(get(), get(), get()) } 
@@ -67,9 +86,6 @@ val sharedModule = module {
     singleOf(::StatisticsEngine)
     singleOf(::GrammarRepository)
     singleOf(::ExerciseRepository)
-    
-    // String Provider for ViewModels
-    single<StringProvider> { ComposeStringProvider() }
 
     // ScoreManager with database and legacy settings for migration
     single<ScoreRepository> { 

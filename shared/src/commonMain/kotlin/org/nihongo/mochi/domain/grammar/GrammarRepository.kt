@@ -101,7 +101,8 @@ class GrammarRepository(
     suspend fun loadCss(isDark: Boolean): String {
         val fileName = if (isDark) "styles_dark.css" else "styles_light.css"
         return try {
-            resourceLoader.loadJson("grammar/lessons/$fileName")
+            // Use loadHtml because CSS is also a raw text file similar to HTML
+            resourceLoader.loadHtml("grammar/lessons/$fileName")
         } catch (e: Exception) {
              if (isDark) {
                  "body { font-family: sans-serif; padding: 16px; color: #E0E0E0; background-color: #121212; }"
@@ -112,29 +113,25 @@ class GrammarRepository(
     }
     
     suspend fun loadLessonHtml(ruleId: String, languageCode: String): String {
-        val safeLang = if (languageCode.length >= 2) languageCode.substring(0, 2).lowercase() else "en"
-        val localizedPath = "grammar/lessons/$safeLang/$ruleId.html"
-        val defaultLangPath = "grammar/lessons/en/$ruleId.html"
-        val rootPath = "grammar/lessons/$ruleId.html"
+        // Our Hybrid ResourceLoader already handles locale-based file picking.
+        // It will first look into the downloaded pack for the current locale,
+        // then fallback to embedded resources (English).
         
-        try {
-            return resourceLoader.loadJson(localizedPath)
-        } catch (e: Exception) {}
-
-        if (safeLang != "en") {
-            try {
-                return resourceLoader.loadJson(defaultLangPath)
-            } catch (e: Exception) {}
-        }
-
-        try {
-            return resourceLoader.loadJson(rootPath)
+        val lessonPath = "grammar/lessons/$ruleId.html"
+        
+        return try {
+            val content = resourceLoader.loadHtml(lessonPath)
+            if (content.isBlank() || content.startsWith("<html><body>Error")) {
+                throw Exception("Lesson empty or not found")
+            }
+            content
         } catch (e: Exception) {
-            return """
-                <div style="text-align: center; padding: 20px;">
+            // Final fallback UI
+            """
+                <div style="text-align: center; padding: 20px; font-family: sans-serif;">
                     <h3>Lesson not found</h3>
-                    <p>Could not load lesson content for ID: <b>$ruleId</b></p>
-                    <p><small>Language: $safeLang</small></p>
+                    <p>Could not load lesson content for: <b>$ruleId</b></p>
+                    <p><small>Check your internet connection or language pack status.</small></p>
                 </div>
             """.trimIndent()
         }
