@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -87,50 +88,72 @@ fun SettingsScreen(
                 var expanded by remember { mutableStateOf(false) }
                 val selectedLanguage = languages.find { it.code == uiState.currentLocaleCode } ?: languages.first()
 
-                ExposedDropdownMenuBox(
-                    expanded = expanded,
-                    onExpandedChange = { expanded = !expanded }
-                ) {
-                    OutlinedTextField(
-                        value = selectedLanguage.name,
-                        onValueChange = {},
-                        readOnly = true,
-                        label = { Text(stringResource(Res.string.settings_language)) },
-                        leadingIcon = {
-                            if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
-                                CircularProgressIndicator(
-                                    modifier = Modifier.size(20.dp),
-                                    strokeWidth = 2.dp
-                                )
-                            } else {
-                                Image(painter = painterResource(selectedLanguage.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
-                            }
-                        },
-                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .menuAnchor()
-                    )
-
-                    ExposedDropdownMenu(
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                    ExposedDropdownMenuBox(
                         expanded = expanded,
-                        onDismissRequest = { expanded = false }
+                        onExpandedChange = { expanded = !expanded },
+                        modifier = Modifier.weight(1f)
                     ) {
-                        languages.forEach { language ->
-                            DropdownMenuItem(
-                                text = {
-                                    Row(verticalAlignment = Alignment.CenterVertically) {
-                                        Image(painter = painterResource(language.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
-                                        Spacer(Modifier.width(8.dp))
-                                        Text(language.name)
-                                    }
-                                },
-                                onClick = {
-                                    viewModel.onLocaleChanged(language.code)
-                                    onLocaleChanged(language.code)
-                                    expanded = false
+                        OutlinedTextField(
+                            value = selectedLanguage.name,
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(Res.string.settings_language)) },
+                            leadingIcon = {
+                                if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
+                                    CircularProgressIndicator(
+                                        modifier = Modifier.size(20.dp),
+                                        strokeWidth = 2.dp
+                                    )
+                                } else {
+                                    Image(painter = painterResource(selectedLanguage.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
                                 }
-                            )
+                            },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .menuAnchor()
+                        )
+
+                        ExposedDropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false }
+                        ) {
+                            languages.forEach { language ->
+                                DropdownMenuItem(
+                                    text = {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Image(painter = painterResource(language.flagRes), contentDescription = null, modifier = Modifier.size(24.dp))
+                                            Spacer(Modifier.width(8.dp))
+                                            Text(language.name)
+                                        }
+                                    },
+                                    onClick = {
+                                        viewModel.onLocaleChanged(language.code)
+                                        onLocaleChanged(language.code)
+                                        expanded = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+
+                    if (uiState.currentLocaleCode != "en_GB") {
+                        Spacer(Modifier.width(8.dp))
+                        IconButton(
+                            onClick = { viewModel.forceUpdateLanguagePack() },
+                            enabled = uiState.downloadStatus != DownloadStatus.DOWNLOADING,
+                            modifier = Modifier.padding(top = 8.dp)
+                        ) {
+                            if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
+                                CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                            } else {
+                                Icon(
+                                    imageVector = Icons.Default.Refresh,
+                                    contentDescription = stringResource(Res.string.settings_update_pack),
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
+                            }
                         }
                     }
                 }
