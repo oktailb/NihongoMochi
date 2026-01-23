@@ -6,13 +6,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.GameHistoryCard
+import org.nihongo.mochi.ui.components.GameHistoryRow
 import org.nihongo.mochi.ui.components.GameSetupTemplate
-import kotlinx.datetime.Instant
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
 
 @Composable
 fun CrosswordSetupScreen(
@@ -87,57 +85,15 @@ fun CrosswordSetupScreen(
         }
 
         // Recent Scores
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
-                contentColor = MaterialTheme.colorScheme.onSurface
+        GameHistoryCard(
+            history = scoresHistory,
+            emptyMessage = stringResource(Res.string.game_memorize_no_scores)
+        ) { result ->
+            GameHistoryRow(
+                label = stringResource(Res.string.game_crossword_history_item, result.wordCount, result.mode.name),
+                score = "", 
+                time = stringResource(Res.string.game_memorize_time_format, result.timeSeconds)
             )
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = stringResource(Res.string.game_memorize_recent_scores),
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-                
-                if (scoresHistory.isEmpty()) {
-                    Text(
-                        text = stringResource(Res.string.game_memorize_no_scores),
-                        fontSize = 14.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                } else {
-                    scoresHistory.take(5).forEach { result ->
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Column {
-                                Text(
-                                    text = stringResource(Res.string.game_crossword_history_item, result.wordCount, result.mode.name),
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight.Medium
-                                )
-                                val date = Instant.fromEpochMilliseconds(result.timestamp)
-                                    .toLocalDateTime(TimeZone.currentSystemDefault())
-                                Text(
-                                    text = "${date.dayOfMonth}/${date.monthNumber} ${date.hour}:${date.minute.toString().padStart(2, '0')}",
-                                    fontSize = 12.sp,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            }
-                            Text(
-                                text = formatTime(result.timeSeconds),
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
-                            )
-                        }
-                        HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-                    }
-                }
-            }
         }
 
         if (isGenerating) {
@@ -150,10 +106,4 @@ fun CrosswordSetupScreen(
             )
         }
     }
-}
-
-private fun formatTime(seconds: Int): String {
-    val m = seconds / 60
-    val s = seconds % 60
-    return "${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}"
 }

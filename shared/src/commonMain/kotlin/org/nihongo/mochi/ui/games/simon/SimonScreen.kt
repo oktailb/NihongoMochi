@@ -9,19 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
-import org.nihongo.mochi.ui.components.GameAnswerButton
-import org.nihongo.mochi.ui.components.GameHUD
-import org.nihongo.mochi.ui.components.GameResultOverlay
-import org.nihongo.mochi.ui.components.GameSetupTemplate
+import org.nihongo.mochi.ui.components.*
 import org.nihongo.mochi.ui.gojuon.QuizQuestionCard
 
 @Composable
@@ -81,62 +76,24 @@ fun SimonSetupScreen(
             }
         }
 
-        // History Card
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f),
-                contentColor = MaterialTheme.colorScheme.onSurface
-            )
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = stringResource(Res.string.game_history_title), 
-                    fontWeight = FontWeight.Bold, 
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-                if (scoresHistory.isEmpty()) {
-                    Text(
-                        text = stringResource(Res.string.game_memorize_no_scores), 
-                        fontSize = 14.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                } else {
-                    scoresHistory.take(5).forEach { result ->
-                        Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-                            val modeLabel = when(result.mode) {
-                                SimonMode.KANJI -> stringResource(Res.string.game_simon_mode_kanji)
-                                SimonMode.MEANING -> stringResource(Res.string.game_simon_mode_meaning)
-                                SimonMode.READING_COMMON -> stringResource(Res.string.game_simon_mode_reading_std)
-                                SimonMode.READING_RANDOM -> stringResource(Res.string.game_simon_mode_reading_rnd)
-                                SimonMode.KANA_SAME -> stringResource(Res.string.game_simon_mode_kana_same)
-                                SimonMode.KANA_CROSS -> stringResource(Res.string.game_simon_mode_kana_cross)
-                            }
-                            Text(
-                                text = modeLabel, 
-                                fontSize = 12.sp, 
-                                color = MaterialTheme.colorScheme.onSurface,
-                                modifier = Modifier.weight(1f)
-                            )
-                            Text(
-                                text = "${result.maxSequence}", 
-                                fontWeight = FontWeight.Bold, 
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.weight(1f), 
-                                textAlign = TextAlign.Center
-                            )
-                            Text(
-                                text = stringResource(Res.string.game_memorize_time_format, result.timeSeconds), 
-                                fontSize = 14.sp, 
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.weight(1f), 
-                                textAlign = TextAlign.End
-                            )
-                        }
-                    }
-                }
+        // Recent Scores
+        GameHistoryCard(
+            history = scoresHistory,
+            emptyMessage = stringResource(Res.string.game_memorize_no_scores)
+        ) { result ->
+            val modeLabel = when(result.mode) {
+                SimonMode.KANJI -> stringResource(Res.string.game_simon_mode_kanji)
+                SimonMode.MEANING -> stringResource(Res.string.game_simon_mode_meaning)
+                SimonMode.READING_COMMON -> stringResource(Res.string.game_simon_mode_reading_std)
+                SimonMode.READING_RANDOM -> stringResource(Res.string.game_simon_mode_reading_rnd)
+                SimonMode.KANA_SAME -> stringResource(Res.string.game_simon_mode_kana_same)
+                SimonMode.KANA_CROSS -> stringResource(Res.string.game_simon_mode_kana_cross)
             }
+            GameHistoryRow(
+                label = modeLabel,
+                score = result.maxSequence.toString(),
+                time = stringResource(Res.string.game_memorize_time_format, result.timeSeconds)
+            )
         }
     }
 }

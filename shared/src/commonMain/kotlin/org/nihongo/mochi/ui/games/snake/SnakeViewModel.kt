@@ -37,6 +37,7 @@ class SnakeViewModel(
     val scoresHistory: StateFlow<List<SnakeGameResult>> = _scoresHistory.asStateFlow()
 
     private var gameJob: Job? = null
+    private var timerJob: Job? = null
     private var tickDelay = 220L
     
     private var itemSequence = emptyList<String>()
@@ -81,6 +82,7 @@ class SnakeViewModel(
 
     fun startGame() {
         gameJob?.cancel()
+        timerJob?.cancel()
         sequenceIndex = 0
         currentNumber = 1
         tickDelay = 220L
@@ -102,6 +104,19 @@ class SnakeViewModel(
             
             gameJob = viewModelScope.launch {
                 gameLoop()
+            }
+            
+            startTimer()
+        }
+    }
+
+    private fun startTimer() {
+        timerJob = viewModelScope.launch {
+            while (!_gameState.value.isGameOver) {
+                delay(1000)
+                if (!_gameState.value.isPaused) {
+                    _gameState.update { it.copy(timeSeconds = it.timeSeconds + 1) }
+                }
             }
         }
     }
@@ -243,6 +258,7 @@ class SnakeViewModel(
     private fun gameOver() {
         if (_gameState.value.isGameOver) return
         
+        timerJob?.cancel()
         audioPlayer.playSound("files/sounds/game_over.mp3")
         _gameState.update { it.copy(isGameOver = true) }
         
@@ -281,5 +297,12 @@ class SnakeViewModel(
 
     fun togglePause() {
         _gameState.update { it.copy(isPaused = !it.isPaused) }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        gameJob?.cancel()
+        timerJob?.cancel()
+        audioPlayer.stopAll()
     }
 }
