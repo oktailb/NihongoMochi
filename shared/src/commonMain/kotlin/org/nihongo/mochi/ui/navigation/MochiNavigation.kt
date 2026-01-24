@@ -573,7 +573,7 @@ fun MochiNavGraph(
                         currentKanji.character
                     } else {
                         if (gameMode == "meaning") {
-                            currentKanji.meanings.firstOrNull() ?: ""
+                            currentKanji.meanings.take(3).joinToString("\n")
                         } else {
                             viewModel.getFormattedReadings(currentKanji)
                         }

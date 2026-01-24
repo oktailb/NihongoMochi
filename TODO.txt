@@ -3,24 +3,12 @@ La meilleure appli d apprentissage du japonais qui soit
 
 Todo:
  - [WIP] Meanings of wordlists
- - [ ] Find better sounds
  - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
- - [ ] add more lines on cards when it is meaning
- - [ ] adjust grammar screen view (some overlaps) and over screen links (allow horizontal scroll)
- - [X] Quizz grammaire -> barre en haut ne respecte pas le comportement des autres quiz (blocs de 10)
 
 Games:
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
   - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
-  - [ ] Shiritori Zen : jeu de chaîne de mots traditionnel japonais contre l'IA
-  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. 
+  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou.
         -> Alimenter avec des kanjis partageant les mêmes radicaux.
-
-KMP & Architecture Refactoring (Technical Debt):
- - [?] Migration Base Kanji (XML -> SQLDelight) : utile en entree ou pas ?
-    -> Bénéfice: Requêtes relationnelles complexes pour Shadow Kanji (ex: trouver "frères" visuels). 
-    -> Bénéfice: Performance (chargement partiel JLPT).
-    -> Risque: Gérer les migrations de schéma et script d'import Python.
-  ==> a faire quand toutes les bases seront stabilisées pour eciter des allers/retours d'import

@@ -191,6 +191,7 @@ class GrammarViewModel(
     private suspend fun buildGraphLayout(rules: List<GrammarRule>, levels: List<String>): Triple<List<GrammarNode>, List<GrammarLevelSeparator>, Float> {
         val slotHeightPerNode = 1.0f 
         val paddingSlotsPerLevel = 3.0f
+        val initialTopPadding = 2.0f // New: Add space at the very top of the graph
 
         val rawSeparators = mutableListOf<Triple<String, Float, List<String>>>() 
         val rulesMap = rules.associateBy { it.id }
@@ -222,7 +223,7 @@ class GrammarViewModel(
             rules.groupBy { it.level.lowercase() }
         }
 
-        var currentSlot = 0f
+        var currentSlot = initialTopPadding
         
         levels.forEach { levelId ->
             currentSlot += 0.5f 
@@ -242,7 +243,7 @@ class GrammarViewModel(
         val totalSlots = if (currentSlot == 0f) 1f else currentSlot
         val finalNodes = mutableListOf<GrammarNode>()
         
-        currentSlot = 0f
+        currentSlot = initialTopPadding
         
          levels.forEach { levelId ->
             val levelRules = rulesByLevel[levelId.lowercase()] ?: emptyList()

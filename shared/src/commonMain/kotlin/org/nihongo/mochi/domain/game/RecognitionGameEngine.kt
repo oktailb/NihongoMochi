@@ -216,7 +216,7 @@ class RecognitionGameEngine(
 
         val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
             // For NORMAL, button text might be multi-line, check if any line matches correctAnswer
-            selectedAnswer.lines().any { it.equals(correctAnswer, ignoreCase = true) }
+            selectedAnswer.lines().any { it.trim().equals(correctAnswer.trim(), ignoreCase = true) }
         } else {
             selectedAnswer == correctAnswer
         }

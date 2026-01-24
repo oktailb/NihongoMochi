@@ -360,13 +360,13 @@ fun GrammarScreen(
                                 ) {
                                     Column(
                                         horizontalAlignment = Alignment.CenterHorizontally,
-                                        modifier = Modifier.offset(y = (-180).dp)
+                                        modifier = Modifier.offset(y = (-150).dp) // Reduced offset to lower the whole separator group
                                     ) {
                                         Button(
                                             onClick = { viewModel.startQuiz(separator.ruleIds) },
                                             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.tertiary),
                                             shape = RoundedCornerShape(12.dp),
-                                            modifier = Modifier.offset(y = (-20).dp).padding(bottom = 16.dp)
+                                            modifier = Modifier.padding(bottom = 8.dp) // Removed negative offset to let it sit lower
                                         ) {
                                             Icon(Icons.Default.Assignment, contentDescription = null, modifier = Modifier.size(18.dp))
                                             Spacer(Modifier.width(8.dp))

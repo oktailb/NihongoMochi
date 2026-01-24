@@ -296,6 +296,14 @@ fun HomeBlockCard(
     onClick: () -> Unit
 ) {
     val alpha = if (enabled) 1f else 0.5f
+    
+    // Auto-scale font size based on title length
+    val kanjiFontSize = when {
+        kanji.length >= 3 -> 24.sp
+        kanji.length >= 4 -> 20.sp
+        else -> 28.sp
+    }
+
     Card(
         modifier = modifier
             .height(100.dp)
@@ -313,7 +321,7 @@ fun HomeBlockCard(
         ) {
             Text(
                 text = kanji,
-                fontSize = 28.sp,
+                fontSize = kanjiFontSize,
                 color = MaterialTheme.colorScheme.primary.copy(alpha = alpha),
                 fontWeight = FontWeight.Bold
             )
