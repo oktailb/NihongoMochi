@@ -7,6 +7,9 @@ import io.ktor.http.*
 import okio.FileSystem
 import okio.Path
 import okio.Path.Companion.toPath
+import okio.Buffer
+import okio.HashingSource
+import okio.use
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -50,23 +53,33 @@ class LanguagePackManager(
         _status.update { it + (locale to DownloadStatus.DOWNLOADING) }
         
         return try {
-            // Consolidated ZIP files for better compression and fewer requests
-            val zipFiles = listOf(
-                "data.zip",    // Should contain meanings.json and word_meanings.json
-                "grammar.zip"  // Should contain all .html files
+            // Mapping ZIP files to their MD5 files
+            val filesToVerify = listOf(
+                "data.zip" to "data.md5",
+                "grammar.zip" to "grammar.md5"
             )
             
-            for (zipName in zipFiles) {
-                val targetPath = getLocaleDir(locale).resolve(zipName)
-                val url = "$baseUrl/$locale/$zipName"
+            for ((zipName, md5Name) in filesToVerify) {
+                val zipUrl = "$baseUrl/$locale/$zipName"
+                val md5Url = "$baseUrl/$locale/$md5Name"
                 
-                val success = downloadFile(url, targetPath)
+                // 1. Download MD5 first
+                val expectedMd5 = downloadText(md5Url) ?: throw Exception("Failed to download MD5 for $zipName")
+                
+                // 2. Download ZIP
+                val targetPath = getLocaleDir(locale).resolve(zipName)
+                val success = downloadFile(zipUrl, targetPath)
                 if (!success) {
-                    println("Failed to download $url")
                     throw Exception("Failed to download $zipName")
                 }
                 
-                // Extract and cleanup
+                // 3. Verify Integrity
+                if (!verifyMd5(targetPath, expectedMd5)) {
+                    fileSystem.delete(targetPath)
+                    throw Exception("MD5 Verification failed for $zipName")
+                }
+                
+                // 4. Extract and cleanup
                 unzip(targetPath, getLocaleDir(locale), fileSystem)
                 fileSystem.delete(targetPath)
             }
@@ -76,6 +89,35 @@ class LanguagePackManager(
         } catch (e: Exception) {
             println("Error downloading pack for $locale: ${e.message}" )
             _status.update { it + (locale to DownloadStatus.ERROR) }
+            false
+        }
+    }
+
+    private suspend fun downloadText(url: String): String? {
+        return try {
+            val response = httpClient.get(url)
+            if (response.status == HttpStatusCode.OK) {
+                response.bodyAsText().trim()
+            } else null
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun verifyMd5(targetPath: Path, expectedMd5: String): Boolean {
+        return try {
+            val hash = fileSystem.read(targetPath) {
+                HashingSource.md5(this).use { hashingSource ->
+                    val buffer = Buffer()
+                    while (hashingSource.read(buffer, 8192) != -1L) {
+                        buffer.clear()
+                    }
+                    hashingSource.hash.hex()
+                }
+            }
+            // Comparison is case-insensitive as hex can be upper or lower
+            hash.equals(expectedMd5, ignoreCase = true)
+        } catch (e: Exception) {
             false
         }
     }
