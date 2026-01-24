@@ -35,7 +35,8 @@ class SettingsViewModel(
         val ttsRate: Float = 1.0f,
         val availableVoices: List<String> = emptyList(),
         val selectedVoiceId: String? = null,
-        val downloadStatus: DownloadStatus = DownloadStatus.IDLE
+        val downloadStatus: DownloadStatus = DownloadStatus.IDLE,
+        val isSyncingExercises: Boolean = false
     )
 
     private val _uiState = MutableStateFlow(SettingsUiState())
@@ -93,6 +94,14 @@ class SettingsViewModel(
                     _uiState.update { it.copy(downloadStatus = status) }
                 }
             }
+        }
+    }
+
+    fun syncExercises() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isSyncingExercises = true) }
+            languagePackManager.syncCommonResource("exercices.json")
+            _uiState.update { it.copy(isSyncingExercises = false) }
         }
     }
 

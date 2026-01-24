@@ -13,11 +13,13 @@ import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelDefinition
 import org.nihongo.mochi.domain.levels.ActivityConfig
 import org.nihongo.mochi.domain.statistics.StatisticsType
+import org.nihongo.mochi.domain.services.LanguagePackManager
 
 class HomeViewModel(
     private val settingsRepository: SettingsRepository,
     private val levelsRepository: LevelsRepository,
-    private val scoreRepository: ScoreRepository
+    private val scoreRepository: ScoreRepository,
+    private val languagePackManager: LanguagePackManager
 ) : ViewModel() {
 
     data class HomeUiState(
@@ -40,10 +42,19 @@ class HomeViewModel(
 
     init {
         loadLevelsForCurrentMode()
+        syncData()
     }
 
     fun onResume() {
         loadLevelsForCurrentMode()
+    }
+
+    private fun syncData() {
+        viewModelScope.launch {
+            // Silently sync common grammar files in background
+            languagePackManager.syncCommonResource("exercices.json")
+            languagePackManager.syncCommonResource("grammar.json")
+        }
     }
 
     private fun loadLevelsForCurrentMode() {

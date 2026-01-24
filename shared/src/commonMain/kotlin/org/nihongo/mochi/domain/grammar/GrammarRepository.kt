@@ -39,11 +39,30 @@ class GrammarRepository(
     suspend fun loadGrammarDefinition(): GrammarDefinition {
         grammarDefinition?.let { return it }
 
-        val jsonString = resourceLoader.loadJson("grammar/grammar.json")
-        return json.decodeFromString<GrammarDefinition>(jsonString).also {
-            grammarDefinition = it
-            // Pre-cache all rules to avoid repeated list concatenations
-            cachedAllRules = it.dependencies_basics + it.conjugaison + it.rules
+        return try {
+            val jsonString = resourceLoader.loadJson("grammar/grammar.json")
+            if (jsonString == "{}" || jsonString.isBlank()) {
+                throw Exception("Grammar JSON is empty or default")
+            }
+            
+            json.decodeFromString<GrammarDefinition>(jsonString).also {
+                grammarDefinition = it
+                // Pre-cache all rules to avoid repeated list concatenations
+                cachedAllRules = it.dependencies_basics + it.conjugaison + it.rules
+            }
+        } catch (e: Exception) {
+            println("Error loading grammar definition: ${e.message}")
+            // Return an empty but valid structure to avoid crash
+            val fallback = GrammarDefinition(
+                version = "0",
+                metadata = GrammarMetadata(emptyList(), emptyList()),
+                dependencies_basics = emptyList(),
+                conjugaison = emptyList(),
+                rules = emptyList()
+            )
+            grammarDefinition = fallback
+            cachedAllRules = emptyList()
+            fallback
         }
     }
 

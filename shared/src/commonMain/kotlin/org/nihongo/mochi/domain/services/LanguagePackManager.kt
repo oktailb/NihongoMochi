@@ -27,8 +27,8 @@ class LanguagePackManager(
     private val fileSystem: FileSystem,
     private val appStorageDir: Path
 ) {
-    // Base URL for language packs
-    private val baseUrl = "https://raw.githubusercontent.com/oktailb/NihongoMochi-Data/main/langs"
+    // Base URL for language packs and common data
+    private val baseUrl = "https://raw.githubusercontent.com/oktailb/NihongoMochi-Data/main"
     
     private val _status = MutableStateFlow<Map<String, DownloadStatus>>(emptyMap())
     val status: StateFlow<Map<String, DownloadStatus>> = _status.asStateFlow()
@@ -47,6 +47,10 @@ class LanguagePackManager(
         return appStorageDir.resolve("langs/$locale")
     }
 
+    private fun getCommonDir(): Path {
+        return appStorageDir.resolve("common")
+    }
+
     suspend fun downloadPack(locale: String): Boolean {
         if (_status.value[locale] == DownloadStatus.DOWNLOADING) return false
         
@@ -60,14 +64,16 @@ class LanguagePackManager(
             )
             
             for ((zipName, md5Name) in filesToVerify) {
-                val zipUrl = "$baseUrl/$locale/$zipName"
-                val md5Url = "$baseUrl/$locale/$md5Name"
+                val zipUrl = "$baseUrl/langs/$locale/$zipName"
+                val md5Url = "$baseUrl/langs/$locale/$md5Name"
                 
+                println("Attempting to download MD5 from: $md5Url")
                 // 1. Download MD5 first
                 val expectedMd5 = downloadText(md5Url) ?: throw Exception("Failed to download MD5 for $zipName")
                 
                 // 2. Download ZIP
                 val targetPath = getLocaleDir(locale).resolve(zipName)
+                println("Attempting to download ZIP from: $zipUrl")
                 val success = downloadFile(zipUrl, targetPath)
                 if (!success) {
                     throw Exception("Failed to download $zipName")
@@ -93,13 +99,64 @@ class LanguagePackManager(
         }
     }
 
+    /**
+     * Synchronizes a common resource (like exercices.json) using MD5 check.
+     */
+    suspend fun syncCommonResource(fileName: String): Boolean {
+        val commonDir = getCommonDir()
+        val localPath = commonDir.resolve(fileName)
+        val md5FileName = fileName.replace("json","md5")
+        
+        val remoteMd5Url = "$baseUrl/common/$md5FileName"
+        val remoteFileUrl = "$baseUrl/common/$fileName"
+
+        return try {
+            println("Syncing common resource: $fileName")
+            println("Checking MD5 at: $remoteMd5Url")
+            
+            // 1. Get remote MD5
+            val remoteMd5 = downloadText(remoteMd5Url)
+            if (remoteMd5 == null) {
+                println("Could not reach MD5 for $fileName, skipping sync.")
+                return false
+            }
+
+            // 2. Check if local file exists and matches MD5
+            if (fileSystem.exists(localPath)) {
+                if (verifyMd5(localPath, remoteMd5)) {
+                    println("Local file $fileName is already up to date (MD5 match).")
+                    return true 
+                }
+            }
+
+            // 3. Download and verify new file
+            println("MD5 mismatch or file missing. Downloading: $remoteFileUrl")
+            val success = downloadFile(remoteFileUrl, localPath)
+            if (success && verifyMd5(localPath, remoteMd5)) {
+                println("Successfully synced and verified $fileName")
+                true
+            } else {
+                println("Failed to sync or verify $fileName")
+                if (fileSystem.exists(localPath)) fileSystem.delete(localPath)
+                false
+            }
+        } catch (e: Exception) {
+            println("Exception during sync of $fileName: ${e.message}")
+            false
+        }
+    }
+
     private suspend fun downloadText(url: String): String? {
         return try {
             val response = httpClient.get(url)
             if (response.status == HttpStatusCode.OK) {
                 response.bodyAsText().trim()
-            } else null
+            } else {
+                println("Download text failed (Status: ${response.status}) for URL: $url")
+                null
+            }
         } catch (e: Exception) {
+            println("Download text error for URL $url: ${e.message}")
             null
         }
     }
@@ -115,9 +172,11 @@ class LanguagePackManager(
                     hashingSource.hash.hex()
                 }
             }
-            // Comparison is case-insensitive as hex can be upper or lower
-            hash.equals(expectedMd5, ignoreCase = true)
+            val match = hash.equals(expectedMd5, ignoreCase = true)
+            if (!match) println("MD5 mismatch for $targetPath. Expected: $expectedMd5, Actual: $hash")
+            match
         } catch (e: Exception) {
+            println("MD5 verification error for $targetPath: ${e.message}")
             false
         }
     }
@@ -133,29 +192,36 @@ class LanguagePackManager(
                 }
                 true
             } else {
+                println("Download file failed (Status: ${response.status}) for URL: $url")
                 false
             }
         } catch (e: Exception) {
+            println("Download file error for URL $url: ${e.message}")
             false
         }
     }
 
     /**
-     * Attempts to load a resource file from the local storage for a specific locale.
+     * Attempts to load a resource file from local storage.
+     * Looks first in locale-specific dir, then in common dir.
      */
-    fun loadLocalResource(fileName: String, locale: String): String? {
-        val path = getLocaleDir(locale).resolve(fileName)
-        return try {
-            if (fileSystem.exists(path)) {
-                fileSystem.read(path) {
-                    readUtf8()
-                }
-            } else {
-                null
-            }
-        } catch (e: Exception) {
-            null
+    fun loadLocalResource(fileName: String, locale: String? = null): String? {
+        val pathsToTry = mutableListOf<Path>()
+        if (locale != null) {
+            pathsToTry.add(getLocaleDir(locale).resolve(fileName))
         }
+        pathsToTry.add(getCommonDir().resolve(fileName))
+
+        for (path in pathsToTry) {
+            try {
+                if (fileSystem.exists(path)) {
+                    return fileSystem.read(path) {
+                        readUtf8()
+                    }
+                }
+            } catch (e: Exception) {}
+        }
+        return null
     }
     
     fun deletePack(locale: String) {
