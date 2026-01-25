@@ -77,10 +77,22 @@ class SettingsViewModel(
     private fun observeVoices() {
         viewModelScope.launch {
             tts.availableVoices.collect { voices ->
-                val filteredVoices = voices.filter { 
-                    it.contains("jab-local") || it.contains("jad-local") 
+                val currentLocale = _uiState.value.currentLocaleCode
+                
+                val finalVoices = if (currentLocale.startsWith("ar")) {
+                    // For Arabic, we don't allow voice selection as it's forced to Male in AndroidTextToSpeech
+                    emptyList()
+                } else {
+                    // Try to filter for high quality Google voices first
+                    val highQualityGoogle = voices.filter { 
+                        it.contains("jab-local") || it.contains("jad-local") 
+                    }
+                    
+                    // Fallback to all Japanese voices if no high quality found (e.g. Samsung devices)
+                    highQualityGoogle.ifEmpty { voices }
                 }
-                _uiState.update { it.copy(availableVoices = filteredVoices) }
+
+                _uiState.update { it.copy(availableVoices = finalVoices) }
             }
         }
     }
