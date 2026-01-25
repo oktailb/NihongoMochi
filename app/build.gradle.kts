@@ -41,8 +41,8 @@ android {
         minSdk = 28
         // Align targetSdk with compileSdk for consistency
         targetSdk = 36
-        versionCode = 21
-        versionName = "0.8.0"
+        versionCode = 22
+        versionName = "0.8.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

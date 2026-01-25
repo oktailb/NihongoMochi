@@ -3,10 +3,10 @@ La meilleure appli d apprentissage du japonais qui soit
 
 Todo:
  - [WIP] Meanings of wordlists
- - [ ] fill exercices database (JSON) and grammar lessons (HTML) -> Sofia
  - [ ] Achieve google play connexion
 
 Games:
+  - [ ] Cemantix ??
   - [ ] Tetris ou candycrush like
   - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
   - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
