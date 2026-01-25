@@ -19,27 +19,26 @@ class ExerciseRepository(
         encodeDefaults = true
     }
     
-    private var cachedExercises: List<Exercise>? = null
-
-    private suspend fun getAllExercises(): List<Exercise> {
-        if (cachedExercises != null) return cachedExercises!!
-        
-        return try {
-            val jsonString = resourceLoader.loadJson("grammar/exercices.json")
-            val root = json.decodeFromString<ExerciseRoot>(jsonString)
-            cachedExercises = root.exercises
-            root.exercises
-        } catch (e: Exception) {
-            e.printStackTrace()
-            emptyList()
-        }
-    }
+    // Cache per rule tag
+    private val cache = mutableMapOf<String, List<Exercise>>()
 
     suspend fun getExercisesForTag(tag: String, limit: Int = 10): List<Exercise> {
-        return getAllExercises()
-            .filter { it.tags.contains(tag) }
-            .shuffled()
-            .take(limit)
+        val cached = cache[tag]
+        if (cached != null) return cached.shuffled().take(limit)
+
+        return try {
+            // New paradigm: load {rule_id}.json from grammar folder
+            // Tag is the rule id (e.g., "forme_te")
+            val fileName = "grammar/$tag.json"
+            val jsonString = resourceLoader.loadJson(fileName)
+            val root = json.decodeFromString<ExerciseRoot>(jsonString)
+            
+            cache[tag] = root.exercises
+            root.exercises.shuffled().take(limit)
+        } catch (e: Exception) {
+            println("Error loading exercises for tag $tag: ${e.message}")
+            emptyList()
+        }
     }
 
     fun parsePayload(exercise: Exercise): ExercisePayload? {

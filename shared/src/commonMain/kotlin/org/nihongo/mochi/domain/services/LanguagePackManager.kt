@@ -58,9 +58,10 @@ class LanguagePackManager(
         
         return try {
             // Mapping ZIP files to their MD5 files
+            // lessons.zip contains the grammar lessons for a specific language
             val filesToVerify = listOf(
                 "data.zip" to "data.md5",
-                "grammar.zip" to "grammar.md5"
+                "lessons.zip" to "lessons.md5"
             )
             
             for ((zipName, md5Name) in filesToVerify) {
@@ -100,48 +101,42 @@ class LanguagePackManager(
     }
 
     /**
-     * Synchronizes a common resource (like exercices.json) using MD5 check.
+     * Synchronizes a common resource ZIP (like grammar.zip or exercices.zip) using MD5 check.
      */
-    suspend fun syncCommonResource(fileName: String): Boolean {
+    suspend fun syncCommonZip(resourceName: String): Boolean {
         val commonDir = getCommonDir()
-        val localPath = commonDir.resolve(fileName)
-        val md5FileName = fileName.replace("json","md5")
+        val zipName = "$resourceName.zip"
+        val md5Name = "$resourceName.md5"
+        val localZipPath = commonDir.resolve(zipName)
         
-        val remoteMd5Url = "$baseUrl/common/$md5FileName"
-        val remoteFileUrl = "$baseUrl/common/$fileName"
+        val remoteMd5Url = "$baseUrl/$md5Name"
+        val remoteZipUrl = "$baseUrl/$zipName"
 
         return try {
-            println("Syncing common resource: $fileName")
-            println("Checking MD5 at: $remoteMd5Url")
+            println("Syncing zip: $zipName")
             
             // 1. Get remote MD5
             val remoteMd5 = downloadText(remoteMd5Url)
             if (remoteMd5 == null) {
-                println("Could not reach MD5 for $fileName, skipping sync.")
+                println("Could not reach MD5 for $zipName, skipping sync.")
                 return false
             }
 
-            // 2. Check if local file exists and matches MD5
-            if (fileSystem.exists(localPath)) {
-                if (verifyMd5(localPath, remoteMd5)) {
-                    println("Local file $fileName is already up to date (MD5 match).")
-                    return true 
-                }
-            }
-
-            // 3. Download and verify new file
-            println("MD5 mismatch or file missing. Downloading: $remoteFileUrl")
-            val success = downloadFile(remoteFileUrl, localPath)
-            if (success && verifyMd5(localPath, remoteMd5)) {
-                println("Successfully synced and verified $fileName")
+            // 2. Download and verify new zip
+            println("Downloading and verifying: $remoteZipUrl")
+            val success = downloadFile(remoteZipUrl, localZipPath)
+            if (success && verifyMd5(localZipPath, remoteMd5)) {
+                unzip(localZipPath, commonDir, fileSystem)
+                fileSystem.delete(localZipPath)
+                println("Successfully synced $zipName")
                 true
             } else {
-                println("Failed to sync or verify $fileName")
-                if (fileSystem.exists(localPath)) fileSystem.delete(localPath)
+                println("Failed to sync or verify $zipName")
+                if (fileSystem.exists(localZipPath)) fileSystem.delete(localZipPath)
                 false
             }
         } catch (e: Exception) {
-            println("Exception during sync of $fileName: ${e.message}")
+            println("Exception during sync of $zipName: ${e.message}")
             false
         }
     }

@@ -112,7 +112,7 @@ class SettingsViewModel(
     fun syncExercises() {
         viewModelScope.launch {
             _uiState.update { it.copy(isSyncingExercises = true) }
-            languagePackManager.syncCommonResource("exercices.json")
+            languagePackManager.syncCommonZip("exercices")
             _uiState.update { it.copy(isSyncingExercises = false) }
         }
     }

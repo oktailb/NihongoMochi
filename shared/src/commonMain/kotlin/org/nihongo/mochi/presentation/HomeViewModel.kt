@@ -51,9 +51,9 @@ class HomeViewModel(
 
     private fun syncData() {
         viewModelScope.launch {
-            // Silently sync common grammar files in background
-            languagePackManager.syncCommonResource("exercices.json")
-            languagePackManager.syncCommonResource("grammar.json")
+            // Silently sync common zips in background
+            languagePackManager.syncCommonZip("exercices")
+            languagePackManager.syncCommonZip("grammar")
         }
     }
 
