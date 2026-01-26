@@ -6,6 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -51,6 +52,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -67,6 +69,11 @@ import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.presentation.ScorePresentationUtils
 import org.nihongo.mochi.shared.generated.resources.Res
+import org.nihongo.mochi.shared.generated.resources.card_bg_dark
+import org.nihongo.mochi.shared.generated.resources.card_bg_light
+import org.nihongo.mochi.shared.generated.resources.have_lesson
+import org.nihongo.mochi.shared.generated.resources.lesson_bg_dark
+import org.nihongo.mochi.shared.generated.resources.lesson_bg_light
 import org.nihongo.mochi.shared.generated.resources.stonepath
 import org.nihongo.mochi.shared.generated.resources.toori
 import org.nihongo.mochi.ui.ResourceUtils
@@ -75,6 +82,14 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sign
+
+private data class InternalConnInfo(
+    val key: Pair<String, String>,
+    val minY: Float,
+    val maxY: Float,
+    val length: Float,
+    val isLeft: Boolean
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -395,11 +410,14 @@ fun GrammarScreen(
                             nodes.forEach { node ->
                                 val xPos = viewportWidth.value * node.x
                                 val yPos = canvasHeight.value * node.y
+                                val isOnRight = if (node.x >= 0.5f) true else false
+
                                 GrammarNodeItem(
                                     node = node,
                                     onLessonClick = { viewModel.openLesson(node) },
                                     onNodeClick = { viewModel.startQuiz(listOf(node.rule.id)) },
-                                    modifier = Modifier.offset(x = (xPos - 50f).dp, y = (yPos - 30f).dp)
+                                    modifier = Modifier.offset(x = (xPos - 50f).dp, y = (yPos - 30f).dp),
+                                    isLeft = !isOnRight
                                 )
                             }
                         }
@@ -440,6 +458,9 @@ fun GrammarScreen(
                     }
                     
                     if (selectedLessonHtml != null) {
+                        val isDark = isSystemInDarkTheme()
+                        val lessonBg = if (isDark) Res.drawable.lesson_bg_dark else Res.drawable.lesson_bg_light
+                        
                         Box(
                             modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.5f)).clickable(enabled = false) {},
                             contentAlignment = Alignment.Center
@@ -449,12 +470,18 @@ fun GrammarScreen(
                                     .fillMaxWidth(0.9f)
                                     .fillMaxSize(0.8f)
                                     .clip(RoundedCornerShape(16.dp))
-                                    .background(MaterialTheme.colorScheme.surface)
-                                    .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(16.dp))
+                                    .shadow(8.dp)
                             ) {
+                                Image(
+                                    painter = painterResource(lessonBg),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentScale = ContentScale.FillBounds
+                                )
+                                
                                 Column(modifier = Modifier.fillMaxSize()) {
                                     Row(
-                                        modifier = Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.primaryContainer).padding(16.dp),
+                                        modifier = Modifier.fillMaxWidth().padding(16.dp),
                                         horizontalArrangement = Arrangement.SpaceBetween,
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
@@ -465,20 +492,20 @@ fun GrammarScreen(
                                         Text(
                                             text = title,
                                             style = MaterialTheme.typography.titleLarge,
-                                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                            color = MaterialTheme.colorScheme.onSurface,
                                             fontWeight = FontWeight.Bold,
                                             modifier = Modifier.weight(1f)
                                         )
                                         
                                         IconButton(onClick = { viewModel.closeLesson() }) {
-                                            Icon(Icons.Filled.Close, contentDescription = "Close", tint = MaterialTheme.colorScheme.onPrimaryContainer)
+                                            Icon(Icons.Filled.Close, contentDescription = "Close", tint = MaterialTheme.colorScheme.onSurface)
                                         }
                                     }
                                     
-                                    Box(modifier = Modifier.weight(1f)) {
+                                    Box(modifier = Modifier.weight(1f).padding(horizontal = 8.dp, vertical = 4.dp)) {
                                         MochiWebView(
                                             html = selectedLessonHtml ?: "",
-                                            isDarkMode = MaterialTheme.colorScheme.surface.toArgb() == Color.Black.toArgb() // Détection basique du dark mode
+                                            isDarkMode = isDark
                                         )
                                     }
                                 }
@@ -534,50 +561,57 @@ fun GrammarScreen(
 }
 
 @Composable
-fun GrammarNodeItem(node: GrammarNode, onLessonClick: () -> Unit, onNodeClick: () -> Unit, modifier: Modifier = Modifier) {
+fun GrammarNodeItem(node: GrammarNode, onLessonClick: () -> Unit, onNodeClick: () -> Unit, modifier: Modifier = Modifier, isLeft: Boolean) {
     val description = ResourceUtils.resolveStringResource(node.rule.description)?.let { stringResource(it) } ?: node.rule.id
     val baseColor = MaterialTheme.colorScheme.surfaceVariant
     val colorInt = ScorePresentationUtils.getScoreColor(node.score, baseColor.toArgb())
     val backgroundColor = Color(colorInt)
+    
+    val isDark = isSystemInDarkTheme()
+    val cardBg = if (isDark) Res.drawable.card_bg_dark else Res.drawable.card_bg_light
 
     Box(
         modifier = modifier
-            .width(100.dp)
-            .height(60.dp)
-            .background(backgroundColor, RoundedCornerShape(8.dp))
-            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(8.dp))
+            .width(110.dp)
+            .height(134.dp)
+            //.shadow(8.dp, RoundedCornerShape(8.dp))
             .clickable(onClick = onNodeClick)
-            .padding(4.dp)
+            .padding(bottom = 64.dp)
     ) {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text(text = description, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center, maxLines = 3, lineHeight = 12.sp)
-        }
+        Image(
+            painter = painterResource(cardBg),
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize().clip(RoundedCornerShape(8.dp))
+                .shadow(12.dp),
+            contentScale = ContentScale.FillBounds
+        )
         
-        if (node.hasLesson) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .offset(x = -12.dp, y = (-12.dp))
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-                    .clickable(onClick = onLessonClick)
-                    .padding(4.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Description,
-                    contentDescription = "Open Lesson",
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.size(16.dp)
-                )
-            }
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(backgroundColor.copy(alpha = if (isDark) 0.2f else 0.3f), RoundedCornerShape(8.dp))
+                .padding(8.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = description,
+                style = MaterialTheme.typography.labelSmall,
+                color = if (isDark) Color.White else MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center,
+                maxLines = 3,
+                lineHeight = 12.sp,
+                fontWeight = FontWeight.Medium
+            )
         }
+        Image(
+            painter = painterResource(Res.drawable.have_lesson),
+            contentDescription = null,
+            modifier = Modifier
+                .width(32.dp)
+                .offset(if (isLeft) -25.dp else 105.dp, 35.dp)
+                .shadow(16.dp)
+                .clickable(onClick = onLessonClick)
+        )
     }
 }
-
-private data class InternalConnInfo(
-    val key: Pair<String, String>,
-    val minY: Float,
-    val maxY: Float,
-    val length: Float,
-    val isLeft: Boolean
-)

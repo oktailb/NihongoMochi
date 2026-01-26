@@ -20,19 +20,17 @@ actual fun MochiWebView(
                 settings.javaScriptEnabled = false // Sécurité, pas besoin pour des leçons statiques
                 settings.loadWithOverviewMode = true
                 settings.useWideViewPort = true
-                setBackgroundColor(0) // Transparent par défaut
+                setBackgroundColor(0) // Transparent
             }
         },
         update = { webView ->
-            // On injecte un petit script de style pour s'assurer que le fond est correct
-            // si le CSS ne le fait pas déjà.
-            val bgColor = if (isDarkMode) "#121212" else "#FFFFFF"
+            // On injecte un petit script de style pour s'assurer que le fond est transparent
             val fullHtml = """
                 <html>
                 <head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <style>
-                        body { background-color: $bgColor; margin: 0; padding: 0; }
+                        body { background-color: transparent; margin: 0; padding: 0; }
                     </style>
                 </head>
                 <body>
