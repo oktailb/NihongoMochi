@@ -180,11 +180,16 @@ fun SettingsScreen(
                 // Helper to get friendly name
                 @Composable
                 fun getFriendlyName(voiceId: String?): String {
+                    if (voiceId == null) return stringResource(Res.string.settings_tts_voice_default)
+                    
+                    val name = voiceId.lowercase()
                     return when {
-                        voiceId == null -> stringResource(Res.string.settings_tts_voice_default)
-                        voiceId.contains("jad-local") -> stringResource(Res.string.settings_tts_voice_male)
-                        voiceId.contains("jab-local") -> stringResource(Res.string.settings_tts_voice_female)
-                        else -> voiceId
+                        name.contains("jad-local") || name.contains("-m-") || name.contains("male") -> stringResource(Res.string.settings_tts_voice_male)
+                        name.contains("jab-local") || name.contains("-f-") || name.contains("female") -> stringResource(Res.string.settings_tts_voice_female)
+                        // Samsung specific (usually sjp is male, sja is female but it varies)
+                        name.contains("sjp-local") -> stringResource(Res.string.settings_tts_voice_male) + " (Samsung)"
+                        name.contains("sja-local") -> stringResource(Res.string.settings_tts_voice_female) + " (Samsung)"
+                        else -> voiceId // Fallback: show the technical name if we don't recognize the pattern
                     }
                 }
 

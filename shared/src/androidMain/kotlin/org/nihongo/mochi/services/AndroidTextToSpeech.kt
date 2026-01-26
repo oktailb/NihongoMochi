@@ -40,12 +40,14 @@ class AndroidTextToSpeech(private val context: Context) : MochiTextToSpeech, Tex
     }
 
     private fun updateVoicesList() {
-        val voices = tts?.voices?.filter { 
-            it.locale.language == Locale.JAPANESE.language 
+        val allVoices = tts?.voices
+        val japaneseVoices = allVoices?.filter { 
+            it.locale.language == Locale.JAPANESE.language || 
+            it.locale.language == "ja"
         }?.map { it.name } ?: emptyList()
         
-        Log.d("MochiTTS", "Updating voices list: ${voices.size} voices found")
-        _availableVoices.value = voices
+        Log.d("MochiTTS", "Found ${allVoices?.size ?: 0} total voices, ${japaneseVoices.size} are Japanese")
+        _availableVoices.value = japaneseVoices
     }
 
     override fun speak(text: String, language: String, config: VoiceConfig) {
@@ -55,49 +57,43 @@ class AndroidTextToSpeech(private val context: Context) : MochiTextToSpeech, Tex
         }
 
         tts?.let { engine ->
-            // Requirement: Always Japanese voice for this app's main functionality
             val targetLocale = Locale.JAPANESE
             engine.language = targetLocale
             engine.setPitch(config.pitch)
             engine.setSpeechRate(config.rate)
 
-            // Get available Japanese voices
             val japaneseVoices = engine.voices?.filter { 
-                it.locale.language == targetLocale.language 
+                it.locale.language == targetLocale.language || it.locale.language == "ja"
             } ?: emptyList()
 
-            // 1/ Arabe => voix homme japonais dans tout les cas
-            // 2/ Pas arabe => le genre choisi dans les settings
             val appLocale = context.resources.configuration.locale
             val isArabic = appLocale.language == "ar"
             val effectiveGender = if (isArabic) VoiceGender.MALE else config.gender
 
             var selectedVoice: Voice? = null
 
-            // 1. Try explicit voiceId if provided AND NOT in forced Arabic mode
             if (!isArabic && !config.voiceId.isNullOrBlank()) {
                 selectedVoice = japaneseVoices.firstOrNull { it.name == config.voiceId }
             }
 
-            // 2. Fallback to gender-based search
             if (selectedVoice == null) {
+                // Extended matching for various manufacturers (Samsung, Google, etc.)
                 selectedVoice = japaneseVoices.firstOrNull { voice ->
                     val name = voice.name.lowercase()
                     if (effectiveGender == VoiceGender.MALE) {
                         name.contains("male") || name.contains("low") || 
                         name.contains("-m-") || name.contains("-m") || 
                         name.contains("guy") || name.contains("man") || 
-                        name.contains("jad-local")
+                        name.contains("jad-local") || name.contains("sjp-local") // sjp is often male on Samsung
                     } else {
                         name.contains("female") || name.contains("high") || 
                         name.contains("-f-") || name.contains("-f") || 
                         name.contains("girl") || name.contains("woman") || 
-                        name.contains("jab-local")
+                        name.contains("jab-local") || name.contains("sja-local") // sja is often female on Samsung
                     }
                 }
             }
 
-            // 3. Ultimate fallback to first available Japanese voice
             if (selectedVoice == null) {
                 selectedVoice = japaneseVoices.firstOrNull()
             }
