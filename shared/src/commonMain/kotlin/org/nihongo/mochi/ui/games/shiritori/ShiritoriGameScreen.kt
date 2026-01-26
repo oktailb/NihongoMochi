@@ -273,7 +273,7 @@ fun WordBubble(shiritoriWord: ShiritoriWord) {
                     color = textColor.copy(alpha = 0.7f)
                 )
                 Text(
-                    text = shiritoriWord.word,
+                    text = if (shiritoriWord.meaning.isNotEmpty()) "${shiritoriWord.word} (${shiritoriWord.meaning})" else shiritoriWord.word,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
                     color = textColor

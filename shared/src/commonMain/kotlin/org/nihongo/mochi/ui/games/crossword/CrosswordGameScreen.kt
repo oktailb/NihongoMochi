@@ -128,40 +128,34 @@ fun CrosswordGameScreen(
                             shadowElevation = 4.dp
                         ) {
                             Column(modifier = Modifier.padding(12.dp).fillMaxWidth()) {
-                                if (selectedMode == CrosswordMode.KANJIS) {
-                                    Text(
-                                        text = currentWord.phonetics,
-                                        modifier = Modifier.fillMaxWidth(),
-                                        textAlign = TextAlign.Center,
-                                        style = MaterialTheme.typography.headlineSmall,
-                                        fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.primary
-                                    )
+                                val clueText = if (selectedMode == CrosswordMode.KANJIS) {
                                     if (currentWord.meaning.isNotEmpty()) {
-                                        Text(
-                                            text = currentWord.meaning,
-                                            modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                                            textAlign = TextAlign.Center,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            color = MaterialTheme.colorScheme.onSecondaryContainer
-                                        )
+                                        "${currentWord.phonetics} (${currentWord.meaning})"
+                                    } else {
+                                        currentWord.phonetics
                                     }
                                 } else {
-                                    val clueText = if (selectedHintType == CrosswordHintType.KANJI) {
-                                        currentWord.kanji
+                                    if (selectedHintType == CrosswordHintType.KANJI) {
+                                        if (currentWord.meaning.isNotEmpty()) {
+                                            "${currentWord.kanji} (${currentWord.meaning})"
+                                        } else {
+                                            currentWord.kanji
+                                        }
                                     } else {
                                         currentWord.meaning
                                     }
-                                    Text(
-                                        text = clueText,
-                                        modifier = Modifier.fillMaxWidth(),
-                                        textAlign = TextAlign.Center,
-                                        style = MaterialTheme.typography.bodyLarge,
-                                        fontWeight = FontWeight.Bold,
-                                        maxLines = 2,
-                                        overflow = TextOverflow.Ellipsis
-                                    )
                                 }
+
+                                Text(
+                                    text = clueText,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    style = if (selectedMode == CrosswordMode.KANJIS) MaterialTheme.typography.headlineSmall else MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    color = if (selectedMode == CrosswordMode.KANJIS) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSecondaryContainer,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Ellipsis
+                                )
                             }
                         }
                     }

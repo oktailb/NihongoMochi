@@ -15,12 +15,14 @@ import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
 import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
 
 data class ShiritoriWord(
     val word: String,
     val phonetics: String,
+    val meaning: String,
     val isPlayer: Boolean,
     val timestamp: Long = Clock.System.now().toEpochMilliseconds()
 )
@@ -50,6 +52,7 @@ sealed class ShiritoriError {
 
 class ShiritoriViewModel(
     private val wordRepository: WordRepository,
+    private val wordMeaningRepository: WordMeaningRepository,
     private val scoreRepository: ScoreRepository,
     private val settingsRepository: SettingsRepository,
     private val kanaRepository: KanaRepository,
@@ -90,6 +93,7 @@ class ShiritoriViewModel(
     private var aiAvailableWords: List<WordEntry> = emptyList()
     private var usedPhonetics = mutableSetOf<String>()
     private var timerJob: Job? = null
+    private var currentMeanings: Map<String, String> = emptyMap()
 
     init {
         viewModelScope.launch {
@@ -109,6 +113,9 @@ class ShiritoriViewModel(
         viewModelScope.launch {
             _gameState.value = ShiritoriGameState.LOADING
             
+            val locale = settingsRepository.getAppLocale()
+            currentMeanings = wordMeaningRepository.getWordMeanings(locale)
+
             // On récupère le niveau et on construit la banque de mots comme dans KanaDrop
             val rawLevel = settingsRepository.getSelectedLevel().lowercase().ifEmpty { "n5" }
             val allJlptLevels = listOf("n5", "n4", "n3", "n2", "n1")
@@ -159,7 +166,7 @@ class ShiritoriViewModel(
             
             if (firstWordCandidates.isNotEmpty()) {
                 val firstWord = firstWordCandidates.random()
-                addWord(firstWord.text, firstWord.phonetics, false)
+                addWord(firstWord, false)
                 _lastKana.value = getNextTargetKana(firstWord.phonetics)
                 _gameState.value = ShiritoriGameState.PLAYER_TURN
                 startTimer()
@@ -235,7 +242,7 @@ class ShiritoriViewModel(
         }
 
         audioPlayer.playSound("sounds/correct.mp3")
-        addWord(wordEntry.text, phonetics, true)
+        addWord(wordEntry, true)
         _score.value++
         _inputText.value = ""
         
@@ -263,17 +270,18 @@ class ShiritoriViewModel(
                 gameOver(true)
             } else {
                 val aiWord = possibleWords.random()
-                addWord(aiWord.text, aiWord.phonetics, false)
+                addWord(aiWord, false)
                 _lastKana.value = getNextTargetKana(aiWord.phonetics)
                 _gameState.value = ShiritoriGameState.PLAYER_TURN
             }
         }
     }
 
-    private fun addWord(text: String, phonetics: String, isPlayer: Boolean) {
-        val newWord = ShiritoriWord(text, phonetics, isPlayer)
+    private fun addWord(entry: WordEntry, isPlayer: Boolean) {
+        val meaning = currentMeanings[entry.id] ?: ""
+        val newWord = ShiritoriWord(entry.text, entry.phonetics, meaning, isPlayer)
         _playedWords.value = _playedWords.value + newWord
-        usedPhonetics.add(KanaUtils.katakanaToHiragana(phonetics))
+        usedPhonetics.add(KanaUtils.katakanaToHiragana(entry.phonetics))
     }
 
     private fun isValidStart(phonetics: String, targetKana: String): Boolean {
@@ -293,11 +301,19 @@ class ShiritoriViewModel(
         }
         
         val normalizationMap = mapOf(
+            "ゃ" to "ya", "ゅ" to "yu", "ょ" to "yo",
+            "ぁ" to "a", "ぃ" to "i", "ぅ" to "u", "ぇ" to "e", "ぉ" to "o",
+            "っ" to "tsu"
+        ).mapValues { RomajiToKana.checkReplacement(it.value)?.second ?: it.value } // Double check normalization
+        
+        // Let's use simpler normalization as the system expects hiragana
+        val simpleNormalization = mapOf(
             "ゃ" to "や", "ゅ" to "ゆ", "ょ" to "よ",
             "ぁ" to "あ", "ぃ" to "い", "ぅ" to "う", "ぇ" to "え", "ぉ" to "お",
             "っ" to "つ"
         )
-        return normalizationMap[lastChar] ?: lastChar
+        
+        return simpleNormalization[lastChar] ?: lastChar
     }
 
     private fun gameOver(victory: Boolean) {
