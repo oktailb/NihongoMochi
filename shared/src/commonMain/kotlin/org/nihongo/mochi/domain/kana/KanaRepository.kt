@@ -41,7 +41,7 @@ class KanaRepository(private val resourceLoader: ResourceLoader) {
 
     suspend fun getNumberEntries(): List<NumberEntry> {
         return try {
-            val jsonString = resourceLoader.loadJson("numbers.json")
+            val jsonString = resourceLoader.loadJson("suuji.json")
             json.decodeFromString<NumberData>(jsonString).numbers
         } catch (e: Exception) {
             println("Error parsing numbers data: ${e.message}")
