@@ -134,4 +134,8 @@ class ResultsViewModel(
     fun clearMessage() {
         _message.value = null
     }
+
+    fun getString(key: String): String {
+        return stringProvider.getString(key)
+    }
 }

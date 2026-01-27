@@ -60,7 +60,6 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -78,6 +77,8 @@ import org.nihongo.mochi.domain.statistics.UserSagaProgress
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.background_day
 import org.nihongo.mochi.shared.generated.resources.background_night
+import org.nihongo.mochi.shared.generated.resources.level_dark
+import org.nihongo.mochi.shared.generated.resources.level_light
 import org.nihongo.mochi.shared.generated.resources.reading
 import org.nihongo.mochi.shared.generated.resources.recognising
 import org.nihongo.mochi.shared.generated.resources.writing
@@ -161,7 +162,6 @@ fun SagaMapScreen(
     }
 }
 
-// ... CloudActionsBar, SagaTabBar, etc. remain the same ...
 @Composable
 fun CloudActionsBar(
     isAuthenticated: Boolean,
@@ -316,7 +316,6 @@ fun SagaMapContent(
     val listState = rememberLazyListState()
     val pathColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
     val density = LocalDensity.current
-    val context = LocalContext.current
     
     LaunchedEffect(steps) {
         if (steps.isNotEmpty()) {
@@ -329,20 +328,12 @@ fun SagaMapContent(
         val widthPx = with(density) { widthDp.toPx() }
         val centerXPx = widthPx / 2f
         
-        // Use a winding path (sine wave) for the "Candy Crush" feel
-        // Amplitude determines how wide the snake is
-        val amplitudeDp = (widthDp / 2) - 60.dp // Leave margins
+        val amplitudeDp = (widthDp / 2) - 60.dp 
         val amplitudePx = with(density) { amplitudeDp.toPx() }
         
         val nodeSpacing = 280.dp 
         val nodeSpacingPx = with(density) { nodeSpacing.toPx() }
         
-        // Helper to resolve string resource dynamically for Node Titles
-        fun getNodeTitle(key: String): String {
-            val resId = context.resources.getIdentifier(key, "string", context.packageName)
-            return if (resId != 0) context.getString(resId) else key
-        }
-
         LazyColumn(
             state = listState,
             modifier = Modifier.fillMaxSize(),
@@ -352,18 +343,14 @@ fun SagaMapContent(
             itemsIndexed(steps) { index, step ->
                 val nextStep = steps.getOrNull(index + 1)
                 
-                // Calculate base position on the winding curve
                 val phase = index * 0.8f 
                 val basePathX = centerXPx + (sin(phase) * amplitudePx)
                 
-                // Determine layout for THIS step (1 node vs 2 nodes)
                 val nodePositionsX = if (step.nodes.size > 1) {
-                    // Fork: Place nodes side-by-side centered around the path
-                    val spread = with(density) { 160.dp.toPx() } // Wide enough to avoid overlap
+                    val spread = with(density) { 160.dp.toPx() } 
                     val leftX = basePathX - (spread / 2)
                     val rightX = basePathX + (spread / 2)
                     
-                    // Clamp to screen bounds
                     listOf(
                         leftX.coerceIn(50f, widthPx - 50f),
                         rightX.coerceIn(50f, widthPx - 50f)
@@ -378,7 +365,6 @@ fun SagaMapContent(
                         .height(nodeSpacing), 
                     contentAlignment = Alignment.Center
                 ) {
-                    // Draw Connections to Next Step
                     if (nextStep != null) {
                         val nextPhase = (index + 1) * 0.8f
                         val nextBasePathX = centerXPx + (sin(nextPhase) * amplitudePx)
@@ -399,31 +385,16 @@ fun SagaMapContent(
                              val startY = nodeSpacingPx / 2
                              val endY = nodeSpacingPx * 1.5f 
                              
-                             // If multiple nodes connect to multiple nodes (Graph Mesh Issue)
-                             // Logic: Connect left to left, right to right (parallel) if possible
-                             // Or simplify: connect everything to everything if ambiguous
-                             
-                             // Current issue: "maillage complet" -> every node in step N connects to every node in step N+1
-                             
-                             // FIX: Simple heuristic
-                             // 1 -> 1 : Single line
-                             // 2 -> 2 : Parallel lines (0->0, 1->1)
-                             // 1 -> 2 : Fork (0->0, 0->1)
-                             // 2 -> 1 : Merge (0->0, 1->0)
-                             
                              val currentCount = nodePositionsX.size
                              val nextCount = nextPositionsX.size
                              
                              if (currentCount == nextCount) {
-                                 // 1-to-1 or 2-to-2 (Parallel)
                                  for (i in 0 until currentCount) {
                                      val startX = nodePositionsX[i]
                                      val endX = nextPositionsX[i]
                                      drawCurvedPath(this, startX, startY, endX, endY, nodeSpacingPx, pathColor)
                                  }
                              } else {
-                                 // Fork or Merge: Connect all to all (standard graph behavior)
-                                 // OR try to be smart: if 1->2, connect 0->0 and 0->1
                                  nodePositionsX.forEach { startX ->
                                      nextPositionsX.forEach { endX ->
                                          drawCurvedPath(this, startX, startY, endX, endY, nodeSpacingPx, pathColor)
@@ -432,13 +403,10 @@ fun SagaMapContent(
                              }
                         }
                         
-                        // Place Billboards on the connections
                         step.nodes.forEachIndexed { nodeIndex, node ->
                             val progress = viewModel.getSagaProgress(node)
                             val startX = nodePositionsX[nodeIndex]
                             
-                            // Determine target for billboard path interpolation
-                            // If 2->2, target is same index. If others, average or first.
                             val targetX = if (nodePositionsX.size == nextPositionsX.size) {
                                 nextPositionsX[nodeIndex]
                             } else {
@@ -506,12 +474,12 @@ fun SagaMapContent(
                                         label = "Write"
                                     }
                                     StatisticsType.GRAMMAR -> {
-                                        resource = Res.drawable.writing // Placeholder
+                                        resource = Res.drawable.writing 
                                         color = MaterialTheme.colorScheme.error
                                         label = "Gram"
                                     }
                                     StatisticsType.GAMES -> {
-                                        resource = Res.drawable.recognising // Placeholder
+                                        resource = Res.drawable.recognising 
                                         color = MaterialTheme.colorScheme.tertiaryContainer
                                         label = "Game"
                                     }
@@ -544,15 +512,13 @@ fun SagaMapContent(
                         }
                     }
                     
-                    // Render Main Nodes for this Step
                     step.nodes.forEachIndexed { nodeIndex, node ->
                         val progress = viewModel.getSagaProgress(node)
                         val nodeX = nodePositionsX[nodeIndex]
                         
                         SagaNodeItem(
                             node = node,
-                            // TRANSLATE THE TITLE HERE
-                            title = getNodeTitle(node.title),
+                            title = viewModel.getString(node.title),
                             progress = progress,
                             isAuthenticated = isAuthenticated,
                             onNodeClick = onNodeClick,
@@ -648,10 +614,11 @@ fun BillboardContent(
     }
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun SagaNodeItem(
     node: SagaNode,
-    title: String = node.title, // Add title parameter with default fallback
+    title: String = node.title, 
     progress: UserSagaProgress,
     isAuthenticated: Boolean,
     onNodeClick: (String, StatisticsType) -> Unit,
@@ -669,10 +636,10 @@ fun SagaNodeItem(
     }
     
     val isCompleted = avgProgress >= 100
+    val isDark = isSystemInDarkTheme()
+    val levelBgRes = if (isDark) Res.drawable.level_dark else Res.drawable.level_light
     
-    val backgroundColor = if (isCompleted) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.secondaryContainer
     val contentColor = if (isCompleted) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSecondaryContainer
-    val borderColor = MaterialTheme.colorScheme.outline
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -697,39 +664,44 @@ fun SagaNodeItem(
              }
         }
 
-        Surface(
-            shape = CircleShape,
-            color = backgroundColor,
-            border = androidx.compose.foundation.BorderStroke(3.dp, borderColor),
-            shadowElevation = 6.dp,
+        Box(
             modifier = Modifier
-                .size(80.dp)
+                .size(110.dp) // Slightly larger to accommodate the background image
                 .clickable { 
                     onNodeClick(node.id, node.mainType)
-                }
+                },
+            contentAlignment = Alignment.Center
         ) {
+            Image(
+                painter = painterResource(levelBgRes),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Fit
+            )
+            
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.padding(bottom = 8.dp) // Adjust based on image shape
             ) {
                 Text(
-                    text = title, // Use the passed title which might be translated
-                    style = MaterialTheme.typography.labelMedium,
+                    text = title, 
+                    style = MaterialTheme.typography.labelLarge,
                     color = contentColor,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = "${avgProgress}%",
                     style = MaterialTheme.typography.titleLarge,
-                    color = contentColor
+                    color = contentColor,
+                    fontWeight = FontWeight.ExtraBold
                 )
             }
         }
     }
 }
 
-// Helper function to draw curved path to keep code cleaner
 fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurvedPath(
     drawScope: androidx.compose.ui.graphics.drawscope.DrawScope,
     startX: Float, startY: Float, endX: Float, endY: Float, 
@@ -755,4 +727,4 @@ fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurvedPath(
      )
 }
 
-fun Modifier.zIndex(zIndex: Float): Modifier = this // zIndex modifier not available in commonMain Compose yet, using no-op
+fun Modifier.zIndex(zIndex: Float): Modifier = this
