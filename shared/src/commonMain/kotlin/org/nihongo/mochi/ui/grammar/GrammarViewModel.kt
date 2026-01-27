@@ -140,13 +140,20 @@ class GrammarViewModel(
     }
 
     private fun applyCommonStyle(htmlContent: String, cssContent: String): String {
+        // Transform `text` to <strong>text</strong> (workaround for translation/formatting)
+        var processedHtml = htmlContent.replace(Regex("`([^`]+)`"), "<strong>$1</strong>")
+        //processedHtml = htmlContent.replace(Regex("`([^`]+)`"), "<em>$1</em>")
+        //processedHtml = htmlContent.replace(Regex("`([^`]+)`"), "<i>$1</i>")
+        processedHtml = processedHtml.replace("«", "<strong>«")
+        processedHtml = processedHtml.replace("»", "»</strong>")
+
         val styleTag = "<style>\n$cssContent\n</style>"
-        return if (htmlContent.contains("</head>")) {
-            htmlContent.replace("</head>", "$styleTag</head>")
-        } else if (htmlContent.contains("<body>")) {
-            htmlContent.replace("<body>", "<body>$styleTag")
+        return if (processedHtml.contains("</head>")) {
+            processedHtml.replace("</head>", "$styleTag</head>")
+        } else if (processedHtml.contains("<body>")) {
+            processedHtml.replace("<body>", "<body>$styleTag")
         } else {
-            "$styleTag$htmlContent"
+            "$styleTag$processedHtml"
         }
     }
 
