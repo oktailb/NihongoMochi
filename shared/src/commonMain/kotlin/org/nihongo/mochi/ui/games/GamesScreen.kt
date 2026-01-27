@@ -124,34 +124,34 @@ fun GamesScreen(
                     onClick = onShiritoriClick
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
-
-                BigModeCard(
-                    title = stringResource(Res.string.game_particles_title),
-                    subtitle = stringResource(Res.string.game_particles_subtitle),
-                    kanjiTitle = "助詞",
-                    onClick = { showComingSoon() }
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                BigModeCard(
-                    title = stringResource(Res.string.game_forge_title),
-                    subtitle = stringResource(Res.string.game_forge_subtitle),
-                    kanjiTitle = "鍛冶",
-                    onClick = { showComingSoon() }
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                BigModeCard(
-                    title = stringResource(Res.string.game_shadow_title),
-                    subtitle = stringResource(Res.string.game_shadow_subtitle),
-                    kanjiTitle = "影",
-                    onClick = { showComingSoon() }
-                )
-
-                Spacer(modifier = Modifier.height(24.dp))
+//                Spacer(modifier = Modifier.height(12.dp))
+//
+//                BigModeCard(
+//                    title = stringResource(Res.string.game_particles_title),
+//                    subtitle = stringResource(Res.string.game_particles_subtitle),
+//                    kanjiTitle = "助詞",
+//                    onClick = { showComingSoon() }
+//                )
+//
+//                Spacer(modifier = Modifier.height(12.dp))
+//
+//                BigModeCard(
+//                    title = stringResource(Res.string.game_forge_title),
+//                    subtitle = stringResource(Res.string.game_forge_subtitle),
+//                    kanjiTitle = "鍛冶",
+//                    onClick = { showComingSoon() }
+//                )
+//
+//                Spacer(modifier = Modifier.height(12.dp))
+//
+//                BigModeCard(
+//                    title = stringResource(Res.string.game_shadow_title),
+//                    subtitle = stringResource(Res.string.game_shadow_subtitle),
+//                    kanjiTitle = "影",
+//                    onClick = { showComingSoon() }
+//                )
+//
+//                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }
