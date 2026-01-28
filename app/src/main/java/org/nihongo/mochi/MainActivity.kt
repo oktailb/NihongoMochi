@@ -17,6 +17,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
+import com.google.android.gms.games.PlayGamesSdk
 import org.koin.android.ext.android.inject
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.ui.navigation.MochiNavGraph
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        PlayGamesSdk.initialize(this)
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         
