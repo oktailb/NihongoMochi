@@ -2,6 +2,7 @@ package org.nihongo.mochi.domain.statistics
 
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.services.CloudSaveService
+import org.nihongo.mochi.domain.services.PlayerInfo
 import org.nihongo.mochi.domain.services.StringProvider
 import org.nihongo.mochi.presentation.SagaAction
 import org.nihongo.mochi.presentation.ViewModel
@@ -16,6 +17,7 @@ import kotlinx.datetime.toLocalDateTime
 sealed class OneTimeEvent {
     data object ShowAchievements : OneTimeEvent()
     data object ShowSavedGames : OneTimeEvent()
+    data object ShowLeaderboards : OneTimeEvent()
 }
 
 class ResultsViewModel(
@@ -27,6 +29,9 @@ class ResultsViewModel(
 
     private val _isAuthenticated = MutableStateFlow(false)
     val isAuthenticated: MutableStateFlow<Boolean> = _isAuthenticated
+
+    private val _playerInfo = MutableStateFlow<PlayerInfo?>(null)
+    val playerInfo: MutableStateFlow<PlayerInfo?> = _playerInfo
 
     private val _message = MutableStateFlow<String?>(null)
     val message: MutableStateFlow<String?> = _message
@@ -57,6 +62,7 @@ class ResultsViewModel(
                 SagaAction.ACHIEVEMENTS -> _oneTimeEvent.emit(OneTimeEvent.ShowAchievements)
                 SagaAction.BACKUP -> _oneTimeEvent.emit(OneTimeEvent.ShowSavedGames)
                 SagaAction.RESTORE -> _oneTimeEvent.emit(OneTimeEvent.ShowSavedGames)
+                SagaAction.LEADERBOARDS -> _oneTimeEvent.emit(OneTimeEvent.ShowLeaderboards)
             }
         }
     }
@@ -92,7 +98,11 @@ class ResultsViewModel(
 
     fun checkSignInStatus() {
         viewModelScope.launch {
-            _isAuthenticated.value = cloudSaveService.isAuthenticated()
+            val authenticated = cloudSaveService.isAuthenticated()
+            _isAuthenticated.value = authenticated
+            if (authenticated) {
+                _playerInfo.value = cloudSaveService.getPlayerInfo()
+            }
         }
     }
 
@@ -100,7 +110,9 @@ class ResultsViewModel(
         viewModelScope.launch {
             val success = cloudSaveService.signIn()
             _isAuthenticated.value = success
-            if (!success) {
+            if (success) {
+                _playerInfo.value = cloudSaveService.getPlayerInfo()
+            } else {
                 _message.value = stringProvider.getString("error_sign_in_failed")
             }
         }

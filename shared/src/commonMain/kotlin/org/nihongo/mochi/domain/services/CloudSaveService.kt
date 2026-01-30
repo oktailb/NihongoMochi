@@ -1,5 +1,7 @@
 package org.nihongo.mochi.domain.services
 
+data class PlayerInfo(val displayName: String, val iconUri: String?)
+
 interface CloudSaveService {
     suspend fun signIn(): Boolean
     suspend fun isAuthenticated(): Boolean
@@ -8,4 +10,5 @@ interface CloudSaveService {
     fun submitScore(leaderboardId: String, score: Long)
     fun unlockAchievement(achievementId: String)
     fun showLeaderboards()
+    suspend fun getPlayerInfo(): PlayerInfo?
 }

@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -63,11 +64,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import org.nihongo.mochi.domain.services.PlayerInfo
 import org.nihongo.mochi.domain.statistics.ResultsViewModel
 import org.nihongo.mochi.domain.statistics.SagaNode
 import org.nihongo.mochi.domain.statistics.SagaStep
@@ -86,7 +92,7 @@ import kotlin.math.abs
 import kotlin.math.sin
 
 enum class SagaAction {
-    SIGN_IN, ACHIEVEMENTS, BACKUP, RESTORE
+    SIGN_IN, ACHIEVEMENTS, BACKUP, RESTORE, LEADERBOARDS
 }
 
 private data class BillboardSpec(
@@ -106,6 +112,7 @@ fun SagaMapScreen(
     val steps by viewModel.sagaSteps.collectAsState()
     val currentTab by viewModel.currentTab.collectAsState()
     val isAuthenticated by viewModel.isAuthenticated.collectAsState()
+    val playerInfo by viewModel.playerInfo.collectAsState()
     
     val isDark = isSystemInDarkTheme()
     val backgroundRes = if (isDark) Res.drawable.background_night else Res.drawable.background_day
@@ -154,6 +161,7 @@ fun SagaMapScreen(
                         steps = steps, 
                         viewModel = viewModel, 
                         isAuthenticated = isAuthenticated,
+                        playerInfo = playerInfo,
                         onNodeClick = onNodeClick
                     )
                 }
@@ -179,6 +187,11 @@ fun CloudActionsBar(
                 icon = Icons.Default.EmojiEvents,
                 label = "Trophies",
                 onClick = { onAction(SagaAction.ACHIEVEMENTS) }
+            )
+            ActionButton(
+                icon = Icons.Default.Visibility,
+                label = "Rankings",
+                onClick = { onAction(SagaAction.LEADERBOARDS) }
             )
             ActionButton(
                 icon = Icons.Default.CloudUpload,
@@ -311,6 +324,7 @@ fun SagaMapContent(
     steps: List<SagaStep>, 
     viewModel: ResultsViewModel,
     isAuthenticated: Boolean,
+    playerInfo: PlayerInfo?,
     onNodeClick: (String, StatisticsType) -> Unit
 ) {
     val listState = rememberLazyListState()
@@ -509,6 +523,29 @@ fun SagaMapContent(
                                     )
                                 }
                             }
+
+                            // Avatar placement on the path
+                            if (isAuthenticated) {
+                                val validScores = mutableListOf<Int>()
+                                if (node.recognitionId != null) validScores.add(progress.recognitionIndex)
+                                if (node.readingId != null) validScores.add(progress.readingIndex)
+                                if (node.writingId != null) validScores.add(progress.writingIndex)
+                                
+                                val avgProgress = if (validScores.isNotEmpty()) validScores.average().toFloat() else 0f
+                                
+                                if (avgProgress > 0f && avgProgress < 100f) {
+                                    val avatarT = (avgProgress / 100f).coerceIn(0.05f, 0.95f)
+                                    val avatarPos = getBezierPoint(avatarT, p0, p1, p2, p3)
+                                    
+                                    Box(modifier = Modifier
+                                        .align(Alignment.TopStart)
+                                        .offset { IntOffset(avatarPos.x.toInt() - 40, avatarPos.y.toInt() - 60) }
+                                        .zIndex(10000f) // HIGHEST Z-INDEX
+                                    ) {
+                                        PlayerAvatar(playerInfo)
+                                    }
+                                }
+                            }
                         }
                     }
                     
@@ -520,14 +557,66 @@ fun SagaMapContent(
                             node = node,
                             title = viewModel.getString(node.title),
                             progress = progress,
-                            isAuthenticated = isAuthenticated,
                             onNodeClick = onNodeClick,
                             modifier = Modifier
                                 .align(Alignment.TopStart)
                                 .offset { IntOffset(nodeX.toInt() - 110, (nodeSpacingPx/2).toInt() - 110) }
+                                .zIndex(5f)
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun PlayerAvatar(playerInfo: PlayerInfo?) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Surface(
+            shape = CircleShape,
+            color = MaterialTheme.colorScheme.secondary, // Force bright background
+            border = androidx.compose.foundation.BorderStroke(3.dp, Color.White),
+            shadowElevation = 10.dp,
+            modifier = Modifier.size(64.dp)
+        ) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                // If we have an icon URI, try to load it
+                if (playerInfo?.iconUri != null) {
+                    AsyncImage(
+                        model = playerInfo.iconUri,
+                        contentDescription = "Player Avatar",
+                        modifier = Modifier.fillMaxSize().clip(CircleShape),
+                        contentScale = ContentScale.Crop,
+                        // If loading fails, AsyncImage will just be empty, showing the Box content below
+                    )
+                }
+                
+                // Icon behind AsyncImage (visible during loading or if URI fails)
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = "Default Avatar",
+                    tint = Color.White,
+                    modifier = Modifier.size(48.dp)
+                )
+            }
+        }
+        
+        // Add Display Name for debugging and identification
+        if (playerInfo != null) {
+            Surface(
+                color = MaterialTheme.colorScheme.secondaryContainer,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.padding(top = 4.dp).widthIn(max = 100.dp)
+            ) {
+                Text(
+                    text = playerInfo.displayName,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp),
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                )
             }
         }
     }
@@ -561,6 +650,7 @@ fun BillboardItem(
         modifier = Modifier
             .clickable(onClick = onClick)
             .padding(4.dp)
+            .zIndex(10f)
     ) {
         if (isLeftSide) {
             BillboardContent(drawable, description, progress, color)
@@ -620,7 +710,6 @@ fun SagaNodeItem(
     node: SagaNode,
     title: String = node.title, 
     progress: UserSagaProgress,
-    isAuthenticated: Boolean,
     onNodeClick: (String, StatisticsType) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -645,28 +734,9 @@ fun SagaNodeItem(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        if (isAuthenticated) {
-             Surface(
-                 shape = CircleShape,
-                 color = MaterialTheme.colorScheme.surface,
-                 border = androidx.compose.foundation.BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
-                 modifier = Modifier
-                     .size(36.dp)
-                     .offset(y = 12.dp)
-                     .zIndex(1f)
-             ) {
-                 Icon(
-                     imageVector = Icons.Default.AccountCircle,
-                     contentDescription = "User Avatar",
-                     tint = MaterialTheme.colorScheme.onSurface,
-                     modifier = Modifier.padding(2.dp)
-                 )
-             }
-        }
-
         Box(
             modifier = Modifier
-                .size(110.dp) // Slightly larger to accommodate the background image
+                .size(110.dp) 
                 .clickable { 
                     onNodeClick(node.id, node.mainType)
                 },
@@ -682,7 +752,7 @@ fun SagaNodeItem(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
-                modifier = Modifier.padding(bottom = 8.dp) // Adjust based on image shape
+                modifier = Modifier.padding(bottom = 8.dp)
             ) {
                 Text(
                     text = title, 
@@ -726,5 +796,3 @@ fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurvedPath(
          )
      )
 }
-
-fun Modifier.zIndex(zIndex: Float): Modifier = this

@@ -54,6 +54,10 @@ kotlin {
             // Network & IO
             implementation(libs.ktor.client.core)
             implementation(libs.okio)
+
+            // Coil
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
         }
 
         androidMain.dependencies {

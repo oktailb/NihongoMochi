@@ -8,4 +8,5 @@ class NoOpCloudSaveService : CloudSaveService {
     override fun submitScore(leaderboardId: String, score: Long) {}
     override fun unlockAchievement(achievementId: String) {}
     override fun showLeaderboards() {}
+    override suspend fun getPlayerInfo(): PlayerInfo? = null
 }

@@ -9,6 +9,7 @@ import com.google.android.gms.games.SnapshotsClient
 import com.google.android.gms.games.snapshot.SnapshotMetadataChange
 import com.google.android.gms.tasks.Task
 import org.nihongo.mochi.domain.services.CloudSaveService
+import org.nihongo.mochi.domain.services.PlayerInfo
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -19,6 +20,7 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
     private val snapshotsClient: SnapshotsClient by lazy { PlayGames.getSnapshotsClient(activity) }
     private val achievementsClient by lazy { PlayGames.getAchievementsClient(activity) }
     private val leaderboardsClient by lazy { PlayGames.getLeaderboardsClient(activity) }
+    private val playersClient by lazy { PlayGames.getPlayersClient(activity) }
 
     companion object {
         private const val RC_LEADERBOARDS = 9002
@@ -86,6 +88,20 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
     override fun showLeaderboards() {
         leaderboardsClient.allLeaderboardsIntent.addOnSuccessListener { intent ->
             activity.startActivityForResult(intent, RC_LEADERBOARDS)
+        }
+    }
+
+    override suspend fun getPlayerInfo(): PlayerInfo? {
+        return try {
+            // Utilisation de la propriété standard currentPlayer (Task<Player>)
+            val player = playersClient.currentPlayer.await()
+            PlayerInfo(
+                displayName = player.displayName,
+                iconUri = player.iconImageUri?.toString()
+            )
+        } catch (e: Exception) {
+            Log.e("AndroidCloudSave", "Failed to get player info", e)
+            null
         }
     }
     
