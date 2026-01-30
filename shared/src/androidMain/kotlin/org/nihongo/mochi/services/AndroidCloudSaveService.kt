@@ -2,7 +2,10 @@ package org.nihongo.mochi.services
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.util.Log
+import com.google.android.gms.common.images.ImageManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.SnapshotsClient
@@ -10,6 +13,7 @@ import com.google.android.gms.games.snapshot.SnapshotMetadataChange
 import com.google.android.gms.tasks.Task
 import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.domain.services.PlayerInfo
+import java.io.ByteArrayOutputStream
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -21,6 +25,7 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
     private val achievementsClient by lazy { PlayGames.getAchievementsClient(activity) }
     private val leaderboardsClient by lazy { PlayGames.getLeaderboardsClient(activity) }
     private val playersClient by lazy { PlayGames.getPlayersClient(activity) }
+    private val imageManager by lazy { ImageManager.create(activity) }
 
     companion object {
         private const val RC_LEADERBOARDS = 9002
@@ -93,11 +98,34 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
 
     override suspend fun getPlayerInfo(): PlayerInfo? {
         return try {
-            // Utilisation de la propriété standard currentPlayer (Task<Player>)
             val player = playersClient.currentPlayer.await()
+            val imageUri = player.hiResImageUri ?: player.iconImageUri
+            
+            var avatarBytes: ByteArray? = null
+            if (imageUri != null) {
+                avatarBytes = suspendCoroutine { continuation ->
+                    imageManager.loadImage({ uri, drawable, isRequested ->
+                        try {
+                            if (drawable is BitmapDrawable) {
+                                val bitmap = drawable.bitmap
+                                val stream = ByteArrayOutputStream()
+                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                                continuation.resume(stream.toByteArray())
+                            } else {
+                                continuation.resume(null)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("AndroidCloudSave", "Error converting avatar", e)
+                            continuation.resume(null)
+                        }
+                    }, imageUri)
+                }
+            }
+
             PlayerInfo(
                 displayName = player.displayName,
-                iconUri = player.iconImageUri?.toString()
+                iconUri = imageUri?.toString(),
+                avatarBytes = avatarBytes
             )
         } catch (e: Exception) {
             Log.e("AndroidCloudSave", "Failed to get player info", e)

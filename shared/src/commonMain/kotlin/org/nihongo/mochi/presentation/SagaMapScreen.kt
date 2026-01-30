@@ -540,7 +540,7 @@ fun SagaMapContent(
                                     Box(modifier = Modifier
                                         .align(Alignment.TopStart)
                                         .offset { IntOffset(avatarPos.x.toInt() - 40, avatarPos.y.toInt() - 60) }
-                                        .zIndex(10000f) // HIGHEST Z-INDEX
+                                        .zIndex(10000f) 
                                     ) {
                                         PlayerAvatar(playerInfo)
                                     }
@@ -575,34 +575,42 @@ fun PlayerAvatar(playerInfo: PlayerInfo?) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Surface(
             shape = CircleShape,
-            color = MaterialTheme.colorScheme.secondary, // Force bright background
+            color = MaterialTheme.colorScheme.secondary,
             border = androidx.compose.foundation.BorderStroke(3.dp, Color.White),
             shadowElevation = 10.dp,
             modifier = Modifier.size(64.dp)
         ) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                // If we have an icon URI, try to load it
-                if (playerInfo?.iconUri != null) {
+                // Prioritize avatarBytes (extracted via ImageManager)
+                if (playerInfo?.avatarBytes != null) {
+                    AsyncImage(
+                        model = playerInfo.avatarBytes,
+                        contentDescription = "Player Avatar",
+                        modifier = Modifier.fillMaxSize().clip(CircleShape),
+                        contentScale = ContentScale.Crop
+                    )
+                } else if (playerInfo?.iconUri != null) {
+                    // Fallback to Uri if bytes are missing (though bytes are more reliable)
                     AsyncImage(
                         model = playerInfo.iconUri,
                         contentDescription = "Player Avatar",
                         modifier = Modifier.fillMaxSize().clip(CircleShape),
-                        contentScale = ContentScale.Crop,
-                        // If loading fails, AsyncImage will just be empty, showing the Box content below
+                        contentScale = ContentScale.Crop
                     )
                 }
                 
-                // Icon behind AsyncImage (visible during loading or if URI fails)
-                Icon(
-                    imageVector = Icons.Default.AccountCircle,
-                    contentDescription = "Default Avatar",
-                    tint = Color.White,
-                    modifier = Modifier.size(48.dp)
-                )
+                // Visible if both image methods fail or are loading
+                if (playerInfo?.avatarBytes == null && playerInfo?.iconUri == null) {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Default Avatar",
+                        tint = Color.White,
+                        modifier = Modifier.size(48.dp)
+                    )
+                }
             }
         }
         
-        // Add Display Name for debugging and identification
         if (playerInfo != null) {
             Surface(
                 color = MaterialTheme.colorScheme.secondaryContainer,
