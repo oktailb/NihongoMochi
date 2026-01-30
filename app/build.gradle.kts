@@ -22,7 +22,6 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "org.nihongo.mochi"
-    // Downgrade to 34 to match AGP version and avoid warnings/instability
     compileSdk = 36
 
     signingConfigs {
@@ -39,7 +38,6 @@ android {
     defaultConfig {
         applicationId = "org.nihongo.mochi"
         minSdk = 28
-        // Align targetSdk with compileSdk for consistency
         targetSdk = 36
         versionCode = 24
         versionName = "0.9.0"
@@ -60,20 +58,18 @@ android {
             )
             signingConfig = signingConfigs.getByName("release")
             
-            // Exclude dev-only XML file from release builds
             packaging {
                 resources.excludes.add("res/xml/bccwj_wordlist.xml")
             }
         }
     }
     
-    // Reduce APK size for debug builds by only including necessary native libs
     if (!gradle.startParameter.taskNames.any { it.contains("bundleRelease", ignoreCase = true) }) {
         splits {
             abi {
                 isEnable = true
                 reset()
-                include("x86_64", "arm64-v8a") // For modern emulators and phones
+                include("x86_64", "arm64-v8a")
                 isUniversalApk = false
             }
         }
@@ -98,7 +94,6 @@ android {
     
     sourceSets {
         getByName("main") {
-            // Include fonts from shared module into Android assets without duplication
             assets.srcDirs("src/main/assets", "${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
         }
     }

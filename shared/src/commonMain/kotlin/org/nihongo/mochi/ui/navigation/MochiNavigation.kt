@@ -29,6 +29,7 @@ import org.nihongo.mochi.ui.wordquiz.WordQuizViewModel
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.services.NoOpCloudSaveService
+import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.domain.statistics.ResultsViewModel
 import org.nihongo.mochi.domain.dictionary.DictionaryViewModel
 import org.nihongo.mochi.domain.models.KanjiDetail
@@ -159,7 +160,8 @@ fun MochiNavGraph(
     buildDate: String,
     onOpenUrl: (String) -> Unit,
     onThemeChanged: (Boolean) -> Unit,
-    onLocaleChanged: (String) -> Unit
+    onLocaleChanged: (String) -> Unit,
+    cloudSaveService: CloudSaveService
 ) {
     NavHost(
         navController = navController,
@@ -233,7 +235,7 @@ fun MochiNavGraph(
         }
 
         composable(Screen.Results.route) {
-            val resultsViewModel: ResultsViewModel = koinInject { parametersOf(NoOpCloudSaveService()) }
+            val resultsViewModel: ResultsViewModel = koinInject { parametersOf(cloudSaveService) }
             SagaMapScreen(
                 viewModel = resultsViewModel,
                 onNodeClick = { id, type -> /* TODO */ },

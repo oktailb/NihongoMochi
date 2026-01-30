@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.rememberNavController
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
@@ -18,7 +19,11 @@ import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
+import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.ui.navigation.MochiNavGraph
 import org.nihongo.mochi.ui.theme.AppTheme
@@ -30,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var gamesSignInClient: GamesSignInClient
     private val settingsRepository: SettingsRepository by inject()
+    private val scoreRepository: ScoreRepository by inject()
+    private val cloudSaveService: CloudSaveService by inject { parametersOf(this) }
 
     override fun attachBaseContext(newBase: Context) {
         val prefs = newBase.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
@@ -88,7 +95,8 @@ class MainActivity : AppCompatActivity() {
                     buildDate = BuildConfig.BUILD_DATE,
                     onOpenUrl = { url -> openUrl(url) },
                     onThemeChanged = { isDark -> changeTheme(isDark) },
-                    onLocaleChanged = { newLocale -> changeLocale(newLocale) }
+                    onLocaleChanged = { newLocale -> changeLocale(newLocale) },
+                    cloudSaveService = cloudSaveService
                 )
             }
         }
@@ -150,11 +158,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkSignInStatus() {
-        gamesSignInClient.isAuthenticated.addOnCompleteListener { isAuthenticatedTask ->
-            if (isAuthenticatedTask.isSuccessful && isAuthenticatedTask.result.isAuthenticated) {
-                Log.d("MainActivity", "Google Play Games sign-in successful.")
+        lifecycleScope.launch {
+            if (cloudSaveService.isAuthenticated()) {
+                scoreRepository.setCloudSaveService(cloudSaveService)
+                Log.d("MainActivity", "Google Play Games authenticated and service set in repository.")
             } else {
-                Log.d("MainActivity", "Google Play Games sign-in failed or not authenticated.")
+                Log.d("MainActivity", "Google Play Games not authenticated.")
             }
         }
     }

@@ -5,6 +5,7 @@ import kotlinx.datetime.Clock
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.*
 import org.nihongo.mochi.db.MochiDatabase
+import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.settings.ADD_WRONG_ANSWERS_PREF_KEY
 import org.nihongo.mochi.settings.REMOVE_GOOD_ANSWERS_PREF_KEY
 import org.nihongo.mochi.ui.games.simon.SimonGameResult
@@ -24,18 +25,33 @@ class ScoreManager(
     private val appSettings: Settings
 ) : ScoreRepository {
 
+    private var cloudSaveService: CloudSaveService? = null
+
     companion object {
         const val RECOGNITION_LIST = "Recognition_List"
         const val READING_LIST = "Reading_List"
         const val WRITING_LIST = "Writing_List"
         const val GRAMMAR_LIST = "Grammar_List"
         private const val MIGRATION_DONE_KEY = "sql_migration_done_v1"
+
+        // Leaderboard IDs - Replace with real IDs from Google Play Console
+        private const val LB_SNAKE = "leaderboard_snake"
+        private const val LB_SIMON = "leaderboard_simon"
+        private const val LB_TAQUIN = "leaderboard_taquin"
+        private const val LB_KANALINK = "leaderboard_kana_link"
+        private const val LB_CROSSWORD = "leaderboard_crossword"
+        private const val LB_MEMORIZE = "leaderboard_memorize"
+        private const val LB_SHIRITORI = "leaderboard_shiritori"
     }
 
     private val queries = database.mochiDatabaseQueries
 
     init {
         migrateIfNeeded()
+    }
+
+    override fun setCloudSaveService(service: CloudSaveService?) {
+        this.cloudSaveService = service
     }
 
     private fun migrateIfNeeded() {
@@ -172,6 +188,9 @@ class ScoreManager(
             result.timestamp,
             result.gridSizeLabel
         )
+        // For memorize, fewer moves is better, but Play Games usually likes higher = better. 
+        // We might want to submit a score based on some formula or just the moves.
+        cloudSaveService?.submitScore(LB_MEMORIZE, result.moves.toLong())
     }
 
     override fun getMemorizeHistory(): List<MemorizeGameResult> {
@@ -199,6 +218,7 @@ class ScoreManager(
             result.timestamp,
             result.levelId
         )
+        cloudSaveService?.submitScore(LB_SIMON, result.maxSequence.toLong())
     }
 
     override fun getSimonHistory(): List<SimonGameResult> {
@@ -226,6 +246,7 @@ class ScoreManager(
             result.timestamp,
             null
         )
+        cloudSaveService?.submitScore(LB_TAQUIN, result.moves.toLong())
     }
 
     override fun getTaquinHistory(): List<TaquinGameResult> {
@@ -253,6 +274,7 @@ class ScoreManager(
             result.timestamp,
             result.levelId
         )
+        cloudSaveService?.submitScore(LB_KANALINK, result.score.toLong())
     }
 
     override fun getKanaLinkHistory(): List<KanaLinkResult> {
@@ -280,6 +302,7 @@ class ScoreManager(
             result.timestamp,
             result.mode.name
         )
+        cloudSaveService?.submitScore(LB_CROSSWORD, result.wordCount.toLong())
     }
 
     override fun getCrosswordHistory(): List<CrosswordGameResult> {
@@ -307,6 +330,7 @@ class ScoreManager(
             result.timestamp,
             result.mode.name
         )
+        cloudSaveService?.submitScore(LB_SNAKE, result.score.toLong())
     }
 
     override fun getSnakeHistory(): List<SnakeGameResult> {
@@ -334,6 +358,7 @@ class ScoreManager(
             result.timestamp,
             result.levelId
         )
+        cloudSaveService?.submitScore(LB_SHIRITORI, result.score.toLong())
     }
 
     override fun getShiritoriHistory(): List<ShiritoriGameResult> {
@@ -373,8 +398,6 @@ class ScoreManager(
                     putJsonArray(k) { v.forEach { add(JsonPrimitive(it)) } }
                 }
             })
-            // History is now internal, but for backup we might want to keep it as JSON or similar
-            // For simplicity in backup, let's keep encoding lists to JSON for the export format
             put("memorize_history", Json.encodeToJsonElement(getMemorizeHistory()))
             put("simon_history", Json.encodeToJsonElement(getSimonHistory()))
             put("taquin_history", Json.encodeToJsonElement(getTaquinHistory()))

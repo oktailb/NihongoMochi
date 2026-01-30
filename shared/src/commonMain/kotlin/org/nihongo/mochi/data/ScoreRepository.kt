@@ -1,5 +1,6 @@
 package org.nihongo.mochi.data
 
+import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.ui.games.memorize.MemorizeGameResult
 import org.nihongo.mochi.ui.games.simon.SimonGameResult
 import org.nihongo.mochi.ui.games.taquin.TaquinGameResult
@@ -9,6 +10,8 @@ import org.nihongo.mochi.ui.games.snake.SnakeGameResult
 import org.nihongo.mochi.ui.games.shiritori.ShiritoriGameResult
 
 interface ScoreRepository {
+    fun setCloudSaveService(service: CloudSaveService?)
+
     fun saveScore(key: String, wasCorrect: Boolean, type: ScoreManager.ScoreType)
     fun getScore(key: String, type: ScoreManager.ScoreType): LearningScore
     fun getAllScores(type: ScoreManager.ScoreType): Map<String, LearningScore>
@@ -47,14 +50,4 @@ interface ScoreRepository {
 
     fun saveShiritoriResult(result: ShiritoriGameResult)
     fun getShiritoriHistory(): List<ShiritoriGameResult>
-
-    // Legacy (to be removed once migrated)
-    @Deprecated("Use saveMemorizeResult")
-    fun saveMemorizeHistory(historyJson: String) {}
-    @Deprecated("Use saveSimonResult")
-    fun saveSimonHistory(historyJson: String) {}
-    @Deprecated("Use saveTaquinResult")
-    fun saveTaquinHistory(historyJson: String) {}
-    @Deprecated("Use saveKanaLinkResult")
-    fun saveKanaLinkHistory(historyJson: String) {}
 }

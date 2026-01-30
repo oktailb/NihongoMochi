@@ -18,6 +18,11 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
     private val gamesSignInClient: GamesSignInClient by lazy { PlayGames.getGamesSignInClient(activity) }
     private val snapshotsClient: SnapshotsClient by lazy { PlayGames.getSnapshotsClient(activity) }
     private val achievementsClient by lazy { PlayGames.getAchievementsClient(activity) }
+    private val leaderboardsClient by lazy { PlayGames.getLeaderboardsClient(activity) }
+
+    companion object {
+        private const val RC_LEADERBOARDS = 9002
+    }
 
     override suspend fun signIn(): Boolean {
         return try {
@@ -69,9 +74,27 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
             null
         }
     }
+
+    override fun submitScore(leaderboardId: String, score: Long) {
+        leaderboardsClient.submitScore(leaderboardId, score)
+    }
+
+    override fun unlockAchievement(achievementId: String) {
+        achievementsClient.unlock(achievementId)
+    }
+
+    override fun showLeaderboards() {
+        leaderboardsClient.allLeaderboardsIntent.addOnSuccessListener { intent ->
+            activity.startActivityForResult(intent, RC_LEADERBOARDS)
+        }
+    }
     
     suspend fun getAchievementsIntent(): Intent {
         return achievementsClient.achievementsIntent.await()
+    }
+
+    suspend fun getLeaderboardsIntent(): Intent {
+        return leaderboardsClient.allLeaderboardsIntent.await()
     }
     
     suspend fun getSavedGamesIntent(title: String, allowAdd: Boolean, allowDelete: Boolean, maxSnapshots: Int): Intent {
