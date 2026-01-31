@@ -685,4 +685,17 @@
     <string name="shiritori_time">Time</string>
     <string name="shiritori_ia_sink">IA is thinking...</string>
     <string name="shiritori_rules">Rules</string>
+    <string name="settings_downloading_pack">Downloading language pack...</string>
+    <string name="settings_download_success">Language pack ready!</string>
+    <string name="settings_download_error">Download failed. Check your connection.</string>
+    <string name="settings_update_pack">Update language pack</string>
+    <string name="numbers_desc">Numbers and counters</string>
+    <string name="forme_causatif_t_desc">Causative form て - Request or favor</string>
+    <string name="forme_potentiel_nai_desc">Potiential form ない - thing you can't do</string>
+    <string name="particule_he_desc">へ - Particle of direction</string>
+    <string name="n_desu_desc">のです - Explanatory nuance, showing interest, mitigation</string>
+    <string name="desu_masu_desc">です/ます - Politeness</string>
+    <string name="bakari_desc">Verb -た + ばかり - Have just done something</string>
+    <string name="fukushi_desc">ふくし - Adverbs~</string>
+    <string name="tame_ni_desc">~ため　に - Motivation ~</string>
 </resources>

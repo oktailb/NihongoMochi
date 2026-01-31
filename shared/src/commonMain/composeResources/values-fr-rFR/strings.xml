@@ -685,4 +685,17 @@
     <string name="shiritori_words_found">Mots trouvés</string>
     <string name="shiritori_time">Temps</string>
     <string name="shiritori_ia_sink">IA pense...</string>
+    <string name="settings_downloading_pack">Téléchargement du pack de langue...</string>
+    <string name="settings_download_success">Le pack de langue est prêt !</string>
+    <string name="settings_download_error">Le téléchargement a échoué. Vérifiez votre connexion.</string>
+    <string name="settings_update_pack">Mettre à jour le pack de langue</string>
+    <string name="numbers_desc">Chiffres et compteurs</string>
+    <string name="forme_causatif_t_desc">Forme causale て - Demande ou faveur</string>
+    <string name="forme_potentiel_nai_desc">Forme potentielle ない - chose que vous ne pouvez pas faire</string>
+    <string name="particule_he_desc">へ - Particule de direction</string>
+    <string name="n_desu_desc">のです - Nuance explicative, manifestation d'intérêt, atténuation</string>
+    <string name="desu_masu_desc">です/ます - Politesse</string>
+    <string name="bakari_desc">Verbe -た + ばかり - Je viens de faire quelque chose</string>
+    <string name="fukushi_desc">ふくし - Adverbes~</string>
+    <string name="tame_ni_desc">~ため　に - Motivation ~</string>
 </resources>

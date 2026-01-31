@@ -683,4 +683,17 @@
     <string name="shiritori_time">час</string>
     <string name="shiritori_ia_sink">ІА думає...</string>
     <string name="shiritori_rules">правила</string>
+    <string name="settings_downloading_pack">Завантаження мовного пакета...</string>
+    <string name="settings_download_success">Мовний пакет готовий!</string>
+    <string name="settings_download_error">Помилка завантаження. Перевірте підключення.</string>
+    <string name="settings_update_pack">Оновіть мовний пакет</string>
+    <string name="numbers_desc">Цифри та лічильники</string>
+    <string name="forme_causatif_t_desc">Причинна форма て - Прохання або послуга</string>
+    <string name="forme_potentiel_nai_desc">Потенційна форма ない - те, що ви не можете зробити</string>
+    <string name="particule_he_desc">へ - частка напрямку</string>
+    <string name="n_desu_desc">のです - Пояснювальний нюанс, прояв інтересу, пом'якшення</string>
+    <string name="desu_masu_desc">です/ます – ввічливість</string>
+    <string name="bakari_desc">Дієслово -た + ばかり - Щойно щось зробили</string>
+    <string name="fukushi_desc">ふくし - Прислівники~</string>
+    <string name="tame_ni_desc">~ため　に - Мотивація ~</string>
 </resources>

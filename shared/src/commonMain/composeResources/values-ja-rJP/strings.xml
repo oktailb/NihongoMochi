@@ -186,7 +186,7 @@
     <string name="settings_category_interface">インタフェース</string>
     <string name="section_fundamentals">基本</string>
     <string name="section_fundamentals_desc">日本語の書き方の基本</string>
-    <string name="section_jlpt">JLPT</string>
+    <string name="section_jlpt">日本語能力試験</string>
     <string name="section_jlpt_desc">日本語能力試験</string>
     <string name="section_school">日本人学校</string>
     <string name="section_school_desc">日本の学校のカリキュラム</string>
@@ -683,4 +683,17 @@
     <string name="shiritori_time">時間</string>
     <string name="shiritori_ia_sink">IAは考えています...</string>
     <string name="shiritori_rules">ルール</string>
+    <string name="settings_downloading_pack">言語パックをダウンロードしています...</string>
+    <string name="settings_download_success">言語パックの準備ができました!</string>
+    <string name="settings_download_error">ダウンロードに失敗しました。接続を確認してください。</string>
+    <string name="settings_update_pack">言語パックを更新する</string>
+    <string name="numbers_desc">数字とカウンター</string>
+    <string name="forme_causatif_t_desc">使役形て - 要求または好意</string>
+    <string name="forme_potentiel_nai_desc">潜在的な形はない - できないこと</string>
+    <string name="particule_he_desc">へ - 方向の粒子</string>
+    <string name="n_desu_desc">のです - 説明的なニュアンス、関心を示す、軽減する</string>
+    <string name="desu_masu_desc">です/ます - 礼儀正しさ</string>
+    <string name="bakari_desc">動詞 -た + ばかり - 何かをしたばかりです</string>
+    <string name="fukushi_desc">ふくし～副詞～</string>
+    <string name="tame_ni_desc">～ためのために - モチベーション ～</string>
 </resources>

@@ -683,4 +683,17 @@
     <string name="shiritori_time">সময়</string>
     <string name="shiritori_ia_sink">আইএ ভাবছে...</string>
     <string name="shiritori_rules">নিয়ম</string>
+    <string name="settings_downloading_pack">ভাষা প্যাক ডাউনলোড করা হচ্ছে...</string>
+    <string name="settings_download_success">ভাষা প্যাক প্রস্তুত!</string>
+    <string name="settings_download_error">ডাউনলোড ব্যর্থ হয়েছে৷ আপনার সংযোগ পরীক্ষা করুন.</string>
+    <string name="settings_update_pack">ভাষা প্যাক আপডেট করুন</string>
+    <string name="numbers_desc">সংখ্যা এবং কাউন্টার</string>
+    <string name="forme_causatif_t_desc">কার্যকারক ফর্ম て - অনুরোধ বা অনুগ্রহ</string>
+    <string name="forme_potentiel_nai_desc">সম্ভাব্য ফর্ম ない - আপনি যা করতে পারবেন না</string>
+    <string name="particule_he_desc">へ - দিকনির্দেশক কণা</string>
+    <string name="n_desu_desc">のです - ব্যাখ্যামূলক সূক্ষ্মতা, আগ্রহ দেখানো, প্রশমন</string>
+    <string name="desu_masu_desc">です/ます - ভদ্রতা</string>
+    <string name="bakari_desc">ক্রিয়া -た + ばかり - কিছু করা হয়েছে</string>
+    <string name="fukushi_desc">ふくし - ক্রিয়াবিশেষণ~</string>
+    <string name="tame_ni_desc">~ため　に - প্রেরণা ~</string>
 </resources>

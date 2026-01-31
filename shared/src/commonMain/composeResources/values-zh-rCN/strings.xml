@@ -685,4 +685,17 @@
     <string name="shiritori_time">时间</string>
     <string name="shiritori_ia_sink">IA正在想...</string>
     <string name="shiritori_rules">规则</string>
+    <string name="settings_downloading_pack">正在下载语言包...</string>
+    <string name="settings_download_success">语言包准备好了！</string>
+    <string name="settings_download_error">下载失败。检查您的连接。</string>
+    <string name="settings_update_pack">更新语言包</string>
+    <string name="numbers_desc">数字和计数器</string>
+    <string name="forme_causatif_t_desc">使役形式て - 请求或恩惠</string>
+    <string name="forme_potentiel_nai_desc">潜在形式ない - 你不能做的事</string>
+    <string name="particule_he_desc">へ - 方向粒子</string>
+    <string name="n_desu_desc">のです - 解释性的细微差别，表现出兴趣，缓解</string>
+    <string name="desu_masu_desc">です/ます - 礼貌</string>
+    <string name="bakari_desc">动词 -た + ばかり - 刚刚做了某事</string>
+    <string name="fukushi_desc">ふくし - 副词~</string>
+    <string name="tame_ni_desc">～ために - 动机～</string>
 </resources>

@@ -681,4 +681,17 @@
     <string name="shiritori_time">Thời gian</string>
     <string name="shiritori_ia_sink">IA đang suy nghĩ...</string>
     <string name="shiritori_rules">Quy tắc</string>
+    <string name="settings_downloading_pack">Đang tải xuống gói ngôn ngữ...</string>
+    <string name="settings_download_success">Gói ngôn ngữ đã sẵn sàng!</string>
+    <string name="settings_download_error">Tải xuống không thành công. Kiểm tra kết nối của bạn.</string>
+    <string name="settings_update_pack">Cập nhật gói ngôn ngữ</string>
+    <string name="numbers_desc">Số và bộ đếm</string>
+    <string name="forme_causatif_t_desc">Dạng nguyên nhân て - Yêu cầu hoặc ủng hộ</string>
+    <string name="forme_potentiel_nai_desc">Dạng tiềm năng ない - điều bạn không thể làm được</string>
+    <string name="particule_he_desc">へ - Hạt chỉ hướng</string>
+    <string name="n_desu_desc">のです – Mang sắc thái giải thích, thể hiện sự quan tâm, giảm nhẹ</string>
+    <string name="desu_masu_desc">です/ます - Sự lịch sự</string>
+    <string name="bakari_desc">Động từ -た + ばかり - Vừa làm gì đó</string>
+    <string name="fukushi_desc">ふくし - Trạng từ~</string>
+    <string name="tame_ni_desc">~ため　に - Động lực ~</string>
 </resources>

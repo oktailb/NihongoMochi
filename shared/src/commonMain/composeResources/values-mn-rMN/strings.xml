@@ -683,4 +683,17 @@
     <string name="shiritori_time">Цаг хугацаа</string>
     <string name="shiritori_ia_sink">IA бодож байна ...</string>
     <string name="shiritori_rules">Дүрэм</string>
+    <string name="settings_downloading_pack">Хэлний багцыг татаж байна...</string>
+    <string name="settings_download_success">Хэлний багц бэлэн боллоо!</string>
+    <string name="settings_download_error">Татаж чадсангүй. Холболтоо шалгана уу.</string>
+    <string name="settings_update_pack">Хэлний багцыг шинэчлэх</string>
+    <string name="numbers_desc">Тоонууд ба тоолуур</string>
+    <string name="forme_causatif_t_desc">Шалтгаан хэлбэр て - Хүсэлт эсвэл тааламж</string>
+    <string name="forme_potentiel_nai_desc">Боломжит хэлбэр ない - таны хийж чадахгүй зүйл</string>
+    <string name="particule_he_desc">へ - Чиглэлийн бөөмс</string>
+    <string name="n_desu_desc">のです - Тайлбарлах нюанс, сонирхлыг харуулах, багасгах</string>
+    <string name="desu_masu_desc">です/ます - Эелдэг байдал</string>
+    <string name="bakari_desc">Үйл үг -た + ばかり - Сая ямар нэг зүйл хийсэн</string>
+    <string name="fukushi_desc">ふくし - Үйл үг~</string>
+    <string name="tame_ni_desc">~ため　に - Урам зориг ~</string>
 </resources>

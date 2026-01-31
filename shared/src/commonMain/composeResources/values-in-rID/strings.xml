@@ -685,4 +685,17 @@
     <string name="shiritori_time">Waktu</string>
     <string name="shiritori_ia_sink">IA sedang berpikir...</string>
     <string name="shiritori_rules">Aturan</string>
+    <string name="settings_downloading_pack">Mengunduh paket bahasa...</string>
+    <string name="settings_download_success">Paket bahasa sudah siap!</string>
+    <string name="settings_download_error">Pengunduhan gagal. Periksa koneksi Anda.</string>
+    <string name="settings_update_pack">Perbarui paket bahasa</string>
+    <string name="numbers_desc">Angka dan penghitung</string>
+    <string name="forme_causatif_t_desc">Bentuk kausatif て - Permintaan atau bantuan</string>
+    <string name="forme_potentiel_nai_desc">Bentuk potensial ない - hal yang tidak dapat Anda lakukan</string>
+    <string name="particule_he_desc">へ - Partikel arah</string>
+    <string name="n_desu_desc">のです - Nuansa penjelasan, menunjukkan minat, mitigasi</string>
+    <string name="desu_masu_desc">です/ます - Kesopanan</string>
+    <string name="bakari_desc">Kata Kerja -た + ばかり - Baru saja melakukan sesuatu</string>
+    <string name="fukushi_desc">ふくし - Kata keterangan~</string>
+    <string name="tame_ni_desc">~ため　に - Motivasi ~</string>
 </resources>

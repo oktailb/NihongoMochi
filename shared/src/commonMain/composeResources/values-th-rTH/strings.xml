@@ -685,4 +685,17 @@
     <string name="shiritori_time">เวลา</string>
     <string name="shiritori_ia_sink">ไอเอกำลังคิด...</string>
     <string name="shiritori_rules">กฎ</string>
+    <string name="settings_downloading_pack">กำลังดาวน์โหลดชุดภาษา...</string>
+    <string name="settings_download_success">ชุดภาษาพร้อม!</string>
+    <string name="settings_download_error">การดาวน์โหลดล้มเหลว ตรวจสอบการเชื่อมต่อของคุณ</string>
+    <string name="settings_update_pack">อัปเดตชุดภาษา</string>
+    <string name="numbers_desc">ตัวเลขและตัวนับ</string>
+    <string name="forme_causatif_t_desc">แบบฟอร์มเชิงสาเหตุ て - คำขอหรือความกรุณา</string>
+    <string name="forme_potentiel_nai_desc">รูปแบบที่เป็นไปได้ ない - สิ่งที่คุณไม่สามารถทำได้</string>
+    <string name="particule_he_desc">へ - อนุภาคของทิศทาง</string>
+    <string name="n_desu_desc">のです - ความแตกต่างที่อธิบาย, แสดงความสนใจ, การบรรเทาผลกระทบ</string>
+    <string name="desu_masu_desc">でし/ます - ความสุภาพ</string>
+    <string name="bakari_desc">กริยา - た + ばかり - เพิ่งทำอะไรสักอย่าง</string>
+    <string name="fukushi_desc">ふくし - คำวิเศษณ์~</string>
+    <string name="tame_ni_desc">~ため　に - แรงจูงใจ ~</string>
 </resources>

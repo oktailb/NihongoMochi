@@ -685,4 +685,17 @@
     <string name="shiritori_time">Время</string>
     <string name="shiritori_ia_sink">ИИ думает...</string>
     <string name="shiritori_rules">Правила</string>
+    <string name="settings_downloading_pack">Загрузка языкового пакета...</string>
+    <string name="settings_download_success">Языковой пакет готов!</string>
+    <string name="settings_download_error">Загрузка не удалась. Проверьте свое соединение.</string>
+    <string name="settings_update_pack">Обновить языковой пакет</string>
+    <string name="numbers_desc">Числа и счетчики</string>
+    <string name="forme_causatif_t_desc">Каузативная форма て – Просьба или благосклонность</string>
+    <string name="forme_potentiel_nai_desc">Потенциальная форма ない - вещь, которую ты не можешь сделать</string>
+    <string name="particule_he_desc">へ - Частица направления</string>
+    <string name="n_desu_desc">のです – Пояснительный нюанс, проявление интереса, смягчение</string>
+    <string name="desu_masu_desc">です/ます – Вежливость</string>
+    <string name="bakari_desc">Глагол -た + ばかり - Только что сделал что-то</string>
+    <string name="fukushi_desc">ふくし - Наречия~</string>
+    <string name="tame_ni_desc">~ため　に - Мотивация ~</string>
 </resources>

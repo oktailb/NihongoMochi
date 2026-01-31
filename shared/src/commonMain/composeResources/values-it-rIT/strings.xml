@@ -681,4 +681,17 @@
     <string name="shiritori_time">Tempo</string>
     <string name="shiritori_ia_sink">L'IA sta pensando...</string>
     <string name="shiritori_rules">Regole</string>
+    <string name="settings_downloading_pack">Download del pacchetto lingua...</string>
+    <string name="settings_download_success">Pacchetto linguistico pronto!</string>
+    <string name="settings_download_error">Download non riuscito. Controlla la tua connessione.</string>
+    <string name="settings_update_pack">Aggiorna il pacchetto lingua</string>
+    <string name="numbers_desc">Numeri e contatori</string>
+    <string name="forme_causatif_t_desc">Forma causativa て - Richiesta o favore</string>
+    <string name="forme_potentiel_nai_desc">Forma potenziale ない - cosa che non puoi fare</string>
+    <string name="particule_he_desc">へ - Particella di direzione</string>
+    <string name="n_desu_desc">のです - Sfumatura esplicativa, mostra interesse, mitigazione</string>
+    <string name="desu_masu_desc">です/ます - Cortesia</string>
+    <string name="bakari_desc">Verbo -た + ばかり - Ho appena fatto qualcosa</string>
+    <string name="fukushi_desc">ふくし - Avverbi~</string>
+    <string name="tame_ni_desc">~ため　に - Motivazione~</string>
 </resources>

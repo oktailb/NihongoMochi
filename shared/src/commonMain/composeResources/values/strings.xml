@@ -269,6 +269,7 @@
     <string name="about_rate_app">Rate the application</string>
     <string name="dictionary_draw_kanji">Draw a Kanji</string>
     <string name="dictionary_recognize">Recognize</string>
+    <string name="numbers_desc">Numbers and counters</string>
     <string name="verb_dict_form_desc">Dictionary form of verbs (neutral form)</string>
     <string name="base_verbale_desc">Verbal base (-i form)</string>
     <string name="forme_nai_desc">Negative form of verbs</string>
@@ -291,6 +292,8 @@
     <string name="particule_de_desc">で - Particle of means, method, place</string>
     <string name="desho_daro_desc">でしょう・だろう - Expressing probability</string>
     <string name="forme_conjonctive_i_desc">Conjunctive form in -i - Verbal base</string>
+    <string name="forme_causatif_t_desc">Causative form て - Request or favor</string>
+    <string name="forme_potentiel_nai_desc">Potiential form ない - thing you can't do</string>
     <string name="forme_masu_desc">-ます form - Polite form of a verb</string>
     <string name="forme_naide_kudasai_desc">Form in -ないでください - Polite imperative</string>
     <string name="forme_dict_desc">Form in -る, -う - Neutral or dictionary form</string>
@@ -311,12 +314,15 @@
     <string name="nado_desc">など - etc, among other things, e.g.</string>
     <string name="nakereba_narimasen_desc">なければなりません - Expressing obligation</string>
     <string name="naru_desc">なる - Become</string>
+    <string name="particule_he_desc">へ - Particle of direction</string>
     <string name="particule_ne_desc">ね - Particle of confirmation and invitation</string>
     <string name="particule_ni_desc">に - Particle for indirect object, direction, place</string>
     <string name="particule_no_desc">の - Particle of possession, interrogation</string>
     <string name="no_desu_desc">のです - Explanatory nuance, showing interest, mitigation</string>
+    <string name="n_desu_desc">のです - Explanatory nuance, showing interest, mitigation</string>
     <string name="particule_to_desc">と - Conjunction, preposition, quotation, conditional</string>
     <string name="to_iu_desc">という - Called ~, named ~, named after ~, who is called ~</string>
+    <string name="desu_masu_desc">です/ます - Politeness</string>
     <string name="to_omoimasu_desc">と思います・どう思いますか - Give your opinion and ask for an opinion</string>
     <string name="tsumori_desu_desc">つもりです - Expressing intention</string>
     <string name="ta_koto_ga_aru_desc">Verb -た + ことがある – Indicate an experience</string>
@@ -362,6 +368,7 @@
     <string name="suru_adjectif_desc">する - Give something back ~</string>
     <string name="toki_ni_desc">ときに - When ~</string>
     <string name="ta_bakari_desc">Verb -た + ばかり - Have just done something</string>
+    <string name="bakari_desc">Verb -た + ばかり - Have just done something</string>
     <string name="ta_ra_do_desu_ka_desc">Verb -た + ら + どうですか – Offer a suggestion</string>
     <string name="te_ageru_sashiageru_yaru_desc">Verb -て + あげる・さしあげる・やる - To do something for someone</string>
     <string name="te_aru_desc">Verb -て + ある - Describes a state of a completed action</string>
@@ -383,6 +390,7 @@
     <string name="base_shidai_desc">Verbal base + 次第 - Immediately after ~, as soon as ~</string>
     <string name="base_yo_ga_nai_desc">Verbal base + ようがない - There is no way to ~</string>
     <string name="darake_desc">だらけ - Full of ~</string>
+    <string name="fukushi_desc">ふくし - Adverbs~</string>
     <string name="dokoro_ka_desc">どころか - Far from ~, ~ actually</string>
     <string name="ha_motoyori_mochiron_desc">はもちろん・はもちろん - Obviously ~ but also ~</string>
     <string name="ippo_da_desc">一方だ - Indicate that a stock is increasingly following a certain trend</string>
@@ -472,6 +480,7 @@
     <string name="mai_ka_desc">まいか - Not knowing whether or not~</string>
     <string name="mo_kamawazu_desc">もかまわず - Without worrying about ~</string>
     <string name="mono_da_n2_desc">ものだ - Feel admiration, describe the obvious, suggest advice, express nostalgia</string>
+    <string name="tame_ni_desc">~ため　に - Motivation ~</string>
     <string name="mono_dakara_desc">ものだから - Because ~</string>
     <string name="mono_ga_aru_desc">ものがある - To have the impression of ~, to feel something</string>
     <string name="mono_ka_desc">ものか - Not at all</string>

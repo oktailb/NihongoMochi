@@ -685,4 +685,17 @@
     <string name="shiritori_time">시간</string>
     <string name="shiritori_ia_sink">IA는 생각 중입니다...</string>
     <string name="shiritori_rules">규칙</string>
+    <string name="settings_downloading_pack">언어 팩 다운로드 중...</string>
+    <string name="settings_download_success">언어팩이 준비되었습니다!</string>
+    <string name="settings_download_error">다운로드에 실패했습니다. 연결을 확인하세요.</string>
+    <string name="settings_update_pack">언어 팩 업데이트</string>
+    <string name="numbers_desc">숫자와 카운터</string>
+    <string name="forme_causatif_t_desc">원인형 て - 부탁이나 부탁</string>
+    <string name="forme_potentiel_nai_desc">Potential form ない - 당신이 할 수 없는 일</string>
+    <string name="particule_he_desc">へ - 방향의 입자</string>
+    <string name="n_desu_desc">のides - 설명적인 뉘앙스, 관심 표시, 완화</string>
+    <string name="desu_masu_desc">ides/mas - 공손함</string>
+    <string name="bakari_desc">동사 -た + ばkanり - 방금 뭔가를 했습니다</string>
+    <string name="fukushi_desc">ふKUし - 부사~</string>
+    <string name="tame_ni_desc">~ため　に - 동기 부여 ~</string>
 </resources>

@@ -683,4 +683,17 @@
     <string name="shiritori_time">وقت</string>
     <string name="shiritori_ia_sink">اي ايه تفكر...</string>
     <string name="shiritori_rules">قواعد</string>
+    <string name="settings_downloading_pack">جارٍ تنزيل حزمة اللغة...</string>
+    <string name="settings_download_success">حزمة اللغة جاهزة!</string>
+    <string name="settings_download_error">فشل التنزيل. تحقق من اتصالك.</string>
+    <string name="settings_update_pack">تحديث حزمة اللغة</string>
+    <string name="numbers_desc">أرقام وعدادات</string>
+    <string name="forme_causatif_t_desc">شكل سببي て - طلب أو معروف</string>
+    <string name="forme_potentiel_nai_desc">النموذج المحتمل ない - الشيء الذي لا يمكنك فعله</string>
+    <string name="particule_he_desc">へ - جسيم الاتجاه</string>
+    <string name="n_desu_desc">のです - فارق بسيط في التوضيح، إظهار الاهتمام، التخفيف</string>
+    <string name="desu_masu_desc">です/ます - المداراة</string>
+    <string name="bakari_desc">فعل -た + ばかり - لقد فعلت شيئًا للتو</string>
+    <string name="fukushi_desc">ふくし - الظروف~</string>
+    <string name="tame_ni_desc">~ため　に - الدافع ~</string>
 </resources>
