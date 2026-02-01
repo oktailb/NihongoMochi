@@ -698,4 +698,11 @@
     <string name="bakari_desc">กริยา - た + ばかり - เพิ่งทำอะไรสักอย่าง</string>
     <string name="fukushi_desc">ふくし - คำวิเศษณ์~</string>
     <string name="tame_ni_desc">~ため　に - แรงจูงใจ ~</string>
+    <string name="notification_channel_name">การแจ้งเตือนการเรียนรู้โมจิ</string>
+    <string name="notification_channel_description">คำเตือนเพื่อให้โมจิของคุณสดใหม่!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">อย่าปล่อยให้โมจิของคุณแห้ง! 🍡 ถึงเวลาทบทวนอย่างรวดเร็วแล้วหรือยัง?</string>
+    <string name="notification_msg_2">คันจิของคุณคิดถึงคุณ! กลับมารีเฟรชความทรงจำของคุณ! ✨</string>
+    <string name="notification_msg_3">โมจิสดคือโมจิที่มีความสุข! มาฝึกกันเถอะ! ชาเขียว</string>
+    <string name="notification_msg_4">โมจิ-โมจิ! ถึงเวลายืดสมองของคุณแล้ว! 🧠</string>
 </resources>

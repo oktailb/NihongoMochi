@@ -696,4 +696,11 @@
     <string name="bakari_desc">Дієслово -た + ばかり - Щойно щось зробили</string>
     <string name="fukushi_desc">ふくし - Прислівники~</string>
     <string name="tame_ni_desc">~ため　に - Мотивація ~</string>
+    <string name="notification_channel_name">Нагадування про вивчення моті</string>
+    <string name="notification_channel_description">Нагадування, щоб ваш моті був свіжим!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Не дозволяйте своєму моті пересохнути! 🍡 Час швидко переглянути?</string>
+    <string name="notification_msg_2">Ваш кандзі сумував за вами! Повертайтеся, щоб освіжити пам'ять! ✨</string>
+    <string name="notification_msg_3">Свіжий Мочі – це щасливий Мочі! Давайте тренуватися! 🍵</string>
+    <string name="notification_msg_4">Мочі-Мочі! Настав час напружити свій мозок! 🧠</string>
 </resources>

@@ -696,4 +696,11 @@
     <string name="bakari_desc">Үйл үг -た + ばかり - Сая ямар нэг зүйл хийсэн</string>
     <string name="fukushi_desc">ふくし - Үйл үг~</string>
     <string name="tame_ni_desc">~ため　に - Урам зориг ~</string>
+    <string name="notification_channel_name">Мочи сурах сануулга</string>
+    <string name="notification_channel_description">Mochi-г шинэхэн байлгах сануулга!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Мочи чинь хатаж болохгүй! 🍡 Шуурхай дүгнэлт хийх цаг болсон уу?</string>
+    <string name="notification_msg_2">Канжи чинь чамайг санаж байна! Ой санамжаа сэргээхийн тулд эргэн ирээрэй! ✨</string>
+    <string name="notification_msg_3">Шинэхэн Мочи бол аз жаргалтай Мочи юм! Дасгал хийцгээе! 🍵</string>
+    <string name="notification_msg_4">Мочи-Мочи! Тархиа сунгах цаг болжээ! 🧠</string>
 </resources>

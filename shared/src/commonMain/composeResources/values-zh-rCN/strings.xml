@@ -698,4 +698,11 @@
     <string name="bakari_desc">动词 -た + ばかり - 刚刚做了某事</string>
     <string name="fukushi_desc">ふくし - 副词~</string>
     <string name="tame_ni_desc">～ために - 动机～</string>
+    <string name="notification_channel_name">麻糬学习提醒</string>
+    <string name="notification_channel_description">提醒您保持麻糬新鲜！</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">不要让你的麻糬变干！ 🍡 是时候快速回顾一下了吗？</string>
+    <string name="notification_msg_2">你的汉字想你了！回来刷新你的记忆！ ✨</string>
+    <string name="notification_msg_3">新鲜的麻糬就是快乐的麻糬！让我们练习一下吧！ 🍵</string>
+    <string name="notification_msg_4">麻糬麻糬！是时候伸展你的大脑了！ 🧠</string>
 </resources>

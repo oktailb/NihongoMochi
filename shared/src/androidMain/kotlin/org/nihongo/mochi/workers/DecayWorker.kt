@@ -12,9 +12,12 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import org.jetbrains.compose.resources.getString
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.shared.generated.resources.*
+import kotlinx.coroutines.runBlocking
 
 class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams), KoinComponent {
 
@@ -24,23 +27,25 @@ class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(con
         val decayed = scoreRepository.decayScores()
         
         if (decayed) {
-            sendNotification()
+            runBlocking {
+                sendNotification()
+            }
         }
         
         return Result.success()
     }
 
-    private fun sendNotification() {
+    private suspend fun sendNotification() {
         val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channelId = "mochi_decay_channel"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Mochi Learning Reminders",
+                getString(Res.string.notification_channel_name),
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
-                description = "Reminders to keep your Mochi fresh!"
+                description = getString(Res.string.notification_channel_description)
             }
             notificationManager.createNotificationChannel(channel)
         }
@@ -56,16 +61,16 @@ class DecayWorker(context: Context, workerParams: WorkerParameters) : Worker(con
         }
 
         val messages = listOf(
-            "Don't let your Mochi dry out! 🍡 Time for a quick review?",
-            "Your Kanji missed you! Come back to refresh your memory! ✨",
-            "A fresh Mochi is a happy Mochi! Let's practice! 🍵",
-            "Mochi-Mochi! It's time to stretch your brain! 🧠"
+            Res.string.notification_msg_1,
+            Res.string.notification_msg_2,
+            Res.string.notification_msg_3,
+            Res.string.notification_msg_4
         )
         
         val notification = NotificationCompat.Builder(applicationContext, channelId)
             .setSmallIcon(android.R.drawable.ic_dialog_info) 
-            .setContentTitle("Nihongo Mochi")
-            .setContentText(messages.random())
+            .setContentTitle(getString(Res.string.notification_title))
+            .setContentText(getString(messages.random()))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

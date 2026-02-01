@@ -698,4 +698,11 @@
     <string name="bakari_desc">Глагол -た + ばかり - Только что сделал что-то</string>
     <string name="fukushi_desc">ふくし - Наречия~</string>
     <string name="tame_ni_desc">~ため　に - Мотивация ~</string>
+    <string name="notification_channel_name">Напоминания об обучении моти</string>
+    <string name="notification_channel_description">Напоминания о том, как сохранить свежесть моти!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Не позволяйте моти высохнуть! 🍡 Пришло время краткого обзора?</string>
+    <string name="notification_msg_2">Ваш кандзи скучал по вам! Возвращайтесь, чтобы освежить память! ✨</string>
+    <string name="notification_msg_3">Свежий моти – счастливый моти! Давайте попрактиковаться! 🍵</string>
+    <string name="notification_msg_4">Моти-Моти! Пришло время размять свой мозг! 🧠</string>
 </resources>

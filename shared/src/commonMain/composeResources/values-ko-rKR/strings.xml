@@ -698,4 +698,11 @@
     <string name="bakari_desc">동사 -た + ばkanり - 방금 뭔가를 했습니다</string>
     <string name="fukushi_desc">ふKUし - 부사~</string>
     <string name="tame_ni_desc">~ため　に - 동기 부여 ~</string>
+    <string name="notification_channel_name">떡 학습 알림</string>
+    <string name="notification_channel_description">떡을 신선하게 유지하기 위한 알림!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">떡이 마르지 않도록 하세요! 🍡 간단히 검토할 시간이신가요?</string>
+    <string name="notification_msg_2">당신의 한자가 당신을 그리워했습니다! 기억을 되살리기 위해 다시 오세요! ✨</string>
+    <string name="notification_msg_3">신선한 떡은 행복한 떡입니다! 연습하자! 🍵</string>
+    <string name="notification_msg_4">모찌모찌! 두뇌를 단련할 시간입니다! 🧠</string>
 </resources>

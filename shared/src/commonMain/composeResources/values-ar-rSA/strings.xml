@@ -696,4 +696,11 @@
     <string name="bakari_desc">فعل -た + ばかり - لقد فعلت شيئًا للتو</string>
     <string name="fukushi_desc">ふくし - الظروف~</string>
     <string name="tame_ni_desc">~ため　に - الدافع ~</string>
+    <string name="notification_channel_name">تذكيرات تعلم موتشي</string>
+    <string name="notification_channel_description">تذكيرات للحفاظ على موتشي طازجًا!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">لا تدع موتشي الخاص بك يجف! 🍡 هل حان الوقت لمراجعة سريعة؟</string>
+    <string name="notification_msg_2">كانجي الخاص بك غاب عنك! أعود لتحديث ذاكرتك! ✨</string>
+    <string name="notification_msg_3">الموتشي الطازج هو موتشي سعيد! دعونا نتدرب! 🍵</string>
+    <string name="notification_msg_4">موتشي موتشي! حان الوقت لتمتد عقلك! 🧠</string>
 </resources>

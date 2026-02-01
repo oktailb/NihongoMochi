@@ -694,4 +694,11 @@
     <string name="bakari_desc">Động từ -た + ばかり - Vừa làm gì đó</string>
     <string name="fukushi_desc">ふくし - Trạng từ~</string>
     <string name="tame_ni_desc">~ため　に - Động lực ~</string>
+    <string name="notification_channel_name">Nhắc nhở học Mochi</string>
+    <string name="notification_channel_description">Lời nhắc để giữ cho Mochi của bạn luôn tươi mới!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Đừng để Mochi của bạn bị khô! 🍡 Đã đến lúc đánh giá nhanh?</string>
+    <string name="notification_msg_2">Kanji của bạn nhớ bạn! Hãy quay lại để làm mới trí nhớ của bạn! ✨</string>
+    <string name="notification_msg_3">Mochi tươi là Mochi hạnh phúc! Hãy luyện tập! 🍵</string>
+    <string name="notification_msg_4">Mochi Mochi! Đã đến lúc phải căng não! 🧠</string>
 </resources>

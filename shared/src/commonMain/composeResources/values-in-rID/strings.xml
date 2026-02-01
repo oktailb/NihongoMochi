@@ -698,4 +698,11 @@
     <string name="bakari_desc">Kata Kerja -た + ばかり - Baru saja melakukan sesuatu</string>
     <string name="fukushi_desc">ふくし - Kata keterangan~</string>
     <string name="tame_ni_desc">~ため　に - Motivasi ~</string>
+    <string name="notification_channel_name">Pengingat Belajar Mochi</string>
+    <string name="notification_channel_description">Pengingat untuk menjaga Mochi Anda tetap segar!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Jangan biarkan Mochi Anda mengering! 🍡 Saatnya meninjau sebentar?</string>
+    <string name="notification_msg_2">Kanjimu merindukanmu! Kembalilah untuk menyegarkan ingatan Anda! ✨</string>
+    <string name="notification_msg_3">Mochi segar adalah Mochi yang membahagiakan! Ayo berlatih! 🍵</string>
+    <string name="notification_msg_4">Mochi-Mochi! Saatnya untuk meregangkan otak Anda! 🧠</string>
 </resources>

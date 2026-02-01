@@ -696,4 +696,11 @@
     <string name="bakari_desc">ক্রিয়া -た + ばかり - কিছু করা হয়েছে</string>
     <string name="fukushi_desc">ふくし - ক্রিয়াবিশেষণ~</string>
     <string name="tame_ni_desc">~ため　に - প্রেরণা ~</string>
+    <string name="notification_channel_name">মোচি শেখার অনুস্মারক</string>
+    <string name="notification_channel_description">আপনার মোচিকে তাজা রাখতে অনুস্মারক!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">আপনার মুচি শুকাতে দেবেন না! 🍡 একটি দ্রুত পর্যালোচনা করার সময়?</string>
+    <string name="notification_msg_2">তোমার কাঞ্জি তোমাকে মিস করেছে! আপনার স্মৃতি তাজা করতে ফিরে আসুন! ✨</string>
+    <string name="notification_msg_3">একটি তাজা মচি একটি সুখী মুচি! এর অনুশীলন করা যাক! 🍵</string>
+    <string name="notification_msg_4">মোচি-মুচি! এটা আপনার মস্তিষ্ক প্রসারিত করার সময়! 🧠</string>
 </resources>

@@ -696,4 +696,11 @@
     <string name="bakari_desc">動詞 -た + ばかり - 何かをしたばかりです</string>
     <string name="fukushi_desc">ふくし～副詞～</string>
     <string name="tame_ni_desc">～ためのために - モチベーション ～</string>
+    <string name="notification_channel_name">餅学習リマインダー</string>
+    <string name="notification_channel_description">お餅を新鮮に保つための注意点！</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">お餅を乾燥させないでください！ 🍡 簡単にレビューしてみませんか?</string>
+    <string name="notification_msg_2">漢字君がいなくて寂しかったよ！思い出をリフレッシュしにまた来てください！ ✨</string>
+    <string name="notification_msg_3">つきたてのお餅は幸せなお餅です！練習しましょう！ 🍵</string>
+    <string name="notification_msg_4">もちもち！あなたの脳を伸ばす時間です！ 🧠</string>
 </resources>

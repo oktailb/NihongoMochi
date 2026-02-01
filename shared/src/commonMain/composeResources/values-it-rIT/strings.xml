@@ -694,4 +694,11 @@
     <string name="bakari_desc">Verbo -た + ばかり - Ho appena fatto qualcosa</string>
     <string name="fukushi_desc">ふくし - Avverbi~</string>
     <string name="tame_ni_desc">~ため　に - Motivazione~</string>
+    <string name="notification_channel_name">Promemoria per l'apprendimento di Mochi</string>
+    <string name="notification_channel_description">Promemoria per mantenere freschi i tuoi Mochi!</string>
+    <string name="notification_title" translatable="false">Nihongo Mochi</string>
+    <string name="notification_msg_1">Non lasciare seccare i tuoi Mochi! 🍡 È ora di fare un rapido ripasso?</string>
+    <string name="notification_msg_2">Il tuo Kanji ti è mancato! Torna a rinfrescarti la memoria! ✨</string>
+    <string name="notification_msg_3">Un Mochi fresco è un Mochi felice! Facciamo pratica! 🍵</string>
+    <string name="notification_msg_4">Mochi-Mochi! È tempo di allenare il tuo cervello! 🧠</string>
 </resources>
