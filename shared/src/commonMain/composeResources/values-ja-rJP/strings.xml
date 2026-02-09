@@ -703,4 +703,6 @@
     <string name="notification_msg_2">漢字君がいなくて寂しかったよ！思い出をリフレッシュしにまた来てください！ ✨</string>
     <string name="notification_msg_3">つきたてのお餅は幸せなお餅です！練習しましょう！ 🍵</string>
     <string name="notification_msg_4">もちもち！あなたの脳を伸ばす時間です！ 🧠</string>
+    <string name="kanji_readings">測定値</string>
+    <string name="kanji_meanings">意味</string>
 </resources>

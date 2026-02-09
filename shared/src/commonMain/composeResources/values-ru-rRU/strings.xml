@@ -705,4 +705,6 @@
     <string name="notification_msg_2">Ваш кандзи скучал по вам! Возвращайтесь, чтобы освежить память! ✨</string>
     <string name="notification_msg_3">Свежий моти – счастливый моти! Давайте попрактиковаться! 🍵</string>
     <string name="notification_msg_4">Моти-Моти! Пришло время размять свой мозг! 🧠</string>
+    <string name="kanji_readings">Чтения</string>
+    <string name="kanji_meanings">Значения</string>
 </resources>

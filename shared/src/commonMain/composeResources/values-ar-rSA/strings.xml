@@ -703,4 +703,6 @@
     <string name="notification_msg_2">كانجي الخاص بك غاب عنك! أعود لتحديث ذاكرتك! ✨</string>
     <string name="notification_msg_3">الموتشي الطازج هو موتشي سعيد! دعونا نتدرب! 🍵</string>
     <string name="notification_msg_4">موتشي موتشي! حان الوقت لتمتد عقلك! 🧠</string>
+    <string name="kanji_readings">قراءات</string>
+    <string name="kanji_meanings">معاني</string>
 </resources>

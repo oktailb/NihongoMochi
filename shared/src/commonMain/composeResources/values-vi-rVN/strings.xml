@@ -701,4 +701,6 @@
     <string name="notification_msg_2">Kanji của bạn nhớ bạn! Hãy quay lại để làm mới trí nhớ của bạn! ✨</string>
     <string name="notification_msg_3">Mochi tươi là Mochi hạnh phúc! Hãy luyện tập! 🍵</string>
     <string name="notification_msg_4">Mochi Mochi! Đã đến lúc phải căng não! 🧠</string>
+    <string name="kanji_readings">Bài đọc</string>
+    <string name="kanji_meanings">Ý nghĩa</string>
 </resources>

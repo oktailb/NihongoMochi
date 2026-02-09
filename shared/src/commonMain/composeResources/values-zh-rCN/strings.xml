@@ -705,4 +705,6 @@
     <string name="notification_msg_2">你的汉字想你了！回来刷新你的记忆！ ✨</string>
     <string name="notification_msg_3">新鲜的麻糬就是快乐的麻糬！让我们练习一下吧！ 🍵</string>
     <string name="notification_msg_4">麻糬麻糬！是时候伸展你的大脑了！ 🧠</string>
+    <string name="kanji_readings">读物</string>
+    <string name="kanji_meanings">含义</string>
 </resources>

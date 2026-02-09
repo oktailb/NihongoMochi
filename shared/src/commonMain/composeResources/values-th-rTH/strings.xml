@@ -705,4 +705,6 @@
     <string name="notification_msg_2">คันจิของคุณคิดถึงคุณ! กลับมารีเฟรชความทรงจำของคุณ! ✨</string>
     <string name="notification_msg_3">โมจิสดคือโมจิที่มีความสุข! มาฝึกกันเถอะ! ชาเขียว</string>
     <string name="notification_msg_4">โมจิ-โมจิ! ถึงเวลายืดสมองของคุณแล้ว! 🧠</string>
+    <string name="kanji_readings">การอ่าน</string>
+    <string name="kanji_meanings">ความหมาย</string>
 </resources>

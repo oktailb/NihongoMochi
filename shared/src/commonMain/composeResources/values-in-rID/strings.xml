@@ -705,4 +705,6 @@
     <string name="notification_msg_2">Kanjimu merindukanmu! Kembalilah untuk menyegarkan ingatan Anda! ✨</string>
     <string name="notification_msg_3">Mochi segar adalah Mochi yang membahagiakan! Ayo berlatih! 🍵</string>
     <string name="notification_msg_4">Mochi-Mochi! Saatnya untuk meregangkan otak Anda! 🧠</string>
+    <string name="kanji_readings">Bacaan</string>
+    <string name="kanji_meanings">Artinya</string>
 </resources>

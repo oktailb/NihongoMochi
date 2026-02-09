@@ -705,4 +705,6 @@
     <string name="notification_msg_2">Your Kanji missed you! Come back to refresh your memory! ✨</string>
     <string name="notification_msg_3">A fresh Mochi is a happy Mochi! Let's practice! 🍵</string>
     <string name="notification_msg_4">Mochi-Mochi! It's time to stretch your brain! 🧠</string>
+    <string name="kanji_readings">Readings</string>
+    <string name="kanji_meanings">Meanings</string>
 </resources>

@@ -705,4 +705,6 @@
     <string name="notification_msg_2">당신의 한자가 당신을 그리워했습니다! 기억을 되살리기 위해 다시 오세요! ✨</string>
     <string name="notification_msg_3">신선한 떡은 행복한 떡입니다! 연습하자! 🍵</string>
     <string name="notification_msg_4">모찌모찌! 두뇌를 단련할 시간입니다! 🧠</string>
+    <string name="kanji_readings">독서</string>
+    <string name="kanji_meanings">의미</string>
 </resources>

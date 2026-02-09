@@ -703,4 +703,6 @@
     <string name="notification_msg_2">Ваш кандзі сумував за вами! Повертайтеся, щоб освіжити пам'ять! ✨</string>
     <string name="notification_msg_3">Свіжий Мочі – це щасливий Мочі! Давайте тренуватися! 🍵</string>
     <string name="notification_msg_4">Мочі-Мочі! Настав час напружити свій мозок! 🧠</string>
+    <string name="kanji_readings">Хрестоматія</string>
+    <string name="kanji_meanings">Значення</string>
 </resources>

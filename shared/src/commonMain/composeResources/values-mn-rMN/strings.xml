@@ -703,4 +703,6 @@
     <string name="notification_msg_2">Канжи чинь чамайг санаж байна! Ой санамжаа сэргээхийн тулд эргэн ирээрэй! ✨</string>
     <string name="notification_msg_3">Шинэхэн Мочи бол аз жаргалтай Мочи юм! Дасгал хийцгээе! 🍵</string>
     <string name="notification_msg_4">Мочи-Мочи! Тархиа сунгах цаг болжээ! 🧠</string>
+    <string name="kanji_readings">Уншлага</string>
+    <string name="kanji_meanings">Утга</string>
 </resources>
