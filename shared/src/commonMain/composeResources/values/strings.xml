@@ -64,6 +64,8 @@
     <string name="game_writing_label_reading">Reading</string>
     <string name="enter_your_answer">Enter your answer</string>
     <string name="submit">Submit</string>
+    <string name="kanji_readings">Readings</string>
+    <string name="kanji_meanings">Meanings</string>
     <string name="game_writing_correction">Correction</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>

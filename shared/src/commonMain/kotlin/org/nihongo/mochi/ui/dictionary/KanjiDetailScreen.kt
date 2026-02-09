@@ -94,7 +94,7 @@ fun KanjiDetailScreen(
                     }
 
                     // Meanings
-                    SectionHeader(text = "MEANINGS")
+                    SectionHeader(text = stringResource(Res.string.kanji_meanings))
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -116,6 +116,36 @@ fun KanjiDetailScreen(
                             fontSize = 18.sp,
                             textAlign = TextAlign.Center,
                             color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
+                    // Readings Header
+                    SectionHeader(text = stringResource(Res.string.kanji_readings), modifier = Modifier.padding(bottom = 16.dp))
+
+                    // Readings Columns
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 24.dp)
+                    ) {
+                        // ON Readings
+                        ReadingColumn(
+                            title = "ON (Chinese)",
+                            readings = uiState.onReadings,
+                            isOn = true,
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(end = 8.dp)
+                        )
+
+                        // KUN Readings
+                        ReadingColumn(
+                            title = "KUN (Japanese)",
+                            readings = uiState.kunReadings,
+                            isOn = false,
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(start = 8.dp)
                         )
                     }
 
@@ -244,36 +274,6 @@ fun KanjiDetailScreen(
                                 }
                             }
                         }
-                    }
-
-                    // Readings Header
-                    SectionHeader(text = "READINGS", modifier = Modifier.padding(bottom = 16.dp))
-
-                    // Readings Columns
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 24.dp)
-                    ) {
-                        // ON Readings
-                        ReadingColumn(
-                            title = "ON (Chinese)",
-                            readings = uiState.onReadings,
-                            isOn = true,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(end = 8.dp)
-                        )
-
-                        // KUN Readings
-                        ReadingColumn(
-                            title = "KUN (Japanese)",
-                            readings = uiState.kunReadings,
-                            isOn = false,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(start = 8.dp)
-                        )
                     }
 
                     // Examples
