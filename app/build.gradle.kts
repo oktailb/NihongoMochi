@@ -11,6 +11,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("com.google.android.gms.oss-licenses-plugin")
+    id("com.github.jk1.dependency-license-report") version "2.9"
 }
 
 // Read keystore properties
@@ -39,8 +41,8 @@ android {
         applicationId = "org.nihongo.mochi"
         minSdk = 28
         targetSdk = 36
-        versionCode = 26
-        versionName = "0.9.2"
+        versionCode = 27
+        versionName = "0.9.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -59,7 +61,18 @@ android {
             signingConfig = signingConfigs.getByName("release")
             
             packaging {
-                resources.excludes.add("res/xml/bccwj_wordlist.xml")
+                // Required for 16 KB page size support on Android 15
+                jniLibs {
+                    useLegacyPackaging = true
+                }
+            }
+        }
+        debug {
+            packaging {
+                // Required for 16 KB page size support on Android 15
+                jniLibs {
+                    useLegacyPackaging = true
+                }
             }
         }
     }
@@ -131,4 +144,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.android.gms:play-services-oss-licenses:17.1.0")
 }
