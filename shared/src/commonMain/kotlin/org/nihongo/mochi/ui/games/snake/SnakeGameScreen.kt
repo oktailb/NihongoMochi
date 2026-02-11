@@ -173,12 +173,7 @@ fun SnakeGameScreen(
                     },
                     onDismiss = { showExitDialog = false },
                     onPause = { viewModel.pauseGame() },
-                    onResume = { viewModel.resumeGame() },
-                    onSaveAndExit = {
-                        showExitDialog = false
-                        viewModel.saveAndExit()
-                        onBackClick()
-                    }
+                    onResume = { viewModel.resumeGame() }
                 )
             }
 

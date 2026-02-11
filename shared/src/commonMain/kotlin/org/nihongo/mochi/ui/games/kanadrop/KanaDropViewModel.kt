@@ -35,6 +35,8 @@ class KanaDropViewModel(
     private val _hasSavedGame = MutableStateFlow(false)
     val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
 
+    private var autoRestoreDone = false
+
     private var config = KanaDropConfig()
     private var allAvailableWordEntries: List<org.nihongo.mochi.domain.words.WordEntry> = emptyList()
     private var kanaPool: List<String> = emptyList()
@@ -69,6 +71,13 @@ class KanaDropViewModel(
 
     private fun checkSavedGame() {
         _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_KANADROP) != null
+    }
+
+    fun tryAutoRestore(onRestored: () -> Unit) {
+        if (!autoRestoreDone && _hasSavedGame.value) {
+            autoRestoreDone = true
+            restoreGame(onRestored)
+        }
     }
 
     fun restoreGame(onRestored: () -> Unit) {
@@ -133,6 +142,7 @@ class KanaDropViewModel(
             _state.value = KanaDropGameState(isLoading = true)
             settingsRepository.clearGameState(GAME_STATE_KANADROP)
             _hasSavedGame.value = false
+            autoRestoreDone = true
             
             config = KanaDropConfig(
                 levelFileName = levelFileName,
@@ -184,6 +194,7 @@ class KanaDropViewModel(
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_KANADROP)
         _hasSavedGame.value = false
+        autoRestoreDone = true
         val currentState = _state.value
         _state.value = currentState.copy(isGameOver = true)
         saveResult()
@@ -414,6 +425,7 @@ class KanaDropViewModel(
         val json = Json.encodeToString(KanaDropGameState.serializer(), _state.value)
         settingsRepository.saveGameState(GAME_STATE_KANADROP, json)
         _hasSavedGame.value = true
+        autoRestoreDone = true
     }
 
     fun resetGame() {
@@ -424,6 +436,7 @@ class KanaDropViewModel(
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_KANADROP)
         _hasSavedGame.value = false
+        autoRestoreDone = true
         if (_state.value.score > 0 && !_state.value.isGameOver) {
              audioPlayer.playSound("sounds/game_over.mp3")
         }

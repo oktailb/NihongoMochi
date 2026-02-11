@@ -26,6 +26,11 @@ fun TaquinSetupScreen(
     val scoresHistory by viewModel.scoresHistory.collectAsState()
     val hasSavedGame: Boolean by viewModel.hasSavedGame.collectAsState(initial = false)
 
+    // Auto-restauration
+    LaunchedEffect(Unit) {
+        viewModel.tryAutoRestore(onRestored = onStartGame)
+    }
+
     GameSetupTemplate(
         title = stringResource(Res.string.game_taquin_title),
         subtitle = stringResource(Res.string.game_taquin_japanese_title),

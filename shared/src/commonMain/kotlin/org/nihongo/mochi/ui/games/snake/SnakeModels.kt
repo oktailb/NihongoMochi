@@ -41,7 +41,8 @@ data class SnakeGameState(
     val gridHeight: Int = 30,
     val mode: SnakeMode = SnakeMode.HIRAGANA,
     val sequenceIndex: Int = 0,
-    val currentNumber: Int = 1
+    val currentNumber: Int = 1,
+    val tickDelay: Long = 220L
 )
 
 @Serializable

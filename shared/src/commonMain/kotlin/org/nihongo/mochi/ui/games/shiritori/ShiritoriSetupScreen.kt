@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -25,6 +26,11 @@ fun ShiritoriSetupScreen(
 ) {
     val scoresHistory by viewModel.scoresHistory.collectAsState()
     val hasSavedGame by viewModel.hasSavedGame.collectAsState()
+
+    // Auto-restauration
+    LaunchedEffect(Unit) {
+        viewModel.tryAutoRestore(onRestored = onStartGame)
+    }
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_shiritori_title),

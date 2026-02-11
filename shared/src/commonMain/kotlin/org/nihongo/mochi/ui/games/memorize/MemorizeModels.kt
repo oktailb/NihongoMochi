@@ -39,7 +39,9 @@ data class MemorizeGameState(
     val gameTimeSeconds: Int,
     val selectedGridSize: MemorizeGridSize,
     val isKanaLevel: Boolean,
-    val isFinished: Boolean
+    val isFinished: Boolean,
+    val firstSelectedCardIndex: Int? = null,
+    val isProcessing: Boolean = false
 )
 
 @Serializable

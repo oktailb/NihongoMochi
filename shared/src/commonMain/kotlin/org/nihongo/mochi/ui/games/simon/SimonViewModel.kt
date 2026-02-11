@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
@@ -65,9 +64,6 @@ class SimonViewModel(
     private val _scoresHistory = MutableStateFlow<List<SimonGameResult>>(emptyList())
     val scoresHistory: StateFlow<List<SimonGameResult>> = _scoresHistory.asStateFlow()
 
-    private val _hasSavedGame = MutableStateFlow(false)
-    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
-
     private var inputIndex = 0
     private var timerJob: Job? = null
     private var allPlayablesInLevel: List<SimonPlayable> = emptyList()
@@ -76,7 +72,6 @@ class SimonViewModel(
     init {
         loadScoresHistory()
         checkLevelType()
-        checkSavedGame()
     }
 
     private fun checkLevelType() {
@@ -95,33 +90,6 @@ class SimonViewModel(
             _scoresHistory.value = scoreRepository.getSimonHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
-        }
-    }
-
-    private fun checkSavedGame() {
-        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_SIMON) != null
-    }
-
-    fun restoreGame(onRestored: () -> Unit) {
-        val savedJson = settingsRepository.getGameState(GAME_STATE_SIMON) ?: return
-        try {
-            val restored = Json.decodeFromString<SimonGameStateData>(savedJson)
-            if (restored.gameState != SimonGameState.GAME_OVER) {
-                _targetSequence.value = restored.targetSequence
-                _score.value = restored.currentScore
-                _gameTimeSeconds.value = restored.gameTimeSeconds
-                _selectedMode.value = restored.selectedMode
-                _gameState.value = SimonGameState.PAUSED
-                
-                viewModelScope.launch {
-                    loadLevelContent()
-                    startTimer()
-                    onRestored()
-                }
-            }
-        } catch (e: Exception) {
-            settingsRepository.clearGameState(GAME_STATE_SIMON)
-            _hasSavedGame.value = false
         }
     }
 
@@ -183,7 +151,6 @@ class SimonViewModel(
         viewModelScope.launch {
             _gameState.value = SimonGameState.IDLE
             settingsRepository.clearGameState(GAME_STATE_SIMON)
-            _hasSavedGame.value = false
             loadLevelContent()
 
             if (allPlayablesInLevel.isEmpty()) return@launch
@@ -293,7 +260,6 @@ class SimonViewModel(
             _gameState.value = SimonGameState.GAME_OVER
             timerJob?.cancel()
             settingsRepository.clearGameState(GAME_STATE_SIMON)
-            _hasSavedGame.value = false
             saveFinalScore()
         }
     }
@@ -332,26 +298,12 @@ class SimonViewModel(
         }
     }
 
-    fun saveAndExit() {
-        val data = SimonGameStateData(
-            targetSequence = _targetSequence.value,
-            currentScore = _score.value,
-            gameTimeSeconds = _gameTimeSeconds.value,
-            selectedMode = _selectedMode.value,
-            gameState = previousGameState ?: _gameState.value
-        )
-        val json = Json.encodeToString(SimonGameStateData.serializer(), data)
-        settingsRepository.saveGameState(GAME_STATE_SIMON, json)
-        _hasSavedGame.value = true
-    }
-    
     fun abandonGame() {
         if (_gameState.value == SimonGameState.SHOWING_SEQUENCE || _gameState.value == SimonGameState.AWAITING_INPUT) {
             audioPlayer.playSound("sounds/game_over.mp3")
             saveFinalScore()
         }
         settingsRepository.clearGameState(GAME_STATE_SIMON)
-        _hasSavedGame.value = false
         timerJob?.cancel()
         _gameState.value = SimonGameState.IDLE
         checkLevelType()

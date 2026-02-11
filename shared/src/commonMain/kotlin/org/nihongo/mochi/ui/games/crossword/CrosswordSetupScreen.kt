@@ -25,7 +25,13 @@ fun CrosswordSetupScreen(
     val wordCount by viewModel.wordCount.collectAsState()
     val isGenerating by viewModel.isGenerating.collectAsState()
     val scoresHistory by viewModel.scoresHistory.collectAsState()
-    val hasSavedGame: Boolean by viewModel.hasSavedGame.collectAsState(initial = false)
+    val hasSavedGame by viewModel.hasSavedGame.collectAsState()
+
+    // Auto-restauration intelligente : ne se déclenche que si on n'a pas explicitement
+    // choisi de quitter et sauvegarder dans cette session de navigation.
+    LaunchedEffect(Unit) {
+        viewModel.tryAutoRestore(onRestored = onStartGame)
+    }
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_crosswords_title),
@@ -34,7 +40,7 @@ fun CrosswordSetupScreen(
             viewModel.startGame(onGenerated = onStartGame)
         }
     ) {
-        // Option de restauration
+        // Option de restauration manuelle (toujours visible si une sauvegarde existe)
         if (hasSavedGame) {
             Card(
                 modifier = Modifier.fillMaxWidth(),

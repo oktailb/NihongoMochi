@@ -45,6 +45,8 @@ class TaquinViewModel(
     private val _hasSavedGame = MutableStateFlow(false)
     val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
 
+    private var autoRestoreDone = false
+
     private var timerJob: Job? = null
 
     init {
@@ -62,6 +64,13 @@ class TaquinViewModel(
 
     private fun checkSavedGame() {
         _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_TAQUIN) != null
+    }
+
+    fun tryAutoRestore(onRestored: () -> Unit) {
+        if (!autoRestoreDone && _hasSavedGame.value) {
+            autoRestoreDone = true
+            restoreGame(onRestored)
+        }
     }
 
     fun restoreGame(onRestored: () -> Unit) {
@@ -97,6 +106,7 @@ class TaquinViewModel(
         viewModelScope.launch {
             settingsRepository.clearGameState(GAME_STATE_TAQUIN)
             _hasSavedGame.value = false
+            autoRestoreDone = true
             val rows = _selectedRows.value
             val cols = if (_selectedMode.value == TaquinMode.NUMBERS) 4 else 5
             
@@ -243,6 +253,7 @@ class TaquinViewModel(
             timerJob?.cancel()
             settingsRepository.clearGameState(GAME_STATE_TAQUIN)
             _hasSavedGame.value = false
+            autoRestoreDone = true
             _gameState.value = state.copy(isSolved = true)
             audioPlayer.playSound("sounds/correct.mp3")
             saveResult()
@@ -282,6 +293,7 @@ class TaquinViewModel(
             val json = Json.encodeToString(TaquinGameState.serializer(), state)
             settingsRepository.saveGameState(GAME_STATE_TAQUIN, json)
             _hasSavedGame.value = true
+            autoRestoreDone = true
         }
     }
 
@@ -289,6 +301,7 @@ class TaquinViewModel(
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_TAQUIN)
         _hasSavedGame.value = false
+        autoRestoreDone = true
         if (_gameState.value != null && !_gameState.value!!.isSolved) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }

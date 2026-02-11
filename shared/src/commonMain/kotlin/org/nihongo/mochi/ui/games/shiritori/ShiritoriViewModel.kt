@@ -71,6 +71,8 @@ class ShiritoriViewModel(
     private val _hasSavedGame = MutableStateFlow(false)
     val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
 
+    private var autoRestoreDone = false
+
     private var allWords: List<WordEntry> = emptyList()
     private var aiAvailableWords: List<WordEntry> = emptyList()
     private var usedPhonetics = mutableSetOf<String>()
@@ -95,6 +97,13 @@ class ShiritoriViewModel(
 
     private fun checkSavedGame() {
         _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_SHIRITORI) != null
+    }
+
+    fun tryAutoRestore(onRestored: () -> Unit) {
+        if (!autoRestoreDone && _hasSavedGame.value) {
+            autoRestoreDone = true
+            restoreGame(onRestored)
+        }
     }
 
     fun restoreGame(onRestored: () -> Unit) {
@@ -155,6 +164,7 @@ class ShiritoriViewModel(
             _gameState.value = ShiritoriGameState.LOADING
             settingsRepository.clearGameState(GAME_STATE_SHIRITORI)
             _hasSavedGame.value = false
+            autoRestoreDone = true
             
             val locale = settingsRepository.getAppLocale()
             currentMeanings = wordMeaningRepository.getWordMeanings(locale)
@@ -329,6 +339,7 @@ class ShiritoriViewModel(
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_SHIRITORI)
         _hasSavedGame.value = false
+        autoRestoreDone = true
         _isVictory.value = victory
         _gameState.value = ShiritoriGameState.GAME_OVER
         if (!victory) audioPlayer.playSound("sounds/game_over.mp3")
@@ -372,6 +383,7 @@ class ShiritoriViewModel(
         val json = Json.encodeToString(ShiritoriGameStateData.serializer(), data)
         settingsRepository.saveGameState(GAME_STATE_SHIRITORI, json)
         _hasSavedGame.value = true
+        autoRestoreDone = true
     }
 
     fun abandonGame() {

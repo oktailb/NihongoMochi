@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
@@ -40,48 +39,18 @@ class SnakeViewModel(
     private val _scoresHistory = MutableStateFlow<List<SnakeGameResult>>(emptyList())
     val scoresHistory: StateFlow<List<SnakeGameResult>> = _scoresHistory.asStateFlow()
 
-    private val _hasSavedGame = MutableStateFlow(false)
-    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
-
     private var gameJob: Job? = null
     private var timerJob: Job? = null
-    private var tickDelay = 220L
     
     private var itemSequence = emptyList<String>()
     private var currentWord: WordEntry? = null
 
     init {
         loadHistory()
-        checkSavedGame()
     }
 
     private fun loadHistory() {
         _scoresHistory.value = scoreRepository.getSnakeHistory()
-    }
-
-    private fun checkSavedGame() {
-        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_SNAKE) != null
-    }
-
-    fun restoreGame(onRestored: () -> Unit) {
-        val savedJson = settingsRepository.getGameState(GAME_STATE_SNAKE) ?: return
-        try {
-            val restoredState = Json.decodeFromString<SnakeGameState>(savedJson)
-            if (!restoredState.isGameOver) {
-                _gameState.value = restoredState.copy(isPaused = true)
-                _selectedMode.value = restoredState.mode
-                
-                viewModelScope.launch {
-                    prepareSequence()
-                    gameJob = viewModelScope.launch { gameLoop() }
-                    startTimer()
-                    onRestored()
-                }
-            }
-        } catch (e: Exception) {
-            settingsRepository.clearGameState(GAME_STATE_SNAKE)
-            _hasSavedGame.value = false
-        }
     }
 
     private fun String.toHiragana(): String {
@@ -115,9 +84,6 @@ class SnakeViewModel(
         gameJob?.cancel()
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_SNAKE)
-        _hasSavedGame.value = false
-        
-        tickDelay = 220L
         
         viewModelScope.launch {
             prepareSequence()
@@ -131,7 +97,8 @@ class SnakeViewModel(
                     currentTargetLabel = it.currentTargetLabel,
                     mode = _selectedMode.value,
                     sequenceIndex = 0,
-                    currentNumber = 1
+                    currentNumber = 1,
+                    tickDelay = 220L 
                 )
             }
             
@@ -227,7 +194,7 @@ class SnakeViewModel(
             if (!_gameState.value.isPaused) {
                 moveSnake()
             }
-            delay(tickDelay)
+            delay(_gameState.value.tickDelay)
         }
     }
 
@@ -241,7 +208,7 @@ class SnakeViewModel(
             Direction.RIGHT -> Point(head.x + 1, head.y)
         }
 
-        if (nextHead.x < 0 || nextHead.x >= state.gridWidth || nextHead.x < 0 || nextHead.x >= state.gridWidth || nextHead.y < 0 || nextHead.y >= state.gridHeight) {
+        if (nextHead.x < 0 || nextHead.x >= state.gridWidth || nextHead.y < 0 || nextHead.y >= state.gridHeight) {
             gameOver()
             return
         }
@@ -264,12 +231,10 @@ class SnakeViewModel(
                     pickNextWord()
                 } else if (_selectedMode.value == SnakeMode.NUMBERS) {
                     val nextNum = state.currentNumber + 1
-                    _gameState.update { it.copy(currentNumber = nextNum, sequenceIndex = 0) }
+                    _gameState.update { it.copy(currentNumber = nextNum, sequenceIndex = 0, tickDelay = (state.tickDelay * 0.98).toLong().coerceAtLeast(100L)) }
                     itemSequence = listOf(convertToKanji(nextNum))
-                    tickDelay = (tickDelay * 0.98).toLong().coerceAtMost(100L)
                 } else {
-                    _gameState.update { it.copy(sequenceIndex = 0) }
-                    tickDelay = (tickDelay * 0.95).toLong().coerceAtMost(100L)
+                    _gameState.update { it.copy(sequenceIndex = 0, tickDelay = (state.tickDelay * 0.95).toLong().coerceAtLeast(100L)) }
                 }
             }
             
@@ -296,7 +261,6 @@ class SnakeViewModel(
         
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_SNAKE)
-        _hasSavedGame.value = false
         audioPlayer.playSound("files/sounds/game_over.mp3")
         _gameState.update { it.copy(isGameOver = true) }
         
@@ -339,12 +303,6 @@ class SnakeViewModel(
 
     fun resumeGame() {
         _gameState.update { it.copy(isPaused = false) }
-    }
-
-    fun saveAndExit() {
-        val json = Json.encodeToString(SnakeGameState.serializer(), _gameState.value)
-        settingsRepository.saveGameState(GAME_STATE_SNAKE, json)
-        _hasSavedGame.value = true
     }
 
     fun abandonGame() {

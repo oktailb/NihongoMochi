@@ -28,6 +28,15 @@ fun KanaDropSetupScreen(
     val hasSavedGame: Boolean by viewModel.hasSavedGame.collectAsState(initial = false)
     val state by viewModel.state.collectAsState()
 
+    // Auto-restauration
+    LaunchedEffect(Unit) {
+        viewModel.tryAutoRestore(onRestored = {
+            viewModel.state.value.config?.mode?.let { mode ->
+                onStartGame(mode)
+            } ?: onStartGame(KanaLinkMode.TIME_ATTACK)
+        })
+    }
+
     GameSetupTemplate(
         title = stringResource(Res.string.game_kana_link_title),
         subtitle = "カナリンク",
@@ -59,7 +68,7 @@ fun KanaDropSetupScreen(
                     Button(
                         onClick = {
                             viewModel.restoreGame(onRestored = {
-                                state.config?.mode?.let { mode ->
+                                viewModel.state.value.config?.mode?.let { mode ->
                                     onStartGame(mode)
                                 } ?: onStartGame(KanaLinkMode.TIME_ATTACK)
                             })

@@ -72,6 +72,9 @@ class CrosswordViewModel(
     private val _hasSavedGame = MutableStateFlow(false)
     val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
 
+    // Empêche de boucler si on vient de sauvegarder et quitter
+    private var autoRestoreDone = false
+
     private var timerJob: Job? = null
     private var lastActiveWordId: Int? = null
 
@@ -82,6 +85,13 @@ class CrosswordViewModel(
 
     private fun checkSavedGame() {
         _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_CROSSWORD) != null
+    }
+
+    fun tryAutoRestore(onRestored: () -> Unit) {
+        if (!autoRestoreDone && _hasSavedGame.value) {
+            autoRestoreDone = true
+            restoreGame(onRestored)
+        }
     }
 
     fun restoreGame(onRestored: () -> Unit) {
@@ -308,6 +318,7 @@ class CrosswordViewModel(
             _isFinished.value = false
             _isPaused.value = false
             _hasSavedGame.value = false
+            autoRestoreDone = true // Si on commence un nouveau jeu, on ne restaure plus
             settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
             lastActiveWordId = null
             
@@ -377,12 +388,14 @@ class CrosswordViewModel(
         val json = Json.encodeToString(CrosswordGameState.serializer(), state)
         settingsRepository.saveGameState(GAME_STATE_CROSSWORD, json)
         _hasSavedGame.value = true
+        autoRestoreDone = true // Très important : empêche de relancer le jeu au retour sur Setup
     }
 
     fun abandonGame() { 
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
         _hasSavedGame.value = false
+        autoRestoreDone = true
         if (!_isFinished.value) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }
