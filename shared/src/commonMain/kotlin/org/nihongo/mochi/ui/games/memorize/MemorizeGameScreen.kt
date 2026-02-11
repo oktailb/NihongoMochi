@@ -14,7 +14,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -93,12 +92,7 @@ fun MemorizeGameScreen(
                     },
                     onDismiss = { showExitDialog = false },
                     onPause = { viewModel.pauseGame() },
-                    onResume = { viewModel.resumeGame() },
-                    onSaveAndExit = {
-                        showExitDialog = false
-                        viewModel.saveAndExit()
-                        onBackClick()
-                    }
+                    onResume = { viewModel.resumeGame() }
                 )
             }
 

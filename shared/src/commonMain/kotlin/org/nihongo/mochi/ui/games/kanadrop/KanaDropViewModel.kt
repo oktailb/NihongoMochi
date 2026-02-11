@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
-import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.services.AudioPlayer
@@ -32,11 +31,6 @@ class KanaDropViewModel(
     private val _history = MutableStateFlow<List<KanaLinkResult>>(emptyList())
     val history: StateFlow<List<KanaLinkResult>> = _history.asStateFlow()
 
-    private val _hasSavedGame = MutableStateFlow(false)
-    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
-
-    private var autoRestoreDone = false
-
     private var config = KanaDropConfig()
     private var allAvailableWordEntries: List<org.nihongo.mochi.domain.words.WordEntry> = emptyList()
     private var kanaPool: List<String> = emptyList()
@@ -53,7 +47,6 @@ class KanaDropViewModel(
 
     init {
         loadHistory()
-        checkSavedGame()
     }
 
     private fun normalizeKana(text: String): String {
@@ -66,39 +59,6 @@ class KanaDropViewModel(
             _history.value = scoreRepository.getKanaLinkHistory()
         } catch (e: Exception) {
             _history.value = emptyList()
-        }
-    }
-
-    private fun checkSavedGame() {
-        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_KANADROP) != null
-    }
-
-    fun tryAutoRestore(onRestored: () -> Unit) {
-        if (!autoRestoreDone && _hasSavedGame.value) {
-            autoRestoreDone = true
-            restoreGame(onRestored)
-        }
-    }
-
-    fun restoreGame(onRestored: () -> Unit) {
-        val savedJson = settingsRepository.getGameState(GAME_STATE_KANADROP) ?: return
-        try {
-            val restored = Json.decodeFromString<KanaDropGameState>(savedJson)
-            if (!restored.isGameOver) {
-                _state.value = restored.copy(isPaused = true, isLoading = true)
-                restored.config?.let { cfg ->
-                    config = cfg
-                    viewModelScope.launch {
-                        loadResourcesForLevel(cfg.levelFileName)
-                        _state.value = _state.value.copy(isLoading = false)
-                        startTimer()
-                        onRestored()
-                    }
-                }
-            }
-        } catch (e: Exception) {
-            settingsRepository.clearGameState(GAME_STATE_KANADROP)
-            _hasSavedGame.value = false
         }
     }
 
@@ -141,8 +101,6 @@ class KanaDropViewModel(
         viewModelScope.launch {
             _state.value = KanaDropGameState(isLoading = true)
             settingsRepository.clearGameState(GAME_STATE_KANADROP)
-            _hasSavedGame.value = false
-            autoRestoreDone = true
             
             config = KanaDropConfig(
                 levelFileName = levelFileName,
@@ -193,8 +151,6 @@ class KanaDropViewModel(
     private fun endGame() {
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_KANADROP)
-        _hasSavedGame.value = false
-        autoRestoreDone = true
         val currentState = _state.value
         _state.value = currentState.copy(isGameOver = true)
         saveResult()
@@ -421,13 +377,6 @@ class KanaDropViewModel(
         _state.value = _state.value.copy(isPaused = false)
     }
 
-    fun saveAndExit() {
-        val json = Json.encodeToString(KanaDropGameState.serializer(), _state.value)
-        settingsRepository.saveGameState(GAME_STATE_KANADROP, json)
-        _hasSavedGame.value = true
-        autoRestoreDone = true
-    }
-
     fun resetGame() {
         initGame(config.levelFileName, config.mode)
     }
@@ -435,8 +384,6 @@ class KanaDropViewModel(
     fun abandonGame() {
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_KANADROP)
-        _hasSavedGame.value = false
-        autoRestoreDone = true
         if (_state.value.score > 0 && !_state.value.isGameOver) {
              audioPlayer.playSound("sounds/game_over.mp3")
         }

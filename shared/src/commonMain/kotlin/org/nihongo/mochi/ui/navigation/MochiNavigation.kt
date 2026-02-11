@@ -407,8 +407,7 @@ fun MochiNavGraph(
 
             KanaDropSetupScreen(
                 viewModel = viewModel,
-                levelId = levelId,
-                onStartGame = { mode -> 
+                onStartGame = { mode: KanaLinkMode -> 
                     navController.navigate(Screen.KanaDropGame.createRoute(levelId, mode.name))
                 },
                 onBackClick = { navController.popBackStack() }
