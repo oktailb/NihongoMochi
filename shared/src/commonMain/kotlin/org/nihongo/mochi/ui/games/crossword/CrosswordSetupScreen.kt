@@ -1,8 +1,11 @@
 package org.nihongo.mochi.ui.games.crossword
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -18,10 +21,11 @@ fun CrosswordSetupScreen(
     onBackClick: () -> Unit,
     onStartGame: () -> Unit
 ) {
-    val selectedMode by viewModel.selectedMode.collectAsState(CrosswordMode.KANAS)
-    val wordCount by viewModel.wordCount.collectAsState(10)
-    val isGenerating by viewModel.isGenerating.collectAsState(false)
-    val scoresHistory by viewModel.scoresHistory.collectAsState(emptyList())
+    val selectedMode by viewModel.selectedMode.collectAsState()
+    val wordCount by viewModel.wordCount.collectAsState()
+    val isGenerating by viewModel.isGenerating.collectAsState()
+    val scoresHistory by viewModel.scoresHistory.collectAsState()
+    val hasSavedGame: Boolean by viewModel.hasSavedGame.collectAsState(initial = false)
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_crosswords_title),
@@ -30,6 +34,48 @@ fun CrosswordSetupScreen(
             viewModel.startGame(onGenerated = onStartGame)
         }
     ) {
+        // Option de restauration
+        if (hasSavedGame) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Une partie est en pause",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = {
+                            viewModel.restoreGame(onRestored = onStartGame)
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.History, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Reprendre la partie")
+                    }
+                    TextButton(
+                        onClick = {
+                            viewModel.startGame(onGenerated = onStartGame)
+                        }
+                    ) {
+                        Text("Nouvelle partie (effacer la précédente)")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         // Mode Selection
         Card(
             modifier = Modifier.fillMaxWidth(),

@@ -2,11 +2,13 @@ package org.nihongo.mochi.ui.games.crossword
 
 import kotlinx.serialization.Serializable
 
+@Serializable
 enum class CrosswordMode {
     KANAS,
     KANJIS
 }
 
+@Serializable
 enum class CrosswordHintType {
     KANJI,
     MEANING
@@ -34,6 +36,16 @@ data class CrosswordWord(
     val col: Int,
     val isHorizontal: Boolean,
     val isSolved: Boolean = false
+)
+
+@Serializable
+data class CrosswordGameState(
+    val cells: List<CrosswordCell>,
+    val placedWords: List<CrosswordWord>,
+    val gameTimeSeconds: Int,
+    val selectedMode: CrosswordMode,
+    val selectedHintType: CrosswordHintType,
+    val isFinished: Boolean
 )
 
 @Serializable

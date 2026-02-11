@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.crossword
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 
@@ -42,6 +44,12 @@ fun CrosswordGameScreen(
     val selectedMode by viewModel.selectedMode.collectAsState()
     val isFinished by viewModel.isFinished.collectAsState()
     
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = !isFinished) {
+        showExitDialog = true
+    }
+
     val cellsMap = remember(cells) {
         cells.associateBy { it.r to it.c }
     }
@@ -195,6 +203,25 @@ fun CrosswordGameScreen(
                         }
                     }
                 }
+            }
+
+            // Exit Confirmation Dialog
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
             
             if (isFinished) {

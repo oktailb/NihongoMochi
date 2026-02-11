@@ -26,6 +26,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 
@@ -47,9 +48,11 @@ fun ShiritoriGameScreen(
     val listState = rememberLazyListState()
     val audioPlayer: org.nihongo.mochi.domain.services.AudioPlayer = koinInject()
 
+    var showExitDialog by remember { mutableStateOf(false) }
+
     // Gérer l'abandon via le bouton retour système
     BackHandler(enabled = gameState != ShiritoriGameState.GAME_OVER && gameState != ShiritoriGameState.IDLE) {
-        viewModel.abandonGame()
+        showExitDialog = true
     }
 
     // Lancement automatique du jeu dès l'entrée sur l'écran
@@ -78,7 +81,7 @@ fun ShiritoriGameScreen(
                 )
 
                 // --- Indicateur de Kana Cible ---
-                if (gameState != ShiritoriGameState.GAME_OVER && gameState != ShiritoriGameState.IDLE) {
+                if (gameState != ShiritoriGameState.GAME_OVER && gameState != ShiritoriGameState.IDLE && gameState != ShiritoriGameState.PAUSED) {
                     Surface(
                         shape = RoundedCornerShape(16.dp),
                         color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.8f),
@@ -219,6 +222,25 @@ fun ShiritoriGameScreen(
                         }
                     }
                 }
+            }
+
+            // --- Dialogue de confirmation de sortie ---
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
 
             // --- Overlay de résultat (Stabilité renforcée) ---

@@ -18,6 +18,7 @@ data class KanaLinkResult(
     val timestamp: Long
 )
 
+@Serializable
 data class KanaDropCell(
     val id: String,
     val char: String,
@@ -27,6 +28,7 @@ data class KanaDropCell(
     val isMatched: Boolean = false
 )
 
+@Serializable
 data class KanaDropGameState(
     val grid: List<List<KanaDropCell>> = emptyList(),
     val selectedCells: List<KanaDropCell> = emptyList(),
@@ -38,9 +40,12 @@ data class KanaDropGameState(
     val isGameOver: Boolean = false,
     val lastValidWord: WordEntry? = null,
     val isLoading: Boolean = true,
-    val errorFlash: Boolean = false
+    val errorFlash: Boolean = false,
+    val isPaused: Boolean = false,
+    val config: KanaDropConfig? = null
 )
 
+@Serializable
 data class KanaDropConfig(
     val rows: Int = 10,
     val cols: Int = 7,

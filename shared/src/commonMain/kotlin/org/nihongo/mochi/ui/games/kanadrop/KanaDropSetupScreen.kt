@@ -1,8 +1,11 @@
 package org.nihongo.mochi.ui.games.kanadrop
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -22,14 +25,64 @@ fun KanaDropSetupScreen(
 ) {
     val history by viewModel.history.collectAsState()
     var selectedMode by remember { mutableStateOf(KanaLinkMode.TIME_ATTACK) }
+    val hasSavedGame: Boolean by viewModel.hasSavedGame.collectAsState(initial = false)
+    val state by viewModel.state.collectAsState()
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_kana_link_title),
         subtitle = "カナリンク",
         onPlayClick = {
+            viewModel.initGame(levelId, selectedMode)
             onStartGame(selectedMode)
         }
     ) {
+        // Option de restauration
+        if (hasSavedGame) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Une partie est en pause",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = {
+                            viewModel.restoreGame(onRestored = {
+                                state.config?.mode?.let { mode ->
+                                    onStartGame(mode)
+                                } ?: onStartGame(KanaLinkMode.TIME_ATTACK)
+                            })
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.History, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Reprendre la partie")
+                    }
+                    TextButton(
+                        onClick = {
+                            viewModel.initGame(levelId, selectedMode)
+                            onStartGame(selectedMode)
+                        }
+                    ) {
+                        Text("Nouvelle partie (effacer la précédente)")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         // Mode Selection
         Card(
             modifier = Modifier.fillMaxWidth(),

@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
@@ -17,6 +18,7 @@ import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ViewModel
+import org.nihongo.mochi.settings.GAME_STATE_MEMORY
 
 class MemorizeViewModel(
     private val kanjiRepository: KanjiRepository,
@@ -70,6 +72,12 @@ class MemorizeViewModel(
     private val _isProcessing = MutableStateFlow(false)
     val isProcessing: StateFlow<Boolean> = _isProcessing.asStateFlow()
 
+    private val _isPaused = MutableStateFlow(false)
+    val isPaused: StateFlow<Boolean> = _isPaused.asStateFlow()
+
+    private val _hasSavedGame = MutableStateFlow(false)
+    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
+
     private var firstSelectedCardIndex: Int? = null
     private var timerJob: Job? = null
     private var matchingJob: Job? = null
@@ -82,6 +90,7 @@ class MemorizeViewModel(
             _selectedMaxStrokes.value = maxS
             updateLevelInfo()
             loadScoresHistory()
+            checkSavedGame()
         }
     }
 
@@ -90,6 +99,31 @@ class MemorizeViewModel(
             _scoresHistory.value = scoreRepository.getMemorizeHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
+        }
+    }
+
+    private fun checkSavedGame() {
+        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_MEMORY) != null
+    }
+
+    fun restoreGame(onRestored: () -> Unit) {
+        val savedJson = settingsRepository.getGameState(GAME_STATE_MEMORY) ?: return
+        try {
+            val restored = Json.decodeFromString<MemorizeGameState>(savedJson)
+            if (!restored.isFinished) {
+                _cards.value = restored.cards
+                _moves.value = restored.moves
+                _gameTimeSeconds.value = restored.gameTimeSeconds
+                _selectedGridSize.value = restored.selectedGridSize
+                _isKanaLevel.value = restored.isKanaLevel
+                _isGameFinished.value = restored.isFinished
+                _isPaused.value = true
+                startTimer()
+                onRestored()
+            }
+        } catch (e: Exception) {
+            settingsRepository.clearGameState(GAME_STATE_MEMORY)
+            _hasSavedGame.value = false
         }
     }
 
@@ -142,6 +176,9 @@ class MemorizeViewModel(
 
     fun startGame() {
         abandonGame() // Ensure everything is cleaned up first
+        settingsRepository.clearGameState(GAME_STATE_MEMORY)
+        _hasSavedGame.value = false
+        
         viewModelScope.launch {
             val levelId = settingsRepository.getSelectedLevel().ifEmpty { "n5" }
             val lowerLevel = levelId.lowercase()
@@ -176,6 +213,7 @@ class MemorizeViewModel(
             _gameTimeSeconds.value = 0
             _isGameFinished.value = false
             _isProcessing.value = false
+            _isPaused.value = false
             firstSelectedCardIndex = null
             
             startTimer()
@@ -187,7 +225,9 @@ class MemorizeViewModel(
         timerJob = viewModelScope.launch {
             while (true) {
                 delay(1000)
-                _gameTimeSeconds.update { it + 1 }
+                if (!_isPaused.value) {
+                    _gameTimeSeconds.update { it + 1 }
+                }
             }
         }
     }
@@ -198,7 +238,7 @@ class MemorizeViewModel(
             _isProcessing.value || 
             currentCards[index].isFaceUp || 
             currentCards[index].isMatched ||
-            _isGameFinished.value) return
+            _isGameFinished.value || _isPaused.value) return
 
         _cards.update { list ->
             list.mapIndexed { i, card ->
@@ -253,6 +293,8 @@ class MemorizeViewModel(
         if (_cards.value.isNotEmpty() && _cards.value.all { it.isMatched }) {
             _isGameFinished.value = true
             timerJob?.cancel()
+            settingsRepository.clearGameState(GAME_STATE_MEMORY)
+            _hasSavedGame.value = false
             saveFinalScore()
         }
     }
@@ -276,15 +318,40 @@ class MemorizeViewModel(
         }
     }
 
+    fun pauseGame() {
+        _isPaused.value = true
+    }
+
+    fun resumeGame() {
+        _isPaused.value = false
+    }
+
+    fun saveAndExit() {
+        val state = MemorizeGameState(
+            cards = _cards.value,
+            moves = _moves.value,
+            gameTimeSeconds = _gameTimeSeconds.value,
+            selectedGridSize = _selectedGridSize.value,
+            isKanaLevel = _isKanaLevel.value,
+            isFinished = _isGameFinished.value
+        )
+        val json = Json.encodeToString(MemorizeGameState.serializer(), state)
+        settingsRepository.saveGameState(GAME_STATE_MEMORY, json)
+        _hasSavedGame.value = true
+    }
+
     fun abandonGame() {
         timerJob?.cancel()
         matchingJob?.cancel() // Cancel any pending card processing
+        settingsRepository.clearGameState(GAME_STATE_MEMORY)
+        _hasSavedGame.value = false
         if (!_isGameFinished.value && _cards.value.isNotEmpty()) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }
         _cards.value = emptyList()
         _isGameFinished.value = false
         _isProcessing.value = false
+        _isPaused.value = false
         firstSelectedCardIndex = null
         updateLevelInfo()
     }

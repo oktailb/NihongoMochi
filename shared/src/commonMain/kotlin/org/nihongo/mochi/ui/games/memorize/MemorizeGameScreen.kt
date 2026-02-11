@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.memorize
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 
@@ -33,6 +35,12 @@ fun MemorizeGameScreen(
     val timeSeconds by viewModel.gameTimeSeconds.collectAsState()
     val cards by viewModel.cards.collectAsState()
     val gridSize by viewModel.selectedGridSize.collectAsState()
+
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = !isFinished) {
+        showExitDialog = true
+    }
 
     // Ensure session is cleaned up when leaving the screen
     DisposableEffect(viewModel) {
@@ -73,6 +81,25 @@ fun MemorizeGameScreen(
                         }
                     }
                 }
+            }
+
+            // Exit Confirmation Dialog
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
 
             // Game Result Overlay

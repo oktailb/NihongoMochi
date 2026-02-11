@@ -1,10 +1,13 @@
 package org.nihongo.mochi.ui.games.shiritori
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -21,14 +24,59 @@ fun ShiritoriSetupScreen(
     onStartGame: () -> Unit
 ) {
     val scoresHistory by viewModel.scoresHistory.collectAsState()
+    val hasSavedGame by viewModel.hasSavedGame.collectAsState()
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_shiritori_title),
         subtitle = "しりとり",
         onPlayClick = {
+            viewModel.startGame()
             onStartGame()
         }
     ) {
+        // Option de restauration si une partie existe
+        if (hasSavedGame) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Une partie est en cours",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = {
+                            viewModel.restoreGame(onRestored = onStartGame)
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.History, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Reprendre la partie")
+                    }
+                    TextButton(
+                        onClick = {
+                            viewModel.startGame()
+                            onStartGame()
+                        }
+                    ) {
+                        Text("Nouvelle partie (effacer la précédente)")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         // --- Rules ---
         Card(
             modifier = Modifier.fillMaxWidth(),

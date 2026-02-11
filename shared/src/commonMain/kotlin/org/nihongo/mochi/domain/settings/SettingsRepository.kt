@@ -33,6 +33,11 @@ class SettingsRepository(private val settings: Settings) {
     fun getSelectedLevel(): String = settings.getString(SELECTED_LEVEL_PREF_KEY, "")
     fun setSelectedLevel(value: String) = settings.putString(SELECTED_LEVEL_PREF_KEY, value)
 
+    // Game States Persistance
+    fun saveGameState(gameKey: String, json: String) = settings.putString(gameKey, json)
+    fun getGameState(gameKey: String): String? = settings.getStringOrNull(gameKey)
+    fun clearGameState(gameKey: String) = settings.remove(gameKey)
+
     // TTS Settings
     fun getTtsGender(locale: String): VoiceGender {
         if (locale.startsWith("ar"))

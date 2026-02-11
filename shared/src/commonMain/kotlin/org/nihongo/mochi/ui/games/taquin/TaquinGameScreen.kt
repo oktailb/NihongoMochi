@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.taquin
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -19,6 +20,7 @@ import kotlinx.coroutines.flow.map
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import kotlin.math.abs
@@ -33,6 +35,12 @@ fun TaquinGameScreen(
     MochiBackground {
         Box(modifier = Modifier.fillMaxSize()) {
             state?.let { gameState ->
+                var showExitDialog by remember { mutableStateOf(false) }
+
+                BackHandler(enabled = !gameState.isSolved) {
+                    showExitDialog = true
+                }
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -103,6 +111,25 @@ fun TaquinGameScreen(
                     }
                 }
                 
+                // Game Exit Dialog
+                if (showExitDialog) {
+                    ExitConfirmationDialog(
+                        onConfirm = {
+                            showExitDialog = false
+                            viewModel.abandonGame()
+                            onBackClick()
+                        },
+                        onDismiss = { showExitDialog = false },
+                        onPause = { viewModel.pauseGame() },
+                        onResume = { viewModel.resumeGame() },
+                        onSaveAndExit = {
+                            showExitDialog = false
+                            viewModel.saveAndExit()
+                            onBackClick()
+                        }
+                    )
+                }
+
                 // Game Result Overlay
                 if (gameState.isSolved) {
                     GameResultOverlay(

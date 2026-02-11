@@ -2,12 +2,13 @@ package org.nihongo.mochi.ui.games.memorize
 
 import kotlinx.serialization.Serializable
 
-// Wrapper to treat both Kanji and Kana as playable items in Memorize game
+@Serializable
 data class MemorizePlayable(
     val id: String,
     val character: String
 )
 
+@Serializable
 data class MemorizeCardState(
     val id: Int,
     val item: MemorizePlayable,
@@ -15,10 +16,12 @@ data class MemorizeCardState(
     val isMatched: Boolean = false
 )
 
+@Serializable
 enum class MemorizeGameMode {
     KANJI_KANJI,
 }
 
+@Serializable
 data class MemorizeGridSize(
     val rows: Int,
     val cols: Int
@@ -28,6 +31,16 @@ data class MemorizeGridSize(
     
     override fun toString(): String = "${cols}x${rows}"
 }
+
+@Serializable
+data class MemorizeGameState(
+    val cards: List<MemorizeCardState>,
+    val moves: Int,
+    val gameTimeSeconds: Int,
+    val selectedGridSize: MemorizeGridSize,
+    val isKanaLevel: Boolean,
+    val isFinished: Boolean
+)
 
 @Serializable
 data class MemorizeGameResult(

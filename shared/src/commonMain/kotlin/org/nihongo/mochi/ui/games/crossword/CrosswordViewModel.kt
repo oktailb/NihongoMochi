@@ -7,6 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.Clock
@@ -18,6 +19,7 @@ import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.levels.LevelsRepository
 import org.nihongo.mochi.presentation.ViewModel
 import org.nihongo.mochi.domain.services.AudioPlayer
+import org.nihongo.mochi.settings.GAME_STATE_CROSSWORD
 
 class CrosswordViewModel(
     private val wordRepository: WordRepository,
@@ -64,11 +66,43 @@ class CrosswordViewModel(
     private val _isFinished = MutableStateFlow(false)
     val isFinished: StateFlow<Boolean> = _isFinished.asStateFlow()
 
+    private val _isPaused = MutableStateFlow(false)
+    val isPaused: StateFlow<Boolean> = _isPaused.asStateFlow()
+
+    private val _hasSavedGame = MutableStateFlow(false)
+    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
+
     private var timerJob: Job? = null
     private var lastActiveWordId: Int? = null
 
     init {
         loadHistory()
+        checkSavedGame()
+    }
+
+    private fun checkSavedGame() {
+        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_CROSSWORD) != null
+    }
+
+    fun restoreGame(onRestored: () -> Unit) {
+        val savedJson = settingsRepository.getGameState(GAME_STATE_CROSSWORD) ?: return
+        try {
+            val restored = Json.decodeFromString<CrosswordGameState>(savedJson)
+            if (!restored.isFinished) {
+                _cells.value = restored.cells
+                _placedWords.value = restored.placedWords
+                _gameTimeSeconds.value = restored.gameTimeSeconds
+                _selectedMode.value = restored.selectedMode
+                _selectedHintType.value = restored.selectedHintType
+                _isFinished.value = restored.isFinished
+                _isPaused.value = true
+                startTimer()
+                onRestored()
+            }
+        } catch (e: Exception) {
+            settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
+            _hasSavedGame.value = false
+        }
     }
 
     fun loadHistory() {
@@ -90,30 +124,25 @@ class CrosswordViewModel(
     }
 
     fun onCellSelected(r: Int, c: Int, preserveOrientation: Boolean = false) {
-        if (_isFinished.value) return
+        if (_isFinished.value || _isPaused.value) return
         
         val words = getWordsAt(r, c)
         if (words.isEmpty()) return
 
         if (_selectedCell.value == r to c && !preserveOrientation) {
-            // Toggle orientation on double click/re-select
             if (words.size > 1) {
                 _isVerticalInput.value = !_isVerticalInput.value
             }
         } else if (!preserveOrientation) {
-            // New cell selection: Smart orientation
             val currentVertical = _isVerticalInput.value
             val hasHorizontal = words.any { it.isHorizontal }
             val hasVertical = words.any { !it.isHorizontal }
 
             if (currentVertical && hasVertical) {
-                // Keep vertical if possible
                 _isVerticalInput.value = true
             } else if (!currentVertical && hasHorizontal) {
-                // Keep horizontal if possible
                 _isVerticalInput.value = false
             } else {
-                // Switch if forced
                 _isVerticalInput.value = hasVertical && !hasHorizontal
             }
         }
@@ -125,14 +154,12 @@ class CrosswordViewModel(
     private fun updateKeyboardKeys(r: Int, c: Int) {
         val activeWord = getActiveWordAt(r, c) ?: return
         
-        // Fix: Pool is now stable for the entire word
         if (activeWord.number == lastActiveWordId && _keyboardKeys.value.isNotEmpty()) {
             return
         }
         
         lastActiveWordId = activeWord.number
         val wordChars = activeWord.word.map { it.toString() }.toSet()
-        // Use a seed based only on the word ID/content to keep it stable while typing the word
         val random = kotlin.random.Random(activeWord.number + activeWord.word.hashCode())
         
         val disturbersCount = (15 - wordChars.size).coerceAtLeast(0)
@@ -149,10 +176,8 @@ class CrosswordViewModel(
             (1..disturbersCount).map { allKanas[random.nextInt(allKanas.length)].toString() }.toSet()
         }
         
-        // Target 15 keys exactly (3 rows of 5)
         val combined = (wordChars + disturbers).toList().shuffled(random)
         _keyboardKeys.value = if (combined.size > 15) combined.take(15) else if (combined.size < 15) {
-            // Fallback: fill if too few (rare)
             val allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
             val needed = 15 - combined.size
             combined + (1..needed).map { allKanas[random.nextInt(allKanas.length)].toString() }
@@ -179,7 +204,7 @@ class CrosswordViewModel(
     }
 
     fun onKeyTyped(char: String) {
-        if (_isFinished.value) return
+        if (_isFinished.value || _isPaused.value) return
         val currentPos = _selectedCell.value ?: return
         val currentCells = _cells.value.toMutableList()
         val index = currentCells.indexOfFirst { it.r == currentPos.first && it.c == currentPos.second }
@@ -214,7 +239,7 @@ class CrosswordViewModel(
     }
 
     fun onDelete() {
-        if (_isFinished.value) return
+        if (_isFinished.value || _isPaused.value) return
         val currentPos = _selectedCell.value ?: return
         val currentCells = _cells.value.toMutableList()
         val index = currentCells.indexOfFirst { it.r == currentPos.first && it.c == currentPos.second }
@@ -252,9 +277,11 @@ class CrosswordViewModel(
     }
 
     private fun checkGameFinished() {
-        if (_placedWords.value.all { it.isSolved }) {
+        if (_placedWords.value.isNotEmpty() && _placedWords.value.all { it.isSolved }) {
             _isFinished.value = true
             timerJob?.cancel()
+            settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
+            _hasSavedGame.value = false
             saveGameResult()
         }
     }
@@ -279,6 +306,9 @@ class CrosswordViewModel(
         viewModelScope.launch {
             _isGenerating.value = true
             _isFinished.value = false
+            _isPaused.value = false
+            _hasSavedGame.value = false
+            settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
             lastActiveWordId = null
             
             val result = withContext(Dispatchers.Default) {
@@ -320,13 +350,39 @@ class CrosswordViewModel(
         timerJob = viewModelScope.launch {
             while (!_isFinished.value) {
                 delay(1000)
-                _gameTimeSeconds.value += 1
+                if (!_isPaused.value) {
+                    _gameTimeSeconds.value += 1
+                }
             }
         }
     }
 
+    fun pauseGame() {
+        _isPaused.value = true
+    }
+
+    fun resumeGame() {
+        _isPaused.value = false
+    }
+
+    fun saveAndExit() {
+        val state = CrosswordGameState(
+            cells = _cells.value,
+            placedWords = _placedWords.value,
+            gameTimeSeconds = _gameTimeSeconds.value,
+            selectedMode = _selectedMode.value,
+            selectedHintType = _selectedHintType.value,
+            isFinished = _isFinished.value
+        )
+        val json = Json.encodeToString(CrosswordGameState.serializer(), state)
+        settingsRepository.saveGameState(GAME_STATE_CROSSWORD, json)
+        _hasSavedGame.value = true
+    }
+
     fun abandonGame() { 
         timerJob?.cancel()
+        settingsRepository.clearGameState(GAME_STATE_CROSSWORD)
+        _hasSavedGame.value = false
         if (!_isFinished.value) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }

@@ -29,7 +29,7 @@ Hiragana / Katakana
 
 Carte de Kanji :
  - [WIP] rajouter les traductions des mots donnés en exemple
- - je préférerai avoir les pronontiations avant le sens d'écriture (qui est super utile mais prends de la place sur l'écran)
+ - [X] je préférerai avoir les pronontiations avant le sens d'écriture (qui est super utile mais prends de la place sur l'écran)
  - rajouter la possibilité de se créer  des listes de vocabulaire en cliquant sur ces mots d'exemples ?
  - ou pouvoir highlight ceux qu'on connait déjà
  - [X] rajouter la possibilité de partir d'un mot d'exemple et retrouver la carte des autres Kanji qui le composent

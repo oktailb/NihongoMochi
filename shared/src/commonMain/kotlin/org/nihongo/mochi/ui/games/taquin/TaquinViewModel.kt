@@ -5,18 +5,23 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.kana.NumberEntry
 import org.nihongo.mochi.presentation.ViewModel
 import org.nihongo.mochi.domain.services.AudioPlayer
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.settings.GAME_STATE_TAQUIN
 
 class TaquinViewModel(
     private val kanaRepository: KanaRepository,
     private val scoreRepository: ScoreRepository,
+    private val settingsRepository: SettingsRepository,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
@@ -34,10 +39,17 @@ class TaquinViewModel(
     private val _gameState = MutableStateFlow<TaquinGameState?>(null)
     val gameState: StateFlow<TaquinGameState?> = _gameState.asStateFlow()
 
+    private val _isPaused = MutableStateFlow(false)
+    val isPaused: StateFlow<Boolean> = _isPaused.asStateFlow()
+
+    private val _hasSavedGame = MutableStateFlow(false)
+    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
+
     private var timerJob: Job? = null
 
     init {
         loadScoresHistory()
+        checkSavedGame()
     }
 
     private fun loadScoresHistory() {
@@ -45,6 +57,28 @@ class TaquinViewModel(
             _scoresHistory.value = scoreRepository.getTaquinHistory()
         } catch (e: Exception) {
             _scoresHistory.value = emptyList()
+        }
+    }
+
+    private fun checkSavedGame() {
+        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_TAQUIN) != null
+    }
+
+    fun restoreGame(onRestored: () -> Unit) {
+        val savedJson = settingsRepository.getGameState(GAME_STATE_TAQUIN) ?: return
+        try {
+            val restored = Json.decodeFromString<TaquinGameState>(savedJson)
+            if (!restored.isSolved) {
+                _gameState.value = restored
+                _selectedMode.value = restored.mode
+                _selectedRows.value = restored.rows
+                _isPaused.value = true
+                startTimer()
+                onRestored()
+            }
+        } catch (e: Exception) {
+            settingsRepository.clearGameState(GAME_STATE_TAQUIN)
+            _hasSavedGame.value = false
         }
     }
 
@@ -61,6 +95,8 @@ class TaquinViewModel(
 
     fun startGame() {
         viewModelScope.launch {
+            settingsRepository.clearGameState(GAME_STATE_TAQUIN)
+            _hasSavedGame.value = false
             val rows = _selectedRows.value
             val cols = if (_selectedMode.value == TaquinMode.NUMBERS) 4 else 5
             
@@ -116,8 +152,10 @@ class TaquinViewModel(
             _gameState.value = TaquinGameState(
                 pieces = shuffledPieces,
                 rows = rows,
-                cols = cols
+                cols = cols,
+                mode = _selectedMode.value
             )
+            _isPaused.value = false
             
             startTimer()
         }
@@ -136,14 +174,16 @@ class TaquinViewModel(
         timerJob = viewModelScope.launch {
             while (true) {
                 delay(1000)
-                _gameState.value = _gameState.value?.let { it.copy(timeSeconds = it.timeSeconds + 1) }
+                if (!_isPaused.value) {
+                    _gameState.value = _gameState.value?.let { it.copy(timeSeconds = it.timeSeconds + 1) }
+                }
             }
         }
     }
 
     fun onPieceClicked(clickedIndex: Int) {
         val state = _gameState.value ?: return
-        if (state.isSolved) return
+        if (state.isSolved || _isPaused.value) return
 
         val blankIndex = state.pieces.indexOfFirst { it.isBlank }
         if (blankIndex == -1) return
@@ -201,6 +241,8 @@ class TaquinViewModel(
 
         if (isSolved) {
             timerJob?.cancel()
+            settingsRepository.clearGameState(GAME_STATE_TAQUIN)
+            _hasSavedGame.value = false
             _gameState.value = state.copy(isSolved = true)
             audioPlayer.playSound("sounds/correct.mp3")
             saveResult()
@@ -227,8 +269,26 @@ class TaquinViewModel(
         }
     }
 
+    fun pauseGame() {
+        _isPaused.value = true
+    }
+
+    fun resumeGame() {
+        _isPaused.value = false
+    }
+
+    fun saveAndExit() {
+        _gameState.value?.let { state ->
+            val json = Json.encodeToString(TaquinGameState.serializer(), state)
+            settingsRepository.saveGameState(GAME_STATE_TAQUIN, json)
+            _hasSavedGame.value = true
+        }
+    }
+
     fun abandonGame() {
         timerJob?.cancel()
+        settingsRepository.clearGameState(GAME_STATE_TAQUIN)
+        _hasSavedGame.value = false
         if (_gameState.value != null && !_gameState.value!!.isSolved) {
             audioPlayer.playSound("sounds/game_over.mp3")
         }
@@ -237,6 +297,7 @@ class TaquinViewModel(
 
     override fun onCleared() {
         super.onCleared()
+        timerJob?.cancel()
         audioPlayer.stopAll()
     }
 }

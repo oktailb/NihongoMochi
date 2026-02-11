@@ -9,6 +9,7 @@ enum class TaquinMode {
     NUMBERS
 }
 
+@Serializable
 data class TaquinPiece(
     val character: String,
     val targetLine: Int,
@@ -16,13 +17,15 @@ data class TaquinPiece(
     val isBlank: Boolean = false
 )
 
+@Serializable
 data class TaquinGameState(
     val pieces: List<TaquinPiece>,
     val rows: Int,
     val cols: Int,
     val moves: Int = 0,
     val timeSeconds: Int = 0,
-    val isSolved: Boolean = false
+    val isSolved: Boolean = false,
+    val mode: TaquinMode = TaquinMode.HIRAGANA
 )
 
 @Serializable

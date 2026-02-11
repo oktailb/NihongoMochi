@@ -1,8 +1,11 @@
 package org.nihongo.mochi.ui.games.simon
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -28,6 +31,7 @@ fun SimonSetupScreen(
     val selectedMode by viewModel.selectedMode.collectAsState()
     val scoresHistory by viewModel.scoresHistory.collectAsState()
     val isKanaLevel by viewModel.isKanaLevel.collectAsState()
+    val hasSavedGame by viewModel.hasSavedGame.collectAsState()
 
     GameSetupTemplate(
         title = stringResource(Res.string.game_simon_title),
@@ -37,6 +41,49 @@ fun SimonSetupScreen(
             onStartGame()
         }
     ) {
+        // Option de restauration
+        if (hasSavedGame) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "Une partie est en pause",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(
+                        onClick = {
+                            viewModel.restoreGame(onRestored = onStartGame)
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.History, contentDescription = null)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Reprendre la partie")
+                    }
+                    TextButton(
+                        onClick = {
+                            viewModel.startGame()
+                            onStartGame()
+                        }
+                    ) {
+                        Text("Nouvelle partie (effacer la précédente)")
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+
         // Configuration Card
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -116,6 +163,12 @@ fun SimonGameScreen(
     val scoresHistory by viewModel.scoresHistory.collectAsState()
     val finalTime by viewModel.gameTimeSeconds.collectAsState()
 
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = gameState != SimonGameState.GAME_OVER) {
+        showExitDialog = true
+    }
+
     DisposableEffect(viewModel) {
         onDispose {
             viewModel.abandonGame()
@@ -181,6 +234,25 @@ fun SimonGameScreen(
                         }
                     }
                 }
+            }
+
+            // Exit Confirmation Dialog
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
 
             // Game Result Overlay

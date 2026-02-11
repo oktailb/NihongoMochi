@@ -13,3 +13,12 @@ const val TTS_GENDER_PREF_KEY = "TtsGender"
 const val TTS_RATE_PREF_KEY = "TtsRate"
 const val TTS_VOICE_ID_PREF_KEY = "TtsVoiceId"
 const val APP_LOCALE_PREF_KEY = "AppLocale"
+
+// Game States
+const val GAME_STATE_SNAKE = "GameState_Snake"
+const val GAME_STATE_SHIRITORI = "GameState_Shiritori"
+const val GAME_STATE_KANADROP = "GameState_KanaDrop"
+const val GAME_STATE_MEMORY = "GameState_Memory"
+const val GAME_STATE_CROSSWORD = "GameState_Crossword"
+const val GAME_STATE_SIMON = "GameState_Simon"
+const val GAME_STATE_TAQUIN = "GameState_Taquin"

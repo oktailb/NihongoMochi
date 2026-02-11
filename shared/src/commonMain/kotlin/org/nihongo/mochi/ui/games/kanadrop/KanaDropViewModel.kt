@@ -7,17 +7,21 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.ViewModel
+import org.nihongo.mochi.settings.GAME_STATE_KANADROP
 import kotlin.random.Random
 
 class KanaDropViewModel(
     private val wordRepository: WordRepository,
     private val scoreRepository: ScoreRepository,
+    private val settingsRepository: SettingsRepository,
     private val levelContentProvider: LevelContentProvider,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
@@ -28,29 +32,28 @@ class KanaDropViewModel(
     private val _history = MutableStateFlow<List<KanaLinkResult>>(emptyList())
     val history: StateFlow<List<KanaLinkResult>> = _history.asStateFlow()
 
+    private val _hasSavedGame = MutableStateFlow(false)
+    val hasSavedGame: StateFlow<Boolean> = _hasSavedGame.asStateFlow()
+
     private var config = KanaDropConfig()
     private var allAvailableWordEntries: List<org.nihongo.mochi.domain.words.WordEntry> = emptyList()
     private var kanaPool: List<String> = emptyList()
     private var timerJob: Job? = null
 
-    // Complete map to normalize small characters to large Hiragana
     private val kanaNormalizationMap = mapOf(
-        'ぁ' to 'あ', 'ぃ' to 'い', 'ぅ' to 'う', 'ぇ' to 'え', 'ぉ' to 'お',
+        'ぁ' to 'あ', 'ぃ' to 'i', 'ぅ' to 'う', 'ぇ' to 'え', 'ぉ' to 'お',
         'っ' to 'つ', 'ゃ' to 'や', 'ゅ' to 'ゆ', 'ょ' to 'よ', 'ゎ' to 'わ',
         'ゕ' to 'か', 'ゖ' to 'け',
-        'ァ' to 'あ', 'ィ' to 'い', 'ゥ' to 'う', 'ェ' to 'え', 'ォ' to 'お',
+        'ァ' to 'あ', 'ィ' to 'i', 'ゥ' to 'う', 'ェ' to 'え', 'ォ' to 'お',
         'ッ' to 'つ', 'ャ' to 'や', 'ュ' to 'ゆ', 'ョ' to 'よ', 'ヮ' to 'わ',
         'ヵ' to 'か', 'ヶ' to 'け'
     )
 
     init {
         loadHistory()
+        checkSavedGame()
     }
 
-    /**
-     * Normalizes text: Katakana to Hiragana AND Small to Large.
-     * This ensures that "あ" == "ア" and "つ" == "っ".
-     */
     private fun normalizeKana(text: String): String {
         val hiragana = KanaUtils.katakanaToHiragana(text)
         return hiragana.map { kanaNormalizationMap[it] ?: it }.joinToString("")
@@ -64,55 +67,88 @@ class KanaDropViewModel(
         }
     }
 
+    private fun checkSavedGame() {
+        _hasSavedGame.value = settingsRepository.getGameState(GAME_STATE_KANADROP) != null
+    }
+
+    fun restoreGame(onRestored: () -> Unit) {
+        val savedJson = settingsRepository.getGameState(GAME_STATE_KANADROP) ?: return
+        try {
+            val restored = Json.decodeFromString<KanaDropGameState>(savedJson)
+            if (!restored.isGameOver) {
+                _state.value = restored.copy(isPaused = true, isLoading = true)
+                restored.config?.let { cfg ->
+                    config = cfg
+                    viewModelScope.launch {
+                        loadResourcesForLevel(cfg.levelFileName)
+                        _state.value = _state.value.copy(isLoading = false)
+                        startTimer()
+                        onRestored()
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            settingsRepository.clearGameState(GAME_STATE_KANADROP)
+            _hasSavedGame.value = false
+        }
+    }
+
+    private suspend fun loadResourcesForLevel(levelFileName: String) {
+        val allLevels = listOf("n5", "n4", "n3", "n2", "n1")
+        val selectedLevelIndex = allLevels.indexOf(levelFileName.lowercase())
+        val levelsToInclude = if (selectedLevelIndex != -1) {
+            allLevels.take(selectedLevelIndex + 1)
+        } else {
+            listOf(levelFileName) 
+        }
+
+        val entries = mutableListOf<org.nihongo.mochi.domain.words.WordEntry>()
+        levelsToInclude.forEach { lvl ->
+            try {
+                val words = wordRepository.getWordEntriesForLevelSuspend(lvl)
+                entries.addAll(words)
+            } catch (_: Exception) {}
+        }
+        
+        if (entries.isEmpty()) {
+            try {
+                entries.addAll(wordRepository.getWordEntriesForLevelSuspend("n5"))
+            } catch (_: Exception) {}
+        }
+
+        allAvailableWordEntries = entries.distinctBy { it.text + it.phonetics }
+        
+        kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
+            .filter { it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&" }
+            .map { normalizeKana(it) }
+            .filter { it.isNotEmpty() }
+        
+        if (kanaPool.isEmpty()) {
+            kanaPool = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん".map { it.toString() }
+        }
+    }
+
     fun initGame(levelFileName: String, mode: KanaLinkMode = KanaLinkMode.TIME_ATTACK) {
         viewModelScope.launch {
             _state.value = KanaDropGameState(isLoading = true)
+            settingsRepository.clearGameState(GAME_STATE_KANADROP)
+            _hasSavedGame.value = false
+            
             config = KanaDropConfig(
                 levelFileName = levelFileName,
                 mode = mode,
                 initialTime = if (mode == KanaLinkMode.TIME_ATTACK) 60 else 0
             )
             
-            val allLevels = listOf("n5", "n4", "n3", "n2", "n1")
-            val selectedLevelIndex = allLevels.indexOf(levelFileName.lowercase())
-            val levelsToInclude = if (selectedLevelIndex != -1) {
-                allLevels.take(selectedLevelIndex + 1)
-            } else {
-                listOf(levelFileName) 
-            }
-
-            val entries = mutableListOf<org.nihongo.mochi.domain.words.WordEntry>()
-            levelsToInclude.forEach { lvl ->
-                try {
-                    val words = wordRepository.getWordEntriesForLevelSuspend(lvl)
-                    entries.addAll(words)
-                } catch (_: Exception) {}
-            }
-            
-            if (entries.isEmpty()) {
-                try {
-                    entries.addAll(wordRepository.getWordEntriesForLevelSuspend("n5"))
-                } catch (_: Exception) {}
-            }
-
-            allAvailableWordEntries = entries.distinctBy { it.text + it.phonetics }
-            
-            // Pool is strictly Hiragana Large
-            kanaPool = levelContentProvider.getKanaPoolForLevel(levelFileName)
-                .filter { it.isNotBlank() && it.first() !in " ./()[]+-*=_\"'!?#%&" }
-                .map { normalizeKana(it) }
-                .filter { it.isNotEmpty() }
-            
-            if (kanaPool.isEmpty()) {
-                kanaPool = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん".map { it.toString() }
-            }
+            loadResourcesForLevel(levelFileName)
 
             generateInitialGrid()
             _state.value = _state.value.copy(
                 isLoading = false,
                 timeRemaining = config.initialTime,
                 timeElapsed = 0,
-                score = if (mode == KanaLinkMode.SURVIVAL) 100 else 0 
+                score = if (mode == KanaLinkMode.SURVIVAL) 100 else 0,
+                config = config
             )
             startTimer()
         }
@@ -124,6 +160,8 @@ class KanaDropViewModel(
             while (!_state.value.isGameOver) {
                 delay(1000)
                 val currentState = _state.value
+                if (currentState.isPaused) continue
+
                 val newElapsed = currentState.timeElapsed + 1
                 
                 if (config.mode == KanaLinkMode.TIME_ATTACK) {
@@ -144,6 +182,8 @@ class KanaDropViewModel(
 
     private fun endGame() {
         timerJob?.cancel()
+        settingsRepository.clearGameState(GAME_STATE_KANADROP)
+        _hasSavedGame.value = false
         val currentState = _state.value
         _state.value = currentState.copy(isGameOver = true)
         saveResult()
@@ -176,7 +216,6 @@ class KanaDropViewModel(
             }
         }
 
-        // We inject normalized versions only
         val wordsToInject = allAvailableWordEntries.shuffled().take(5).map { normalizeKana(it.phonetics) }
         wordsToInject.forEach { word ->
             var placed = false
@@ -223,7 +262,7 @@ class KanaDropViewModel(
 
     fun onCellTouched(row: Int, col: Int) {
         val currentState = _state.value
-        if (currentState.isGameOver || currentState.isLoading) return
+        if (currentState.isGameOver || currentState.isLoading || currentState.isPaused) return
         
         val cell = currentState.grid.getOrNull(row)?.getOrNull(col) ?: return
         val selected = currentState.selectedCells
@@ -260,10 +299,9 @@ class KanaDropViewModel(
     fun onReleaseSelection() {
         val currentState = _state.value
         val rawWord = currentState.currentWord
-        if (rawWord.isEmpty() || currentState.isGameOver) return
+        if (rawWord.isEmpty() || currentState.isGameOver || currentState.isPaused) return
         
         viewModelScope.launch {
-            // Selection is already Hiragana Large from grid, but we normalize it just in case
             val normalizedSelection = normalizeKana(rawWord)
             val validEntry = allAvailableWordEntries.find { 
                 normalizeKana(it.phonetics) == normalizedSelection 
@@ -364,12 +402,28 @@ class KanaDropViewModel(
         )
     }
 
+    fun pauseGame() {
+        _state.value = _state.value.copy(isPaused = true)
+    }
+
+    fun resumeGame() {
+        _state.value = _state.value.copy(isPaused = false)
+    }
+
+    fun saveAndExit() {
+        val json = Json.encodeToString(KanaDropGameState.serializer(), _state.value)
+        settingsRepository.saveGameState(GAME_STATE_KANADROP, json)
+        _hasSavedGame.value = true
+    }
+
     fun resetGame() {
         initGame(config.levelFileName, config.mode)
     }
 
     fun abandonGame() {
         timerJob?.cancel()
+        settingsRepository.clearGameState(GAME_STATE_KANADROP)
+        _hasSavedGame.value = false
         if (_state.value.score > 0 && !_state.value.isGameOver) {
              audioPlayer.playSound("sounds/game_over.mp3")
         }

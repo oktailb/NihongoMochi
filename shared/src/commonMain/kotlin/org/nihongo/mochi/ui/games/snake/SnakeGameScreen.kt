@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.snake
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import kotlin.math.abs
@@ -32,6 +34,11 @@ fun SnakeGameScreen(
     val state by viewModel.gameState.collectAsState()
     var dragAmount by remember { mutableStateOf(Offset.Zero) }
     val selectedMode by viewModel.selectedMode.collectAsState()
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = !state.isGameOver) {
+        showExitDialog = true
+    }
 
     MochiBackground {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -154,6 +161,25 @@ fun SnakeGameScreen(
                         SnakeItemLabel(item.character, item.position, cellSize, MaterialTheme.colorScheme.onSurface)
                     }
                 }
+            }
+
+            // Exit Confirmation Dialog
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
 
             // Game Result Overlay

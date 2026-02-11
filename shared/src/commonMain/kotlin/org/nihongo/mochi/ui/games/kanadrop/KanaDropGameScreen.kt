@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.games.kanadrop
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.flow.map
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameHUD
 import org.nihongo.mochi.ui.components.GameResultOverlay
 
@@ -29,6 +31,11 @@ fun KanaDropGameScreen(
     onBackClick: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
+    var showExitDialog by remember { mutableStateOf(false) }
+
+    BackHandler(enabled = !state.isGameOver) {
+        showExitDialog = true
+    }
 
     MochiBackground {
         Box(modifier = Modifier.fillMaxSize()) {
@@ -91,22 +98,24 @@ fun KanaDropGameScreen(
                             modifier = Modifier
                                 .size(boardWidth, boardHeight)
                                 .align(Alignment.Center)
-                                .pointerInput(state.grid) {
-                                    detectDragGestures(
-                                        onDragStart = { offset ->
-                                            val col = (offset.x / cellSize.toPx()).toInt()
-                                            val row = (offset.y / cellSize.toPx()).toInt()
-                                            viewModel.onCellTouched(row, col)
-                                        },
-                                        onDrag = { change, _ ->
-                                            val col = (change.position.x / cellSize.toPx()).toInt()
-                                            val row = (change.position.y / cellSize.toPx()).toInt()
-                                            viewModel.onCellTouched(row, col)
-                                        },
-                                        onDragEnd = {
-                                            viewModel.onReleaseSelection()
-                                        }
-                                    )
+                                .pointerInput(state.grid, state.isPaused) {
+                                    if (!state.isPaused) {
+                                        detectDragGestures(
+                                            onDragStart = { offset ->
+                                                val col = (offset.x / cellSize.toPx()).toInt()
+                                                val row = (offset.y / cellSize.toPx()).toInt()
+                                                viewModel.onCellTouched(row, col)
+                                            },
+                                            onDrag = { change, _ ->
+                                                val col = (change.position.x / cellSize.toPx()).toInt()
+                                                val row = (change.position.y / cellSize.toPx()).toInt()
+                                                viewModel.onCellTouched(row, col)
+                                            },
+                                            onDragEnd = {
+                                                viewModel.onReleaseSelection()
+                                            }
+                                        )
+                                    }
                                 }
                         ) {
                             state.grid.forEach { row ->
@@ -152,6 +161,25 @@ fun KanaDropGameScreen(
                         }
                     }
                 }
+            }
+
+            // Game Exit Dialog
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = {
+                        showExitDialog = false
+                        viewModel.abandonGame()
+                        onBackClick()
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { viewModel.pauseGame() },
+                    onResume = { viewModel.resumeGame() },
+                    onSaveAndExit = {
+                        showExitDialog = false
+                        viewModel.saveAndExit()
+                        onBackClick()
+                    }
+                )
             }
 
             // Game Result Overlay
