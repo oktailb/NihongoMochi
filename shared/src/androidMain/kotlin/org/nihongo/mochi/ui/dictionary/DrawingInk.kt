@@ -1,6 +1,6 @@
 package org.nihongo.mochi.ui.dictionary
 
-import com.google.mlkit.vision.digitalink.Ink
+import com.google.mlkit.vision.digitalink.recognition.Ink
 
 actual class DrawingInk(val ink: Ink)
 
