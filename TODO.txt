@@ -2,8 +2,8 @@ Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
 Todo:
- - [ ] Fix [App must support 16 KB memory page sizes]
- - [WIP] Meanings of wordlists
+ - [X] Fix [App must support 16 KB memory page sizes]
+ - [X] Meanings of wordlists
  - [ ] Achieve google play connexion
 
 Games:
@@ -28,7 +28,7 @@ Hiragana / Katakana
  - 
 
 Carte de Kanji :
- - [WIP] rajouter les traductions des mots donnés en exemple
+ - [X] rajouter les traductions des mots donnés en exemple
  - [X] je préférerai avoir les pronontiations avant le sens d'écriture (qui est super utile mais prends de la place sur l'écran)
  - rajouter la possibilité de se créer  des listes de vocabulaire en cliquant sur ces mots d'exemples ?
  - ou pouvoir highlight ceux qu'on connait déjà
