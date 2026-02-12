@@ -5,39 +5,13 @@ Todo:
  - [X] Fix [App must support 16 KB memory page sizes]
  - [X] Meanings of wordlists
  - [ ] Achieve google play connexion
-
-Games:
-  - [ ] Cemantix ??
-  - [ ] Tetris ou candycrush like
-  - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
-  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
-  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou.
-        -> Alimenter avec des kanjis partageant les mêmes radicaux.
-
-Notes de Sofia:
- - Acceuil sur l'appli:
- Directement en anglais : ajouter une option langue?
-La police est elle destinée à la langue japonaise ou est ce une police chinoise ?
-Avoir un questionnaire d'accueil sur le niveau actuel, les objectifs etc?
-
-Le menu de nivau :
-Il m'a fallu du temps pour comprendre qu'il s'agissait d'un menu déroulant, peut être clarifier le boutton ?
-
-Hiragana / Katakana
- - Rajouter le sens d'écriture et peut être la phonétique / prononciation pour les grand débutants?
- - 
-
-Carte de Kanji :
- - [X] rajouter les traductions des mots donnés en exemple
- - [X] je préférerai avoir les pronontiations avant le sens d'écriture (qui est super utile mais prends de la place sur l'écran)
- - rajouter la possibilité de se créer  des listes de vocabulaire en cliquant sur ces mots d'exemples ?
- - ou pouvoir highlight ceux qu'on connait déjà
- - [X] rajouter la possibilité de partir d'un mot d'exemple et retrouver la carte des autres Kanji qui le composent
-
-Ecriture game:
- - Pour les chiffres ils ne reconnaît pas le "6" comme étant une bonne réponse, il fait écrire "six"
- - c'est un peu embêtant de devoir jour avec l'ensemble du deck, si on a pas encore tout vu c'est très frustrant. Il vaudrait mieux avoir un format type leçon aprentissage et ensuite pouvoir lancer le jeu sur la base des leçons déjà vu.
- - ou alors pouvoir sélectionner un ensemble de Kanji sur les quels on veut jouer (si je prends N2 ou N1 c'est impossible de connaître tout le deck au moment où on lance le jeu, et le jeu est sur de l'aléatoire donc ne suit pas l'ordre d'apparition dans la liste).
-
-Jeu kana link:
-Quand on quitte l'appli et qu'un jeu est en cours, l'application renvoie quand même le son du game over / temps écoulé, - je pense que le jeu devrait plutôt se mettre en pause.
+ - [ ] Cemantix ??
+ - [ ] Tetris ou candycrush like
+ - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
+ - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
+ - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. -> Alimenter avec des kanjis partageant les mêmes radicaux.
+ - [ ] first run behavior : language selection, objectives, quick tour/tuto
+ - [ ] better revision management : define/highlight list
+ - [ ] ensure numerical values presence for numbers in meanings
+ - [ ] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
+ - [ ] restandardize games endings sounds

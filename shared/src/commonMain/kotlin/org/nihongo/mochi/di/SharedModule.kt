@@ -23,6 +23,7 @@ import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.presentation.HomeViewModel
+import org.nihongo.mochi.presentation.OnboardingViewModel
 import org.nihongo.mochi.presentation.dictionary.KanjiDetailViewModel
 import org.nihongo.mochi.presentation.dictionary.WordDetailViewModel
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
@@ -101,6 +102,7 @@ val sharedModule = module {
     factoryOf(::KanjiDetailViewModel)
     factoryOf(::WordDetailViewModel)
     factoryOf(::SettingsViewModel)
+    factoryOf(::OnboardingViewModel)
     factoryOf(::WordListViewModel)
     factoryOf(::HomeViewModel) 
     

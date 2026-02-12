@@ -6,6 +6,9 @@ import org.nihongo.mochi.settings.*
 
 class SettingsRepository(private val settings: Settings) {
 
+    fun isFirstRun(): Boolean = settings.getBoolean(IS_FIRST_RUN_PREF_KEY, true)
+    fun setFirstRunCompleted() = settings.putBoolean(IS_FIRST_RUN_PREF_KEY, false)
+
     fun getPronunciation(): String = settings.getString(PRONUNCIATION_PREF_KEY, "Hiragana")
     fun setPronunciation(value: String) = settings.putString(PRONUNCIATION_PREF_KEY, value)
 

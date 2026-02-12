@@ -43,6 +43,8 @@ import org.nihongo.mochi.domain.levels.LevelDefinition
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.ResourceUtils
+import org.nihongo.mochi.presentation.OnboardingViewModel
+import org.koin.compose.koinInject
 import kotlin.math.roundToInt
 
 @Composable
@@ -65,6 +67,7 @@ fun HomeScreen(
     onAboutClick: () -> Unit
 ) {
     val scrollState = rememberScrollState()
+    val onboardingViewModel: OnboardingViewModel = koinInject()
 
     MochiBackground {
         Column(
@@ -168,6 +171,9 @@ fun HomeScreen(
             
             Spacer(modifier = Modifier.height(16.dp))
         }
+
+        // Display onboarding if needed
+        OnboardingPopup(viewModel = onboardingViewModel)
     }
 }
 

@@ -14,6 +14,8 @@ const val TTS_RATE_PREF_KEY = "TtsRate"
 const val TTS_VOICE_ID_PREF_KEY = "TtsVoiceId"
 const val APP_LOCALE_PREF_KEY = "AppLocale"
 
+const val IS_FIRST_RUN_PREF_KEY = "IsFirstRun"
+
 // Game States
 const val GAME_STATE_SNAKE = "GameState_Snake"
 const val GAME_STATE_SHIRITORI = "GameState_Shiritori"
