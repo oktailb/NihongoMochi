@@ -132,13 +132,13 @@
     <string name="results_section_school">Sekolah (Kelas / SMA)</string>
     <string name="results_section_frequency">Frekuensi</string>
     <string name="results_frequency_x_words">%1$d kata yang paling sering muncul</string>
-    <string name="results_hiragana">Hiragana - %1$d%%</string>
-    <string name="results_katakana">Katakana - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">Kelas 1 - %1$d%%</string>
     <string name="results_grade_2">Kelas 2 - %1$d%%</string>
     <string name="results_grade_3">Kelas 3 - %1$d%%</string>
@@ -183,8 +183,8 @@
     <string name="dictionary_clear_drawing_desc">Hapus filter gambar</string>
     <string name="dictionary_search_button">Cari</string>
     <string name="dictionary_results_count_format">%1$d hasil</string>
-    <string name="dictionary_reading_on">Pada:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">Komponen</string>
     <string name="section_fundamentals">Dasar-dasar</string>
     <string name="section_fundamentals_desc">Dasar-dasar tulisan Jepang</string>
@@ -707,4 +707,18 @@
     <string name="notification_msg_4">Mochi-Mochi! Saatnya untuk meregangkan otak Anda! 🧠</string>
     <string name="kanji_readings">Bacaan</string>
     <string name="kanji_meanings">Artinya</string>
+    <string name="onboarding_next">Berikutnya</string>
+    <string name="onboarding_finish">Menyelesaikan</string>
+    <string name="onboarding_choose_language">Pilih bahasa Anda</string>
+    <string name="onboarding_mode_label">Mode</string>
+    <string name="onboarding_mode_description">Ini menentukan level yang tersedia (level JLPT, nilai Sekolah, dll.)</string>
+    <string name="onboarding_ready_title">Siap untuk memulai!</string>
+    <string name="onboarding_ready_description">Gunakan penggeser di layar beranda untuk mengubah level dan mulai berlatih!</string>
+    <string name="onboarding_slider_hint">Geser untuk mengubah level</string>
+    <string name="exit_dialog_title">Permainan Dijeda</string>
+    <string name="exit_dialog_message">Apakah Anda yakin ingin berhenti?</string>
+    <string name="exit_dialog_lose_progress">Kemajuan sesi ini akan hilang.</string>
+    <string name="exit_dialog_resume">Lanjutkan Permainan</string>
+    <string name="exit_dialog_pause_exit">Jeda dan Keluar</string>
+    <string name="exit_dialog_quit_lose_progress">Berhenti dan kehilangan kemajuan</string>
 </resources>

@@ -64,7 +64,8 @@ fun HomeScreen(
     onDictionaryClick: () -> Unit,
     onResultsClick: () -> Unit,
     onOptionsClick: () -> Unit,
-    onAboutClick: () -> Unit
+    onAboutClick: () -> Unit,
+    onLocaleChanged: (String) -> Unit
 ) {
     val scrollState = rememberScrollState()
     val onboardingViewModel: OnboardingViewModel = koinInject()
@@ -173,7 +174,10 @@ fun HomeScreen(
         }
 
         // Display onboarding if needed
-        OnboardingPopup(viewModel = onboardingViewModel)
+        OnboardingPopup(
+            viewModel = onboardingViewModel,
+            onLocaleChanged = onLocaleChanged
+        )
     }
 }
 

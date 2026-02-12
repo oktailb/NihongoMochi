@@ -124,13 +124,13 @@
     <string name="results_section_school">Сургууль (Анги / Ахлах сургууль)</string>
     <string name="results_section_frequency">Давтамж</string>
     <string name="results_frequency_x_words">Хамгийн түгээмэл %1$d үг</string>
-    <string name="results_hiragana">Хираганас - %1$d%%</string>
-    <string name="results_katakana">Катакана - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">1-р анги - %1$d%%</string>
     <string name="results_grade_2">2-р анги - %1$d%%</string>
     <string name="results_grade_3">3-р анги - %1$d%%</string>
@@ -178,8 +178,8 @@
     <string name="dictionary_clear_drawing_desc">Зургийн шүүлтүүрийг арилгах</string>
     <string name="dictionary_search_button">Хайх</string>
     <string name="dictionary_results_count_format">%1$d илэрц</string>
-    <string name="dictionary_reading_on">Асаалттай:</string>
-    <string name="dictionary_reading_kun">Кун:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">Бүрэлдэхүүн хэсгүүд</string>
     <string name="settings_category_general">Генерал</string>
     <string name="settings_category_learning">Сурах</string>
@@ -705,4 +705,18 @@
     <string name="notification_msg_4">Мочи-Мочи! Тархиа сунгах цаг болжээ! 🧠</string>
     <string name="kanji_readings">Уншлага</string>
     <string name="kanji_meanings">Утга</string>
+    <string name="onboarding_next">Дараа нь</string>
+    <string name="onboarding_finish">Дуусга</string>
+    <string name="onboarding_choose_language">Хэлээ сонго</string>
+    <string name="onboarding_mode_label">Горим</string>
+    <string name="onboarding_mode_description">Энэ нь боломжтой түвшинг (JLPT түвшин, Сургуулийн дүн гэх мэт) тодорхойлдог.</string>
+    <string name="onboarding_ready_title">Эхлэхэд бэлэн байна!</string>
+    <string name="onboarding_ready_description">Түвшин өөрчлөхийн тулд үндсэн дэлгэц дээрх гулсагчийг ашиглан дасгал хийж эхлээрэй!</string>
+    <string name="onboarding_slider_hint">Түвшин өөрчлөхийн тулд гулсуулна уу</string>
+    <string name="exit_dialog_title">Тоглоом түр зогссон</string>
+    <string name="exit_dialog_message">Та гарахдаа итгэлтэй байна уу?</string>
+    <string name="exit_dialog_lose_progress">Энэ хуралдааны явц алдагдах болно.</string>
+    <string name="exit_dialog_resume">Тоглоомыг үргэлжлүүлэх</string>
+    <string name="exit_dialog_pause_exit">Түр зогсоох, гарах</string>
+    <string name="exit_dialog_quit_lose_progress">Гарах, ахиц дэвшлийг алдах</string>
 </resources>

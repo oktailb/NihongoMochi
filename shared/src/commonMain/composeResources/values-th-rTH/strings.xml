@@ -131,13 +131,13 @@
     <string name="results_section_school">โรงเรียน (เกรด / มัธยมปลาย)</string>
     <string name="results_section_frequency">ความถี่</string>
     <string name="results_frequency_x_words">%1$d คำที่ใช้บ่อยที่สุด</string>
-    <string name="results_hiragana">ฮิรางานะ - %1$d%%</string>
-    <string name="results_katakana">คาตาคานะ - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">เกรด 1 - %1$d%%</string>
     <string name="results_grade_2">เกรด 2 - %1$d%%</string>
     <string name="results_grade_3">เกรด 3 - %1$d%%</string>
@@ -181,8 +181,8 @@
     <string name="dictionary_clear_drawing_desc">ล้างตัวกรองการวาด</string>
     <string name="dictionary_search_button">ค้นหา</string>
     <string name="dictionary_results_count_format">%1$d ผลลัพธ์</string>
-    <string name="dictionary_reading_on">บน:</string>
-    <string name="dictionary_reading_kun">คุน:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">ส่วนประกอบ</string>
     <string name="section_fundamentals">ความรู้พื้นฐาน</string>
     <string name="section_fundamentals_desc">พื้นฐานการเขียนภาษาญี่ปุ่น</string>
@@ -707,4 +707,18 @@
     <string name="notification_msg_4">โมจิ-โมจิ! ถึงเวลายืดสมองของคุณแล้ว! 🧠</string>
     <string name="kanji_readings">การอ่าน</string>
     <string name="kanji_meanings">ความหมาย</string>
+    <string name="onboarding_next">ต่อไป</string>
+    <string name="onboarding_finish">เสร็จ</string>
+    <string name="onboarding_choose_language">เลือกภาษาของคุณ</string>
+    <string name="onboarding_mode_label">โหมด</string>
+    <string name="onboarding_mode_description">สิ่งนี้จะกำหนดระดับที่มี (ระดับ JLPT, ผลการเรียนของโรงเรียน ฯลฯ)</string>
+    <string name="onboarding_ready_title">พร้อมเริ่มแล้ว!</string>
+    <string name="onboarding_ready_description">ใช้แถบเลื่อนบนหน้าจอหลักเพื่อเปลี่ยนระดับและเริ่มฝึกซ้อม!</string>
+    <string name="onboarding_slider_hint">เลื่อนเพื่อเปลี่ยนระดับ</string>
+    <string name="exit_dialog_title">เกมหยุดชั่วคราว</string>
+    <string name="exit_dialog_message">คุณแน่ใจหรือว่าต้องการเลิก?</string>
+    <string name="exit_dialog_lose_progress">ความคืบหน้าของเซสชันนี้จะหายไป</string>
+    <string name="exit_dialog_resume">เล่นเกมต่อ</string>
+    <string name="exit_dialog_pause_exit">หยุดชั่วคราวและออก</string>
+    <string name="exit_dialog_quit_lose_progress">ลาออกและสูญเสียความก้าวหน้า</string>
 </resources>

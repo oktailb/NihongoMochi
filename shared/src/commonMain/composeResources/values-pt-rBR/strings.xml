@@ -132,13 +132,13 @@
     <string name="results_section_school">Escola (Graus / Ensino Médio)</string>
     <string name="results_section_frequency">Frequência</string>
     <string name="results_frequency_x_words">%1$d palavras mais frequentes</string>
-    <string name="results_hiragana">Hiraganas - %1$d%%</string>
-    <string name="results_katakana">Katakanas - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">Grau 1 - %1$d%%</string>
     <string name="results_grade_2">Grau 2 - %1$d%%</string>
     <string name="results_grade_3">Grau 3 - %1$d%%</string>
@@ -182,8 +182,8 @@
     <string name="dictionary_clear_drawing_desc">Limpar filtro de desenho</string>
     <string name="dictionary_search_button">Pesquisar</string>
     <string name="dictionary_results_count_format">%1$d resultados</string>
-    <string name="dictionary_reading_on">Sobre:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">Componentes</string>
     <string name="section_fundamentals">Fundamentos</string>
     <string name="section_fundamentals_desc">Noções básicas de escrita japonesa</string>
@@ -707,4 +707,18 @@
     <string name="notification_msg_4">Mochi-Mochi! É hora de esticar seu cérebro! 🧠</string>
     <string name="kanji_readings">Leituras</string>
     <string name="kanji_meanings">Significados</string>
+    <string name="onboarding_next">Próximo</string>
+    <string name="onboarding_finish">Terminar</string>
+    <string name="onboarding_choose_language">Escolha seu idioma</string>
+    <string name="onboarding_mode_label">Modo</string>
+    <string name="onboarding_mode_description">Isso determina os níveis disponíveis (níveis JLPT, notas escolares, etc.)</string>
+    <string name="onboarding_ready_title">Pronto para começar!</string>
+    <string name="onboarding_ready_description">Use o controle deslizante na tela inicial para mudar de nível e começar a praticar!</string>
+    <string name="onboarding_slider_hint">Deslize para mudar de nível</string>
+    <string name="exit_dialog_title">Jogo pausado</string>
+    <string name="exit_dialog_message">Tem certeza de que deseja desistir?</string>
+    <string name="exit_dialog_lose_progress">A progressão desta sessão será perdida.</string>
+    <string name="exit_dialog_resume">Retomar jogo</string>
+    <string name="exit_dialog_pause_exit">Pausar e sair</string>
+    <string name="exit_dialog_quit_lose_progress">Desista e perca a progressão</string>
 </resources>

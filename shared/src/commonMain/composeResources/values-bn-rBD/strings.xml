@@ -129,13 +129,13 @@
     <string name="results_section_school">স্কুল (গ্রেড / হাই স্কুল)</string>
     <string name="results_section_frequency">ফ্রিকোয়েন্সি</string>
     <string name="results_frequency_x_words">%1$d সর্বাধিক ব্যবহৃত শব্দ</string>
-    <string name="results_hiragana">হিরাগানা - %1$d%%</string>
-    <string name="results_katakana">কাতাকানা - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">গ্রেড ১ - %1$d%%</string>
     <string name="results_grade_2">গ্রেড ২ - %1$d%%</string>
     <string name="results_grade_3">গ্রেড ৩ - %1$d%%</string>
@@ -179,8 +179,8 @@
     <string name="dictionary_clear_drawing_desc">অঙ্কন ফিল্টার মুছুন</string>
     <string name="dictionary_search_button">অনুসন্ধান</string>
     <string name="dictionary_results_count_format">%1$d ফলাফল</string>
-    <string name="dictionary_reading_on">ON:</string>
-    <string name="dictionary_reading_kun">KUN:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">উপাদান</string>
     <string name="section_fundamentals">মৌলিক</string>
     <string name="section_fundamentals_desc">জাপানি লেখার মৌলিক বিষয়</string>
@@ -705,4 +705,18 @@
     <string name="notification_msg_4">মোচি-মুচি! এটা আপনার মস্তিষ্ক প্রসারিত করার সময়! 🧠</string>
     <string name="kanji_readings">রিডিংস</string>
     <string name="kanji_meanings">অর্থ</string>
+    <string name="onboarding_next">পরবর্তী</string>
+    <string name="onboarding_finish">শেষ করুন</string>
+    <string name="onboarding_choose_language">আপনার ভাষা চয়ন করুন</string>
+    <string name="onboarding_mode_label">মোড</string>
+    <string name="onboarding_mode_description">এটি উপলব্ধ স্তরগুলি নির্ধারণ করে (JLPT স্তর, স্কুল গ্রেড, ইত্যাদি)</string>
+    <string name="onboarding_ready_title">শুরু করতে প্রস্তুত!</string>
+    <string name="onboarding_ready_description">স্তর পরিবর্তন করতে এবং অনুশীলন শুরু করতে হোম স্ক্রিনে স্লাইডারটি ব্যবহার করুন!</string>
+    <string name="onboarding_slider_hint">লেভেল পরিবর্তন করতে স্লাইড করুন</string>
+    <string name="exit_dialog_title">খেলা থামানো হয়েছে</string>
+    <string name="exit_dialog_message">আপনি কি নিশ্চিত আপনি প্রস্থান করতে চান?</string>
+    <string name="exit_dialog_lose_progress">এই অধিবেশনের অগ্রগতি হারিয়ে যাবে।</string>
+    <string name="exit_dialog_resume">খেলা পুনরায় শুরু করুন</string>
+    <string name="exit_dialog_pause_exit">বিরতি এবং প্রস্থান করুন</string>
+    <string name="exit_dialog_quit_lose_progress">প্রস্থান করুন এবং অগ্রগতি হারান</string>
 </resources>

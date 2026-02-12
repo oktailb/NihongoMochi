@@ -131,13 +131,13 @@
     <string name="results_section_school">학교 (학년 / 고등학교)</string>
     <string name="results_section_frequency">빈도</string>
     <string name="results_frequency_x_words">가장 자주 사용되는 단어 %1$d개</string>
-    <string name="results_hiragana">히라가나 - %1$d%%</string>
-    <string name="results_katakana">가타카나 - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">1학년 - %1$d%%</string>
     <string name="results_grade_2">2학년 - %1$d%%</string>
     <string name="results_grade_3">3학년 - %1$d%%</string>
@@ -182,8 +182,8 @@
     <string name="dictionary_clear_drawing_desc">그리기 필터 지우기</string>
     <string name="dictionary_search_button">검색</string>
     <string name="dictionary_results_count_format">%1$d 결과</string>
-    <string name="dictionary_reading_on">에:</string>
-    <string name="dictionary_reading_kun">쿤:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">구성 요소</string>
     <string name="section_fundamentals">기초</string>
     <string name="section_fundamentals_desc">일본어 작문의 기초</string>
@@ -707,4 +707,18 @@
     <string name="notification_msg_4">모찌모찌! 두뇌를 단련할 시간입니다! 🧠</string>
     <string name="kanji_readings">독서</string>
     <string name="kanji_meanings">의미</string>
+    <string name="onboarding_next">다음</string>
+    <string name="onboarding_finish">마치다</string>
+    <string name="onboarding_choose_language">언어를 선택하세요</string>
+    <string name="onboarding_mode_label">방법</string>
+    <string name="onboarding_mode_description">이에 따라 이용 가능한 레벨이 결정됩니다(JLPT 레벨, 학교 성적 등).</string>
+    <string name="onboarding_ready_title">시작할 준비가 되었습니다!</string>
+    <string name="onboarding_ready_description">홈 화면의 슬라이더를 사용하여 레벨을 변경하고 연습을 시작하세요!</string>
+    <string name="onboarding_slider_hint">슬라이드하여 레벨 변경</string>
+    <string name="exit_dialog_title">게임이 일시 중지됨</string>
+    <string name="exit_dialog_message">정말 그만두시겠어요?</string>
+    <string name="exit_dialog_lose_progress">이 세션의 진행 상황이 손실됩니다.</string>
+    <string name="exit_dialog_resume">게임 재개</string>
+    <string name="exit_dialog_pause_exit">일시 정지 및 종료</string>
+    <string name="exit_dialog_quit_lose_progress">종료하고 진행 상황을 잃습니다.</string>
 </resources>

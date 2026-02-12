@@ -38,6 +38,24 @@
     <string name="settings_reset_tutorial">Reset tutorial</string>
     <string name="settings_send_bug_report">Send bug report</string>
 
+    <!-- Onboarding -->
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_finish">Finish</string>
+    <string name="onboarding_choose_language">Choose your language</string>
+    <string name="onboarding_mode_label">Mode</string>
+    <string name="onboarding_mode_description">This determines the levels available (JLPT levels, School grades, etc.)</string>
+    <string name="onboarding_ready_title">Ready to start!</string>
+    <string name="onboarding_ready_description">Use the slider on the home screen to change levels and start practicing!</string>
+    <string name="onboarding_slider_hint">Slide to change level</string>
+
+    <!-- Exit Dialog -->
+    <string name="exit_dialog_title">Game Paused</string>
+    <string name="exit_dialog_message">Are you sure you want to quit?</string>
+    <string name="exit_dialog_lose_progress">Progression of this session will be lost.</string>
+    <string name="exit_dialog_resume">Resume Game</string>
+    <string name="exit_dialog_pause_exit">Pause and Quit</string>
+    <string name="exit_dialog_quit_lose_progress">Quit and lose progression</string>
+
     <!-- Language Pack Settings -->
     <string name="settings_downloading_pack">Downloading language pack...</string>
     <string name="settings_download_success">Language pack ready!</string>
@@ -148,13 +166,13 @@
     <string name="results_section_school">School (Grades / High School)</string>
     <string name="results_section_frequency">Frequency</string>
     <string name="results_frequency_x_words">%1$d most frequent words</string>
-    <string name="results_hiragana">Hiraganas - %1$d%%</string>
-    <string name="results_katakana">Katakanas - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">Grade 1 - %1$d%%</string>
     <string name="results_grade_2">Grade 2 - %1$d%%</string>
     <string name="results_grade_3">Grade 3 - %1$d%%</string>
@@ -202,8 +220,8 @@
     <string name="dictionary_clear_drawing_desc">Clear drawing filter</string>
     <string name="dictionary_search_button">Search</string>
     <string name="dictionary_results_count_format">%1$d results</string>
-    <string name="dictionary_reading_on">On:</string>
-    <string name="dictionary_reading_kun">Kun:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">Components</string>
     <string name="settings_category_general">General</string>
     <string name="settings_category_learning">Learning</string>

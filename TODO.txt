@@ -10,7 +10,7 @@ Todo:
  - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. -> Alimenter avec des kanjis partageant les mêmes radicaux.
- - [ ] first run behavior : language selection, objectives, quick tour/tuto
+ - [X] first run behavior : language selection, objectives, quick tour/tuto
  - [ ] better revision management : define/highlight list
  - [ ] ensure numerical values presence for numbers in meanings
  - [ ] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)

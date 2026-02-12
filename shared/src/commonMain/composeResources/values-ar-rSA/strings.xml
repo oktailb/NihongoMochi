@@ -129,13 +129,13 @@
     <string name="results_section_school">المدرسة (الصفوف / الثانوية)</string>
     <string name="results_section_frequency">التكرار</string>
     <string name="results_frequency_x_words">%1$d الكلمات الأكثر شيوعاً</string>
-    <string name="results_hiragana">هيراغانا - %1$d%%</string>
-    <string name="results_katakana">كاتاكانا - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">الصف 1 - %1$d%%</string>
     <string name="results_grade_2">الصف 2 - %1$d%%</string>
     <string name="results_grade_3">الصف 3 - %1$d%%</string>
@@ -179,8 +179,8 @@
     <string name="dictionary_clear_drawing_desc">مسح عامل تصفية الرسم</string>
     <string name="dictionary_search_button">بحث</string>
     <string name="dictionary_results_count_format">%1$d النتائج</string>
-    <string name="dictionary_reading_on">على:</string>
-    <string name="dictionary_reading_kun">كون:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">المكونات</string>
     <string name="section_fundamentals">الأساسيات</string>
     <string name="section_fundamentals_desc">أساسيات الكتابة اليابانية</string>
@@ -705,4 +705,18 @@
     <string name="notification_msg_4">موتشي موتشي! حان الوقت لتمتد عقلك! 🧠</string>
     <string name="kanji_readings">قراءات</string>
     <string name="kanji_meanings">معاني</string>
+    <string name="onboarding_next">التالي</string>
+    <string name="onboarding_finish">ينهي</string>
+    <string name="onboarding_choose_language">اختر لغتك</string>
+    <string name="onboarding_mode_label">وضع</string>
+    <string name="onboarding_mode_description">وهذا يحدد المستويات المتاحة (مستويات JLPT، الدرجات المدرسية، وما إلى ذلك)</string>
+    <string name="onboarding_ready_title">جاهز للبدء!</string>
+    <string name="onboarding_ready_description">استخدم شريط التمرير الموجود على الشاشة الرئيسية لتغيير المستويات وبدء التدريب!</string>
+    <string name="onboarding_slider_hint">الشريحة لتغيير المستوى</string>
+    <string name="exit_dialog_title">اللعبة متوقفة مؤقتا</string>
+    <string name="exit_dialog_message">هل أنت متأكد أنك تريد الإقلاع عن التدخين؟</string>
+    <string name="exit_dialog_lose_progress">سيتم فقدان التقدم في هذه الجلسة.</string>
+    <string name="exit_dialog_resume">استئناف اللعبة</string>
+    <string name="exit_dialog_pause_exit">وقفة وإنهاء</string>
+    <string name="exit_dialog_quit_lose_progress">إنهاء وتفقد التقدم</string>
 </resources>

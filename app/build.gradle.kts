@@ -41,8 +41,8 @@ android {
         applicationId = "org.nihongo.mochi"
         minSdk = 28
         targetSdk = 36
-        versionCode = 27
-        versionName = "0.9.3"
+        versionCode = 28
+        versionName = "0.9.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

@@ -124,13 +124,13 @@
     <string name="results_section_school">学校（学年・高校）</string>
     <string name="results_section_frequency">頻度</string>
     <string name="results_frequency_x_words">%1$d 個の最も頻繁に使用される単語</string>
-    <string name="results_hiragana">ひらがな - %1$d%%</string>
-    <string name="results_katakana">カタカナ - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">グレード 1 - %1$d%%</string>
     <string name="results_grade_2">グレード 2 - %1$d%%</string>
     <string name="results_grade_3">グレード 3 - %1$d%%</string>
@@ -178,8 +178,8 @@
     <string name="dictionary_clear_drawing_desc">描画フィルターをクリア</string>
     <string name="dictionary_search_button">検索</string>
     <string name="dictionary_results_count_format">%1$d 件の結果</string>
-    <string name="dictionary_reading_on">の上：</string>
-    <string name="dictionary_reading_kun">クン：</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">コンポーネント</string>
     <string name="settings_category_general">一般的な</string>
     <string name="settings_category_learning">学ぶ</string>
@@ -705,4 +705,18 @@
     <string name="notification_msg_4">もちもち！あなたの脳を伸ばす時間です！ 🧠</string>
     <string name="kanji_readings">測定値</string>
     <string name="kanji_meanings">意味</string>
+    <string name="onboarding_next">次</string>
+    <string name="onboarding_finish">仕上げる</string>
+    <string name="onboarding_choose_language">言語を選択してください</string>
+    <string name="onboarding_mode_label">モード</string>
+    <string name="onboarding_mode_description">これにより、利用可能なレベル（JLPTレベル、学校の成績など）が決まります。</string>
+    <string name="onboarding_ready_title">始める準備は完了です！</string>
+    <string name="onboarding_ready_description">ホーム画面のスライダーを使用してレベルを変更し、練習を始めましょう。</string>
+    <string name="onboarding_slider_hint">スライドしてレベルを変更します</string>
+    <string name="exit_dialog_title">ゲーム一時停止中</string>
+    <string name="exit_dialog_message">本当に辞めてもよろしいですか？</string>
+    <string name="exit_dialog_lose_progress">このセッションの進行状況は失われます。</string>
+    <string name="exit_dialog_resume">ゲームを再開する</string>
+    <string name="exit_dialog_pause_exit">一時停止して終了する</string>
+    <string name="exit_dialog_quit_lose_progress">終了すると進行状況が失われます</string>
 </resources>

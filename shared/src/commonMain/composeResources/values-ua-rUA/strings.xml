@@ -124,13 +124,13 @@
     <string name="results_section_school">Школа (Оцінки / Середня школа)</string>
     <string name="results_section_frequency">Частота</string>
     <string name="results_frequency_x_words">%1$d найчастіших слів</string>
-    <string name="results_hiragana">Хірагани - %1$d%%</string>
-    <string name="results_katakana">Катакани - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 – %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">1 клас - %1$d%%</string>
     <string name="results_grade_2">2 клас - %1$d%%</string>
     <string name="results_grade_3">3 клас - %1$d%%</string>
@@ -178,8 +178,8 @@
     <string name="dictionary_clear_drawing_desc">Очистити фільтр малювання</string>
     <string name="dictionary_search_button">Пошук</string>
     <string name="dictionary_results_count_format">%1$d результатів</string>
-    <string name="dictionary_reading_on">на:</string>
-    <string name="dictionary_reading_kun">Кун:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">компоненти</string>
     <string name="settings_category_general">Загальний</string>
     <string name="settings_category_learning">навчання</string>
@@ -705,4 +705,18 @@
     <string name="notification_msg_4">Мочі-Мочі! Настав час напружити свій мозок! 🧠</string>
     <string name="kanji_readings">Хрестоматія</string>
     <string name="kanji_meanings">Значення</string>
+    <string name="onboarding_next">Далі</string>
+    <string name="onboarding_finish">Закінчити</string>
+    <string name="onboarding_choose_language">Виберіть свою мову</string>
+    <string name="onboarding_mode_label">Режим</string>
+    <string name="onboarding_mode_description">Це визначає доступні рівні (рівні JLPT, шкільні оцінки тощо).</string>
+    <string name="onboarding_ready_title">Готовий почати!</string>
+    <string name="onboarding_ready_description">Використовуйте повзунок на головному екрані, щоб змінити рівні та почати тренуватися!</string>
+    <string name="onboarding_slider_hint">Проведіть пальцем, щоб змінити рівень</string>
+    <string name="exit_dialog_title">Гра призупинена</string>
+    <string name="exit_dialog_message">Ви впевнені, що хочете вийти?</string>
+    <string name="exit_dialog_lose_progress">Хід цього сеансу буде втрачено.</string>
+    <string name="exit_dialog_resume">Відновити гру</string>
+    <string name="exit_dialog_pause_exit">Пауза та вихід</string>
+    <string name="exit_dialog_quit_lose_progress">Вийти і втратити прогрес</string>
 </resources>

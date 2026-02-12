@@ -128,13 +128,13 @@
     <string name="results_section_school">Trường học (Lớp / Cấp 3)</string>
     <string name="results_section_frequency">Tần suất</string>
     <string name="results_frequency_x_words">%1$d từ thường gặp nhất</string>
-    <string name="results_hiragana">Hiragana - %1$d%%</string>
-    <string name="results_katakana">Katakana - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">Lớp 1 - %1$d%%</string>
     <string name="results_grade_2">Lớp 2 - %1$d%%</string>
     <string name="results_grade_3">Lớp 3 - %1$d%%</string>
@@ -608,8 +608,8 @@
     <string name="level_user_custom_list">Sửa đổi</string>
     <string name="game_writing_on" translatable="false">ON</string>
     <string name="game_writing_kun" translatable="false">KUN</string>
-    <string name="dictionary_reading_on">TRÊN:</string>
-    <string name="dictionary_reading_kun">Côn:</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="game_kana_link_title">Liên kết Kana</string>
     <string name="game_kana_link_subtitle">Liên kết Kanas để tạo thành từ và xóa khối</string>
     <string name="game_kana_link_setup_title">Thiết lập liên kết Kana</string>
@@ -703,4 +703,18 @@
     <string name="notification_msg_4">Mochi Mochi! Đã đến lúc phải căng não! 🧠</string>
     <string name="kanji_readings">Bài đọc</string>
     <string name="kanji_meanings">Ý nghĩa</string>
+    <string name="onboarding_next">Kế tiếp</string>
+    <string name="onboarding_finish">Hoàn thành</string>
+    <string name="onboarding_choose_language">Chọn ngôn ngữ của bạn</string>
+    <string name="onboarding_mode_label">Cách thức</string>
+    <string name="onboarding_mode_description">Điều này xác định các cấp độ có sẵn (cấp độ JLPT, cấp trường, v.v.)</string>
+    <string name="onboarding_ready_title">Sẵn sàng để bắt đầu!</string>
+    <string name="onboarding_ready_description">Sử dụng thanh trượt trên màn hình chính để thay đổi cấp độ và bắt đầu luyện tập!</string>
+    <string name="onboarding_slider_hint">Trượt để thay đổi cấp độ</string>
+    <string name="exit_dialog_title">Trò chơi bị tạm dừng</string>
+    <string name="exit_dialog_message">Bạn có chắc chắn muốn bỏ cuộc không?</string>
+    <string name="exit_dialog_lose_progress">Tiến trình của phiên này sẽ bị mất.</string>
+    <string name="exit_dialog_resume">Tiếp tục trò chơi</string>
+    <string name="exit_dialog_pause_exit">Tạm dừng và Thoát</string>
+    <string name="exit_dialog_quit_lose_progress">Thoát khỏi và mất tiến bộ</string>
 </resources>

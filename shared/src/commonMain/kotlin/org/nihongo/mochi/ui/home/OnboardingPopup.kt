@@ -27,7 +27,8 @@ import org.nihongo.mochi.ui.settings.LanguageItem
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OnboardingPopup(
-    viewModel: OnboardingViewModel
+    viewModel: OnboardingViewModel,
+    onLocaleChanged: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -65,7 +66,7 @@ fun OnboardingPopup(
                         Spacer(modifier = Modifier.height(16.dp))
 
                         when (uiState.currentStep) {
-                            0 -> LanguageStep(uiState, viewModel)
+                            0 -> LanguageStep(uiState, viewModel, onLocaleChanged)
                             1 -> ModeStep(uiState, viewModel)
                             2 -> HighlightStep(viewModel)
                         }
@@ -78,8 +79,8 @@ fun OnboardingPopup(
                             shape = RoundedCornerShape(12.dp)
                         ) {
                             Text(
-                                if (uiState.currentStep < 2) "Next" // Simple fallback as these are not in strings.xml yet
-                                else "Finish"
+                                if (uiState.currentStep < 2) stringResource(Res.string.onboarding_next)
+                                else stringResource(Res.string.onboarding_finish)
                             )
                         }
                     }
@@ -91,7 +92,11 @@ fun OnboardingPopup(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LanguageStep(uiState: OnboardingViewModel.OnboardingUiState, viewModel: OnboardingViewModel) {
+fun LanguageStep(
+    uiState: OnboardingViewModel.OnboardingUiState,
+    viewModel: OnboardingViewModel,
+    onLocaleChanged: (String) -> Unit
+) {
     val languages = remember {
         listOf(
             LanguageItem("ar_SA", "العربية", Res.drawable.flag_sa_sa),
@@ -119,7 +124,7 @@ fun LanguageStep(uiState: OnboardingViewModel.OnboardingUiState, viewModel: Onbo
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
-            "Choose your language",
+            stringResource(Res.string.onboarding_choose_language),
             style = MaterialTheme.typography.titleMedium,
             textAlign = TextAlign.Center
         )
@@ -160,6 +165,7 @@ fun LanguageStep(uiState: OnboardingViewModel.OnboardingUiState, viewModel: Onbo
                         },
                         onClick = {
                             viewModel.onLocaleChanged(language.code)
+                            onLocaleChanged(language.code)
                             expanded = false
                         }
                     )
@@ -197,7 +203,7 @@ fun ModeStep(uiState: OnboardingViewModel.OnboardingUiState, viewModel: Onboardi
                 value = getModeLabel(uiState.currentMode),
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Mode") },
+                label = { Text(stringResource(Res.string.onboarding_mode_label)) },
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                 modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable)
             )
@@ -217,7 +223,7 @@ fun ModeStep(uiState: OnboardingViewModel.OnboardingUiState, viewModel: Onboardi
         
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            "This determines the levels available (JLPT levels, School grades, etc.)",
+            stringResource(Res.string.onboarding_mode_description),
             style = MaterialTheme.typography.bodySmall,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -236,13 +242,13 @@ fun HighlightStep(viewModel: OnboardingViewModel) {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            "Ready to start!",
+            stringResource(Res.string.onboarding_ready_title),
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            "Use the slider on the home screen to change levels and start practicing!",
+            stringResource(Res.string.onboarding_ready_description),
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
         )
@@ -259,7 +265,11 @@ fun HighlightStep(viewModel: OnboardingViewModel) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(modifier = Modifier.size(24.dp).background(MaterialTheme.colorScheme.primary, RoundedCornerShape(12.dp)))
                 Spacer(modifier = Modifier.width(8.dp))
-                Text("Slide to change level", fontSize = 12.sp, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                Text(
+                    stringResource(Res.string.onboarding_slider_hint), 
+                    fontSize = 12.sp, 
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                )
             }
         }
     }

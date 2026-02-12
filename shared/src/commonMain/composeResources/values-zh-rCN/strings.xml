@@ -131,13 +131,13 @@
     <string name="results_section_school">学校 (年级 / 高中)</string>
     <string name="results_section_frequency">频率</string>
     <string name="results_frequency_x_words">%1$d个最常用词</string>
-    <string name="results_hiragana">平假名 - %1$d%%</string>
-    <string name="results_katakana">片假名 - %1$d%%</string>
-    <string name="results_jlpt_n5">JLPT N5 - %1$d%%</string>
-    <string name="results_jlpt_n4">JLPT N4 - %1$d%%</string>
-    <string name="results_jlpt_n3">JLPT N3 - %1$d%%</string>
-    <string name="results_jlpt_n2">JLPT N2 - %1$d%%</string>
-    <string name="results_jlpt_n1">JLPT N1 - %1$d%%</string>
+    <string name="results_hiragana" translatable="false">Hiraganas - %1$d%%</string>
+    <string name="results_katakana" translatable="false">Katakanas - %1$d%%</string>
+    <string name="results_jlpt_n5" translatable="false">JLPT N5 - %1$d%%</string>
+    <string name="results_jlpt_n4" translatable="false">JLPT N4 - %1$d%%</string>
+    <string name="results_jlpt_n3" translatable="false">JLPT N3 - %1$d%%</string>
+    <string name="results_jlpt_n2" translatable="false">JLPT N2 - %1$d%%</string>
+    <string name="results_jlpt_n1" translatable="false">JLPT N1 - %1$d%%</string>
     <string name="results_grade_1">1年级 - %1$d%%</string>
     <string name="results_grade_2">2年级 - %1$d%%</string>
     <string name="results_grade_3">3年级 - %1$d%%</string>
@@ -182,8 +182,8 @@
     <string name="dictionary_clear_drawing_desc">清除绘图过滤器</string>
     <string name="dictionary_search_button">搜索</string>
     <string name="dictionary_results_count_format">%1$d 个结果</string>
-    <string name="dictionary_reading_on">在：</string>
-    <string name="dictionary_reading_kun">坤：</string>
+    <string name="dictionary_reading_on" translatable="false">On:</string>
+    <string name="dictionary_reading_kun" translatable="false">Kun:</string>
     <string name="kanji_detail_components">组件</string>
     <string name="section_fundamentals">基础知识</string>
     <string name="section_fundamentals_desc">日语写作基础</string>
@@ -707,4 +707,18 @@
     <string name="notification_msg_4">麻糬麻糬！是时候伸展你的大脑了！ 🧠</string>
     <string name="kanji_readings">读物</string>
     <string name="kanji_meanings">含义</string>
+    <string name="onboarding_next">下一个</string>
+    <string name="onboarding_finish">结束</string>
+    <string name="onboarding_choose_language">选择您的语言</string>
+    <string name="onboarding_mode_label">模式</string>
+    <string name="onboarding_mode_description">这决定了可用的级别（JLPT 级别、学校成绩等）</string>
+    <string name="onboarding_ready_title">准备开始！</string>
+    <string name="onboarding_ready_description">使用主屏幕上的滑块更改级别并开始练习！</string>
+    <string name="onboarding_slider_hint">滑动以更改级别</string>
+    <string name="exit_dialog_title">游戏暂停</string>
+    <string name="exit_dialog_message">您确定要退出吗？</string>
+    <string name="exit_dialog_lose_progress">此会话的进度将会丢失。</string>
+    <string name="exit_dialog_resume">继续游戏</string>
+    <string name="exit_dialog_pause_exit">暂停和退出</string>
+    <string name="exit_dialog_quit_lose_progress">退出并失去进度</string>
 </resources>

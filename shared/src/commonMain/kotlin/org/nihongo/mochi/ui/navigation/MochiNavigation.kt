@@ -209,7 +209,8 @@ fun MochiNavGraph(
                 },
                 onGrammarClick = { block ->
                     navController.navigate(Screen.Grammar.createRoute(uiState.selectedLevelId, block))
-                }
+                },
+                onLocaleChanged = onLocaleChanged
             )
         }
 
