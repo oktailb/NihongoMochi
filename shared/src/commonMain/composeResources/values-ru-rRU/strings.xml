@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">Возобновить игру</string>
     <string name="exit_dialog_pause_exit">Пауза и выход</string>
     <string name="exit_dialog_quit_lose_progress">Выйти и потерять прогресс</string>
+    <string name="game_particles_how_to_play">Как играть</string>
+    <string name="game_particles_rules_list">• Перетаскивайте корабль, чтобы двигаться.\n• Нажмите, чтобы выстрелить в правильную частицу.\n• Не позволяйте нужной частице достичь дна!</string>
 </resources>

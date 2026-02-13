@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">继续游戏</string>
     <string name="exit_dialog_pause_exit">暂停和退出</string>
     <string name="exit_dialog_quit_lose_progress">退出并失去进度</string>
+    <string name="game_particles_how_to_play">怎么玩</string>
+    <string name="game_particles_rules_list">• 拖动您的飞船来移动\n• 点击以发射正确的粒子\n• 不要让正确的粒子到达底部！</string>
 </resources>

@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">Resume Game</string>
     <string name="exit_dialog_pause_exit">Pause and Quit</string>
     <string name="exit_dialog_quit_lose_progress">Quit and lose progression</string>
+    <string name="game_particles_how_to_play">How to play</string>
+    <string name="game_particles_rules_list">• Drag your ship to move\n• Tap to shoot the correct particle\n• Don't let the correct particle reach the bottom!</string>
 </resources>

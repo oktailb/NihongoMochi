@@ -717,4 +717,6 @@
     <string name="exit_dialog_resume">Spiel fortsetzen</string>
     <string name="exit_dialog_pause_exit">Anhalten und beenden</string>
     <string name="exit_dialog_quit_lose_progress">Aufhören und den Fortschritt verlieren</string>
+    <string name="game_particles_how_to_play">Wie man spielt</string>
+    <string name="game_particles_rules_list">• Ziehen Sie Ihr Schiff, um sich zu bewegen.\n• Tippen Sie, um das richtige Partikel abzuschießen.\n• Lassen Sie nicht zu, dass das richtige Partikel den Boden erreicht!</string>
 </resources>

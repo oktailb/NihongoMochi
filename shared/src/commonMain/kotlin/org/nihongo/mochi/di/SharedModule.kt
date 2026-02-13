@@ -39,6 +39,7 @@ import org.nihongo.mochi.ui.games.kanadrop.KanaDropViewModel
 import org.nihongo.mochi.ui.games.crossword.CrosswordViewModel
 import org.nihongo.mochi.ui.games.snake.SnakeViewModel
 import org.nihongo.mochi.ui.games.shiritori.ShiritoriViewModel
+import org.nihongo.mochi.ui.games.particle.ParticleDefenderViewModel
 import org.nihongo.mochi.ui.gojuon.KanaRecapViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
@@ -117,6 +118,7 @@ val sharedModule = module {
     singleOf(::CrosswordViewModel)
     singleOf(::SnakeViewModel)
     singleOf(::ShiritoriViewModel)
+    singleOf(::ParticleDefenderViewModel)
 
     // Game/Quiz ViewModels as factory for those with single-screen flow
     factoryOf(::GrammarViewModel)

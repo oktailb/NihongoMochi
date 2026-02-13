@@ -643,8 +643,6 @@
     <string name="game_simon_mode_reading_std">Reading (Std)</string>
     <string name="game_simon_mode_reading_rnd">Reading (Rnd)</string>
     <string name="game_simon_record">Record: %1$d</string>
-    <string name="game_particles_title">Particle Defender</string>
-    <string name="game_particles_subtitle">Find the right particle</string>
     <string name="game_forge_title">Radical Forge</string>
     <string name="game_forge_subtitle">Forge Kanji from radicals</string>
     <string name="game_shiritori_title">Shiritori Zen</string>
@@ -721,6 +719,12 @@
     <string name="shiritori_words_found">Words found</string>
     <string name="shiritori_time">Time</string>
     <string name="shiritori_ia_sink">IA is thinking...</string>
+
+    <!-- Particle Defender Specific -->
+    <string name="game_particles_title">Particle Defender</string>
+    <string name="game_particles_subtitle">Find the right particle</string>
+    <string name="game_particles_how_to_play">How to play</string>
+    <string name="game_particles_rules_list">• Drag your ship to move\n• Tap to shoot the correct particle\n• Don't let the correct particle reach the bottom!</string>
 
     <!-- Decay Worker Notifications -->
     <string name="notification_channel_name">Mochi Learning Reminders</string>

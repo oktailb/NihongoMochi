@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">เล่นเกมต่อ</string>
     <string name="exit_dialog_pause_exit">หยุดชั่วคราวและออก</string>
     <string name="exit_dialog_quit_lose_progress">ลาออกและสูญเสียความก้าวหน้า</string>
+    <string name="game_particles_how_to_play">วิธีการเล่น</string>
+    <string name="game_particles_rules_list">• ลากเรือของคุณเพื่อเคลื่อนที่\n• แตะเพื่อยิงอนุภาคที่ถูกต้อง\n• อย่าปล่อยให้อนุภาคที่ถูกต้องไปถึงด้านล่าง!</string>
 </resources>

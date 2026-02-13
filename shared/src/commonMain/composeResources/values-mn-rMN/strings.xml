@@ -719,4 +719,6 @@
     <string name="exit_dialog_resume">Тоглоомыг үргэлжлүүлэх</string>
     <string name="exit_dialog_pause_exit">Түр зогсоох, гарах</string>
     <string name="exit_dialog_quit_lose_progress">Гарах, ахиц дэвшлийг алдах</string>
+    <string name="game_particles_how_to_play">Хэрхэн тоглох вэ</string>
+    <string name="game_particles_rules_list">• Хөлөг онгоцоо чирж хөдөлнө үү\n• Зөв бөөмсийг буудахын тулд товшино уу\n• Зөв бөөмсийг ёроолд нь бүү хүргэ!</string>
 </resources>

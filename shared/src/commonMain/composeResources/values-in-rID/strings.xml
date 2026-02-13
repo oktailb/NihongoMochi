@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">Lanjutkan Permainan</string>
     <string name="exit_dialog_pause_exit">Jeda dan Keluar</string>
     <string name="exit_dialog_quit_lose_progress">Berhenti dan kehilangan kemajuan</string>
+    <string name="game_particles_how_to_play">Cara bermain</string>
+    <string name="game_particles_rules_list">• Tarik kapalmu untuk bergerak\n• Ketuk untuk menembakkan partikel yang tepat\n• Jangan biarkan partikel yang benar mencapai dasar!</string>
 </resources>

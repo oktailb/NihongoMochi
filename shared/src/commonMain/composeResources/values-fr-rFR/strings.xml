@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">Reprendre le jeu</string>
     <string name="exit_dialog_pause_exit">Pause et Quitter</string>
     <string name="exit_dialog_quit_lose_progress">Arrêter et perdre la progression</string>
+    <string name="game_particles_how_to_play">Comment jouer</string>
+    <string name="game_particles_rules_list">• Faites glisser votre vaisseau pour vous déplacer\n• Appuyez pour tirer la bonne particule\n• Ne laissez pas la bonne particule atteindre le fond !</string>
 </resources>

@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">게임 재개</string>
     <string name="exit_dialog_pause_exit">일시 정지 및 종료</string>
     <string name="exit_dialog_quit_lose_progress">종료하고 진행 상황을 잃습니다.</string>
+    <string name="game_particles_how_to_play">플레이 방법</string>
+    <string name="game_particles_rules_list">• 배를 드래그하여 이동하세요\n• 탭하여 올바른 입자를 발사하세요\n• 올바른 입자가 바닥에 닿지 않도록 하세요!</string>
 </resources>

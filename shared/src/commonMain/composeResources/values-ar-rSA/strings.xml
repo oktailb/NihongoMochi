@@ -719,4 +719,6 @@
     <string name="exit_dialog_resume">استئناف اللعبة</string>
     <string name="exit_dialog_pause_exit">وقفة وإنهاء</string>
     <string name="exit_dialog_quit_lose_progress">إنهاء وتفقد التقدم</string>
+    <string name="game_particles_how_to_play">كيف تلعب</string>
+    <string name="game_particles_rules_list">• اسحب سفينتك للتحرك\n• انقر لإطلاق النار على الجسيم الصحيح\n• لا تدع الجسيم الصحيح يصل إلى القاع!</string>
 </resources>

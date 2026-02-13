@@ -721,4 +721,6 @@
     <string name="exit_dialog_resume">Retomar jogo</string>
     <string name="exit_dialog_pause_exit">Pausar e sair</string>
     <string name="exit_dialog_quit_lose_progress">Desista e perca a progressão</string>
+    <string name="game_particles_how_to_play">Como jogar</string>
+    <string name="game_particles_rules_list">• Arraste sua nave para se mover\n• Toque para disparar a partícula correta\n• Não deixe a partícula correta chegar ao fundo!</string>
 </resources>

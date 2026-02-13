@@ -719,4 +719,6 @@
     <string name="exit_dialog_resume">খেলা পুনরায় শুরু করুন</string>
     <string name="exit_dialog_pause_exit">বিরতি এবং প্রস্থান করুন</string>
     <string name="exit_dialog_quit_lose_progress">প্রস্থান করুন এবং অগ্রগতি হারান</string>
+    <string name="game_particles_how_to_play">কিভাবে খেলতে হয়</string>
+    <string name="game_particles_rules_list">• সরানোর জন্য আপনার জাহাজ টেনে আনুন\n• সঠিক কণাটি শুট করতে আলতো চাপুন\n• সঠিক কণাটিকে নীচে পৌঁছাতে দেবেন না!</string>
 </resources>

@@ -76,6 +76,9 @@ import org.nihongo.mochi.ui.games.snake.SnakeViewModel
 import org.nihongo.mochi.ui.games.shiritori.ShiritoriSetupScreen
 import org.nihongo.mochi.ui.games.shiritori.ShiritoriGameScreen
 import org.nihongo.mochi.ui.games.shiritori.ShiritoriViewModel
+import org.nihongo.mochi.ui.games.particle.ParticleDefenderSetupScreen
+import org.nihongo.mochi.ui.games.particle.ParticleDefenderScreen
+import org.nihongo.mochi.ui.games.particle.ParticleDefenderViewModel
 import org.nihongo.mochi.ui.grammar.GrammarScreen
 import org.nihongo.mochi.ui.grammar.GrammarViewModel
 import org.nihongo.mochi.ui.grammar.GrammarQuizViewModel
@@ -123,6 +126,8 @@ sealed class Screen(val route: String) {
     data object SnakeGame : Screen("snake_game")
     data object ShiritoriSetup : Screen("shiritori_setup")
     data object ShiritoriGame : Screen("shiritori_game")
+    data object ParticleDefenderSetup : Screen("particle_defender_setup")
+    data object ParticleDefenderGame : Screen("particle_defender_game")
     
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
@@ -342,7 +347,7 @@ fun MochiNavGraph(
                 onCrosswordsClick = { navController.navigate(Screen.CrosswordSetup.route) },
                 onMemorizeClick = { navController.navigate(Screen.MemorizeSetup.route) },
                 onSnakeClick = { navController.navigate(Screen.SnakeSetup.route) },
-                onParticlesClick = { /* TODO */ },
+                onParticlesClick = { navController.navigate(Screen.ParticleDefenderSetup.route) },
                 onForgeClick = { /* TODO */ },
                 onShiritoriClick = { navController.navigate(Screen.ShiritoriSetup.route) },
                 onShadowClick = { /* TODO */ }
@@ -485,6 +490,23 @@ fun MochiNavGraph(
         composable(Screen.ShiritoriGame.route) {
             val viewModel: ShiritoriViewModel = koinInject()
             ShiritoriGameScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
+
+        composable(Screen.ParticleDefenderSetup.route) {
+            val viewModel: ParticleDefenderViewModel = koinInject()
+            ParticleDefenderSetupScreen(
+                viewModel = viewModel,
+                onBackClick = { navController.popBackStack() },
+                onStartGame = { navController.navigate(Screen.ParticleDefenderGame.route) }
+            )
+        }
+
+        composable(Screen.ParticleDefenderGame.route) {
+            val viewModel: ParticleDefenderViewModel = koinInject()
+            ParticleDefenderScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )

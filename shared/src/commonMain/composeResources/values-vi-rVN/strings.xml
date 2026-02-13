@@ -717,4 +717,6 @@
     <string name="exit_dialog_resume">Tiếp tục trò chơi</string>
     <string name="exit_dialog_pause_exit">Tạm dừng và Thoát</string>
     <string name="exit_dialog_quit_lose_progress">Thoát khỏi và mất tiến bộ</string>
+    <string name="game_particles_how_to_play">Cách chơi</string>
+    <string name="game_particles_rules_list">• Kéo tàu của bạn để di chuyển\n^ Nhấn để bắn đúng hạt\n^ Đừng để hạt đúng chạm tới đáy!</string>
 </resources>

@@ -719,4 +719,6 @@
     <string name="exit_dialog_resume">Відновити гру</string>
     <string name="exit_dialog_pause_exit">Пауза та вихід</string>
     <string name="exit_dialog_quit_lose_progress">Вийти і втратити прогрес</string>
+    <string name="game_particles_how_to_play">Як грати</string>
+    <string name="game_particles_rules_list">• Перетягніть свій корабель, щоб рухатися\n• Торкніться, щоб вистрілити потрібну частинку\n• Не дозволяйте правильній частинці досягти дна!</string>
 </resources>
