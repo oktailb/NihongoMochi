@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kana.KanaRepository
 import org.nihongo.mochi.domain.kana.KanaType
@@ -90,8 +91,33 @@ class KanaQuizViewModel(
         resetState()
         quizMode = if (quizModeStr == "Kana -> Romaji") QuizMode.KANA_TO_ROMAJI else QuizMode.ROMAJI_TO_KANA
 
-        val allCharacters = loadKana(kanaType)
-        allKana = filterCharactersForLevel(allCharacters, levelStr).shuffled()
+        val allAvailable = loadKana(kanaType)
+        
+        // 1. D'abord, on filtre par catégories
+        val gojuon = allAvailable.filter { it.category == "gojuon" }
+        val dakuon = allAvailable.filter { it.category == "dakuon" || it.category == "handakuon" }
+        val yoon = allAvailable.filter { it.category == "yoon" }
+
+        // 2. On calcule la maîtrise du Gojuon
+        val gojuonMastery = calculateMastery(gojuon)
+        
+        val finalPool = mutableListOf<KanaCharacter>()
+        finalPool.addAll(gojuon)
+
+        // 3. Si Gojuon > 20% de maîtrise (en moyenne 1 point sur 10 par item)
+        if (gojuonMastery >= 0.20f) {
+            finalPool.addAll(dakuon)
+            
+            // 4. On calcule la maîtrise globale (Gojuon + Dakuon)
+            val dakuonMastery = calculateMastery(finalPool)
+            
+            // 5. Si global > 45%, on ajoute les Yoons
+            if (dakuonMastery >= 0.45f) {
+                finalPool.addAll(yoon)
+            }
+        }
+
+        allKana = finalPool.shuffled()
 
         return if (allKana.isNotEmpty()) {
             startGame()
@@ -102,18 +128,24 @@ class KanaQuizViewModel(
         }
     }
 
+    private fun calculateMastery(characters: List<KanaCharacter>): Float {
+        if (characters.isEmpty()) return 0f
+        
+        var totalPoints = 0f
+        characters.forEach { char ->
+            val score = scoreRepository.getScore(char.kana, ScoreManager.ScoreType.RECOGNITION)
+            // La maîtrise est calculée sur un delta de 10 (voir ScoreManager)
+            val mastery = (score.successes - score.failures).coerceIn(0, 10)
+            totalPoints += mastery
+        }
+        
+        // On ramène sur une échelle de 0.0 à 1.0 (10 points max par caractère)
+        return totalPoints / (characters.size * 10f)
+    }
+
     private fun loadKana(type: KanaType): List<KanaCharacter> {
         return kanaRepository.getKanaEntries(type).map { entry ->
             KanaCharacter(entry.character, entry.romaji, entry.category)
-        }
-    }
-
-    private fun filterCharactersForLevel(allCharacters: List<KanaCharacter>, level: String): List<KanaCharacter> {
-        return when (level) {
-            "Gojūon" -> allCharacters.filter { it.category == "gojuon" }
-            "Dakuon" -> allCharacters.filter { it.category == "dakuon" || it.category == "handakuon" }
-            "Yōon" -> allCharacters.filter { it.category == "yoon" }
-            else -> allCharacters
         }
     }
 

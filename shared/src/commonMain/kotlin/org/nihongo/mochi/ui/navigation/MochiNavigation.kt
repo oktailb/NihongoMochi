@@ -740,7 +740,12 @@ fun MochiNavGraph(
                 onPrevPage = { viewModel.prevPage(pageSize) },
                 onNextPage = { viewModel.nextPage(pageSize) },
                 onPlayClick = {
-                    navController.navigate(Screen.KanaQuiz.createRoute("hiragana", "Kana -> Romaji", "Gojūon"))
+                    val level = when (currentPage) {
+                        0 -> "Gojūon"
+                        1 -> "Dakuon"
+                        else -> "Yōon"
+                    }
+                    navController.navigate(Screen.KanaQuiz.createRoute("hiragana", "Kana -> Romaji", level))
                 }
             )
         }
@@ -773,7 +778,12 @@ fun MochiNavGraph(
                 onPrevPage = { viewModel.prevPage(pageSize) },
                 onNextPage = { viewModel.nextPage(pageSize) },
                 onPlayClick = {
-                    navController.navigate(Screen.KanaQuiz.createRoute("katakana", "Kana -> Romaji", "Gojūon"))
+                    val level = when (currentPage) {
+                        0 -> "Gojūon"
+                        1 -> "Dakuon"
+                        else -> "Yōon"
+                    }
+                    navController.navigate(Screen.KanaQuiz.createRoute("katakana", "Kana -> Romaji", level))
                 }
             )
         }
