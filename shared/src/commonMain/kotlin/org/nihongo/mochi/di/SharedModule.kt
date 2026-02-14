@@ -31,7 +31,7 @@ import org.nihongo.mochi.ui.gamerecap.GameRecapViewModel
 import org.nihongo.mochi.domain.game.RecognitionGameViewModel
 import org.nihongo.mochi.domain.game.WritingGameViewModel
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
-import org.nihongo.mochi.ui.wordquiz.WordQuizViewModel
+import org.nihongo.mochi.domain.game.WordQuizViewModel
 import org.nihongo.mochi.ui.games.memorize.MemorizeViewModel
 import org.nihongo.mochi.ui.games.simon.SimonViewModel
 import org.nihongo.mochi.ui.games.taquin.TaquinViewModel

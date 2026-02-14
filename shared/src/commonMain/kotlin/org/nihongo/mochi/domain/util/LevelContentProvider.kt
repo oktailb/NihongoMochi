@@ -35,10 +35,13 @@ class LevelContentProvider(
                 scoreRepository.getListItems(listName)
             }
             
-            // Word lists
+            // Si on demande explicitement de la lecture (Word Quiz), on utilise le WordRepository
+            scoreType == ScoreManager.ScoreType.READING -> wordRepository.getWordsForLevel(levelKey)
+            
+            // Word lists (legacy or explicit)
             lowerKey.contains("wordlist") -> wordRepository.getWordsForLevel(levelKey)
             
-            // Default
+            // Default: Kanban/Kanji levels
             else -> kanjiRepository.getKanjiByLevel(levelKey).map { it.character }
         }
     }

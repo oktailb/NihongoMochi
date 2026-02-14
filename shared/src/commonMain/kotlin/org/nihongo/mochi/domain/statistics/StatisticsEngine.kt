@@ -170,7 +170,7 @@ class StatisticsEngine(
         return if (xmlName == "user_list") {
              calculateUserListPercentage(scoreType).toInt()
         } else {
-             val characters = levelContentProvider.getCharactersForLevel(xmlName)
+             val characters = levelContentProvider.getCharactersForLevel(xmlName, scoreType)
              calculateMasteryPercentage(characters, scoreType).toInt()
         }
     }

@@ -25,7 +25,7 @@ import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.game.QuestionType
 import org.nihongo.mochi.domain.game.RecognitionGameViewModel
 import org.nihongo.mochi.domain.game.WritingGameViewModel
-import org.nihongo.mochi.ui.wordquiz.WordQuizViewModel
+import org.nihongo.mochi.domain.game.WordQuizViewModel
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.services.NoOpCloudSaveService
@@ -899,7 +899,7 @@ fun MochiNavGraph(
                 } else {
                     wordRepository.getWordEntriesForLevel(levelId)
                 }
-                viewModel.initializeGame(wordsForQuiz)
+                viewModel.initializeGame(wordsForQuiz, levelId)
                 true
             }
 
@@ -912,9 +912,18 @@ fun MochiNavGraph(
                     answers = answers,
                     buttonStates = buttonStates,
                     buttonsEnabled = areButtonsEnabled,
+                    gameState = gameState,
+                    globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
+                    sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
                     onAnswerClick = { index, answer -> 
                         viewModel.submitAnswer(answer, index)
-                    }
+                    },
+                    onReplay = { 
+                        // To trigger a re-render/re-init in Navigation, we might need a better way, 
+                        // but for now we follow the pattern of other screens.
+                        viewModel.replay() 
+                    },
+                    onNavigateBack = { navController.popBackStack() }
                 )
             }
         }

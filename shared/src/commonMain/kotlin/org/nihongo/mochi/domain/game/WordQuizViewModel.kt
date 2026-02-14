@@ -1,4 +1,4 @@
-package org.nihongo.mochi.ui.wordquiz
+package org.nihongo.mochi.domain.game
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
-import org.nihongo.mochi.domain.game.WordQuizEngine
 import org.nihongo.mochi.domain.kana.KanaToRomaji
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameState
@@ -18,10 +17,13 @@ import org.nihongo.mochi.domain.models.Word
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.words.WordEntry
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class WordQuizViewModel(
     private val wordRepository: WordRepository,
     private val scoreRepository: ScoreRepository,
+    private val statisticsEngine: StatisticsEngine,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
     
@@ -50,14 +52,16 @@ class WordQuizViewModel(
     // Settings
     private var pronunciationMode: String = "Hiragana"
     private var animationSpeed: Float = 1.0f
+    private var currentLevelId: String = ""
 
     fun updateSettings(mode: String, speed: Float) {
         pronunciationMode = mode
         animationSpeed = speed
     }
 
-    fun initializeGame(entries: List<WordEntry>) {
+    fun initializeGame(entries: List<WordEntry>, levelId: String = "") {
         if (engine.isGameInitialized) return
+        this.currentLevelId = levelId
 
         if (entries.isEmpty()) {
             engine.isGameInitialized = true
@@ -72,6 +76,25 @@ class WordQuizViewModel(
         engine.isGameInitialized = true
 
         startNewSet()
+    }
+
+    /**
+     * Calcule la maîtrise globale (cohérent avec SagaMap)
+     */
+    fun calculateGlobalMasteryPercent(): Float {
+        if (currentLevelId.isEmpty()) return 0f
+        return statisticsEngine.getPercentageForLevel(currentLevelId, StatisticsType.READING).toFloat() / 100f
+    }
+
+    /**
+     * Calcule la maîtrise du lot actuel
+     */
+    fun calculateSessionMasteryPercent(): Float {
+        if (engine.currentWordSet.isEmpty()) return 0f
+        return statisticsEngine.calculateMasteryPercentage(
+            engine.currentWordSet.map { it.text },
+            ScoreManager.ScoreType.READING
+        ).toFloat() / 100f
     }
 
     private fun startNewSet() {
@@ -98,9 +121,7 @@ class WordQuizViewModel(
     }
     
     private fun updateWordStatuses() {
-        // Map current set statuses to list
         val statuses = engine.currentWordSet.map { engine.wordStatus[it] ?: GameStatus.NOT_ANSWERED }
-        // Pad to 10
         val paddedStatuses = statuses + List(10 - statuses.size) { GameStatus.NOT_ANSWERED }
         _wordStatuses.value = paddedStatuses
     }
@@ -172,7 +193,6 @@ class WordQuizViewModel(
             audioPlayer.playSound("sounds/incorrect.mp3")
         }
 
-        // Side effect: save score
         scoreRepository.saveScore(currentWord.text, isCorrect, ScoreManager.ScoreType.READING)
 
         val newButtonStates = _buttonStates.value.toMutableList()
@@ -189,7 +209,6 @@ class WordQuizViewModel(
                 newButtonStates[selectedIndex] = AnswerButtonState.INCORRECT
             }
             
-            // Highlight correct answer
             val correctIndex = _currentAnswers.value.indexOfFirst { it == correctReading }
             if (correctIndex != -1) {
                 newButtonStates[correctIndex] = AnswerButtonState.CORRECT
@@ -205,6 +224,10 @@ class WordQuizViewModel(
             delay(delayMs)
             displayQuestion()
         }
+    }
+
+    fun replay() {
+        engine.isGameInitialized = false
     }
 
     override fun onCleared() {
