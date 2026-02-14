@@ -1,15 +1,18 @@
 package org.nihongo.mochi.ui.recognitiongame
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,12 +23,15 @@ import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.domain.util.TextSizeCalculator
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
 import org.nihongo.mochi.ui.components.GameQuestionCard
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
+import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.ui.theme.AppTheme
 
 @Composable
@@ -39,13 +45,44 @@ fun RecognitionGameScreen(
     direction: QuestionDirection,
     gameMode: String,
     currentScore: LearningScore?,
-    onAnswerClick: (Int, String) -> Unit
+    gameState: GameState,
+    masteryPercent: Float,
+    onAnswerClick: (Int, String) -> Unit,
+    onReplay: () -> Unit,
+    onNavigateBack: () -> Unit
 ) {
+    var showExitDialog by remember { mutableStateOf(false) }
+    var showResultOverlay by remember { mutableStateOf(false) }
+
+    // Intercepter le bouton retour du device
+    BackHandler(enabled = gameState != GameState.Finished && !showResultOverlay) {
+        showExitDialog = true
+    }
+
+    LaunchedEffect(gameState) {
+        if (gameState == GameState.Finished) {
+            showResultOverlay = true
+        }
+    }
+
     AppTheme {
         MochiBackground {
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
+                // Top Bar with back button
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(onClick = { 
+                        if (gameState != GameState.Finished) showExitDialog = true 
+                        else onNavigateBack()
+                    }) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                }
+
                 // Progress Bar
                 GameProgressBar(
                     statuses = gameStatus,
@@ -154,6 +191,34 @@ fun RecognitionGameScreen(
                         }
                     }
                 }
+            }
+
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = { 
+                        showExitDialog = false
+                        showResultOverlay = true 
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { },
+                    onResume = { }
+                )
+            }
+
+            if (showResultOverlay) {
+                GameResultOverlay(
+                    isVictory = gameState == GameState.Finished,
+                    score = "${(masteryPercent * 100).toInt()}%",
+                    title = "Maîtrise du lot",
+                    onReplayClick = {
+                        showResultOverlay = false
+                        onReplay()
+                    },
+                    onMenuClick = {
+                        showResultOverlay = false
+                        onNavigateBack()
+                    }
+                )
             }
         }
     }

@@ -17,6 +17,8 @@ import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class RecognitionGameViewModel(
     private val kanjiRepository: KanjiRepository,
@@ -24,6 +26,7 @@ class RecognitionGameViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val settingsRepository: SettingsRepository,
     private val scoreRepository: ScoreRepository,
+    private val statisticsEngine: StatisticsEngine,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
     
@@ -82,6 +85,18 @@ class RecognitionGameViewModel(
         }
     }
 
+    /**
+     * Calcule la maîtrise du lot actuel
+     */
+    fun calculateMasteryPercent(): Float {
+        if (currentKanjiSet.isEmpty()) return 0f
+        val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+        return statisticsEngine.calculateMasteryPercentage(
+            currentKanjiSet.map { it.character },
+            type
+        ).toFloat() / 100f
+    }
+
     fun updatePronunciationMode(mode: String) {
         engine.pronunciationMode = mode
     }
@@ -121,12 +136,14 @@ class RecognitionGameViewModel(
         areButtonsEnabled = true
     }
 
+    private var currentLevelId: String = ""
+
     fun initializeGame(gameMode: String, readingMode: String, level: String, customWordList: List<String>?): Boolean {
         resetState()
         this.gameMode = gameMode
         this.readingMode = readingMode
+        this.currentLevelId = level
 
-        // Ensure we have the base data (cached in ViewModel)
         loadAllKanjiDetails()
 
         val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
@@ -145,13 +162,11 @@ class RecognitionGameViewModel(
                 var include = kanjiCharsForLevel.contains(it.character)
 
                 if (normalizedLevel == "no meaning") {
-                    // Specific case where we allow empty meanings if explicitly requested
                 } else if (gameMode == "meaning") {
                     include = include && it.meanings.isNotEmpty()
                 }
 
                 if (normalizedLevel == "no reading") {
-                    // Specific case where we allow empty readings if explicitly requested
                 } else if (gameMode == "reading") {
                     include = include && it.readings.isNotEmpty()
                 }
@@ -160,7 +175,6 @@ class RecognitionGameViewModel(
             }
         )
         
-        // If not a custom list, shuffle to vary experience
         if (customWordList.isNullOrEmpty()) {
             allKanjiDetails.shuffle()
         }
@@ -172,10 +186,13 @@ class RecognitionGameViewModel(
             startGame()
             return true
         } else {
-            // Force finish if no kanji found for this mode/level
             engine.startGame() 
             return false
         }
+    }
+
+    fun replay() {
+        initializeGame(gameMode, readingMode, currentLevelId, null)
     }
 
     private fun loadAllKanjiDetails() {

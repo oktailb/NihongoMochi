@@ -582,13 +582,7 @@ fun MochiNavGraph(
                 true
             }
 
-            LaunchedEffect(gameState) {
-                if (gameState == GameState.Finished) {
-                    navController.popBackStack()
-                }
-            }
-
-            if (viewModel.isGameInitialized && gameState != GameState.Finished) {
+            if (viewModel.isGameInitialized) {
                 val currentKanji = viewModel.currentKanji
                 val direction = viewModel.currentDirection
                 
@@ -618,9 +612,13 @@ fun MochiNavGraph(
                     direction = direction,
                     gameMode = gameMode,
                     currentScore = viewModel.getCurrentKanjiScore(),
+                    gameState = gameState,
+                    masteryPercent = viewModel.calculateMasteryPercent(),
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
-                    }
+                    },
+                    onReplay = { viewModel.replay() },
+                    onNavigateBack = { navController.popBackStack() }
                 )
             } else {
                 MochiBackground {
