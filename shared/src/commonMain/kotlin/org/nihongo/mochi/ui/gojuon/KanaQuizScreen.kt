@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.gojuon
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,9 +13,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -27,6 +26,8 @@ import org.nihongo.mochi.domain.models.KanaQuestionDirection
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
+import org.nihongo.mochi.ui.components.GameResultOverlay
 
 @Composable
 fun KanaQuizScreen(
@@ -35,14 +36,29 @@ fun KanaQuizScreen(
 ) {
     val state by viewModel.state.collectAsState()
     val buttonStates by viewModel.buttonStates.collectAsState()
+    
+    var showExitDialog by remember { mutableStateOf(false) }
+    var showResultOverlay by remember { mutableStateOf(false) }
+
+    // Intercepter le bouton retour physique du device (Android)
+    BackHandler(enabled = state != GameState.Finished && !showResultOverlay) {
+        showExitDialog = true
+    }
 
     val progressStatuses = viewModel.currentKanaSet.map {
         viewModel.kanaStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED
     }
 
-    if (state == GameState.Finished) {
-        onNavigateBack()
-        return
+    // Calculer la maîtrise actuelle pour l'overlay
+    val currentMastery = remember(state) {
+        val mastery = viewModel.calculateMasteryPercent()
+        "${(mastery * 100).toInt()}%"
+    }
+
+    LaunchedEffect(state) {
+        if (state == GameState.Finished) {
+            showResultOverlay = true
+        }
     }
 
     MochiBackground {
@@ -68,13 +84,45 @@ fun KanaQuizScreen(
                 )
             }
 
-            QuizAnswerGrid(
+             QuizAnswerGrid(
                 answers = viewModel.currentAnswers,
                 buttonStates = buttonStates,
                 areButtonsEnabled = viewModel.areButtonsEnabled,
                 direction = viewModel.currentDirection,
                 onAnswerClick = { index, answer ->
                     viewModel.submitAnswer(answer, index)
+                }
+            )
+        }
+
+        if (showExitDialog) {
+            ExitConfirmationDialog(
+                onConfirm = { 
+                    showExitDialog = false
+                    showResultOverlay = true 
+                },
+                onDismiss = { showExitDialog = false },
+                onPause = { },
+                onResume = { }
+            )
+        }
+
+        if (showResultOverlay) {
+            GameResultOverlay(
+                isVictory = state == GameState.Finished,
+                score = currentMastery,
+                title = "Progression Kana",
+                onReplayClick = {
+                    showResultOverlay = false
+                    viewModel.initializeGame(
+                        org.nihongo.mochi.domain.kana.KanaType.HIRAGANA, 
+                        "Kana -> Romaji", 
+                        "All"
+                    )
+                },
+                onMenuClick = {
+                    showResultOverlay = false
+                    onNavigateBack()
                 }
             )
         }
@@ -97,7 +145,6 @@ fun QuizQuestionCard(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            // Reduce font size for composed kana (Yoon) to prevent overlap
             val textSize = if (direction == KanaQuestionDirection.NORMAL && questionText.length > 1) {
                 120.sp
             } else if (direction == KanaQuestionDirection.NORMAL) {
@@ -111,7 +158,7 @@ fun QuizQuestionCard(
                 fontSize = textSize,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurface,
-                maxLines = 1 // Ensure it does not wrap
+                maxLines = 1
             )
         }
     }

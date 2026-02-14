@@ -93,7 +93,7 @@ class KanaQuizViewModel(
 
         val allAvailable = loadKana(kanaType)
         
-        // 1. D'abord, on filtre par catégories
+        // Progression pédagogique
         val gojuon = allAvailable.filter { it.category == "gojuon" }
         val dakuon = allAvailable.filter { it.category == "dakuon" || it.category == "handakuon" }
         val yoon = allAvailable.filter { it.category == "yoon" }
@@ -128,18 +128,20 @@ class KanaQuizViewModel(
         }
     }
 
+    fun calculateMasteryPercent(): Float {
+        return calculateMastery(allKana)
+    }
+
     private fun calculateMastery(characters: List<KanaCharacter>): Float {
         if (characters.isEmpty()) return 0f
         
         var totalPoints = 0f
         characters.forEach { char ->
             val score = scoreRepository.getScore(char.kana, ScoreManager.ScoreType.RECOGNITION)
-            // La maîtrise est calculée sur un delta de 10 (voir ScoreManager)
             val mastery = (score.successes - score.failures).coerceIn(0, 10)
             totalPoints += mastery
         }
         
-        // On ramène sur une échelle de 0.0 à 1.0 (10 points max par caractère)
         return totalPoints / (characters.size * 10f)
     }
 
