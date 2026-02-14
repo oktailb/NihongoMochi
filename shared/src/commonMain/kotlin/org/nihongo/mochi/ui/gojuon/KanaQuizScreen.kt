@@ -40,7 +40,7 @@ fun KanaQuizScreen(
     var showExitDialog by remember { mutableStateOf(false) }
     var showResultOverlay by remember { mutableStateOf(false) }
 
-    // Intercepter le bouton retour physique du device (Android)
+    // Intercepter le bouton retour physique du device
     BackHandler(enabled = state != GameState.Finished && !showResultOverlay) {
         showExitDialog = true
     }
@@ -49,9 +49,13 @@ fun KanaQuizScreen(
         viewModel.kanaStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED
     }
 
-    // Calculer la maîtrise actuelle pour l'overlay
-    val currentMastery = remember(state) {
-        val mastery = viewModel.calculateMasteryPercent()
+    val globalMastery = remember(state) {
+        val mastery = viewModel.calculateGlobalMasteryPercent()
+        "${(mastery * 100).toInt()}%"
+    }
+    
+    val sessionMastery = remember(state) {
+        val mastery = viewModel.calculateSessionMasteryPercent()
         "${(mastery * 100).toInt()}%"
     }
 
@@ -110,7 +114,11 @@ fun KanaQuizScreen(
         if (showResultOverlay) {
             GameResultOverlay(
                 isVictory = state == GameState.Finished,
-                score = currentMastery,
+                score = globalMastery,
+                stats = listOf(
+                    "Maîtrise de la session" to sessionMastery,
+                    "Maîtrise globale" to globalMastery
+                ),
                 title = "Progression Kana",
                 onReplayClick = {
                     showResultOverlay = false

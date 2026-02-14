@@ -613,7 +613,8 @@ fun MochiNavGraph(
                     gameMode = gameMode,
                     currentScore = viewModel.getCurrentKanjiScore(),
                     gameState = gameState,
-                    masteryPercent = viewModel.calculateMasteryPercent(),
+                    globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
+                    sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
                     },
@@ -681,13 +682,7 @@ fun MochiNavGraph(
                 true
             }
 
-            LaunchedEffect(gameState) {
-                if (gameState == GameState.Finished) {
-                    navController.popBackStack()
-                }
-            }
-
-            if (viewModel.isGameInitialized && gameState != GameState.Finished) {
+            if (viewModel.isGameInitialized) {
                 val gameStatusList = viewModel.currentKanjiSet.map { 
                     viewModel.kanjiStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED 
                 }
@@ -696,7 +691,12 @@ fun MochiNavGraph(
                     kanji = viewModel.currentKanji,
                     questionType = viewModel.currentQuestionType,
                     gameStatus = gameStatusList,
+                    gameState = gameState,
+                    globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
+                    sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
                     onSubmitAnswer = { viewModel.submitAnswer(it) },
+                    onReplay = { viewModel.replay() },
+                    onNavigateBack = { navController.popBackStack() },
                     showCorrection = showCorrection,
                     isCorrect = lastStatus,
                     processingAnswer = isProcessing

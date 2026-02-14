@@ -46,7 +46,8 @@ fun RecognitionGameScreen(
     gameMode: String,
     currentScore: LearningScore?,
     gameState: GameState,
-    masteryPercent: Float,
+    globalMasteryPercent: Float,
+    sessionMasteryPercent: Float,
     onAnswerClick: (Int, String) -> Unit,
     onReplay: () -> Unit,
     onNavigateBack: () -> Unit
@@ -54,7 +55,6 @@ fun RecognitionGameScreen(
     var showExitDialog by remember { mutableStateOf(false) }
     var showResultOverlay by remember { mutableStateOf(false) }
 
-    // Intercepter le bouton retour du device
     BackHandler(enabled = gameState != GameState.Finished && !showResultOverlay) {
         showExitDialog = true
     }
@@ -70,7 +70,6 @@ fun RecognitionGameScreen(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                // Top Bar with back button
                 Row(
                     modifier = Modifier.fillMaxWidth().padding(8.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -83,7 +82,6 @@ fun RecognitionGameScreen(
                     }
                 }
 
-                // Progress Bar
                 GameProgressBar(
                     statuses = gameStatus,
                     maxItems = 10
@@ -91,7 +89,6 @@ fun RecognitionGameScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Kanji Card Area
                 Column(
                     modifier = Modifier.weight(1f).fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -121,7 +118,6 @@ fun RecognitionGameScreen(
 
                         Spacer(modifier = Modifier.height(12.dp))
 
-                        // Kanji Score Box
                         if (currentScore != null) {
                             ScoreDisplayBox(currentScore)
                         }
@@ -130,7 +126,6 @@ fun RecognitionGameScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Answers Grid
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -208,7 +203,11 @@ fun RecognitionGameScreen(
             if (showResultOverlay) {
                 GameResultOverlay(
                     isVictory = gameState == GameState.Finished,
-                    score = "${(masteryPercent * 100).toInt()}%",
+                    score = "${(globalMasteryPercent * 100).toInt()}%",
+                    stats = listOf(
+                        "Maîtrise de la session" to "${(sessionMasteryPercent * 100).toInt()}%",
+                        "Maîtrise globale" to "${(globalMasteryPercent * 100).toInt()}%"
+                    ),
                     title = "Maîtrise du lot",
                     onReplayClick = {
                         showResultOverlay = false

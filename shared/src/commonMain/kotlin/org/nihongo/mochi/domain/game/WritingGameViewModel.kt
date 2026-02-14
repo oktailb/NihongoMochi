@@ -15,6 +15,8 @@ import org.nihongo.mochi.domain.models.Reading
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class WritingGameViewModel(
     private val kanjiRepository: KanjiRepository,
@@ -22,6 +24,7 @@ class WritingGameViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val settingsRepository: SettingsRepository,
     private val scoreRepository: ScoreRepository,
+    private val statisticsEngine: StatisticsEngine,
     private val audioPlayer: AudioPlayer,
     textNormalizer: TextNormalizer? = null
 ) : ViewModel() {
@@ -32,7 +35,6 @@ class WritingGameViewModel(
         get() = engine.isGameInitialized
         set(value) { engine.isGameInitialized = value }
 
-    // Properties accessed by UI (driven by state changes)
     val currentKanji: KanjiDetail?
         get() = engine.currentKanji
 
@@ -46,23 +48,42 @@ class WritingGameViewModel(
         get() = engine.kanjiStatus
     
     val showCorrectionFeedback: StateFlow<Boolean> = engine.showCorrectionFeedback
-        
     val lastAnswerStatus: StateFlow<Boolean?> = engine.lastAnswerStatus
-        
     val isAnswerProcessing: StateFlow<Boolean> = engine.isAnswerProcessing
-
     val state: StateFlow<GameState> = engine.state
     
+    private var currentLevelId: String = ""
+
     fun setAnimationSpeed(speed: Float) {
         engine.animationSpeed = speed
     }
 
     fun initializeGame(level: String) {
         if (isGameInitialized) return
+        this.currentLevelId = level
         
         viewModelScope.launch {
             loadAndStartGame(level)
         }
+    }
+
+    /**
+     * Calcule la maîtrise du NIVEAU COMPLET (ex: N5) pour être cohérent avec SagaMap
+     */
+    fun calculateGlobalMasteryPercent(): Float {
+        if (currentLevelId.isEmpty()) return 0f
+        return statisticsEngine.getPercentageForLevel(currentLevelId, StatisticsType.WRITING).toFloat() / 100f
+    }
+
+    /**
+     * Calcule la maîtrise du lot actuel (session en cours)
+     */
+    fun calculateSessionMasteryPercent(): Float {
+        if (currentKanjiSet.isEmpty()) return 0f
+        return statisticsEngine.calculateMasteryPercentage(
+            currentKanjiSet.map { it.character },
+            ScoreManager.ScoreType.WRITING
+        ).toFloat() / 100f
     }
 
     private suspend fun loadAndStartGame(level: String) {
@@ -85,7 +106,6 @@ class WritingGameViewModel(
             allKanjiDetailsRaw.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
         }
 
-        // Use WRITING_LIST for custom review lists in this ViewModel
         val kanjiCharsForLevel = levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
         
         engine.allKanjiDetails.clear()
@@ -97,13 +117,11 @@ class WritingGameViewModel(
         
         engine.allKanjiDetails.addAll(filtered)
         
-        // Don't shuffle if it's a user custom list (often used for specific order or small set)
         if (level != "user_custom_list") {
             engine.allKanjiDetails.shuffle()
         }
         
         engine.kanjiListPosition = 0
-
         isGameInitialized = true
         engine.startGame()
     }
@@ -117,6 +135,11 @@ class WritingGameViewModel(
                 audioPlayer.playSound("sounds/incorrect.mp3")
             }
         }
+    }
+
+    fun replay() {
+        isGameInitialized = false
+        initializeGame(currentLevelId)
     }
 
     fun resetState() {

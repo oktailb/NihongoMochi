@@ -132,16 +132,22 @@ class KanaQuizViewModel(
     }
 
     /**
-     * Calcule la maîtrise du pool actuel (allKana). 
-     * Coordonné avec la logique pédagogique d'introduction de nouveaux items.
+     * Calcule la maîtrise globale du niveau (Hiragana ou Katakana)
      */
-    fun calculateMasteryPercent(): Float {
-        return calculateMastery(allKana)
+    fun calculateGlobalMasteryPercent(): Float {
+        val levelKey = if (allKana.any { it.category == "gojuon" && it.kana == "あ" }) "hiragana" else "katakana"
+        return statisticsEngine.getPercentageForLevel(levelKey, StatisticsType.RECOGNITION).toFloat() / 100f
+    }
+
+    /**
+     * Calcule la maîtrise du lot actuel (session en cours)
+     */
+    fun calculateSessionMasteryPercent(): Float {
+        return calculateMastery(currentKanaSet)
     }
 
     private fun calculateMastery(characters: List<KanaCharacter>): Float {
         if (characters.isEmpty()) return 0f
-        // Factorisation : Utilise la méthode centralisée de StatisticsEngine
         return statisticsEngine.calculateMasteryPercentage(
             characters.map { it.kana }, 
             ScoreManager.ScoreType.RECOGNITION

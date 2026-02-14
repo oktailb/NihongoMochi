@@ -74,6 +74,8 @@ class RecognitionGameViewModel(
 
     var areButtonsEnabled = true
 
+    private var currentLevelId: String = ""
+
     fun getCurrentKanjiScore(): LearningScore? {
         if (!isGameInitialized || engine.state.value == GameState.Finished) return null
         return try {
@@ -86,9 +88,18 @@ class RecognitionGameViewModel(
     }
 
     /**
-     * Calcule la maîtrise du lot actuel
+     * Calcule la maîtrise globale du niveau pour SagaMap
      */
-    fun calculateMasteryPercent(): Float {
+    fun calculateGlobalMasteryPercent(): Float {
+        if (currentLevelId.isEmpty()) return 0f
+        val type = if (gameMode == "meaning") StatisticsType.RECOGNITION else StatisticsType.READING
+        return statisticsEngine.getPercentageForLevel(currentLevelId, type).toFloat() / 100f
+    }
+
+    /**
+     * Calcule la maîtrise du lot actuel (session courante)
+     */
+    fun calculateSessionMasteryPercent(): Float {
         if (currentKanjiSet.isEmpty()) return 0f
         val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
         return statisticsEngine.calculateMasteryPercentage(
@@ -135,8 +146,6 @@ class RecognitionGameViewModel(
         engine.resetState()
         areButtonsEnabled = true
     }
-
-    private var currentLevelId: String = ""
 
     fun initializeGame(gameMode: String, readingMode: String, level: String, customWordList: List<String>?): Boolean {
         resetState()

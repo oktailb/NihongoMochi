@@ -1,5 +1,6 @@
 package org.nihongo.mochi.ui.writinggame
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -16,22 +17,21 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -48,10 +48,13 @@ import org.nihongo.mochi.domain.game.QuestionType
 import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.kana.RomajiToKana
 import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanjiDetail
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameProgressBar
 import org.nihongo.mochi.ui.components.GameQuestionCard
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
+import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.ui.theme.AppTheme
 import org.nihongo.mochi.shared.generated.resources.*
 
@@ -60,13 +63,31 @@ fun WritingGameScreen(
     kanji: KanjiDetail?,
     questionType: QuestionType,
     gameStatus: List<GameStatus>,
+    gameState: GameState,
+    globalMasteryPercent: Float,
+    sessionMasteryPercent: Float,
     onSubmitAnswer: (String) -> Unit,
+    onReplay: () -> Unit,
+    onNavigateBack: () -> Unit,
     showCorrection: Boolean,
     isCorrect: Boolean?,
     processingAnswer: Boolean
 ) {
     var answerText by remember(kanji, questionType) { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
+    var showExitDialog by remember { mutableStateOf(false) }
+    var showResultOverlay by remember { mutableStateOf(false) }
+
+    // Intercepter le bouton retour du device
+    BackHandler(enabled = gameState != GameState.Finished && !showResultOverlay) {
+        showExitDialog = true
+    }
+
+    LaunchedEffect(gameState) {
+        if (gameState == GameState.Finished) {
+            showResultOverlay = true
+        }
+    }
 
     AppTheme {
         MochiBackground {
@@ -74,6 +95,19 @@ fun WritingGameScreen(
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
+                    // Top Bar with back button
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = { 
+                            if (gameState != GameState.Finished) showExitDialog = true 
+                            else onNavigateBack()
+                        }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                    }
+
                     // Progress Bar
                     GameProgressBar(
                         statuses = gameStatus,
@@ -82,7 +116,7 @@ fun WritingGameScreen(
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Input Area (Bottom part) - MOVED UP
+                    // Input Area (Bottom part)
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -112,7 +146,6 @@ fun WritingGameScreen(
                             onValueChange = { newValue ->
                                 if (!processingAnswer) {
                                     if (questionType == QuestionType.READING) {
-                                        // Auto-convert Romaji to Kana
                                         val replacement = RomajiToKana.checkReplacement(newValue)
                                         if (replacement != null) {
                                             val (suffixLen, kana) = replacement
@@ -134,7 +167,6 @@ fun WritingGameScreen(
                             singleLine = true,
                             visualTransformation = VisualTransformation.None,
                             keyboardOptions = KeyboardOptions(
-                                // Use Password type to disable suggestions/clipboard strip
                                 keyboardType = KeyboardType.Password, 
                                 imeAction = ImeAction.Done,
                                 autoCorrect = false
@@ -176,12 +208,12 @@ fun WritingGameScreen(
                         }
                     }
 
-                    // Kanji Card (Top part) - MOVED DOWN
+                    // Kanji Card (Top part)
                     Box(
                         modifier = Modifier
                             .weight(1f)
                             .fillMaxWidth(),
-                        contentAlignment = Alignment.TopCenter // CHANGED to TopCenter
+                        contentAlignment = Alignment.TopCenter
                     ) {
                         if (kanji != null) {
                             GameQuestionCard(
@@ -208,10 +240,41 @@ fun WritingGameScreen(
                     }
                 }
             }
+
+            if (showExitDialog) {
+                ExitConfirmationDialog(
+                    onConfirm = { 
+                        showExitDialog = false
+                        showResultOverlay = true 
+                    },
+                    onDismiss = { showExitDialog = false },
+                    onPause = { },
+                    onResume = { }
+                )
+            }
+
+            if (showResultOverlay) {
+                GameResultOverlay(
+                    isVictory = gameState == GameState.Finished,
+                    score = "${(globalMasteryPercent * 100).toInt()}%",
+                    stats = listOf(
+                        "Maîtrise de la session" to "${(sessionMasteryPercent * 100).toInt()}%",
+                        "Maîtrise globale" to "${(globalMasteryPercent * 100).toInt()}%"
+                    ),
+                    title = "Maîtrise du lot (Écriture)",
+                    onReplayClick = {
+                        showResultOverlay = false
+                        onReplay()
+                    },
+                    onMenuClick = {
+                        showResultOverlay = false
+                        onNavigateBack()
+                    }
+                )
+            }
         }
     }
     
-    // Request focus when question changes
     LaunchedEffect(kanji, questionType) {
         if (!processingAnswer) {
             focusRequester.requestFocus()
@@ -260,7 +323,6 @@ fun CorrectionCard(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.Top
                 ) {
-                    // ON Readings
                     Column(
                         modifier = Modifier
                             .weight(1f)
@@ -289,7 +351,6 @@ fun CorrectionCard(
                         color = MaterialTheme.colorScheme.outline
                     )
 
-                    // KUN Readings
                     Column(
                         modifier = Modifier
                             .weight(1f)
