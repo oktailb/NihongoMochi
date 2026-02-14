@@ -155,6 +155,10 @@ class StatisticsEngine(
         )
     }
 
+    fun getPercentageForLevel(levelId: String, type: StatisticsType): Int {
+        return calculatePercentage(levelId, type)
+    }
+
     private fun calculatePercentage(xmlName: String, type: StatisticsType): Int {
         val scoreType = when(type) {
             StatisticsType.READING -> ScoreManager.ScoreType.READING
@@ -185,7 +189,7 @@ class StatisticsEngine(
         }
     }
 
-    private fun calculateMasteryPercentage(characterList: List<String>, scoreType: ScoreManager.ScoreType): Double {
+    fun calculateMasteryPercentage(characterList: List<String>, scoreType: ScoreManager.ScoreType): Double {
         if (characterList.isEmpty()) return 0.0
 
         val totalMasteryPoints = characterList.sumOf { character ->

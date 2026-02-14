@@ -14,10 +14,13 @@ import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaCharacter
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
 import org.nihongo.mochi.domain.services.AudioPlayer
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 
 class KanaQuizViewModel(
     private val kanaRepository: KanaRepository,
     private val scoreRepository: ScoreRepository,
+    private val statisticsEngine: StatisticsEngine,
     private val audioPlayer: AudioPlayer
 ) : ViewModel() {
 
@@ -93,7 +96,7 @@ class KanaQuizViewModel(
 
         val allAvailable = loadKana(kanaType)
         
-        // Progression pédagogique
+        // Progression pédagogique factorisée via StatisticsEngine
         val gojuon = allAvailable.filter { it.category == "gojuon" }
         val dakuon = allAvailable.filter { it.category == "dakuon" || it.category == "handakuon" }
         val yoon = allAvailable.filter { it.category == "yoon" }
@@ -128,21 +131,21 @@ class KanaQuizViewModel(
         }
     }
 
+    /**
+     * Calcule la maîtrise du pool actuel (allKana). 
+     * Coordonné avec la logique pédagogique d'introduction de nouveaux items.
+     */
     fun calculateMasteryPercent(): Float {
         return calculateMastery(allKana)
     }
 
     private fun calculateMastery(characters: List<KanaCharacter>): Float {
         if (characters.isEmpty()) return 0f
-        
-        var totalPoints = 0f
-        characters.forEach { char ->
-            val score = scoreRepository.getScore(char.kana, ScoreManager.ScoreType.RECOGNITION)
-            val mastery = (score.successes - score.failures).coerceIn(0, 10)
-            totalPoints += mastery
-        }
-        
-        return totalPoints / (characters.size * 10f)
+        // Factorisation : Utilise la méthode centralisée de StatisticsEngine
+        return statisticsEngine.calculateMasteryPercentage(
+            characters.map { it.kana }, 
+            ScoreManager.ScoreType.RECOGNITION
+        ).toFloat() / 100f
     }
 
     private fun loadKana(type: KanaType): List<KanaCharacter> {
