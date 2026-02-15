@@ -46,6 +46,9 @@ class WritingGameEngine(
     private val _showCorrectionFeedback = MutableStateFlow(false)
     val showCorrectionFeedback: StateFlow<Boolean> = _showCorrectionFeedback.asStateFlow()
 
+    private val _errorCount = MutableStateFlow(0)
+    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
+
     var animationSpeed: Float = 1.0f
 
     fun resetState() {
@@ -60,6 +63,7 @@ class WritingGameEngine(
         _isAnswerProcessing.value = false
         _lastAnswerStatus.value = null
         _showCorrectionFeedback.value = false
+        _errorCount.value = 0
         _state.value = GameState.Loading
     }
 
@@ -168,6 +172,7 @@ class WritingGameEngine(
             displayQuestion()
             
         } else {
+            _errorCount.value += 1
             kanjiStatus[kanji] = GameStatus.INCORRECT
             _showCorrectionFeedback.value = true
             _state.value = GameState.ShowingResult(isCorrect)

@@ -142,8 +142,9 @@ sealed class Screen(val route: String) {
     data object WritingRecap : Screen("writing_recap/{levelId}") {
         fun createRoute(levelId: String) = "writing_recap/$levelId"
     }
-    data object WritingGame : Screen("writing_game/{levelId}") {
-        fun createRoute(levelId: String) = "writing_game/$levelId"
+    data object WritingGame : Screen("writing_game/{levelId}/{sortOrder}/{quizSize}") {
+        fun createRoute(levelId: String, sortOrder: String = "DEFAULT", quizSize: Int = 80) = 
+            "writing_game/$levelId/$sortOrder/$quizSize"
     }
 
     data object HiraganaRecap : Screen("hiragana_recap")
@@ -667,6 +668,7 @@ fun MochiNavGraph(
             val currentPage by viewModel.currentPage.collectAsState(0)
             val totalPages by viewModel.totalPages.collectAsState(0)
             val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
+            val sortOrder by viewModel.sortOrder.collectAsState()
             
             remember(levelId) {
                 viewModel.loadLevel(levelId)
@@ -678,20 +680,22 @@ fun MochiNavGraph(
                 kanjiListWithColors = kanjiList,
                 currentPage = currentPage,
                 totalPages = totalPages,
+                sortOrder = sortOrder,
                 isReviewEnabled = isReviewEnabled,
                 onKanjiClick = { kanji ->
                     navController.navigate(Screen.WordDetail.createRoute(kanji.character))
                 },
                 onPrevPage = { viewModel.prevPage() },
                 onNextPage = { viewModel.nextPage() },
-                onPlayClick = {
+                onSortOrderChange = { viewModel.setSortOrder(it) },
+                onPlayClick = { size ->
                     navController.currentBackStackEntry?.savedStateHandle?.remove<List<String>>("custom_kanji_list")
-                    navController.navigate(Screen.WritingGame.createRoute(levelId))
+                    navController.navigate(Screen.WritingGame.createRoute(levelId, sortOrder.name, size))
                 },
                 onReviewClick = {
                     val revisionList = viewModel.getRevisionKanjiForLevel()
                     navController.currentBackStackEntry?.savedStateHandle?.set("custom_kanji_list", revisionList)
-                    navController.navigate(Screen.WritingGame.createRoute(levelId))
+                    navController.navigate(Screen.WritingGame.createRoute(levelId, sortOrder.name))
                 }
             )
         }
@@ -699,22 +703,31 @@ fun MochiNavGraph(
         // Writing Game
         composable(
             route = Screen.WritingGame.route,
-            arguments = listOf(navArgument("levelId") { type = NavType.StringType })
+            arguments = listOf(
+                navArgument("levelId") { type = NavType.StringType },
+                navArgument("sortOrder") { type = NavType.StringType; defaultValue = "DEFAULT" },
+                navArgument("quizSize") { type = NavType.IntType; defaultValue = 80 }
+            )
         ) { backStackEntry ->
             val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
+            val sortOrderStr = backStackEntry.arguments?.getString("sortOrder") ?: "DEFAULT"
+            val sortOrder = try { KanjiSortOrder.valueOf(sortOrderStr) } catch(e: Exception) { KanjiSortOrder.DEFAULT }
+            val quizSize = backStackEntry.arguments?.getInt("quizSize") ?: 80
+            
             val viewModel: WritingGameViewModel = koinInject()
             
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val isProcessing by viewModel.isAnswerProcessing.collectAsState(false)
             val lastStatus by viewModel.lastAnswerStatus.collectAsState(null)
             val showCorrection by viewModel.showCorrectionFeedback.collectAsState(false)
+            val errorCount by viewModel.errorCount.collectAsState(0)
             
             val customKanjiList = navController.previousBackStackEntry
                 ?.savedStateHandle
                 ?.get<List<String>>("custom_kanji_list")
 
-            remember(levelId, customKanjiList) {
-                viewModel.initializeGame(levelId, customKanjiList)
+            remember(levelId, customKanjiList, sortOrder, quizSize) {
+                viewModel.initializeGame(levelId, customKanjiList, sortOrder, quizSize)
                 true
             }
 
@@ -730,6 +743,7 @@ fun MochiNavGraph(
                     gameState = gameState,
                     globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
                     sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
+                    errorCount = errorCount,
                     onSubmitAnswer = { viewModel.submitAnswer(it) },
                     onReplay = { viewModel.replay() },
                     onNavigateBack = { navController.popBackStack() },

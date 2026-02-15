@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.game.KanjiSortOrder
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
@@ -32,20 +33,38 @@ class WritingRecapViewModel(
     private val _isReviewEnabled = MutableStateFlow(false)
     val isReviewEnabled: StateFlow<Boolean> = _isReviewEnabled.asStateFlow()
 
+    private val _sortOrder = MutableStateFlow(KanjiSortOrder.DEFAULT)
+    val sortOrder: StateFlow<KanjiSortOrder> = _sortOrder.asStateFlow()
+
     private val pageSize = 80
     private var allKanjiEntries: List<KanjiEntry> = emptyList()
+    private var originalKanjiEntries: List<KanjiEntry> = emptyList()
 
     fun loadLevel(levelKey: String) {
         viewModelScope.launch {
             val scoreType = if (levelKey == "user_custom_list") ScoreManager.ScoreType.WRITING else ScoreManager.ScoreType.RECOGNITION
             val characters = levelContentProvider.getCharactersForLevel(levelKey, scoreType)
-            allKanjiEntries = characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
-
-            _totalPages.value = if (allKanjiEntries.isEmpty()) 0 else (allKanjiEntries.size + pageSize - 1) / pageSize
-            _currentPage.value = 0
-            updateCurrentPageItems()
-            checkReviewAvailability()
+            originalKanjiEntries = characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
+            applySortAndRefresh()
         }
+    }
+
+    fun setSortOrder(order: KanjiSortOrder) {
+        _sortOrder.value = order
+        applySortAndRefresh()
+    }
+
+    private fun applySortAndRefresh() {
+        allKanjiEntries = when (_sortOrder.value) {
+            KanjiSortOrder.FREQUENCY -> originalKanjiEntries.sortedBy { it.frequency?.toIntOrNull() ?: Int.MAX_VALUE }
+            KanjiSortOrder.STROKES -> originalKanjiEntries.sortedBy { it.strokes?.toIntOrNull() ?: 0 }
+            KanjiSortOrder.DEFAULT -> originalKanjiEntries
+        }
+
+        _totalPages.value = if (allKanjiEntries.isEmpty()) 0 else (allKanjiEntries.size + pageSize - 1) / pageSize
+        _currentPage.value = 0
+        updateCurrentPageItems()
+        checkReviewAvailability()
     }
 
     fun nextPage() {
@@ -62,7 +81,7 @@ class WritingRecapViewModel(
         }
     }
 
-    private fun updateCurrentPageItems() {
+    fun updateCurrentPageItems() {
         val startIndex = _currentPage.value * pageSize
         val endIndex = (startIndex + pageSize).coerceAtMost(allKanjiEntries.size)
 

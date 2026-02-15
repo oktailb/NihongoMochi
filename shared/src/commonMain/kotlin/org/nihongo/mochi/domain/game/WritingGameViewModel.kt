@@ -50,19 +50,24 @@ class WritingGameViewModel(
     val showCorrectionFeedback: StateFlow<Boolean> = engine.showCorrectionFeedback
     val lastAnswerStatus: StateFlow<Boolean?> = engine.lastAnswerStatus
     val isAnswerProcessing: StateFlow<Boolean> = engine.isAnswerProcessing
+    val errorCount: StateFlow<Int> = engine.errorCount
     val state: StateFlow<GameState> = engine.state
     
     private var currentLevelId: String = ""
+    private var lastSortOrder: KanjiSortOrder = KanjiSortOrder.DEFAULT
+    private var lastQuizSize: Int = 80
 
     fun setAnimationSpeed(speed: Float) {
         engine.animationSpeed = speed
     }
 
-    fun initializeGame(level: String, customWordList: List<String>? = null) {
+    fun initializeGame(level: String, customWordList: List<String>? = null, sortOrder: KanjiSortOrder = KanjiSortOrder.DEFAULT, quizSize: Int = 80) {
         this.currentLevelId = level
+        this.lastSortOrder = sortOrder
+        this.lastQuizSize = quizSize
         
         viewModelScope.launch {
-            loadAndStartGame(level, customWordList)
+            loadAndStartGame(level, customWordList, sortOrder, quizSize)
         }
     }
 
@@ -78,20 +83,30 @@ class WritingGameViewModel(
      * Calcule la maîtrise du lot actuel (session en cours)
      */
     fun calculateSessionMasteryPercent(): Float {
-        if (currentKanjiSet.isEmpty()) return 0f
+        if (engine.allKanjiDetails.isEmpty()) return 0f
         return statisticsEngine.calculateMasteryPercentage(
-            currentKanjiSet.map { it.character },
+            engine.allKanjiDetails.map { it.character },
             ScoreManager.ScoreType.WRITING
         ).toFloat() / 100f
     }
 
-    private suspend fun loadAndStartGame(level: String, customWordList: List<String>?) {
+    private suspend fun loadAndStartGame(level: String, customWordList: List<String>?, sortOrder: KanjiSortOrder, quizSize: Int) {
         val locale = settingsRepository.getAppLocale()
         val meanings = meaningRepository.getMeanings(locale)
         val allKanjiEntries = kanjiRepository.getAllKanjiSuspend()
         
-        val allKanjiDetailsRaw = mutableListOf<KanjiDetail>()
-        for (entry in allKanjiEntries) {
+        val kanjiCharsForLevel = customWordList ?: levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
+        
+        // 1. Get entries for level and apply sort order
+        val entriesForLevel = allKanjiEntries.filter { kanjiCharsForLevel.contains(it.character) }
+        val sortedEntries = when (sortOrder) {
+            KanjiSortOrder.FREQUENCY -> entriesForLevel.sortedBy { it.frequency?.toIntOrNull() ?: Int.MAX_VALUE }
+            KanjiSortOrder.STROKES -> entriesForLevel.sortedBy { it.strokes?.toIntOrNull() ?: 0 }
+            KanjiSortOrder.DEFAULT -> entriesForLevel
+        }
+
+        // 2. Create details and filter items with missing data
+        val allKanjiDetailsRaw = sortedEntries.map { entry ->
             val id = entry.id
             val character = entry.character
             val kanjiMeanings = meanings[id] ?: emptyList()
@@ -102,21 +117,24 @@ class WritingGameViewModel(
                  readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
             }
             
-            allKanjiDetailsRaw.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
+            KanjiDetail(id, character, kanjiMeanings, readingsList)
+        }.filter { it.meanings.isNotEmpty() && it.readings.isNotEmpty() }
+
+        // 3. Filter by mastery and take the quiz size
+        val filteredByMastery = if (customWordList.isNullOrEmpty() && level != "user_custom_list") {
+            allKanjiDetailsRaw.filter {
+                val score = scoreRepository.getScore(it.character, ScoreManager.ScoreType.WRITING)
+                (score.successes - score.failures) < 10
+            }.take(quizSize)
+        } else {
+            allKanjiDetailsRaw
         }
 
-        val kanjiCharsForLevel = customWordList ?: levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
-        
         engine.allKanjiDetails.clear()
-        val filtered = allKanjiDetailsRaw.filter { 
-            kanjiCharsForLevel.contains(it.character) && 
-            it.meanings.isNotEmpty() && 
-            it.readings.isNotEmpty() 
-        }
+        engine.allKanjiDetails.addAll(filteredByMastery)
         
-        engine.allKanjiDetails.addAll(filtered)
-        
-        if (customWordList == null && level != "user_custom_list") {
+        // 4. Shuffle the final set if it's not a custom list
+        if (customWordList.isNullOrEmpty()) {
             engine.allKanjiDetails.shuffle()
         }
         
@@ -138,7 +156,7 @@ class WritingGameViewModel(
 
     fun replay() {
         isGameInitialized = false
-        initializeGame(currentLevelId)
+        initializeGame(currentLevelId, null, lastSortOrder, lastQuizSize)
     }
 
     fun resetState() {

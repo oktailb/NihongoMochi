@@ -66,6 +66,7 @@ fun WritingGameScreen(
     gameState: GameState,
     globalMasteryPercent: Float,
     sessionMasteryPercent: Float,
+    errorCount: Int,
     onSubmitAnswer: (String) -> Unit,
     onReplay: () -> Unit,
     onNavigateBack: () -> Unit,
@@ -259,7 +260,8 @@ fun WritingGameScreen(
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
                         stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
-                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_errors) to errorCount.toString()
                     ),
                     title = stringResource(Res.string.game_result_lot_mastery_writing),
                     onReplayClick = {

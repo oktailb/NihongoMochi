@@ -751,4 +751,5 @@
     <string name="game_result_lot_mastery_writing">Set Mastery (Writing)</string>
     <string name="game_result_lot_mastery_grammar">Set Mastery (Grammar)</string>
     <string name="game_result_lot_mastery_kana">Set Mastery (Kana)</string>
+    <string name="game_result_errors">Errors:</string>
 </resources>
