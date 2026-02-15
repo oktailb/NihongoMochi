@@ -39,6 +39,9 @@ class WordListViewModel(
     private val _totalPages = MutableStateFlow(0)
     val totalPages: StateFlow<Int> = _totalPages.asStateFlow()
 
+    private val _isReviewEnabled = MutableStateFlow(false)
+    val isReviewEnabled: StateFlow<Boolean> = _isReviewEnabled.asStateFlow()
+
     // Filters state
     private val _filterKanjiOnly = MutableStateFlow(false)
     val filterKanjiOnly = _filterKanjiOnly.asStateFlow()
@@ -122,6 +125,7 @@ class WordListViewModel(
         engine.applyFilters()
         _currentPage.value = 0
         updateCurrentPageItems()
+        checkReviewAvailability()
     }
 
     fun nextPage() {
@@ -142,6 +146,14 @@ class WordListViewModel(
          return engine.getDisplayedWords().map { it.text }.toTypedArray()
     }
 
+    fun getRevisionWordList(): Array<String> {
+        val revisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
+        return engine.getDisplayedWords()
+            .map { it.text }
+            .filter { revisionList.contains(it) }
+            .toTypedArray()
+    }
+
     private fun updateCurrentPageItems() {
         val allDisplayed = engine.getDisplayedWords()
         _totalPages.value = if (allDisplayed.isEmpty()) 0 else (allDisplayed.size + pageSize - 1) / pageSize
@@ -159,5 +171,10 @@ class WordListViewModel(
         } else {
              _displayedWords.value = emptyList()
         }
+    }
+
+    private fun checkReviewAvailability() {
+        val revisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
+        _isReviewEnabled.value = engine.getDisplayedWords().any { revisionList.contains(it.text) }
     }
 }

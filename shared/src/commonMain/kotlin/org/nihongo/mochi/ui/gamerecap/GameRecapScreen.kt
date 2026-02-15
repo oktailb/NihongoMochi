@@ -20,7 +20,7 @@ import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.ui.components.ModeSelector
 import org.nihongo.mochi.ui.components.PaginationControls
-import org.nihongo.mochi.ui.components.PlayButton
+import org.nihongo.mochi.ui.components.PlayAndReviewButtons
 import org.nihongo.mochi.ui.components.RecapKanjiGrid
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.*
@@ -35,12 +35,14 @@ fun GameRecapScreen(
     readingMode: String,
     isMeaningEnabled: Boolean,
     isReadingEnabled: Boolean,
+    isReviewEnabled: Boolean,
     onKanjiClick: (KanjiEntry) -> Unit,
     onPrevPage: () -> Unit,
     onNextPage: () -> Unit,
     onGameModeChange: (String) -> Unit,
     onReadingModeChange: (String) -> Unit,
-    onPlayClick: () -> Unit
+    onPlayClick: () -> Unit,
+    onReviewClick: () -> Unit
 ) {
     val levelResource = ResourceUtils.resolveStringResource(levelTitle.lowercase())
     val resolvedTitle = if (levelResource != null) stringResource(levelResource) else levelTitle
@@ -106,7 +108,11 @@ fun GameRecapScreen(
             
             Spacer(modifier = Modifier.height(8.dp))
 
-            PlayButton(onClick = onPlayClick)
+            PlayAndReviewButtons(
+                onPlayClick = onPlayClick,
+                onReviewClick = onReviewClick,
+                isReviewEnabled = isReviewEnabled
+            )
         }
     }
 }

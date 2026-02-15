@@ -58,12 +58,11 @@ class WritingGameViewModel(
         engine.animationSpeed = speed
     }
 
-    fun initializeGame(level: String) {
-        if (isGameInitialized) return
+    fun initializeGame(level: String, customWordList: List<String>? = null) {
         this.currentLevelId = level
         
         viewModelScope.launch {
-            loadAndStartGame(level)
+            loadAndStartGame(level, customWordList)
         }
     }
 
@@ -86,7 +85,7 @@ class WritingGameViewModel(
         ).toFloat() / 100f
     }
 
-    private suspend fun loadAndStartGame(level: String) {
+    private suspend fun loadAndStartGame(level: String, customWordList: List<String>?) {
         val locale = settingsRepository.getAppLocale()
         val meanings = meaningRepository.getMeanings(locale)
         val allKanjiEntries = kanjiRepository.getAllKanjiSuspend()
@@ -106,7 +105,7 @@ class WritingGameViewModel(
             allKanjiDetailsRaw.add(KanjiDetail(id, character, kanjiMeanings, readingsList))
         }
 
-        val kanjiCharsForLevel = levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
+        val kanjiCharsForLevel = customWordList ?: levelContentProvider.getCharactersForLevel(level, ScoreManager.ScoreType.WRITING)
         
         engine.allKanjiDetails.clear()
         val filtered = allKanjiDetailsRaw.filter { 
@@ -117,7 +116,7 @@ class WritingGameViewModel(
         
         engine.allKanjiDetails.addAll(filtered)
         
-        if (level != "user_custom_list") {
+        if (customWordList == null && level != "user_custom_list") {
             engine.allKanjiDetails.shuffle()
         }
         

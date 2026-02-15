@@ -26,6 +26,7 @@ import org.nihongo.mochi.domain.game.QuestionType
 import org.nihongo.mochi.domain.game.RecognitionGameViewModel
 import org.nihongo.mochi.domain.game.WritingGameViewModel
 import org.nihongo.mochi.domain.game.WordQuizViewModel
+import org.nihongo.mochi.domain.game.RecognitionGameEngine
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.services.NoOpCloudSaveService
@@ -524,6 +525,7 @@ fun MochiNavGraph(
             val kanjiList by viewModel.kanjiListWithColors.collectAsState(emptyList())
             val currentPage by viewModel.currentPage.collectAsState(0)
             val totalPages by viewModel.totalPages.collectAsState(0)
+            val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
             
             var gameMode by remember { mutableStateOf("meaning") }
             var readingMode by remember { mutableStateOf("common") }
@@ -542,6 +544,7 @@ fun MochiNavGraph(
                 readingMode = readingMode,
                 isMeaningEnabled = true,
                 isReadingEnabled = true,
+                isReviewEnabled = isReviewEnabled,
                 onKanjiClick = { kanji ->
                     navController.navigate(Screen.KanjiDetail.createRoute(kanji.id))
                 },
@@ -553,6 +556,14 @@ fun MochiNavGraph(
                 },
                 onReadingModeChange = { readingMode = it },
                 onPlayClick = {
+                    navController.currentBackStackEntry?.savedStateHandle?.remove<List<String>>("custom_kanji_list")
+                    navController.navigate(
+                        Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode)
+                    )
+                },
+                onReviewClick = {
+                    val revisionList = viewModel.getRevisionKanjiForLevel(gameMode)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("custom_kanji_list", revisionList)
                     navController.navigate(
                         Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode)
                     )
@@ -577,8 +588,12 @@ fun MochiNavGraph(
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val buttonStates by viewModel.buttonStates.collectAsState(emptyList())
             
-            remember(levelId, gameMode, readingMode) {
-                viewModel.initializeGame(gameMode, readingMode, levelId, null)
+            val customKanjiList = navController.previousBackStackEntry
+                ?.savedStateHandle
+                ?.get<List<String>>("custom_kanji_list")
+
+            remember(levelId, gameMode, readingMode, customKanjiList) {
+                viewModel.initializeGame(gameMode, readingMode, levelId, customKanjiList)
                 true
             }
 
@@ -642,6 +657,7 @@ fun MochiNavGraph(
             val kanjiList by viewModel.kanjiList.collectAsState(emptyList())
             val currentPage by viewModel.currentPage.collectAsState(0)
             val totalPages by viewModel.totalPages.collectAsState(0)
+            val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
             
             remember(levelId) {
                 viewModel.loadLevel(levelId)
@@ -653,12 +669,19 @@ fun MochiNavGraph(
                 kanjiListWithColors = kanjiList,
                 currentPage = currentPage,
                 totalPages = totalPages,
+                isReviewEnabled = isReviewEnabled,
                 onKanjiClick = { kanji ->
                     navController.navigate(Screen.WordDetail.createRoute(kanji.character))
                 },
                 onPrevPage = { viewModel.prevPage() },
                 onNextPage = { viewModel.nextPage() },
                 onPlayClick = {
+                    navController.currentBackStackEntry?.savedStateHandle?.remove<List<String>>("custom_kanji_list")
+                    navController.navigate(Screen.WritingGame.createRoute(levelId))
+                },
+                onReviewClick = {
+                    val revisionList = viewModel.getRevisionKanjiForLevel()
+                    navController.currentBackStackEntry?.savedStateHandle?.set("custom_kanji_list", revisionList)
                     navController.navigate(Screen.WritingGame.createRoute(levelId))
                 }
             )
@@ -677,8 +700,12 @@ fun MochiNavGraph(
             val lastStatus by viewModel.lastAnswerStatus.collectAsState(null)
             val showCorrection by viewModel.showCorrectionFeedback.collectAsState(false)
             
-            remember(levelId) {
-                viewModel.initializeGame(levelId)
+            val customKanjiList = navController.previousBackStackEntry
+                ?.savedStateHandle
+                ?.get<List<String>>("custom_kanji_list")
+
+            remember(levelId, customKanjiList) {
+                viewModel.initializeGame(levelId, customKanjiList)
                 true
             }
 
@@ -838,6 +865,7 @@ fun MochiNavGraph(
             val filterIgnoreKnown by viewModel.filterIgnoreKnown.collectAsState(false)
             val selectedWordType by viewModel.selectedWordType.collectAsState("Tous" to "All")
             val screenTitleKey by viewModel.screenTitleKey.collectAsState(null)
+            val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
 
             remember(levelId) {
                 viewModel.loadList(levelId)
@@ -853,6 +881,7 @@ fun MochiNavGraph(
                 },
                 currentPage = currentPage,
                 totalPages = totalPages,
+                isReviewEnabled = isReviewEnabled,
                 filterKanjiOnly = filterKanjiOnly,
                 filterSimpleWords = filterSimpleWords,
                 filterCompoundWords = filterCompoundWords,
@@ -869,6 +898,11 @@ fun MochiNavGraph(
                 onPlayClick = {
                     val filteredWordTexts = viewModel.getGameWordList()
                     navController.currentBackStackEntry?.savedStateHandle?.set("filtered_words", filteredWordTexts)
+                    navController.navigate(Screen.WordQuiz.createRoute(levelId))
+                },
+                onReviewClick = {
+                    val revisionList = viewModel.getRevisionWordList()
+                    navController.currentBackStackEntry?.savedStateHandle?.set("filtered_words", revisionList)
                     navController.navigate(Screen.WordQuiz.createRoute(levelId))
                 },
                 onWordClick = { wordText ->

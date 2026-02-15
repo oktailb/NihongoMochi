@@ -29,6 +29,9 @@ class WritingRecapViewModel(
     private val _totalPages = MutableStateFlow(0)
     val totalPages: StateFlow<Int> = _totalPages.asStateFlow()
 
+    private val _isReviewEnabled = MutableStateFlow(false)
+    val isReviewEnabled: StateFlow<Boolean> = _isReviewEnabled.asStateFlow()
+
     private val pageSize = 80
     private var allKanjiEntries: List<KanjiEntry> = emptyList()
 
@@ -39,7 +42,9 @@ class WritingRecapViewModel(
             allKanjiEntries = characters.mapNotNull { kanjiRepository.getKanjiByCharacter(it) }
 
             _totalPages.value = if (allKanjiEntries.isEmpty()) 0 else (allKanjiEntries.size + pageSize - 1) / pageSize
+            _currentPage.value = 0
             updateCurrentPageItems()
+            checkReviewAvailability()
         }
     }
 
@@ -71,5 +76,15 @@ class WritingRecapViewModel(
         } else {
             _kanjiList.value = emptyList()
         }
+    }
+
+    private fun checkReviewAvailability() {
+        val revisionList = scoreRepository.getListItems(ScoreManager.WRITING_LIST)
+        _isReviewEnabled.value = allKanjiEntries.any { revisionList.contains(it.character) }
+    }
+
+    fun getRevisionKanjiForLevel(): List<String> {
+        val revisionList = scoreRepository.getListItems(ScoreManager.WRITING_LIST)
+        return allKanjiEntries.map { it.character }.filter { revisionList.contains(it) }
     }
 }

@@ -2,32 +2,14 @@ package org.nihongo.mochi.ui.wordlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -42,14 +24,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.ui.components.PaginationControls
-import org.nihongo.mochi.ui.components.PlayButton
+import org.nihongo.mochi.ui.components.PlayAndReviewButtons
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.*
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
@@ -58,6 +40,7 @@ fun WordListScreen(
     wordsWithColors: List<Triple<WordEntry, Color, String?>>, // Word, Color, Meaning
     currentPage: Int,
     totalPages: Int,
+    isReviewEnabled: Boolean,
     filterKanjiOnly: Boolean,
     filterSimpleWords: Boolean,
     filterCompoundWords: Boolean,
@@ -72,6 +55,7 @@ fun WordListScreen(
     onPrevPage: () -> Unit,
     onNextPage: () -> Unit,
     onPlayClick: () -> Unit,
+    onReviewClick: () -> Unit,
     onWordClick: (String) -> Unit
 ) {
     val levelResource = ResourceUtils.resolveStringResource(listTitle.lowercase())
@@ -174,8 +158,11 @@ fun WordListScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Play Button
-            PlayButton(onClick = onPlayClick)
+            PlayAndReviewButtons(
+                onPlayClick = onPlayClick,
+                onReviewClick = onReviewClick,
+                isReviewEnabled = isReviewEnabled
+            )
         }
     }
 }

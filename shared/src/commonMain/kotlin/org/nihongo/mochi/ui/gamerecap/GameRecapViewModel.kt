@@ -28,6 +28,9 @@ class GameRecapViewModel(
 
     private val _totalPages = MutableStateFlow(0)
     val totalPages: StateFlow<Int> = _totalPages.asStateFlow()
+    
+    private val _isReviewEnabled = MutableStateFlow(false)
+    val isReviewEnabled: StateFlow<Boolean> = _isReviewEnabled.asStateFlow()
 
     private var allKanjiEntries: List<KanjiEntry> = emptyList()
     private val pageSize = 80
@@ -36,8 +39,6 @@ class GameRecapViewModel(
         viewModelScope.launch {
             val lowerLevel = level.lowercase()
             
-            // Optimization: bypass levelContentProvider for massive challenges 
-            // to avoid redundant O(N) mapping from String back to KanjiEntry
             allKanjiEntries = when {
                 lowerLevel == "native_challenge" || lowerLevel == "native challenge" -> 
                     kanjiRepository.getNativeKanji()
@@ -54,6 +55,7 @@ class GameRecapViewModel(
             _currentPage.value = 0
             _totalPages.value = (allKanjiEntries.size + pageSize - 1) / pageSize
             updateCurrentPageItems(gameMode)
+            checkReviewAvailability(gameMode)
         }
     }
 
@@ -85,5 +87,18 @@ class GameRecapViewModel(
         } else {
              _kanjiListWithColors.value = emptyList()
         }
+        checkReviewAvailability(gameMode)
+    }
+    
+    private fun checkReviewAvailability(gameMode: String) {
+        val listName = if (gameMode == "meaning") ScoreManager.RECOGNITION_LIST else ScoreManager.READING_LIST
+        val revisionList = scoreRepository.getListItems(listName)
+        _isReviewEnabled.value = allKanjiEntries.any { revisionList.contains(it.character) }
+    }
+
+    fun getRevisionKanjiForLevel(gameMode: String): List<String> {
+        val listName = if (gameMode == "meaning") ScoreManager.RECOGNITION_LIST else ScoreManager.READING_LIST
+        val revisionList = scoreRepository.getListItems(listName)
+        return allKanjiEntries.map { it.character }.filter { revisionList.contains(it) }
     }
 }

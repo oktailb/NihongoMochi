@@ -2,16 +2,11 @@ Objectif:
 La meilleure appli d apprentissage du japonais qui soit
 
 Todo:
- - [X] Fix [App must support 16 KB memory page sizes]
- - [X] Meanings of wordlists
- - [ ] Achieve google play connexion
  - [ ] Cemantix ??
  - [ ] Tetris ou candycrush like
- - [X] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. -> Alimenter avec des kanjis partageant les mêmes radicaux.
- - [X] first run behavior : language selection, objectives, quick tour/tuto
  - [ ] better revision management : define/highlight list
  - [ ] ensure numerical values presence for numbers in meanings
- - [ ] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
+ - [WIP] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
  - [ ] restandardize games endings sounds
