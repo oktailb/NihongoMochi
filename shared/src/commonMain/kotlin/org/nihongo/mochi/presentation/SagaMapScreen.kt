@@ -88,6 +88,7 @@ import org.nihongo.mochi.shared.generated.resources.level_light
 import org.nihongo.mochi.shared.generated.resources.reading
 import org.nihongo.mochi.shared.generated.resources.recognising
 import org.nihongo.mochi.shared.generated.resources.writing
+import org.nihongo.mochi.shared.generated.resources.grammar
 import kotlin.math.abs
 import kotlin.math.sin
 
@@ -439,6 +440,8 @@ fun SagaMapContent(
                                 billboards.add(BillboardSpec(StatisticsType.READING, progress.readingIndex))
                             if (node.writingId != null) 
                                 billboards.add(BillboardSpec(StatisticsType.WRITING, progress.writingIndex))
+                            if (node.grammarId != null) 
+                                billboards.add(BillboardSpec(StatisticsType.GRAMMAR, progress.grammarIndex))
                             
                             val placedBillboards = billboards.map { spec ->
                                 val t = 0.2f + (spec.progress / 100f) * 0.6f
@@ -488,7 +491,7 @@ fun SagaMapContent(
                                         label = "Write"
                                     }
                                     StatisticsType.GRAMMAR -> {
-                                        resource = Res.drawable.writing 
+                                        resource = Res.drawable.grammar 
                                         color = MaterialTheme.colorScheme.error
                                         label = "Gram"
                                     }
@@ -516,6 +519,7 @@ fun SagaMapContent(
                                                 StatisticsType.RECOGNITION -> node.recognitionId
                                                 StatisticsType.READING -> node.readingId
                                                 StatisticsType.WRITING -> node.writingId
+                                                StatisticsType.GRAMMAR -> node.grammarId
                                                 else -> null
                                             }
                                             if (id != null) onNodeClick(id, spec.type)
@@ -530,6 +534,7 @@ fun SagaMapContent(
                                 if (node.recognitionId != null) validScores.add(progress.recognitionIndex)
                                 if (node.readingId != null) validScores.add(progress.readingIndex)
                                 if (node.writingId != null) validScores.add(progress.writingIndex)
+                                if (node.grammarId != null) validScores.add(progress.grammarIndex)
                                 
                                 val avgProgress = if (validScores.isNotEmpty()) validScores.average().toFloat() else 0f
                                 
@@ -725,6 +730,7 @@ fun SagaNodeItem(
     if (node.recognitionId != null) validScores.add(progress.recognitionIndex)
     if (node.readingId != null) validScores.add(progress.readingIndex)
     if (node.writingId != null) validScores.add(progress.writingIndex)
+    if (node.grammarId != null) validScores.add(progress.grammarIndex)
     
     val avgProgress = if (validScores.isNotEmpty()) {
         validScores.average().toInt()
