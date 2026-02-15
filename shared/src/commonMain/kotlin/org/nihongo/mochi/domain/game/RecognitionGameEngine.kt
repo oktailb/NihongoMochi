@@ -31,6 +31,10 @@ class RecognitionGameEngine(
     private var _currentKanji: KanjiDetail? = null
     val currentKanji: KanjiDetail? get() = _currentKanji
     
+    // Stats for accuracy
+    var correctAnswersInSession = 0
+    var totalAnswersInSession = 0
+
     lateinit var correctAnswer: String
     lateinit var gameMode: String
     lateinit var readingMode: String
@@ -66,12 +70,22 @@ class RecognitionGameEngine(
         isProcessingAnswer = false
         _state.value = GameState.Loading
         _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
+        correctAnswersInSession = 0
+        totalAnswersInSession = 0
     }
     
     fun startGame() {
         if (allKanjiDetails.isEmpty()) {
             _state.value = GameState.Finished
             return
+        }
+
+        // Initialize status for all items to track session progress
+        kanjiStatus.clear()
+        kanjiProgress.clear()
+        allKanjiDetails.forEach {
+            kanjiStatus[it] = GameStatus.NOT_ANSWERED
+            kanjiProgress[it] = KanjiProgress()
         }
 
         if (startNewSet()) {
@@ -84,8 +98,6 @@ class RecognitionGameEngine(
 
     private fun startNewSet(): Boolean {
         revisionList.clear()
-        kanjiStatus.clear()
-        kanjiProgress.clear()
 
         if (kanjiListPosition >= allKanjiDetails.size) {
             return false // No more sets
@@ -97,10 +109,7 @@ class RecognitionGameEngine(
         currentKanjiSet.clear()
         currentKanjiSet.addAll(nextSet)
         revisionList.addAll(nextSet)
-        currentKanjiSet.forEach {
-            kanjiStatus[it] = GameStatus.NOT_ANSWERED
-            kanjiProgress[it] = KanjiProgress()
-        }
+        
         return true
     }
 
@@ -221,6 +230,9 @@ class RecognitionGameEngine(
             selectedAnswer == correctAnswer
         }
         
+        totalAnswersInSession++
+        if (isCorrect) correctAnswersInSession++
+
         scoreRepository.saveScore(kanji.character, isCorrect, getScoreType())
         
         // Update Game State

@@ -185,14 +185,7 @@ fun <T> DropdownSelector(
             )
         }
 
-        Text(
-            text = stringResource(Res.string.order_by),
-            style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.padding(bottom = 4.dp),
-            color = MaterialTheme.colorScheme.onBackground
-        )
-
-        ExposedDropdownMenuBox(
+             ExposedDropdownMenuBox(
             expanded = expanded,
             onExpandedChange = { if (enabled) expanded = !expanded },
             modifier = Modifier.fillMaxWidth()
@@ -202,12 +195,13 @@ fun <T> DropdownSelector(
                 onValueChange = {},
                 readOnly = true,
                 enabled = enabled,
+                label = { Text(stringResource(Res.string.order_by)) },
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                     focusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
-                    unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                    unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.9f),
                 ),
                 modifier = Modifier
                     .menuAnchor(MenuAnchorType.PrimaryNotEditable, enabled)
@@ -244,23 +238,17 @@ fun QuizSizeInput(
         modifier = modifier.padding(vertical = 4.dp),
         horizontalAlignment = Alignment.Start
     ) {
-        Text(
-            text = stringResource(Res.string.size),
-            style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.padding(bottom = 4.dp),
-            color = MaterialTheme.colorScheme.onBackground
-        )
-        
-        OutlinedTextField(
+         OutlinedTextField(
             value = size,
             onValueChange = { if (it.length <= 3 && it.all { char -> char.isDigit() }) onSizeChange(it) },
             enabled = enabled,
+            label = { Text(stringResource(Res.string.size)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = MaterialTheme.colorScheme.primary,
                 unfocusedBorderColor = MaterialTheme.colorScheme.primary,
                 focusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
-                unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.9f),
                 ),
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),

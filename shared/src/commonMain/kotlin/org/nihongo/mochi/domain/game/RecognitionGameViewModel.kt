@@ -86,7 +86,7 @@ class RecognitionGameViewModel(
         if (!isGameInitialized || engine.state.value == GameState.Finished) return null
         return try {
             val kanji = engine.currentKanji ?: return null
-            val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+            val type = ScoreManager.ScoreType.RECOGNITION
             scoreRepository.getScore(kanji.character, type)
         } catch(e: Exception) {
             null
@@ -98,7 +98,7 @@ class RecognitionGameViewModel(
      */
     fun calculateGlobalMasteryPercent(): Float {
         if (currentLevelId.isEmpty()) return 0f
-        val type = if (gameMode == "meaning") StatisticsType.RECOGNITION else StatisticsType.READING
+        val type = StatisticsType.RECOGNITION
         return statisticsEngine.getPercentageForLevel(currentLevelId, type).toFloat() / 100f
     }
 
@@ -106,10 +106,12 @@ class RecognitionGameViewModel(
      * Calcule la maîtrise du lot actuel (session courante)
      */
     fun calculateSessionMasteryPercent(): Float {
-        if (currentKanjiSet.isEmpty()) return 0f
-        val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+        if (allKanjiDetails.isEmpty()) return 0f
+        val type = ScoreManager.ScoreType.RECOGNITION
+        
+        // On calcule le score sur l'ensemble des kanjis sélectionnés pour ce quiz (ex: les 80 items)
         return statisticsEngine.calculateMasteryPercentage(
-            currentKanjiSet.map { it.character },
+            allKanjiDetails.map { it.character },
             type
         ).toFloat() / 100f
     }

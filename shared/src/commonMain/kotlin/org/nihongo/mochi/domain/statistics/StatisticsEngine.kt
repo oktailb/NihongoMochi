@@ -209,4 +209,12 @@ class StatisticsEngine(
 
         return (totalMasteryPoints / maxPossiblePoints) * 100.0
     }
+
+    /**
+     * Calcule le score de session en prenant en compte le fait que le quiz est un sous-ensemble.
+     * Si quizSize < totalLevelSize, on calcule la progression relative uniquement sur les éléments du quiz.
+     */
+    fun calculateSessionScore(quizCharacters: List<String>, scoreType: ScoreManager.ScoreType): Int {
+        return calculateMasteryPercentage(quizCharacters, scoreType).toInt()
+    }
 }
