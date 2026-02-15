@@ -721,4 +721,12 @@
     <string name="exit_dialog_quit_lose_progress">প্রস্থান করুন এবং অগ্রগতি হারান</string>
     <string name="game_particles_how_to_play">কিভাবে খেলতে হয়</string>
     <string name="game_particles_rules_list">• সরানোর জন্য আপনার জাহাজ টেনে আনুন\n• সঠিক কণাটি শুট করতে আলতো চাপুন\n• সঠিক কণাটিকে নীচে পৌঁছাতে দেবেন না!</string>
+    <string name="game_result_title_session">সেশন মাস্টারি</string>
+    <string name="game_result_title_global">গ্লোবাল মাস্টারি</string>
+    <string name="game_result_lot_mastery">মাস্টারি সেট করুন</string>
+    <string name="game_result_lot_mastery_recognition">সেট মাস্টারি (স্বীকৃতি)</string>
+    <string name="game_result_lot_mastery_reading">সেট মাস্টারি (পড়া)</string>
+    <string name="game_result_lot_mastery_writing">সেট মাস্টারি (লেখা)</string>
+    <string name="game_result_lot_mastery_grammar">সেট মাস্টারি (ব্যাকরণ)</string>
+    <string name="game_result_lot_mastery_kana">সেট মাস্টারি (কানা)</string>
 </resources>

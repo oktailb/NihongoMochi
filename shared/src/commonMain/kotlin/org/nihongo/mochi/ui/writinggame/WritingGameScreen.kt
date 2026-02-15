@@ -258,10 +258,10 @@ fun WritingGameScreen(
                     isVictory = gameState == GameState.Finished,
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
-                        "Maîtrise de la session" to "${(sessionMasteryPercent * 100).toInt()}%",
-                        "Maîtrise globale" to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
                     ),
-                    title = "Maîtrise du lot (Écriture)",
+                    title = stringResource(Res.string.game_result_lot_mastery_writing),
                     onReplayClick = {
                         showResultOverlay = false
                         onReplay()

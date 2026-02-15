@@ -719,4 +719,12 @@
     <string name="exit_dialog_quit_lose_progress">Thoát khỏi và mất tiến bộ</string>
     <string name="game_particles_how_to_play">Cách chơi</string>
     <string name="game_particles_rules_list">• Kéo tàu của bạn để di chuyển\n^ Nhấn để bắn đúng hạt\n^ Đừng để hạt đúng chạm tới đáy!</string>
+    <string name="game_result_title_session">Làm chủ phiên</string>
+    <string name="game_result_title_global">Làm chủ toàn cầu</string>
+    <string name="game_result_lot_mastery">Đặt quyền làm chủ</string>
+    <string name="game_result_lot_mastery_recognition">Đặt quyền làm chủ (Công nhận)</string>
+    <string name="game_result_lot_mastery_reading">Đặt sự thành thạo (Đọc)</string>
+    <string name="game_result_lot_mastery_writing">Đặt quyền làm chủ (Viết)</string>
+    <string name="game_result_lot_mastery_grammar">Đặt thành thạo (ngữ pháp)</string>
+    <string name="game_result_lot_mastery_kana">Đặt quyền làm chủ (Kana)</string>
 </resources>

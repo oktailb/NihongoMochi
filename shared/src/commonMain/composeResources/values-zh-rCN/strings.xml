@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">退出并失去进度</string>
     <string name="game_particles_how_to_play">怎么玩</string>
     <string name="game_particles_rules_list">• 拖动您的飞船来移动\n• 点击以发射正确的粒子\n• 不要让正确的粒子到达底部！</string>
+    <string name="game_result_title_session">会话掌握</string>
+    <string name="game_result_title_global">全球掌握</string>
+    <string name="game_result_lot_mastery">套装精通</string>
+    <string name="game_result_lot_mastery_recognition">精通套装（认可）</string>
+    <string name="game_result_lot_mastery_reading">掌握设定（阅读）</string>
+    <string name="game_result_lot_mastery_writing">掌握设定（写作）</string>
+    <string name="game_result_lot_mastery_grammar">掌握集合（语法）</string>
+    <string name="game_result_lot_mastery_kana">精通套装（假名）</string>
 </resources>

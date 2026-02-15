@@ -734,4 +734,14 @@
     <string name="notification_msg_2">Your Kanji missed you! Come back to refresh your memory! ✨</string>
     <string name="notification_msg_3">A fresh Mochi is a happy Mochi! Let's practice! 🍵</string>
     <string name="notification_msg_4">Mochi-Mochi! It's time to stretch your brain! 🧠</string>
+
+    <!-- Result Overlays -->
+    <string name="game_result_title_session">Session Mastery</string>
+    <string name="game_result_title_global">Global Mastery</string>
+    <string name="game_result_lot_mastery">Set Mastery</string>
+    <string name="game_result_lot_mastery_recognition">Set Mastery (Recognition)</string>
+    <string name="game_result_lot_mastery_reading">Set Mastery (Reading)</string>
+    <string name="game_result_lot_mastery_writing">Set Mastery (Writing)</string>
+    <string name="game_result_lot_mastery_grammar">Set Mastery (Grammar)</string>
+    <string name="game_result_lot_mastery_kana">Set Mastery (Kana)</string>
 </resources>

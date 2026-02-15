@@ -719,4 +719,12 @@
     <string name="exit_dialog_quit_lose_progress">Esci e perdi la progressione</string>
     <string name="game_particles_how_to_play">Come giocare</string>
     <string name="game_particles_rules_list">• Trascina la tua nave per muoverti\n• Tocca per sparare alla particella corretta\n• Non lasciare che la particella corretta raggiunga il fondo!</string>
+    <string name="game_result_title_session">Padronanza della sessione</string>
+    <string name="game_result_title_global">Padronanza globale</string>
+    <string name="game_result_lot_mastery">Imposta la maestria</string>
+    <string name="game_result_lot_mastery_recognition">Set Mastery (riconoscimento)</string>
+    <string name="game_result_lot_mastery_reading">Padronanza del set (lettura)</string>
+    <string name="game_result_lot_mastery_writing">Padronanza del set (scrittura)</string>
+    <string name="game_result_lot_mastery_grammar">Padronanza dell'impostazione (grammatica)</string>
+    <string name="game_result_lot_mastery_kana">Maestria del set (Kana)</string>
 </resources>

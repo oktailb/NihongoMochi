@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">Arrêter et perdre la progression</string>
     <string name="game_particles_how_to_play">Comment jouer</string>
     <string name="game_particles_rules_list">• Faites glisser votre vaisseau pour vous déplacer\n• Appuyez pour tirer la bonne particule\n• Ne laissez pas la bonne particule atteindre le fond !</string>
+    <string name="game_result_title_session">Maîtrise des séances</string>
+    <string name="game_result_title_global">Maîtrise globale</string>
+    <string name="game_result_lot_mastery">Maîtrise des ensembles</string>
+    <string name="game_result_lot_mastery_recognition">Maîtrise des ensembles (reconnaissance)</string>
+    <string name="game_result_lot_mastery_reading">Définir la maîtrise (lecture)</string>
+    <string name="game_result_lot_mastery_writing">Maîtrise des ensembles (écriture)</string>
+    <string name="game_result_lot_mastery_grammar">Maîtrise des ensembles (grammaire)</string>
+    <string name="game_result_lot_mastery_kana">Maîtrise des ensembles (Kana)</string>
 </resources>

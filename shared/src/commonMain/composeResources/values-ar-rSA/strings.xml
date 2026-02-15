@@ -721,4 +721,12 @@
     <string name="exit_dialog_quit_lose_progress">إنهاء وتفقد التقدم</string>
     <string name="game_particles_how_to_play">كيف تلعب</string>
     <string name="game_particles_rules_list">• اسحب سفينتك للتحرك\n• انقر لإطلاق النار على الجسيم الصحيح\n• لا تدع الجسيم الصحيح يصل إلى القاع!</string>
+    <string name="game_result_title_session">إتقان الجلسة</string>
+    <string name="game_result_title_global">الإتقان العالمي</string>
+    <string name="game_result_lot_mastery">تعيين الإتقان</string>
+    <string name="game_result_lot_mastery_recognition">ضبط الإتقان (الاعتراف)</string>
+    <string name="game_result_lot_mastery_reading">ضبط الإتقان (القراءة)</string>
+    <string name="game_result_lot_mastery_writing">ضبط الإتقان (الكتابة)</string>
+    <string name="game_result_lot_mastery_grammar">ضبط الإتقان (القواعد)</string>
+    <string name="game_result_lot_mastery_kana">ضبط الإتقان (كانا)</string>
 </resources>

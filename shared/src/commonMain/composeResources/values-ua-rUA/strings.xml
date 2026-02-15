@@ -721,4 +721,12 @@
     <string name="exit_dialog_quit_lose_progress">Вийти і втратити прогрес</string>
     <string name="game_particles_how_to_play">Як грати</string>
     <string name="game_particles_rules_list">• Перетягніть свій корабель, щоб рухатися\n• Торкніться, щоб вистрілити потрібну частинку\n• Не дозволяйте правильній частинці досягти дна!</string>
+    <string name="game_result_title_session">Майстерність сесії</string>
+    <string name="game_result_title_global">Глобальна майстерність</string>
+    <string name="game_result_lot_mastery">Встановити майстерність</string>
+    <string name="game_result_lot_mastery_recognition">Майстерність набору (розпізнавання)</string>
+    <string name="game_result_lot_mastery_reading">Майстерність установок (читання)</string>
+    <string name="game_result_lot_mastery_writing">Встановити майстерність (письмо)</string>
+    <string name="game_result_lot_mastery_grammar">Оволодіння набором (граматика)</string>
+    <string name="game_result_lot_mastery_kana">Майстерність набору (Кана)</string>
 </resources>

@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.domain.game.QuestionDirection
 import org.nihongo.mochi.domain.models.AnswerButtonState
@@ -33,6 +34,7 @@ import org.nihongo.mochi.ui.components.GameQuestionCard
 import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.ui.theme.AppTheme
+import org.nihongo.mochi.shared.generated.resources.*
 
 @Composable
 fun RecognitionGameScreen(
@@ -205,10 +207,10 @@ fun RecognitionGameScreen(
                     isVictory = gameState == GameState.Finished,
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
-                        "Maîtrise de la session" to "${(sessionMasteryPercent * 100).toInt()}%",
-                        "Maîtrise globale" to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
                     ),
-                    title = "Maîtrise du lot",
+                    title = stringResource(Res.string.game_result_lot_mastery_recognition),
                     onReplayClick = {
                         showResultOverlay = false
                         onReplay()

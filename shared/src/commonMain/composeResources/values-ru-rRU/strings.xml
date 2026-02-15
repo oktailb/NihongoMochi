@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">Выйти и потерять прогресс</string>
     <string name="game_particles_how_to_play">Как играть</string>
     <string name="game_particles_rules_list">• Перетаскивайте корабль, чтобы двигаться.\n• Нажмите, чтобы выстрелить в правильную частицу.\n• Не позволяйте нужной частице достичь дна!</string>
+    <string name="game_result_title_session">Мастерство сеанса</string>
+    <string name="game_result_title_global">Глобальное мастерство</string>
+    <string name="game_result_lot_mastery">Мастерство набора</string>
+    <string name="game_result_lot_mastery_recognition">Мастерство набора (Распознавание)</string>
+    <string name="game_result_lot_mastery_reading">Мастерство установки (чтение)</string>
+    <string name="game_result_lot_mastery_writing">Мастерство установки (письмо)</string>
+    <string name="game_result_lot_mastery_grammar">Мастерство установки (грамматика)</string>
+    <string name="game_result_lot_mastery_kana">Мастерство набора (Кана)</string>
 </resources>

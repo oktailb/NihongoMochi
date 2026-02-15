@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">ลาออกและสูญเสียความก้าวหน้า</string>
     <string name="game_particles_how_to_play">วิธีการเล่น</string>
     <string name="game_particles_rules_list">• ลากเรือของคุณเพื่อเคลื่อนที่\n• แตะเพื่อยิงอนุภาคที่ถูกต้อง\n• อย่าปล่อยให้อนุภาคที่ถูกต้องไปถึงด้านล่าง!</string>
+    <string name="game_result_title_session">เซสชันการเรียนรู้</string>
+    <string name="game_result_title_global">ความเชี่ยวชาญระดับโลก</string>
+    <string name="game_result_lot_mastery">ตั้งค่าความชำนาญ</string>
+    <string name="game_result_lot_mastery_recognition">กำหนดความชำนาญ (การรับรู้)</string>
+    <string name="game_result_lot_mastery_reading">ตั้งค่าความชำนาญ (การอ่าน)</string>
+    <string name="game_result_lot_mastery_writing">ตั้งความเชี่ยวชาญ (การเขียน)</string>
+    <string name="game_result_lot_mastery_grammar">ตั้งค่าการเรียนรู้ (ไวยากรณ์)</string>
+    <string name="game_result_lot_mastery_kana">เซ็ตมาสเตอรี (คานะ)</string>
 </resources>

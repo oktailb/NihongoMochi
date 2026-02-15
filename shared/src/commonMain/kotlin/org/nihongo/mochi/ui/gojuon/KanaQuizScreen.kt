@@ -19,15 +19,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
 import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameResultOverlay
+import org.nihongo.mochi.shared.generated.resources.*
 
 @Composable
 fun KanaQuizScreen(
@@ -116,10 +119,10 @@ fun KanaQuizScreen(
                 isVictory = state == GameState.Finished,
                 score = globalMastery,
                 stats = listOf(
-                    "Maîtrise de la session" to sessionMastery,
-                    "Maîtrise globale" to globalMastery
+                    stringResource(Res.string.game_result_title_session) to sessionMastery,
+                    stringResource(Res.string.game_result_title_global) to globalMastery
                 ),
-                title = "Progression Kana",
+                title = stringResource(Res.string.game_result_lot_mastery_kana),
                 onReplayClick = {
                     showResultOverlay = false
                     viewModel.initializeGame(

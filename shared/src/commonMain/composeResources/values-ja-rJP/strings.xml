@@ -721,4 +721,12 @@
     <string name="exit_dialog_quit_lose_progress">終了すると進行状況が失われます</string>
     <string name="game_particles_how_to_play">遊び方</string>
     <string name="game_particles_rules_list">• 船をドラッグして移動します\n• タップして正しい粒子を発射します\n• 正しい粒子を底に到達させないでください。</string>
+    <string name="game_result_title_session">セッションマスタリー</string>
+    <string name="game_result_title_global">グローバルマスタリー</string>
+    <string name="game_result_lot_mastery">マスタリーを設定する</string>
+    <string name="game_result_lot_mastery_recognition">マスタリーの設定 (認識)</string>
+    <string name="game_result_lot_mastery_reading">マスタリーの設定 (読み取り)</string>
+    <string name="game_result_lot_mastery_writing">マスタリー設定（ライティング）</string>
+    <string name="game_result_lot_mastery_grammar">セットマスタリー (文法)</string>
+    <string name="game_result_lot_mastery_kana">セットマスタリー（かな）</string>
 </resources>

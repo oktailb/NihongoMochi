@@ -721,4 +721,12 @@
     <string name="exit_dialog_quit_lose_progress">Гарах, ахиц дэвшлийг алдах</string>
     <string name="game_particles_how_to_play">Хэрхэн тоглох вэ</string>
     <string name="game_particles_rules_list">• Хөлөг онгоцоо чирж хөдөлнө үү\n• Зөв бөөмсийг буудахын тулд товшино уу\n• Зөв бөөмсийг ёроолд нь бүү хүргэ!</string>
+    <string name="game_result_title_session">Сеанс эзэмших</string>
+    <string name="game_result_title_global">Глобал мастер</string>
+    <string name="game_result_lot_mastery">Төгс эзэмших чадвар</string>
+    <string name="game_result_lot_mastery_recognition">Төгс эзэмших чадвар (таних)</string>
+    <string name="game_result_lot_mastery_reading">Төгс эзэмших чадвар (унших)</string>
+    <string name="game_result_lot_mastery_writing">Төгс эзэмших чадвар (бичих)</string>
+    <string name="game_result_lot_mastery_grammar">Төгс эзэмших чадвар (Дүрмийн дүрэм)</string>
+    <string name="game_result_lot_mastery_kana">Тохиромжтой чадвар (Кана)</string>
 </resources>

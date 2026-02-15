@@ -719,4 +719,12 @@
     <string name="exit_dialog_quit_lose_progress">Aufhören und den Fortschritt verlieren</string>
     <string name="game_particles_how_to_play">Wie man spielt</string>
     <string name="game_particles_rules_list">• Ziehen Sie Ihr Schiff, um sich zu bewegen.\n• Tippen Sie, um das richtige Partikel abzuschießen.\n• Lassen Sie nicht zu, dass das richtige Partikel den Boden erreicht!</string>
+    <string name="game_result_title_session">Sitzungsbeherrschung</string>
+    <string name="game_result_title_global">Globale Meisterschaft</string>
+    <string name="game_result_lot_mastery">Set-Meisterschaft</string>
+    <string name="game_result_lot_mastery_recognition">Set-Meisterschaft (Anerkennung)</string>
+    <string name="game_result_lot_mastery_reading">Set-Meisterschaft (Lesen)</string>
+    <string name="game_result_lot_mastery_writing">Set-Beherrschung (Schreiben)</string>
+    <string name="game_result_lot_mastery_grammar">Mengenbeherrschung (Grammatik)</string>
+    <string name="game_result_lot_mastery_kana">Set-Meisterschaft (Kana)</string>
 </resources>

@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">Desista e perca a progressão</string>
     <string name="game_particles_how_to_play">Como jogar</string>
     <string name="game_particles_rules_list">• Arraste sua nave para se mover\n• Toque para disparar a partícula correta\n• Não deixe a partícula correta chegar ao fundo!</string>
+    <string name="game_result_title_session">Domínio da sessão</string>
+    <string name="game_result_title_global">Domínio Global</string>
+    <string name="game_result_lot_mastery">Definir Maestria</string>
+    <string name="game_result_lot_mastery_recognition">Definir Maestria (Reconhecimento)</string>
+    <string name="game_result_lot_mastery_reading">Definir Maestria (Leitura)</string>
+    <string name="game_result_lot_mastery_writing">Definir Maestria (Escrita)</string>
+    <string name="game_result_lot_mastery_grammar">Definir Domínio (Gramática)</string>
+    <string name="game_result_lot_mastery_kana">Maestria de Conjunto (Kana)</string>
 </resources>

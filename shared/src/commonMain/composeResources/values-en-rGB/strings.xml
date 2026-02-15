@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">Quit and lose progression</string>
     <string name="game_particles_how_to_play">How to play</string>
     <string name="game_particles_rules_list">• Drag your ship to move\n• Tap to shoot the correct particle\n• Don't let the correct particle reach the bottom!</string>
+    <string name="game_result_title_session">Session Mastery</string>
+    <string name="game_result_title_global">Global Mastery</string>
+    <string name="game_result_lot_mastery">Set Mastery</string>
+    <string name="game_result_lot_mastery_recognition">Set Mastery (Recognition)</string>
+    <string name="game_result_lot_mastery_reading">Set Mastery (Reading)</string>
+    <string name="game_result_lot_mastery_writing">Set Mastery (Writing)</string>
+    <string name="game_result_lot_mastery_grammar">Set Mastery (Grammar)</string>
+    <string name="game_result_lot_mastery_kana">Set Mastery (Kana)</string>
 </resources>

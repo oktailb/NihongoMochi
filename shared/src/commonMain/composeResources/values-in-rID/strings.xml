@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">Berhenti dan kehilangan kemajuan</string>
     <string name="game_particles_how_to_play">Cara bermain</string>
     <string name="game_particles_rules_list">• Tarik kapalmu untuk bergerak\n• Ketuk untuk menembakkan partikel yang tepat\n• Jangan biarkan partikel yang benar mencapai dasar!</string>
+    <string name="game_result_title_session">Penguasaan Sesi</string>
+    <string name="game_result_title_global">Penguasaan Global</string>
+    <string name="game_result_lot_mastery">Tetapkan Penguasaan</string>
+    <string name="game_result_lot_mastery_recognition">Penguasaan Set (Pengakuan)</string>
+    <string name="game_result_lot_mastery_reading">Mengatur Penguasaan (Membaca)</string>
+    <string name="game_result_lot_mastery_writing">Penguasaan Himpunan (Menulis)</string>
+    <string name="game_result_lot_mastery_grammar">Penguasaan Himpunan (Tata Bahasa)</string>
+    <string name="game_result_lot_mastery_kana">Penguasaan Set (Kana)</string>
 </resources>

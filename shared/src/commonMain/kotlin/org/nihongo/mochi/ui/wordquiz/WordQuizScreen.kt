@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
@@ -20,6 +21,7 @@ import org.nihongo.mochi.ui.components.GameQuestionCard
 import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.ui.theme.AppTheme
+import org.nihongo.mochi.shared.generated.resources.*
 
 @Composable
 fun WordQuizScreen(
@@ -178,10 +180,10 @@ fun WordQuizScreen(
                     isVictory = gameState == GameState.Finished,
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
-                        "Maîtrise de la session" to "${(sessionMasteryPercent * 100).toInt()}%",
-                        "Maîtrise globale" to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
                     ),
-                    title = "Maîtrise du lot (Lecture)",
+                    title = stringResource(Res.string.game_result_lot_mastery_reading),
                     onReplayClick = {
                         showResultOverlay = false
                         onReplay()

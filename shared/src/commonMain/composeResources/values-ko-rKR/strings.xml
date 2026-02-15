@@ -723,4 +723,12 @@
     <string name="exit_dialog_quit_lose_progress">종료하고 진행 상황을 잃습니다.</string>
     <string name="game_particles_how_to_play">플레이 방법</string>
     <string name="game_particles_rules_list">• 배를 드래그하여 이동하세요\n• 탭하여 올바른 입자를 발사하세요\n• 올바른 입자가 바닥에 닿지 않도록 하세요!</string>
+    <string name="game_result_title_session">세션 숙달</string>
+    <string name="game_result_title_global">글로벌 마스터리</string>
+    <string name="game_result_lot_mastery">마스터리 설정</string>
+    <string name="game_result_lot_mastery_recognition">숙련도 설정(인식)</string>
+    <string name="game_result_lot_mastery_reading">숙련도 설정(읽기)</string>
+    <string name="game_result_lot_mastery_writing">숙련도 설정(쓰기)</string>
+    <string name="game_result_lot_mastery_grammar">숙련도 설정(문법)</string>
+    <string name="game_result_lot_mastery_kana">세트 마스터리(가나)</string>
 </resources>
