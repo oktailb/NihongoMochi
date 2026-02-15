@@ -727,4 +727,11 @@
     <string name="game_result_lot_mastery_writing">Đặt quyền làm chủ (Viết)</string>
     <string name="game_result_lot_mastery_grammar">Đặt thành thạo (ngữ pháp)</string>
     <string name="game_result_lot_mastery_kana">Đặt quyền làm chủ (Kana)</string>
+    <string name="previous_page">Trang trước</string>
+    <string name="next_page">Trang tiếp theo</string>
+    <string name="size">Kích cỡ</string>
+    <string name="game_recap_sort_default">Mặc định</string>
+    <string name="game_recap_sort_frequency">Tính thường xuyên</string>
+    <string name="order_by">Sắp xếp theo</string>
+    <string name="game_recap_sort_strokes">Số nét</string>
 </resources>

@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">Set Mastery (Writing)</string>
     <string name="game_result_lot_mastery_grammar">Set Mastery (Grammar)</string>
     <string name="game_result_lot_mastery_kana">Set Mastery (Kana)</string>
+    <string name="previous_page">Previous page</string>
+    <string name="next_page">Next page</string>
+    <string name="size">Size</string>
+    <string name="game_recap_sort_default">Default</string>
+    <string name="game_recap_sort_frequency">Frequency</string>
+    <string name="order_by">Sort by</string>
+    <string name="game_recap_sort_strokes">Strokes number</string>
 </resources>

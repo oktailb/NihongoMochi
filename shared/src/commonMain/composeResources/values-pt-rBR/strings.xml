@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">Definir Maestria (Escrita)</string>
     <string name="game_result_lot_mastery_grammar">Definir Domínio (Gramática)</string>
     <string name="game_result_lot_mastery_kana">Maestria de Conjunto (Kana)</string>
+    <string name="previous_page">Página anterior</string>
+    <string name="next_page">Próxima página</string>
+    <string name="size">Tamanho</string>
+    <string name="game_recap_sort_default">Padrão</string>
+    <string name="game_recap_sort_frequency">Freqüência</string>
+    <string name="order_by">Ordenar por</string>
+    <string name="game_recap_sort_strokes">Número de traços</string>
 </resources>

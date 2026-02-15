@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">Maîtrise des ensembles (écriture)</string>
     <string name="game_result_lot_mastery_grammar">Maîtrise des ensembles (grammaire)</string>
     <string name="game_result_lot_mastery_kana">Maîtrise des ensembles (Kana)</string>
+    <string name="previous_page">Page précédente</string>
+    <string name="next_page">Page suivante</string>
+    <string name="size">Taille</string>
+    <string name="game_recap_sort_default">Défaut</string>
+    <string name="game_recap_sort_frequency">Fréquence</string>
+    <string name="order_by">Trier par</string>
+    <string name="game_recap_sort_strokes">Nombre de traits</string>
 </resources>

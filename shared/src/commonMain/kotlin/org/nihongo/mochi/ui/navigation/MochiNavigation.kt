@@ -28,6 +28,7 @@ import org.nihongo.mochi.domain.game.WritingGameViewModel
 import org.nihongo.mochi.domain.game.WordQuizViewModel
 import org.nihongo.mochi.domain.game.RecognitionGameEngine
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
+import org.nihongo.mochi.domain.game.KanjiSortOrder
 import org.nihongo.mochi.domain.kana.KanaType
 import org.nihongo.mochi.domain.services.NoOpCloudSaveService
 import org.nihongo.mochi.domain.services.CloudSaveService
@@ -133,9 +134,9 @@ sealed class Screen(val route: String) {
     data object RecognitionRecap : Screen("recognition_recap/{levelId}") {
         fun createRoute(levelId: String) = "recognition_recap/$levelId"
     }
-    data object RecognitionGame : Screen("recognition_game/{levelId}/{gameMode}/{readingMode}") {
-        fun createRoute(levelId: String, gameMode: String, readingMode: String) = 
-            "recognition_game/$levelId/$gameMode/$readingMode"
+    data object RecognitionGame : Screen("recognition_game/{levelId}/{gameMode}/{readingMode}/{sortOrder}/{quizSize}") {
+        fun createRoute(levelId: String, gameMode: String, readingMode: String, sortOrder: String = "DEFAULT", quizSize: Int = 80) = 
+            "recognition_game/$levelId/$gameMode/$readingMode/$sortOrder/$quizSize"
     }
 
     data object WritingRecap : Screen("writing_recap/{levelId}") {
@@ -526,6 +527,7 @@ fun MochiNavGraph(
             val currentPage by viewModel.currentPage.collectAsState(0)
             val totalPages by viewModel.totalPages.collectAsState(0)
             val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
+            val sortOrder by viewModel.sortOrder.collectAsState()
             
             var gameMode by remember { mutableStateOf("meaning") }
             var readingMode by remember { mutableStateOf("common") }
@@ -542,6 +544,7 @@ fun MochiNavGraph(
                 totalPages = totalPages,
                 gameMode = gameMode,
                 readingMode = readingMode,
+                sortOrder = sortOrder,
                 isMeaningEnabled = true,
                 isReadingEnabled = true,
                 isReviewEnabled = isReviewEnabled,
@@ -555,17 +558,18 @@ fun MochiNavGraph(
                     viewModel.updateCurrentPageItems(it)
                 },
                 onReadingModeChange = { readingMode = it },
-                onPlayClick = {
+                onSortOrderChange = { viewModel.setSortOrder(it, gameMode) },
+                onPlayClick = { size ->
                     navController.currentBackStackEntry?.savedStateHandle?.remove<List<String>>("custom_kanji_list")
                     navController.navigate(
-                        Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode)
+                        Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode, sortOrder.name, size)
                     )
                 },
                 onReviewClick = {
                     val revisionList = viewModel.getRevisionKanjiForLevel(gameMode)
                     navController.currentBackStackEntry?.savedStateHandle?.set("custom_kanji_list", revisionList)
                     navController.navigate(
-                        Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode)
+                        Screen.RecognitionGame.createRoute(levelId, gameMode, readingMode, sortOrder.name)
                     )
                 }
             )
@@ -577,12 +581,17 @@ fun MochiNavGraph(
             arguments = listOf(
                 navArgument("levelId") { type = NavType.StringType },
                 navArgument("gameMode") { type = NavType.StringType },
-                navArgument("readingMode") { type = NavType.StringType }
+                navArgument("readingMode") { type = NavType.StringType },
+                navArgument("sortOrder") { type = NavType.StringType; defaultValue = "DEFAULT" },
+                navArgument("quizSize") { type = NavType.IntType; defaultValue = 80 }
             )
         ) { backStackEntry ->
             val levelId = backStackEntry.arguments?.getString("levelId") ?: "n5"
             val gameMode = backStackEntry.arguments?.getString("gameMode") ?: "meaning"
             val readingMode = backStackEntry.arguments?.getString("readingMode") ?: "common"
+            val sortOrderStr = backStackEntry.arguments?.getString("sortOrder") ?: "DEFAULT"
+            val sortOrder = try { KanjiSortOrder.valueOf(sortOrderStr) } catch(e: Exception) { KanjiSortOrder.DEFAULT }
+            val quizSize = backStackEntry.arguments?.getInt("quizSize") ?: 80
             
             val viewModel: RecognitionGameViewModel = koinInject()
             val gameState by viewModel.state.collectAsState(GameState.Loading)
@@ -592,8 +601,8 @@ fun MochiNavGraph(
                 ?.savedStateHandle
                 ?.get<List<String>>("custom_kanji_list")
 
-            remember(levelId, gameMode, readingMode, customKanjiList) {
-                viewModel.initializeGame(gameMode, readingMode, levelId, customKanjiList)
+            remember(levelId, gameMode, readingMode, customKanjiList, sortOrder, quizSize) {
+                viewModel.initializeGame(gameMode, readingMode, levelId, customKanjiList, sortOrder, quizSize)
                 true
             }
 

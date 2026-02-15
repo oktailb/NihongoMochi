@@ -729,4 +729,11 @@
     <string name="game_result_lot_mastery_writing">সেট মাস্টারি (লেখা)</string>
     <string name="game_result_lot_mastery_grammar">সেট মাস্টারি (ব্যাকরণ)</string>
     <string name="game_result_lot_mastery_kana">সেট মাস্টারি (কানা)</string>
+    <string name="previous_page">আগের পৃষ্ঠা</string>
+    <string name="next_page">পরবর্তী পৃষ্ঠা</string>
+    <string name="order_by">দ্বারা অর্ডার করুন</string>
+    <string name="game_recap_sort_default">ডিফল্ট</string>
+    <string name="game_recap_sort_frequency">ফ্রিকোয়েন্সি</string>
+    <string name="size">আকার</string>
+    <string name="game_recap_sort_strokes">স্ট্রোক সংখ্যা</string>
 </resources>

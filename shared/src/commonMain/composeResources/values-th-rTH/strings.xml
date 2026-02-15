@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">ตั้งความเชี่ยวชาญ (การเขียน)</string>
     <string name="game_result_lot_mastery_grammar">ตั้งค่าการเรียนรู้ (ไวยากรณ์)</string>
     <string name="game_result_lot_mastery_kana">เซ็ตมาสเตอรี (คานะ)</string>
+    <string name="previous_page">หน้าก่อนหน้า</string>
+    <string name="next_page">หน้าถัดไป</string>
+    <string name="size">ขนาด</string>
+    <string name="game_recap_sort_default">ค่าเริ่มต้น</string>
+    <string name="game_recap_sort_frequency">ความถี่</string>
+    <string name="order_by">เรียงตาม</string>
+    <string name="game_recap_sort_strokes">หมายเลขจังหวะ</string>
 </resources>

@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">掌握设定（写作）</string>
     <string name="game_result_lot_mastery_grammar">掌握集合（语法）</string>
     <string name="game_result_lot_mastery_kana">精通套装（假名）</string>
+    <string name="previous_page">上一页</string>
+    <string name="next_page">下一页</string>
+    <string name="size">尺寸</string>
+    <string name="game_recap_sort_default">默认</string>
+    <string name="game_recap_sort_frequency">频率</string>
+    <string name="order_by">排序方式</string>
+    <string name="game_recap_sort_strokes">笔画数</string>
 </resources>

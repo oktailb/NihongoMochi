@@ -3,6 +3,7 @@ package org.nihongo.mochi.ui.gamerecap
 import androidx.compose.ui.graphics.Color
 import org.nihongo.mochi.data.ScoreManager
 import org.nihongo.mochi.data.ScoreRepository
+import org.nihongo.mochi.domain.game.KanjiSortOrder
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
@@ -32,6 +33,9 @@ class GameRecapViewModel(
     private val _isReviewEnabled = MutableStateFlow(false)
     val isReviewEnabled: StateFlow<Boolean> = _isReviewEnabled.asStateFlow()
 
+    private val _sortOrder = MutableStateFlow(KanjiSortOrder.DEFAULT)
+    val sortOrder: StateFlow<KanjiSortOrder> = _sortOrder.asStateFlow()
+
     private var allKanjiEntries: List<KanjiEntry> = emptyList()
     private val pageSize = 80
 
@@ -39,7 +43,7 @@ class GameRecapViewModel(
         viewModelScope.launch {
             val lowerLevel = level.lowercase()
             
-            allKanjiEntries = when {
+            val entries = when {
                 lowerLevel == "native_challenge" || lowerLevel == "native challenge" -> 
                     kanjiRepository.getNativeKanji()
                 lowerLevel == "no_reading" || lowerLevel == "no reading" -> 
@@ -52,11 +56,27 @@ class GameRecapViewModel(
                 }
             }
             
-            _currentPage.value = 0
-            _totalPages.value = (allKanjiEntries.size + pageSize - 1) / pageSize
-            updateCurrentPageItems(gameMode)
-            checkReviewAvailability(gameMode)
+            allKanjiEntries = entries
+            applySortAndRefresh(gameMode)
         }
+    }
+
+    fun setSortOrder(order: KanjiSortOrder, gameMode: String) {
+        _sortOrder.value = order
+        applySortAndRefresh(gameMode)
+    }
+
+    private fun applySortAndRefresh(gameMode: String) {
+        allKanjiEntries = when (_sortOrder.value) {
+            KanjiSortOrder.FREQUENCY -> allKanjiEntries.sortedBy { it.frequency?.toIntOrNull() ?: Int.MAX_VALUE }
+            KanjiSortOrder.STROKES -> allKanjiEntries.sortedBy { it.strokes?.toIntOrNull() ?: 0 }
+            KanjiSortOrder.DEFAULT -> allKanjiEntries // Assuming provider gives default order
+        }
+
+        _currentPage.value = 0
+        _totalPages.value = (allKanjiEntries.size + pageSize - 1) / pageSize
+        updateCurrentPageItems(gameMode)
+        checkReviewAvailability(gameMode)
     }
 
     fun nextPage(gameMode: String) {

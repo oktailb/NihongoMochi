@@ -729,4 +729,11 @@
     <string name="game_result_lot_mastery_writing">Төгс эзэмших чадвар (бичих)</string>
     <string name="game_result_lot_mastery_grammar">Төгс эзэмших чадвар (Дүрмийн дүрэм)</string>
     <string name="game_result_lot_mastery_kana">Тохиромжтой чадвар (Кана)</string>
+    <string name="previous_page">Өмнөх хуудас</string>
+    <string name="next_page">Дараагийн хуудас</string>
+    <string name="size">Хэмжээ</string>
+    <string name="game_recap_sort_default">Өгөгдмөл</string>
+    <string name="game_recap_sort_frequency">Давтамж</string>
+    <string name="order_by">Эрэмбэлэх</string>
+    <string name="game_recap_sort_strokes">Цус харвалтын тоо</string>
 </resources>

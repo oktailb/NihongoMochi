@@ -7,11 +7,12 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,6 +28,10 @@ import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.game_recap_play
 import org.nihongo.mochi.shared.generated.resources.mode_revise
+import org.nihongo.mochi.shared.generated.resources.previous_page
+import org.nihongo.mochi.shared.generated.resources.next_page
+import org.nihongo.mochi.shared.generated.resources.order_by
+import org.nihongo.mochi.shared.generated.resources.size
 
 @Composable
 fun RecapKanjiGrid(
@@ -87,7 +93,7 @@ fun PaginationControls(
         horizontalArrangement = Arrangement.Center
     ) {
         IconButton(onClick = onPrevClick, enabled = currentPage > 0) {
-            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Previous Page", tint = MaterialTheme.colorScheme.onBackground)
+            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(Res.string.previous_page), tint = MaterialTheme.colorScheme.onBackground)
         }
         Text(
             text = "Page ${currentPage + 1} of $totalPages",
@@ -96,7 +102,7 @@ fun PaginationControls(
             color = MaterialTheme.colorScheme.onBackground
         )
         IconButton(onClick = onNextClick, enabled = currentPage < totalPages - 1) {
-            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = "Next Page", tint = MaterialTheme.colorScheme.onBackground)
+            Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = stringResource(Res.string.next_page), tint = MaterialTheme.colorScheme.onBackground)
         }
     }
 }
@@ -138,17 +144,128 @@ fun <T> ModeSelector(
                         RadioButton(
                             selected = (value == selectedOption),
                             onClick = { onOptionSelected(value) },
-                            enabled = enabled
+                            enabled = enabled,
+                            colors = RadioButtonDefaults.colors(selectedColor = MaterialTheme.colorScheme.primary)
                         )
                         Text(
                             text = text, 
-                            color = MaterialTheme.colorScheme.onSurfaceVariant, 
+                            color = if (value == selectedOption) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant, 
                             fontWeight = FontWeight.Bold
                         )
                     }
                 }
             }
         }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun <T> DropdownSelector(
+    title: String? = null,
+    options: List<Pair<String, T>>,
+    selectedOption: T,
+    onOptionSelected: (T) -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val selectedText = options.find { it.second == selectedOption }?.first ?: ""
+
+    Column(
+        modifier = modifier.padding(vertical = 4.dp),
+        horizontalAlignment = Alignment.Start
+    ) {
+        title?.let {
+            Text(
+                text = it,
+                style = MaterialTheme.typography.titleSmall,
+                modifier = Modifier.padding(bottom = 4.dp),
+                color = MaterialTheme.colorScheme.onBackground
+            )
+        }
+
+        Text(
+            text = stringResource(Res.string.order_by),
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier.padding(bottom = 4.dp),
+            color = MaterialTheme.colorScheme.onBackground
+        )
+
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { if (enabled) expanded = !expanded },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            OutlinedTextField(
+                value = selectedText,
+                onValueChange = {},
+                readOnly = true,
+                enabled = enabled,
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.primary,
+                    focusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                    unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                ),
+                modifier = Modifier
+                    .menuAnchor(MenuAnchorType.PrimaryNotEditable, enabled)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp)
+            )
+
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                options.forEach { (text, value) ->
+                    DropdownMenuItem(
+                        text = { Text(text = text) },
+                        onClick = {
+                            onOptionSelected(value)
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun QuizSizeInput(
+    size: String,
+    onSizeChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
+) {
+    Column(
+        modifier = modifier.padding(vertical = 4.dp),
+        horizontalAlignment = Alignment.Start
+    ) {
+        Text(
+            text = stringResource(Res.string.size),
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier.padding(bottom = 4.dp),
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        
+        OutlinedTextField(
+            value = size,
+            onValueChange = { if (it.length <= 3 && it.all { char -> char.isDigit() }) onSizeChange(it) },
+            enabled = enabled,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                unfocusedBorderColor = MaterialTheme.colorScheme.primary,
+                focusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                unfocusedContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+                ),
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
+            singleLine = true
+        )
     }
 }
 

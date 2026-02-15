@@ -6,7 +6,14 @@ import kotlinx.serialization.Serializable
 data class Reading(val value: String, val type: String, val frequency: Int)
 
 @Serializable
-data class KanjiDetail(val id: String, val character: String, val meanings: List<String>, val readings: List<Reading>)
+data class KanjiDetail(
+    val id: String,
+    val character: String,
+    val meanings: List<String>,
+    val readings: List<Reading>,
+    val frequency: Int = Int.MAX_VALUE,
+    val strokes: Int = 0
+)
 
 enum class GameStatus { NOT_ANSWERED, PARTIAL, CORRECT, INCORRECT }
 

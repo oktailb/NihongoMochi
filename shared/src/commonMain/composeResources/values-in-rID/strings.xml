@@ -731,4 +731,11 @@
     <string name="game_result_lot_mastery_writing">Penguasaan Himpunan (Menulis)</string>
     <string name="game_result_lot_mastery_grammar">Penguasaan Himpunan (Tata Bahasa)</string>
     <string name="game_result_lot_mastery_kana">Penguasaan Set (Kana)</string>
+    <string name="previous_page">Halaman sebelumnya</string>
+    <string name="next_page">Halaman berikutnya</string>
+    <string name="size">Ukuran</string>
+    <string name="game_recap_sort_default">Bawaan</string>
+    <string name="game_recap_sort_frequency">Frekuensi</string>
+    <string name="order_by">Urutkan berdasarkan</string>
+    <string name="game_recap_sort_strokes">Nomor guratan</string>
 </resources>

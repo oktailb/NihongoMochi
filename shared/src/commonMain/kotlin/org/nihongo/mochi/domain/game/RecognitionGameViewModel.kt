@@ -20,6 +20,10 @@ import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.statistics.StatisticsType
 
+enum class KanjiSortOrder {
+    DEFAULT, FREQUENCY, STROKES
+}
+
 class RecognitionGameViewModel(
     private val kanjiRepository: KanjiRepository,
     private val meaningRepository: MeaningRepository,
@@ -75,6 +79,8 @@ class RecognitionGameViewModel(
     var areButtonsEnabled = true
 
     private var currentLevelId: String = ""
+    private var lastSortOrder: KanjiSortOrder = KanjiSortOrder.DEFAULT
+    private var lastQuizSize: Int = 80
 
     fun getCurrentKanjiScore(): LearningScore? {
         if (!isGameInitialized || engine.state.value == GameState.Finished) return null
@@ -127,7 +133,7 @@ class RecognitionGameViewModel(
     fun submitAnswer(selectedAnswer: String, selectedIndex: Int) {
         viewModelScope.launch {
             val isCorrect = if (currentDirection == QuestionDirection.NORMAL) {
-                selectedAnswer.lines().any { it.equals(engine.correctAnswer, ignoreCase = true) }
+                selectedAnswer.lines().any { it.trim().equals(engine.correctAnswer.trim(), ignoreCase = true) }
             } else {
                 selectedAnswer == engine.correctAnswer
             }
@@ -147,11 +153,20 @@ class RecognitionGameViewModel(
         areButtonsEnabled = true
     }
 
-    fun initializeGame(gameMode: String, readingMode: String, level: String, customWordList: List<String>?): Boolean {
+    fun initializeGame(
+        gameMode: String, 
+        readingMode: String, 
+        level: String, 
+        customWordList: List<String>?,
+        sortOrder: KanjiSortOrder = KanjiSortOrder.DEFAULT,
+        quizSize: Int = 80
+    ): Boolean {
         resetState()
         this.gameMode = gameMode
         this.readingMode = readingMode
         this.currentLevelId = level
+        this.lastSortOrder = sortOrder
+        this.lastQuizSize = quizSize
 
         loadAllKanjiDetails()
 
@@ -166,23 +181,39 @@ class RecognitionGameViewModel(
         allKanjiDetails.clear()
         
         val normalizedLevel = level.lowercase()
-        allKanjiDetails.addAll(
-            allKanjiDetailsXml.filter {
-                var include = kanjiCharsForLevel.contains(it.character)
+        val filteredList = allKanjiDetailsXml.filter {
+            var include = kanjiCharsForLevel.contains(it.character)
 
-                if (normalizedLevel == "no meaning") {
-                } else if (gameMode == "meaning") {
-                    include = include && it.meanings.isNotEmpty()
-                }
-
-                if (normalizedLevel == "no reading") {
-                } else if (gameMode == "reading") {
-                    include = include && it.readings.isNotEmpty()
-                }
-                
-                include
+            if (normalizedLevel == "no meaning") {
+            } else if (gameMode == "meaning") {
+                include = include && it.meanings.isNotEmpty()
             }
-        )
+
+            if (normalizedLevel == "no reading") {
+            } else if (gameMode == "reading") {
+                include = include && it.readings.isNotEmpty()
+            }
+            
+            include
+        }
+
+        val sortedList = when (sortOrder) {
+            KanjiSortOrder.FREQUENCY -> filteredList.sortedBy { it.frequency }
+            KanjiSortOrder.STROKES -> filteredList.sortedBy { it.strokes }
+            else -> filteredList // Keep order from database/list provider
+        }
+
+        // limite le quizz aux X premier kanjis de la liste (triee selon le critere choisi) non parfaitement maitrises
+        val filteredByMastery = if (customWordList.isNullOrEmpty()) {
+            sortedList.filter {
+                val score = scoreRepository.getScore(it.character, type)
+                (score.successes - score.failures) < 10
+            }.take(quizSize)
+        } else {
+            sortedList
+        }
+
+        allKanjiDetails.addAll(filteredByMastery)
         
         if (customWordList.isNullOrEmpty()) {
             allKanjiDetails.shuffle()
@@ -201,7 +232,7 @@ class RecognitionGameViewModel(
     }
 
     fun replay() {
-        initializeGame(gameMode, readingMode, currentLevelId, null)
+        initializeGame(gameMode, readingMode, currentLevelId, null, lastSortOrder, lastQuizSize)
     }
 
     private fun loadAllKanjiDetails() {
@@ -224,7 +255,14 @@ class RecognitionGameViewModel(
                  readingsList.add(Reading(readingEntry.value, readingEntry.type, freq))
             }
             
-            val kanjiDetail = KanjiDetail(id, character, kanjiMeanings, readingsList)
+            val kanjiDetail = KanjiDetail(
+                id = id, 
+                character = character, 
+                meanings = kanjiMeanings, 
+                readings = readingsList,
+                frequency = entry.frequency?.toIntOrNull() ?: Int.MAX_VALUE,
+                strokes = entry.strokes?.toIntOrNull() ?: 0
+            )
             allKanjiDetailsXml.add(kanjiDetail)
         }
     }

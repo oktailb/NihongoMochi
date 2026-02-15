@@ -729,4 +729,11 @@
     <string name="game_result_lot_mastery_writing">マスタリー設定（ライティング）</string>
     <string name="game_result_lot_mastery_grammar">セットマスタリー (文法)</string>
     <string name="game_result_lot_mastery_kana">セットマスタリー（かな）</string>
+    <string name="previous_page">前のページへ</string>
+    <string name="next_page">次のページ</string>
+    <string name="size">サイズ</string>
+    <string name="game_recap_sort_default">デフォルト</string>
+    <string name="game_recap_sort_frequency">頻度</string>
+    <string name="order_by">並べ替え</string>
+    <string name="game_recap_sort_strokes">画数</string>
 </resources>

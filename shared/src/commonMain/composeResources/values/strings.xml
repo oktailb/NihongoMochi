@@ -37,6 +37,10 @@
     <string name="settings_theme">Theme (Light/Dark)</string>
     <string name="settings_reset_tutorial">Reset tutorial</string>
     <string name="settings_send_bug_report">Send bug report</string>
+    <string name="previous_page">Previous page</string>
+    <string name="next_page">Next page</string>
+    <string name="order_by">Sort by</string>
+    <string name="size">Size</string>
 
     <!-- Onboarding -->
     <string name="onboarding_next">Next</string>
@@ -78,6 +82,9 @@
     <string name="game_recap_common_pronunciations">Common pronunciations</string>
     <string name="game_recap_random_pronunciations">Random pronunciations</string>
     <string name="game_recap_play">Play</string>
+    <string name="game_recap_sort_default">Default</string>
+    <string name="game_recap_sort_frequency">Frequency</string>
+    <string name="game_recap_sort_strokes">Strokes number</string>
     <string name="game_writing_label_meaning">Meaning</string>
     <string name="game_writing_label_reading">Reading</string>
     <string name="enter_your_answer">Enter your answer</string>

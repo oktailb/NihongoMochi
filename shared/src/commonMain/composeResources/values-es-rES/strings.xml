@@ -727,4 +727,11 @@
     <string name="game_result_lot_mastery_writing">Establecer dominio (escritura)</string>
     <string name="game_result_lot_mastery_grammar">Dominio de conjuntos (gramática)</string>
     <string name="game_result_lot_mastery_kana">Conjunto de dominio (Kana)</string>
+    <string name="previous_page">Pagina anterior</string>
+    <string name="next_page">Página siguiente</string>
+    <string name="size">Tamaño</string>
+    <string name="game_recap_sort_default">Por defecto</string>
+    <string name="game_recap_sort_frequency">Frecuencia</string>
+    <string name="order_by">Ordenar por</string>
+    <string name="game_recap_sort_strokes">Número de trazos</string>
 </resources>

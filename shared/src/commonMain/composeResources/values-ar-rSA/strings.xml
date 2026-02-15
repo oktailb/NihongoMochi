@@ -729,4 +729,11 @@
     <string name="game_result_lot_mastery_writing">ضبط الإتقان (الكتابة)</string>
     <string name="game_result_lot_mastery_grammar">ضبط الإتقان (القواعد)</string>
     <string name="game_result_lot_mastery_kana">ضبط الإتقان (كانا)</string>
+    <string name="previous_page">الصفحة السابقة</string>
+    <string name="next_page">الصفحة التالية</string>
+    <string name="size">مقاس</string>
+    <string name="game_recap_sort_default">تقصير</string>
+    <string name="game_recap_sort_frequency">تكرار</string>
+    <string name="order_by">الترتيب حسب</string>
+    <string name="game_recap_sort_strokes">عدد السكتات الدماغية</string>
 </resources>
