@@ -867,6 +867,8 @@ fun MochiNavGraph(
                 onPrevPage = { viewModel.prevPage() },
                 onNextPage = { viewModel.nextPage() },
                 onPlayClick = {
+                    val filteredWordTexts = viewModel.getGameWordList()
+                    navController.currentBackStackEntry?.savedStateHandle?.set("filtered_words", filteredWordTexts)
                     navController.navigate(Screen.WordQuiz.createRoute(levelId))
                 },
                 onWordClick = { wordText ->
@@ -892,14 +894,23 @@ fun MochiNavGraph(
             val areButtonsEnabled by viewModel.areButtonsEnabled.collectAsState(true)
             val wordStatuses by viewModel.wordStatuses.collectAsState(emptyList())
 
-            remember(levelId) {
-                val wordsForQuiz = if (levelId == "user_custom_list") {
-                    val texts = levelContentProvider.getCharactersForLevel(levelId)
-                    wordRepository.getWordEntriesByText(texts)
+            val filteredWords = navController.previousBackStackEntry
+                ?.savedStateHandle
+                ?.get<Array<String>>("filtered_words")
+
+            remember(levelId, filteredWords) {
+                if (filteredWords != null && filteredWords.isNotEmpty()) {
+                    val wordsForQuiz = wordRepository.getWordEntriesByText(filteredWords.toList())
+                    viewModel.initializeGame(wordsForQuiz, levelId)
                 } else {
-                    wordRepository.getWordEntriesForLevel(levelId)
+                    val wordsForQuiz = if (levelId == "user_custom_list") {
+                        val texts = levelContentProvider.getCharactersForLevel(levelId)
+                        wordRepository.getWordEntriesByText(texts)
+                    } else {
+                        wordRepository.getWordEntriesForLevel(levelId)
+                    }
+                    viewModel.initializeGame(wordsForQuiz, levelId)
                 }
-                viewModel.initializeGame(wordsForQuiz, levelId)
                 true
             }
 
@@ -919,8 +930,6 @@ fun MochiNavGraph(
                         viewModel.submitAnswer(answer, index)
                     },
                     onReplay = { 
-                        // To trigger a re-render/re-init in Navigation, we might need a better way, 
-                        // but for now we follow the pattern of other screens.
                         viewModel.replay() 
                     },
                     onNavigateBack = { navController.popBackStack() }
