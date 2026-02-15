@@ -7,7 +7,7 @@ Todo:
  - [ ] Achieve google play connexion
  - [ ] Cemantix ??
  - [ ] Tetris ou candycrush like
- - [ ] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
+ - [X] Particle Defender : shooter grammatical pour automatiser le choix des particules (wa, ga, ni, o...)
  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. -> Alimenter avec des kanjis partageant les mêmes radicaux.
  - [X] first run behavior : language selection, objectives, quick tour/tuto

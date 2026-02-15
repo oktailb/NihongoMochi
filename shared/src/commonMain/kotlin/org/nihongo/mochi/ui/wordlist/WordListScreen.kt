@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.presentation.MochiBackground
+import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.ui.components.PaginationControls
 import org.nihongo.mochi.ui.components.PlayButton
 import org.nihongo.mochi.shared.generated.resources.Res
@@ -73,6 +74,9 @@ fun WordListScreen(
     onPlayClick: () -> Unit,
     onWordClick: (String) -> Unit
 ) {
+    val levelResource = ResourceUtils.resolveStringResource(listTitle.lowercase())
+    val resolvedTitle = if (levelResource != null) stringResource(levelResource) else listTitle
+
     MochiBackground {
         Column(
             modifier = Modifier
@@ -81,7 +85,7 @@ fun WordListScreen(
         ) {
             // Title
             Text(
-                text = listTitle,
+                text = resolvedTitle,
                 style = MaterialTheme.typography.headlineSmall,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onBackground,
