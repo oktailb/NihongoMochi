@@ -11,28 +11,33 @@ import org.nihongo.mochi.domain.grammar.Exercise
 import org.nihongo.mochi.domain.grammar.ExercisePayload
 import org.nihongo.mochi.domain.grammar.ExerciseRepository
 import org.nihongo.mochi.domain.models.GameStatus
+import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.services.AudioPlayer
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.domain.statistics.StatisticsEngine
+import org.nihongo.mochi.domain.statistics.StatisticsType
 import org.nihongo.mochi.presentation.ViewModel
 import kotlin.random.Random
 
 data class GrammarQuizState(
     val currentExercise: Exercise? = null,
     val score: Int = 0,
-    val isFinished: Boolean = false,
-    val isLoading: Boolean = true,
+    val gameState: GameState = GameState.Loading,
     val currentExercisePayload: ExercisePayload? = null,
     val currentOptions: List<String> = emptyList(),
     val selectedOption: String? = null,
     val isAnswerCorrect: Boolean? = null,
     val progressHistory: List<GameStatus> = List(10) { GameStatus.NOT_ANSWERED },
-    val currentStarIndex: Int = 0
+    val currentStarIndex: Int = 0,
+    val globalMasteryPercent: Float = 0f,
+    val sessionMasteryPercent: Float = 0f
 )
 
 class GrammarQuizViewModel(
     private val exerciseRepository: ExerciseRepository,
     private val settingsRepository: SettingsRepository,
     private val scoreRepository: ScoreRepository,
+    private val statisticsEngine: StatisticsEngine,
     private val audioPlayer: AudioPlayer,
     private val grammarTags: List<String>
 ) : ViewModel() {
@@ -52,7 +57,7 @@ class GrammarQuizViewModel(
 
     private fun loadExercises() {
         viewModelScope.launch {
-            _state.value = _state.value.copy(isLoading = true)
+            _state.value = _state.value.copy(gameState = GameState.Loading)
             
             val allPossibleExercises = mutableListOf<Exercise>()
             grammarTags.forEach { tag ->
@@ -65,10 +70,10 @@ class GrammarQuizViewModel(
                 if (startNewSet()) {
                     setupQuestion()
                 } else {
-                    _state.value = _state.value.copy(isFinished = true, isLoading = false)
+                    finishGame()
                 }
             } else {
-                _state.value = _state.value.copy(isFinished = true, isLoading = false)
+                finishGame()
             }
         }
     }
@@ -97,7 +102,7 @@ class GrammarQuizViewModel(
             if (startNewSet()) {
                 setupQuestion()
             } else {
-                _state.value = _state.value.copy(isFinished = true)
+                finishGame()
             }
             return
         }
@@ -114,7 +119,7 @@ class GrammarQuizViewModel(
             selectedOption = null,
             isAnswerCorrect = null,
             progressHistory = currentSet.map { exercisesStatus[it.id] ?: GameStatus.NOT_ANSWERED },
-            isLoading = false
+            gameState = GameState.WaitingForAnswer
         )
     }
 
@@ -171,7 +176,8 @@ class GrammarQuizViewModel(
             selectedOption = option,
             isAnswerCorrect = isCorrect,
             score = if (isCorrect) currentState.score + 1 else currentState.score,
-            progressHistory = currentSet.map { exercisesStatus[it.id] ?: GameStatus.NOT_ANSWERED }
+            progressHistory = currentSet.map { exercisesStatus[it.id] ?: GameStatus.NOT_ANSWERED },
+            gameState = GameState.ShowingResult(isCorrect, currentState.currentOptions.indexOf(option))
         )
 
         viewModelScope.launch {
@@ -194,6 +200,39 @@ class GrammarQuizViewModel(
             }
             else -> false
         }
+    }
+
+    private fun finishGame() {
+        val sessionMastery = calculateSessionMastery()
+        val globalMastery = calculateGlobalMastery()
+        
+        _state.value = _state.value.copy(
+            gameState = GameState.Finished,
+            sessionMasteryPercent = sessionMastery,
+            globalMasteryPercent = globalMastery
+        )
+    }
+
+    private fun calculateSessionMastery(): Float {
+        if (currentSet.isEmpty()) return 0f
+        // Current tags are the base for global mastery, but for session we can average the mastery of used tags
+        val totalMastery = grammarTags.sumOf { tag ->
+            statisticsEngine.calculateMasteryPercentage(listOf(tag), ScoreManager.ScoreType.GRAMMAR)
+        }
+        return (totalMastery / grammarTags.size.toDouble()).toFloat() / 100f
+    }
+
+    private fun calculateGlobalMastery(): Float {
+        if (grammarTags.isEmpty()) return 0f
+        val totalMastery = grammarTags.sumOf { tag ->
+            statisticsEngine.calculateMasteryPercentage(listOf(tag), ScoreManager.ScoreType.GRAMMAR)
+        }
+        return (totalMastery / grammarTags.size.toDouble()).toFloat() / 100f
+    }
+
+    fun replay() {
+        exercisesListPosition = 0
+        loadExercises()
     }
 
     override fun onCleared() {

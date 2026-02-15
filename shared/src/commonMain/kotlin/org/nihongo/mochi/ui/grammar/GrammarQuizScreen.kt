@@ -1,6 +1,9 @@
 package org.nihongo.mochi.ui.grammar
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -10,10 +13,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.nihongo.mochi.domain.grammar.ExercisePayload
 import org.nihongo.mochi.domain.models.AnswerButtonState
+import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.ui.components.GameAnswerButton
 import org.nihongo.mochi.ui.components.GameProgressBar
 import org.nihongo.mochi.ui.components.GameQuestionCard
+import org.nihongo.mochi.ui.components.ExitConfirmationDialog
+import org.nihongo.mochi.ui.components.GameResultOverlay
+import org.nihongo.mochi.ui.theme.AppTheme
 
 @Composable
 fun GrammarQuizScreen(
@@ -21,31 +28,80 @@ fun GrammarQuizScreen(
     onBackClick: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
+    var showExitDialog by remember { mutableStateOf(false) }
+    var showResultOverlay by remember { mutableStateOf(false) }
 
-    // Auto-close when finished
-    LaunchedEffect(state.isFinished) {
-        if (state.isFinished) {
-            onBackClick()
+    BackHandler(enabled = state.gameState != GameState.Finished && !showResultOverlay) {
+        showExitDialog = true
+    }
+
+    LaunchedEffect(state.gameState) {
+        if (state.gameState == GameState.Finished) {
+            showResultOverlay = true
         }
     }
 
-    MochiBackground {
-        Scaffold(
-            containerColor = Color.Transparent,
-            topBar = {
-                Column(modifier = Modifier.padding(top = 16.dp)) {
-                    GameProgressBar(
-                        statuses = state.progressHistory,
-                        maxItems = 10
+    AppTheme {
+        MochiBackground {
+            Scaffold(
+                containerColor = Color.Transparent,
+                topBar = {
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = { 
+                            if (state.gameState != GameState.Finished) showExitDialog = true 
+                            else onBackClick()
+                        }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                        
+                        GameProgressBar(
+                            statuses = state.progressHistory,
+                            maxItems = 10
+                        )
+                    }
+                }
+            ) { paddingValues ->
+                Box(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+                    if (state.gameState == GameState.Loading) {
+                        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                    } else {
+                        QuizContent(state, viewModel)
+                    }
+                }
+
+                if (showExitDialog) {
+                    ExitConfirmationDialog(
+                        onConfirm = { 
+                            showExitDialog = false
+                            showResultOverlay = true 
+                        },
+                        onDismiss = { showExitDialog = false },
+                        onPause = { },
+                        onResume = { }
                     )
                 }
-            }
-        ) { paddingValues ->
-            Box(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
-                if (state.isLoading) {
-                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-                } else if (!state.isFinished) {
-                    QuizContent(state, viewModel)
+
+                if (showResultOverlay) {
+                    GameResultOverlay(
+                        isVictory = state.gameState == GameState.Finished,
+                        score = "${(state.globalMasteryPercent * 100).toInt()}%",
+                        stats = listOf(
+                            "Maîtrise de la session" to "${(state.sessionMasteryPercent * 100).toInt()}%",
+                            "Maîtrise globale" to "${(state.globalMasteryPercent * 100).toInt()}%"
+                        ),
+                        title = "Maîtrise du lot (Grammaire)",
+                        onReplayClick = {
+                            showResultOverlay = false
+                            viewModel.replay()
+                        },
+                        onMenuClick = {
+                            showResultOverlay = false
+                            onBackClick()
+                        }
+                    )
                 }
             }
         }

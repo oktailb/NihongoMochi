@@ -171,6 +171,7 @@ val sharedModule = module {
             exerciseRepository = get(),
             settingsRepository = get(),
             scoreRepository = get(),
+            statisticsEngine = get(),
             audioPlayer = get(),
             grammarTags = params.get<List<String>>()
         )
