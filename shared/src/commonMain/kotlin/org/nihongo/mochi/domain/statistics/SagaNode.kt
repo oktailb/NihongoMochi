@@ -6,6 +6,7 @@ data class SagaNode(
     val recognitionId: String?,
     val readingId: String?,
     val writingId: String?,
+    val grammarId: String? = null,
     val mainType: StatisticsType = StatisticsType.RECOGNITION
 )
 
@@ -24,5 +25,6 @@ data class UserSagaProgress(
     val recognitionIndex: Int,
     val readingIndex: Int,
     val writingIndex: Int,
+    val grammarIndex: Int = 0,
     val nodeProgress: Map<String, Int> = emptyMap()
 )

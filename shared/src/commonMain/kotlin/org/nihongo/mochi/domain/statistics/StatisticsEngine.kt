@@ -119,6 +119,7 @@ class StatisticsEngine(
                 val recogId = recogActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
                 val readId = readActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
                 val writeId = writeActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
+                val grammarId = grammarActivity?.let { if (it.dataFile == "kanji_details") level.id else it.dataFile }
 
                 SagaNode(
                     id = level.id,
@@ -126,6 +127,7 @@ class StatisticsEngine(
                     recognitionId = recogId,
                     readingId = readId,
                     writingId = writeId,
+                    grammarId = grammarId,
                     mainType = mainType
                 )
             }
@@ -141,16 +143,19 @@ class StatisticsEngine(
         val recogProgress = node.recognitionId?.let { calculatePercentage(it, StatisticsType.RECOGNITION) } ?: 0
         val readProgress = node.readingId?.let { calculatePercentage(it, StatisticsType.READING) } ?: 0
         val writeProgress = node.writingId?.let { calculatePercentage(it, StatisticsType.WRITING) } ?: 0
+        val grammarProgress = node.grammarId?.let { calculatePercentage(it, StatisticsType.GRAMMAR) } ?: 0
         
         val nodeMap = mutableMapOf<String, Int>()
         if (node.recognitionId != null) nodeMap[node.recognitionId] = recogProgress
         if (node.readingId != null) nodeMap[node.readingId] = readProgress
         if (node.writingId != null) nodeMap[node.writingId] = writeProgress
+        if (node.grammarId != null) nodeMap[node.grammarId] = grammarProgress
         
         return UserSagaProgress(
             recognitionIndex = recogProgress,
             readingIndex = readProgress,
             writingIndex = writeProgress,
+            grammarIndex = grammarProgress,
             nodeProgress = nodeMap
         )
     }
@@ -164,6 +169,7 @@ class StatisticsEngine(
             StatisticsType.READING -> ScoreManager.ScoreType.READING
             StatisticsType.WRITING -> ScoreManager.ScoreType.WRITING
             StatisticsType.RECOGNITION -> ScoreManager.ScoreType.RECOGNITION
+            StatisticsType.GRAMMAR -> ScoreManager.ScoreType.GRAMMAR
             else -> ScoreManager.ScoreType.RECOGNITION 
         }
         
