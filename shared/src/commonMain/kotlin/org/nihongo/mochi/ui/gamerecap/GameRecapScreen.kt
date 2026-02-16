@@ -18,6 +18,8 @@ import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.ui.components.*
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.koin.compose.koinInject
 
 @Composable
 fun GameRecapScreen(
@@ -44,26 +46,53 @@ fun GameRecapScreen(
     val resolvedTitle = if (levelResource != null) stringResource(levelResource) else levelTitle
     
     var quizSize by remember { mutableStateOf("80") }
+    
+    val settingsRepository: SettingsRepository = koinInject()
+    var showTutorial by remember { mutableStateOf(!settingsRepository.hasSeenRecapTutorial()) }
+
+    val tutorialSteps = listOf(
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_recap_welcome),
+            targetAnchor = Alignment.TopCenter
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_recap_grid),
+            targetAnchor = Alignment.Center
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_recap_modes),
+            targetAnchor = Alignment.BottomCenter
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_recap_filter),
+            targetAnchor = Alignment.TopCenter
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_recap_play),
+            targetAnchor = Alignment.BottomCenter
+        )
+    )
 
     MochiBackground {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = stringResource(Res.string.game_recap_title),
-                style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onBackground
-            )
-            Text(
-                text = resolvedTitle,
-                style = MaterialTheme.typography.titleLarge,
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onBackground
-            )
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(Res.string.game_recap_title),
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+                Text(
+                    text = resolvedTitle,
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
 
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -131,10 +160,21 @@ fun GameRecapScreen(
             
             Spacer(modifier = Modifier.height(8.dp))
 
-            PlayAndReviewButtons(
-                onPlayClick = { onPlayClick(quizSize.toIntOrNull() ?: 80) },
-                onReviewClick = onReviewClick,
-                isReviewEnabled = isReviewEnabled
+                PlayAndReviewButtons(
+                    onPlayClick = { onPlayClick(quizSize.toIntOrNull() ?: 80) },
+                    onReviewClick = onReviewClick,
+                    isReviewEnabled = isReviewEnabled
+                )
+            }
+
+            // Tutorial Overlay
+            TutorialOverlay(
+                steps = tutorialSteps,
+                isVisible = showTutorial,
+                onFinished = {
+                    settingsRepository.setRecapTutorialSeen()
+                    showTutorial = false
+                }
             )
         }
     }

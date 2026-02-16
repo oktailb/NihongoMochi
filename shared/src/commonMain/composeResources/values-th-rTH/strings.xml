@@ -738,4 +738,13 @@
     <string name="game_recap_sort_frequency">ความถี่</string>
     <string name="order_by">เรียงตาม</string>
     <string name="game_recap_sort_strokes">หมายเลขจังหวะ</string>
+    <string name="tutorial_skip">ข้าม</string>
+    <string name="tutorial_next">ต่อไป</string>
+    <string name="tutorial_finish">เข้าใจแล้ว!</string>
+    <string name="tutorial_recap_welcome">ยินดีต้อนรับสู่พื้นที่การจดจำคันจิ!</string>
+    <string name="tutorial_recap_grid">ที่นี่คุณสามารถดูคันจิทั้งหมดในระดับนี้\nสีของพวกเขาบ่งบอกถึงความเชี่ยวชาญของคุณ\nคลิกที่คันจิเพื่อดูมุมมองที่มีรายละเอียดมากขึ้น</string>
+    <string name="tutorial_recap_modes">สลับระหว่างโหมดความหมายและโหมดการอ่านที่นี่\nเพิ่มความท้าทายด้วยการเลือกข้อเสนอการอ่านแบบสุ่มหรือบ่อยขึ้น</string>
+    <string name="tutorial_recap_filter">ปรับแต่งประสบการณ์แบบทดสอบของคุณโดยเลือกประเภทการเรียงลำดับและความยาว</string>
+    <string name="tutorial_recap_play">กดเล่นเพื่อเริ่มแบบทดสอบเกี่ยวกับคันจิเหล่านี้\nข้อผิดพลาดทั้งหมดจะถูกเพิ่มลงในรีวิวโดยอัตโนมัติในครั้งต่อไป</string>
+    <string name="game_result_errors">ข้อผิดพลาด:</string>
 </resources>

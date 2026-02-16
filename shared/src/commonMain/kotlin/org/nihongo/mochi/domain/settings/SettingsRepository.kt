@@ -9,6 +9,9 @@ class SettingsRepository(private val settings: Settings) {
     fun isFirstRun(): Boolean = settings.getBoolean(IS_FIRST_RUN_PREF_KEY, true)
     fun setFirstRunCompleted() = settings.putBoolean(IS_FIRST_RUN_PREF_KEY, false)
 
+    fun hasSeenRecapTutorial(): Boolean = settings.getBoolean("has_seen_recap_tutorial", false)
+    fun setRecapTutorialSeen() = settings.putBoolean("has_seen_recap_tutorial", true)
+
     fun getPronunciation(): String = settings.getString(PRONUNCIATION_PREF_KEY, "Hiragana")
     fun setPronunciation(value: String) = settings.putString(PRONUNCIATION_PREF_KEY, value)
 

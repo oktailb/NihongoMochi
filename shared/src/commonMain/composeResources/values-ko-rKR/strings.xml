@@ -738,4 +738,13 @@
     <string name="game_recap_sort_frequency">빈도</string>
     <string name="order_by">정렬 기준</string>
     <string name="game_recap_sort_strokes">스트로크 수</string>
+    <string name="tutorial_skip">건너뛰다</string>
+    <string name="tutorial_next">다음</string>
+    <string name="tutorial_finish">알았어요!</string>
+    <string name="tutorial_recap_welcome">한자 인식 영역에 오신 것을 환영합니다!</string>
+    <string name="tutorial_recap_grid">여기에서 해당 레벨의 모든 한자를 볼 수 있습니다.\n색상은 귀하의 숙련도를 나타냅니다.\n더 자세한 내용을 보려면 한자를 클릭하세요.</string>
+    <string name="tutorial_recap_modes">여기에서 의미 모드와 읽기 모드 사이를 전환하세요.\n더 자주 읽거나 무작위로 읽기 제안을 선택하여 난이도를 높이세요.</string>
+    <string name="tutorial_recap_filter">정렬 유형과 길이를 선택하여 퀴즈 환경을 맞춤설정하세요.</string>
+    <string name="tutorial_recap_play">이 한자에 대한 퀴즈를 시작하려면 재생을 누르세요.\n모든 오류는 다음 번 검토에 자동으로 추가됩니다.</string>
+    <string name="game_result_errors">오류:</string>
 </resources>

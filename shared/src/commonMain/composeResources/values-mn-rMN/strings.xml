@@ -736,4 +736,13 @@
     <string name="game_recap_sort_frequency">Давтамж</string>
     <string name="order_by">Эрэмбэлэх</string>
     <string name="game_recap_sort_strokes">Цус харвалтын тоо</string>
+    <string name="tutorial_skip">Алгасах</string>
+    <string name="tutorial_next">Дараа нь</string>
+    <string name="tutorial_finish">Ойлголоо!</string>
+    <string name="tutorial_recap_welcome">Ханз таних хэсэгт тавтай морилно уу!</string>
+    <string name="tutorial_recap_grid">Эндээс та энэ түвшний бүх ханзыг харах боломжтой.\nТэдгээрийн өнгө нь таны ур чадварыг илтгэнэ.\nИлүү дэлгэрэнгүй үзэхийн тулд ханз дээр дарна уу.</string>
+    <string name="tutorial_recap_modes">Эндээс Утга болон Унших горимуудын хооронд сэлгэнэ үү.\nИлүү ойр ойрхон эсвэл санамсаргүй унших саналуудыг сонгож сорилтыг нэмэгдүүлээрэй.</string>
+    <string name="tutorial_recap_filter">Ангилах төрөл, уртыг сонгох замаар асуулт хариултын туршлагаа тохируулаарай</string>
+    <string name="tutorial_recap_play">Эдгээр ханзны тестийг эхлүүлэхийн тулд Play товчийг дарна уу.\nБүх алдаа дараагийн удаа Шүүмж дээр автоматаар нэмэгдэх болно.</string>
+    <string name="game_result_errors">Алдаа:</string>
 </resources>

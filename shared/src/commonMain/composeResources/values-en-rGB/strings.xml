@@ -738,4 +738,13 @@
     <string name="game_recap_sort_frequency">Frequency</string>
     <string name="order_by">Sort by</string>
     <string name="game_recap_sort_strokes">Strokes number</string>
+    <string name="tutorial_skip">Skip</string>
+    <string name="tutorial_next">Next</string>
+    <string name="tutorial_finish">Got it!</string>
+    <string name="tutorial_recap_welcome">Welcome to the Kanji recognition area!</string>
+    <string name="tutorial_recap_grid">Here you can see all the Kanji in this level.\nTheir colors indicate your mastery.\nClick on a Kanji to get more detailled view.</string>
+    <string name="tutorial_recap_modes">Switch between Meaning and Reading modes here.\nIncrease the challenge by selecting more frequent or random reading propositions</string>
+    <string name="tutorial_recap_filter">Customize your quiz experience by selecting sorting type and length</string>
+    <string name="tutorial_recap_play">Press Play to start a quiz on these Kanji.\nAll errors will be automatically added on the Review for the next time.</string>
+    <string name="game_result_errors">Errors:</string>
 </resources>

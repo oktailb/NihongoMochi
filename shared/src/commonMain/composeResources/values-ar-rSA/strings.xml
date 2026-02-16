@@ -736,4 +736,13 @@
     <string name="game_recap_sort_frequency">تكرار</string>
     <string name="order_by">الترتيب حسب</string>
     <string name="game_recap_sort_strokes">عدد السكتات الدماغية</string>
+    <string name="tutorial_skip">يتخطى</string>
+    <string name="tutorial_next">التالي</string>
+    <string name="tutorial_finish">فهمتها!</string>
+    <string name="tutorial_recap_welcome">مرحبًا بك في منطقة التعرف على كانجي!</string>
+    <string name="tutorial_recap_grid">هنا يمكنك رؤية كل حروف الكانجي في هذا المستوى.\nتشير ألوانها إلى إتقانك.\nانقر على حروف الكانجي للحصول على عرض أكثر تفصيلاً.</string>
+    <string name="tutorial_recap_modes">قم بالتبديل بين وضعي "المعنى" و"القراءة" هنا.\nقم بزيادة التحدي عن طريق تحديد اقتراحات قراءة أكثر تكرارًا أو عشوائية</string>
+    <string name="tutorial_recap_filter">قم بتخصيص تجربة الاختبار الخاصة بك عن طريق تحديد نوع الفرز وطوله</string>
+    <string name="tutorial_recap_play">اضغط على "تشغيل" لبدء اختبار حول كانجي.\nستتم إضافة كافة الأخطاء تلقائياً في المراجعة في المرة القادمة.</string>
+    <string name="game_result_errors">الأخطاء:</string>
 </resources>

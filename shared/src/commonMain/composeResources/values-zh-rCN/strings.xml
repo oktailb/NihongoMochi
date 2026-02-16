@@ -738,4 +738,13 @@
     <string name="game_recap_sort_frequency">频率</string>
     <string name="order_by">排序方式</string>
     <string name="game_recap_sort_strokes">笔画数</string>
+    <string name="tutorial_skip">跳过</string>
+    <string name="tutorial_next">下一个</string>
+    <string name="tutorial_finish">知道了！</string>
+    <string name="tutorial_recap_welcome">欢迎来到汉字识别区！</string>
+    <string name="tutorial_recap_grid">在这里您可以看到该级别中的所有汉字。\n它们的颜色表明您的掌握程度。\n单击汉字即可获得更详细的视图。</string>
+    <string name="tutorial_recap_modes">在此切换含义和阅读模式。\n通过选择更频繁或随机的阅读命题来增加挑战</string>
+    <string name="tutorial_recap_filter">通过选择排序类型和长度来定制您的测验体验</string>
+    <string name="tutorial_recap_play">按“播放”即可开始对这些汉字进行测验。\n所有错误都将自动添加到下次审阅中。</string>
+    <string name="game_result_errors">错误：</string>
 </resources>
