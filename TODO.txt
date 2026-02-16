@@ -10,3 +10,7 @@ Todo:
  - [ ] ensure numerical values presence for numbers in meanings
  - [WIP] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
  - [ ] restandardize games endings sounds
+ - [ ] Buttons on KanjiDetails and WordDetails to manage their present in the revisions lists
+ - [ ] possibility flip the card in word reading quiz to see an helpet with the meaning
+ - [ ] on flippable cards, a little icon to suggest the action is possible
+ - [ ] deeper first runs flags to give startup tips on some screens (game recaps in priority)

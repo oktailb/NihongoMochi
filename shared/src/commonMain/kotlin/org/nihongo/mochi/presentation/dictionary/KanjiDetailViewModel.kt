@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.nihongo.mochi.data.ScoreManager
+import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.kanji.KanjiRepository
 import org.nihongo.mochi.domain.meaning.MeaningRepository
 import org.nihongo.mochi.domain.meaning.WordMeaningRepository
@@ -20,11 +22,13 @@ class KanjiDetailViewModel(
     private val meaningRepository: MeaningRepository,
     private val wordMeaningRepository: WordMeaningRepository,
     private val wordRepository: WordRepository,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val scoreRepository: ScoreRepository
 ) : ViewModel() {
 
     data class KanjiDetailUiState(
         val isLoading: Boolean = false,
+        val kanjiId: String = "",
         val kanjiCharacter: String? = null,
         val kanjiStrokes: Int = 0,
         val jlptLevel: String? = null,
@@ -35,7 +39,8 @@ class KanjiDetailViewModel(
         val kunReadings: List<ReadingItem> = emptyList(),
         val components: List<ComponentItem> = emptyList(),
         val examples: List<ExampleItem> = emptyList(),
-        val componentTree: ComponentNode? = null
+        val componentTree: ComponentNode? = null,
+        val isInRevisionList: Boolean = false
     )
 
     data class ReadingItem(val type: String, val reading: String, val frequency: Int)
@@ -54,7 +59,7 @@ class KanjiDetailViewModel(
     val uiState: StateFlow<KanjiDetailUiState> = _uiState.asStateFlow()
 
     fun loadKanji(kanjiId: String) {
-        _uiState.update { it.copy(isLoading = true) }
+        _uiState.update { it.copy(isLoading = true, kanjiId = kanjiId) }
         viewModelScope.launch(Dispatchers.IO) {
             val entry = kanjiRepository.getKanjiById(kanjiId)
             
@@ -91,6 +96,10 @@ class KanjiDetailViewModel(
                 val examples = wordRepository.getWordsContainingKanji(entry.character)
                     .map { ExampleItem(it.text, it.phonetics, wordMeanings[it.id]) }
 
+                // Check by character (most common in the app) or ID
+                val isInRevision = scoreRepository.isInList(ScoreManager.RECOGNITION_LIST, entry.character) || 
+                                 scoreRepository.isInList(ScoreManager.RECOGNITION_LIST, kanjiId)
+
                 _uiState.update {
                     it.copy(
                         isLoading = false,
@@ -104,12 +113,31 @@ class KanjiDetailViewModel(
                         kunReadings = kunReadings,
                         components = components,
                         examples = examples,
-                        componentTree = treeRoot
+                        componentTree = treeRoot,
+                        isInRevisionList = isInRevision
                     )
                 }
             } else {
                  _uiState.update { it.copy(isLoading = false) }
             }
+        }
+    }
+
+    fun toggleRevisionList() {
+        val character = _uiState.value.kanjiCharacter ?: return
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val current = _uiState.value.isInRevisionList
+            if (current) {
+                scoreRepository.removeItemFromList(ScoreManager.RECOGNITION_LIST, character)
+                // Also remove by ID just in case
+                _uiState.value.kanjiId.let { id ->
+                    if (id.isNotEmpty()) scoreRepository.removeItemFromList(ScoreManager.RECOGNITION_LIST, id)
+                }
+            } else {
+                scoreRepository.addItemToList(ScoreManager.RECOGNITION_LIST, character)
+            }
+            _uiState.update { it.copy(isInRevisionList = !current) }
         }
     }
     

@@ -69,7 +69,27 @@ class WordQuizViewModel(
             return
         }
 
-        val words = entries.map { Word(it.text, it.phonetics) }
+        val manualRevisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
+        
+        // Filter out mastered words, UNLESS they are in the manual revision list
+        val filteredEntries = if (levelId != "user_custom_list" && levelId.isNotEmpty()) {
+            entries.filter {
+                val score = scoreRepository.getScore(it.text, ScoreManager.ScoreType.READING)
+                val mastery = score.successes - score.failures
+                val isManualRevision = manualRevisionList.contains(it.id) || manualRevisionList.contains(it.text)
+                mastery < 10 || isManualRevision
+            }
+        } else {
+            entries
+        }
+
+        if (filteredEntries.isEmpty()) {
+             engine.isGameInitialized = true
+             _state.value = GameState.Finished
+             return
+        }
+
+        val words = filteredEntries.map { Word(it.text, it.phonetics) }
 
         engine.allWords = words.shuffled().toMutableList()
         engine.wordListPosition = 0

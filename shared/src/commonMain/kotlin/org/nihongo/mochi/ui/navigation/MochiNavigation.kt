@@ -627,6 +627,8 @@ fun MochiNavGraph(
                     viewModel.kanjiStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED 
                 }
 
+                val errorCount by viewModel.errorCount.collectAsState(0)
+
                 RecognitionGameScreen(
                     kanji = currentKanji,
                     questionText = questionText,
@@ -638,6 +640,7 @@ fun MochiNavGraph(
                     gameMode = gameMode,
                     currentScore = viewModel.getCurrentKanjiScore(),
                     gameState = gameState,
+                    errorCount = errorCount,
                     globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
                     sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
                     onAnswerClick = { index, answer ->

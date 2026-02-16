@@ -18,6 +18,9 @@ interface ScoreRepository {
     
     // List management
     fun getListItems(listName: String): List<String>
+    fun addItemToList(listName: String, itemKey: String)
+    fun removeItemFromList(listName: String, itemKey: String)
+    fun isInList(listName: String, itemKey: String): Boolean
     
     /**
      * Applies decay to scores that haven't been reviewed for a while.

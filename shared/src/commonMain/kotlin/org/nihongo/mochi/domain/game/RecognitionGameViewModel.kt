@@ -73,6 +73,7 @@ class RecognitionGameViewModel(
     val currentAnswers: List<String>
         get() = engine.currentAnswers
 
+    val errorCount: StateFlow<Int> = engine.errorCount
     val state: StateFlow<GameState> = engine.state
     val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
 
@@ -172,7 +173,9 @@ class RecognitionGameViewModel(
 
         loadAllKanjiDetails()
 
-        val type = if (gameMode == "meaning") ScoreManager.ScoreType.RECOGNITION else ScoreManager.ScoreType.READING
+        val type = ScoreManager.ScoreType.RECOGNITION
+        val listName = ScoreManager.RECOGNITION_LIST
+        val manualRevisionList = scoreRepository.getListItems(listName)
 
         val kanjiCharsForLevel: List<String> = if (!customWordList.isNullOrEmpty()) {
             customWordList
@@ -206,17 +209,20 @@ class RecognitionGameViewModel(
         }
 
         // limite le quizz aux X premier kanjis de la liste (triee selon le critere choisi) non parfaitement maitrises
+        // OU presents dans la liste de revision manuelle
         val filteredByMastery = if (customWordList.isNullOrEmpty()) {
             sortedList.filter {
                 val score = scoreRepository.getScore(it.character, type)
-                (score.successes - score.failures) < 10
+                val mastery = score.successes - score.failures
+                val isManualRevision = manualRevisionList.contains(it.id) || manualRevisionList.contains(it.character)
+                mastery < 10 || isManualRevision
             }.take(quizSize)
         } else {
             sortedList
         }
 
         allKanjiDetails.addAll(filteredByMastery)
-        
+
         if (customWordList.isNullOrEmpty()) {
             allKanjiDetails.shuffle()
         }
