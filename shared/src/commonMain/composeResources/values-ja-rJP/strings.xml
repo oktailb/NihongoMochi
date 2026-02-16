@@ -736,5 +736,13 @@
     <string name="game_recap_sort_frequency">頻度</string>
     <string name="order_by">並べ替え</string>
     <string name="game_recap_sort_strokes">画数</string>
+    <string name="tutorial_skip">スキップ</string>
+    <string name="tutorial_next">次</string>
+    <string name="tutorial_finish">わかった！</string>
+    <string name="tutorial_recap_welcome">漢字認識エリアへようこそ！</string>
+    <string name="tutorial_recap_grid">ここでは、このレベルのすべての漢字を確認できます。\n色はあなたの習熟度を示します。\n漢字をクリックすると、さらに詳細な表示が表示されます。</string>
+    <string name="tutorial_recap_modes">ここで意味モードと読解モードを切り替えます。\nより頻繁な、またはランダムな読解命題を選択して、難易度を高めてください。</string>
+    <string name="tutorial_recap_filter">並べ替えの種類と長さを選択して、クイズのエクスペリエンスをカスタマイズします</string>
+    <string name="tutorial_recap_play">[再生] を押して、これらの漢字に関するクイズを開始します。\nすべての間違いは、次回のレビューに自動的に追加されます。</string>
     <string name="game_result_errors">エラー:</string>
 </resources>

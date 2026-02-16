@@ -154,6 +154,20 @@ class ScoreManager(
         return queries.getListItems(listName).executeAsList()
     }
 
+    override fun addItemToList(listName: String, itemKey: String) {
+        queries.addItemToList(listName, itemKey)
+    }
+
+    override fun removeItemFromList(listName: String, itemKey: String) {
+        queries.removeItemFromList(listName, itemKey)
+    }
+
+    override fun isInList(listName: String, itemKey: String): Boolean {
+        // Simple check: get all items and check if itemKey is present
+        // Better would be a dedicated query if performance is an issue
+        return queries.getListItems(listName).executeAsList().contains(itemKey)
+    }
+
     override fun decayScores(): Boolean {
         var anyScoreDecayed = false
         val currentTime = Clock.System.now().toEpochMilliseconds()

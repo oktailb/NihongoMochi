@@ -48,9 +48,9 @@ fun RecognitionGameScreen(
     gameMode: String,
     currentScore: LearningScore?,
     gameState: GameState,
+    errorCount: Int,
     globalMasteryPercent: Float,
     sessionMasteryPercent: Float,
-    errorCount: Int,
     onAnswerClick: (Int, String) -> Unit,
     onReplay: () -> Unit,
     onNavigateBack: () -> Unit

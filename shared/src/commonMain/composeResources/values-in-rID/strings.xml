@@ -738,5 +738,13 @@
     <string name="game_recap_sort_frequency">Frekuensi</string>
     <string name="order_by">Urutkan berdasarkan</string>
     <string name="game_recap_sort_strokes">Nomor guratan</string>
+    <string name="tutorial_skip">Melewati</string>
+    <string name="tutorial_next">Berikutnya</string>
+    <string name="tutorial_finish">Mengerti!</string>
+    <string name="tutorial_recap_welcome">Selamat datang di area pengenalan Kanji!</string>
+    <string name="tutorial_recap_grid">Di sini Anda dapat melihat semua Kanji di level ini.\nWarnanya menunjukkan penguasaan Anda.\nKlik Kanji untuk melihat tampilan lebih detail.</string>
+    <string name="tutorial_recap_modes">Beralih antara mode Arti dan Membaca di sini.\nTingkatkan tantangan dengan memilih proposisi membaca yang lebih sering atau acak</string>
+    <string name="tutorial_recap_filter">Sesuaikan pengalaman kuis Anda dengan memilih jenis dan panjang penyortiran</string>
+    <string name="tutorial_recap_play">Tekan Putar untuk memulai kuis tentang Kanji ini.\nSemua kesalahan akan otomatis ditambahkan pada Tinjauan berikutnya.</string>
     <string name="game_result_errors">Kesalahan:</string>
 </resources>

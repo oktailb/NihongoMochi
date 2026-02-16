@@ -10,6 +10,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -82,13 +84,26 @@ fun KanjiDetailScreen(
                         shape = RoundedCornerShape(16.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                     ) {
-                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            // Revision Button inside the card
+                            IconButton(
+                                onClick = { viewModel.toggleRevisionList() },
+                                modifier = Modifier.align(Alignment.TopEnd).padding(8.dp)
+                            ) {
+                                Icon(
+                                    imageVector = if (uiState.isInRevisionList) Icons.Default.Star else Icons.Default.StarBorder,
+                                    contentDescription = "Toggle Revision List",
+                                    tint = if (uiState.isInRevisionList) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+
                             Text(
                                 text = uiState.kanjiCharacter ?: "",
                                 fontSize = 200.sp,
                                 color = MaterialTheme.colorScheme.primary,
                                 fontFamily = kanjiStrokeOrderFamily,
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.align(Alignment.Center)
                             )
                         }
                     }

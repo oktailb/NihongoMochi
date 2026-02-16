@@ -734,5 +734,13 @@
     <string name="game_recap_sort_frequency">Tính thường xuyên</string>
     <string name="order_by">Sắp xếp theo</string>
     <string name="game_recap_sort_strokes">Số nét</string>
+    <string name="tutorial_skip">Nhảy</string>
+    <string name="tutorial_next">Kế tiếp</string>
+    <string name="tutorial_finish">Hiểu rồi!</string>
+    <string name="tutorial_recap_welcome">Chào mừng đến với khu vực nhận dạng Kanji!</string>
+    <string name="tutorial_recap_grid">Tại đây, bạn có thể xem tất cả các chữ Kanji ở cấp độ này.\nMàu sắc của chúng cho thấy mức độ thông thạo của bạn.\nNhấp vào một chữ Kanji để xem chi tiết hơn.</string>
+    <string name="tutorial_recap_modes">Chuyển đổi giữa chế độ Ý nghĩa và Đọc tại đây.\nTăng thử thách bằng cách chọn các đề xuất đọc ngẫu nhiên hoặc thường xuyên hơn</string>
+    <string name="tutorial_recap_filter">Tùy chỉnh trải nghiệm bài kiểm tra của bạn bằng cách chọn loại và độ dài sắp xếp</string>
+    <string name="tutorial_recap_play">Nhấn Play để bắt đầu làm bài kiểm tra chữ Kanji này.\nTất cả các lỗi sẽ tự động được thêm vào phần Ôn tập vào lần tiếp theo.</string>
     <string name="game_result_errors">Lỗi:</string>
 </resources>

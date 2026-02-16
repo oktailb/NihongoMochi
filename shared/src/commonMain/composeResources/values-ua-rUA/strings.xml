@@ -736,5 +736,13 @@
     <string name="game_recap_sort_frequency">Частота</string>
     <string name="order_by">Сортувати за</string>
     <string name="game_recap_sort_strokes">Кількість ударів</string>
+    <string name="tutorial_skip">Пропустити</string>
+    <string name="tutorial_next">Далі</string>
+    <string name="tutorial_finish">зрозумів</string>
+    <string name="tutorial_recap_welcome">Ласкаво просимо до зони розпізнавання кандзі!</string>
+    <string name="tutorial_recap_grid">Тут ви можете побачити всі кандзі на цьому рівні.\nЇхні кольори вказують на вашу майстерність.\nНатисніть кандзі, щоб отримати більш детальний перегляд.</string>
+    <string name="tutorial_recap_modes">Тут можна перемикатися між режимами «Значення» та «Читання».\nЗбільште складність, вибираючи пропозиції для частішого або довільного читання</string>
+    <string name="tutorial_recap_filter">Налаштуйте свою вікторину, вибравши тип і довжину сортування</string>
+    <string name="tutorial_recap_play">Натисніть «Відтворити», щоб розпочати тест на ці кандзі.\nУсі помилки будуть автоматично додані до огляду наступного разу.</string>
     <string name="game_result_errors">Помилки:</string>
 </resources>

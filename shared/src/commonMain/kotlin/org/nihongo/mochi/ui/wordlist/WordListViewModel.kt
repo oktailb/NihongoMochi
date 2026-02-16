@@ -142,16 +142,15 @@ class WordListViewModel(
         }
     }
     
-    fun getGameWordList(): Array<String> {
-         return engine.getDisplayedWords().map { it.text }.toTypedArray()
+    fun getGameWordList(): List<String> {
+         return engine.getDisplayedWords().map { it.text }
     }
 
-    fun getRevisionWordList(): Array<String> {
+    fun getRevisionWordList(): List<String> {
         val revisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
         return engine.getDisplayedWords()
             .map { it.text }
             .filter { revisionList.contains(it) }
-            .toTypedArray()
     }
 
     private fun updateCurrentPageItems() {

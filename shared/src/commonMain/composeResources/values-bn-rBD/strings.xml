@@ -736,5 +736,13 @@
     <string name="game_recap_sort_frequency">ফ্রিকোয়েন্সি</string>
     <string name="size">আকার</string>
     <string name="game_recap_sort_strokes">স্ট্রোক সংখ্যা</string>
+    <string name="tutorial_skip">এড়িয়ে যান</string>
+    <string name="tutorial_next">পরবর্তী</string>
+    <string name="tutorial_finish">বুঝেছি!</string>
+    <string name="tutorial_recap_welcome">কাঞ্জি স্বীকৃতি এলাকায় স্বাগতম!</string>
+    <string name="tutorial_recap_grid">এখানে আপনি এই স্তরের সমস্ত কাঞ্জি দেখতে পাবেন।\nতাদের রং আপনার দক্ষতা নির্দেশ করে।\nআরো বিস্তারিত ভিউ পেতে একটি কাঞ্জিতে ক্লিক করুন।</string>
+    <string name="tutorial_recap_modes">এখানে অর্থ এবং পঠন মোডের মধ্যে স্যুইচ করুন৷\nআরো ঘন ঘন বা এলোমেলো পড়ার প্রস্তাবগুলি নির্বাচন করে চ্যালেঞ্জ বাড়ান</string>
+    <string name="tutorial_recap_filter">বাছাই প্রকার এবং দৈর্ঘ্য নির্বাচন করে আপনার কুইজের অভিজ্ঞতা কাস্টমাইজ করুন</string>
+    <string name="tutorial_recap_play">এই কাঞ্জিগুলির উপর একটি ক্যুইজ শুরু করতে প্লে টিপুন৷\nসব ত্রুটি পরের বার পর্যালোচনাতে স্বয়ংক্রিয়ভাবে যোগ করা হবে৷</string>
     <string name="game_result_errors">ত্রুটি:</string>
 </resources>

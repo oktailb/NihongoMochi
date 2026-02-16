@@ -19,12 +19,16 @@ import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.statistics.StatisticsType
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
 
 class WordQuizViewModel(
     private val wordRepository: WordRepository,
     private val scoreRepository: ScoreRepository,
     private val statisticsEngine: StatisticsEngine,
-    private val audioPlayer: AudioPlayer
+    private val audioPlayer: AudioPlayer,
+    private val wordMeaningRepository: WordMeaningRepository,
+    private val settingsRepository: SettingsRepository
 ) : ViewModel() {
     
     private val engine = WordQuizEngine()
@@ -51,6 +55,9 @@ class WordQuizViewModel(
 
     // Settings
     private var pronunciationMode: String = "Hiragana"
+
+    private val _errorCount = MutableStateFlow(0)
+    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
     private var animationSpeed: Float = 1.0f
     private var currentLevelId: String = ""
 
@@ -69,13 +76,40 @@ class WordQuizViewModel(
             return
         }
 
-        val words = entries.map { Word(it.text, it.phonetics) }
+        viewModelScope.launch {
+            val locale = settingsRepository.getAppLocale()
+            val meanings = wordMeaningRepository.getWordMeaningsSuspend(locale)
 
-        engine.allWords = words.shuffled().toMutableList()
-        engine.wordListPosition = 0
-        engine.isGameInitialized = true
+            val manualRevisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
+            
+            // Filter out mastered words, UNLESS they are in the manual revision list
+            val filteredEntries = if (levelId != "user_custom_list" && levelId.isNotEmpty()) {
+                entries.filter {
+                    val score = scoreRepository.getScore(it.text, ScoreManager.ScoreType.READING)
+                    val mastery = score.successes - score.failures
+                    val isManualRevision = manualRevisionList.contains(it.id) || manualRevisionList.contains(it.text)
+                    mastery < 10 || isManualRevision
+                }
+            } else {
+                entries
+            }
 
-        startNewSet()
+            if (filteredEntries.isEmpty()) {
+                 engine.isGameInitialized = true
+                 _state.value = GameState.Finished
+                 return@launch
+            }
+
+            val words = filteredEntries.map { 
+                Word(it.text, it.phonetics, meanings[it.id]) 
+            }
+
+            engine.allWords = words.shuffled().toMutableList()
+            engine.wordListPosition = 0
+            engine.isGameInitialized = true
+
+            startNewSet()
+        }
     }
 
     /**
@@ -121,9 +155,9 @@ class WordQuizViewModel(
     }
     
     private fun updateWordStatuses() {
+        // We only want to show as many slots as there are words in the current set
         val statuses = engine.currentWordSet.map { engine.wordStatus[it] ?: GameStatus.NOT_ANSWERED }
-        val paddedStatuses = statuses + List(10 - statuses.size) { GameStatus.NOT_ANSWERED }
-        _wordStatuses.value = paddedStatuses
+        _wordStatuses.value = statuses
     }
 
     private fun displayQuestion() {

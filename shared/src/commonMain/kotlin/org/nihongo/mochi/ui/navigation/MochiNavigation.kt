@@ -628,6 +628,8 @@ fun MochiNavGraph(
                     viewModel.kanjiStatus[it] ?: org.nihongo.mochi.domain.models.GameStatus.NOT_ANSWERED 
                 }
 
+                val errorCount by viewModel.errorCount.collectAsState(0)
+
                 RecognitionGameScreen(
                     kanji = currentKanji,
                     questionText = questionText,
@@ -639,9 +641,9 @@ fun MochiNavGraph(
                     gameMode = gameMode,
                     currentScore = viewModel.getCurrentKanjiScore(),
                     gameState = gameState,
+                    errorCount = errorCount,
                     globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
                     sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
-                    errorCount = errorCount,
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
                     },
@@ -955,11 +957,11 @@ fun MochiNavGraph(
 
             val filteredWords = navController.previousBackStackEntry
                 ?.savedStateHandle
-                ?.get<Array<String>>("filtered_words")
+                ?.get<List<String>>("filtered_words")
 
             remember(levelId, filteredWords) {
                 if (filteredWords != null && filteredWords.isNotEmpty()) {
-                    val wordsForQuiz = wordRepository.getWordEntriesByText(filteredWords.toList())
+                    val wordsForQuiz = wordRepository.getWordEntriesByText(filteredWords)
                     viewModel.initializeGame(wordsForQuiz, levelId)
                 } else {
                     val wordsForQuiz = if (levelId == "user_custom_list") {
@@ -973,27 +975,27 @@ fun MochiNavGraph(
                 true
             }
 
-            if (gameState == GameState.Finished) {
-                navController.popBackStack()
-            } else {
-                WordQuizScreen(
-                    wordToGuess = currentWord?.text,
-                    gameStatus = wordStatuses,
-                    answers = answers,
-                    buttonStates = buttonStates,
-                    buttonsEnabled = areButtonsEnabled,
-                    gameState = gameState,
-                    globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
-                    sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
-                    onAnswerClick = { index, answer -> 
-                        viewModel.submitAnswer(answer, index)
-                    },
-                    onReplay = { 
-                        viewModel.replay() 
-                    },
-                    onNavigateBack = { navController.popBackStack() }
-                )
-            }
+            val errorCount by viewModel.errorCount.collectAsState(0)
+
+            WordQuizScreen(
+                wordToGuess = currentWord?.text,
+                meaning = currentWord?.meaning,
+                gameStatus = wordStatuses,
+                answers = answers,
+                buttonStates = buttonStates,
+                buttonsEnabled = areButtonsEnabled,
+                gameState = gameState,
+                errorCount = errorCount,
+                globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
+                sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
+                onAnswerClick = { index, answer -> 
+                    viewModel.submitAnswer(answer, index)
+                },
+                onReplay = { 
+                    viewModel.replay() 
+                },
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
     }
 }

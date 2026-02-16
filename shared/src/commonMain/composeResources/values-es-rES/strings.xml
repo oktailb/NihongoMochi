@@ -734,5 +734,13 @@
     <string name="game_recap_sort_frequency">Frecuencia</string>
     <string name="order_by">Ordenar por</string>
     <string name="game_recap_sort_strokes">Número de trazos</string>
+    <string name="tutorial_skip">Saltar</string>
+    <string name="tutorial_next">Próximo</string>
+    <string name="tutorial_finish">¡Entiendo!</string>
+    <string name="tutorial_recap_welcome">¡Bienvenido al área de reconocimiento de Kanji!</string>
+    <string name="tutorial_recap_grid">Aquí puedes ver todos los Kanji en este nivel.\nSus colores indican tu dominio.\nHaz clic en un Kanji para obtener una vista más detallada.</string>
+    <string name="tutorial_recap_modes">Cambie entre los modos Significado y Lectura aquí.\nAumenta el desafío seleccionando propuestas de lectura más frecuentes o aleatorias</string>
+    <string name="tutorial_recap_filter">Personalice su experiencia de prueba seleccionando el tipo de clasificación y la duración</string>
+    <string name="tutorial_recap_play">Presione Reproducir para iniciar una prueba sobre estos Kanji.\nTodos los errores se agregarán automáticamente en la Revisión la próxima vez.</string>
     <string name="game_result_errors">Errores:</string>
 </resources>
