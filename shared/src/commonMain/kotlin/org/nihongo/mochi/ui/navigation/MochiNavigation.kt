@@ -974,6 +974,8 @@ fun MochiNavGraph(
                 true
             }
 
+            val errorCount by viewModel.errorCount.collectAsState(0)
+
             WordQuizScreen(
                 wordToGuess = currentWord?.text,
                 gameStatus = wordStatuses,
@@ -981,6 +983,7 @@ fun MochiNavGraph(
                 buttonStates = buttonStates,
                 buttonsEnabled = areButtonsEnabled,
                 gameState = gameState,
+                errorCount = errorCount,
                 globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
                 sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
                 onAnswerClick = { index, answer -> 

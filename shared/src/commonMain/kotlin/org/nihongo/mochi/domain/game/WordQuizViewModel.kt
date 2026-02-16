@@ -51,6 +51,9 @@ class WordQuizViewModel(
 
     // Settings
     private var pronunciationMode: String = "Hiragana"
+
+    private val _errorCount = MutableStateFlow(0)
+    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
     private var animationSpeed: Float = 1.0f
     private var currentLevelId: String = ""
 

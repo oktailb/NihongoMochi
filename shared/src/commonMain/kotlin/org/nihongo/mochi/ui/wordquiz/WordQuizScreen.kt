@@ -31,6 +31,7 @@ fun WordQuizScreen(
     buttonStates: List<AnswerButtonState>,
     buttonsEnabled: Boolean,
     gameState: GameState,
+    errorCount: Int,
     globalMasteryPercent: Float,
     sessionMasteryPercent: Float,
     onAnswerClick: (Int, String) -> Unit,
@@ -181,7 +182,8 @@ fun WordQuizScreen(
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
                         stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
-                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_errors) to errorCount.toString()
                     ),
                     title = stringResource(Res.string.game_result_lot_mastery_reading),
                     onReplayClick = {
