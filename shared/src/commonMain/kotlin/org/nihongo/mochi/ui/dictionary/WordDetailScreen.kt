@@ -8,6 +8,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -66,41 +68,55 @@ fun WordDetailScreen(
                         shape = RoundedCornerShape(16.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
                     ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(24.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                text = uiState.wordText,
-                                fontSize = 48.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary,
-                                textAlign = TextAlign.Center
-                            )
-                            
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.Center,
-                                modifier = Modifier.padding(top = 8.dp)
+                        Box(modifier = Modifier.fillMaxWidth()) {
+                            // Revision Button inside the card
+                            IconButton(
+                                onClick = { viewModel.toggleRevisionList() },
+                                modifier = Modifier.align(Alignment.TopEnd).padding(8.dp)
                             ) {
-                                if (uiState.phonetics.isNotEmpty()) {
-                                    Text(
-                                        text = uiState.phonetics,
-                                        fontSize = 24.sp,
-                                        color = MaterialTheme.colorScheme.secondary
-                                    )
-                                }
+                                Icon(
+                                    imageVector = if (uiState.isInRevisionList) Icons.Default.Star else Icons.Default.StarBorder,
+                                    contentDescription = "Toggle Revision List",
+                                    tint = if (uiState.isInRevisionList) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(24.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = uiState.wordText,
+                                    fontSize = 48.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    textAlign = TextAlign.Center
+                                )
                                 
-                                Spacer(modifier = Modifier.width(8.dp))
-                                
-                                IconButton(onClick = { viewModel.speak() }) {
-                                    Icon(
-                                        imageVector = Icons.Default.VolumeUp,
-                                        contentDescription = "Speak",
-                                        tint = MaterialTheme.colorScheme.primary
-                                    )
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center,
+                                    modifier = Modifier.padding(top = 8.dp)
+                                ) {
+                                    if (uiState.phonetics.isNotEmpty()) {
+                                        Text(
+                                            text = uiState.phonetics,
+                                            fontSize = 24.sp,
+                                            color = MaterialTheme.colorScheme.secondary
+                                        )
+                                    }
+                                    
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    
+                                    IconButton(onClick = { viewModel.speak() }) {
+                                        Icon(
+                                            imageVector = Icons.Default.VolumeUp,
+                                            contentDescription = "Speak",
+                                            tint = MaterialTheme.colorScheme.primary
+                                        )
+                                    }
                                 }
                             }
                         }
