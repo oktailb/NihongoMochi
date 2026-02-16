@@ -6,11 +6,11 @@ Todo:
  - [ ] Tetris ou candycrush like
  - [ ] Radical Forge : puzzle de construction de Kanji à partir de leurs radicaux
  - [ ] Shadow Kanji : identification de Kanjis par leur silhouette ou tracé flou. -> Alimenter avec des kanjis partageant les mêmes radicaux.
- - [ ] better revision management : define/highlight list
+ - [X] better revision management : define/highlight list
  - [ ] ensure numerical values presence for numbers in meanings
- - [WIP] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
- - [ ] restandardize games endings sounds
- - [ ] Buttons on KanjiDetails and WordDetails to manage their present in the revisions lists
- - [ ] possibility flip the card in word reading quiz to see an helpet with the meaning
+ - [X] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
+ - [?] restandardize games endings sounds
+ - [X] Buttons on KanjiDetails and WordDetails to manage their present in the revisions lists
+ - [ ] possibility flip the card in word reading quiz to see an helper with the meaning
  - [ ] on flippable cards, a little icon to suggest the action is possible
  - [ ] deeper first runs flags to give startup tips on some screens (game recaps in priority)

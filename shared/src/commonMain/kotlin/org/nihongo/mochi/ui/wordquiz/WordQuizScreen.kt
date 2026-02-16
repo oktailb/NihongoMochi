@@ -26,6 +26,7 @@ import org.nihongo.mochi.shared.generated.resources.*
 @Composable
 fun WordQuizScreen(
     wordToGuess: String?,
+    meaning: String?,
     gameStatus: List<GameStatus>,
     answers: List<String>,
     buttonStates: List<AnswerButtonState>,
@@ -94,6 +95,7 @@ fun WordQuizScreen(
                         GameQuestionCard(
                             text = wordToGuess,
                             fontSize = fontSize.sp,
+                            secondaryText = meaning,
                             modifier = Modifier.size(width = 300.dp, height = 200.dp)
                         )
                     }

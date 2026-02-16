@@ -19,12 +19,16 @@ import org.nihongo.mochi.domain.words.WordRepository
 import org.nihongo.mochi.domain.words.WordEntry
 import org.nihongo.mochi.domain.statistics.StatisticsEngine
 import org.nihongo.mochi.domain.statistics.StatisticsType
+import org.nihongo.mochi.domain.meaning.WordMeaningRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
 
 class WordQuizViewModel(
     private val wordRepository: WordRepository,
     private val scoreRepository: ScoreRepository,
     private val statisticsEngine: StatisticsEngine,
-    private val audioPlayer: AudioPlayer
+    private val audioPlayer: AudioPlayer,
+    private val wordMeaningRepository: WordMeaningRepository,
+    private val settingsRepository: SettingsRepository
 ) : ViewModel() {
     
     private val engine = WordQuizEngine()
@@ -72,33 +76,40 @@ class WordQuizViewModel(
             return
         }
 
-        val manualRevisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
-        
-        // Filter out mastered words, UNLESS they are in the manual revision list
-        val filteredEntries = if (levelId != "user_custom_list" && levelId.isNotEmpty()) {
-            entries.filter {
-                val score = scoreRepository.getScore(it.text, ScoreManager.ScoreType.READING)
-                val mastery = score.successes - score.failures
-                val isManualRevision = manualRevisionList.contains(it.id) || manualRevisionList.contains(it.text)
-                mastery < 10 || isManualRevision
+        viewModelScope.launch {
+            val locale = settingsRepository.getAppLocale()
+            val meanings = wordMeaningRepository.getWordMeaningsSuspend(locale)
+
+            val manualRevisionList = scoreRepository.getListItems(ScoreManager.READING_LIST)
+            
+            // Filter out mastered words, UNLESS they are in the manual revision list
+            val filteredEntries = if (levelId != "user_custom_list" && levelId.isNotEmpty()) {
+                entries.filter {
+                    val score = scoreRepository.getScore(it.text, ScoreManager.ScoreType.READING)
+                    val mastery = score.successes - score.failures
+                    val isManualRevision = manualRevisionList.contains(it.id) || manualRevisionList.contains(it.text)
+                    mastery < 10 || isManualRevision
+                }
+            } else {
+                entries
             }
-        } else {
-            entries
+
+            if (filteredEntries.isEmpty()) {
+                 engine.isGameInitialized = true
+                 _state.value = GameState.Finished
+                 return@launch
+            }
+
+            val words = filteredEntries.map { 
+                Word(it.text, it.phonetics, meanings[it.id]) 
+            }
+
+            engine.allWords = words.shuffled().toMutableList()
+            engine.wordListPosition = 0
+            engine.isGameInitialized = true
+
+            startNewSet()
         }
-
-        if (filteredEntries.isEmpty()) {
-             engine.isGameInitialized = true
-             _state.value = GameState.Finished
-             return
-        }
-
-        val words = filteredEntries.map { Word(it.text, it.phonetics) }
-
-        engine.allWords = words.shuffled().toMutableList()
-        engine.wordListPosition = 0
-        engine.isGameInitialized = true
-
-        startNewSet()
     }
 
     /**

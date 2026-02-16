@@ -36,7 +36,7 @@ data class KanjiProgress(
 enum class KanaQuestionDirection { NORMAL, REVERSE } // NORMAL: Kana -> Romaji, REVERSE: Romaji -> Kana
 
 @Serializable
-data class Word(val text: String, val phonetics: String)
+data class Word(val text: String, val phonetics: String, val meaning: String? = null)
 
 // Shared Game State
 sealed class GameState {

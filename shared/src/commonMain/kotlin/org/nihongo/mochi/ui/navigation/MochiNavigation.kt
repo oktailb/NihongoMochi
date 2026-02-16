@@ -978,6 +978,7 @@ fun MochiNavGraph(
 
             WordQuizScreen(
                 wordToGuess = currentWord?.text,
+                meaning = currentWord?.meaning,
                 gameStatus = wordStatuses,
                 answers = answers,
                 buttonStates = buttonStates,
