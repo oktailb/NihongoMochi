@@ -141,9 +141,9 @@ class WordQuizViewModel(
     }
     
     private fun updateWordStatuses() {
+        // We only want to show as many slots as there are words in the current set
         val statuses = engine.currentWordSet.map { engine.wordStatus[it] ?: GameStatus.NOT_ANSWERED }
-        val paddedStatuses = statuses + List(10 - statuses.size) { GameStatus.NOT_ANSWERED }
-        _wordStatuses.value = paddedStatuses
+        _wordStatuses.value = statuses
     }
 
     private fun displayQuestion() {

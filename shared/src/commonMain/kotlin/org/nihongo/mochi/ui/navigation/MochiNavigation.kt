@@ -956,11 +956,11 @@ fun MochiNavGraph(
 
             val filteredWords = navController.previousBackStackEntry
                 ?.savedStateHandle
-                ?.get<Array<String>>("filtered_words")
+                ?.get<List<String>>("filtered_words")
 
             remember(levelId, filteredWords) {
                 if (filteredWords != null && filteredWords.isNotEmpty()) {
-                    val wordsForQuiz = wordRepository.getWordEntriesByText(filteredWords.toList())
+                    val wordsForQuiz = wordRepository.getWordEntriesByText(filteredWords)
                     viewModel.initializeGame(wordsForQuiz, levelId)
                 } else {
                     val wordsForQuiz = if (levelId == "user_custom_list") {
@@ -974,27 +974,23 @@ fun MochiNavGraph(
                 true
             }
 
-            if (gameState == GameState.Finished) {
-                navController.popBackStack()
-            } else {
-                WordQuizScreen(
-                    wordToGuess = currentWord?.text,
-                    gameStatus = wordStatuses,
-                    answers = answers,
-                    buttonStates = buttonStates,
-                    buttonsEnabled = areButtonsEnabled,
-                    gameState = gameState,
-                    globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
-                    sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
-                    onAnswerClick = { index, answer -> 
-                        viewModel.submitAnswer(answer, index)
-                    },
-                    onReplay = { 
-                        viewModel.replay() 
-                    },
-                    onNavigateBack = { navController.popBackStack() }
-                )
-            }
+            WordQuizScreen(
+                wordToGuess = currentWord?.text,
+                gameStatus = wordStatuses,
+                answers = answers,
+                buttonStates = buttonStates,
+                buttonsEnabled = areButtonsEnabled,
+                gameState = gameState,
+                globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
+                sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
+                onAnswerClick = { index, answer -> 
+                    viewModel.submitAnswer(answer, index)
+                },
+                onReplay = { 
+                    viewModel.replay() 
+                },
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
     }
 }
