@@ -738,4 +738,5 @@
     <string name="game_recap_sort_frequency">Frekuensi</string>
     <string name="order_by">Urutkan berdasarkan</string>
     <string name="game_recap_sort_strokes">Nomor guratan</string>
+    <string name="game_result_errors">Kesalahan:</string>
 </resources>

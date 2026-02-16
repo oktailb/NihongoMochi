@@ -45,6 +45,9 @@ class KanaQuizEngine(
     private val _buttonStates = MutableStateFlow<List<AnswerButtonState>>(List(4) { AnswerButtonState.DEFAULT })
     val buttonStates: StateFlow<List<AnswerButtonState>> = _buttonStates.asStateFlow()
 
+    private val _errorCount = MutableStateFlow(0)
+    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
+
     var currentAnswers = listOf<String>()
     
     // Configuration
@@ -59,6 +62,7 @@ class KanaQuizEngine(
         kanaStatus.clear()
         kanaProgress.clear()
         currentAnswers = emptyList()
+        _errorCount.value = 0
         _state.value = GameState.Loading
         _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
     }
@@ -153,6 +157,7 @@ class KanaQuizEngine(
                 newButtonStates[selectedIndex] = AnswerButtonState.NEUTRAL
             }
         } else {
+            _errorCount.value += 1
             kanaStatus[currentQuestion] = GameStatus.INCORRECT
             newButtonStates[selectedIndex] = AnswerButtonState.INCORRECT
             

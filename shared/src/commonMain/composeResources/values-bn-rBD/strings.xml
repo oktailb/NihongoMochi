@@ -736,4 +736,5 @@
     <string name="game_recap_sort_frequency">ফ্রিকোয়েন্সি</string>
     <string name="size">আকার</string>
     <string name="game_recap_sort_strokes">স্ট্রোক সংখ্যা</string>
+    <string name="game_result_errors">ত্রুটি:</string>
 </resources>

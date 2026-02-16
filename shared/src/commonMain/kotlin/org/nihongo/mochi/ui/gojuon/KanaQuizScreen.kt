@@ -39,6 +39,7 @@ fun KanaQuizScreen(
 ) {
     val state by viewModel.state.collectAsState()
     val buttonStates by viewModel.buttonStates.collectAsState()
+    val errorCount by viewModel.errorCount.collectAsState(0)
     
     var showExitDialog by remember { mutableStateOf(false) }
     var showResultOverlay by remember { mutableStateOf(false) }
@@ -120,7 +121,8 @@ fun KanaQuizScreen(
                 score = globalMastery,
                 stats = listOf(
                     stringResource(Res.string.game_result_title_session) to sessionMastery,
-                    stringResource(Res.string.game_result_title_global) to globalMastery
+                    stringResource(Res.string.game_result_title_global) to globalMastery,
+                    stringResource(Res.string.game_result_errors) to errorCount.toString()
                 ),
                 title = stringResource(Res.string.game_result_lot_mastery_kana),
                 onReplayClick = {

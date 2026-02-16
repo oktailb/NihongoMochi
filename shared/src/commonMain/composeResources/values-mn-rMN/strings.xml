@@ -736,4 +736,5 @@
     <string name="game_recap_sort_frequency">Давтамж</string>
     <string name="order_by">Эрэмбэлэх</string>
     <string name="game_recap_sort_strokes">Цус харвалтын тоо</string>
+    <string name="game_result_errors">Алдаа:</string>
 </resources>

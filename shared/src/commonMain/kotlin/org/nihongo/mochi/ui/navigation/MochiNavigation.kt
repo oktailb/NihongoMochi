@@ -597,6 +597,7 @@ fun MochiNavGraph(
             val viewModel: RecognitionGameViewModel = koinInject()
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val buttonStates by viewModel.buttonStates.collectAsState(emptyList())
+            val errorCount by viewModel.errorCount.collectAsState(0)
             
             val customKanjiList = navController.previousBackStackEntry
                 ?.savedStateHandle
@@ -640,6 +641,7 @@ fun MochiNavGraph(
                     gameState = gameState,
                     globalMasteryPercent = viewModel.calculateGlobalMasteryPercent(),
                     sessionMasteryPercent = viewModel.calculateSessionMasteryPercent(),
+                    errorCount = errorCount,
                     onAnswerClick = { index, answer ->
                         viewModel.submitAnswer(answer, index)
                     },

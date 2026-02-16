@@ -734,4 +734,5 @@
     <string name="game_recap_sort_frequency">Tính thường xuyên</string>
     <string name="order_by">Sắp xếp theo</string>
     <string name="game_recap_sort_strokes">Số nét</string>
+    <string name="game_result_errors">Lỗi:</string>
 </resources>

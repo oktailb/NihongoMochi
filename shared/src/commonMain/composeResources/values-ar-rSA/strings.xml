@@ -736,4 +736,5 @@
     <string name="game_recap_sort_frequency">تكرار</string>
     <string name="order_by">الترتيب حسب</string>
     <string name="game_recap_sort_strokes">عدد السكتات الدماغية</string>
+    <string name="game_result_errors">الأخطاء:</string>
 </resources>

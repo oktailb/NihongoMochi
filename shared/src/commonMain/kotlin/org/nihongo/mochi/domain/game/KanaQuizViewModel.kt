@@ -57,6 +57,7 @@ class KanaQuizViewModel(
 
     val state: StateFlow<GameState> = engine.state
     val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
+    val errorCount: StateFlow<Int> = engine.errorCount
 
     // UI Specific State
     var areButtonsEnabled = true

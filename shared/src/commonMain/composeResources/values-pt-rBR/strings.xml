@@ -738,4 +738,5 @@
     <string name="game_recap_sort_frequency">Freqüência</string>
     <string name="order_by">Ordenar por</string>
     <string name="game_recap_sort_strokes">Número de traços</string>
+    <string name="game_result_errors">Erros:</string>
 </resources>

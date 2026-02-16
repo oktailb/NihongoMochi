@@ -50,6 +50,7 @@ fun RecognitionGameScreen(
     gameState: GameState,
     globalMasteryPercent: Float,
     sessionMasteryPercent: Float,
+    errorCount: Int,
     onAnswerClick: (Int, String) -> Unit,
     onReplay: () -> Unit,
     onNavigateBack: () -> Unit
@@ -208,7 +209,8 @@ fun RecognitionGameScreen(
                     score = "${(globalMasteryPercent * 100).toInt()}%",
                     stats = listOf(
                         stringResource(Res.string.game_result_title_session) to "${(sessionMasteryPercent * 100).toInt()}%",
-                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%"
+                        stringResource(Res.string.game_result_title_global) to "${(globalMasteryPercent * 100).toInt()}%",
+                        stringResource(Res.string.game_result_errors) to errorCount.toString()
                     ),
                     title = stringResource(Res.string.game_result_lot_mastery_recognition),
                     onReplayClick = {

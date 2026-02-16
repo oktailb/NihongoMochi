@@ -50,6 +50,9 @@ class RecognitionGameEngine(
     private val _buttonStates = MutableStateFlow<List<AnswerButtonState>>(List(4) { AnswerButtonState.DEFAULT })
     val buttonStates: StateFlow<List<AnswerButtonState>> = _buttonStates.asStateFlow()
 
+    private val _errorCount = MutableStateFlow(0)
+    val errorCount: StateFlow<Int> = _errorCount.asStateFlow()
+
     // Configuration
     var pronunciationMode: String = "Hiragana" // "Hiragana" or "Roman"
     var animationSpeed: Float = 1.0f
@@ -72,6 +75,7 @@ class RecognitionGameEngine(
         _buttonStates.value = List(4) { AnswerButtonState.DEFAULT }
         correctAnswersInSession = 0
         totalAnswersInSession = 0
+        _errorCount.value = 0
     }
     
     fun startGame() {
@@ -231,7 +235,11 @@ class RecognitionGameEngine(
         }
         
         totalAnswersInSession++
-        if (isCorrect) correctAnswersInSession++
+        if (isCorrect) {
+            correctAnswersInSession++
+        } else {
+            _errorCount.value += 1
+        }
 
         scoreRepository.saveScore(kanji.character, isCorrect, getScoreType())
         

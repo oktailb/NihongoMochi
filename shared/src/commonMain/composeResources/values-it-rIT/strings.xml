@@ -734,4 +734,5 @@
     <string name="game_recap_sort_frequency">Frequenza</string>
     <string name="order_by">Ordina per</string>
     <string name="game_recap_sort_strokes">Numero di colpi</string>
+    <string name="game_result_errors">Errori:</string>
 </resources>

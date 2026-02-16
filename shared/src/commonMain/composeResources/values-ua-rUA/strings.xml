@@ -736,4 +736,5 @@
     <string name="game_recap_sort_frequency">Частота</string>
     <string name="order_by">Сортувати за</string>
     <string name="game_recap_sort_strokes">Кількість ударів</string>
+    <string name="game_result_errors">Помилки:</string>
 </resources>

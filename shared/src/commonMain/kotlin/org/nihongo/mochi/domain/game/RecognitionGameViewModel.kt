@@ -75,6 +75,7 @@ class RecognitionGameViewModel(
 
     val state: StateFlow<GameState> = engine.state
     val buttonStates: StateFlow<List<AnswerButtonState>> = engine.buttonStates
+    val errorCount: StateFlow<Int> = engine.errorCount
 
     var areButtonsEnabled = true
 
