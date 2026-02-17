@@ -48,6 +48,7 @@ import org.nihongo.mochi.presentation.dictionary.WordDetailViewModel
 import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.settings.SettingsViewModel
 import org.nihongo.mochi.ui.about.AboutScreen
+import org.nihongo.mochi.ui.about.LicensesScreen
 import org.nihongo.mochi.ui.home.HomeScreen
 import org.nihongo.mochi.ui.dictionary.ComposeDrawingDialog
 import org.nihongo.mochi.ui.dictionary.DictionaryScreen
@@ -99,6 +100,7 @@ import org.nihongo.mochi.ui.wordquiz.WordQuizScreen
 sealed class Screen(val route: String) {
     data object Home : Screen("home")
     data object About : Screen("about")
+    data object Licenses : Screen("licenses")
     data object Settings : Screen("settings")
     data object Results : Screen("results")
     data object Dictionary : Screen("dictionary")
@@ -169,6 +171,7 @@ fun MochiNavGraph(
     onOpenUrl: (String) -> Unit,
     onThemeChanged: (Boolean) -> Unit,
     onLocaleChanged: (String) -> Unit,
+    onShowLicenses: () -> Unit,
     cloudSaveService: CloudSaveService
 ) {
     NavHost(
@@ -230,7 +233,14 @@ fun MochiNavGraph(
                 onRateAppClick = { onOpenUrl("market://details?id=org.nihongo.mochi") },
                 onPatreonClick = { onOpenUrl("https://www.patreon.com/Oktail") },
                 onTipeeeClick = { onOpenUrl("https://en.tipeee.com/lecoq-vincent") },
-                onKanjiDataClick = { onOpenUrl("https://github.com/davidluzgouveia/kanji-data") }
+                onKanjiDataClick = { onOpenUrl("https://github.com/davidluzgouveia/kanji-data") },
+                onShowLicenses = { navController.navigate(Screen.Licenses.route) }
+            )
+        }
+
+        composable(Screen.Licenses.route) {
+            LicensesScreen(
+                onBackClick = { navController.popBackStack() }
             )
         }
 
@@ -597,7 +607,6 @@ fun MochiNavGraph(
             val viewModel: RecognitionGameViewModel = koinInject()
             val gameState by viewModel.state.collectAsState(GameState.Loading)
             val buttonStates by viewModel.buttonStates.collectAsState(emptyList())
-            val errorCount by viewModel.errorCount.collectAsState(0)
             
             val customKanjiList = navController.previousBackStackEntry
                 ?.savedStateHandle

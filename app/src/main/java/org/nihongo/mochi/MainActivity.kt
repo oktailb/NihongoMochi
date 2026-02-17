@@ -19,6 +19,7 @@ import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -96,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                     onOpenUrl = { url -> openUrl(url) },
                     onThemeChanged = { isDark -> changeTheme(isDark) },
                     onLocaleChanged = { newLocale -> changeLocale(newLocale) },
+                    onShowLicenses = { showOssLicenses() },
                     cloudSaveService = cloudSaveService
                 )
             }
@@ -139,6 +141,10 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.e("MainActivity", "Failed to open URL: $url", e)
         }
+    }
+
+    private fun showOssLicenses() {
+        startActivity(Intent(this, OssLicensesMenuActivity::class.java))
     }
 
     private fun setupWorkers() {

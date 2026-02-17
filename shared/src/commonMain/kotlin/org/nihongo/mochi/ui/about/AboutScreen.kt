@@ -47,7 +47,8 @@ fun AboutScreen(
     onRateAppClick: () -> Unit,
     onPatreonClick: () -> Unit,
     onTipeeeClick: () -> Unit,
-    onKanjiDataClick: () -> Unit
+    onKanjiDataClick: () -> Unit,
+    onShowLicenses: () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -138,6 +139,12 @@ fun AboutScreen(
                     icon = Icons.Default.Star, 
                     onClick = onRateAppClick
                 )
+
+                FullWidthButton(
+                    text = "Open Source Licenses",
+                    icon = Icons.Default.Info,
+                    onClick = onShowLicenses
+                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -183,19 +190,7 @@ fun AboutScreen(
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
             }
-//Deprecated
-//            Spacer(modifier = Modifier.height(16.dp))
-//
-//            AboutSectionCard(
-//                title = stringResource(Res.string.about_category_resources),
-//                icon = Icons.Default.Info
-//            ) {
-//                 FullWidthButton(
-//                    text = stringResource(Res.string.about_kanji_data_credit),
-//                    onClick = onKanjiDataClick
-//                )
-//            }
-//
+
             Spacer(modifier = Modifier.height(16.dp))
         }
     }

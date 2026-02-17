@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
-    // Compose compiler plugin needed for Kotlin 2.0+
     alias(libs.plugins.kotlin.compose)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
@@ -15,7 +14,6 @@ plugins {
     id("com.github.jk1.dependency-license-report") version "2.9"
 }
 
-// Read keystore properties
 val keystorePropertiesFile = rootProject.file("keystore.properties")
 val keystoreProperties = Properties()
 if (keystorePropertiesFile.exists()) {
@@ -43,9 +41,7 @@ android {
         targetSdk = 36
         versionCode = 28
         versionName = "0.9.4"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
         val buildDate = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault()).format(Date())
         buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
     }
@@ -54,26 +50,12 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
-            
-            packaging {
-                // Required for 16 KB page size support on Android 15
-                jniLibs {
-                    useLegacyPackaging = true
-                }
-            }
+            packaging { jniLibs { useLegacyPackaging = true } }
         }
         debug {
-            packaging {
-                // Required for 16 KB page size support on Android 15
-                jniLibs {
-                    useLegacyPackaging = true
-                }
-            }
+            packaging { jniLibs { useLegacyPackaging = true } }
         }
     }
     
@@ -94,9 +76,7 @@ android {
     }
     
     kotlin {
-        compilerOptions {
-             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        }
+        compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) }
     }
     
     buildFeatures {
@@ -107,9 +87,25 @@ android {
     
     sourceSets {
         getByName("main") {
-            assets.srcDirs("src/main/assets", "${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
+            assets.srcDirs("src/main/assets")
         }
     }
+}
+
+licenseReport {
+    renderers = arrayOf(com.github.jk1.license.render.JsonReportRenderer("licenses.json"))
+}
+
+// Copy ONLY to shared resources. Res.readBytes will find it there.
+val copyLicensesToSharedResources = tasks.register<Copy>("copyLicensesToSharedResources") {
+    from(layout.buildDirectory.file("reports/dependency-license/licenses.json"))
+    into(rootProject.file("shared/src/commonMain/composeResources/files"))
+    dependsOn("generateLicenseReport")
+}
+
+// Link to build
+tasks.withType<com.android.build.gradle.tasks.MergeSourceSetFolders>().configureEach {
+    dependsOn(copyLicensesToSharedResources)
 }
 
 dependencies {
@@ -130,8 +126,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
-
-    // Compose Dependencies
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     implementation(libs.androidx.activity.compose)
@@ -140,7 +134,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     debugImplementation(libs.androidx.compose.ui.tooling)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
