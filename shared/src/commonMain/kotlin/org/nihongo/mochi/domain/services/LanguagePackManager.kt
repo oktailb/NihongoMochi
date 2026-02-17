@@ -57,8 +57,6 @@ class LanguagePackManager(
         _status.update { it + (locale to DownloadStatus.DOWNLOADING) }
         
         return try {
-            // Mapping ZIP files to their MD5 files
-            // lessons.zip contains the grammar lessons for a specific language
             val filesToVerify = listOf(
                 "data.zip" to "data.md5",
                 "lessons.zip" to "lessons.md5"
@@ -67,28 +65,41 @@ class LanguagePackManager(
             for ((zipName, md5Name) in filesToVerify) {
                 val zipUrl = "$baseUrl/langs/$locale/$zipName"
                 val md5Url = "$baseUrl/langs/$locale/$md5Name"
+                val localMd5Path = getLocaleDir(locale).resolve(md5Name)
                 
-                println("Attempting to download MD5 from: $md5Url")
-                // 1. Download MD5 first
+                println("Checking MD5 from: $md5Url")
                 val expectedMd5 = downloadText(md5Url) ?: throw Exception("Failed to download MD5 for $zipName")
                 
-                // 2. Download ZIP
+                // Check if already up to date
+                val localMd5 = if (fileSystem.exists(localMd5Path)) {
+                    fileSystem.read(localMd5Path) { readUtf8().trim() }
+                } else null
+                
+                if (localMd5 == expectedMd5) {
+                    println("$zipName for $locale is already up to date.")
+                    continue
+                }
+                
+                // Download ZIP
                 val targetPath = getLocaleDir(locale).resolve(zipName)
-                println("Attempting to download ZIP from: $zipUrl")
+                println("Downloading ZIP: $zipUrl")
                 val success = downloadFile(zipUrl, targetPath)
                 if (!success) {
                     throw Exception("Failed to download $zipName")
                 }
                 
-                // 3. Verify Integrity
+                // Verify Integrity
                 if (!verifyMd5(targetPath, expectedMd5)) {
                     fileSystem.delete(targetPath)
                     throw Exception("MD5 Verification failed for $zipName")
                 }
                 
-                // 4. Extract and cleanup
+                // Extract and cleanup
                 unzip(targetPath, getLocaleDir(locale), fileSystem)
                 fileSystem.delete(targetPath)
+                
+                // Save MD5 locally to avoid re-downloading next time
+                fileSystem.write(localMd5Path) { writeUtf8(expectedMd5) }
             }
             
             _status.update { it + (locale to DownloadStatus.SUCCESS) }
@@ -100,14 +111,12 @@ class LanguagePackManager(
         }
     }
 
-    /**
-     * Synchronizes a common resource ZIP (like grammar.zip or exercices.zip) using MD5 check.
-     */
     suspend fun syncCommonZip(resourceName: String): Boolean {
         val commonDir = getCommonDir()
         val zipName = "$resourceName.zip"
         val md5Name = "$resourceName.md5"
         val localZipPath = commonDir.resolve(zipName)
+        val localMd5Path = commonDir.resolve(md5Name)
         
         val remoteMd5Url = "$baseUrl/$md5Name"
         val remoteZipUrl = "$baseUrl/$zipName"
@@ -115,19 +124,30 @@ class LanguagePackManager(
         return try {
             println("Syncing zip: $zipName")
             
-            // 1. Get remote MD5
             val remoteMd5 = downloadText(remoteMd5Url)
             if (remoteMd5 == null) {
                 println("Could not reach MD5 for $zipName, skipping sync.")
                 return false
             }
 
-            // 2. Download and verify new zip
+            // Check if already up to date
+            val localMd5 = if (fileSystem.exists(localMd5Path)) {
+                fileSystem.read(localMd5Path) { readUtf8().trim() }
+            } else null
+            
+            if (localMd5 == remoteMd5) {
+                println("$zipName is already up to date.")
+                return true
+            }
+
             println("Downloading and verifying: $remoteZipUrl")
             val success = downloadFile(remoteZipUrl, localZipPath)
             if (success && verifyMd5(localZipPath, remoteMd5)) {
                 unzip(localZipPath, commonDir, fileSystem)
                 fileSystem.delete(localZipPath)
+                
+                // Save MD5 locally
+                fileSystem.write(localMd5Path) { writeUtf8(remoteMd5) }
                 println("Successfully synced $zipName")
                 true
             } else {
@@ -196,10 +216,6 @@ class LanguagePackManager(
         }
     }
 
-    /**
-     * Attempts to load a resource file from local storage.
-     * Looks first in locale-specific dir, then in common dir.
-     */
     fun loadLocalResource(fileName: String, locale: String? = null): String? {
         val pathsToTry = mutableListOf<Path>()
         if (locale != null) {

@@ -9,4 +9,4 @@ Todo:
  - [ ] ensure numerical values presence for numbers in meanings
  - [X] define smalller steps/sets big big kanji levels or words -> quiz per page scope ? by topics (need data refactor)
  - [?] restandardize games endings sounds
- - [ ] deeper first runs flags to give startup tips on some screens (game recaps in priority)
+ - [X] deeper first runs flags to give startup tips on some screens (game recaps in priority)
