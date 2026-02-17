@@ -14,16 +14,19 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.koinInject
 import org.nihongo.mochi.domain.game.KanaQuizViewModel
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameState
 import org.nihongo.mochi.domain.models.KanaQuestionDirection
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.presentation.MochiBackground
 import org.nihongo.mochi.shared.generated.resources.Res
 import org.nihongo.mochi.ui.components.GameAnswerButton
@@ -31,6 +34,8 @@ import org.nihongo.mochi.ui.components.GameProgressBar
 import org.nihongo.mochi.ui.components.ExitConfirmationDialog
 import org.nihongo.mochi.ui.components.GameResultOverlay
 import org.nihongo.mochi.shared.generated.resources.*
+import org.nihongo.mochi.ui.components.TutorialOverlay
+import org.nihongo.mochi.ui.components.TutorialStep
 
 @Composable
 fun KanaQuizScreen(
@@ -44,6 +49,19 @@ fun KanaQuizScreen(
     var showExitDialog by remember { mutableStateOf(false) }
     var showResultOverlay by remember { mutableStateOf(false) }
 
+    val settingsRepository: SettingsRepository = koinInject()
+    var showTutorial by remember { mutableStateOf(!settingsRepository.hasSeenKanaTutorial()) }
+
+    val tutorialSteps = listOf(
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_kana_quiz_topbar),
+            targetAnchor = Alignment.TopCenter
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_kana_quiz_buttons),
+            targetAnchor = Alignment.BottomCenter
+        )
+    )
     // Intercepter le bouton retour physique du device
     BackHandler(enabled = state != GameState.Finished && !showResultOverlay) {
         showExitDialog = true
@@ -70,35 +88,47 @@ fun KanaQuizScreen(
     }
 
     MochiBackground {
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            GameProgressBar(
-                statuses = progressStatuses
-            )
-
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier.fillMaxSize()
             ) {
-                QuizQuestionCard(
+                GameProgressBar(
+                    statuses = progressStatuses
+                )
+
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    QuizQuestionCard(
+                        direction = viewModel.currentDirection,
+                        questionText = if (viewModel.currentDirection == KanaQuestionDirection.NORMAL)
+                            viewModel.currentQuestion.kana
+                        else
+                            viewModel.currentQuestion.romaji
+                    )
+                }
+
+                QuizAnswerGrid(
+                    answers = viewModel.currentAnswers,
+                    buttonStates = buttonStates,
+                    areButtonsEnabled = viewModel.areButtonsEnabled,
                     direction = viewModel.currentDirection,
-                    questionText = if (viewModel.currentDirection == KanaQuestionDirection.NORMAL)
-                        viewModel.currentQuestion.kana
-                    else
-                        viewModel.currentQuestion.romaji
+                    onAnswerClick = { index, answer ->
+                        viewModel.submitAnswer(answer, index)
+                    }
                 )
             }
 
-             QuizAnswerGrid(
-                answers = viewModel.currentAnswers,
-                buttonStates = buttonStates,
-                areButtonsEnabled = viewModel.areButtonsEnabled,
-                direction = viewModel.currentDirection,
-                onAnswerClick = { index, answer ->
-                    viewModel.submitAnswer(answer, index)
+            // Tutorial Overlay
+            TutorialOverlay(
+                steps = tutorialSteps,
+                isVisible = showTutorial,
+                onFinished = {
+                    settingsRepository.setKanaTutorialSeen()
+                    showTutorial = false
                 }
             )
         }

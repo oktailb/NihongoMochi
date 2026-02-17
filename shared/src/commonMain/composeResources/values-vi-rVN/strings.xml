@@ -743,4 +743,10 @@
     <string name="tutorial_recap_filter">Tùy chỉnh trải nghiệm bài kiểm tra của bạn bằng cách chọn loại và độ dài sắp xếp</string>
     <string name="tutorial_recap_play">Nhấn Play để bắt đầu làm bài kiểm tra chữ Kanji này.\nTất cả các lỗi sẽ tự động được thêm vào phần Ôn tập vào lần tiếp theo.</string>
     <string name="game_result_errors">Lỗi:</string>
+    <string name="tutorial_kana_quiz_topbar">Bạn sẽ phải trả lời đúng 10 câu hỏi trước khi chuyển sang khối 10 câu tiếp theo.\nMỗi Kana sẽ được hỏi theo cả hai cách từ ký hiệu đến phát âm và phát âm theo ký hiệu</string>
+    <string name="tutorial_kana_quiz_buttons">Chọn câu trả lời đúng ở đây, chỉ có một câu trả lời đúng.</string>
+    <string name="tutorial_kanji_detail_card">Đây là nhân vật Kanji chính. Hãy chú ý đến phông chữ: nó hiển thị cho bạn thứ tự nét chính xác!</string>
+    <string name="tutorial_kanji_detail_star">Nhấp vào ngôi sao để thêm Kanji này vào Danh sách sửa đổi được cá nhân hóa của bạn.</string>
+    <string name="tutorial_kanji_detail_readings">Các bài đọc được chia thành ON (gốc Trung Quốc, thường bằng Katakana) và KUN (gốc Nhật Bản, bằng Hiragana).</string>
+    <string name="tutorial_kanji_detail_components">Biểu đồ này cho thấy cách Kanji được xây dựng từ các gốc đơn giản hơn. Bạn có thể nhấp vào chúng để khám phá!</string>
 </resources>

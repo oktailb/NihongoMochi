@@ -747,4 +747,10 @@
     <string name="tutorial_recap_filter">通过选择排序类型和长度来定制您的测验体验</string>
     <string name="tutorial_recap_play">按“播放”即可开始对这些汉字进行测验。\n所有错误都将自动添加到下次审阅中。</string>
     <string name="game_result_errors">错误：</string>
+    <string name="tutorial_kana_quiz_topbar">您必须正确回答 10 个问题，然后才能继续下一个 10 个问题。\n每个假名都将在符号到发音和发音到符号的双向询问</string>
+    <string name="tutorial_kana_quiz_buttons">此处选择正确答案，只有一个是正确的。</string>
+    <string name="tutorial_kanji_detail_card">这是主要的汉字。注意字体：它显示了正确的笔画顺序！</string>
+    <string name="tutorial_kanji_detail_star">单击星号将此汉字添加到您的个性化修订列表中。</string>
+    <string name="tutorial_kanji_detail_readings">读法分为ON（源自中文，通常为片假名）和KUN（源自日语，平假名）。</string>
+    <string name="tutorial_kanji_detail_components">该图显示了汉字是如何由更简单的部首构建的。您可以点击它们来探索！</string>
 </resources>

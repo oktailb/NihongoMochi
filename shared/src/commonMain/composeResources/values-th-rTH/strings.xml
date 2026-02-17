@@ -747,4 +747,10 @@
     <string name="tutorial_recap_filter">ปรับแต่งประสบการณ์แบบทดสอบของคุณโดยเลือกประเภทการเรียงลำดับและความยาว</string>
     <string name="tutorial_recap_play">กดเล่นเพื่อเริ่มแบบทดสอบเกี่ยวกับคันจิเหล่านี้\nข้อผิดพลาดทั้งหมดจะถูกเพิ่มลงในรีวิวโดยอัตโนมัติในครั้งต่อไป</string>
     <string name="game_result_errors">ข้อผิดพลาด:</string>
+    <string name="tutorial_kana_quiz_topbar">คุณจะต้องตอบคำถามให้ถูกต้อง 10 ข้อก่อนที่จะดำเนินการต่อในบล็อกถัดไปของ 10\nแต่ละคานะจะถูกถามทั้งสองทางเพื่อออกเสียงและการออกเสียงเป็นสัญลักษณ์</string>
+    <string name="tutorial_kana_quiz_buttons">เลือกคำตอบที่ถูกต้องที่นี่ มีคำตอบเดียวเท่านั้น</string>
+    <string name="tutorial_kanji_detail_card">นี่คือตัวอักษรคันจิหลัก สังเกตแบบอักษร: มันจะแสดงลำดับจังหวะที่ถูกต้อง!</string>
+    <string name="tutorial_kanji_detail_star">คลิกที่ดาวเพื่อเพิ่มคันจินี้ในรายการแก้ไขส่วนตัวของคุณ</string>
+    <string name="tutorial_kanji_detail_readings">การอ่านแบ่งออกเป็น ON (ต้นกำเนิดของจีน โดยทั่วไปเป็นภาษาคาตาคานะ) และ KUN (ต้นกำเนิดของญี่ปุ่น ในภาษาฮิระงะนะ)</string>
+    <string name="tutorial_kanji_detail_components">กราฟนี้แสดงให้เห็นว่าคันจิถูกสร้างขึ้นจากอนุมูลที่ง่ายกว่าได้อย่างไร คุณสามารถคลิกเพื่อสำรวจได้!</string>
 </resources>

@@ -747,4 +747,10 @@
     <string name="tutorial_recap_filter">Personnalisez votre expérience de quiz en sélectionnant le type et la longueur du tri</string>
     <string name="tutorial_recap_play">Appuyez sur Lecture pour lancer un quiz sur ces Kanji.\nToutes les erreurs seront automatiquement ajoutées à la révision la prochaine fois.</string>
     <string name="game_result_errors">Erreurs :</string>
+    <string name="tutorial_kana_quiz_topbar">Vous devrez répondre correctement à 10 questions avant de passer au bloc de 10 suivant.\nIl sera demandé à chaque Kana dans les deux sens de prononcer le symbole et de prononcer le symbole.</string>
+    <string name="tutorial_kana_quiz_buttons">Sélectionnez ici la bonne réponse, une seule est correcte.</string>
+    <string name="tutorial_kanji_detail_card">C'est le personnage principal du Kanji. Remarquez la police : elle vous montre le bon ordre des traits !</string>
+    <string name="tutorial_kanji_detail_star">Cliquez sur l'étoile pour ajouter ce Kanji à votre liste de révisions personnalisée.</string>
+    <string name="tutorial_kanji_detail_readings">Les lectures sont divisées en ON (origine chinoise, généralement en Katakana) et KUN (origine japonaise, en Hiragana).</string>
+    <string name="tutorial_kanji_detail_components">Ce graphique montre comment le Kanji est construit à partir de radicaux plus simples. Vous pouvez cliquer dessus pour explorer !</string>
 </resources>

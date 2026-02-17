@@ -745,4 +745,10 @@
     <string name="tutorial_recap_filter">বাছাই প্রকার এবং দৈর্ঘ্য নির্বাচন করে আপনার কুইজের অভিজ্ঞতা কাস্টমাইজ করুন</string>
     <string name="tutorial_recap_play">এই কাঞ্জিগুলির উপর একটি ক্যুইজ শুরু করতে প্লে টিপুন৷\nসব ত্রুটি পরের বার পর্যালোচনাতে স্বয়ংক্রিয়ভাবে যোগ করা হবে৷</string>
     <string name="game_result_errors">ত্রুটি:</string>
+    <string name="tutorial_kana_quiz_topbar">10-এর পরবর্তী ব্লকে এগিয়ে যাওয়ার আগে আপনাকে 10টি প্রশ্নের সঠিক উত্তর দিতে হবে।\nপ্রতিটি কানাকে উচ্চারণ এবং চিহ্নের উচ্চারণ উভয় পথেই জিজ্ঞাসা করা হবে।</string>
+    <string name="tutorial_kana_quiz_buttons">এখানে সঠিক উত্তর নির্বাচন করুন, শুধুমাত্র একটি সঠিক।</string>
+    <string name="tutorial_kanji_detail_card">এটি প্রধান কাঞ্জি চরিত্র। ফন্টটি লক্ষ্য করুন: এটি আপনাকে সঠিক স্ট্রোক অর্ডার দেখায়!</string>
+    <string name="tutorial_kanji_detail_star">আপনার ব্যক্তিগতকৃত রিভিশন তালিকায় এই কাঞ্জি যোগ করতে তারকাটিতে ক্লিক করুন।</string>
+    <string name="tutorial_kanji_detail_readings">রিডিংগুলি ON (চীনা উত্স, সাধারণত কাতাকানায়) এবং KUN (জাপানি উত্স, হিরাগানায়) এ বিভক্ত।</string>
+    <string name="tutorial_kanji_detail_components">এই গ্রাফটি দেখায় কিভাবে কানজি সহজ র্যাডিকাল থেকে তৈরি করা হয়। আপনি তাদের অন্বেষণ করতে ক্লিক করতে পারেন!</string>
 </resources>

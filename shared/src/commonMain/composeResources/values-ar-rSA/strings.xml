@@ -745,4 +745,10 @@
     <string name="tutorial_recap_modes">قم بالتبديل بين وضعي "المعنى" و"القراءة" هنا.\nقم بزيادة التحدي عن طريق تحديد اقتراحات قراءة أكثر تكرارًا أو عشوائية</string>
     <string name="tutorial_recap_filter">قم بتخصيص تجربة الاختبار الخاصة بك عن طريق تحديد نوع الفرز وطوله</string>
     <string name="tutorial_recap_play">اضغط على "تشغيل" لبدء اختبار حول كانجي.\nستتم إضافة كافة الأخطاء تلقائياً في المراجعة في المرة القادمة.</string>
+    <string name="tutorial_kana_quiz_topbar">سيكون عليك الإجابة بشكل صحيح على 10 أسئلة قبل المضي قدمًا في المجموعة التالية المكونة من 10.\nسيُطلب من كل Kana رمز النطق في كلا الاتجاهين ونطق الرمز</string>
+    <string name="tutorial_kana_quiz_buttons">اختر الإجابة الصحيحة هنا، واحدة فقط صحيحة.</string>
+    <string name="tutorial_kanji_detail_card">هذه هي شخصية كانجي الرئيسية. لاحظ الخط: فهو يوضح لك ترتيب الخط الصحيح!</string>
+    <string name="tutorial_kanji_detail_star">انقر فوق النجمة لإضافة هذا الكانجي إلى قائمة المراجعة المخصصة الخاصة بك.</string>
+    <string name="tutorial_kanji_detail_readings">تنقسم القراءات إلى ON (أصل صيني، عادة بالكاتاكانا) وKUN (أصل ياباني، بالهيراغانا).</string>
+    <string name="tutorial_kanji_detail_components">يوضح هذا الرسم البياني كيفية بناء الكانجي من جذور أبسط. يمكنك النقر عليها لاستكشاف!</string>
 </resources>

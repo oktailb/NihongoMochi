@@ -12,6 +12,12 @@ class SettingsRepository(private val settings: Settings) {
     fun hasSeenRecapTutorial(): Boolean = settings.getBoolean("has_seen_recap_tutorial", false)
     fun setRecapTutorialSeen() = settings.putBoolean("has_seen_recap_tutorial", true)
 
+    fun hasSeenKanaTutorial(): Boolean = settings.getBoolean("has_seen_kana_tutorial", false)
+    fun setKanaTutorialSeen() = settings.putBoolean("has_seen_kana_tutorial", true)
+    
+    fun hasSeenKanjiDetailTutorial(): Boolean = settings.getBoolean("has_seen_kanji_detail_tutorial", false)
+    fun setKanjiDetailTutorialSeen() = settings.putBoolean("has_seen_kanji_detail_tutorial", true)
+
     fun getPronunciation(): String = settings.getString(PRONUNCIATION_PREF_KEY, "Hiragana")
     fun setPronunciation(value: String) = settings.putString(PRONUNCIATION_PREF_KEY, value)
 

@@ -745,4 +745,10 @@
     <string name="tutorial_recap_filter">Налаштуйте свою вікторину, вибравши тип і довжину сортування</string>
     <string name="tutorial_recap_play">Натисніть «Відтворити», щоб розпочати тест на ці кандзі.\nУсі помилки будуть автоматично додані до огляду наступного разу.</string>
     <string name="game_result_errors">Помилки:</string>
+    <string name="tutorial_kana_quiz_topbar">Вам потрібно буде відповісти правильно на 10 запитань, перш ніж перейти до наступного блоку з 10.\nКожна Кана буде запитана в обох напрямках символу вимови та вимови символу</string>
+    <string name="tutorial_kana_quiz_buttons">Виберіть правильну відповідь тут, лише одна правильна.</string>
+    <string name="tutorial_kanji_detail_card">Це головний персонаж кандзі. Зверніть увагу на шрифт: він показує правильний порядок штрихів!</string>
+    <string name="tutorial_kanji_detail_star">Клацніть зірочку, щоб додати цей кандзі до вашого персонального списку версій.</string>
+    <string name="tutorial_kanji_detail_readings">Читання поділяються на ON (китайське походження, зазвичай катакана) і KUN (японське походження, хіраґана).</string>
+    <string name="tutorial_kanji_detail_components">Цей графік показує, як канджі будується з більш простих радикалів. Ви можете натиснути їх, щоб дослідити!</string>
 </resources>

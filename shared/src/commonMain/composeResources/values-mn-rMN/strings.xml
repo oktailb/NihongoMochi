@@ -745,4 +745,10 @@
     <string name="tutorial_recap_filter">Ангилах төрөл, уртыг сонгох замаар асуулт хариултын туршлагаа тохируулаарай</string>
     <string name="tutorial_recap_play">Эдгээр ханзны тестийг эхлүүлэхийн тулд Play товчийг дарна уу.\nБүх алдаа дараагийн удаа Шүүмж дээр автоматаар нэмэгдэх болно.</string>
     <string name="game_result_errors">Алдаа:</string>
+    <string name="tutorial_kana_quiz_topbar">Та дараагийн 10 блок руу шилжихээсээ өмнө 10 асуултанд зөв хариулах шаардлагатай.\nКана бүрээс хоёр талын тэмдэгтийг дуудлага руу, дуудлагаас нь тэмдэг рүү асуух болно.</string>
+    <string name="tutorial_kana_quiz_buttons">Эндээс зөв хариултыг сонго, зөвхөн нэг нь зөв.</string>
+    <string name="tutorial_kanji_detail_card">Энэ бол ханзны гол дүр юм. Фонтыг анхаарч үзээрэй: энэ нь танд зөв цохилтын дарааллыг харуулж байна!</string>
+    <string name="tutorial_kanji_detail_star">Од дээр дарж энэ ханзыг өөрийн тохируулсан засварын жагсаалтад нэмнэ үү.</string>
+    <string name="tutorial_kanji_detail_readings">Уншлага нь ON (хятад гаралтай, ихэвчлэн Катакана) ба KUN (Япон гаралтай, Хирагана) гэж хуваагддаг.</string>
+    <string name="tutorial_kanji_detail_components">Энэ график нь ханзыг энгийн радикалуудаас хэрхэн бүтээж байгааг харуулж байна. Та тэдгээрийг дарж судлах боломжтой!</string>
 </resources>

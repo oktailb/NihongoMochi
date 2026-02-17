@@ -747,4 +747,10 @@
     <string name="tutorial_recap_filter">Sesuaikan pengalaman kuis Anda dengan memilih jenis dan panjang penyortiran</string>
     <string name="tutorial_recap_play">Tekan Putar untuk memulai kuis tentang Kanji ini.\nSemua kesalahan akan otomatis ditambahkan pada Tinjauan berikutnya.</string>
     <string name="game_result_errors">Kesalahan:</string>
+    <string name="tutorial_kana_quiz_topbar">Anda harus menjawab 10 pertanyaan dengan benar sebelum melanjutkan ke blok 10 berikutnya.\nSetiap Kana akan ditanyai simbol pengucapan dan pengucapan simbol</string>
+    <string name="tutorial_kana_quiz_buttons">Pilih jawaban yang benar di sini, hanya satu yang benar.</string>
+    <string name="tutorial_kanji_detail_card">Ini adalah karakter utama Kanji. Perhatikan fontnya: ini menunjukkan urutan goresan yang benar!</string>
+    <string name="tutorial_kanji_detail_star">Klik bintang untuk menambahkan Kanji ini ke Daftar Revisi pribadi Anda.</string>
+    <string name="tutorial_kanji_detail_readings">Bacaannya dibagi menjadi ON (asal Cina, biasanya dalam Katakana) dan KUN (asal Jepang, dalam Hiragana).</string>
+    <string name="tutorial_kanji_detail_components">Grafik ini menunjukkan bagaimana Kanji dibangun dari radikal yang lebih sederhana. Anda dapat mengkliknya untuk menjelajah!</string>
 </resources>

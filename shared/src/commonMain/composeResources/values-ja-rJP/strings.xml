@@ -745,4 +745,10 @@
     <string name="tutorial_recap_filter">並べ替えの種類と長さを選択して、クイズのエクスペリエンスをカスタマイズします</string>
     <string name="tutorial_recap_play">[再生] を押して、これらの漢字に関するクイズを開始します。\nすべての間違いは、次回のレビューに自動的に追加されます。</string>
     <string name="game_result_errors">エラー:</string>
+    <string name="tutorial_kana_quiz_topbar">次の 10 個のブロックに進む前に、10 個の質問に正しく答える必要があります。\n各かなは、記号から発音、および記号から発音の双方向で質問されます。</string>
+    <string name="tutorial_kana_quiz_buttons">ここで正しい答えを選択してください。正解は 1 つだけです。</string>
+    <string name="tutorial_kanji_detail_card">これが主要な漢字です。フォントに注目してください。正しい書き順が示されています。</string>
+    <string name="tutorial_kanji_detail_star">星をクリックして、この漢字を個人用改訂リストに追加します。</string>
+    <string name="tutorial_kanji_detail_readings">読み方はON（中国語由来、通常はカタカナ）とKUN（日本語由来、ひらがな）に分けられます。</string>
+    <string name="tutorial_kanji_detail_components">このグラフは、漢字がより単純な部首からどのように構築されるかを示しています。クリックして探索することができます。</string>
 </resources>
