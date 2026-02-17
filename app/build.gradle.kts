@@ -87,7 +87,7 @@ android {
     
     sourceSets {
         getByName("main") {
-            assets.srcDirs("src/main/assets")
+            assets.srcDirs("src/main/assets", "${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
         }
     }
 }
