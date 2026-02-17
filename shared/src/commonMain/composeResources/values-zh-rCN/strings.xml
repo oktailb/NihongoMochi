@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">单击星号将此汉字添加到您的个性化修订列表中。</string>
     <string name="tutorial_kanji_detail_readings">读法分为ON（源自中文，通常为片假名）和KUN（源自日语，平假名）。</string>
     <string name="tutorial_kanji_detail_components">该图显示了汉字是如何由更简单的部首构建的。您可以点击它们来探索！</string>
+    <string name="tutorial_home_welcome">欢迎来到日本麻糬！让我们快速浏览一下。</string>
+    <string name="tutorial_home_level">使用此滑块更改您当前的水平（JLPT、学校成绩等）。</string>
+    <string name="tutorial_home_vocabulary">在这里练习汉字识别、阅读和写作。</string>
+    <string name="tutorial_home_grammar">学习日语语法规则和动词变形。</string>
+    <string name="tutorial_home_utilities">在这里访问游戏、词典和您的学习成果。</string>
 </resources>

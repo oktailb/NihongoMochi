@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">Нажмите звездочку, чтобы добавить этот кандзи в свой персональный список изменений.</string>
     <string name="tutorial_kanji_detail_readings">Чтения делятся на ОН (китайского происхождения, обычно катаканой) и КУН (японского происхождения, хираганой).</string>
     <string name="tutorial_kanji_detail_components">На этом графике показано, как кандзи построен из более простых радикалов. Вы можете нажать на них, чтобы изучить!</string>
+    <string name="tutorial_home_welcome">Добро пожаловать в Нихонго Моти! Давайте совершим краткий обзор.</string>
+    <string name="tutorial_home_level">Используйте этот ползунок, чтобы изменить свой текущий уровень (JLPT, школьные оценки и т. д.).</string>
+    <string name="tutorial_home_vocabulary">Попрактикуйтесь в распознавании, чтении и письме кандзи здесь.</string>
+    <string name="tutorial_home_grammar">Изучите правила японской грамматики и спряжения глаголов.</string>
+    <string name="tutorial_home_utilities">Получите доступ к играм, словарю и результатам обучения здесь.</string>
 </resources>

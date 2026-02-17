@@ -28,7 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -45,6 +45,9 @@ import org.nihongo.mochi.shared.generated.resources.*
 import org.nihongo.mochi.ui.ResourceUtils
 import org.nihongo.mochi.presentation.OnboardingViewModel
 import org.koin.compose.koinInject
+import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.ui.components.TutorialOverlay
+import org.nihongo.mochi.ui.components.TutorialStep
 import kotlin.math.roundToInt
 
 @Composable
@@ -69,115 +72,153 @@ fun HomeScreen(
 ) {
     val scrollState = rememberScrollState()
     val onboardingViewModel: OnboardingViewModel = koinInject()
+    val settingsRepository: SettingsRepository = koinInject()
+    
+    var showTutorial by remember { mutableStateOf(!settingsRepository.hasSeenHomeTutorial()) }
+
+    val tutorialSteps = listOf(
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_home_welcome),
+            targetAnchor = Alignment.TopCenter
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_home_level),
+            targetAnchor = Alignment.Center
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_home_vocabulary),
+            targetAnchor = Alignment.Center
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_home_grammar),
+            targetAnchor = Alignment.Center
+        ),
+        TutorialStep(
+            text = stringResource(Res.string.tutorial_home_utilities),
+            targetAnchor = Alignment.BottomCenter
+        )
+    )
 
     MochiBackground {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(scrollState)
-                .padding(16.dp)
-        ) {
-            Box(
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(140.dp)
-                    .padding(bottom = 16.dp),
-                contentAlignment = Alignment.Center
+                    .fillMaxSize()
+                    .verticalScroll(scrollState)
+                    .padding(16.dp)
             ) {
-                Image(
-                    painter = painterResource(Res.drawable.nihongomochi),
-                    contentDescription = stringResource(Res.string.app_name),
-                    contentScale = ContentScale.Inside,
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(140.dp)
+                        .padding(bottom = 16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(Res.drawable.nihongomochi),
+                        contentDescription = stringResource(Res.string.app_name),
+                        contentScale = ContentScale.Inside,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
 
-            // Level Selector Slider
-            if (availableLevels.isNotEmpty()) {
-                LevelSelectorCard(
-                    availableLevels = availableLevels,
-                    selectedLevelId = selectedLevelId,
-                    onLevelSelected = onLevelSelected
+                // Level Selector Slider
+                if (availableLevels.isNotEmpty()) {
+                    LevelSelectorCard(
+                        availableLevels = availableLevels,
+                        selectedLevelId = selectedLevelId,
+                        onLevelSelected = onLevelSelected
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
+
+                // Vocabulary Section (Recognition, Reading, Writing)
+                VocabularySplitSection(
+                    isRecognitionEnabled = isRecognitionEnabled,
+                    onRecognitionClick = onRecognitionClick,
+                    isReadingEnabled = isReadingEnabled,
+                    onReadingClick = onReadingClick,
+                    isWritingEnabled = isWritingEnabled,
+                    onWritingClick = onWritingClick
                 )
+                
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Grammar Section
+                GrammarSplitSection(
+                    enabled = isGrammarEnabled,
+                    onGrammarClick = onGrammarClick
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Games and Dictionary on the same line
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    SmallUtilityCard(
+                        title = stringResource(Res.string.games_title),
+                        icon = Icons.Default.Scoreboard,
+                        onClick = onGamesClick,
+                        modifier = Modifier.weight(1f)
+                    )
+                    SmallUtilityCard(
+                        title = stringResource(Res.string.menu_dictionary),
+                        icon = Icons.Default.Search,
+                        onClick = onDictionaryClick,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Results, Settings, and About on the same line
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    SmallUtilityCard(
+                        title = stringResource(Res.string.menu_results),
+                        icon = Icons.Default.Star,
+                        onClick = onResultsClick,
+                        modifier = Modifier.weight(1f)
+                    )
+                    
+                    SmallUtilityCard(
+                        title = stringResource(Res.string.settings_title),
+                        icon = Icons.Default.Settings,
+                        onClick = onOptionsClick,
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    SmallUtilityCard(
+                        title = stringResource(Res.string.menu_about),
+                        icon = Icons.Default.Info,
+                        onClick = onAboutClick,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+                
                 Spacer(modifier = Modifier.height(16.dp))
             }
 
-            // Vocabulary Section (Recognition, Reading, Writing)
-            VocabularySplitSection(
-                isRecognitionEnabled = isRecognitionEnabled,
-                onRecognitionClick = onRecognitionClick,
-                isReadingEnabled = isReadingEnabled,
-                onReadingClick = onReadingClick,
-                isWritingEnabled = isWritingEnabled,
-                onWritingClick = onWritingClick
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Grammar Section
-            GrammarSplitSection(
-                enabled = isGrammarEnabled,
-                onGrammarClick = onGrammarClick
+            // Display onboarding if needed
+            OnboardingPopup(
+                viewModel = onboardingViewModel,
+                onLocaleChanged = onLocaleChanged
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Games and Dictionary on the same line
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                SmallUtilityCard(
-                    title = stringResource(Res.string.games_title),
-                    icon = Icons.Default.Scoreboard,
-                    onClick = onGamesClick,
-                    modifier = Modifier.weight(1f)
-                )
-                SmallUtilityCard(
-                    title = stringResource(Res.string.menu_dictionary),
-                    icon = Icons.Default.Search,
-                    onClick = onDictionaryClick,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Results, Settings, and About on the same line
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                SmallUtilityCard(
-                    title = stringResource(Res.string.menu_results),
-                    icon = Icons.Default.Star,
-                    onClick = onResultsClick,
-                    modifier = Modifier.weight(1f)
-                )
-                
-                SmallUtilityCard(
-                    title = stringResource(Res.string.settings_title),
-                    icon = Icons.Default.Settings,
-                    onClick = onOptionsClick,
-                    modifier = Modifier.weight(1f)
-                )
-
-                SmallUtilityCard(
-                    title = stringResource(Res.string.menu_about),
-                    icon = Icons.Default.Info,
-                    onClick = onAboutClick,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-            
-            Spacer(modifier = Modifier.height(16.dp))
+            // Tutorial Overlay
+            TutorialOverlay(
+                steps = tutorialSteps,
+                isVisible = showTutorial,
+                onFinished = {
+                    settingsRepository.setHomeTutorialSeen()
+                    showTutorial = false
+                }
+            )
         }
-
-        // Display onboarding if needed
-        OnboardingPopup(
-            viewModel = onboardingViewModel,
-            onLocaleChanged = onLocaleChanged
-        )
     }
 }
 

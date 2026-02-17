@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">Klik bintang untuk menambahkan Kanji ini ke Daftar Revisi pribadi Anda.</string>
     <string name="tutorial_kanji_detail_readings">Bacaannya dibagi menjadi ON (asal Cina, biasanya dalam Katakana) dan KUN (asal Jepang, dalam Hiragana).</string>
     <string name="tutorial_kanji_detail_components">Grafik ini menunjukkan bagaimana Kanji dibangun dari radikal yang lebih sederhana. Anda dapat mengkliknya untuk menjelajah!</string>
+    <string name="tutorial_home_welcome">Selamat datang di Nihongo Mochi! Mari kita melakukan tur singkat.</string>
+    <string name="tutorial_home_level">Gunakan penggeser ini untuk mengubah level Anda saat ini (JLPT, nilai Sekolah, dll.).</string>
+    <string name="tutorial_home_vocabulary">Latih pengenalan Kanji, membaca, dan menulis di sini.</string>
+    <string name="tutorial_home_grammar">Pelajari aturan tata bahasa Jepang dan konjugasi kata kerja.</string>
+    <string name="tutorial_home_utilities">Akses permainan, kamus, dan hasil belajar Anda di sini.</string>
 </resources>

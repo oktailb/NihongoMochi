@@ -751,4 +751,9 @@
     <string name="tutorial_kanji_detail_star">Од дээр дарж энэ ханзыг өөрийн тохируулсан засварын жагсаалтад нэмнэ үү.</string>
     <string name="tutorial_kanji_detail_readings">Уншлага нь ON (хятад гаралтай, ихэвчлэн Катакана) ба KUN (Япон гаралтай, Хирагана) гэж хуваагддаг.</string>
     <string name="tutorial_kanji_detail_components">Энэ график нь ханзыг энгийн радикалуудаас хэрхэн бүтээж байгааг харуулж байна. Та тэдгээрийг дарж судлах боломжтой!</string>
+    <string name="tutorial_home_welcome">Nihongo Mochi-д тавтай морил! Хурдан аялал хийцгээе.</string>
+    <string name="tutorial_home_level">Одоогийн түвшинг өөрчлөхийн тулд энэ гулсагчийг ашиглана уу (JLPT, Сургуулийн дүн гэх мэт).</string>
+    <string name="tutorial_home_vocabulary">Энд ханз таних, унших, бичих дадлага хий.</string>
+    <string name="tutorial_home_grammar">Япон хэлний дүрмийн дүрэм, үйл үгийн холбоог сур.</string>
+    <string name="tutorial_home_utilities">Тоглоом, толь бичиг болон сургалтын үр дүнг эндээс авна уу.</string>
 </resources>

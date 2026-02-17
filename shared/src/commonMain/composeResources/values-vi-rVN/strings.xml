@@ -749,4 +749,9 @@
     <string name="tutorial_kanji_detail_star">Nhấp vào ngôi sao để thêm Kanji này vào Danh sách sửa đổi được cá nhân hóa của bạn.</string>
     <string name="tutorial_kanji_detail_readings">Các bài đọc được chia thành ON (gốc Trung Quốc, thường bằng Katakana) và KUN (gốc Nhật Bản, bằng Hiragana).</string>
     <string name="tutorial_kanji_detail_components">Biểu đồ này cho thấy cách Kanji được xây dựng từ các gốc đơn giản hơn. Bạn có thể nhấp vào chúng để khám phá!</string>
+    <string name="tutorial_home_welcome">Chào mừng đến với Nihongo Mochi! Chúng ta hãy tham quan nhanh chóng.</string>
+    <string name="tutorial_home_level">Sử dụng thanh trượt này để thay đổi cấp độ hiện tại của bạn (JLPT, điểm trường, v.v.).</string>
+    <string name="tutorial_home_vocabulary">Thực hành nhận dạng, đọc và viết Kanji tại đây.</string>
+    <string name="tutorial_home_grammar">Tìm hiểu các quy tắc ngữ pháp tiếng Nhật và cách chia động từ.</string>
+    <string name="tutorial_home_utilities">Truy cập trò chơi, từ điển và kết quả học tập của bạn tại đây.</string>
 </resources>

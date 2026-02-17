@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">คลิกที่ดาวเพื่อเพิ่มคันจินี้ในรายการแก้ไขส่วนตัวของคุณ</string>
     <string name="tutorial_kanji_detail_readings">การอ่านแบ่งออกเป็น ON (ต้นกำเนิดของจีน โดยทั่วไปเป็นภาษาคาตาคานะ) และ KUN (ต้นกำเนิดของญี่ปุ่น ในภาษาฮิระงะนะ)</string>
     <string name="tutorial_kanji_detail_components">กราฟนี้แสดงให้เห็นว่าคันจิถูกสร้างขึ้นจากอนุมูลที่ง่ายกว่าได้อย่างไร คุณสามารถคลิกเพื่อสำรวจได้!</string>
+    <string name="tutorial_home_welcome">ยินดีต้อนรับสู่นิฮงโกะโมจิ! มาดูทัวร์กันสักหน่อย</string>
+    <string name="tutorial_home_level">ใช้แถบเลื่อนนี้เพื่อเปลี่ยนระดับปัจจุบันของคุณ (JLPT, คะแนนของโรงเรียน ฯลฯ)</string>
+    <string name="tutorial_home_vocabulary">ฝึกการจดจำ การอ่าน และการเขียนคันจิได้ที่นี่</string>
+    <string name="tutorial_home_grammar">เรียนรู้กฎไวยากรณ์ภาษาญี่ปุ่นและการผันกริยา</string>
+    <string name="tutorial_home_utilities">เข้าถึงเกม พจนานุกรม และผลการเรียนรู้ของคุณที่นี่</string>
 </resources>

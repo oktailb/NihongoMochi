@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">개인화된 개정 목록에 이 한자를 추가하려면 별표를 클릭하세요.</string>
     <string name="tutorial_kanji_detail_readings">읽기는 ON(중국어, 일반적으로 가타카나)과 KUN(일본어, 히라가나)으로 구분됩니다.</string>
     <string name="tutorial_kanji_detail_components">이 그래프는 한자가 어떻게 단순한 부수로 만들어졌는지 보여줍니다. 클릭해서 탐색할 수 있습니다!</string>
+    <string name="tutorial_home_welcome">니혼고모치에 오신 것을 환영합니다! 간략하게 둘러보겠습니다.</string>
+    <string name="tutorial_home_level">이 슬라이더를 사용하여 현재 수준(JLPT, 학교 성적 등)을 변경하세요.</string>
+    <string name="tutorial_home_vocabulary">여기에서 한자 인식, 읽기, 쓰기를 연습해 보세요.</string>
+    <string name="tutorial_home_grammar">일본어 문법 규칙과 동사 활용형을 알아보세요.</string>
+    <string name="tutorial_home_utilities">여기에서 게임, 사전, 학습 결과에 액세스하세요.</string>
 </resources>

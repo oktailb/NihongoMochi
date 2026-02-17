@@ -751,4 +751,9 @@
     <string name="tutorial_kanji_detail_star">星をクリックして、この漢字を個人用改訂リストに追加します。</string>
     <string name="tutorial_kanji_detail_readings">読み方はON（中国語由来、通常はカタカナ）とKUN（日本語由来、ひらがな）に分けられます。</string>
     <string name="tutorial_kanji_detail_components">このグラフは、漢字がより単純な部首からどのように構築されるかを示しています。クリックして探索することができます。</string>
+    <string name="tutorial_home_welcome">にほんごもちへようこそ！簡単なツアーに参加しましょう。</string>
+    <string name="tutorial_home_level">このスライダーを使用して、現在のレベル (JLPT、学校の成績など) を変更します。</string>
+    <string name="tutorial_home_vocabulary">ここで漢字の認識、読み、書きを練習します。</string>
+    <string name="tutorial_home_grammar">日本語の文法規則と動詞の活用を学びます。</string>
+    <string name="tutorial_home_utilities">ここからゲーム、辞書、学習結果にアクセスします。</string>
 </resources>

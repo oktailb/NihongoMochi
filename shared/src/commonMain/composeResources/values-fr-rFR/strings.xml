@@ -753,4 +753,9 @@
     <string name="tutorial_kanji_detail_star">Cliquez sur l'étoile pour ajouter ce Kanji à votre liste de révisions personnalisée.</string>
     <string name="tutorial_kanji_detail_readings">Les lectures sont divisées en ON (origine chinoise, généralement en Katakana) et KUN (origine japonaise, en Hiragana).</string>
     <string name="tutorial_kanji_detail_components">Ce graphique montre comment le Kanji est construit à partir de radicaux plus simples. Vous pouvez cliquer dessus pour explorer !</string>
+    <string name="tutorial_home_welcome">Bienvenue à Nihongo Mochi ! Faisons un petit tour.</string>
+    <string name="tutorial_home_level">Utilisez ce curseur pour modifier votre niveau actuel (JLPT, notes scolaires, etc.).</string>
+    <string name="tutorial_home_vocabulary">Entraînez-vous à la reconnaissance, à la lecture et à l'écriture des Kanji ici.</string>
+    <string name="tutorial_home_grammar">Apprenez les règles de grammaire japonaise et les conjugaisons des verbes.</string>
+    <string name="tutorial_home_utilities">Accédez aux jeux, au dictionnaire et à vos résultats d'apprentissage ici.</string>
 </resources>

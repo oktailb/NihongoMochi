@@ -749,4 +749,9 @@
     <string name="tutorial_kanji_detail_star">Klicken Sie auf den Stern, um dieses Kanji zu Ihrer personalisierten Revisionsliste hinzuzufügen.</string>
     <string name="tutorial_kanji_detail_readings">Die Lesarten werden in ON (chinesischer Ursprung, normalerweise in Katakana) und KUN (japanischer Ursprung, in Hiragana) unterteilt.</string>
     <string name="tutorial_kanji_detail_components">Diese Grafik zeigt, wie das Kanji aus einfacheren Radikalen aufgebaut ist. Sie können darauf klicken, um sie zu erkunden!</string>
+    <string name="tutorial_home_welcome">Willkommen bei Nihongo Mochi! Machen wir einen kurzen Rundgang.</string>
+    <string name="tutorial_home_level">Verwenden Sie diesen Schieberegler, um Ihr aktuelles Niveau (JLPT, Schulnoten usw.) zu ändern.</string>
+    <string name="tutorial_home_vocabulary">Üben Sie hier das Erkennen, Lesen und Schreiben von Kanji.</string>
+    <string name="tutorial_home_grammar">Lernen Sie japanische Grammatikregeln und Verbkonjugationen.</string>
+    <string name="tutorial_home_utilities">Hier erhalten Sie Zugriff auf Spiele, Wörterbücher und Ihre Lernergebnisse.</string>
 </resources>

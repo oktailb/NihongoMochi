@@ -751,4 +751,9 @@
     <string name="tutorial_kanji_detail_star">انقر فوق النجمة لإضافة هذا الكانجي إلى قائمة المراجعة المخصصة الخاصة بك.</string>
     <string name="tutorial_kanji_detail_readings">تنقسم القراءات إلى ON (أصل صيني، عادة بالكاتاكانا) وKUN (أصل ياباني، بالهيراغانا).</string>
     <string name="tutorial_kanji_detail_components">يوضح هذا الرسم البياني كيفية بناء الكانجي من جذور أبسط. يمكنك النقر عليها لاستكشاف!</string>
+    <string name="tutorial_home_welcome">مرحبًا بك في نيهونغو موتشي! لنقم بجولة سريعة.</string>
+    <string name="tutorial_home_level">استخدم شريط التمرير هذا لتغيير مستواك الحالي (JLPT، الدرجات المدرسية، وما إلى ذلك).</string>
+    <string name="tutorial_home_vocabulary">تدرب على التعرف على الكانجي وقراءته وكتابته هنا.</string>
+    <string name="tutorial_home_grammar">تعلم قواعد النحو اليابانية وتصريفات الأفعال.</string>
+    <string name="tutorial_home_utilities">قم بالوصول إلى الألعاب والقاموس ونتائج التعلم الخاصة بك هنا.</string>
 </resources>

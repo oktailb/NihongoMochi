@@ -751,4 +751,9 @@
     <string name="tutorial_kanji_detail_star">Клацніть зірочку, щоб додати цей кандзі до вашого персонального списку версій.</string>
     <string name="tutorial_kanji_detail_readings">Читання поділяються на ON (китайське походження, зазвичай катакана) і KUN (японське походження, хіраґана).</string>
     <string name="tutorial_kanji_detail_components">Цей графік показує, як канджі будується з більш простих радикалів. Ви можете натиснути їх, щоб дослідити!</string>
+    <string name="tutorial_home_welcome">Ласкаво просимо до Ніхонго Моті! Давайте зробимо короткий тур.</string>
+    <string name="tutorial_home_level">Використовуйте цей повзунок, щоб змінити свій поточний рівень (JLPT, шкільні оцінки тощо).</string>
+    <string name="tutorial_home_vocabulary">Попрактикуйтесь розпізнавати кандзі, читати та писати тут.</string>
+    <string name="tutorial_home_grammar">Вивчіть граматичні правила японської мови та відмінювання дієслів.</string>
+    <string name="tutorial_home_utilities">Тут можна отримати доступ до ігор, словника та результатів навчання.</string>
 </resources>

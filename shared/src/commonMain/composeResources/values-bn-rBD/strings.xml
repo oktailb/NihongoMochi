@@ -751,4 +751,9 @@
     <string name="tutorial_kanji_detail_star">আপনার ব্যক্তিগতকৃত রিভিশন তালিকায় এই কাঞ্জি যোগ করতে তারকাটিতে ক্লিক করুন।</string>
     <string name="tutorial_kanji_detail_readings">রিডিংগুলি ON (চীনা উত্স, সাধারণত কাতাকানায়) এবং KUN (জাপানি উত্স, হিরাগানায়) এ বিভক্ত।</string>
     <string name="tutorial_kanji_detail_components">এই গ্রাফটি দেখায় কিভাবে কানজি সহজ র্যাডিকাল থেকে তৈরি করা হয়। আপনি তাদের অন্বেষণ করতে ক্লিক করতে পারেন!</string>
+    <string name="tutorial_home_welcome">Nihongo Mochi স্বাগতম! আসুন একটি দ্রুত সফর করি।</string>
+    <string name="tutorial_home_level">আপনার বর্তমান স্তর (JLPT, স্কুল গ্রেড, ইত্যাদি) পরিবর্তন করতে এই স্লাইডারটি ব্যবহার করুন।</string>
+    <string name="tutorial_home_vocabulary">এখানে কাঞ্জি স্বীকৃতি, পড়া এবং লেখার অনুশীলন করুন।</string>
+    <string name="tutorial_home_grammar">জাপানি ব্যাকরণের নিয়ম এবং ক্রিয়া সংযোজন শিখুন।</string>
+    <string name="tutorial_home_utilities">এখানে গেম, অভিধান এবং আপনার শেখার ফলাফল অ্যাক্সেস করুন।</string>
 </resources>
