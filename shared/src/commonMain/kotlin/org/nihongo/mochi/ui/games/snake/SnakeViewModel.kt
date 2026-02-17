@@ -220,7 +220,7 @@ class SnakeViewModel(
 
         var grew = false
         if (nextHead == state.targetItem?.position) {
-            audioPlayer.playSound("files/sounds/correct.mp3")
+            audioPlayer.playSound("sounds/correct.mp3")
             grew = true
             val nextSequenceIndex = state.sequenceIndex + 1
             _gameState.update { it.copy(score = it.score + 10, sequenceIndex = nextSequenceIndex) }
@@ -261,7 +261,7 @@ class SnakeViewModel(
         
         timerJob?.cancel()
         settingsRepository.clearGameState(GAME_STATE_SNAKE)
-        audioPlayer.playSound("files/sounds/game_over.mp3")
+        audioPlayer.playSound("sounds/game_over.mp3")
         _gameState.update { it.copy(isGameOver = true) }
         
         val result = SnakeGameResult(

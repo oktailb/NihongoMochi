@@ -138,22 +138,21 @@ fun SettingsScreen(
                         }
                     }
 
-                    if (uiState.currentLocaleCode != "en_GB") {
-                        Spacer(Modifier.width(8.dp))
-                        IconButton(
-                            onClick = { viewModel.forceUpdateLanguagePack() },
-                            enabled = uiState.downloadStatus != DownloadStatus.DOWNLOADING,
-                            modifier = Modifier.padding(top = 8.dp)
-                        ) {
-                            if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
-                                CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
-                            } else {
-                                Icon(
-                                    imageVector = Icons.Default.Refresh,
-                                    contentDescription = stringResource(Res.string.settings_update_pack),
-                                    tint = MaterialTheme.colorScheme.primary
-                                )
-                            }
+                    // Always allow refresh/download for any selected language, including English
+                    Spacer(Modifier.width(8.dp))
+                    IconButton(
+                        onClick = { viewModel.forceUpdateLanguagePack() },
+                        enabled = uiState.downloadStatus != DownloadStatus.DOWNLOADING,
+                        modifier = Modifier.padding(top = 8.dp)
+                    ) {
+                        if (uiState.downloadStatus == DownloadStatus.DOWNLOADING) {
+                            CircularProgressIndicator(modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                        } else {
+                            Icon(
+                                imageVector = Icons.Default.Refresh,
+                                contentDescription = stringResource(Res.string.settings_update_pack),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
                         }
                     }
                 }
