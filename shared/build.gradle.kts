@@ -31,33 +31,38 @@ kotlin {
     }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.multiplatform.settings)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.kotlinx.datetime)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.koin.core)
-            implementation(libs.koin.compose)
+        commonMain {
+            // Include generated licenses in resources
+            resources.srcDir(layout.buildDirectory.dir("generated/licenses/commonMain/composeResources"))
             
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            api(compose.components.resources)
-            implementation(compose.materialIconsExtended)
-            
-            implementation(libs.rich.editor)
-            implementation(libs.jetbrains.navigation.compose)
+            dependencies {
+                implementation(libs.multiplatform.settings)
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+                
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                api(compose.components.resources)
+                implementation(compose.materialIconsExtended)
+                
+                implementation(libs.rich.editor)
+                implementation(libs.jetbrains.navigation.compose)
 
-            // SQLDelight
-            implementation(libs.sqldelight.coroutines.extensions)
+                // SQLDelight
+                implementation(libs.sqldelight.coroutines.extensions)
 
-            // Network & IO
-            implementation(libs.ktor.client.core)
-            implementation(libs.okio)
+                // Network & IO
+                implementation(libs.ktor.client.core)
+                implementation(libs.okio)
 
-            // Coil
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
+                // Coil
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network.ktor)
+            }
         }
 
         androidMain.dependencies {

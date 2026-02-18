@@ -46,6 +46,13 @@ android {
         buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
     }
 
+    sourceSets {
+        getByName("main") {
+            // Re-include shared resources as Android assets for AndroidAudioPlayer
+            assets.srcDirs("${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -84,28 +91,27 @@ android {
         buildConfig = true
         compose = true
     }
-    
-    sourceSets {
-        getByName("main") {
-            assets.srcDirs("src/main/assets", "${rootProject.rootDir}/shared/src/commonMain/composeResources/files")
-        }
-    }
 }
 
 licenseReport {
     renderers = arrayOf(com.github.jk1.license.render.JsonReportRenderer("licenses.json"))
 }
 
-// Copy ONLY to shared resources. Res.readBytes will find it there.
+// Copy to a GENERATED directory in shared, not into src/
 val copyLicensesToSharedResources = tasks.register<Copy>("copyLicensesToSharedResources") {
     from(layout.buildDirectory.file("reports/dependency-license/licenses.json"))
-    into(rootProject.file("shared/src/commonMain/composeResources/files"))
+    into(rootProject.file("shared/build/generated/licenses/commonMain/composeResources/files"))
     dependsOn("generateLicenseReport")
 }
 
-// Link to build
+// Link to build and ensure order for shared tasks
 tasks.withType<com.android.build.gradle.tasks.MergeSourceSetFolders>().configureEach {
     dependsOn(copyLicensesToSharedResources)
+}
+
+// Force shared resource tasks to run after our copy to avoid implicit dependency issues
+project(":shared").tasks.matching { it.name.startsWith("copyNonXmlValueResources") }.configureEach {
+    mustRunAfter(copyLicensesToSharedResources)
 }
 
 dependencies {
