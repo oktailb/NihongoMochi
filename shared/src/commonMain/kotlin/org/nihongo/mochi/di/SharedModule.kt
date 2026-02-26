@@ -153,6 +153,7 @@ val sharedModule = module {
             levelContentProvider = get(),
             kanjiRepository = get(),
             scoreRepository = get(),
+            settingsRepository = get(),
             baseColorInt = params.get()
         )
     }

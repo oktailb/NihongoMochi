@@ -10,6 +10,7 @@ import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.game.KanjiSortOrder
 import org.nihongo.mochi.domain.kanji.KanjiEntry
 import org.nihongo.mochi.domain.kanji.KanjiRepository
+import org.nihongo.mochi.domain.settings.SettingsRepository
 import org.nihongo.mochi.domain.util.LevelContentProvider
 import org.nihongo.mochi.presentation.ScorePresentationUtils
 import org.nihongo.mochi.presentation.ViewModel
@@ -18,6 +19,7 @@ class WritingRecapViewModel(
     private val levelContentProvider: LevelContentProvider,
     private val kanjiRepository: KanjiRepository,
     private val scoreRepository: ScoreRepository,
+    private val settingsRepository: SettingsRepository,
     private val baseColorInt: Int
 ) : ViewModel() {
 
@@ -36,6 +38,9 @@ class WritingRecapViewModel(
     private val _sortOrder = MutableStateFlow(KanjiSortOrder.DEFAULT)
     val sortOrder: StateFlow<KanjiSortOrder> = _sortOrder.asStateFlow()
 
+    private val _quizSize = MutableStateFlow(settingsRepository.getQuizSize().toString())
+    val quizSize: StateFlow<String> = _quizSize.asStateFlow()
+
     private val pageSize = 80
     private var allKanjiEntries: List<KanjiEntry> = emptyList()
     private var originalKanjiEntries: List<KanjiEntry> = emptyList()
@@ -52,6 +57,13 @@ class WritingRecapViewModel(
     fun setSortOrder(order: KanjiSortOrder) {
         _sortOrder.value = order
         applySortAndRefresh()
+    }
+
+    fun setQuizSize(size: String) {
+        _quizSize.value = size
+        size.toIntOrNull()?.let {
+            settingsRepository.setQuizSize(it)
+        }
     }
 
     private fun applySortAndRefresh() {

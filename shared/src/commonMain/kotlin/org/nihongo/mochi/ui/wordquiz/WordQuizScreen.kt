@@ -57,19 +57,6 @@ fun WordQuizScreen(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                // Top Bar
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { 
-                        if (gameState != GameState.Finished) showExitDialog = true 
-                        else onNavigateBack()
-                    }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                }
-
                 // Progress Bar
                 GameProgressBar(
                     statuses = gameStatus,

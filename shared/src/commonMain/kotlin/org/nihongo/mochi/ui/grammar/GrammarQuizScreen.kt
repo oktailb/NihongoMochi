@@ -53,13 +53,6 @@ fun GrammarQuizScreen(
                         modifier = Modifier.fillMaxWidth().padding(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        IconButton(onClick = { 
-                            if (state.gameState != GameState.Finished) showExitDialog = true 
-                            else onBackClick()
-                        }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                        }
-                        
                         GameProgressBar(
                             statuses = state.progressHistory,
                             maxItems = 10

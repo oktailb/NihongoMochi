@@ -682,6 +682,7 @@ fun MochiNavGraph(
             val totalPages by viewModel.totalPages.collectAsState(0)
             val isReviewEnabled by viewModel.isReviewEnabled.collectAsState(false)
             val sortOrder by viewModel.sortOrder.collectAsState()
+            val quizSize by viewModel.quizSize.collectAsState()
             
             remember(levelId) {
                 viewModel.loadLevel(levelId)
@@ -694,6 +695,7 @@ fun MochiNavGraph(
                 currentPage = currentPage,
                 totalPages = totalPages,
                 sortOrder = sortOrder,
+                quizSize = quizSize,
                 isReviewEnabled = isReviewEnabled,
                 onKanjiClick = { kanji ->
                     navController.navigate(Screen.WordDetail.createRoute(kanji.character))
@@ -701,6 +703,7 @@ fun MochiNavGraph(
                 onPrevPage = { viewModel.prevPage() },
                 onNextPage = { viewModel.nextPage() },
                 onSortOrderChange = { viewModel.setSortOrder(it) },
+                onQuizSizeChange = { viewModel.setQuizSize(it) },
                 onPlayClick = { size ->
                     navController.currentBackStackEntry?.savedStateHandle?.remove<List<String>>("custom_kanji_list")
                     navController.navigate(Screen.WritingGame.createRoute(levelId, sortOrder.name, size))

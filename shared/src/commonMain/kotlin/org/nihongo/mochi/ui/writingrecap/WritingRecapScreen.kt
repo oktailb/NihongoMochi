@@ -25,18 +25,18 @@ fun WritingRecapScreen(
     currentPage: Int,
     totalPages: Int,
     sortOrder: KanjiSortOrder,
+    quizSize: String,
     isReviewEnabled: Boolean,
     onKanjiClick: (KanjiEntry) -> Unit,
     onPrevPage: () -> Unit,
     onNextPage: () -> Unit,
     onSortOrderChange: (KanjiSortOrder) -> Unit,
+    onQuizSizeChange: (String) -> Unit,
     onPlayClick: (Int) -> Unit,
     onReviewClick: () -> Unit
 ) {
     val levelResource = ResourceUtils.resolveStringResource(levelTitle.lowercase())
     val resolvedTitle = if (levelResource != null) stringResource(levelResource) else levelTitle
-
-    var quizSize by remember { mutableStateOf("80") }
 
     MochiBackground {
         Column(
@@ -78,7 +78,7 @@ fun WritingRecapScreen(
 
                 QuizSizeInput(
                     size = quizSize,
-                    onSizeChange = { quizSize = it },
+                    onSizeChange = onQuizSizeChange,
                     modifier = Modifier.weight(0.3f)
                 )
             }
