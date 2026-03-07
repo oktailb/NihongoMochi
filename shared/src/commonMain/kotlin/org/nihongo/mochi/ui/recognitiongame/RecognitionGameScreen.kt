@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.stringResource
 import org.nihongo.mochi.data.LearningScore
 import org.nihongo.mochi.domain.game.QuestionDirection
+import org.nihongo.mochi.domain.kana.KanaUtils
 import org.nihongo.mochi.domain.models.AnswerButtonState
 import org.nihongo.mochi.domain.models.GameStatus
 import org.nihongo.mochi.domain.models.GameState
@@ -73,18 +74,6 @@ fun RecognitionGameScreen(
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    IconButton(onClick = { 
-                        if (gameState != GameState.Finished) showExitDialog = true 
-                        else onNavigateBack()
-                    }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                }
-
                 GameProgressBar(
                     statuses = gameStatus,
                     maxItems = 10
@@ -269,8 +258,8 @@ fun ScoreDisplayBox(score: LearningScore) {
 }
 
 private fun formatReadingsForFlip(kanji: KanjiDetail): String {
-    val onReadings = kanji.readings.filter { it.type == "on" }.take(2).map { it.value }
-    val kunReadings = kanji.readings.filter { it.type == "kun" }.take(2).map { it.value }
+    val onReadings = kanji.readings.filter { it.type == "on" }.take(2).map { KanaUtils.hiraganaToKatakana(it.value) }
+    val kunReadings = kanji.readings.filter { it.type == "kun" }.take(2).map { KanaUtils.katakanaToHiragana(it.value) }
     
     return buildString {
         if (onReadings.isNotEmpty()) {

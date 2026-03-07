@@ -48,6 +48,9 @@ class SettingsRepository(private val settings: Settings) {
     fun getSelectedLevel(): String = settings.getString(SELECTED_LEVEL_PREF_KEY, "")
     fun setSelectedLevel(value: String) = settings.putString(SELECTED_LEVEL_PREF_KEY, value)
 
+    fun getQuizSize(): Int = settings.getInt(QUIZ_SIZE_PREF_KEY, 80)
+    fun setQuizSize(value: Int) = settings.putInt(QUIZ_SIZE_PREF_KEY, value)
+
     // Game States Persistance
     fun saveGameState(gameKey: String, json: String) = settings.putString(gameKey, json)
     fun getGameState(gameKey: String): String? = settings.getStringOrNull(gameKey)

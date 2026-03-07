@@ -96,26 +96,11 @@ fun WritingGameScreen(
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    // Top Bar with back button
-                    Row(
-                        modifier = Modifier.fillMaxWidth().padding(8.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        IconButton(onClick = { 
-                            if (gameState != GameState.Finished) showExitDialog = true 
-                            else onNavigateBack()
-                        }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
-                        }
-                    }
-
                     // Progress Bar
                     GameProgressBar(
                         statuses = gameStatus,
                         maxItems = 10
                     )
-
-                    Spacer(modifier = Modifier.height(16.dp))
 
                     // Input Area (Bottom part)
                     Column(
@@ -139,8 +124,6 @@ fun WritingGameScreen(
                                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
                             )
                         }
-
-                        Spacer(modifier = Modifier.height(8.dp))
 
                         OutlinedTextField(
                             value = answerText,
@@ -187,8 +170,6 @@ fun WritingGameScreen(
                             )
                         )
 
-                        Spacer(modifier = Modifier.height(16.dp))
-
                         val buttonColor = when {
                             processingAnswer && isCorrect == true -> MaterialTheme.colorScheme.primary 
                             processingAnswer && isCorrect == false -> MaterialTheme.colorScheme.error
@@ -219,8 +200,8 @@ fun WritingGameScreen(
                         if (kanji != null) {
                             GameQuestionCard(
                                 text = kanji.character,
-                                fontSize = 200.sp,
-                                modifier = Modifier.size(300.dp)
+                                fontSize = 160.sp,
+                                modifier = Modifier.size(250.dp)
                             )
                         }
                     }

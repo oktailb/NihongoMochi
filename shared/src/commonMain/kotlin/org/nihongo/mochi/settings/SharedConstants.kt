@@ -16,6 +16,8 @@ const val APP_LOCALE_PREF_KEY = "AppLocale"
 
 const val IS_FIRST_RUN_PREF_KEY = "IsFirstRun"
 
+const val QUIZ_SIZE_PREF_KEY = "QuizSize"
+
 // Game States
 const val GAME_STATE_SNAKE = "GameState_Snake"
 const val GAME_STATE_SHIRITORI = "GameState_Shiritori"
