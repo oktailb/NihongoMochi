@@ -19,6 +19,8 @@ import androidx.work.WorkManager
 import com.google.android.gms.games.GamesSignInClient
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
+import com.google.android.gms.games.SnapshotsClient
+import com.google.android.gms.games.snapshot.SnapshotMetadata
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -26,6 +28,7 @@ import org.koin.core.parameter.parametersOf
 import org.nihongo.mochi.data.ScoreRepository
 import org.nihongo.mochi.domain.services.CloudSaveService
 import org.nihongo.mochi.domain.settings.SettingsRepository
+import org.nihongo.mochi.services.AndroidCloudSaveService
 import org.nihongo.mochi.ui.navigation.MochiNavGraph
 import org.nihongo.mochi.ui.theme.AppTheme
 import org.nihongo.mochi.workers.DecayWorker
@@ -170,6 +173,18 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "Google Play Games authenticated and service set in repository.")
             } else {
                 Log.d("MainActivity", "Google Play Games not authenticated.")
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == AndroidCloudSaveService.RC_SAVED_GAMES && resultCode == RESULT_OK && data != null) {
+            if (data.hasExtra(SnapshotsClient.EXTRA_SNAPSHOT_METADATA)) {
+                val metadata = data.getParcelableExtra<SnapshotMetadata>(SnapshotsClient.EXTRA_SNAPSHOT_METADATA)
+                cloudSaveService.onSnapshotSelected?.invoke(metadata?.uniqueName, false)
+            } else if (data.hasExtra(SnapshotsClient.EXTRA_SNAPSHOT_NEW)) {
+                cloudSaveService.onSnapshotSelected?.invoke(null, true)
             }
         }
     }

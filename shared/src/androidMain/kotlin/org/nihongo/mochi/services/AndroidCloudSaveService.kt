@@ -27,8 +27,12 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
     private val playersClient by lazy { PlayGames.getPlayersClient(activity) }
     private val imageManager by lazy { ImageManager.create(activity) }
 
+    override var onSnapshotSelected: ((snapshotName: String?, isNew: Boolean) -> Unit)? = null
+
     companion object {
-        private const val RC_LEADERBOARDS = 9002
+        const val RC_LEADERBOARDS = 9002
+        const val RC_SAVED_GAMES = 9003
+        const val RC_ACHIEVEMENTS = 9004
     }
 
     override suspend fun signIn(): Boolean {
@@ -94,6 +98,19 @@ class AndroidCloudSaveService(private val activity: Activity) : CloudSaveService
         leaderboardsClient.allLeaderboardsIntent.addOnSuccessListener { intent ->
             activity.startActivityForResult(intent, RC_LEADERBOARDS)
         }
+    }
+
+    override fun showAchievements() {
+        achievementsClient.achievementsIntent.addOnSuccessListener { intent ->
+            activity.startActivityForResult(intent, RC_ACHIEVEMENTS)
+        }
+    }
+
+    override fun showSavedGamesUI(title: String, allowAdd: Boolean, allowDelete: Boolean, maxSnapshots: Int) {
+        snapshotsClient.getSelectSnapshotIntent(title, allowAdd, allowDelete, maxSnapshots)
+            .addOnSuccessListener { intent ->
+                activity.startActivityForResult(intent, RC_SAVED_GAMES)
+            }
     }
 
     override suspend fun getPlayerInfo(): PlayerInfo? {

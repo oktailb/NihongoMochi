@@ -34,5 +34,9 @@ interface CloudSaveService {
     fun submitScore(leaderboardId: String, score: Long)
     fun unlockAchievement(achievementId: String)
     fun showLeaderboards()
+    fun showAchievements()
+    fun showSavedGamesUI(title: String, allowAdd: Boolean, allowDelete: Boolean, maxSnapshots: Int)
     suspend fun getPlayerInfo(): PlayerInfo?
+    
+    var onSnapshotSelected: ((snapshotName: String?, isNew: Boolean) -> Unit)?
 }
