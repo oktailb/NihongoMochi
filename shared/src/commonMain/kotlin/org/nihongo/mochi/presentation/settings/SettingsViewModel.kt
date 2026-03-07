@@ -130,8 +130,8 @@ class SettingsViewModel(
             ) 
         }
 
-        // Auto-download language pack if not English
-        if (newLocaleCode != "en_GB" && !languagePackManager.isPackDownloaded(newLocaleCode)) {
+        // Auto-download language pack if not already downloaded (even for English)
+        if (!languagePackManager.isPackDownloaded(newLocaleCode)) {
             viewModelScope.launch {
                 languagePackManager.downloadPack(newLocaleCode)
             }
@@ -140,7 +140,7 @@ class SettingsViewModel(
 
     fun forceUpdateLanguagePack() {
         val current = _uiState.value.currentLocaleCode
-        if (current.isNotEmpty() && current != "en_GB") {
+        if (current.isNotEmpty()) {
             viewModelScope.launch {
                 languagePackManager.downloadPack(current)
             }
