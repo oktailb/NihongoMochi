@@ -758,4 +758,5 @@
     <string name="tutorial_home_vocabulary">Latih pengenalan Kanji, membaca, dan menulis di sini.</string>
     <string name="tutorial_home_grammar">Pelajari aturan tata bahasa Jepang dan konjugasi kata kerja.</string>
     <string name="tutorial_home_utilities">Akses permainan, kamus, dan hasil belajar Anda di sini.</string>
+    <string name="settings_audio_volume">Volume efek audio</string>
 </resources>

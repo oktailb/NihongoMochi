@@ -756,4 +756,5 @@
     <string name="tutorial_home_vocabulary">تدرب على التعرف على الكانجي وقراءته وكتابته هنا.</string>
     <string name="tutorial_home_grammar">تعلم قواعد النحو اليابانية وتصريفات الأفعال.</string>
     <string name="tutorial_home_utilities">قم بالوصول إلى الألعاب والقاموس ونتائج التعلم الخاصة بك هنا.</string>
+    <string name="settings_audio_volume">حجم المؤثرات الصوتية</string>
 </resources>

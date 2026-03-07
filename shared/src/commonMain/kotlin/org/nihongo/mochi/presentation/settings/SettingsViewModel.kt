@@ -33,6 +33,7 @@ class SettingsViewModel(
         val availableModes: List<String> = emptyList(),
         val ttsGender: VoiceGender = VoiceGender.FEMALE,
         val ttsRate: Float = 1.0f,
+        val audioVolume: Float = 1.0f,
         val availableVoices: List<String> = emptyList(),
         val selectedVoiceId: String? = null,
         val downloadStatus: DownloadStatus = DownloadStatus.IDLE,
@@ -67,6 +68,7 @@ class SettingsViewModel(
                     availableModes = modes,
                     ttsGender = settingsRepository.getTtsGender(currentLocale),
                     ttsRate = settingsRepository.getTtsRate(),
+                    audioVolume = settingsRepository.getAudioVolume(),
                     selectedVoiceId = settingsRepository.getTtsVoiceId(),
                     downloadStatus = if (languagePackManager.isPackDownloaded(currentLocale)) DownloadStatus.SUCCESS else DownloadStatus.IDLE
                 )
@@ -194,6 +196,11 @@ class SettingsViewModel(
     fun onTtsRateChanged(rate: Float) {
         settingsRepository.setTtsRate(rate)
         _uiState.update { it.copy(ttsRate = rate) }
+    }
+
+    fun onAudioVolumeChanged(volume: Float) {
+        settingsRepository.setAudioVolume(volume)
+        _uiState.update { it.copy(audioVolume = volume) }
     }
 
     fun onTtsVoiceSelected(voiceId: String?) {

@@ -758,4 +758,5 @@
     <string name="tutorial_home_vocabulary">在这里练习汉字识别、阅读和写作。</string>
     <string name="tutorial_home_grammar">学习日语语法规则和动词变形。</string>
     <string name="tutorial_home_utilities">在这里访问游戏、词典和您的学习成果。</string>
+    <string name="settings_audio_volume">音频效果音量</string>
 </resources>

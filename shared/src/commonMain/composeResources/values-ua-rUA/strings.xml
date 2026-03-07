@@ -756,4 +756,5 @@
     <string name="tutorial_home_vocabulary">Попрактикуйтесь розпізнавати кандзі, читати та писати тут.</string>
     <string name="tutorial_home_grammar">Вивчіть граматичні правила японської мови та відмінювання дієслів.</string>
     <string name="tutorial_home_utilities">Тут можна отримати доступ до ігор, словника та результатів навчання.</string>
+    <string name="settings_audio_volume">Гучність звукових ефектів</string>
 </resources>

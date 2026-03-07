@@ -13,6 +13,7 @@ const val TTS_GENDER_PREF_KEY = "TtsGender"
 const val TTS_RATE_PREF_KEY = "TtsRate"
 const val TTS_VOICE_ID_PREF_KEY = "TtsVoiceId"
 const val APP_LOCALE_PREF_KEY = "AppLocale"
+const val AUDIO_VOLUME_PREF_KEY = "AudioVolume"
 
 const val IS_FIRST_RUN_PREF_KEY = "IsFirstRun"
 
