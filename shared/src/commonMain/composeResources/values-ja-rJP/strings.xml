@@ -756,4 +756,5 @@
     <string name="tutorial_home_vocabulary">ここで漢字の認識、読み、書きを練習します。</string>
     <string name="tutorial_home_grammar">日本語の文法規則と動詞の活用を学びます。</string>
     <string name="tutorial_home_utilities">ここからゲーム、辞書、学習結果にアクセスします。</string>
+    <string name="settings_audio_volume">オーディオエフェクトの音量</string>
 </resources>

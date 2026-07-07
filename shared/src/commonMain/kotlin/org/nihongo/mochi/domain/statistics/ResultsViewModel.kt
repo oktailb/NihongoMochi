@@ -49,6 +49,9 @@ class ResultsViewModel(
 
     init {
         checkSignInStatus()
+        cloudSaveService.onSnapshotSelected = { name, isNew ->
+            handleSnapshotResult(name, isNew)
+        }
         viewModelScope.launch {
             statisticsEngine.loadLevelDefinitions()
             refreshSagaMap()
@@ -59,10 +62,20 @@ class ResultsViewModel(
         viewModelScope.launch {
             when (action) {
                 SagaAction.SIGN_IN -> signIn()
-                SagaAction.ACHIEVEMENTS -> _oneTimeEvent.emit(OneTimeEvent.ShowAchievements)
-                SagaAction.BACKUP -> _oneTimeEvent.emit(OneTimeEvent.ShowSavedGames)
-                SagaAction.RESTORE -> _oneTimeEvent.emit(OneTimeEvent.ShowSavedGames)
-                SagaAction.LEADERBOARDS -> _oneTimeEvent.emit(OneTimeEvent.ShowLeaderboards)
+                SagaAction.ACHIEVEMENTS -> cloudSaveService.showAchievements()
+                SagaAction.BACKUP -> cloudSaveService.showSavedGamesUI(
+                    getString("cloud_backup_title"), 
+                    allowAdd = true, 
+                    allowDelete = true, 
+                    maxSnapshots = 5
+                )
+                SagaAction.RESTORE -> cloudSaveService.showSavedGamesUI(
+                    getString("cloud_restore_title"), 
+                    allowAdd = false, 
+                    allowDelete = false, 
+                    maxSnapshots = 5
+                )
+                SagaAction.LEADERBOARDS -> cloudSaveService.showLeaderboards()
             }
         }
     }
@@ -148,6 +161,10 @@ class ResultsViewModel(
     }
 
     fun getString(key: String): String {
-        return stringProvider.getString(key)
+        return try {
+            stringProvider.getString(key)
+        } catch (e: Exception) {
+            key
+        }
     }
 }

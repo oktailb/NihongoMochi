@@ -754,4 +754,5 @@
     <string name="tutorial_home_vocabulary">Practica el reconocimiento, la lectura y la escritura de kanji aquí.</string>
     <string name="tutorial_home_grammar">Aprenda las reglas gramaticales japonesas y las conjugaciones verbales.</string>
     <string name="tutorial_home_utilities">Acceda a juegos, diccionario y sus resultados de aprendizaje aquí.</string>
+    <string name="settings_audio_volume">Volumen de efectos de audio</string>
 </resources>

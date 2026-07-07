@@ -758,4 +758,5 @@
     <string name="tutorial_home_vocabulary">ฝึกการจดจำ การอ่าน และการเขียนคันจิได้ที่นี่</string>
     <string name="tutorial_home_grammar">เรียนรู้กฎไวยากรณ์ภาษาญี่ปุ่นและการผันกริยา</string>
     <string name="tutorial_home_utilities">เข้าถึงเกม พจนานุกรม และผลการเรียนรู้ของคุณที่นี่</string>
+    <string name="settings_audio_volume">ปริมาณเอฟเฟกต์เสียง</string>
 </resources>

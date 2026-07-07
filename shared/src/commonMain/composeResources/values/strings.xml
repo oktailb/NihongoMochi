@@ -33,6 +33,7 @@
     <string name="settings_add_wrong_answers">Automatically add wrong answers</string>
     <string name="settings_remove_good_answers">Automatically remove 10/10 words</string>
     <string name="settings_text_size">Text size</string>
+    <string name="settings_audio_volume">Audio effects volume</string>
     <string name="settings_animation_speed">Animation speed</string>
     <string name="settings_theme">Theme (Light/Dark)</string>
     <string name="settings_reset_tutorial">Reset tutorial</string>

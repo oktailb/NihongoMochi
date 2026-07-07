@@ -758,4 +758,5 @@
     <string name="tutorial_home_vocabulary">Попрактикуйтесь в распознавании, чтении и письме кандзи здесь.</string>
     <string name="tutorial_home_grammar">Изучите правила японской грамматики и спряжения глаголов.</string>
     <string name="tutorial_home_utilities">Получите доступ к играм, словарю и результатам обучения здесь.</string>
+    <string name="settings_audio_volume">Громкость аудиоэффектов</string>
 </resources>

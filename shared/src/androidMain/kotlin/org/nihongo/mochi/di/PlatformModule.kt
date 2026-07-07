@@ -24,8 +24,8 @@ val platformModule = module {
     // Database
     single { DatabaseDriverFactory(androidContext()) }
 
-    // Audio
-    single<AudioPlayer> { AndroidAudioPlayer(androidContext()) }
+    // Audio - Pass SettingsRepository to AndroidAudioPlayer
+    single<AudioPlayer> { AndroidAudioPlayer(androidContext(), get()) }
     
     // Text To Speech
     single<TextToSpeech> { AndroidTextToSpeech(androidContext()) }

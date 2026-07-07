@@ -67,7 +67,7 @@ class OnboardingViewModel(
         settingsRepository.setAppLocale(newLocaleCode)
         _uiState.update { it.copy(currentLocaleCode = newLocaleCode) }
 
-        if (newLocaleCode != "en_GB" && !languagePackManager.isPackDownloaded(newLocaleCode)) {
+        if (!languagePackManager.isPackDownloaded(newLocaleCode)) {
             viewModelScope.launch {
                 languagePackManager.downloadPack(newLocaleCode)
             }

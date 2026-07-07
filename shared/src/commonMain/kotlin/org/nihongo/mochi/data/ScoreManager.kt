@@ -34,7 +34,7 @@ class ScoreManager(
         const val GRAMMAR_LIST = "Grammar_List"
         private const val MIGRATION_DONE_KEY = "sql_migration_done_v1"
 
-        // Leaderboard IDs - Replace with real IDs from Google Play Console
+        // Leaderboard IDs
         private const val LB_SNAKE = "leaderboard_snake"
         private const val LB_SIMON = "leaderboard_simon"
         private const val LB_TAQUIN = "leaderboard_taquin"
@@ -42,6 +42,26 @@ class ScoreManager(
         private const val LB_CROSSWORD = "leaderboard_crossword"
         private const val LB_MEMORIZE = "leaderboard_memorize"
         private const val LB_SHIRITORI = "leaderboard_shiritori"
+
+        // Achievement IDs
+        private const val ACH_HIRAGANA_GOJUON = "CgkItMbfzoQcEAIQAQ"
+        private const val ACH_HIRAGANA_DAKUON = "CgkItMbfzoQcEAIQAg"
+        private const val ACH_HIRAGANA_YOON = "CgkItMbfzoQcEAIQAw"
+        private const val ACH_KATAKANA_GOJUON = "CgkItMbfzoQcEAIQBA"
+        private const val ACH_KATAKANA_DAKUON = "CgkItMbfzoQcEAIQBQ"
+        private const val ACH_KATAKANA_YOON = "CgkItMbfzoQcEAIQBg"
+        private const val ACH_MASTER_10_KANJI = "CgkItMbfzoQcEAIQBw"
+        private const val ACH_MASTER_100_KANJI = "CgkItMbfzoQcEAIQCA"
+        private const val ACH_MASTER_N5 = "CgkItMbfzoQcEAIQCQ"
+        private const val ACH_MASTER_N4 = "CgkItMbfzoQcEAIQCg"
+        private const val ACH_MASTER_N3 = "CgkItMbfzoQcEAIQCw"
+        private const val ACH_MASTER_N2 = "CgkItMbfzoQcEAIQDA"
+        private const val ACH_MASTER_N1 = "CgkItMbfzoQcEAIQDQ"
+        
+        const val ACH_EXAM_N5 = "CgkItMbfzoQcEAIQDg"
+        const val ACH_EXAM_N4 = "CgkItMbfzoQcEAIQDw"
+        const val ACH_EXAM_N3 = "CgkItMbfzoQcEAIQEA"
+        const val ACH_EXAM_N2 = "CgkItMbfzoQcEAIQEQ"
     }
 
     private val queries = database.mochiDatabaseQueries
@@ -133,6 +153,50 @@ class ScoreManager(
                 queries.removeItemFromList(targetList, key)
             }
         }
+        
+        if (wasCorrect) {
+            checkKanjiMasteryAchievements()
+        }
+    }
+
+    private fun checkKanjiMasteryAchievements() {
+        val service = cloudSaveService ?: return
+        val allRecognition = queries.getAllScoresByType(ScoreType.RECOGNITION.name).executeAsList()
+        val masteredCount = allRecognition.count { (it.successes - it.failures) >= 10 }
+        
+        if (masteredCount >= 10) service.unlockAchievement(ACH_MASTER_10_KANJI)
+        if (masteredCount >= 100) service.unlockAchievement(ACH_MASTER_100_KANJI)
+    }
+
+    fun unlockLevelAchievement(levelId: String) {
+        val service = cloudSaveService ?: return
+        val achId = when(levelId.lowercase()) {
+            "hiragana_gojuon" -> ACH_HIRAGANA_GOJUON
+            "hiragana_dakuon" -> ACH_HIRAGANA_DAKUON
+            "hiragana_yoon" -> ACH_HIRAGANA_YOON
+            "katakana_gojuon" -> ACH_KATAKANA_GOJUON
+            "katakana_dakuon" -> ACH_KATAKANA_DAKUON
+            "katakana_yoon" -> ACH_KATAKANA_YOON
+            "n5" -> ACH_MASTER_N5
+            "n4" -> ACH_MASTER_N4
+            "n3" -> ACH_MASTER_N3
+            "n2" -> ACH_MASTER_N2
+            "n1" -> ACH_MASTER_N1
+            else -> null
+        }
+        achId?.let { service.unlockAchievement(it) }
+    }
+
+    fun unlockExamAchievement(levelId: String) {
+        val service = cloudSaveService ?: return
+        val achId = when(levelId.uppercase()) {
+            "N5" -> ACH_EXAM_N5
+            "N4" -> ACH_EXAM_N4
+            "N3" -> ACH_EXAM_N3
+            "N2" -> ACH_EXAM_N2
+            else -> null
+        }
+        achId?.let { service.unlockAchievement(it) }
     }
 
     override fun getScore(key: String, type: ScoreType): LearningScore {
@@ -163,8 +227,6 @@ class ScoreManager(
     }
 
     override fun isInList(listName: String, itemKey: String): Boolean {
-        // Simple check: get all items and check if itemKey is present
-        // Better would be a dedicated query if performance is an issue
         return queries.getListItems(listName).executeAsList().contains(itemKey)
     }
 
@@ -202,8 +264,6 @@ class ScoreManager(
             result.timestamp,
             result.gridSizeLabel
         )
-        // For memorize, fewer moves is better, but Play Games usually likes higher = better. 
-        // We might want to submit a score based on some formula or just the moves.
         cloudSaveService?.submitScore(LB_MEMORIZE, result.moves.toLong())
     }
 

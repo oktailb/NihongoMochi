@@ -39,8 +39,8 @@ android {
         applicationId = "org.nihongo.mochi"
         minSdk = 28
         targetSdk = 36
-        versionCode = 30
-        versionName = "0.9.6"
+        versionCode = 31
+        versionName = "0.9.7"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         val buildDate = SimpleDateFormat("dd MMM. yyyy HH:mm:ss", Locale.getDefault()).format(Date())
         buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")

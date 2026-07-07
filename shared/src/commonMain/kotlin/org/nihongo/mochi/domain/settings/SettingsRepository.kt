@@ -76,4 +76,7 @@ class SettingsRepository(private val settings: Settings) {
 
     fun getTtsVoiceId(): String? = settings.getStringOrNull(TTS_VOICE_ID_PREF_KEY)
     fun setTtsVoiceId(voiceId: String?) = settings.putString(TTS_VOICE_ID_PREF_KEY, voiceId ?: "")
+
+    fun getAudioVolume(): Float = settings.getFloat(AUDIO_VOLUME_PREF_KEY, 1.0f)
+    fun setAudioVolume(volume: Float) = settings.putFloat(AUDIO_VOLUME_PREF_KEY, volume)
 }

@@ -162,6 +162,14 @@ fun SettingsScreen(
                 Text(stringResource(Res.string.settings_animation_speed), color = MaterialTheme.colorScheme.onSurface)
                 SliderWithLabel(value = uiState.animationSpeed, onValueChange = { viewModel.onAnimationSpeedChanged(it) })
 
+                // Audio Effects Volume
+                Text(text = stringResource(Res.string.settings_audio_volume), color = MaterialTheme.colorScheme.onSurface)
+                SliderWithLabel(
+                    value = uiState.audioVolume,
+                    onValueChange = { viewModel.onAudioVolumeChanged(it) },
+                    valueRange = 0.1f..1.0f
+                )
+
                 // TTS Speed
                 Text(text = stringResource(Res.string.settings_tts_speed), color = MaterialTheme.colorScheme.onSurface)
                 SliderWithLabel(
