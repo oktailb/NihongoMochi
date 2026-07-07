@@ -1,0 +1,19 @@
+{
+  "numbers": [
+    {"character": "零", "romaji": "rei", "value": 0},
+    {"character": "一", "romaji": "ichi", "value": 1},
+    {"character": "二", "romaji": "ni", "value": 2},
+    {"character": "三", "romaji": "san", "value": 3},
+    {"character": "四", "romaji": "yon", "value": 4},
+    {"character": "五", "romaji": "go", "value": 5},
+    {"character": "六", "romaji": "roku", "value": 6},
+    {"character": "七", "romaji": "nana", "value": 7},
+    {"character": "八", "romaji": "hachi", "value": 8},
+    {"character": "九", "romaji": "kyuu", "value": 9},
+    {"character": "十", "romaji": "juu", "value": 10},
+    {"character": "百", "romaji": "hyaku", "value": 100},
+    {"character": "千", "romaji": "sen", "value": 1000},
+    {"character": "万", "romaji": "man", "value": 10000},
+    {"character": "亿", "romaji": "oku", "value": 100000000}
+  ]
+}
