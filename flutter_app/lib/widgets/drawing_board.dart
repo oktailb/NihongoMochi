@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_mlkit_digital_ink_recognition/google_mlkit_digital_ink_recognition.dart';
+import '../models/handwriting.dart';
 
 class DrawingBoard extends StatefulWidget {
-  final Function(Stroke) onStrokeDone;
+  final Function(HandwritingStroke) onStrokeDone;
   final VoidCallback onClear;
 
   const DrawingBoard({
@@ -43,9 +43,13 @@ class _DrawingBoardState extends State<DrawingBoard> {
               },
               onPanEnd: (details) {
                 if (_points.isNotEmpty) {
-                  final stroke = Stroke();
+                  final stroke = HandwritingStroke();
                   for (final point in _points) {
-                    stroke.points.add(Point(x: point.dx, y: point.dy, t: DateTime.now().millisecondsSinceEpoch));
+                    stroke.points.add(HandwritingPoint(
+                      x: point.dx,
+                      y: point.dy,
+                      t: DateTime.now().millisecondsSinceEpoch
+                    ));
                   }
                   widget.onStrokeDone(stroke);
                   _allStrokes.add(List.from(_points));

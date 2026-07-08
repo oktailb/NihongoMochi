@@ -185,10 +185,10 @@ class GrammarProvider extends ChangeNotifier {
         int successCount = 0;
         for (var r in levelRules) {
           // Note: On pourrait optimiser en pré-chargeant tous les scores
-          final node = _nodes.firstWhere((n) => n.rule.id == r.id);
-          if (node.score >= 1) successCount++;
+          final nodeIndex = _nodes.indexWhere((n) => n.rule.id == r.id);
+          if (nodeIndex != -1 && _nodes[nodeIndex].score >= 1) successCount++;
         }
-        completion = (successCount * 100) ~/ levelRules.size;
+        completion = (successCount * 100) ~/ levelRules.length;
       }
 
       return GrammarLevelSeparator(

@@ -47,7 +47,7 @@ class KanaProvider extends ChangeNotifier {
     final end = (start + pageSize).clamp(0, _allLineKeys.length);
 
     if (start < _allLineKeys.length) {
-      _linesToShow = _allLineKeys.subList(start, end);
+      _linesToShow = _allLineKeys.sublist(start, end);
     } else {
       _linesToShow = [];
     }

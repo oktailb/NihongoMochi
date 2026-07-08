@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'repositories/level_repository.dart';
 import 'services/string_provider.dart';
 import 'models/level.dart';
 import 'dictionary_screen.dart';
 import 'grammar_screen.dart';
 import 'kana_screen.dart';
+import 'kana_quiz_screen.dart';
+import 'word_quiz_screen.dart';
+import 'writing_quiz_screen.dart';
+import 'saga_map_screen.dart';
+import 'settings_screen.dart';
+import 'about_screen.dart';
 import 'models/kana.dart';
 import 'widgets/mochi_background.dart';
 
@@ -59,7 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: 120,
                   margin: const EdgeInsets.only(bottom: 16),
-                  child: Image.asset('assets/drawable/nihongomochi.png', fit: BoxFit.contain),
+                  child: Image.asset(
+                    'assets/drawable/nihongomochi.png',
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) => const Icon(Icons.apps, size: 80, color: Colors.pink)
+                  ),
                 ),
 
                 // Sélecteur de niveau (Slider)
@@ -69,13 +78,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Section Vocabulaire
                 _buildSectionCard("VOCABULAIRE", [
                   _buildHomeBlockCard("Reconnaissance", "認識", () {
-                    // TODO: Navigation vers KanaQuizScreen (mode reconnaissance)
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaQuizScreen(type: KanaType.hiragana)));
                   }),
                   _buildHomeBlockCard("Lecture", "読解", () {
-                    // TODO: Navigation vers WordQuizScreen (mode lecture)
+                    if (currentLevel != null) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: currentLevel.id)));
+                    }
                   }),
                   _buildHomeBlockCard("Écriture", "書取", () {
-                    // TODO: Navigation vers WritingGame
+                    if (currentLevel != null) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WritingQuizScreen(levelId: currentLevel.id)));
+                    }
                   }),
                 ]),
 
@@ -110,11 +123,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 Row(
                   children: [
-                    Expanded(child: _buildSmallUtilityCard("Résultats", Icons.star, () {})),
+                    Expanded(child: _buildSmallUtilityCard("Résultats", Icons.map, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SagaMapScreen()));
+                    })),
                     const SizedBox(width: 8),
-                    Expanded(child: _buildSmallUtilityCard("Paramètres", Icons.settings, () {})),
+                    Expanded(child: _buildSmallUtilityCard("Paramètres", Icons.settings, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
+                    })),
                     const SizedBox(width: 8),
-                    Expanded(child: _buildSmallUtilityCard("À propos", Icons.info, () {})),
+                    Expanded(child: _buildSmallUtilityCard("À propos", Icons.info, () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutScreen()));
+                    })),
                   ],
                 ),
               ],
@@ -152,8 +171,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Slider(
               value: _selectedIndex.toDouble(),
               min: 0,
-              max: (_levels.length - 1).toDouble(),
-              divisions: _levels.length - 1,
+              max: (_levels.length - 1).toDouble().clamp(0, double.infinity),
+              divisions: (_levels.length > 1) ? _levels.length - 1 : 1,
               activeColor: Colors.pink,
               onChanged: (value) {
                 setState(() => _selectedIndex = value.round());

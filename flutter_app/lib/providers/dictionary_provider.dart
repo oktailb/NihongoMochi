@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_mlkit_digital_ink_recognition/google_mlkit_digital_ink_recognition.dart';
 import 'dart:ui' as ui;
 import '../models/dictionary.dart';
+import '../models/handwriting.dart';
 import '../repositories/dictionary_repository.dart';
 import '../utils/romaji_to_kana.dart';
 import '../services/handwriting_service.dart';
@@ -22,7 +22,7 @@ class DictionaryProvider extends ChangeNotifier {
   String _selectedLevelId = "ALL";
 
   List<String>? _drawingCandidates;
-  final List<Stroke> _currentStrokes = [];
+  final List<HandwritingStroke> _currentStrokes = [];
 
   // Getters
   List<DictionaryItem> get results => _filteredResults;
@@ -32,7 +32,7 @@ class DictionaryProvider extends ChangeNotifier {
   String get strokeQuery => _strokeQuery;
   String get selectedLevelId => _selectedLevelId;
   ModelStatus get modelStatus => _handwritingService.status;
-  List<Stroke> get currentStrokes => _currentStrokes;
+  List<HandwritingStroke> get currentStrokes => _currentStrokes;
 
   DictionaryProvider() {
     _init();
@@ -82,7 +82,7 @@ class DictionaryProvider extends ChangeNotifier {
     applyFilters();
   }
 
-  void addStroke(Stroke stroke) {
+  void addStroke(HandwritingStroke stroke) {
     _currentStrokes.add(stroke);
     _recognizeDrawing();
   }

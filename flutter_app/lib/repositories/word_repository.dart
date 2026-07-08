@@ -50,6 +50,24 @@ class WordRepository {
     }
   }
 
+  Future<List<WordEntry>> getWordsForLevel(String levelId) async {
+    final all = await getAllWords();
+    final lowerId = levelId.toLowerCase();
+
+    // Logic from Kotlin: if it's a JLPT level n5..n1
+    if (lowerId.startsWith('n') && lowerId.length == 2) {
+      return all.where((w) => w.jlpt?.toLowerCase() == lowerId).toList();
+    }
+
+    // Logic for specific wordlists
+    if (lowerId.contains("wordlist")) {
+      // In a full implementation, we might load a specific JSON file here.
+      // For now, we return based on JLPT tags within the merged list if applicable.
+    }
+
+    return all.take(100).toList(); // Fallback
+  }
+
   Future<List<WordEntry>> getWordsContainingKanji(String kanji) async {
     final all = await getAllWords();
     return all.where((w) => w.text.contains(kanji)).toList();

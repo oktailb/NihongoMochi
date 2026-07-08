@@ -1,8 +1,5 @@
-import 'dart:io';
 import 'package:drift/drift.dart';
-import 'package:drift/native.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as p;
+import 'connection.dart' if (dart.library.js_interop) 'connection_web.dart' if (dart.library.io) 'connection_native.dart';
 
 part 'database.g.dart';
 
@@ -41,17 +38,8 @@ class GameHistories extends Table {
 
 @DriftDatabase(tables: [LearningScoreEntities, UserLists, GameHistories])
 class MochiDatabase extends _$MochiDatabase {
-  MochiDatabase() : super(_openConnection());
+  MochiDatabase() : super(openConnection());
 
   @override
   int get schemaVersion => 1;
-}
-
-LazyDatabase _openConnection() {
-  return LazyDatabase(() async {
-    final dbFolder = await getApplicationDocumentsDirectory();
-    // Utiliser le même nom que la version Android native pour faciliter la migration si besoin
-    final file = File(p.join(dbFolder.path, 'mochi.db'));
-    return NativeDatabase(file);
-  });
 }
