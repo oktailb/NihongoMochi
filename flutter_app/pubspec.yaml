@@ -43,8 +43,10 @@ flutter:
     - assets/files/kana/
     - assets/files/kanji/
     - assets/files/words/
+    - assets/files/words/meanings/
     - assets/files/grammar/
     - assets/files/grammar/lessons/
+    - assets/files/grammar/lessons/fr/
     - assets/files/meanings/
     - assets/files/sounds/
     - assets/drawable/
