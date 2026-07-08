@@ -4,6 +4,7 @@ import 'providers/dictionary_provider.dart';
 import 'models/dictionary.dart';
 import 'models/handwriting.dart';
 import 'widgets/drawing_board.dart';
+import 'kanji_detail_screen.dart';
 
 class DictionaryScreen extends StatelessWidget {
   const DictionaryScreen({super.key});
@@ -67,8 +68,6 @@ class DictionaryView extends StatelessWidget {
   }
 
   Widget _buildDownloadBanner(DictionaryProvider provider) {
-    // Note: Sur Web, ce bandeau ne devrait pas s'afficher car status reste à notDownloaded
-    // mais downloadModel ne fait rien. On pourrait l'améliorer plus tard.
     return Container(
       color: Colors.blue.shade50,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -242,6 +241,99 @@ class DictionaryView extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       itemCount: provider.results.length,
       itemBuilder: (context, index) => DictionaryItemCard(item: provider.results[index]),
+    );
+  }
+}
+
+class DictionaryItemCard extends StatelessWidget {
+  final DictionaryItem item;
+  const DictionaryItemCard({super.key, required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    final onReadings = item.readings.where((r) => r.type == 'on').map((r) => r.text).join(", ");
+    final kunReadings = item.readings.where((r) => r.type == 'kun').map((r) => r.text).join(", ");
+
+    return Card(
+      elevation: 0,
+      margin: const EdgeInsets.only(bottom: 12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.grey.shade200),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => KanjiDetailScreen(kanjiId: item.id)));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade50,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  item.character,
+                  style: const TextStyle(fontSize: 32, color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (onReadings.isNotEmpty || kunReadings.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text(
+                          onReadings.isNotEmpty ? "On: $onReadings" : "Kun: $kunReadings",
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                        ),
+                      ),
+                    Text(
+                      item.meanings.join(", "),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        ...item.displayLabelKeys.map((label) => Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: Colors.orange.shade50,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              label,
+                              style: const TextStyle(fontSize: 10, color: Colors.orange, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        )),
+                        const Spacer(),
+                        Text(
+                          "${item.strokeCount} traits",
+                          style: const TextStyle(fontSize: 11, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
