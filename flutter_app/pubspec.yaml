@@ -17,7 +17,7 @@ dependencies:
   path_provider: ^2.1.0
   path: ^1.9.0
   json_annotation: ^4.9.0
-  flutter_widget_from_html: ^0.10.0
+  flutter_widget_from_html: ^0.15.0 # Updated for compatibility with newer Flutter versions
   google_fonts: ^6.2.1
   provider: ^6.1.2
   xml: ^6.5.0
