@@ -20,10 +20,15 @@ import 'package:nihongo_mochi_flutter/providers/taquin_provider.dart';
 import 'package:nihongo_mochi_flutter/providers/snake_provider.dart';
 import 'package:nihongo_mochi_flutter/providers/crossword_provider.dart';
 import 'package:nihongo_mochi_flutter/providers/particle_defender_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/simon_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/memorize_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/kana_link_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/shiritori_provider.dart';
 import 'package:nihongo_mochi_flutter/services/audio_service.dart';
 import 'package:nihongo_mochi_flutter/services/level_content_provider.dart';
 import 'package:nihongo_mochi_flutter/services/statistics_service.dart';
 import 'package:nihongo_mochi_flutter/services/language_pack_manager.dart';
+import 'package:nihongo_mochi_flutter/services/resource_loader.dart';
 import 'package:nihongo_mochi_flutter/home_screen.dart';
 
 void main() async {
@@ -38,20 +43,37 @@ void main() async {
         // Base de données
         Provider<MochiDatabase>.value(value: database),
 
+        // Services
+        Provider<LanguagePackManager>(create: (_) => LanguagePackManager()),
+        ProxyProvider<LanguagePackManager, ResourceLoader>(
+          update: (_, lp, __) => ResourceLoader(lp),
+        ),
+
         // Repositories (Singletons)
         Provider<SettingsRepository>(create: (_) => SettingsRepository(prefs)),
         Provider<ScoreRepository>(create: (_) => ScoreRepository(database)),
-        Provider<DictionaryRepository>(create: (_) => DictionaryRepository()),
-        Provider<WordRepository>(create: (_) => WordRepository()),
-        Provider<WordMeaningRepository>(create: (_) => WordMeaningRepository()),
-        Provider<LanguagePackManager>(create: (_) => LanguagePackManager()),
-        ProxyProvider<LanguagePackManager, GrammarRepository>(
-          update: (_, lp, __) => GrammarRepository(lp),
+        ProxyProvider<ResourceLoader, DictionaryRepository>(
+          update: (_, loader, __) => DictionaryRepository(loader),
         ),
-        Provider<KanaRepository>(create: (_) => KanaRepository()),
+        ProxyProvider<ResourceLoader, WordRepository>(
+          update: (_, loader, __) => WordRepository(loader),
+        ),
+        ProxyProvider<ResourceLoader, WordMeaningRepository>(
+          update: (_, loader, __) => WordMeaningRepository(loader),
+        ),
+        ProxyProvider<ResourceLoader, GrammarRepository>(
+          update: (_, loader, __) => GrammarRepository(loader),
+        ),
+        ProxyProvider<ResourceLoader, KanaRepository>(
+          update: (_, loader, __) => KanaRepository(loader),
+        ),
         Provider<KanjiRepository>(create: (_) => KanjiRepository()),
-        Provider<ExerciseRepository>(create: (_) => ExerciseRepository()),
-        Provider<LevelRepository>(create: (_) => LevelRepository()),
+        ProxyProvider<ResourceLoader, ExerciseRepository>(
+          update: (_, loader, __) => ExerciseRepository(loader),
+        ),
+        ProxyProvider<ResourceLoader, LevelRepository>(
+          update: (_, loader, __) => LevelRepository(loader),
+        ),
         ProxyProvider<SettingsRepository, AudioService>(
           update: (_, settings, __) => AudioService(settings),
           dispose: (_, audio) => audio.dispose(),
@@ -113,6 +135,46 @@ void main() async {
             context.read<ExerciseRepository>(),
           ),
           update: (context, exercise, previous) => previous ?? ParticleDefenderProvider(exercise),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SimonProvider(
+            context.read<KanjiRepository>(),
+            context.read<KanaRepository>(),
+            context.read<DictionaryRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<LevelContentProvider>(),
+            context.read<ScoreRepository>(),
+            context.read<AudioService>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MemorizeProvider(
+            context.read<DictionaryRepository>(),
+            context.read<KanaRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<LevelContentProvider>(),
+            context.read<ScoreRepository>(),
+            context.read<AudioService>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => KanaLinkProvider(
+            context.read<WordRepository>(),
+            context.read<ScoreRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<LevelContentProvider>(),
+            context.read<AudioService>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ShiritoriProvider(
+            context.read<WordRepository>(),
+            context.read<WordMeaningRepository>(),
+            context.read<ScoreRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<KanaRepository>(),
+            context.read<AudioService>(),
+          ),
         ),
       ],
       child: const NihongoMochiApp(),

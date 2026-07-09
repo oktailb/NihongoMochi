@@ -56,15 +56,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => TaquinProvider(
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                          ),
-                          child: const TaquinSetupScreen(),
-                        ),
+                        builder: (context) => const TaquinSetupScreen(),
                       ),
                     );
                   },
@@ -78,14 +70,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => SimonProvider(
-                            context.read(), context.read(), context.read(),
-                            context.read(), context.read(), context.read(),
-                            context.read(),
-                          ),
-                          child: const SimonSetupScreen(),
-                        ),
+                        builder: (context) => const SimonSetupScreen(),
                       ),
                     );
                   },
@@ -99,13 +84,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => MemorizeProvider(
-                            context.read(), context.read(), context.read(),
-                            context.read(), context.read(), context.read(),
-                          ),
-                          child: const MemorizeSetupScreen(),
-                        ),
+                        builder: (context) => const MemorizeSetupScreen(),
                       ),
                     );
                   },
@@ -119,16 +98,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => KanaLinkProvider(
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                          ),
-                          child: const KanaLinkSetupScreen(),
-                        ),
+                        builder: (context) => const KanaLinkSetupScreen(),
                       ),
                     );
                   },
@@ -142,16 +112,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => CrosswordProvider(
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                          ),
-                          child: const CrosswordSetupScreen(),
-                        ),
+                        builder: (context) => const CrosswordSetupScreen(),
                       ),
                     );
                   },
@@ -165,16 +126,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => SnakeProvider(
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                          ),
-                          child: const SnakeSetupScreen(),
-                        ),
+                        builder: (context) => const SnakeSetupScreen(),
                       ),
                     );
                   },
@@ -188,17 +140,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => ShiritoriProvider(
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                            context.read(),
-                          ),
-                          child: const ShiritoriSetupScreen(),
-                        ),
+                        builder: (context) => const ShiritoriSetupScreen(),
                       ),
                     );
                   },
@@ -212,10 +154,7 @@ class GamesScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider(
-                          create: (context) => ParticleDefenderProvider(context.read()),
-                          child: const ParticleDefenderScreen(),
-                        ),
+                        builder: (context) => const ParticleDefenderScreen(),
                       ),
                     );
                   },

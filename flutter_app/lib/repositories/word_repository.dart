@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
 import '../models/dictionary.dart';
+import '../services/resource_loader.dart';
 
 class WordEntry {
   final String id;
@@ -32,15 +32,23 @@ class WordEntry {
 }
 
 class WordRepository {
+  final ResourceLoader _loader;
   List<WordEntry>? _allWordsCache;
+
+  WordRepository(this._loader);
 
   Future<List<WordEntry>> getAllWords() async {
     if (_allWordsCache != null) return _allWordsCache!;
 
     try {
-      final String jsonString = await rootBundle.loadString('assets/files/words/merged_wordlist.json');
+      String jsonString = await _loader.loadString(
+        'words/merged_wordlist.json',
+        assetPath: 'assets/files/words/merged_wordlist.json',
+      );
+
       final Map<String, dynamic> root = json.decode(jsonString);
-      final List<dynamic> wordsData = root['words'] ?? [];
+      var rawWordsData = root['words'] ?? [];
+      final List<dynamic> wordsData = rawWordsData is List ? rawWordsData : [rawWordsData];
 
       _allWordsCache = wordsData.map((w) => WordEntry.fromJson(w)).toList();
       return _allWordsCache!;

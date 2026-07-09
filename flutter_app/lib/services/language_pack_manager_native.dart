@@ -42,7 +42,7 @@ class NativeLanguagePackManager implements LanguagePackManager {
     _statusController.add(_statusMap);
 
     try {
-      final files = ['data', 'lessons'];
+      final files = ['data', 'lessons', 'grammar'];
       final dir = await _getLocaleDir(locale);
 
       for (var name in files) {

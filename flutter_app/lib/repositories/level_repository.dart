@@ -1,15 +1,18 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
 import '../models/level.dart';
+import '../services/resource_loader.dart';
 
 class LevelRepository {
+  final ResourceLoader _loader;
   LevelDefinitions? _definitions;
+
+  LevelRepository(this._loader);
 
   Future<LevelDefinitions> loadLevels() async {
     if (_definitions != null) return _definitions!;
 
     try {
-      final String jsonString = await rootBundle.loadString('assets/files/levels.json');
+      final jsonString = await _loader.loadString('levels.json');
       final Map<String, dynamic> jsonData = json.decode(jsonString);
       _definitions = LevelDefinitions.fromJson(jsonData);
       return _definitions!;

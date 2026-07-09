@@ -1,30 +1,38 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
 import '../models/grammar_quiz.dart';
+import '../services/resource_loader.dart';
 
 class ExerciseRepository {
-  final Map<String, List<Exercise>> _cache = {};
+  final ResourceLoader _loader;
+  List<Exercise>? _allExercises;
 
-  Future<List<Exercise>> getExercisesForTag(String tag, {int limit = 10}) async {
-    if (_cache.containsKey(tag)) {
-      final list = List<Exercise>.from(_cache[tag]!)..shuffle();
-      return list.take(limit).toList();
-    }
+  ExerciseRepository(this._loader);
+
+  Future<void> _ensureLoaded() async {
+    if (_allExercises != null) return;
 
     try {
-      final String jsonString = await rootBundle.loadString('assets/files/grammar/$tag.json');
+      final jsonString = await _loader.loadString(
+        'exercices.json',
+        assetPath: 'assets/files/common/exercices.json',
+      );
+      
       final Map<String, dynamic> data = json.decode(jsonString);
-      final List<dynamic> exercisesJson = data['exercises'] ?? [];
-
-      final exercises = exercisesJson.map((e) => Exercise.fromJson(e)).toList();
-      _cache[tag] = exercises;
-
-      final list = List<Exercise>.from(exercises)..shuffle();
-      return list.take(limit).toList();
+      var rawExercises = data['exercises'] ?? [];
+      final List<dynamic> entries = rawExercises is List ? rawExercises : [rawExercises];
+      _allExercises = entries.map((e) => Exercise.fromJson(e)).toList();
     } catch (e) {
-      print("Erreur chargement exercices pour $tag: $e");
-      return [];
+      print("Erreur chargement base exercices: $e");
+      _allExercises = [];
     }
+  }
+
+  Future<List<Exercise>> getExercisesForTag(String tag, {int limit = 10}) async {
+    await _ensureLoaded();
+    
+    final filtered = _allExercises!.where((e) => e.tags.contains(tag)).toList();
+    final list = List<Exercise>.from(filtered)..shuffle();
+    return list.take(limit).toList();
   }
 
   ExercisePayload? parsePayload(Exercise exercise) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/dictionary_provider.dart';
+import 'repositories/dictionary_repository.dart';
 import 'models/dictionary.dart';
 import 'models/handwriting.dart';
 import 'widgets/drawing_board.dart';
@@ -12,7 +13,7 @@ class DictionaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => DictionaryProvider(),
+      create: (context) => DictionaryProvider(context.read<DictionaryRepository>()),
       child: const DictionaryView(),
     );
   }

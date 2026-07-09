@@ -40,16 +40,8 @@ class WordQuizProvider extends ChangeNotifier {
     _state = GameState.loading;
     notifyListeners();
 
-    final allWords = await _wordRepo.getAllWords();
+    final filtered = await _wordRepo.getWordsForLevel(levelId);
     final meanings = await _meaningRepo.getWordMeanings(locale);
-
-    // Filtrage simple par JLPT pour l'instant (N5, N4...)
-    List<WordEntry> filtered;
-    if (levelId.startsWith('N')) {
-      filtered = allWords.where((w) => w.jlpt == levelId).toList();
-    } else {
-      filtered = allWords.take(50).toList(); // Fallback
-    }
 
     if (filtered.isEmpty) {
       _state = GameState.finished;
@@ -68,6 +60,8 @@ class WordQuizProvider extends ChangeNotifier {
     _engine.isGameInitialized = true;
 
     _startNewSet();
+    _isInitialized = true;
+    notifyListeners();
   }
 
   void _startNewSet() {

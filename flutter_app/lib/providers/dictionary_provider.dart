@@ -9,7 +9,7 @@ import '../services/handwriting_service.dart';
 enum SearchMode { reading, meaning }
 
 class DictionaryProvider extends ChangeNotifier {
-  final DictionaryRepository _repository = DictionaryRepository();
+  final DictionaryRepository _repository;
   final HandwritingService _handwritingService = HandwritingService();
 
   List<DictionaryItem> _allKanji = [];
@@ -34,7 +34,7 @@ class DictionaryProvider extends ChangeNotifier {
   ModelStatus get modelStatus => _handwritingService.status;
   List<HandwritingStroke> get currentStrokes => _currentStrokes;
 
-  DictionaryProvider() {
+  DictionaryProvider(this._repository) {
     _init();
   }
 
