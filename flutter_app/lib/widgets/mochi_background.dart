@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/settings_provider.dart';
 
 class MochiBackground extends StatelessWidget {
   final Widget child;
@@ -7,14 +9,16 @@ class MochiBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = context.watch<SettingsProvider>().isDarkMode;
+    final bgImage = isDark ? 'assets/drawable/background_night.webp' : 'assets/drawable/background_day.webp';
+
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFFFDFCFB), Color(0xFFE2D1C3)],
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(bgImage),
+          fit: BoxFit.cover,
         ),
       ),
       child: child,

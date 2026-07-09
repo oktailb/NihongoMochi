@@ -118,7 +118,7 @@ class ParticleDefenderScreen extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           enemy.char,
-          style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.black),
+          style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w900),
         ),
       ),
     );

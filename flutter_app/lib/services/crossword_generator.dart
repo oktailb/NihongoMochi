@@ -40,9 +40,10 @@ class CrosswordGenerator {
         })
         .where((item) {
           final solution = item['solution'] as String;
+          final entry = item['entry'] as WordEntry;
           final bool lengthOk = solution.length >= 2 && solution.length <= 8;
           if (mode == CrosswordMode.kanjis) {
-            return lengthOk && _isPureKanji(item['entry'].text);
+            return lengthOk && _isPureKanji(entry.text);
           }
           return lengthOk;
         })
@@ -55,12 +56,14 @@ class CrosswordGenerator {
 
     // Placer le premier mot au centre
     final first = candidates[0];
-    _placeWord(first['entry'], gridSize ~/ 2, (gridSize - first['length'] as int) ~/ 2, true);
+    final firstEntry = first['entry'] as WordEntry;
+    _placeWord(firstEntry, gridSize ~/ 2, (gridSize - (first['length'] as int)) ~/ 2, true);
 
     int candidatesIdx = 1;
     int attempts = 0;
     while (_placedWords.length < targetWordCount && candidatesIdx < candidates.length && attempts < 100) {
-      if (_tryPlaceWord(candidates[candidatesIdx]['entry'])) {
+      final entry = candidates[candidatesIdx]['entry'] as WordEntry;
+      if (_tryPlaceWord(entry)) {
         attempts = 0;
       } else {
         attempts++;

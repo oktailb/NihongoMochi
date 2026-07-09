@@ -16,6 +16,10 @@ import 'package:nihongo_mochi_flutter/repositories/exercise_repository.dart';
 import 'package:nihongo_mochi_flutter/repositories/level_repository.dart';
 import 'package:nihongo_mochi_flutter/providers/settings_provider.dart';
 import 'package:nihongo_mochi_flutter/providers/saga_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/taquin_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/snake_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/crossword_provider.dart';
+import 'package:nihongo_mochi_flutter/providers/particle_defender_provider.dart';
 import 'package:nihongo_mochi_flutter/services/audio_service.dart';
 import 'package:nihongo_mochi_flutter/services/level_content_provider.dart';
 import 'package:nihongo_mochi_flutter/services/statistics_service.dart';
@@ -40,14 +44,14 @@ void main() async {
         Provider<DictionaryRepository>(create: (_) => DictionaryRepository()),
         Provider<WordRepository>(create: (_) => WordRepository()),
         Provider<WordMeaningRepository>(create: (_) => WordMeaningRepository()),
-        Provider<GrammarRepository>(create: (_) => GrammarRepository()),
+        Provider<LanguagePackManager>(create: (_) => LanguagePackManager()),
+        ProxyProvider<LanguagePackManager, GrammarRepository>(
+          update: (_, lp, __) => GrammarRepository(lp),
+        ),
         Provider<KanaRepository>(create: (_) => KanaRepository()),
         Provider<KanjiRepository>(create: (_) => KanjiRepository()),
         Provider<ExerciseRepository>(create: (_) => ExerciseRepository()),
         Provider<LevelRepository>(create: (_) => LevelRepository()),
-
-        // Services
-        Provider<LanguagePackManager>(create: (_) => LanguagePackManager()),
         ProxyProvider<SettingsRepository, AudioService>(
           update: (_, settings, __) => AudioService(settings),
           dispose: (_, audio) => audio.dispose(),
@@ -74,6 +78,41 @@ void main() async {
         ChangeNotifierProxyProvider2<LevelRepository, StatisticsService, SagaProvider>(
           create: (context) => SagaProvider(context.read<LevelRepository>(), context.read<StatisticsService>()),
           update: (context, levelRepo, stats, saga) => saga ?? SagaProvider(levelRepo, stats),
+        ),
+        ChangeNotifierProxyProvider4<KanaRepository, ScoreRepository, SettingsRepository, AudioService, TaquinProvider>(
+          create: (context) => TaquinProvider(
+            context.read<KanaRepository>(),
+            context.read<ScoreRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<AudioService>(),
+          ),
+          update: (context, kana, score, settings, audio, previous) => previous ?? TaquinProvider(kana, score, settings, audio),
+        ),
+        ChangeNotifierProxyProvider5<LevelContentProvider, WordRepository, ScoreRepository, SettingsRepository, AudioService, SnakeProvider>(
+          create: (context) => SnakeProvider(
+            context.read<LevelContentProvider>(),
+            context.read<WordRepository>(),
+            context.read<ScoreRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<AudioService>(),
+          ),
+          update: (context, content, word, score, settings, audio, previous) => previous ?? SnakeProvider(content, word, score, settings, audio),
+        ),
+        ChangeNotifierProxyProvider5<WordRepository, WordMeaningRepository, ScoreRepository, SettingsRepository, AudioService, CrosswordProvider>(
+          create: (context) => CrosswordProvider(
+            context.read<WordRepository>(),
+            context.read<WordMeaningRepository>(),
+            context.read<ScoreRepository>(),
+            context.read<SettingsRepository>(),
+            context.read<AudioService>(),
+          ),
+          update: (context, word, meaning, score, settings, audio, previous) => previous ?? CrosswordProvider(word, meaning, score, settings, audio),
+        ),
+        ChangeNotifierProxyProvider<ExerciseRepository, ParticleDefenderProvider>(
+          create: (context) => ParticleDefenderProvider(
+            context.read<ExerciseRepository>(),
+          ),
+          update: (context, exercise, previous) => previous ?? ParticleDefenderProvider(exercise),
         ),
       ],
       child: const NihongoMochiApp(),

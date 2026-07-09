@@ -92,9 +92,9 @@ class _GrammarViewState extends State<GrammarView> {
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF1A1A1A) : Colors.white,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-          image: DecorationImage(
+            image: DecorationImage(
             image: AssetImage(
-              isDark ? 'assets/drawable/lesson_bg_dark.png' : 'assets/drawable/lesson_bg_light.png',
+              isDark ? 'assets/drawable/lesson_bg_dark.webp' : 'assets/drawable/lesson_bg_light.webp',
             ),
             fit: BoxFit.fill,
           ),
@@ -187,7 +187,7 @@ class _GrammarViewState extends State<GrammarView> {
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemBuilder: (context, index) => Image.asset(
-                              'assets/drawable/stonepath.png',
+                              'assets/drawable/stonepath.webp',
                               fit: BoxFit.fitWidth,
                               opacity: const AlwaysStoppedAnimation(0.9),
                             ),
@@ -223,7 +223,7 @@ class _GrammarViewState extends State<GrammarView> {
                           ),
                           const SizedBox(height: 8),
                           Image.asset(
-                            'assets/drawable/toori.png',
+                            'assets/drawable/toori.webp',
                             height: 280,
                             fit: BoxFit.contain,
                           ),

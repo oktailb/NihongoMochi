@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'repositories/level_repository.dart';
+import 'repositories/settings_repository.dart';
 import 'services/string_provider.dart';
+import 'services/language_pack_manager.dart';
 import 'models/level.dart';
 import 'dictionary_screen.dart';
 import 'grammar_screen.dart';
@@ -11,8 +14,10 @@ import 'writing_quiz_screen.dart';
 import 'saga_map_screen.dart';
 import 'settings_screen.dart';
 import 'about_screen.dart';
+import 'games_screen.dart';
 import 'models/kana.dart';
 import 'widgets/mochi_background.dart';
+import 'providers/settings_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +27,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final LevelRepository _levelRepo = LevelRepository();
   final StringProvider _stringProvider = StringProvider();
 
   List<LevelDefinition> _levels = [];
@@ -32,16 +36,42 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _initData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initData();
+    });
   }
 
   Future<void> _initData() async {
-    await _stringProvider.loadStrings('fr-rFR');
-    final levels = await _levelRepo.getFlattenedLevels();
+    final lpManager = context.read<LanguagePackManager>();
+    final levelRepo = context.read<LevelRepository>();
+    final settings = context.read<SettingsRepository>();
+    
+    final locale = settings.getAppLocale(); // ex: "fr_FR"
+
+    // 1. Déclenche le téléchargement/mise à jour MD5 en arrière-plan
+    // On ne bloque pas l'UI, mais on attend que ce soit prêt si possible
+    await lpManager.downloadPack(locale);
+
+    // 2. Initialise les strings et les niveaux
+    String folderLocale = locale.replaceAll('_', '-r');
+    await _stringProvider.loadStrings(folderLocale);
+    final levels = await levelRepo.getFlattenedLevels();
+
     setState(() {
       _levels = levels;
       _isLoading = false;
     });
+  }
+
+  List<LevelDefinition> _getFilteredLevels(String mode) {
+    if (mode == "JLPT") {
+      return _levels.where((l) => l.id.toLowerCase().startsWith('n')).toList();
+    } else if (mode == "School") {
+      return _levels.where((l) => l.id.toLowerCase().startsWith('grade')).toList();
+    } else if (mode == "Challenge") {
+      return _levels.where((l) => l.id.toLowerCase().contains('challenge')).toList();
+    }
+    return _levels;
   }
 
   @override
@@ -50,7 +80,12 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    final currentLevel = _levels.isNotEmpty ? _levels[_selectedIndex] : null;
+    final mode = context.watch<SettingsProvider>().currentMode;
+    final filteredLevels = _getFilteredLevels(mode);
+    
+    // On s'assure que l'index est valide pour la liste filtrée
+    int displayIndex = _selectedIndex.clamp(0, (filteredLevels.length - 1).clamp(0, 999));
+    final currentLevel = filteredLevels.isNotEmpty ? filteredLevels[displayIndex] : null;
 
     return Scaffold(
       body: MochiBackground(
@@ -65,14 +100,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 120,
                   margin: const EdgeInsets.only(bottom: 16),
                   child: Image.asset(
-                    'assets/drawable/nihongomochi.png',
+                    'assets/drawable/nihongomochi.webp',
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) => const Icon(Icons.apps, size: 80, color: Colors.pink)
                   ),
                 ),
 
                 // Sélecteur de niveau (Slider)
-                if (currentLevel != null) _buildLevelSelector(currentLevel),
+                if (filteredLevels.isNotEmpty) _buildLevelSelector(filteredLevels, displayIndex),
                 const SizedBox(height: 16),
 
                 // Section Vocabulaire
@@ -113,8 +148,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: _buildSmallUtilityCard("Kanas", Icons.grid_on, () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaScreen(type: KanaType.hiragana, title: "Hiragana")));
+                      child: _buildSmallUtilityCard("Jeux", Icons.videogame_asset, () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const GamesScreen()));
                       }),
                     ),
                   ],
@@ -145,16 +180,22 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _navigateToGrammar(String block) {
-    if (_levels.isEmpty) return;
+    final mode = context.read<SettingsProvider>().currentMode;
+    final filteredLevels = _getFilteredLevels(mode);
+    if (filteredLevels.isEmpty) return;
+    
+    int displayIndex = _selectedIndex.clamp(0, (filteredLevels.length - 1).clamp(0, 999));
+    
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => GrammarScreen(maxLevelId: _levels[_selectedIndex].id),
+        builder: (context) => GrammarScreen(maxLevelId: filteredLevels[displayIndex].id),
       ),
     );
   }
 
-  Widget _buildLevelSelector(LevelDefinition level) {
+  Widget _buildLevelSelector(List<LevelDefinition> levels, int index) {
+    final level = levels[index];
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: Colors.white.withOpacity(0.9),
@@ -169,10 +210,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 4),
             Slider(
-              value: _selectedIndex.toDouble(),
+              value: index.toDouble(),
               min: 0,
-              max: (_levels.length - 1).toDouble().clamp(0, double.infinity),
-              divisions: (_levels.length > 1) ? _levels.length - 1 : 1,
+              max: (levels.length - 1).toDouble().clamp(0, double.infinity),
+              divisions: (levels.length > 1) ? levels.length - 1 : 1,
               activeColor: Colors.pink,
               onChanged: (value) {
                 setState(() => _selectedIndex = value.round());

@@ -9,7 +9,7 @@ class SnakePoint {
   final int x;
   final int y;
 
-  SnakePoint({required this.x, required this.y});
+  const SnakePoint({required this.x, required this.y});
 
   factory SnakePoint.fromJson(Map<String, dynamic> json) => _$SnakePointFromJson(json);
   Map<String, dynamic> toJson() => _$SnakePointToJson(this);

@@ -1,16 +1,33 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/grammar.dart';
+import '../services/language_pack_manager.dart';
 
 class GrammarRepository {
+  final LanguagePackManager _lpManager;
   GrammarDefinition? _definition;
   List<GrammarRule>? _cachedAllRules;
+
+  GrammarRepository(this._lpManager);
+
+  Future<String> _loadResource(String path, String localPath) async {
+    try {
+      final downloaded = await _lpManager.loadLocalResource(localPath);
+      if (downloaded != null) return downloaded;
+    } catch (e) {
+      print("LanguagePackManager error for $localPath: $e");
+    }
+    return await rootBundle.loadString(path);
+  }
 
   Future<GrammarDefinition> loadGrammarDefinition() async {
     if (_definition != null) return _definition!;
 
     try {
-      final String jsonString = await rootBundle.loadString('assets/files/grammar/grammar.json');
+      final String jsonString = await _loadResource(
+        'assets/files/grammar/grammar.json',
+        'grammar/grammar.json',
+      );
       final Map<String, dynamic> jsonData = json.decode(jsonString);
 
       _definition = GrammarDefinition.fromJson(jsonData);
@@ -89,7 +106,10 @@ class GrammarRepository {
   Future<String> loadCss(bool isDark) async {
     final fileName = isDark ? "styles_dark.css" : "styles_light.css";
     try {
-      return await rootBundle.loadString('assets/files/grammar/lessons/$fileName');
+      return await _loadResource(
+        'assets/files/grammar/lessons/$fileName',
+        'grammar/lessons/$fileName',
+      );
     } catch (e) {
       return isDark
           ? "body { color: #E0E0E0; background-color: #121212; }"
@@ -98,16 +118,17 @@ class GrammarRepository {
   }
 
   Future<String> loadLessonHtml(String ruleId, String languageCode) async {
-    // Tente de charger la version localisée, sinon fallback anglais
     try {
-      // Structure suggérée: assets/files/grammar/lessons/fr/lesson_id.html
-      return await rootBundle.loadString('assets/files/grammar/lessons/$languageCode/$ruleId.html');
-    } catch (e) {
+      final local = await _lpManager.loadLocalResource('grammar/lessons/$languageCode/$ruleId.html', locale: languageCode);
+      if (local != null) return local;
+
       try {
+        return await rootBundle.loadString('assets/files/grammar/lessons/$languageCode/$ruleId.html');
+      } catch (e) {
         return await rootBundle.loadString('assets/files/grammar/lessons/$ruleId.html');
-      } catch (e2) {
-        return "<h3>Lesson non trouvée</h3><p>Impossible de charger le contenu pour : $ruleId</p>";
       }
+    } catch (e) {
+      return "<h3>Lesson non trouvée</h3><p>Impossible de charger le contenu pour : $ruleId</p>";
     }
   }
 }

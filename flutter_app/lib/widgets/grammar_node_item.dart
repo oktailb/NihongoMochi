@@ -44,7 +44,7 @@ class GrammarNodeItem extends StatelessWidget {
                   ],
                   image: DecorationImage(
                     image: AssetImage(
-                      isDark ? 'assets/drawable/card_bg_dark.png' : 'assets/drawable/card_bg_light.png',
+                      isDark ? 'assets/drawable/card_bg_dark.webp' : 'assets/drawable/card_bg_light.webp',
                     ),
                     fit: BoxFit.fill,
                   ),
@@ -89,7 +89,7 @@ class GrammarNodeItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Image.asset('assets/drawable/have_lesson.png'),
+                    child: Image.asset('assets/drawable/have_lesson.webp'),
                   ),
                 ),
               ),

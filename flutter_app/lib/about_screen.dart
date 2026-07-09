@@ -64,7 +64,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         color: Colors.pink,
                       ),
                     ),
-                    Image.asset('assets/drawable/nihongomochi.png', width: 96),
+                    Image.asset('assets/drawable/nihongomochi.webp', width: 96),
                   ],
                 ),
                 const SizedBox(height: 24),
@@ -79,12 +79,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.asset('assets/drawable/ebi.png', width: 48, height: 48, errorBuilder: (_, __, ___) => const Icon(Icons.pets, size: 48)),
+                          child: Image.asset('assets/drawable/ebi.webp', width: 48, height: 48, errorBuilder: (_, __, ___) => const Icon(Icons.pets, size: 48)),
                         ),
                         const SizedBox(width: 12),
                         const Expanded(
                           child: Text(
-                            "In memoriam Ebi, qui nous a quittés durant le développement de cette application.",
+                            "In memoriam Ebi, mon toutounet adoré.",
                             style: TextStyle(fontSize: 12, color: Colors.black54, fontStyle: FontStyle.italic),
                           ),
                         ),
