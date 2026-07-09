@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~のみならず  - Non seulement... mais aussi - N2"
+  },
+  "exercises": [
+    {
+      "id": "nominarazu_001",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu", "N2"],
+      "payload": {
+        "sentence": "この病気は, 本人__家族にとっても辛いものだ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_002",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の強さは, 地球__宇宙全体に知れ渡っている。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_003",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "このレストランは, 味__サービスも一流だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nominarazu"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "。",
+        "blocks": ["アジア", "のみならず", "世界中で愛されている"]
+      }
+    },
+    {
+      "id": "nominarazu_005",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "彼は, 英語__中国語も話せる。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_006",
+      "type": "WORD_USAGE",
+      "tags": ["nominarazu"],
+      "payload": {
+        "word": "～のみならず ",
+        "options": [
+          { "text": "自分の部屋のみならず、家全体を掃除した。", "is_correct": true },
+          { "text": "漢字のみならず、ひらがなも書けない。", "is_correct": true },
+          { "text": "雨のみならず、雪も降ってきた。", "is_correct": true },
+          { "text": "勉強のみならず、遊ぶ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nominarazu_007",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの操縦には, 技術__強い精神力が必要だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_008",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "地震の被害は, 建物__人々の心にも深い傷を残した。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_009",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "この商品は, 機能__デザインも優れている。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_010",
+      "type": "PARAPHRASE",
+      "tags": ["nominarazu"],
+      "payload": {
+        "base_sentence": "彼は、平日はのみならず週末も働いている。",
+        "correct": "彼は平日に働くのはもちろんですが、それだけでなく週末も休まずに働いています。",
+        "distractors": [
+          "彼は平日は働きませんが、週末だけ働いています。",
+          "彼は平日も週末も働くのが嫌いです。",
+          "彼は平日に働くために、週末はしっかり休みます。"
+        ]
+      }
+    },
+    {
+      "id": "nominarazu_011",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "今回の失敗の原因は, 彼__我々全員にある。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nominarazu"],
+      "payload": {
+        "prefix": "スポーツは、",
+        "suffix": "。",
+        "blocks": ["勝つこと", "のみならず", "楽しむことが大切だ"]
+      }
+    },
+    {
+      "id": "nominarazu_013",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "この映画は, 子供__大人も感動する内容だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_014",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "環境問題は, 先進国__途上国にとっても大きな課題だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_015",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "彼女の魅力は, 外見__内面の美しさにある。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "「のみならず」全員だ。",
+        "correct": "のみならず",
+        "distractors": ["のみならぬ", "のみながら", "のみになり", "のみにしろ"]
+      }
+    },
+    {
+      "id": "nominarazu_017",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "この村には, 水道__電気も通っていない。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_018",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "彼は, 歌__ダンスもプロ級だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nominarazu"],
+      "payload": {
+        "prefix": "自分のことは",
+        "suffix": "。",
+        "blocks": ["のみならず", "周りの人のことも", "考えてほしい"]
+      }
+    },
+    {
+      "id": "nominarazu_020",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "冬の北海道は, 寒さ__雪の量も半端ではない。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_021",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu", "pop_culture"],
+      "payload": {
+        "sentence": "火影になるには, 実力__里を愛する心が必要だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_022",
+      "type": "WORD_USAGE",
+      "tags": ["nominarazu"],
+      "payload": {
+        "word": "～のみならず ",
+        "options": [
+          { "text": "家族のみならず、近所の人にもお世話になった。", "is_correct": true },
+          { "text": "本のみならず、雑誌もたくさん読んでいる。", "is_correct": true },
+          { "text": "雨のみならず、雪も降ってきた。", "is_correct": true },
+          { "text": "勉強のみならず、寝る。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nominarazu_023",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "今回のプロジェクトの成功は, 社長__社員全員の努力の結果だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_024",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "彼女は, 料理__裁縫も得意だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_025",
+      "type": "PARAPHRASE",
+      "tags": ["nominarazu"],
+      "payload": {
+        "base_sentence": "この本は, 内容のみならず装丁も素晴らしい。",
+        "correct": "この本は内容が良いことは言うまでもありませんが、それだけでなく表紙などのデザインも非常に素晴らしいです。",
+        "distractors": [
+          "この本は内容が良いので、装丁はどうでもいいです。",
+          "この本は内容が良いと言われましたが、装丁は良くありませんでした。",
+          "この本は内容が良いおかげで、装丁も褒められました。"
+        ]
+      }
+    },
+    {
+      "id": "nominarazu_026",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "健康管理は, プロの選手__一般の人にとっても大切だ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_027",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "彼は, 性格__頭もいい。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nominarazu"],
+      "payload": {
+        "prefix": "日本は、",
+        "suffix": "。",
+        "blocks": ["アジア", "のみならず", "世界的に見ても安全な国だ"]
+      }
+    },
+    {
+      "id": "nominarazu_029",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "この町は, 歴史__自然も豊かだ。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "nominarazu_030",
+      "type": "FILL_BLANK",
+      "tags": ["nominarazu"],
+      "payload": {
+        "sentence": "未来のことは, 本人__誰にもわからない。",
+        "correct": "のみならず",
+        "distractors": ["ばかりに", "どころか", "反面", "ながら"]
+      }
+    }
+  ]
+}

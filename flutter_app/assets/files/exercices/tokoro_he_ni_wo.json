@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～ところへ・に・を - La maîtrise du timing et de l'interruption. "
+  },
+  "exercises": [
+    {
+      "id": "twn_001",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "出かけようとしている__、友達が訪ねてきた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところばかり", "ところは", "ところで"]
+      }
+    },
+    {
+      "id": "twn_002",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "こっそりお菓子を食べている__、母に見つかった。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり", "ところは"]
+      }
+    },
+    {
+      "id": "twn_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "prefix": "忙しい",
+        "suffix": "、電話がかかってきた。",
+        "blocks": ["ところに"]
+      }
+    },
+    {
+      "id": "twn_004",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "お忙しい__すみませんが、少々お時間をいただけますか。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_005",
+      "type": "WORD_USAGE",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "word": "ところを",
+        "options": [
+          { "text": "泥棒が逃げようとするところを、警官が捕まえた。", "is_correct": true },
+          { "text": "寝ているところを、大きな音で起こされた。", "is_correct": true },
+          { "text": "学校へ行くところを、雨が降ってきた。", "is_correct": false },
+          { "text": "勉強したところを、100点を取った。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "twn_006",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "ちょうどお茶を飲んでいる__、彼がやってきた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところは", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_007",
+      "type": "PARAPHRASE",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "base_sentence": "寝ようとしていた時に、電話が鳴りました。",
+        "correct": "寝ようとしているところに、電話が鳴りました。",
+        "distractors": [
+          "寝ようとしているところを、電話が鳴りました。",
+          "寝ようとしているところばかり、電話が鳴りました。",
+          "寝ようとしているところは、電話が鳴りました。"
+        ]
+      }
+    },
+    {
+      "id": "twn_008",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "デートしている__、偶然先生に会ってしまった。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_009",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "いい__に来てくれた。手伝ってよ。",
+        "correct": "ところ",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "prefix": "宿題を",
+        "suffix": "、弟が遊びに来た。",
+        "blocks": ["始めようと", "している", "ところへ"]
+      }
+    },
+    {
+      "id": "twn_011",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "嘘をついている__、すぐにバレてしまった。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "「危ない」ところに、助けが来た。",
+        "correct": "あぶない",
+        "distractors": ["きけん", "こわい", "はやい"]
+      }
+    },
+    {
+      "id": "twn_013",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "ちょうど話していた__、本人が現れた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_014",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "お休みの__失礼いたします。",
+        "correct": "ところに",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_015",
+      "type": "WORD_USAGE",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "word": "ところへ",
+        "options": [
+          { "text": "ちょうどいいところへ、お迎えが来た。", "is_correct": true },
+          { "text": "迷っているところへ、アドバイスをもらった。", "is_correct": true },
+          { "text": "勉強しているところへ、100点を取った。", "is_correct": false },
+          { "text": "ご飯を食べているところへ、お腹がいっぱいです。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "twn_016",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "信号を無視して走っている__、警察に止められた。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_017",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "困っている__、救いの手が差し伸べられた。",
+        "correct": "ところに",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "prefix": "犯人が",
+        "suffix": "、逮捕された。",
+        "blocks": ["逃げようと", "している", "ところを"]
+      }
+    },
+    {
+      "id": "twn_019",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "追い詰められた__、一筋の光が差した。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_020",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "雨が降っている__、さらに風まで吹いてきた。",
+        "correct": "ところに",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_021",
+      "type": "PARAPHRASE",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "base_sentence": "サボっていた時に、上司に見つかりました。",
+        "correct": "サボっているところを、上司に見つかりました。",
+        "distractors": [
+          "サボっているところに、上司に見つかりました。",
+          "サボっているところへ、上司に見つかりました。",
+          "サボっているところばかり、上司に見つかりました。"
+        ]
+      }
+    },
+    {
+      "id": "twn_022",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "崖から落ちそうになった__、彼が助けてくれた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_023",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "静かにしている__、急に大きな音がした。",
+        "correct": "ところに",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "「秘密」を話しているところを聞かれた。",
+        "correct": "ひみつ",
+        "distractors": ["はなし", "ことば", "うそ"]
+      }
+    },
+    {
+      "id": "twn_025",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "お腹が空いている__、美味しそうな匂いがしてきた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_026",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "sentence": "仕事が一段落した__、新しい依頼が来た。",
+        "correct": "ところに",
+        "distractors": ["ところを", "ところへ", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tokoro_ni"],
+      "payload": {
+        "prefix": "ちょうど",
+        "suffix": "、お菓子があった。",
+        "blocks": ["お腹が", "空いた", "ところに"]
+      }
+    },
+    {
+      "id": "twn_028",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "居眠りしている__、写真を撮られた。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_029",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_he"],
+      "payload": {
+        "sentence": "諦めかけた__、一通のメールが届いた。",
+        "correct": "ところへ",
+        "distractors": ["ところを", "ところに", "ところばかり"]
+      }
+    },
+    {
+      "id": "twn_030",
+      "type": "FILL_BLANK",
+      "tags": ["tokoro_wo"],
+      "payload": {
+        "sentence": "君が泣いている__、抱きしめたかった。",
+        "correct": "ところを",
+        "distractors": ["ところへ", "ところに", "ところばかり"]
+      }
+    }
+  ]
+}

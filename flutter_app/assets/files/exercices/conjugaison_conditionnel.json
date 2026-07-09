@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la conjugaison du conditionnel  - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "cond_001",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison", "N5"],
+      "payload": {
+        "sentence": "安けれ__、買います。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_002",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison", "pop_culture"],
+      "payload": {
+        "sentence": "肉を食べ__、ルフィは元気になります。",
+        "correct": "れば",
+        "distractors": ["たら", "なら", "と", "ば"]
+      }
+    },
+    {
+      "id": "cond_003",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "雨が降っ__、ピクニックは中止です。",
+        "correct": "たら",
+        "distractors": ["ば", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjugaison"],
+      "payload": {
+        "prefix": "春に",
+        "suffix": "咲きます。",
+        "blocks": ["なる", "と", "桜が"]
+      }
+    },
+    {
+      "id": "cond_005",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "明日暇__、遊びに行きませんか。",
+        "correct": "なら",
+        "distractors": ["たら", "れば", "と", "ば"]
+      }
+    },
+    {
+      "id": "cond_006",
+      "type": "WORD_USAGE",
+      "tags": ["conjugaison"],
+      "payload": {
+        "word": "～たら ",
+        "options": [
+          { "text": "家に着いたら、電話してください。", "is_correct": true },
+          { "text": "お金があったら、旅行したい。", "is_correct": true },
+          { "text": "冬になると、寒くなる。", "is_correct": false },
+          { "text": "雨が降ったら、行きません。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "cond_007",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison", "pop_culture"],
+      "payload": {
+        "sentence": "スーパーサイヤ人になれ__、勝てるはずだ。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_008",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "練習す__ば、上手になりますよ。",
+        "correct": "れ",
+        "distractors": ["れれ", "れば", "ら", "れら"]
+      }
+    },
+    {
+      "id": "cond_009",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "薬を飲め__、すぐによくなります。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_010",
+      "type": "PARAPHRASE",
+      "tags": ["conjugaison"],
+      "payload": {
+        "base_sentence": "窓を開けると、涼しい風が入ってきました。",
+        "correct": "窓を開けた直後に、涼しい風が入ってくるのがわかりました。",
+        "distractors": [
+          "窓を開けるために、涼しい風を待ちました。",
+          "窓を開けた後で、涼しい風が止まりました。",
+          "窓を開けなければ、涼しい風は入りません。"
+        ]
+      }
+    },
+    {
+      "id": "cond_011",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "行きたくなけれ__、行かなくてもいいですよ。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjugaison"],
+      "payload": {
+        "prefix": "わからない",
+        "suffix": "聞いてください。",
+        "blocks": ["ことが", "あっ", "たら"]
+      }
+    },
+    {
+      "id": "cond_013",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "暇__、手伝ってください。",
+        "correct": "だったら",
+        "distractors": ["なれば", "なったら", "なら", "ならば"]
+      }
+    },
+    {
+      "id": "cond_014",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "100円入れ__、ジュースが出ます。",
+        "correct": "ると",
+        "distractors": ["れば", "たら", "なら", "たなら"]
+      }
+    },
+    {
+      "id": "cond_015",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "忙しくなけれ__、明日会いましょう。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "「安ければ」買う。",
+        "correct": "やすければ",
+        "distractors": ["やすけたら", "やすけなら", "やすけと", "やすけば"]
+      }
+    },
+    {
+      "id": "cond_017",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "食べ__、お腹がいっぱいになります。",
+        "correct": "れば",
+        "distractors": ["たら", "なら", "と", "ば"]
+      }
+    },
+    {
+      "id": "cond_018",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "明日晴れ__、公園へ行きましょう。",
+        "correct": "たら",
+        "distractors": ["ば", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjugaison"],
+      "payload": {
+        "prefix": "薬を",
+        "suffix": "治りますよ。",
+        "blocks": ["飲め", "ば", "すぐに"]
+      }
+    },
+    {
+      "id": "cond_020",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "このボタンを押す__、電気がつきます。",
+        "correct": "と",
+        "distractors": ["ば", "たら", "なら", "たなら"]
+      }
+    },
+    {
+      "id": "cond_021",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗らなけれ__、世界は終わる。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_022",
+      "type": "WORD_USAGE",
+      "tags": ["conjugaison"],
+      "payload": {
+        "word": "～と ",
+        "options": [
+          { "text": "冬になると雪が降ります。", "is_correct": true },
+          { "text": "真っ直ぐ行くと駅があります。", "is_correct": true },
+          { "text": "安ければ買う。", "is_correct": false },
+          { "text": "開けると涼しい風が来た。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "cond_023",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "時間があれ__、教えてください。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_024",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "嫌だっ__、やめてもいいですよ。",
+        "correct": "たら",
+        "distractors": ["ば", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_025",
+      "type": "PARAPHRASE",
+      "tags": ["conjugaison"],
+      "payload": {
+        "base_sentence": "お金があれば、家を買いたいです。",
+        "correct": "もし十分なお金を持っているという状況なら、家を買いたいという願いがあります。",
+        "distractors": [
+          "お金がないので、家を買うのをやめました。",
+          "お金を貯めるために、家を売りました。",
+          "お金があった後で、家を買いました。"
+        ]
+      }
+    },
+    {
+      "id": "cond_026",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "映画が好き__、一緒に見に行きましょう。",
+        "correct": "なら",
+        "distractors": ["たら", "れば", "と", "ば"]
+      }
+    },
+    {
+      "id": "cond_027",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "寒けれ__、コートを着てください。",
+        "correct": "ば",
+        "distractors": ["たら", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjugaison"],
+      "payload": {
+        "prefix": "毎日",
+        "suffix": "上手になる。",
+        "blocks": ["練習", "すれば", "きっと"]
+      }
+    },
+    {
+      "id": "cond_029",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "駅に着い__、電話してください。",
+        "correct": "たら",
+        "distractors": ["ば", "なら", "と", "れば"]
+      }
+    },
+    {
+      "id": "cond_030",
+      "type": "FILL_BLANK",
+      "tags": ["conjugaison"],
+      "payload": {
+        "sentence": "右に曲がる__、郵便局があります。",
+        "correct": "と",
+        "distractors": ["ば", "たら", "なら", "たなら"]
+      }
+    }
+  ]
+}

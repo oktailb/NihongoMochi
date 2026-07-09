@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du But du Déplacement  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "move_001",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "デパートへ靴を__に行きます。",
+        "correct": "買い",
+        "distractors": ["買う", "買って", "買わ", "買いた", "買いし"]
+      }
+    },
+    {
+      "id": "move_002",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "図書館へ本を__に行きました。",
+        "correct": "借り",
+        "distractors": ["借りる", "借りて", "借りた", "借りな", "借りし"]
+      }
+    },
+    {
+      "id": "move_003",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "日本へ遊び__来てください。",
+        "correct": "に",
+        "distractors": ["を", "が", "で", "へ", "から"]
+      }
+    },
+    {
+      "id": "move_004",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "レストランへご飯を__に行きましょう。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べて", "食べた", "食べな", "食べし"]
+      }
+    },
+    {
+      "id": "move_005",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "pop_culture"],
+      "payload": {
+        "sentence": "ゾロは修行__行きました。",
+        "correct": "に",
+        "distractors": ["を", "が", "で", "へ", "から"]
+      }
+    },
+    {
+      "id": "move_006",
+      "type": "WORD_USAGE",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "word": "〜に 行く ",
+        "options": [
+          { "text": "映画を見に行きます。", "is_correct": true },
+          { "text": "友達に会いに行きました。", "is_correct": true },
+          { "text": "買い物に行きます。", "is_correct": true },
+          { "text": "本を買うに行きます。 ", "is_correct": false },
+          { "text": "日本語を勉強するに行きます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "move_007",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "郵便局へ切手を__に行きます。",
+        "correct": "買い",
+        "distractors": ["買う", "買って", "買わ", "買いし", "買った"]
+      }
+    },
+    {
+      "id": "move_008",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "公園へ__に行きませんか。",
+        "correct": "散歩",
+        "distractors": ["散歩し", "散歩する", "散歩に", "散歩して", "散歩した"]
+      }
+    },
+    {
+      "id": "move_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "prefix": "明日、一緒に",
+        "suffix": "行きませんか。",
+        "blocks": ["泳ぎに"]
+      }
+    },
+    {
+      "id": "move_010",
+      "type": "PARAPHRASE",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "base_sentence": "ご飯を食べに行きます。",
+        "correct": "食事をすることを目的として、レストランなどへ移動します。",
+        "distractors": [
+          "ご飯を食べてから行きます。",
+          "ご飯を食べながら行きます。",
+          "ご飯を食べる前に行きます。",
+          "ご飯を食べた後で行きます。"
+        ]
+      }
+    },
+    {
+      "id": "move_011",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "駅へ友達を__に行きます。",
+        "correct": "迎え",
+        "distractors": ["迎える", "迎えて", "迎えた", "迎えな", "迎えし"]
+      }
+    },
+    {
+      "id": "move_012",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "海へ__に行きたいです。",
+        "correct": "泳ぎ",
+        "distractors": ["泳ぐ", "泳いで", "泳いだ", "泳が", "泳ぎし"]
+      }
+    },
+    {
+      "id": "move_013",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "喫茶店へコーヒーを__に行きましょう。",
+        "correct": "飲み",
+        "distractors": ["飲む", "飲んで", "飲んだ", "飲な", "飲みし"]
+      }
+    },
+    {
+      "id": "move_014",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトはラーメンを__に行きました。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べて", "食べた", "食べな", "食べし"]
+      }
+    },
+    {
+      "id": "move_015",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "山へ写真を__に行きました。",
+        "correct": "撮り",
+        "distractors": ["撮る", "撮って", "撮った", "撮ら", "撮りし"]
+      }
+    },
+    {
+      "id": "move_016",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "先生の家へ日本語を__に行きます。",
+        "correct": "習い",
+        "distractors": ["習う", "習って", "習った", "習わ", "習いし"]
+      }
+    },
+    {
+      "id": "move_017",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "デパートへお土産を__に行きました。",
+        "correct": "買い",
+        "distractors": ["買う", "買って", "買わ", "買いし", "買った"]
+      }
+    },
+    {
+      "id": "move_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "sentence": "京都へ「遊び」に行きました。",
+        "correct": "あそび",
+        "distractors": ["まなび", "はこび", "えらび", "あそびな"]
+      }
+    },
+    {
+      "id": "move_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_ni_iku_kuru"],
+      "payload": {
+        "prefix": "銀行へお金を",
+        "suffix": "行きます。",
+        "blocks": ["下ろしに"]
+      }
+    },
+    {
+      "id": "move_020",
+      "type": "FILL_BLANK",
+      "tags": ["base_ni_iku_kuru", "traps"],
+      "payload": {
+        "sentence": "明日、何を__に行きますか。",
+        "correct": "し",
+        "distractors": ["する", "して", "した", "しな", "しに"]
+      }
+    }
+  ]
+}

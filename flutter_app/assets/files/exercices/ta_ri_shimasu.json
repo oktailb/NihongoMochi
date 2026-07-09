@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Liste d'Actions  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "tari_001",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "sentence": "週末は本を読んだり、テレビを__します。",
+        "correct": "見たり",
+        "distractors": ["見て", "見な", "見た", "見るたり", "見しり"]
+      }
+    },
+    {
+      "id": "tari_002",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu", "traps"],
+      "payload": {
+        "sentence": "昨日は買い物を__、映画を見たりしました。",
+        "correct": "したり",
+        "distractors": ["して", "した", "するり", "しり", "しな"]
+      }
+    },
+    {
+      "id": "tari_003",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "sentence": "休みの日は泳いだり、山に__します。",
+        "correct": "登ったり",
+        "distractors": ["登るたり", "登りたり", "登って", "登った", "登な"]
+      }
+    },
+    {
+      "id": "tari_004",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu", "traps"],
+      "payload": {
+        "sentence": "掃除をしたり、洗濯をしたり__。",
+        "correct": "します",
+        "distractors": ["しました", "する", "して", "あります", "います"]
+      }
+    },
+    {
+      "id": "tari_005",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu", "pop_culture"],
+      "payload": {
+        "sentence": "修行をしたり、海賊と__りします。",
+        "correct": "戦った",
+        "distractors": ["戦う", "戦い", "戦って", "戦ったな", "戦わ"]
+      }
+    },
+    {
+      "id": "tari_006",
+      "type": "WORD_USAGE",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "word": "〜たり〜たりする ",
+        "options": [
+          { "text": "音楽を聴いたり本を読んだりします。", "is_correct": true },
+          { "text": "昨日は歌ったり踊ったりしました。", "is_correct": true },
+          { "text": "食べたり寝たりしました。", "is_correct": true },
+          { "text": "学校へ行ったり来たりします。", "is_correct": true },
+          { "text": "明日食べたり飲みりします。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tari_007",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "sentence": "手紙を書いたり、写真を__りしました。",
+        "correct": "撮った",
+        "distractors": ["撮る", "撮り", "撮って", "撮ったな", "撮ら"]
+      }
+    },
+    {
+      "id": "tari_008",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ri_shimasu", "traps"],
+      "payload": {
+        "sentence": "昨日、公園で遊んだり__。",
+        "correct": "しました",
+        "distractors": ["します", "した", "あります", "いました", "でした"]
+      }
+    },
+    {
+      "id": "tari_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "prefix": "日曜日は",
+        "suffix": "します。",
+        "blocks": ["掃除をしたり", "洗濯をしたり"]
+      }
+    },
+    {
+      "id": "tari_010",
+      "type": "PARAPHRASE",
+      "tags": ["ta_ri_shimasu"],
+      "payload": {
+        "base_sentence": "昨日は本を読んだりテレビを見たりしました。",
+        "correct": "昨日したことは、読書やテレビ鑑賞などです（他にもしたかもしれません）。",
+        "distractors": [
+          "昨日したことは、本を読むこととテレビを見ることだけでした。",
+          "昨日したことは、本を読んでからテレビを見ることでした。",
+          "昨日したことは、本を読みながらテレビを見ることでした。",
+          "昨日は本を読みましたが、テレビは見ませんでした。"
+        ]
+      }
+    }
+  ]
+}

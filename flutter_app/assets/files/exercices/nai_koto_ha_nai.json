@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ないことはない  - Double négation / Affirmation nuancée - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "naikotowanai_001",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai", "N3"],
+      "payload": {
+        "sentence": "納豆は、食べ__。",
+        "correct": "られないことはない",
+        "distractors": ["られないことはある", "られないわけではない", "られないはずがない", "られないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_002",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai", "pop_culture"],
+      "payload": {
+        "sentence": "悟空に勝つ方法は、__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_003",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "お酒は、飲め__が、あまり好きではない。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "prefix": "漢字は、",
+        "suffix": "。",
+        "blocks": ["書けない", "ことはないが", "少し時間がかかる"]
+      }
+    },
+    {
+      "id": "naikotowanai_005",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "毎日走れ__が、雨の日は嫌だ。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_006",
+      "type": "WORD_USAGE",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "word": "～ないことはない ",
+        "options": [
+          { "text": "行けないことはないが、遠い。", "is_correct": true },
+          { "text": "わからないことはないが、説明が難しい。", "is_correct": true },
+          { "text": "雨が降らないことはない。", "is_correct": true },
+          { "text": "勉強しないことはない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "naikotowanai_007",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザを倒すことができ__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_008",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "時間は、__が、急ぐ必要がある。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_009",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "その条件で、引き受け__。",
+        "correct": "られないことはない",
+        "distractors": ["られないことはある", "られないわけではない", "られないはずがない", "られないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_010",
+      "type": "PARAPHRASE",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "base_sentence": "彼は、来られないことはないと言っています。",
+        "correct": "彼は、来ることは可能ですが、何か別の事情や条件があるかもしれないというニュアンスを含んでいます。",
+        "distractors": [
+          "彼は絶対に来ると言っています。",
+          "彼は来ることができないと言っています。",
+          "彼は来るかどうか、まだ決めていません。"
+        ]
+      }
+    },
+    {
+      "id": "naikotowanai_011",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "一人で歩け__が、誰かと一緒のほうがいい。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["料理は", "食べられない", "ことはないが、少し辛い"]
+      }
+    },
+    {
+      "id": "naikotowanai_013",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "明日、会え__が、時間が短い。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_014",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "日本語が話せ__が、まだ完璧ではない。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_015",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "自分でも作れ__が、買ったほうが早い。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "「できないことはない」。",
+        "correct": "できないことはない",
+        "distractors": ["できないことはある", "できないわけではない", "できないはずがない", "できないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_017",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "一度失敗しても、やり直せ__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_018",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "彼の気持ちが、わから__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。",
+        "blocks": ["話は", "信じられない", "ことはないが、少し怪しい"]
+      }
+    },
+    {
+      "id": "naikotowanai_020",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "車があれば、行け__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_021",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗ることができ__が、覚悟が必要だ。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_022",
+      "type": "WORD_USAGE",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "word": "～ないことはない ",
+        "options": [
+          { "text": "嫌いなことはないが、あまり食べない。", "is_correct": true },
+          { "text": "忙しくないことはないが、時間は作れる。", "is_correct": true },
+          { "text": "雨が降らないことはない。", "is_correct": true },
+          { "text": "勉強しないことはない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "naikotowanai_023",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "お金は、__が、大切に使いたい。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_024",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "一人で行け__が、道が不安だ。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_025",
+      "type": "PARAPHRASE",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "base_sentence": "わからなくはないが、納得もできない。",
+        "correct": "相手の言っている理屈は理解できますが、それでも心から賛成したり同意したりすることはできません。",
+        "distractors": [
+          "相手の言っていることが全くわかりません。",
+          "相手の言っていることに100%賛成です。",
+          "相手の言っていることがわかるので、すぐに承諾しました。"
+        ]
+      }
+    },
+    {
+      "id": "naikotowanai_026",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "辞書があれば、読め__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_027",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "彼を信じ__が、少し不安だ。",
+        "correct": "られないことはない",
+        "distractors": ["られないことはある", "られないわけではない", "られないはずがない", "られないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "prefix": "不可能では",
+        "suffix": "。",
+        "blocks": ["ない", "ことはないが", "非常に難しい"]
+      }
+    },
+    {
+      "id": "naikotowanai_029",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "安ければ、買わ__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    },
+    {
+      "id": "naikotowanai_030",
+      "type": "FILL_BLANK",
+      "tags": ["naikotowanai"],
+      "payload": {
+        "sentence": "未来は、変えられ__。",
+        "correct": "ないことはない",
+        "distractors": ["ないことはある", "ないわけではない", "ないはずがない", "ないことではない"]
+      }
+    }
+  ]
+}

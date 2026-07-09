@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～としたら・とすれば - L'exploration des hypothèses. "
+  },
+  "exercises": [
+    {
+      "id": "tss_001",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "もし宝くじが当たった__、何をしますか。",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "とばかりに", "とすればこそ"]
+      }
+    },
+    {
+      "id": "tss_002",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "明日、世界が終わる__、何を食べたいですか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "とばかりに", "といったら"]
+      }
+    },
+    {
+      "id": "tss_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_shitara"],
+      "payload": {
+        "prefix": "無人島に",
+        "suffix": "、何を持っていきますか。",
+        "blocks": ["一つだけ", "持っていける", "としたら"]
+      }
+    },
+    {
+      "id": "tss_004",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "生まれ変われる__、何になりたい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_005",
+      "type": "WORD_USAGE",
+      "tags": ["to_shitara"],
+      "payload": {
+        "word": "としたら",
+        "options": [
+          { "text": "もし彼が犯人だとしたら、動機は何だろう。", "is_correct": true },
+          { "text": "あの話が本当だとしたら、大変なことになる。", "is_correct": true },
+          { "text": "ご飯を食べたとしたら、お腹がいっぱいです。", "is_correct": false },
+          { "text": "勉強したとしたら、上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tss_006",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "家を建てる__、静かな場所がいい。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_007",
+      "type": "PARAPHRASE",
+      "tags": ["to_shitara"],
+      "payload": {
+        "base_sentence": "もし時間が自由になるなら、何をしたいですか。",
+        "correct": "時間が自由になるとしたら、何をしたいですか。",
+        "distractors": [
+          "時間が自由になるとすれば、何をしたいですか。",
+          "時間が自由になるといっても、何をしたいですか。",
+          "時間が自由になるとばかりに、何をしたいですか。"
+        ]
+      }
+    },
+    {
+      "id": "tss_008",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "タイムマシンがある__、過去と未来、どっちに行きたい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_009",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "留学する__、どの国に行きたいですか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_shitara"],
+      "payload": {
+        "prefix": "もし",
+        "suffix": "、すぐに逃げてください。",
+        "blocks": ["火事が", "起きた", "としたら"]
+      }
+    },
+    {
+      "id": "tss_011",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "一つだけ願いが叶う__、何を願う？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "「事実」だとすれば、謝らなければならない。",
+        "correct": "じじつ",
+        "distractors": ["しんじつ", "うそ", "ゆめ"]
+      }
+    },
+    {
+      "id": "tss_013",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "空を飛べる__、どこへ行きたい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_014",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "成功の秘訣を聞かれる__、何と答えますか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_015",
+      "type": "WORD_USAGE",
+      "tags": ["to_sureba"],
+      "payload": {
+        "word": "とすれば",
+        "options": [
+          { "text": "彼が来ないとすれば、中止するしかない。", "is_correct": true },
+          { "text": "予算が足りないとすれば、計画を見直そう。", "is_correct": true },
+          { "text": "勉強したとすれば、上手になります。", "is_correct": false },
+          { "text": "雨が降ったとすれば、傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tss_016",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "1億円もらった__、どう使いますか。",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_017",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "誰か一人に会える__、誰に会いたい？",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_shitara"],
+      "payload": {
+        "prefix": "もし",
+        "suffix": "、私は幸せだ。",
+        "blocks": ["君が", "僕を", "好きだ", "としたら"]
+      }
+    },
+    {
+      "id": "tss_019",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "魔法が使える__、どんな魔法がいい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_020",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "一生一つのものしか食べられない__、何を選ぶ？",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_021",
+      "type": "PARAPHRASE",
+      "tags": ["to_sureba"],
+      "payload": {
+        "base_sentence": "もし彼が知らないというなら、誰が知っているのですか。",
+        "correct": "彼が知らないとすれば、誰が知っているのですか。",
+        "distractors": [
+          "彼が知らないとしたら、誰が知っているのですか。",
+          "彼が知らないといっても、誰が知っているのですか。",
+          "彼が知らないとばかりに、誰が知っているのですか。"
+        ]
+      }
+    },
+    {
+      "id": "tss_022",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "動物と話せる__、どの動物と話したい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_023",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "仕事を変える__、どんな仕事がいいですか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "「透明」人間になれるとしたら、何をしますか。",
+        "correct": "とうめい",
+        "distractors": ["みえない", "きえる", "ふしぎ"]
+      }
+    },
+    {
+      "id": "tss_025",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "歴史上の人物になれる__、誰になりたい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_026",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "明日から1ヶ月休みだ__、何をしますか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_sureba"],
+      "payload": {
+        "prefix": "もし",
+        "suffix": "、彼が犯人に違いない。",
+        "blocks": ["その話が", "嘘だと", "すれば"]
+      }
+    },
+    {
+      "id": "tss_028",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "世界中どこでも住める__、どこがいい？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_029",
+      "type": "FILL_BLANK",
+      "tags": ["to_sureba"],
+      "payload": {
+        "sentence": "一番大切なものを守る__、どうしますか。",
+        "correct": "とすれば",
+        "distractors": ["としたら", "としても", "といったら"]
+      }
+    },
+    {
+      "id": "tss_030",
+      "type": "FILL_BLANK",
+      "tags": ["to_shitara"],
+      "payload": {
+        "sentence": "君が僕の立場だ__、どう思う？",
+        "correct": "としたら",
+        "distractors": ["とすれば", "としても", "といったら"]
+      }
+    }
+  ]
+}

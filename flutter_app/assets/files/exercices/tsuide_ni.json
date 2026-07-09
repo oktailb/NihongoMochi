@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～ついでに - L'art de l'opportunisme pratique. "
+  },
+  "exercises": [
+    {
+      "id": "tni_001",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "散歩の__、コンビニでパンを買ってきた。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tni_002",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "東京へ行く__、友達に会おうと思っています。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tni_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "prefix": "郵便局へ",
+        "suffix": "、この手紙を出してきて。",
+        "blocks": ["行く", "ついでに"]
+      }
+    },
+    {
+      "id": "tni_004",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "掃除をする__、窓も拭きました。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_005",
+      "type": "WORD_USAGE",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "word": "ついでに",
+        "options": [
+          { "text": "買い物のついでに、図書館に寄った。", "is_correct": true },
+          { "text": "料理を作るついでに、明日のお弁当も作った。", "is_correct": true },
+          { "text": "ご飯をついでに食べました。", "is_correct": false },
+          { "text": "勉強をついでに上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tni_006",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "出張の__、観光もしてきました。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_007",
+      "type": "PARAPHRASE",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "base_sentence": "用事で外に出るので、その時に買い物もします。",
+        "correct": "用事で外出するついでに、買い物もします。",
+        "distractors": [
+          "用事で外出するうちに、買い物もします。",
+          "用事で外出するところで、買い物もします。",
+          "用事で外出するばかりに、買い物もします。"
+        ]
+      }
+    },
+    {
+      "id": "tni_008",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "お茶を入れる__、私にも一杯お願いします。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_009",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "資料をコピーする__、私の分も頼める？",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "prefix": "本を",
+        "suffix": "、この雑誌も買ってきて。",
+        "blocks": ["買う", "ついでに"]
+      }
+    },
+    {
+      "id": "tni_011",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "台所へ行く__、水を一杯持ってきて。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "「帰宅」のついでに、クリーニング屋に寄った。",
+        "correct": "きたく",
+        "distractors": ["りょこう", "かいもの", "べんきょう"]
+      }
+    },
+    {
+      "id": "tni_013",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "映画を見る__、パンフレットも買った。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_014",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "花に水をやる__、庭の掃除もした。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_015",
+      "type": "WORD_USAGE",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "word": "ついでに",
+        "options": [
+          { "text": "パソコンを直すついでに、中を掃除した。", "is_correct": true },
+          { "text": "旅行のついでに、現地の言葉を少し覚えた。", "is_correct": true },
+          { "text": "毎日散歩をついでに、健康になります。", "is_correct": false },
+          { "text": "雨がついでに、傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tni_016",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "車を洗う__、ワックスもかけておこう。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_017",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "写真を送る__、動画も見せてあげよう。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "prefix": "ゴミを",
+        "suffix": "、郵便受けを見てきて。",
+        "blocks": ["捨てる", "ついでに"]
+      }
+    },
+    {
+      "id": "tni_019",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "名前を書く__、住所も書いておいてください。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_020",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "話をする__、悩みも相談してみたら？",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_021",
+      "type": "PARAPHRASE",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "base_sentence": "駅まで行くなら、その時にこの切符も買ってきて。",
+        "correct": "駅まで行くついでに、この切符も買ってきて。",
+        "distractors": [
+          "駅まで行くうちに、この切符も買ってきて。",
+          "駅まで行くところで、この切符も買ってきて。",
+          "駅まで行くばかりに、この切符도買ってきて。"
+        ]
+      }
+    },
+    {
+      "id": "tni_022",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "靴を脱ぐ__、揃えておきなさい。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tsu_023",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "料理を作る__、ガス台も拭いておこう。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "「散歩」のついでに、パンを買った。",
+        "correct": "さんぽ",
+        "distractors": ["かいもの", "りょこう", "しゅっちょう"]
+      }
+    },
+    {
+      "id": "tni_025",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "手紙を書く__、写真も同封した。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_026",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "髪を切る__、髭も剃ってもらった。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "prefix": "挨拶の",
+        "suffix": "、結婚の報告もした。",
+        "blocks": ["ついでに"]
+      }
+    },
+    {
+      "id": "tni_028",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "服を洗う__、スニーカーも洗った。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_029",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "お皿を洗う__、シンクも磨いた。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    },
+    {
+      "id": "tni_030",
+      "type": "FILL_BLANK",
+      "tags": ["tsuide_ni"],
+      "payload": {
+        "sentence": "君に会う__、言いたいことがあったんだ。",
+        "correct": "ついでに",
+        "distractors": ["うちに", "ところで", "ばかりに"]
+      }
+    }
+  ]
+}

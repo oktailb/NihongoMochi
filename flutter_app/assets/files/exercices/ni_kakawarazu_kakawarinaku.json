@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur に関わらず・に関わりなく - L'indifférence aux conditions. "
+  },
+  "exercises": [
+    {
+      "id": "nkk_001",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "天候__、試合は行われます。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に際して", "に限定して"]
+      }
+    },
+    {
+      "id": "nkk_002",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "年齢__、どなたでも参加できます。",
+        "correct": "に関わりなく",
+        "distractors": ["に関わって", "に際して", "に伴って", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "prefix": "このイベントは、",
+        "suffix": "、一律1000円です。",
+        "blocks": ["国籍に", "関わらず"]
+      }
+    },
+    {
+      "id": "nkk_004",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "やる、やらない__、返事だけは早くしてください。",
+        "correct": "に関わらず",
+        "distractors": ["に限らず", "に際して", "に伴って"]
+      }
+    },
+    {
+      "id": "nkk_005",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "word": "に関わらず",
+        "options": [
+          { "text": "好き嫌いに関わらず、野菜は食べたほうがいい。", "is_correct": true },
+          { "text": "理由に関わらず、遅刻は認められません。", "is_correct": true },
+          { "text": "雨が降っているに関わらず、彼は外に出た。", "is_correct": false },
+          { "text": "一生懸命勉強したに関わらず、不合格だった。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkk_006",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "学歴__、実力がある人を採用します。",
+        "correct": "に関わりなく",
+        "distractors": ["を問わず", "に限定して", "に際して"]
+      }
+    },
+    {
+      "id": "nkk_007",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "base_sentence": "上手か下手かは関係なく、楽しむことが大切だ。",
+        "correct": "上手下手に関わらず、楽しむことが大切だ。",
+        "distractors": [
+          "上手下手にも関わらず、楽しむことが大切だ。",
+          "上手下手に限らず、楽しむことが大切だ。",
+          "上手下手に関して、楽しむことが大切だ。"
+        ]
+      }
+    },
+    {
+      "id": "nkk_008",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "結果がどうなるか__、全力を尽くすつもりだ。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_009",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "昼夜__、この通りは賑やかだ。",
+        "correct": "に関わりなく",
+        "distractors": ["を問わず", "に限らず", "に限定して"]
+      }
+    },
+    {
+      "id": "nkk_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "prefix": "この映画は、",
+        "suffix": "、多くの人に愛されている。",
+        "blocks": ["好みに", "関わらず"]
+      }
+    },
+    {
+      "id": "nkk_011",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "距離の遠近__、配送料は同じです。",
+        "correct": "に関わらず",
+        "distractors": ["に限らず", "に際して", "に伴って"]
+      }
+    },
+    {
+      "id": "nkk_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "「経験」の有無に関わらず、応募可能です。",
+        "correct": "けいけん",
+        "distractors": ["しけん", "べんきょう", "じっけん"]
+      }
+    },
+    {
+      "id": "nkk_013",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "場所__、ネットがあれば仕事ができます。",
+        "correct": "に関わりなく",
+        "distractors": ["に限定して", "に際して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_014",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "賛成、反対__、会議には出席してください。",
+        "correct": "に関わらず",
+        "distractors": ["に限らず", "のみならず", "にかけては"]
+      }
+    },
+    {
+      "id": "nkk_015",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "word": "に関わりなく",
+        "options": [
+          { "text": "職業に関わりなく、税金は払わなければならない。", "is_correct": true },
+          { "text": "成績に関わりなく、卒業はできる。", "is_correct": true },
+          { "text": "一生懸命やったに関わりなく、負けてしまった。", "is_correct": false },
+          { "text": "明日、天候に関わりなくにしましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkk_016",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "金額の多少__、寄付を募っています。",
+        "correct": "に関わらず",
+        "distractors": ["を問わず", "に限定して", "に際して"]
+      }
+    },
+    {
+      "id": "nkk_017",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "性別__、家事は分担すべきだ。",
+        "correct": "に関わりなく",
+        "distractors": ["をきっかけに", "をこめて", "に際して"]
+      }
+    },
+    {
+      "id": "nkk_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "prefix": "プロ、アマの",
+        "suffix": "、誰でも参加できる大会だ。",
+        "blocks": ["資格に", "関わらず"]
+      }
+    },
+    {
+      "id": "nkk_019",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "週休二日制かどうかに__、この会社は忙しい。",
+        "correct": "関わらず",
+        "distractors": ["関わり", "関われば", "関わって"]
+      }
+    },
+    {
+      "id": "nkk_020",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "外見の良し悪し__、心の内面が重要だ。",
+        "correct": "に関わりなく",
+        "distractors": ["に従って", "に際して", "に伴って"]
+      }
+    },
+    {
+      "id": "nkk_021",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "base_sentence": "使うか使わないかに関係なく、持ち歩いている。",
+        "correct": "使う使わないに関わらず、持ち歩いている。",
+        "distractors": [
+          "使う使わないにも関わらず、持ち歩いている。",
+          "使う使わないに限らず、持ち歩いている。",
+          "使う使わないに際して、持ち歩いている。"
+        ]
+      }
+    },
+    {
+      "id": "nkk_022",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "信じる、信じない__、これは真実だ。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_023",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "住んでいる場所__、サービスは受けられます。",
+        "correct": "に関わりなく",
+        "distractors": ["に限定して", "に際して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "「勝敗」に関わらず、健闘を称えよう。",
+        "correct": "しょうはい",
+        "distractors": ["かちまけ", "せんそう", "けっか"]
+      }
+    },
+    {
+      "id": "nkk_025",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "個人の感情__、規則は守るべきだ。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_026",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "文系理系__、数学の知識は必要だ。",
+        "correct": "に関わりなく",
+        "distractors": ["を問わず", "に限らず", "に限定して"]
+      }
+    },
+    {
+      "id": "nkk_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "、いつも笑顔だ。",
+        "blocks": ["周りの", "状況に", "関わらず"]
+      }
+    },
+    {
+      "id": "nkk_028",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "有名、無名__、良い作品は評価されるべきだ。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に伴って"]
+      }
+    },
+    {
+      "id": "nkk_029",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarinaku"],
+      "payload": {
+        "sentence": "流行__、自分の好きな服を着る。",
+        "correct": "に関わりなく",
+        "distractors": ["に限定して", "に際して", "に従って"]
+      }
+    },
+    {
+      "id": "nkk_030",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kakawarazu"],
+      "payload": {
+        "sentence": "誰が言ったか__、内容が正しいかどうかが重要だ。",
+        "correct": "に関わらず",
+        "distractors": ["にも関わらず", "に関して", "に伴って"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~から見ても / 見ると / 見れば  - N2"
+  },
+  "exercises": [
+    {
+      "id": "karamite_001",
+      "type": "FILL_BLANK",
+      "tags": ["karamite", "N2"],
+      "payload": {
+        "sentence": "客観的に__、彼の意見のほうが正しい。",
+        "correct": "から見ても",
+        "distractors": ["からいっても", "からして", "によっても", "についても"]
+      }
+    },
+    {
+      "id": "karamite_002",
+      "type": "FILL_BLANK",
+      "tags": ["karamite", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の戦いぶりを__、彼は天才と言わざるを得ない。",
+        "correct": "見ると",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_003",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "服装__、彼はかなりの資産家だろう。",
+        "correct": "から見れば",
+        "distractors": ["からいうと", "からして", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karamite"],
+      "payload": {
+        "prefix": "今の状況を",
+        "suffix": "。",
+        "blocks": ["冷静に", "見れば", "これ以上の待機は無駄だ"]
+      }
+    },
+    {
+      "id": "karamite_005",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "誰__、この計画は無理がある。",
+        "correct": "から見ても",
+        "distractors": ["からいっても", "からして", "によっても", "についても"]
+      }
+    },
+    {
+      "id": "karamite_006",
+      "type": "WORD_USAGE",
+      "tags": ["karamite"],
+      "payload": {
+        "word": "～から見れば ",
+        "options": [
+          { "text": "親から見れば、子供はいつまでも子供だ。", "is_correct": true },
+          { "text": "専門家から見れば、これは偽物だ。", "is_correct": true },
+          { "text": "雨から見れば、傘を差す。", "is_correct": false },
+          { "text": "他人から見れば、些細なことかもしれない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karamite_007",
+      "type": "FILL_BLANK",
+      "tags": ["karamite", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの残虐さを__、平和への道は遠い。",
+        "correct": "見ると",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_008",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "昔の写真と__、今の彼は別人のようだ。",
+        "correct": "見比べると",
+        "distractors": ["見比べれば", "見比べて", "見比べれば", "見比べたら"]
+      }
+    },
+    {
+      "id": "karamite_009",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "デザインの面__、こちらの商品が勝っている。",
+        "correct": "から見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_010",
+      "type": "PARAPHRASE",
+      "tags": ["karamite"],
+      "payload": {
+        "base_sentence": "実力から見れば、彼女が勝つのは当然だ。",
+        "correct": "彼女が持っている本当の能力という側面を客観的に観察すれば、彼女が勝利するのは当たり前の結果です。",
+        "distractors": [
+          "彼女の実力があるおかげで、みんなが喜びました。",
+          "彼女の実力については、誰もが知っています。",
+          "彼女の実力があると言われましたが、負けてしまいました。"
+        ]
+      }
+    },
+    {
+      "id": "karamite_011",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "世界地図を__、日本は小さな島国だ。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karamite"],
+      "payload": {
+        "prefix": "足跡を",
+        "suffix": "。",
+        "blocks": ["見ると", "犯人は", "窓から逃げたようだ"]
+      }
+    },
+    {
+      "id": "karamite_013",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "あの人の表情を__、かなり疲れているようだ。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_014",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "データの数字__、景気は回復傾向にある。",
+        "correct": "から見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_015",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "誰__、この美しさは本物だ。",
+        "correct": "から見ても",
+        "distractors": ["からいっても", "からして", "によっても", "についても"]
+      }
+    },
+    {
+      "id": "karamite_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "客観的に「見れば」。",
+        "correct": "みれば",
+        "distractors": ["みたら", "みればわ", "みれわ", "みれな"]
+      }
+    },
+    {
+      "id": "karamite_017",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "一見__、何の変哲もない石だが、実は宝石だ。",
+        "correct": "すると",
+        "distractors": ["見れば", "見ると", "見たら", "見ればわ"]
+      }
+    },
+    {
+      "id": "karamite_018",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "彼の態度を__、反省しているようには思えない。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karamite"],
+      "payload": {
+        "prefix": "空を",
+        "suffix": "。",
+        "blocks": ["見れば", "もうすぐ", "雨が降りそうだ"]
+      }
+    },
+    {
+      "id": "karamite_020",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "子供の将来を__、教育は重要だ。",
+        "correct": "見据えると",
+        "distractors": ["見れば", "見ると", "見たら", "見ればわ"]
+      }
+    },
+    {
+      "id": "karamite_021",
+      "type": "FILL_BLANK",
+      "tags": ["karamite", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのシンクロ率を__、シンジ君の体調がわかる。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_022",
+      "type": "WORD_USAGE",
+      "tags": ["karamite"],
+      "payload": {
+        "word": "～から見ても ",
+        "options": [
+          { "text": "誰から見ても、彼はリーダーにふさわしい。", "is_correct": true },
+          { "text": "どこから見ても、富士山は美しい。", "is_correct": true },
+          { "text": "雨から見ても、傘を差す。", "is_correct": false },
+          { "text": "何から見ても、これは本物だ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karamite_023",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "今の社会情勢を__、就職活動は厳しい。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_024",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "彼の話し方を__、かなり嘘をついているようだ。",
+        "correct": "見ると",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_025",
+      "type": "PARAPHRASE",
+      "tags": ["karamite"],
+      "payload": {
+        "base_sentence": "空の色から見れば、明日は晴れそうだ。",
+        "correct": "今の空の様子を観察して判断すれば、明日は天気が良くなるだろうと予測できます。",
+        "distractors": [
+          "空の色が変わったので、明日は晴れました。",
+          "空の色をきれいに見せるために、明日を晴れにします。",
+          "空の色が晴れを呼んだので、明日はいい天気です。"
+        ]
+      }
+    },
+    {
+      "id": "karamite_026",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "地図を__、ここが一番の近道のようだ。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_027",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "表情__、彼は納得していないようだ。",
+        "correct": "から見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karamite"],
+      "payload": {
+        "prefix": "誰",
+        "suffix": "。",
+        "blocks": ["から見ても", "彼の努力は", "認めるべきだ"]
+      }
+    },
+    {
+      "id": "karamite_029",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "歴史的な観点__、この建物は非常に重要だ。",
+        "correct": "から見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karamite_030",
+      "type": "FILL_BLANK",
+      "tags": ["karamite"],
+      "payload": {
+        "sentence": "今の自分を__、もっと成長が必要だ。",
+        "correct": "見れば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    }
+  ]
+}

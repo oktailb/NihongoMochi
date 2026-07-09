@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ものだ  - Vérité générale / Nostalgie / Sentiment - N2"
+  },
+  "exercises": [
+    {
+      "id": "monoda_001",
+      "type": "FILL_BLANK",
+      "tags": ["monoda", "N2"],
+      "payload": {
+        "sentence": "子供のころは、よくこの川で遊んだ__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_002",
+      "type": "FILL_BLANK",
+      "tags": ["monoda", "pop_culture"],
+      "payload": {
+        "sentence": "修行というものは、辛い__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_003",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "一度でいいから、宇宙へ行ってみたい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monoda"],
+      "payload": {
+        "prefix": "時間は",
+        "suffix": "。",
+        "blocks": ["誰にでも", "平等に", "流れるものだ"]
+      }
+    },
+    {
+      "id": "monoda_005",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "人の心は、変わりやすい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_006",
+      "type": "WORD_USAGE",
+      "tags": ["monoda"],
+      "payload": {
+        "word": "～ものだ ",
+        "options": [
+          { "text": "薬は苦いものだ。", "is_correct": true },
+          { "text": "親は子供を心配するものだ。", "is_correct": true },
+          { "text": "雨が降るものだ。", "is_correct": false },
+          { "text": "約束は守るものだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "monoda_007",
+      "type": "FILL_BLANK",
+      "tags": ["monoda", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザのような悪党は、いつか滅びる__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_008",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "学生時代は、よく徹夜をして勉強した__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_009",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "そんなに怒る__ではない。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_010",
+      "type": "PARAPHRASE",
+      "tags": ["monoda"],
+      "payload": {
+        "base_sentence": "月日が経つのは早いものだ。",
+        "correct": "時間が過ぎ去っていくスピードは、本当に驚くほど速いものだという深い実感がこもった表現です。",
+        "distractors": [
+          "時間が経つのが早いと言われました。",
+          "時間が経つのを早くするために努力しています。",
+          "時間が経つのが早いかどうか、私にはわかりません。"
+        ]
+      }
+    },
+    {
+      "id": "monoda_011",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "あんなに綺麗だった景色が、今では見る影も__。",
+        "correct": "ないものだ",
+        "distractors": ["ないことだ", "ないわけだ", "ないはずだ", "ないところだ"]
+      }
+    },
+    {
+      "id": "monoda_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monoda"],
+      "payload": {
+        "prefix": "失敗して",
+        "suffix": "。",
+        "blocks": ["初めて", "気づく", "ものだ"]
+      }
+    },
+    {
+      "id": "monoda_013",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "人の悪口は、言う__ではない。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_014",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "若いころは、もっと無茶をした__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_015",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "世の中、うまくいかない__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "「懐かしいものだ」。",
+        "correct": "なつかしいものだ",
+        "distractors": ["なつかしいことだ", "なつかしいわけだ", "なつかしいはずだ", "なつかしいところだ"]
+      }
+    },
+    {
+      "id": "monoda_017",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "本当の幸せとは、何__だろうか。",
+        "correct": "なもの",
+        "distractors": ["なこと", "なわけ", "なはず", "なところ"]
+      }
+    },
+    {
+      "id": "monoda_018",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "いつか、ゆっくり世界一周の旅をしてみたい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monoda"],
+      "payload": {
+        "prefix": "人間は",
+        "suffix": "。",
+        "blocks": ["一人では", "生きられない", "ものだ"]
+      }
+    },
+    {
+      "id": "monoda_020",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "昔は、ここにたくさんお店があった__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_021",
+      "type": "FILL_BLANK",
+      "tags": ["monoda", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロットというものは、過酷な宿命を背負う__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_022",
+      "type": "WORD_USAGE",
+      "tags": ["monoda"],
+      "payload": {
+        "word": "～ものだ ",
+        "options": [
+          { "text": "昔はよくこの公園で遊んだものだ。", "is_correct": true },
+          { "text": "子供のころは泣き虫だったものだ。", "is_correct": true },
+          { "text": "明日、公園で遊ぶものだ。", "is_correct": false },
+          { "text": "学生時代はよく勉強したものだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "monoda_023",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "一度失った信頼を取り戻すのは、難しい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_024",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "誰かに必要とされることは、嬉しい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_025",
+      "type": "PARAPHRASE",
+      "tags": ["monoda"],
+      "payload": {
+        "base_sentence": "親の言うことは、聞くものだ。",
+        "correct": "社会的な常識や道徳として、親の助言や言葉には従うのが当たり前である、という教訓的な表現です。",
+        "distractors": [
+          "親の言うことを聞くことに決めました。",
+          "親の言うことを聞くことになりました。",
+          "親の言うことを聞くはずがありません。"
+        ]
+      }
+    },
+    {
+      "id": "monoda_026",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "自分の国を愛するのは、自然な__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_027",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "平和な世界がずっと続いてほしい__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monoda"],
+      "payload": {
+        "prefix": "あの時の",
+        "suffix": "。",
+        "blocks": ["感動は", "一生", "忘れられないものだ"]
+      }
+    },
+    {
+      "id": "monoda_029",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "初心を忘れない__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monoda_030",
+      "type": "FILL_BLANK",
+      "tags": ["monoda"],
+      "payload": {
+        "sentence": "人生、何が起こるかわからない__だ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    }
+  ]
+}

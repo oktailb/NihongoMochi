@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~一方だ  - Ne faire que...  - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "ippoda_001",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda", "N3"],
+      "payload": {
+        "sentence": "最近、物価は上がる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_002",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda", "pop_culture"],
+      "payload": {
+        "sentence": "戦いが激しくなるにつれ、被害は増える__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_003",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "仕事が忙しくて、ストレスがたまる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippoda"],
+      "payload": {
+        "prefix": "少子化で、",
+        "suffix": "。",
+        "blocks": ["子供の数は", "減る", "一方だ"]
+      }
+    },
+    {
+      "id": "ippoda_005",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "一度失敗してから、自信をなくす__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_006",
+      "type": "WORD_USAGE",
+      "tags": ["ippoda"],
+      "payload": {
+        "word": "～一方だ ",
+        "options": [
+          { "text": "病気は悪化する一方だ。", "is_correct": true },
+          { "text": "成績は下がる一方だ。", "is_correct": true },
+          { "text": "雨が降る一方だ。", "is_correct": false },
+          { "text": "便利になる一方だ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ippoda_007",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの力は、底なしに増していく__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_008",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "環境破壊が進み、自然が失われる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_009",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "新しいビルが建ち、町は賑やかになる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_010",
+      "type": "PARAPHRASE",
+      "tags": ["ippoda"],
+      "payload": {
+        "base_sentence": "彼の病状は悪化する一方だ。",
+        "correct": "彼の病気の状態は、良くなることがなく、どんどん悪くなり続けています。",
+        "distractors": [
+          "彼の病気は、少しずつ良くなってきています。",
+          "彼の病気は、もうすぐ治る予定です。",
+          "彼の病気は、悪くなったり良くなったりしています。"
+        ]
+      }
+    },
+    {
+      "id": "ippoda_011",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "不景気で、失業者が増える__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippoda"],
+      "payload": {
+        "prefix": "都会の",
+        "suffix": "。",
+        "blocks": ["地価は", "上がる", "一方だ"]
+      }
+    },
+    {
+      "id": "ippoda_013",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "便利な世の中になり、人間は退化する__だと言う人もいる。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_014",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "冬になり、日は短くなる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_015",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "彼女の人気は、上がる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "「一方」だ。",
+        "correct": "いっぽう",
+        "distractors": ["ひとかた", "いちほう", "いっぽ", "いちかた"]
+      }
+    },
+    {
+      "id": "ippoda_017",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "情報の量は増える__で、整理が追いつかない。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_018",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "一度嫌いになると、欠点ばかりが目につく__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippoda"],
+      "payload": {
+        "prefix": "地球の",
+        "suffix": "。",
+        "blocks": ["温暖化は", "進む", "一方だ"]
+      }
+    },
+    {
+      "id": "ippoda_020",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "最新の技術は、複雑になる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_021",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのシンクロ率は、危険なレベルまで上がる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_022",
+      "type": "WORD_USAGE",
+      "tags": ["ippoda"],
+      "payload": {
+        "word": "～一方だ ",
+        "options": [
+          { "text": "一度使い始めると、手放せなくなる一方だ。", "is_correct": true },
+          { "text": "景気は回復する一方だ。", "is_correct": true },
+          { "text": "ご飯を食べる一方だ。", "is_correct": false },
+          { "text": "怒る一方だ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ippoda_023",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "一度疑い出すと、疑念は深まる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_024",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "練習をさぼると、実力は落ちる__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_025",
+      "type": "PARAPHRASE",
+      "tags": ["ippoda"],
+      "payload": {
+        "base_sentence": "物価は上がる一方だ。",
+        "correct": "物価が、下がる気配がなく、ずっと上がり続けています。",
+        "distractors": [
+          "物価が上がったり下がったりしています。",
+          "物価がもうすぐ下がる予定です。",
+          "物価が上がったので、買い物をやめました。"
+        ]
+      }
+    },
+    {
+      "id": "ippoda_026",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "高齢化が進み、介護の負担は増える__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_027",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "二人の仲は、冷え切っていく__だ。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippoda"],
+      "payload": {
+        "prefix": "期待は",
+        "suffix": "。",
+        "blocks": ["高まる", "一方だ", "膨らんで"]
+      }
+    },
+    {
+      "id": "ippoda_029",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "不安は募る__で、夜も眠れない。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    },
+    {
+      "id": "ippoda_030",
+      "type": "FILL_BLANK",
+      "tags": ["ippoda"],
+      "payload": {
+        "sentence": "景気は悪化する__で、先が見えない。",
+        "correct": "一方",
+        "distractors": ["ばかり", "つつ", "よう", "ところ"]
+      }
+    }
+  ]
+}

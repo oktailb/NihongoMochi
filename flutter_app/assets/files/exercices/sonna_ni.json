@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de SONNA NI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "sn_001",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "このテストは__難しくないですよ。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_002",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "__食べないでください。",
+        "correct": "そんなに",
+        "distractors": ["あんなに", "こんなに", "とても", "あまり", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "sn_003",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "今日は__暑くないですね。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_004",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "日本語は__難しくありませんよ。",
+        "correct": "そんなに",
+        "distractors": ["あまり", "ぜんぜん", "とても", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_005",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "pop_culture"],
+      "payload": {
+        "sentence": "__怒らないでください。",
+        "correct": "そんなに",
+        "distractors": ["あんなに", "こんなに", "とても", "あまり", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "sn_006",
+      "type": "WORD_USAGE",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "word": "そんなに ",
+        "options": [
+          { "text": "そんなに高くありません。", "is_correct": true },
+          { "text": "そんなに急がなくてもいいですよ。", "is_correct": true },
+          { "text": "そんなに食べましたか。 ", "is_correct": true },
+          { "text": "そんなに美味しいです。 ", "is_correct": false },
+          { "text": "明日そんなに会いましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sn_007",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "昨日は__忙しくなかったです。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_008",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "__綺麗なんですね！",
+        "correct": "そんなに",
+        "distractors": ["あまり", "ぜんぜん", "とても", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "prefix": "この本は",
+        "suffix": "面白くないです。",
+        "blocks": ["そんなに"]
+      }
+    },
+    {
+      "id": "sn_010",
+      "type": "PARAPHRASE",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "base_sentence": "そんなにわかりませんか。",
+        "correct": "理解できないことが意外だ、あるいは理解度が低いことを指摘しています。",
+        "distractors": [
+          "全然わかりませんか。",
+          "あまりわかりませんか。",
+          "よくわかりますか。",
+          "だいたいわかりますか。"
+        ]
+      }
+    },
+    {
+      "id": "sn_011",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "ここは__賑やかじゃありませんね。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_012",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "__待たなくてもいいですよ。",
+        "correct": "そんなに",
+        "distractors": ["あんなに", "こんなに", "とても", "あまり", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "sn_013",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "昨日のパーティーは__楽しくなかったです。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_014",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "pop_culture"],
+      "payload": {
+        "sentence": "__強くないはずだ！",
+        "correct": "そんなに",
+        "distractors": ["あんなに", "こんなに", "とても", "あまり", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "sn_015",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "仕事は__大変じゃありません。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_016",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "夜は__暗くないですね。",
+        "correct": "そんなに",
+        "distractors": ["とても", "あまり", "ぜんぜん", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_017",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "その鞄は__重くないですよ。",
+        "correct": "そんなに",
+        "distractors": ["あまり", "ぜんぜん", "とても", "たくさん", "ちょっと"]
+      }
+    },
+    {
+      "id": "sn_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "sentence": "「そんなに」難しくありません。",
+        "correct": "そんなに",
+        "distractors": ["あんなに", "こんなに", "どんなに", "そなに"]
+      }
+    },
+    {
+      "id": "sn_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sonna_ni"],
+      "payload": {
+        "prefix": "試験は",
+        "suffix": "なかったです。",
+        "blocks": ["そんなに難しく"]
+      }
+    },
+    {
+      "id": "sn_020",
+      "type": "FILL_BLANK",
+      "tags": ["sonna_ni", "traps"],
+      "payload": {
+        "sentence": "お名前__教えてください。",
+        "correct": "を",
+        "distractors": ["そんなに", "あまり", "に", "が"]
+      }
+    }
+  ]
+}

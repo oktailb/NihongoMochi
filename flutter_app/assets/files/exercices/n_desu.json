@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~んです  - Explication / Emphase - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "ndesu_001",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu", "N5"],
+      "payload": {
+        "sentence": "どうして遅れた__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_002",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu", "pop_culture"],
+      "payload": {
+        "sentence": "僕は海賊王になる__！",
+        "correct": "んだ",
+        "distractors": ["のだ", "なだ", "にだ", "わだ"]
+      }
+    },
+    {
+      "id": "ndesu_003",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "お腹が痛い__。少し休ませてください。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ndesu"],
+      "payload": {
+        "prefix": "道が",
+        "suffix": "。",
+        "blocks": ["混んでいた", "ん", "ですよ"]
+      }
+    },
+    {
+      "id": "ndesu_005",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "明日は用事がある__。行けません。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_006",
+      "type": "WORD_USAGE",
+      "tags": ["ndesu"],
+      "payload": {
+        "word": "～んです ",
+        "options": [
+          { "text": "頭が痛いんです。", "is_correct": true },
+          { "text": "日本語を勉強しているんです。", "is_correct": true },
+          { "text": "雨が降るんです。", "is_correct": true },
+          { "text": "勉強するんです合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ndesu_007",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu", "pop_culture"],
+      "payload": {
+        "sentence": "悟空、お前は本当に強い__。",
+        "correct": "んだな",
+        "distractors": ["のだな", "なだな", "にだな", "わだな"]
+      }
+    },
+    {
+      "id": "ndesu_008",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "何を探している__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_009",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "これは私が作った__です。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_010",
+      "type": "PARAPHRASE",
+      "tags": ["ndesu"],
+      "payload": {
+        "base_sentence": "どこへ行くんですか。",
+        "correct": "あなたは今、どこかへ向かおうとしているようですが、具体的な目的地はどこですか、という理由や背景を尋ねる質問です。",
+        "distractors": [
+          "どこへ行きますか。",
+          "どこへ行くのが好きですか。",
+          "どこへ行くことにしましたか。"
+        ]
+      }
+    },
+    {
+      "id": "ndesu_011",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "ちょっと気分が悪い__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ndesu"],
+      "payload": {
+        "prefix": "明日は",
+        "suffix": "。",
+        "blocks": ["雨が", "降る", "んだって"]
+      }
+    },
+    {
+      "id": "ndesu_013",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "どうして食べない__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_014",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "まだ仕事が終わらない__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_015",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "この本、すごく面白い__よ。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "「どうしたんですか」。",
+        "correct": "どうしたんですか",
+        "distractors": ["どうしたのですか", "どうしたなですか", "どうしたにですか", "どうしたわですか"]
+      }
+    },
+    {
+      "id": "ndesu_017",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "パソコンが壊れちゃった__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_018",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "何を言っている__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ndesu"],
+      "payload": {
+        "prefix": "実は、",
+        "suffix": "。",
+        "blocks": ["会社を", "辞める", "ことにしたんです"]
+      }
+    },
+    {
+      "id": "ndesu_020",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "どうしても行きたい__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_021",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗らなきゃいけない__！",
+        "correct": "んだ",
+        "distractors": ["のだ", "なだ", "にだ", "わだ"]
+      }
+    },
+    {
+      "id": "ndesu_022",
+      "type": "WORD_USAGE",
+      "tags": ["ndesu"],
+      "payload": {
+        "word": "～んです ",
+        "options": [
+          { "text": "雨が降っているんですか。", "is_correct": true },
+          { "text": "田中さんが言ったんですか。", "is_correct": true },
+          { "text": "ご飯を食べるんです。", "is_correct": true },
+          { "text": "勉強するんです合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ndesu_023",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "どこで買った__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_024",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "忘れ物をしちゃった__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_025",
+      "type": "PARAPHRASE",
+      "tags": ["ndesu"],
+      "payload": {
+        "base_sentence": "私は明日、休みなんです。",
+        "correct": "私は明日が休みであるという事実を、説明や理由としてあなたに伝えています。",
+        "distractors": [
+          "私は明日、休みます。",
+          "私は明日、休みになるかもしれません。",
+          "私は明日、休みたくありません。"
+        ]
+      }
+    },
+    {
+      "id": "ndesu_026",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "本当のことを教えてほしい__。",
+        "correct": "んです",
+        "distractors": ["のです", "なです", "にです", "わです"]
+      }
+    },
+    {
+      "id": "ndesu_027",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "どうした__？ 顔色が悪いよ。",
+        "correct": "んだ",
+        "distractors": ["のだ", "なだ", "にだ", "わだ"]
+      }
+    },
+    {
+      "id": "ndesu_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ndesu"],
+      "payload": {
+        "prefix": "実は",
+        "suffix": "。",
+        "blocks": ["結婚する", "ん", "ですよ"]
+      }
+    },
+    {
+      "id": "ndesu_029",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "何を考えている__ですか。",
+        "correct": "ん",
+        "distractors": ["の", "な", "に", "わ"]
+      }
+    },
+    {
+      "id": "ndesu_030",
+      "type": "FILL_BLANK",
+      "tags": ["ndesu"],
+      "payload": {
+        "sentence": "もう12時__よ。早く寝なさい。",
+        "correct": "なんですよ",
+        "distractors": ["のんですよ", "なですよ", "にですよ", "わですよ"]
+      }
+    }
+  ]
+}

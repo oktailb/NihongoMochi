@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur に限らず - L'ouverture au-delà des limites. "
+  },
+  "exercises": [
+    {
+      "id": "nkz_001",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "最近は女性__、男性も化粧をするようになった。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を限りに", "を限定して", "のみならず"]
+      }
+    },
+    {
+      "id": "nkz_002",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "このアニメは子供__、大人にも人気がある。",
+        "correct": "に限らず",
+        "distractors": ["に限定して", "に限り", "にこだわり", "について"]
+      }
+    },
+    {
+      "id": "nkz_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "prefix": "大谷翔平は",
+        "suffix": "、世界中で愛されている。",
+        "blocks": ["日本", "に", "限らず"]
+      }
+    },
+    {
+      "id": "nkz_004",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "平日に__、土日も休まず営業しています。",
+        "correct": "限らず",
+        "distractors": ["限って", "限り", "限れば", "限定で"]
+      }
+    },
+    {
+      "id": "nkz_005",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "word": "に限らず",
+        "options": [
+          { "text": "この公園は季節に限らず、いつも花が咲いている。", "is_correct": true },
+          { "text": "彼はスポーツに限らず、勉強も得意だ。", "is_correct": true },
+          { "text": "本日、10名に限らず無料です。", "is_correct": false },
+          { "text": "明日、雨に限らず行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkz_006",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "野菜__、何でもバランスよく食べなさい。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を問わず", "はともかく"]
+      }
+    },
+    {
+      "id": "nkz_007",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "base_sentence": "彼は昼だけでなく、夜も働いている。",
+        "correct": "彼は昼に限らず、夜も働いている。",
+        "distractors": [
+          "彼は昼に限り、夜も働いている。",
+          "彼は昼を限りに、夜も働いている。",
+          "彼は昼を問わず、夜も働いている。"
+        ]
+      }
+    },
+    {
+      "id": "nkz_008",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "ポケモンはゲーム__、カードや映画も世界中でヒットしている。",
+        "correct": "に限らず",
+        "distractors": ["に限定せず", "に限って", "のみならず"]
+      }
+    },
+    {
+      "id": "nkz_009",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "若者__、高齢者もスマホを使いこなしている。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を問わず", "に限ったことではない"]
+      }
+    },
+    {
+      "id": "nkz_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "prefix": "あの店は",
+        "suffix": "、夜も行列ができている。",
+        "blocks": ["ランチに", "限らず"]
+      }
+    },
+    {
+      "id": "nkz_011",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "英語__、多言語を学ぶことは視野を広げる。",
+        "correct": "に限らず",
+        "distractors": ["のみならず", "に限り", "を問わず"]
+      }
+    },
+    {
+      "id": "nkz_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "「平日」に限らず、週末も忙しい。",
+        "correct": "へいじつ",
+        "distractors": ["まいにち", "きょう", "あした"]
+      }
+    },
+    {
+      "id": "nkz_013",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "東京__、日本各地で観光客が増えている。",
+        "correct": "に限らず",
+        "distractors": ["に限定して", "に限れば", "に際して"]
+      }
+    },
+    {
+      "id": "nkz_014",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "室内__、屋外でもマスクが必要な場合がある。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を限りに", "に限定して"]
+      }
+    },
+    {
+      "id": "nkz_015",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "word": "に限らず",
+        "options": [
+          { "text": "週末に限らず、平日の夜もジムに通っています。", "is_correct": true },
+          { "text": "彼は漫画に限らず、小説もよく読む。", "is_correct": true },
+          { "text": "本日、学生に限らず半額です。", "is_correct": false },
+          { "text": "雨に限らず中止です。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkz_016",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "プロ__、アマチュアもこの大会に参加できる。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を問わず", "にかけては"]
+      }
+    },
+    {
+      "id": "nkz_017",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "漫画は日本__、海外でも文化として認められている。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "をきっかけに", "をこめて"]
+      }
+    },
+    {
+      "id": "nkz_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "prefix": "この映画は",
+        "suffix": "、世界中の人が感動した。",
+        "blocks": ["ファンに", "限らず"]
+      }
+    },
+    {
+      "id": "nkz_019",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "肉__、魚もバランスよく食べることが大切だ。",
+        "correct": "に限らず",
+        "distractors": ["のみならず", "に限り", "を問わず"]
+      }
+    },
+    {
+      "id": "nkz_020",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "公務員__、民間企業の社員も副業を始める人が増えた。",
+        "correct": "に限らず",
+        "distractors": ["に限定して", "に限って", "に際して"]
+      }
+    },
+    {
+      "id": "nkz_021",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "base_sentence": "夏だけでなく、冬も北海道は人気がある。",
+        "correct": "夏に限らず、冬も北海道は人気がある。",
+        "distractors": [
+          "夏に限り、冬も北海道は人気がある。",
+          "夏を限りに、冬も北海道は人気がある。",
+          "夏に限って、冬も北海道は人気がある。"
+        ]
+      }
+    },
+    {
+      "id": "nkz_022",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "このアプリはiPhone__、Androidでも使えます。",
+        "correct": "に限らず",
+        "distractors": ["に限定して", "のみならず", "を問わず"]
+      }
+    },
+    {
+      "id": "nkz_023",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "彼女の歌声は国内__、海外のファンを魅了している。",
+        "correct": "に限らず",
+        "distractors": ["に際して", "に伴って", "に従って"]
+      }
+    },
+    {
+      "id": "nkz_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "「去年」に限らず、今年も雪が多い。",
+        "correct": "きょねん",
+        "distractors": ["ことし", "らいねん", "おととし"]
+      }
+    },
+    {
+      "id": "nkz_025",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "私__、家族全員が猫好きです。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を限定して", "にかけては"]
+      }
+    },
+    {
+      "id": "nkz_026",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "このドラマは日本__、韓国でも大ヒットした。",
+        "correct": "に限らず",
+        "distractors": ["のみならず", "をきっかけに", "に際して"]
+      }
+    },
+    {
+      "id": "nkz_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、どんな仕事も引き受ける。",
+        "blocks": ["職種に", "限らず"]
+      }
+    },
+    {
+      "id": "nkz_028",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "デパートは祝日__、日曜も営業しています。",
+        "correct": "に限らず",
+        "distractors": ["に限り", "を限定して", "に際して"]
+      }
+    },
+    {
+      "id": "nkz_029",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "スポーツ__、何事も継続が力なりです。",
+        "correct": "に限らず",
+        "distractors": ["に限って", "に限定して", "に限り"]
+      }
+    },
+    {
+      "id": "nkz_030",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kagirazu"],
+      "payload": {
+        "sentence": "ドラえもんは日本__、世界中の子供たちに夢を与えている。",
+        "correct": "に限らず",
+        "distractors": ["に限って", "に限れば", "に限り"]
+      }
+    }
+  ]
+}

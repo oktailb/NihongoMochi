@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur きり  - Seulement / Depuis...  - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "kiri_001",
+      "type": "FILL_BLANK",
+      "tags": ["kiri", "N3"],
+      "payload": {
+        "sentence": "二人__で話したいことがあります。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_002",
+      "type": "FILL_BLANK",
+      "tags": ["kiri", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は修行に出た__、半年も戻ってこない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_003",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "一度会った__で、その後連絡がない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kiri"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["一円", "きりしか", "持っていなかった"]
+      }
+    },
+    {
+      "id": "kiri_005",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "今朝パンを一つ食べた__で、何も食べていない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_006",
+      "type": "WORD_USAGE",
+      "tags": ["kiri"],
+      "payload": {
+        "word": "～きり ",
+        "options": [
+          { "text": "彼女とは去年会ったきりだ。", "is_correct": true },
+          { "text": "これきりのチャンスだ。", "is_correct": true },
+          { "text": "雨が降ったきり、晴れない。", "is_correct": true },
+          { "text": "勉強したきり合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kiri_007",
+      "type": "FILL_BLANK",
+      "tags": ["kiri", "pop_culture"],
+      "payload": {
+        "sentence": "サスケは里を出た__、復讐の道を選んだ。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_008",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "部屋に一人__でいると、寂しくなる。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_009",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "お金を貸した__、返ってこない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_010",
+      "type": "PARAPHRASE",
+      "tags": ["kiri"],
+      "payload": {
+        "base_sentence": "彼は「さよなら」と言ったきり、去っていった。",
+        "correct": "彼は「さよなら」という言葉を最後にして、その後は何も言わずにその場を離れました。",
+        "distractors": [
+          "彼は「さよなら」と言いながら、泣いていました。",
+          "彼は「さよなら」と言うために、戻ってきました。",
+          "彼は「さよなら」と言った後で、すぐに戻ってきました。"
+        ]
+      }
+    },
+    {
+      "id": "kiri_011",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "今回__の特別価格です。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kiri"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "。",
+        "blocks": ["朝から", "働き", "きりだ"]
+      }
+    },
+    {
+      "id": "kiri_013",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "息子は遊びに行った__、夜になっても帰らない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_014",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "彼は、自分の殻に閉じこもった__だ。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_015",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "これ__しか残っていない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "二人「きり」で話す。",
+        "correct": "きり",
+        "distractors": ["ぎり", "きりわ", "きりな", "のみ"]
+      }
+    },
+    {
+      "id": "kiri_017",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "寝た__の老人の世話をする。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_018",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "一度失敗した__で、もう挑戦していない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kiri"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["その場に", "立ち尽くした", "きりだった"]
+      }
+    },
+    {
+      "id": "kiri_020",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "これ__でお別れですね。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_021",
+      "type": "FILL_BLANK",
+      "tags": ["kiri", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗った__、シンジ君の意識が戻らない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_022",
+      "type": "WORD_USAGE",
+      "tags": ["kiri"],
+      "payload": {
+        "word": "～きり ",
+        "options": [
+          { "text": "本を読んだきり、内容を忘れた。", "is_correct": true },
+          { "text": "彼は寝たきりだ。", "is_correct": true },
+          { "text": "雨が降ったきり、虹が出た。", "is_correct": false },
+          { "text": "二人きりの世界。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kiri_023",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "一度使った__で、しまってある。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_024",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "彼は、黙り__になってしまった。",
+        "correct": "こく",
+        "distractors": ["きり", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "kiri_025",
+      "type": "PARAPHRASE",
+      "tags": ["kiri"],
+      "payload": {
+        "base_sentence": "昨日から降りきりの雨だ。",
+        "correct": "昨日のある時点から雨が降り始め、それからずっと止むことなく降り続けている状態です。",
+        "distractors": [
+          "昨日と今日だけ、雨が降っています。",
+          "昨日の雨は、今日になって止みました。",
+          "昨日の雨のおかげで、今日は涼しいです。"
+        ]
+      }
+    },
+    {
+      "id": "kiri_026",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "彼は、驚いた__動かない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_027",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "これ__の縁だと思って、大切にする。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kiri"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["その場から", "一歩も", "動かないきりだ"]
+      }
+    },
+    {
+      "id": "kiri_029",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "連絡を待った__、返事がない。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kiri_030",
+      "type": "FILL_BLANK",
+      "tags": ["kiri"],
+      "payload": {
+        "sentence": "二人の秘密は、これ__にしよう。",
+        "correct": "きり",
+        "distractors": ["だけ", "のみ", "ばかり", "しか"]
+      }
+    }
+  ]
+}

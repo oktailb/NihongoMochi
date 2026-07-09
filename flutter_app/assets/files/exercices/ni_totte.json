@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~にとって  - Pour... / Du point de vue de - N3"
+  },
+  "exercises": [
+    {
+      "id": "nitotte_001",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte", "N3"],
+      "payload": {
+        "sentence": "私__、家族が一番大切です。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_002",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte", "pop_culture"],
+      "payload": {
+        "sentence": "悟空__、戦いは生きがいです。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_003",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "子供__、遊びは勉強と同じくらい大切だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitotte"],
+      "payload": {
+        "prefix": "日本は",
+        "suffix": "。",
+        "blocks": ["私にとって", "とても", "魅力的な国だ"]
+      }
+    },
+    {
+      "id": "nitotte_005",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "若者__、スマホはなくてはならないものだ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_006",
+      "type": "WORD_USAGE",
+      "tags": ["nitotte"],
+      "payload": {
+        "word": "～にとって ",
+        "options": [
+          { "text": "健康は誰にとっても大切だ。", "is_correct": true },
+          { "text": "彼にとって、この本は宝物だ。", "is_correct": true },
+          { "text": "雨にとって、傘を差す。", "is_correct": false },
+          { "text": "外国人にとって、漢字は難しい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nitotte_007",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザ__、部下はただの道具にすぎない。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_008",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "この成功は、彼__大きな自信になった。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_009",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "誰__も、明日のことはわからない。",
+        "correct": "にとっても",
+        "distractors": ["に対しても", "にいたっても", "によっても", "からしても"]
+      }
+    },
+    {
+      "id": "nitotte_010",
+      "type": "PARAPHRASE",
+      "tags": ["nitotte"],
+      "payload": {
+        "base_sentence": "これは、私にとって非常に難しい問題です。",
+        "correct": "他の人がどう思うかは別として、私自身の能力や現在の状況から判断すると、この問題はとても困難です。",
+        "distractors": [
+          "これは、私が作った難しい問題です。",
+          "これは、私に対して出された難しい問題です。",
+          "これは、私について書かれた難しい問題です。"
+        ]
+      }
+    },
+    {
+      "id": "nitotte_011",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "環境破壊は、人類__深刻な問題だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitotte"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["経験は", "私にとって", "一生の財産になるだろう"]
+      }
+    },
+    {
+      "id": "nitotte_013",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "お年寄り__、階段の上り下りは大変だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_014",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "彼女は私__、かけがえのない存在です。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_015",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "この冬の寒さは、作物__大きな痛手だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "誰「にとっても」大切だ。",
+        "correct": "にとっても",
+        "distractors": ["にたっても", "にしては", "に対して", "についても"]
+      }
+    },
+    {
+      "id": "nitotte_017",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "英語を学ぶことは、ビジネスマン__必須だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_018",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "ここでの経験は、将来のあなた__きっと役に立つ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitotte"],
+      "payload": {
+        "prefix": "日本料理は、",
+        "suffix": "。",
+        "blocks": ["外国人にとって", "とても", "人気がある"]
+      }
+    },
+    {
+      "id": "nitotte_020",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "嘘をつくことは、彼__当たり前のことなのかもしれない。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_021",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの操縦は、シンジ君__非常に苦しいことだった。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_022",
+      "type": "WORD_USAGE",
+      "tags": ["nitotte"],
+      "payload": {
+        "word": "～にとって ",
+        "options": [
+          { "text": "百円は、子供にとっては大金だ。", "is_correct": true },
+          { "text": "この町は、私にとっては故郷のようなものだ。", "is_correct": true },
+          { "text": "雨は、傘にとっては必要だ。", "is_correct": false },
+          { "text": "平和は、世界中の人々にとっての願いだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nitotte_023",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "最新の技術は、社会__大きな変化をもたらした。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_024",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "この計画は、我が社__大きなチャンスだ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_025",
+      "type": "PARAPHRASE",
+      "tags": ["nitotte"],
+      "payload": {
+        "base_sentence": "成功は、彼にとってすべてではない。",
+        "correct": "彼は、成功することだけが人生の目標や価値のすべてであるとは考えていません。",
+        "distractors": [
+          "彼は、成功するためにすべてを犠牲にしました。",
+          "彼は、成功したおかげですべてを手に入れました。",
+          "彼は、成功することについて何も知りません。"
+        ]
+      }
+    },
+    {
+      "id": "nitotte_026",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "自然を守ることは、未来の子供たち__の責任だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_027",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "時間は、忙しい人__何よりも貴重なものだ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitotte"],
+      "payload": {
+        "prefix": "彼",
+        "suffix": "。",
+        "blocks": ["にとっても", "今回の", "失敗は大きなショックだった"]
+      }
+    },
+    {
+      "id": "nitotte_029",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "自分__何が一番大切か、考えてみよう。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    },
+    {
+      "id": "nitotte_030",
+      "type": "FILL_BLANK",
+      "tags": ["nitotte"],
+      "payload": {
+        "sentence": "世界平和は、人類__究極の目標だ。",
+        "correct": "にとって",
+        "distractors": ["に対して", "について", "によって", "からして"]
+      }
+    }
+  ]
+}

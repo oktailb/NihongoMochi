@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la forme Potentiel Négatif  - Incapacité - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "potentielnai_001",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel", "N5"],
+      "payload": {
+        "sentence": "私は納豆が食べ__。",
+        "correct": "られない",
+        "distractors": ["ない", "れない", "なさい", "られる"]
+      }
+    },
+    {
+      "id": "potentielnai_002",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel", "pop_culture"],
+      "payload": {
+        "sentence": "悟空でも、この重力には耐え__。",
+        "correct": "られない",
+        "distractors": ["ない", "れない", "なさい", "られる"]
+      }
+    },
+    {
+      "id": "potentielnai_003",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "日本語がまだうまく話せ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["potentiel"],
+      "payload": {
+        "prefix": "忙しくて",
+        "suffix": "。",
+        "blocks": ["明日", "遊びに", "行けない"]
+      }
+    },
+    {
+      "id": "potentielnai_005",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "この漢字は難しくて読め__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_006",
+      "type": "WORD_USAGE",
+      "tags": ["potentiel"],
+      "payload": {
+        "word": "Forme potentiel négatif ",
+        "options": [
+          { "text": "泳げない。", "is_correct": true },
+          { "text": "刺身が食べられない。", "is_correct": true },
+          { "text": "漢字が書けない。", "is_correct": true },
+          { "text": "本を読まない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "potentielnai_007",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは海で泳げ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_008",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "お酒が全然飲め__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_009",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "声が小さくて聞こえ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_010",
+      "type": "PARAPHRASE",
+      "tags": ["potentiel"],
+      "payload": {
+        "base_sentence": "彼は明日、来られません。",
+        "correct": "彼は明日来るということが、何かの理由で不可能です。",
+        "distractors": [
+          "彼は明日来るのが嫌いです。",
+          "彼は明日来る予定を忘れました。",
+          "彼は明日来るために準備をしています。"
+        ]
+      }
+    },
+    {
+      "id": "potentielnai_011",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "鍵をなくしたので家に入れ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["potentiel"],
+      "payload": {
+        "prefix": "お金がなくて",
+        "suffix": "。",
+        "blocks": ["新しい", "車が", "買えない"]
+      }
+    },
+    {
+      "id": "potentielnai_013",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "パソコンが壊れて使え__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_014",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "あまりに遠くて歩け__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_015",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "恥ずかしくて名前が言え__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "「食べられない」。",
+        "correct": "たべられない",
+        "distractors": ["たべない", "たべれない", "たべなさい", "たべられる"]
+      }
+    },
+    {
+      "id": "potentielnai_017",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "風邪を引いて学校へ行け__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_018",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "この靴は小さくて履け__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["potentiel"],
+      "payload": {
+        "prefix": "暗くて",
+        "suffix": "。",
+        "blocks": ["何も", "見え", "ない"]
+      }
+    },
+    {
+      "id": "potentielnai_020",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "仕事が終わらなくて帰れ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_021",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗れ__なら、帰れ！",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_022",
+      "type": "WORD_USAGE",
+      "tags": ["potentiel"],
+      "payload": {
+        "word": "Forme potentiel négatif ",
+        "options": [
+          { "text": "時間がなくて会えない。", "is_correct": true },
+          { "text": "うるさくて寝られない。", "is_correct": true },
+          { "text": "嫌いだから食べない。", "is_correct": false },
+          { "text": "怪我をして走れない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "potentielnai_023",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "難しすぎて理解でき__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_024",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "荷物が重くて持て__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_025",
+      "type": "PARAPHRASE",
+      "tags": ["potentiel"],
+      "payload": {
+        "base_sentence": "私は納豆が食べられません。",
+        "correct": "私は納豆を食べることが不可能です（あるいは、非常に嫌いで食べることができません）。",
+        "distractors": [
+          "私は納豆を食べたことがありません。",
+          "私は納豆を食べるのが好きです。",
+          "私は納豆を食べるのをやめました。"
+        ]
+      }
+    },
+    {
+      "id": "potentielnai_026",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "疲れていて動け__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_027",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "道が混んでいて進め__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["potentiel"],
+      "payload": {
+        "prefix": "漢字が",
+        "suffix": "。",
+        "blocks": ["多すぎて", "覚えられ", "ない"]
+      }
+    },
+    {
+      "id": "potentielnai_029",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "緊張してうまく笑え__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    },
+    {
+      "id": "potentielnai_030",
+      "type": "FILL_BLANK",
+      "tags": ["potentiel"],
+      "payload": {
+        "sentence": "名前が思い出せ__。",
+        "correct": "ない",
+        "distractors": ["られる", "なさい", "れる", "られた"]
+      }
+    }
+  ]
+}

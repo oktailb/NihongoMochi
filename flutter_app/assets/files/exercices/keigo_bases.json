@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur les bases du Keigo  - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "keigobases_001",
+      "type": "FILL_BLANK",
+      "tags": ["keigo", "N4"],
+      "payload": {
+        "sentence": "先生は、明日学校に__。",
+        "correct": "いらっしゃいます",
+        "distractors": ["まいります", "おります", "申します", "いたします"]
+      }
+    },
+    {
+      "id": "keigobases_002",
+      "type": "FILL_BLANK",
+      "tags": ["keigo", "pop_culture"],
+      "payload": {
+        "sentence": "火影様、これから里へ__。",
+        "correct": "まいります",
+        "distractors": ["いらっしゃいます", "おっしゃいます", "なさいます", "くださいます"]
+      }
+    },
+    {
+      "id": "keigobases_003",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "私は田中と__。",
+        "correct": "申します",
+        "distractors": ["おっしゃいます", "おっしゃります", "おっしゃる", "申す"]
+      }
+    },
+    {
+      "id": "keigobases_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["keigo"],
+      "payload": {
+        "prefix": "どうぞ、こちらへ",
+        "suffix": "。",
+        "blocks": ["お入り", "に", "なってください"]
+      }
+    },
+    {
+      "id": "keigobases_005",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "先生、何を__いますか。",
+        "correct": "召し上がって",
+        "distractors": ["いただいて", "食べて", "食べていて", "食べられて"]
+      }
+    },
+    {
+      "id": "keigobases_006",
+      "type": "WORD_USAGE",
+      "tags": ["keigo"],
+      "payload": {
+        "word": "Sonkeigo ",
+        "options": [
+          { "text": "先生がおっしゃいました。", "is_correct": true },
+          { "text": "社長がなさいます。", "is_correct": true },
+          { "text": "私がいらっしゃいます。", "is_correct": false },
+          { "text": "お客様が来られました。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "keigobases_007",
+      "type": "FILL_BLANK",
+      "tags": ["keigo", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザ様、何と__したか。",
+        "correct": "おっしゃいま",
+        "distractors": ["申しま", "いたしま", "参りま", "おりま"]
+      }
+    },
+    {
+      "id": "keigobases_008",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "私は明日、伺い__。",
+        "correct": "ます",
+        "distractors": ["ますか", "ましょう", "なさい", "くだされ"]
+      }
+    },
+    {
+      "id": "keigobases_009",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "先生、この本を__ましたか。",
+        "correct": "お読みになり",
+        "distractors": ["お読みし", "拝読し", "お読みられ", "お読みあって"]
+      }
+    },
+    {
+      "id": "keigobases_010",
+      "type": "PARAPHRASE",
+      "tags": ["keigo"],
+      "payload": {
+        "base_sentence": "私は部長にお会いしました。",
+        "correct": "私は目上の人である部長に対して、自分を低くして会うという行動（拝謁など）をしました。",
+        "distractors": [
+          "部長が私に会いに来ました。",
+          "私は部長に会うために準備をしました。",
+          "私は部長に会うのをやめました。"
+        ]
+      }
+    },
+    {
+      "id": "keigobases_011",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "お客様、少々お待ち__。",
+        "correct": "ください",
+        "distractors": ["なさい", "いたし", "申し上げ", "おり"]
+      }
+    },
+    {
+      "id": "keigobases_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["keigo"],
+      "payload": {
+        "prefix": "荷物を",
+        "suffix": "。",
+        "blocks": ["お持ち", "いたし", "ましょうか"]
+      }
+    },
+    {
+      "id": "keigobases_013",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "先生は、テニスを__ますか。",
+        "correct": "なさいます",
+        "distractors": ["いたされます", "いたします", "されます", "させられます"]
+      }
+    },
+    {
+      "id": "keigobases_014",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "そのことは、既に__ました。",
+        "correct": "存じており",
+        "distractors": ["知っていい", "知っておられ", "ご存知であり", "存じ上げられ"]
+      }
+    },
+    {
+      "id": "keigobases_015",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "どちらから__ましたか。",
+        "correct": "お越しになり",
+        "distractors": ["お越しし", "お参りになり", "いらしてし", "お越しられ"]
+      }
+    },
+    {
+      "id": "keigobases_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "「存じて」おります。",
+        "correct": "ぞんじて",
+        "distractors": ["そんじて", "しって", "ぞんじあげて", "ごぞんじで"]
+      }
+    },
+    {
+      "id": "keigobases_017",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "先生、お茶を__。",
+        "correct": "召し上がってください",
+        "distractors": ["いただいてください", "食べてください", "飲んでください", "お飲みしてください"]
+      }
+    },
+    {
+      "id": "keigobases_018",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "私は10時に__。",
+        "correct": "参ります",
+        "distractors": ["いらっしゃいます", "お見えになります", "お越しになります", "なさいます"]
+      }
+    },
+    {
+      "id": "keigobases_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["keigo"],
+      "payload": {
+        "prefix": "お名前を",
+        "suffix": "。",
+        "blocks": ["伺っても", "よろしい", "でしょうか"]
+      }
+    },
+    {
+      "id": "keigobases_020",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "社長は今、会議室に__。",
+        "correct": "いらっしゃいます",
+        "distractors": ["おります", "まいります", "申します", "いたします"]
+      }
+    },
+    {
+      "id": "keigobases_021",
+      "type": "FILL_BLANK",
+      "tags": ["keigo", "pop_culture"],
+      "payload": {
+        "sentence": "火影様、こちらの書面を__ください。",
+        "correct": "ご覧になって",
+        "distractors": ["拝見して", "見て", "見られて", "見せて"]
+      }
+    },
+    {
+      "id": "keigobases_022",
+      "type": "WORD_USAGE",
+      "tags": ["keigo"],
+      "payload": {
+        "word": "Kenjougo ",
+        "options": [
+          { "text": "後で伺います。", "is_correct": true },
+          { "text": "私がいたしましょう。", "is_correct": true },
+          { "text": "先生が申されました。", "is_correct": false },
+          { "text": "田中と申します。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "keigobases_023",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "コーヒーを__ますか。",
+        "correct": "召し上がり",
+        "distractors": ["いただき", "飲まれ", "お飲みし", "飲みあり"]
+      }
+    },
+    {
+      "id": "keigobases_024",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "私は今、ホテルに__。",
+        "correct": "おります",
+        "distractors": ["いらっしゃいます", "いらしております", "おられます", "おいでになります"]
+      }
+    },
+    {
+      "id": "keigobases_025",
+      "type": "PARAPHRASE",
+      "tags": ["keigo"],
+      "payload": {
+        "base_sentence": "先生は何をおっしゃいましたか。",
+        "correct": "先生は具体的にどのような内容のことをお話しになりましたか、という丁寧な質問です。",
+        "distractors": [
+          "先生は何を言いましたか。",
+          "先生は何を聞きましたか。",
+          "先生は何をしましたか。"
+        ]
+      }
+    },
+    {
+      "id": "keigobases_026",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "お忙しいところ、申し訳__。",
+        "correct": "ございません",
+        "distractors": ["ありません", "おりません", "いたしません", "申せません"]
+      }
+    },
+    {
+      "id": "keigobases_027",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "明日、10時に__ます。",
+        "correct": "伺い",
+        "distractors": ["いらっしゃい", "お越しになり", "お見えになり", "なさり"]
+      }
+    },
+    {
+      "id": "keigobases_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["keigo"],
+      "payload": {
+        "prefix": "先生、",
+        "suffix": "。",
+        "blocks": ["どうぞ", "お休み", "になってください"]
+      }
+    },
+    {
+      "id": "keigobases_029",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "先生、この資料を__ますか。",
+        "correct": "ご覧になり",
+        "distractors": ["拝見し", "お見になり", "お見し", "見られてあり"]
+      }
+    },
+    {
+      "id": "keigobases_030",
+      "type": "FILL_BLANK",
+      "tags": ["keigo"],
+      "payload": {
+        "sentence": "私は何も__せんでした。",
+        "correct": "存じ上げま",
+        "distractors": ["ご存知でありま", "知られていま", "お知りになりま", "知りありま"]
+      }
+    }
+  ]
+}

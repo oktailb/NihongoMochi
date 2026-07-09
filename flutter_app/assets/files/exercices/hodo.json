@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ほど  - Intensité / Approximation / Comparaison - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "hodo_001",
+      "type": "FILL_BLANK",
+      "tags": ["hodo", "N3"],
+      "payload": {
+        "sentence": "昨日は死ぬ__疲れました。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_002",
+      "type": "FILL_BLANK",
+      "tags": ["hodo", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の強さは、想像もできない__だ。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_003",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "家から駅まで、10分__歩きます。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "しか", "ころ"]
+      }
+    },
+    {
+      "id": "hodo_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hodo"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["リンゴは", "ほっぺたが落ちる", "ほど美味しい"]
+      }
+    },
+    {
+      "id": "hodo_005",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "これ__素晴らしい作品は、他にない。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_006",
+      "type": "WORD_USAGE",
+      "tags": ["hodo"],
+      "payload": {
+        "word": "ほど ",
+        "options": [
+          { "text": "泣きたいほど悲しい。", "is_correct": true },
+          { "text": "山ほど宿題がある。", "is_correct": true },
+          { "text": "10分ほど待ってください。", "is_correct": true },
+          { "text": "勉強したほど合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "hodo_007",
+      "type": "FILL_BLANK",
+      "tags": ["hodo", "pop_culture"],
+      "payload": {
+        "sentence": "ナメック星の空は、吸い込まれそうな__青い。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_008",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼は、目に入れても痛くない__孫を可愛がっている。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_009",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "昨日寝ていないので、立っていられない__眠い。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_010",
+      "type": "PARAPHRASE",
+      "tags": ["hodo"],
+      "payload": {
+        "base_sentence": "彼は、山ほどたくさん本を持っている。",
+        "correct": "彼は、山のように非常にたくさんの本を持っているという意味です。",
+        "distractors": [
+          "彼は山の上で本を読んでいます。",
+          "彼は山に行くための本を持っています。",
+          "彼は山で本を拾いました。"
+        ]
+      }
+    },
+    {
+      "id": "hodo_011",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "今日は、風が耳を__ほど冷たい。",
+        "correct": "切る",
+        "distractors": ["切って", "切れば", "切ったら", "切ろう"]
+      }
+    },
+    {
+      "id": "hodo_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hodo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["驚く", "ほど", "足が速い"]
+      }
+    },
+    {
+      "id": "hodo_013",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "一晩中歩き続けて、一歩も__ほど疲れた。",
+        "correct": "動けない",
+        "distractors": ["動かない", "動けば", "動いたら", "動こう"]
+      }
+    },
+    {
+      "id": "hodo_014",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "試験の結果が心配で、夜も__ほどだ。",
+        "correct": "眠れない",
+        "distractors": ["眠らない", "眠れば", "眠ったら", "眠ろう"]
+      }
+    },
+    {
+      "id": "hodo_015",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "あまりの美しさに、言葉を__ほどだった。",
+        "correct": "失う",
+        "distractors": ["失った", "失って", "失えば", "失おう"]
+      }
+    },
+    {
+      "id": "hodo_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "「山ほど」ある。",
+        "correct": "やまほど",
+        "distractors": ["やまだけ", "やまばかり", "やまくらい", "やましか"]
+      }
+    },
+    {
+      "id": "hodo_017",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼は、ご飯を3杯も__ほどお腹が空いていた。",
+        "correct": "食べる",
+        "distractors": ["食べた", "食べて", "食べれば", "食べよう"]
+      }
+    },
+    {
+      "id": "hodo_018",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "今日は、汗が__ほど暑い。",
+        "correct": "出る",
+        "distractors": ["出た", "出て", "出れば", "出よう"]
+      }
+    },
+    {
+      "id": "hodo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hodo"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["映画は", "涙が出る", "ほど感動した"]
+      }
+    },
+    {
+      "id": "hodo_020",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼女は、見違える__綺麗になった。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_021",
+      "type": "FILL_BLANK",
+      "tags": ["hodo", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの暴走は、都市を__ほど激しかった。",
+        "correct": "壊す",
+        "distractors": ["壊した", "壊して", "壊せば", "壊そう"]
+      }
+    },
+    {
+      "id": "hodo_022",
+      "type": "WORD_USAGE",
+      "tags": ["hodo"],
+      "payload": {
+        "word": "ほど ",
+        "options": [
+          { "text": "日本語ほど面白い言葉はない。", "is_correct": true },
+          { "text": "彼ほど親切な人はいない。", "is_correct": true },
+          { "text": "雨ほど降る。", "is_correct": false },
+          { "text": "冬ほど寒い季節はない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "hodo_023",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "今日は、立っていられない__風が強い。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "hodo_024",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼は、誰にも__ほどの実力を持っている。",
+        "correct": "負けない",
+        "distractors": ["負けないで", "負ければ", "負けたら", "負けよう"]
+      }
+    },
+    {
+      "id": "hodo_025",
+      "type": "PARAPHRASE",
+      "tags": ["hodo"],
+      "payload": {
+        "base_sentence": "私は、死ぬほどお腹が空いています。",
+        "correct": "私は、今にも死んでしまいそうなほど、非常に激しくお腹が空いています。",
+        "distractors": [
+          "私はお腹が空いているので、死にたいです。",
+          "私はお腹が空いたので、何かを食べました。",
+          "私はお腹が空いていないので、死にません。"
+        ]
+      }
+    },
+    {
+      "id": "hodo_026",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "この本は、一回__では理解できない。",
+        "correct": "読んだほど",
+        "distractors": ["読むほど", "読んでほど", "読めばほど", "読んだだけ"]
+      }
+    },
+    {
+      "id": "hodo_027",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼女は、誰もが__ほどの美貌の持ち主だ。",
+        "correct": "振り返る",
+        "distractors": ["振り返った", "振り返って", "振り返れば", "振り返ろう"]
+      }
+    },
+    {
+      "id": "hodo_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hodo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["10分", "ほど", "遅れて来た"]
+      }
+    },
+    {
+      "id": "hodo_029",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "今日は、仕事が__ほど忙しかった。",
+        "correct": "嫌になる",
+        "distractors": ["嫌になった", "嫌になって", "嫌になれば", "嫌になろう"]
+      }
+    },
+    {
+      "id": "hodo_030",
+      "type": "FILL_BLANK",
+      "tags": ["hodo"],
+      "payload": {
+        "sentence": "彼は、驚く__の才能を持っている。",
+        "correct": "ほど",
+        "distractors": ["だけ", "ばかり", "くらい", "しか"]
+      }
+    }
+  ]
+}

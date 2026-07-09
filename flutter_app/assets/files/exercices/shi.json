@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～し、～し - L'énumération de raisons et de caractéristiques. "
+  },
+  "exercises": [
+    {
+      "id": "shi_001",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "この店は安い__、美味しい__、最高です。",
+        "correct": "し",
+        "distractors": ["で", "と", "から", "ので"]
+      }
+    },
+    {
+      "id": "shi_002",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "今日は雨だ__、お金もない__、家でゲームをします。",
+        "correct": "し",
+        "distractors": ["から", "ので", "で", "と"]
+      }
+    },
+    {
+      "id": "shi_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shi"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、とても人気がある。",
+        "blocks": ["背も高いし", "かっこいいし"]
+      }
+    },
+    {
+      "id": "shi_004",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "明日は休みだ__、天気もいい__、どこかへ行こう。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_005",
+      "type": "WORD_USAGE",
+      "tags": ["shi"],
+      "payload": {
+        "word": "し",
+        "options": [
+          { "text": "喉も乾いたし、お腹も空いたし、何か食べよう。", "is_correct": true },
+          { "text": "日本語も話せるし、英語も話せるし、すごいですね。", "is_correct": true },
+          { "text": "雨が降るし、傘をさします。", "is_correct": false },
+          { "text": "彼は学生し、真面目です。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_006",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "時間はたっぷりある__、急ぐことはないよ。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_007",
+      "type": "PARAPHRASE",
+      "tags": ["shi"],
+      "payload": {
+        "base_sentence": "あのレストランは美味しくて、しかも安いです。",
+        "correct": "あのレストランは美味しいし、安いし、いいですよ。",
+        "distractors": [
+          "あのレストランは美味しくてから、安いです。",
+          "あのレストランは美味しいので、安いです。",
+          "あのレストランは美味しくてと、安いです。"
+        ]
+      }
+    },
+    {
+      "id": "shi_008",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "足も痛い__、疲れた__、もう歩けません。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_009",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "このパソコンは軽い__、速い__、使いやすい。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shi"],
+      "payload": {
+        "prefix": "今日は",
+        "suffix": "、早く寝よう。",
+        "blocks": ["疲れたし", "眠いし"]
+      }
+    },
+    {
+      "id": "shi_011",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "宿題も終わった__、テレビでも見ようかな。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "「荷物」も多いし、タクシーで行きましょう。",
+        "correct": "にもつ",
+        "distractors": ["かばん", "さいふ", "ふく"]
+      }
+    },
+    {
+      "id": "shi_013",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "彼女は綺麗だ__、頭もいい__、完璧だ。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_014",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "この町は静かだ__、空気も綺麗だ__、住みやすい。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_015",
+      "type": "WORD_USAGE",
+      "tags": ["shi"],
+      "payload": {
+        "word": "し",
+        "options": [
+          { "text": "風も強いし、寒いし、外に出たくない。", "is_correct": true },
+          { "text": "映画も見たし、買い物もしたし、満足だ。", "is_correct": true },
+          { "text": "ご飯を食べるし、お腹がいっぱいだ。", "is_correct": false },
+          { "text": "明日、休みし、遊びましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_016",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "君もいる__、何も心配することはない。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_017",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "仕事も終わった__、飲みに行こう！",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shi"],
+      "payload": {
+        "prefix": "あの人は",
+        "suffix": "、とても親切だ。",
+        "blocks": ["若いし", "元気だし"]
+      }
+    },
+    {
+      "id": "shi_019",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "お金も貯まった__、新しい家を買おう。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_020",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "気分もいい__、散歩にでも行こうかな。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_021",
+      "type": "PARAPHRASE",
+      "tags": ["shi"],
+      "payload": {
+        "base_sentence": "試験も終わったから、遊びに行きたい。",
+        "correct": "試験も終わったし、遊びに行きたい。",
+        "distractors": [
+          "試験も終わったからし、遊びに行きたい。",
+          "試験も終わったのでし、遊びに行きたい。",
+          "試験も終わったとし、遊びに行きたい。"
+        ]
+      }
+    },
+    {
+      "id": "shi_022",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "夜も遅い__、そろそろ帰ろう。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_023",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "喉も痛い__、熱もある__、今日は休みます。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "「景色」もいいし、空気も綺麗だ。",
+        "correct": "けしき",
+        "distractors": ["てんき", "うみ", "やま"]
+      }
+    },
+    {
+      "id": "shi_025",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "便利だ__、安い__、このアプリはいいですね。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_026",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "日本語も上手になった__、日本へ行こう。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shi"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、すごいと思う。",
+        "blocks": ["料理もできるし", "掃除もできるし"]
+      }
+    },
+    {
+      "id": "shi_028",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "暇だ__、映画でも見に行かない？",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_029",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "君も好きだ__、僕も好きだ__、これにしよう。",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    },
+    {
+      "id": "shi_030",
+      "type": "FILL_BLANK",
+      "tags": ["shi"],
+      "payload": {
+        "sentence": "準備もできた__、出発しよう！",
+        "correct": "し",
+        "distractors": ["から", "ので", "と"]
+      }
+    }
+  ]
+}

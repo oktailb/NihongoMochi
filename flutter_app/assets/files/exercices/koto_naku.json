@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ことなく  - Sans faire  - N2"
+  },
+  "exercises": [
+    {
+      "id": "kotonaku_001",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku", "N2"],
+      "payload": {
+        "sentence": "彼は、一度も休む__働き続けた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_002",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、恐怖を感じる__強敵に立ち向かった。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_003",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "時計の針は、止まる__進んでいく。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotonaku"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["一言も", "発する", "ことなく去っていった"]
+      }
+    },
+    {
+      "id": "kotonaku_005",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "雨は、激しく降る__静かに降り続いた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_006",
+      "type": "WORD_USAGE",
+      "tags": ["kotonaku"],
+      "payload": {
+        "word": "～ことなく ",
+        "options": [
+          { "text": "迷うことなく、真っ直ぐ進んだ。", "is_correct": true },
+          { "text": "忘れることなく、覚えておきます。", "is_correct": true },
+          { "text": "食べることなく、学校へ行く。", "is_correct": true },
+          { "text": "勉強しなくことなく、遊ぶ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kotonaku_007",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは、一切の慈悲を見せる__、攻撃を続けた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_008",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼女は、誰にも相談する__一人で決めた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_009",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "二人の友情は、変わる__続いていった。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_010",
+      "type": "PARAPHRASE",
+      "tags": ["kotonaku"],
+      "payload": {
+        "base_sentence": "彼は、振り返ることもなく去っていった。",
+        "correct": "彼は後ろを見るという動作を一度もしないで、そのままその場を離れました。",
+        "distractors": [
+          "彼は後ろを振り返りながら去っていきました。",
+          "彼は後ろを振り返るために戻ってきました。",
+          "彼は後ろを振り返るのを忘れていました。"
+        ]
+      }
+    },
+    {
+      "id": "kotonaku_011",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "機械は、故障する__順調に動いている。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotonaku"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["信念を", "曲げる", "ことなく貫き通した"]
+      }
+    },
+    {
+      "id": "kotonaku_013",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "情報は、途絶える__入り続けている。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_014",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼は、怒る__冷静に話し始めた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_015",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "時間は、待ってくれる__過ぎていく。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "「迷うことなく」進め。",
+        "correct": "まようことなく",
+        "distractors": ["まようことな", "まようことわな", "まようことわい", "まようことに"]
+      }
+    },
+    {
+      "id": "kotonaku_017",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼は、妥協する__理想を追い求めた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_018",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "太陽は、欠かす__東から昇る。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotonaku"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "。",
+        "blocks": ["笑顔を", "絶やす", "ことなく接客している"]
+      }
+    },
+    {
+      "id": "kotonaku_020",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼は、最後まであきらめる__戦い抜いた。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_021",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァは、人の制御を受ける__動き出した。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_022",
+      "type": "WORD_USAGE",
+      "tags": ["kotonaku"],
+      "payload": {
+        "word": "～ことなく ",
+        "options": [
+          { "text": "滞ることなく、手続きが進んだ。", "is_correct": true },
+          { "text": "危なげなく、勝利を収めた。", "is_correct": true },
+          { "text": "雨が降ることなく、晴れた。", "is_correct": true },
+          { "text": "勉強しなくことなく、遊ぶ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kotonaku_023",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "川の水は、絶える__海へと流れていく。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_024",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼は、表情を変える__真実を語った。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_025",
+      "type": "PARAPHRASE",
+      "tags": ["kotonaku"],
+      "payload": {
+        "base_sentence": "一度も挫折することなく、夢を叶えた。",
+        "correct": "途中で失敗したり、やる気をなくしたりすることが一度もなくて、そのまま夢を実現させました。",
+        "distractors": [
+          "夢を叶えるために、何度も挫折しました。",
+          "夢を叶えた後で、挫折しました。",
+          "夢を叶えるはずがないと思っていましたが、成功しました。"
+        ]
+      }
+    },
+    {
+      "id": "kotonaku_026",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "彼は、奢る__努力を続けている。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_027",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "平和は、失われる__守り抜かなければならない。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotonaku"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["油断する", "ことなく", "敵を迎え撃った"]
+      }
+    },
+    {
+      "id": "kotonaku_029",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "季節は、巡る__繰り返されていく。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "kotonaku_030",
+      "type": "FILL_BLANK",
+      "tags": ["kotonaku"],
+      "payload": {
+        "sentence": "自分の居場所を見つける__旅を続けている。",
+        "correct": "ことなく",
+        "distractors": ["ないで", "わずに", "ついでに", "ながら"]
+      }
+    }
+  ]
+}

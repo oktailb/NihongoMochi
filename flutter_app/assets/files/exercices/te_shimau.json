@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Regret et de l'Achèvement  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "shi_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "宿題を全部やって__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "regret"],
+      "payload": {
+        "sentence": "大切なかばんを電車に忘れて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "accident"],
+      "payload": {
+        "sentence": "あ、コップを割って__。",
+        "correct": "しまった",
+        "distractors": ["おいた", "みた", "ある", "いた", "した"]
+      }
+    },
+    {
+      "id": "shi_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "shortened"],
+      "payload": {
+        "sentence": "もう食べ__た。",
+        "correct": "ちゃっ",
+        "distractors": ["てしまっ", "ておっ", "てみっ", "ていっ", "てあった"]
+      }
+    },
+    {
+      "id": "shi_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "pop_culture"],
+      "payload": {
+        "sentence": "エースが死んで__…",
+        "correct": "しまった",
+        "distractors": ["おいた", "みた", "ある", "いた", "した"]
+      }
+    },
+    {
+      "id": "shi_006",
+      "type": "WORD_USAGE",
+      "tags": ["te_shimau"],
+      "payload": {
+        "word": "〜てしまう ",
+        "options": [
+          { "text": "本を全部読んでしまいました。", "is_correct": true },
+          { "text": "財布をなくしてしまいました。", "is_correct": true },
+          { "text": "雨が降ってしまいました。", "is_correct": true },
+          { "text": "明日食べてしまいます。 ", "is_correct": true },
+          { "text": "本を読みてしまいます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "regret"],
+      "payload": {
+        "sentence": "道を間違えて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "shortened"],
+      "payload": {
+        "sentence": "お酒を飲ん__た。",
+        "correct": "じゃっ",
+        "distractors": ["でしまっ", "でおっ", "でみっ", "でいっ", "であった"]
+      }
+    },
+    {
+      "id": "shi_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_shimau"],
+      "payload": {
+        "prefix": "お菓子を",
+        "suffix": "しまいました。",
+        "blocks": ["全部食べて"]
+      }
+    },
+    {
+      "id": "shi_010",
+      "type": "PARAPHRASE",
+      "tags": ["te_shimau"],
+      "payload": {
+        "base_sentence": "宿題を忘れてしまいました。",
+        "correct": "不注意で宿題を持ってくるのを忘れ、それを残念に思っています。",
+        "distractors": [
+          "宿題を忘れておきました。",
+          "宿題を忘れてみました。",
+          "宿題を忘れています。",
+          "宿題を忘れるつもりです。"
+        ]
+      }
+    },
+    {
+      "id": "shi_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "30分も寝坊して__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_012",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "風邪をひいて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "くださいました"]
+      }
+    },
+    {
+      "id": "shi_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "秘密を話して__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "pop_culture"],
+      "payload": {
+        "sentence": "チョコレートを全部食べ__た。",
+        "correct": "ちゃっ",
+        "distractors": ["てしまっ", "ておっ", "てみっ", "ていっ", "てあった"]
+      }
+    },
+    {
+      "id": "shi_015",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "バスが__。",
+        "correct": "行ってしまいました",
+        "distractors": ["行っておきました", "行ってみました", "行ってあります", "行っていました", "行きました"]
+      }
+    },
+    {
+      "id": "shi_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "テストで名前を書き間違えて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "雨に降られて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "くださいました"]
+      }
+    },
+    {
+      "id": "shi_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "「後悔」してしまいました。",
+        "correct": "こうかい",
+        "distractors": ["ごうかい", "こうがい", "きょうかい", "こうかいな"]
+      }
+    },
+    {
+      "id": "shi_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_shimau"],
+      "payload": {
+        "prefix": "財布を",
+        "suffix": "しまいました。",
+        "blocks": ["どこかに落として"]
+      }
+    },
+    {
+      "id": "shi_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "もう全部__。",
+        "correct": "終わってしまいました",
+        "distractors": ["終わっておきました", "終わってみました", "終わってあります", "終わっていました", "終わりました"]
+      }
+    },
+    {
+      "id": "shi_021",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "遅刻して__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "お酒を__。",
+        "correct": "飲みすぎてしまいました",
+        "distractors": ["飲みすぎておきました", "飲みすぎてみました", "飲みすぎてあります", "飲みすぎていました", "飲みすぎました"]
+      }
+    },
+    {
+      "id": "shi_023",
+      "type": "WORD_USAGE",
+      "tags": ["te_shimau"],
+      "payload": {
+        "word": "〜ちゃう ",
+        "options": [
+          { "text": "行っちゃうよ！", "is_correct": true },
+          { "text": "食べちゃった。", "is_correct": true },
+          { "text": "忘れちゃう。", "is_correct": true },
+          { "text": "飲みちゃう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_024",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "大切な本を汚して__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "誰かに見られて__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_026",
+      "type": "PARAPHRASE",
+      "tags": ["te_shimau"],
+      "payload": {
+        "base_sentence": "ご飯を全部食べてしまいました。",
+        "correct": "一粒も残さず、完食しました。",
+        "distractors": [
+          "ご飯を食べておきました。",
+          "ご飯を食べてみました。",
+          "ご飯を食べています。",
+          "ご飯を食べるつもりです。"
+        ]
+      }
+    },
+    {
+      "id": "shi_027",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "バスの中で寝て__。",
+        "correct": "しまいました",
+        "distractors": ["おきました", "みました", "あります", "いました", "あげました"]
+      }
+    },
+    {
+      "id": "shi_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "鍵をどこかに__。",
+        "correct": "なくしてしまいました",
+        "distractors": ["なくしておきました", "なくしてみました", "なくしてあります", "なくしていました", "なくしました"]
+      }
+    },
+    {
+      "id": "shi_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_shimau"],
+      "payload": {
+        "sentence": "「残念」ながら、負けてしまいました。",
+        "correct": "ざんねん",
+        "distractors": ["ざんねな", "さんねん", "ぜんねん", "ざんねんじ"]
+      }
+    },
+    {
+      "id": "shi_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_shimau", "traps"],
+      "payload": {
+        "sentence": "テレビを__。",
+        "correct": "見てしまいました",
+        "distractors": ["見ておきました", "みてみました", "見てあります", "見ていました", "見ました"]
+      }
+    }
+  ]
+}

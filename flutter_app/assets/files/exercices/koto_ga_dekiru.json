@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Capacité  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "can_001",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "ピアノを弾くことが__。",
+        "correct": "できます",
+        "distractors": ["あります", "します", "なります", "いきます", "わかります"]
+      }
+    },
+    {
+      "id": "can_002",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "漢字を__ことができません。",
+        "correct": "読む",
+        "distractors": ["読み", "読んで", "読んだ", "読な", "読みます"]
+      }
+    },
+    {
+      "id": "can_003",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "日本語を話す__ができますか。",
+        "correct": "こと",
+        "distractors": ["もの", "とき", "まえ", "ので", "から"]
+      }
+    },
+    {
+      "id": "can_004",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "刺身を__ことができます。",
+        "correct": "食べる",
+        "distractors": ["食べ", "食べて", "食べた", "食べな", "食べます"]
+      }
+    },
+    {
+      "id": "can_005",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "pop_culture"],
+      "payload": {
+        "sentence": "空を飛ぶことが__！",
+        "correct": "できます",
+        "distractors": ["あります", "します", "なります", "わかります", "いけます"]
+      }
+    },
+    {
+      "id": "can_006",
+      "type": "WORD_USAGE",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "word": "〜ことができる ",
+        "options": [
+          { "text": "泳ぐことができます。", "is_correct": true },
+          { "text": "料理を作ることができますか。", "is_correct": true },
+          { "text": "明日、来ることができます。", "is_correct": true },
+          { "text": "本を読みることができます。 ", "is_correct": false },
+          { "text": "水が飲むことができます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "can_007",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "車を__ことができません。",
+        "correct": "運転する",
+        "distractors": ["運転し", "運転して", "運転した", "運転します", "運転な"]
+      }
+    },
+    {
+      "id": "can_008",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "明日、10時に__ことができますか。",
+        "correct": "来る",
+        "distractors": ["来", "来い", "来て", "来た", "来ます"]
+      }
+    },
+    {
+      "id": "can_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "prefix": "私は、",
+        "suffix": "できます。",
+        "blocks": ["泳ぐ", "ことが"]
+      }
+    },
+    {
+      "id": "can_010",
+      "type": "PARAPHRASE",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "base_sentence": "100メートル泳げます。",
+        "correct": "100メートル泳ぐことができます。",
+        "distractors": [
+          "100メートル泳ぎたいです。",
+          "100メートル泳いでください。",
+          "100メートル泳ぎました。",
+          "100メートル泳ぎましょう。"
+        ]
+      }
+    },
+    {
+      "id": "can_011",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "お酒を__ことができません。",
+        "correct": "飲む",
+        "distractors": ["飲み", "飲んで", "飲んだ", "飲な", "飲みます"]
+      }
+    },
+    {
+      "id": "can_012",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "早く__ことが大切です。",
+        "correct": "起きる",
+        "distractors": ["起き", "起きて", "起きた", "起きな", "起きます"]
+      }
+    },
+    {
+      "id": "can_013",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "自転車に__ことができます。",
+        "correct": "乗る",
+        "distractors": ["乗り", "乗って", "乗った", "乗な", "乗ります"]
+      }
+    },
+    {
+      "id": "can_014",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "pop_culture"],
+      "payload": {
+        "sentence": "カメハメ波を撃つことが__か。",
+        "correct": "できます",
+        "distractors": ["あります", "します", "なります", "わかります", "いけます"]
+      }
+    },
+    {
+      "id": "can_015",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "一人で家へ__ことができます。",
+        "correct": "帰る",
+        "distractors": ["帰り", "帰って", "帰った", "帰な", "帰ります"]
+      }
+    },
+    {
+      "id": "can_016",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "自分で料理を__ことができます。",
+        "correct": "作る",
+        "distractors": ["作り", "作って", "作った", "作な", "作ります"]
+      }
+    },
+    {
+      "id": "can_017",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "大きな声で__ことができません。",
+        "correct": "叫ぶ",
+        "distractors": ["叫び", "叫んで", "叫んだ", "叫な", "叫びます"]
+      }
+    },
+    {
+      "id": "can_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "英語を「話す」ことができます。",
+        "correct": "はなす",
+        "distractors": ["おしえる", "きく", "よむ", "はなし"]
+      }
+    },
+    {
+      "id": "can_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "prefix": "ここで",
+        "suffix": "か。",
+        "blocks": ["待つことが", "できます"]
+      }
+    },
+    {
+      "id": "can_020",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "辞書を__ことが必要です。",
+        "correct": "引く",
+        "distractors": ["引くこと", "引き", "引いて", "引いた", "引きます"]
+      }
+    },
+    {
+      "id": "can_021",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "パソコンを__ことができます。",
+        "correct": "使う",
+        "distractors": ["使い", "使って", "使った", "使な", "使います"]
+      }
+    },
+    {
+      "id": "can_022",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "歌を__ことが上手ですね。",
+        "correct": "歌う",
+        "distractors": ["歌うこと", "歌い", "歌って", "歌った", "歌います"]
+      }
+    },
+    {
+      "id": "can_023",
+      "type": "WORD_USAGE",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "word": "できる ",
+        "options": [
+          { "text": "テニスができます。", "is_correct": true },
+          { "text": "料理ができます。", "is_correct": true },
+          { "text": "スキーができます。", "is_correct": true },
+          { "text": "本をできます。 ", "is_correct": false },
+          { "text": "コーヒーをできます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "can_024",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "荷物を__ことができます。",
+        "correct": "持つ",
+        "distractors": ["持ち", "持って", "持った", "持な", "持ちます"]
+      }
+    },
+    {
+      "id": "can_025",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "窓を__ことができません。",
+        "correct": "開ける",
+        "distractors": ["開け", "開けて", "開けた", "開けな", "開けます"]
+      }
+    },
+    {
+      "id": "can_026",
+      "type": "PARAPHRASE",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "base_sentence": "刺身を食べることができます。",
+        "correct": "刺身を食べる能力や機会があります。",
+        "distractors": [
+          "刺身を食べたいです。",
+          "刺身を食べてください。",
+          "刺身を食べました。",
+          "刺身が好きです。"
+        ]
+      }
+    },
+    {
+      "id": "can_027",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "本を__ことができます。",
+        "correct": "返す",
+        "distractors": ["返し", "返して", "返した", "返な", "返します"]
+      }
+    },
+    {
+      "id": "can_028",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "毎日、8時間__ことができます。",
+        "correct": "働く",
+        "distractors": ["働き", "働いて", "働いた", "働な", "働きます"]
+      }
+    },
+    {
+      "id": "can_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["koto_ga_dekiru"],
+      "payload": {
+        "sentence": "自分の目を「信じる」ことができます。",
+        "correct": "しんじる",
+        "distractors": ["かんじる", "しんずる", "しんしる", "しんじるな"]
+      }
+    },
+    {
+      "id": "can_030",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ga_dekiru", "traps"],
+      "payload": {
+        "sentence": "コーヒーを__ことが好きです。",
+        "correct": "淹れる",
+        "distractors": ["淹れること", "淹れ", "淹れて", "淹れた", "淹れます"]
+      }
+    }
+  ]
+}

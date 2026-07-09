@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~からこそ  - Précisément parce que - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "karakoso_001",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso", "N3"],
+      "payload": {
+        "sentence": "愛している__、厳しくするのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_002",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso", "pop_culture"],
+      "payload": {
+        "sentence": "仲間がいる__、私は強くなれるのだ。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_003",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "大変な仕事__、やりがいがあるというものだ。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakoso"],
+      "payload": {
+        "prefix": "失敗した",
+        "suffix": "。",
+        "blocks": ["からこそ", "今の自分があるのだと", "思う"]
+      }
+    },
+    {
+      "id": "karakoso_005",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "毎日練習した__、優勝できたのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_006",
+      "type": "WORD_USAGE",
+      "tags": ["karakoso"],
+      "payload": {
+        "word": "～からこそ ",
+        "options": [
+          { "text": "健康だからこそ、何でもできる。", "is_correct": true },
+          { "text": "忙しいからこそ、時間を大切にする。", "is_correct": true },
+          { "text": "雨が降ったからこそ、傘を差した。", "is_correct": false },
+          { "text": "君だからこそ、信じられる。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karakoso_007",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王を目指すお前__、この試練を乗り越えなければならない。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_008",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "信頼している__、大切な仕事を任せるのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_009",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "この町が好き__、守りたいと思うのです。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_010",
+      "type": "PARAPHRASE",
+      "tags": ["karakoso"],
+      "payload": {
+        "base_sentence": "辛い経験をしたからこそ、優しくなれる。",
+        "correct": "辛い経験という特別な理由があるから、まさにその理由によって、他人に優しくすることができるのです。",
+        "distractors": [
+          "辛い経験をした後に、優しくなりました。",
+          "辛い経験をするために、優しくなりました。",
+          "辛い経験をしたせいで、優しくなれなくなりました。"
+        ]
+      }
+    },
+    {
+      "id": "karakoso_011",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "今__、一致団結して立ち向かうべきだ。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakoso"],
+      "payload": {
+        "prefix": "自分の力で",
+        "suffix": "。",
+        "blocks": ["やった", "からこそ", "喜びも大きいのだ"]
+      }
+    },
+    {
+      "id": "karakoso_013",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "彼が正直__、みんなに愛されるのです。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_014",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "一度きりの人生__、後悔しないように生きたい。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_015",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "苦労して手に入れた__、大切にできるのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "「だからこそ」やる。",
+        "correct": "だからこそ",
+        "distractors": ["からこそ", "なのでこそ", "ゆえにこそ", "ためにこそ"]
+      }
+    },
+    {
+      "id": "karakoso_017",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "言葉が通じない__、心を通わせることが大切なのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_018",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "未熟__、学ぶ楽しみがあるのです。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakoso"],
+      "payload": {
+        "prefix": "君なら",
+        "suffix": "。",
+        "blocks": ["できると", "信じている", "からこそ言うのだ"]
+      }
+    },
+    {
+      "id": "karakoso_020",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "自由__、自己責任が問われるのです。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_021",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロット__、お前は特別な存在なんだ。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_022",
+      "type": "WORD_USAGE",
+      "tags": ["karakoso"],
+      "payload": {
+        "word": "～からこそ ",
+        "options": [
+          { "text": "一生懸命に生きているからこそ、悩みがある。", "is_correct": true },
+          { "text": "本気だからこそ、怒ることもある。", "is_correct": true },
+          { "text": "雨が降るからこそ、花が咲く。", "is_correct": true },
+          { "text": "勉強したからこそ、合格した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karakoso_023",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "この仕事は君に__、頼みたいと思っているんだ。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_024",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "平和な世の中__、私たちは感謝を忘れてはならない。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_025",
+      "type": "PARAPHRASE",
+      "tags": ["karakoso"],
+      "payload": {
+        "base_sentence": "君を信頼しているからこそ、この秘密を教えるんだ。",
+        "correct": "私がこの秘密をあなたに教える唯一の理由は、あなたを深く信頼しているからです。",
+        "distractors": [
+          "私がこの秘密をあなたに教えるために、あなたを信頼することにしました。",
+          "私がこの秘密をあなたに教えた後で、あなたを信頼するようになりました。",
+          "私がこの秘密をあなたに教えるのは、あなたが信頼できないからです。"
+        ]
+      }
+    },
+    {
+      "id": "karakoso_026",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "難しい挑戦__、成功した時の喜びはひとしおだ。",
+        "correct": "だからこそ",
+        "distractors": ["だから", "なので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_027",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "家族の支えがある__、私は頑張れるのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakoso"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["瞬間は", "今しかない", "からこそ大切にしよう"]
+      }
+    },
+    {
+      "id": "karakoso_029",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "未来がわからない__、今を全力で生きるべきだ。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    },
+    {
+      "id": "karakoso_030",
+      "type": "FILL_BLANK",
+      "tags": ["karakoso"],
+      "payload": {
+        "sentence": "命には限りがある__、美しいと言えるのです。",
+        "correct": "からこそ",
+        "distractors": ["から", "ので", "ばかりに", "ながら"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~だけあって  - Comme on pouvait s'y attendre / Justement parce que - N2"
+  },
+  "exercises": [
+    {
+      "id": "dakeatte_001",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte", "N2"],
+      "payload": {
+        "sentence": "このレストランは有名な__、料理が本当においしい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_002",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は修行した__、さすがに強い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_003",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "一流ホテル__、サービスが素晴らしい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeatte"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "漢字をよく知っている。",
+        "blocks": ["日本に", "10年住んでいる", "だけあって"]
+      }
+    },
+    {
+      "id": "dakeatte_005",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "高い__、このカメラは性能がいい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_006",
+      "type": "WORD_USAGE",
+      "tags": ["dakeatte"],
+      "payload": {
+        "word": "～だけあって ",
+        "options": [
+          { "text": "スポーツ選手だけあって、体格がいい。", "is_correct": true },
+          { "text": "頑張っただけあって、合格できた。", "is_correct": true },
+          { "text": "雨が降っただけあって、道が濡れている。", "is_correct": false },
+          { "text": "子供だけあって、わがままだ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dakeatte_007",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte", "pop_culture"],
+      "payload": {
+        "sentence": "さすがベジータだ。エリート__、誇りが高い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_008",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "都会__、夜でも人が多い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_009",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "毎日練習している__、歌がとても上手だ。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_010",
+      "type": "PARAPHRASE",
+      "tags": ["dakeatte"],
+      "payload": {
+        "base_sentence": "彼は若いだけあって、元気がいい。",
+        "correct": "彼は若いので、やはり期待通りに元気がある。",
+        "distractors": [
+          "彼は若いから、元気がないとおかしい。",
+          "彼は若いせいで、元気すぎる。",
+          "彼は若いおかげで、元気になった。"
+        ]
+      }
+    },
+    {
+      "id": "dakeatte_011",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "このバッグは高い__、丈夫そうだ。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeatte"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "とても美味しい。",
+        "blocks": ["果物は", "新鮮な", "だけあって"]
+      }
+    },
+    {
+      "id": "dakeatte_013",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "彼はベテラン__、落ち着いている。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_014",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "厳しい試験に合格した__、彼の能力は高い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_015",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "人気店__、行列ができている。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "「だけあって」さすがだ。",
+        "correct": "だけあって",
+        "distractors": ["ばかりに", "だけに", "からには", "ものの"]
+      }
+    },
+    {
+      "id": "dakeatte_017",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "都会の子供__、虫を怖がる。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_018",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "歴史がある町__、古い建物が多い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeatte"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "字がとても綺麗だ。",
+        "blocks": ["書道の", "先生な", "だけあって"]
+      }
+    },
+    {
+      "id": "dakeatte_020",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "冬の北海道__、雪がすごい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_021",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte", "pop_culture"],
+      "payload": {
+        "sentence": "さすが火影だ。みんなに信頼されている__、実力がすごい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_022",
+      "type": "WORD_USAGE",
+      "tags": ["dakeatte"],
+      "payload": {
+        "word": "～だけあって ",
+        "options": [
+          { "text": "本場の味だけあって、本当にうまい。", "is_correct": true },
+          { "text": "彼は日本語教師だけあって、説明がわかりやすい。", "is_correct": true },
+          { "text": "宿題を忘れただけあって、怒られた。", "is_correct": false },
+          { "text": "宝くじに当たっただけあって、お金持ちだ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dakeatte_023",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "この映画は賞を取った__、映像が素晴らしい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_024",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "彼女はモデル__、スタイルがいい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_025",
+      "type": "PARAPHRASE",
+      "tags": ["dakeatte"],
+      "payload": {
+        "base_sentence": "彼は努力しただけあって、素晴らしい成績を収めた。",
+        "correct": "彼は非常に努力したので、それにふさわしい素晴らしい成績を取ることができた。",
+        "distractors": [
+          "彼は努力したので、成績が良くなるのは当然だ。",
+          "彼は努力しなかったが、運良く成績が良かった。",
+          "彼は努力したおかげで、誰かに褒められた。"
+        ]
+      }
+    },
+    {
+      "id": "dakeatte_026",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "海に近い町__、魚料理が安くておいしい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_027",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "彼は作家__、言葉の選び方が面白い。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeatte"],
+      "payload": {
+        "prefix": "さすが",
+        "suffix": "知識が豊富だ。",
+        "blocks": ["専門家な", "だけあって", "彼は"]
+      }
+    },
+    {
+      "id": "dakeatte_029",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "雨の日__、客が少なくて静かだ。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeatte_030",
+      "type": "FILL_BLANK",
+      "tags": ["dakeatte"],
+      "payload": {
+        "sentence": "このお茶は高い__、香りがとてもいい。",
+        "correct": "だけあって",
+        "distractors": ["だけに", "ばかりに", "おかげで", "せいで"]
+      }
+    }
+  ]
+}

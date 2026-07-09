@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~くせに  - Bien que / Alors que  - N3"
+  },
+  "exercises": [
+    {
+      "id": "kuseni_001",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni", "N3"],
+      "payload": {
+        "sentence": "自分では何もしない__、文句ばかり言う。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_002",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni", "pop_culture"],
+      "payload": {
+        "sentence": "弱いくらいたいくせに、強い__振る舞っている。",
+        "correct": "ふりをして",
+        "distractors": ["くせに", "ふりして", "ようとして", "みたいに"]
+      }
+    },
+    {
+      "id": "kuseni_003",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "男の__、そんなことで泣くなよ。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "こそ"]
+      }
+    },
+    {
+      "id": "kuseni_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kuseni"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["知っている", "くせに", "教えてくれない"]
+      }
+    },
+    {
+      "id": "kuseni_005",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "子供の__、大人のようなことを言う。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "だけあって"]
+      }
+    },
+    {
+      "id": "kuseni_006",
+      "type": "WORD_USAGE",
+      "tags": ["kuseni"],
+      "payload": {
+        "word": "～くせに ",
+        "options": [
+          { "text": "下手なくせに、プロのふりをする。", "is_correct": true },
+          { "text": "お金がないくせに、贅沢ばかりしている。", "is_correct": true },
+          { "text": "雨が降るくせに、傘を持たない。", "is_correct": false },
+          { "text": "知らないくせに、知っているふりをする。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kuseni_007",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni", "pop_culture"],
+      "payload": {
+        "sentence": "サイヤ人の__、地球人を守るつもりか。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "おかげで"]
+      }
+    },
+    {
+      "id": "kuseni_008",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "昨日言った__、今日はもう忘れている。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_009",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "できない__、できると言い張る。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "ものなら"]
+      }
+    },
+    {
+      "id": "kuseni_010",
+      "type": "PARAPHRASE",
+      "tags": ["kuseni"],
+      "payload": {
+        "base_sentence": "彼は独身のくせに、育児について語っている。",
+        "correct": "彼は結婚もしていないし子供もいないという立場なのに、生意気にも育児について偉そうに話している。",
+        "distractors": [
+          "彼は独身なので、育児についてよく勉強しています。",
+          "彼は独身であるために、育児について話すのをやめました。",
+          "彼は独身であるわりに、育児に詳しいです。"
+        ]
+      }
+    },
+    {
+      "id": "kuseni_011",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "自分の間違いを認めない__、人のせいにする。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kuseni"],
+      "payload": {
+        "prefix": "あいつは",
+        "suffix": "。",
+        "blocks": ["お金がない", "くせに", "外車を買った"]
+      }
+    },
+    {
+      "id": "kuseni_013",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "下手な__、歌うのが大好きだ。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "だけあって"]
+      }
+    },
+    {
+      "id": "kuseni_014",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "若いくせに、__ようなことを言う。",
+        "correct": "年寄り",
+        "distractors": ["老人", "大人", "子供", "学生"]
+      }
+    },
+    {
+      "id": "kuseni_015",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "運動神経が__くせに、サッカー部に入った。",
+        "correct": "悪いくせに",
+        "distractors": ["悪いのに", "悪ながら", "悪いわりに", "悪いからには"]
+      }
+    },
+    {
+      "id": "kuseni_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "「癖に」なっている。",
+        "correct": "くせに",
+        "distractors": ["へきに", "ぐせに", "せに", "わりに"]
+      }
+    },
+    {
+      "id": "kuseni_017",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "自分も遅刻した__、人を叱るなんて。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_018",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "怖がっている__、強がりを言っている。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kuseni"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["嘘つきの", "くせに", "正直なふりをする"]
+      }
+    },
+    {
+      "id": "kuseni_020",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "学生の__、高級レストランに行く。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_021",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni", "pop_culture"],
+      "payload": {
+        "sentence": "人間の__、神に逆らうつもりか。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "おかげで"]
+      }
+    },
+    {
+      "id": "kuseni_022",
+      "type": "WORD_USAGE",
+      "tags": ["kuseni"],
+      "payload": {
+        "word": "～くせに ",
+        "options": [
+          { "text": "寂しいくせに、平気な顔をするなよ。", "is_correct": true },
+          { "text": "好きな味のくせに、残しているね。", "is_correct": true },
+          { "text": "雨が降るくせに、涼しくない。", "is_correct": false },
+          { "text": "嬉しいくせに、怒ったふりをしている。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kuseni_023",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "漢字が書けない__、偉そうなことを言う。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_024",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "下手な__、道具だけは一流だ。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "だけあって"]
+      }
+    },
+    {
+      "id": "kuseni_025",
+      "type": "PARAPHRASE",
+      "tags": ["kuseni"],
+      "payload": {
+        "base_sentence": "わかっているくせに、わざと間違えた。",
+        "correct": "本当は正解を知っているはずなのに、意地悪な気持ち（あるいは別の意図）で間違ったふりをした。",
+        "distractors": [
+          "わかっていたので、すぐに答えました。",
+          "わかっていたわりに、間違えてしまいました。",
+          "わかっているふりをして、実は知りませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "kuseni_026",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "怠け者の__、口だけは達者だ。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_027",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "自分のミスだ__、謝ろうともしない。",
+        "correct": "というくせに",
+        "distractors": ["というのに", "というながら", "というわりに", "というからには"]
+      }
+    },
+    {
+      "id": "kuseni_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kuseni"],
+      "payload": {
+        "prefix": "あの子は",
+        "suffix": "。",
+        "blocks": ["女の子の", "くせに", "乱暴な言葉を使う"]
+      }
+    },
+    {
+      "id": "kuseni_029",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "忙しい__、毎日遊んでいる。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "kuseni_030",
+      "type": "FILL_BLANK",
+      "tags": ["kuseni"],
+      "payload": {
+        "sentence": "何も知らない__、首を突っ込んでくるな。",
+        "correct": "くせに",
+        "distractors": ["のに", "ながら", "わりに", "からには"]
+      }
+    }
+  ]
+}

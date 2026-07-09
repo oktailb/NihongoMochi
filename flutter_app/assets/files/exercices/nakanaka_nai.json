@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur なかなか...ない  - Pas facilement / Pas tout de suite - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "nakanakanai_001",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka", "N4"],
+      "payload": {
+        "sentence": "バスが__来ない。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_002",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の傷は、__治らない。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_003",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "日本語が__上手になりません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nakanaka"],
+      "payload": {
+        "prefix": "漢字が",
+        "suffix": "。",
+        "blocks": ["なかなか", "覚えられなくて", "困っている"]
+      }
+    },
+    {
+      "id": "nakanakanai_005",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "仕事が忙しくて、__休めません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_006",
+      "type": "WORD_USAGE",
+      "tags": ["nakanaka"],
+      "payload": {
+        "word": "なかなか...ない ",
+        "options": [
+          { "text": "なかなか眠れない。", "is_correct": true },
+          { "text": "なかなかいいですね。", "is_correct": true },
+          { "text": "なかなか雨が降る。", "is_correct": false },
+          { "text": "なかなか答えが出ない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nakanakanai_007",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの戦闘力は、__下がらない。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_008",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "道が混んでいて、__進みません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_009",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "彼の名前が、__っと思い出せません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_010",
+      "type": "PARAPHRASE",
+      "tags": ["nakanaka"],
+      "payload": {
+        "base_sentence": "あの人は、なかなか心を開かない。",
+        "correct": "あの人は非常に慎重であったり、内向的であったりするため、他人と親しくなるまでに非常に長い時間がかかります。",
+        "distractors": [
+          "あの人は、すぐに友達を作ります。",
+          "あの人は、誰にでも自分の秘密を話します。",
+          "あの人は、心を開くために準備をしています。"
+        ]
+      }
+    },
+    {
+      "id": "nakanakanai_011",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "咳が__止まらなくて、苦しいです。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nakanaka"],
+      "payload": {
+        "prefix": "このパソコンは",
+        "suffix": "。",
+        "blocks": ["古いので", "なかなか", "立ち上がらない"]
+      }
+    },
+    {
+      "id": "nakanakanai_013",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "一億円なんて、__当たりませんよ。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_014",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "彼女とは、__会う機会がありません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_015",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "この汚れは、洗っても__落ちない。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "「なかなか」できない。",
+        "correct": "なかなか",
+        "distractors": ["中中", "なかなかわ", "なかなかゆ", "なかなかじ"]
+      }
+    },
+    {
+      "id": "nakanakanai_017",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "新しい環境に、__慣れません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_018",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "自分の居場所が、__見つからない。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nakanaka"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自分の非を", "なかなか", "認めようとしない"]
+      }
+    },
+    {
+      "id": "nakanakanai_020",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "冬の朝は、__布団から出られません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_021",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのシンクロ率が、__上がりません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_022",
+      "type": "WORD_USAGE",
+      "tags": ["nakanaka"],
+      "payload": {
+        "word": "なかなか ",
+        "options": [
+          { "text": "なかなか面白い映画だった。", "is_correct": true },
+          { "text": "なかなか上手ですね。", "is_correct": true },
+          { "text": "なかなか雨が降る。", "is_correct": false },
+          { "text": "なかなかいいアイデアだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nakanakanai_023",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "将来の目標が、__決まりません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_024",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "彼には、__本音が言えません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_025",
+      "type": "PARAPHRASE",
+      "tags": ["nakanaka"],
+      "payload": {
+        "base_sentence": "この問題は、なかなか解けない。",
+        "correct": "この問題は難易度が高いため、少し考えたくらいでは正解にたどり着くことができません。",
+        "distractors": [
+          "この問題は、すぐに解くことができます。",
+          "この問題は、解く必要がありません。",
+          "この問題は、解いた後で忘れました。"
+        ]
+      }
+    },
+    {
+      "id": "nakanakanai_026",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "電話をかけても、__出ません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_027",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "雨が__やまなくて、帰れません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nakanaka"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["料理は", "手間がかかるので", "なかなか作れない"]
+      }
+    },
+    {
+      "id": "nakanakanai_029",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "理想の相手には、__巡り会えません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    },
+    {
+      "id": "nakanakanai_030",
+      "type": "FILL_BLANK",
+      "tags": ["nakanaka"],
+      "payload": {
+        "sentence": "この本は難しいので、__読み終わりません。",
+        "correct": "なかなか",
+        "distractors": ["ぜひ", "もっと", "ずっと", "あまり"]
+      }
+    }
+  ]
+}

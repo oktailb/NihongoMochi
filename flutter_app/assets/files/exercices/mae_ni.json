@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Chronologie  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "mae_001",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni"],
+      "payload": {
+        "sentence": "寝る__、歯を磨きます。",
+        "correct": "前に",
+        "distractors": ["後で", "時", "ので", "から"]
+      }
+    },
+    {
+      "id": "mae_002",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni", "verb"],
+      "payload": {
+        "sentence": "ご飯を__前に、手を洗います。",
+        "correct": "食べる",
+        "distractors": ["食べた", "食べ", "食べて", "食べな", "食べたい"]
+      }
+    },
+    {
+      "id": "mae_003",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni", "traps"],
+      "payload": {
+        "sentence": "日本へ__前に、日本語を勉強しました。",
+        "correct": "行く",
+        "distractors": ["行った", "行き", "行きた", "行て", "行きたい"]
+      }
+    },
+    {
+      "id": "mae_004",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni", "noun"],
+      "payload": {
+        "sentence": "食事__前に、お祈りをします。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "mae_005",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni", "pop_culture"],
+      "payload": {
+        "sentence": "戦う__、敵の名前を聞きます。",
+        "correct": "前に",
+        "distractors": ["後に", "から", "ので", "ときに", "までに"]
+      }
+    },
+    {
+      "id": "mae_006",
+      "type": "WORD_USAGE",
+      "tags": ["mae_ni"],
+      "payload": {
+        "word": "〜る前に ",
+        "options": [
+          { "text": "泳ぐ前に、準備体操をします。", "is_correct": true },
+          { "text": "旅行の前に、地図を買いました。", "is_correct": true },
+          { "text": "寝る前に、本を読みます。", "is_correct": true },
+          { "text": "食べた前に、飲みます。 ", "is_correct": false },
+          { "text": "明日前に会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "mae_007",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni"],
+      "payload": {
+        "sentence": "泳ぐ__、シャワーを浴びてください。",
+        "correct": "前に",
+        "distractors": ["後に", "から", "ので", "ときに", "までに"]
+      }
+    },
+    {
+      "id": "mae_008",
+      "type": "FILL_BLANK",
+      "tags": ["mae_ni", "traps"],
+      "payload": {
+        "sentence": "10時__寝ます。",
+        "correct": "に",
+        "distractors": ["前に", "後で", "から", "を"]
+      }
+    },
+    {
+      "id": "mae_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mae_ni"],
+      "payload": {
+        "prefix": "出かける",
+        "suffix": "電気を消してください。",
+        "blocks": ["前に"]
+      }
+    },
+    {
+      "id": "mae_010",
+      "type": "PARAPHRASE",
+      "tags": ["mae_ni"],
+      "payload": {
+        "base_sentence": "薬を飲む前に、ご飯を食べます。",
+        "correct": "ご飯を食べてから、薬を飲みます。",
+        "distractors": [
+          "薬を飲んでから、ご飯を食べます。",
+          "薬を飲みながら、ご飯を食べます。",
+          "ご飯を食べないで、薬を飲みます。",
+          "薬を飲んだ後で、ご飯を食べます。"
+        ]
+      }
+    }
+  ]
+}

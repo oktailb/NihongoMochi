@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～ていただけませんか - L'art de la requête humble et polie. "
+  },
+  "exercises": [
+    {
+      "id": "tik_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "すみませんが、写真を__いただけませんか。",
+        "correct": "撮って",
+        "distractors": ["撮る", "撮った", "撮り", "撮ろう"]
+      }
+    },
+    {
+      "id": "tik_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "この使い方がわからないんですが、__いただけませんか。",
+        "correct": "教えて",
+        "distractors": ["教える", "教えた", "教え", "教えよう"]
+      }
+    },
+    {
+      "id": "tik_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "prefix": "少し",
+        "suffix": "いただけませんか。",
+        "blocks": ["時間を", "貸して"]
+      }
+    },
+    {
+      "id": "tik_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "駅までの道を__いただけませんか。",
+        "correct": "教えて",
+        "distractors": ["教える", "教え", "教えた"]
+      }
+    },
+    {
+      "id": "tik_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "word": "ていただけませんか",
+        "options": [
+          { "text": "窓を閉めていただけませんか。", "is_correct": true },
+          { "text": "明日、電話を掛けていただけませんか。", "is_correct": true },
+          { "text": "ご飯を食べていただけませんか。", "is_correct": false },
+          { "text": "勉強をしていただけませんか。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tik_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "荷物が重いので、__いただけませんか。",
+        "correct": "手伝って",
+        "distractors": ["手伝う", "手伝い", "手伝った"]
+      }
+    },
+    {
+      "id": "tik_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "base_sentence": "塩を取ってください。",
+        "correct": "塩を取っていただけませんか。",
+        "distractors": [
+          "塩を取るばかりですか。",
+          "塩を取るはずですか。",
+          "塩を取るばかりですか。"
+        ]
+      }
+    },
+    {
+      "id": "tik_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "大きな声で__いただけませんか。",
+        "correct": "話して",
+        "distractors": ["話す", "話し", "話した"]
+      }
+    },
+    {
+      "id": "tik_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "ここでの撮影は__いただけませんか。",
+        "correct": "遠慮して",
+        "distractors": ["遠慮する", "遠慮し", "遠慮した"]
+      }
+    },
+    {
+      "id": "tik_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "prefix": "お名前を",
+        "suffix": "いただけませんか。",
+        "blocks": ["もう一度", "書いて"]
+      }
+    },
+    {
+      "id": "tik_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "その資料を__いただけませんか。",
+        "correct": "見せて",
+        "distractors": ["見せる", "見せ", "見せた"]
+      }
+    },
+    {
+      "id": "tik_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "「確認」していただけませんか。",
+        "correct": "かくにん",
+        "distractors": ["かいぎ", "べんきょう", "けいかく"]
+      }
+    },
+    {
+      "id": "tik_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "ここを__いただけませんか。",
+        "correct": "直して",
+        "distractors": ["直す", "直し", "直した"]
+      }
+    },
+    {
+      "id": "tik_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "少し__いただけませんか。気分が悪いんです。",
+        "correct": "休ませて",
+        "distractors": ["休む", "休ませる", "休み"]
+      }
+    },
+    {
+      "id": "tik_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "word": "していただけませんか",
+        "options": [
+          { "text": "予約をしていただけませんか。", "is_correct": true },
+          { "text": "紹介をしていただけませんか。", "is_correct": true },
+          { "text": "食事をしていただけませんか。", "is_correct": false },
+          { "text": "散歩をしていただけませんか。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tik_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "もう一度__いただけませんか。聞こえなかったので。",
+        "correct": "言って",
+        "distractors": ["言う", "言い", "言った"]
+      }
+    },
+    {
+      "id": "tik_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "その理由を__いただけませんか。",
+        "correct": "説明して",
+        "distractors": ["説明する", "説明し", "説明した"]
+      }
+    },
+    {
+      "id": "tik_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "prefix": "明日",
+        "suffix": "いただけませんか。",
+        "blocks": ["10時に", "来て"]
+      }
+    },
+    {
+      "id": "tik_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "お忙しいところ恐縮ですが、__いただけませんか。",
+        "correct": "お返事",
+        "distractors": ["返事", "返事して", "返事した"]
+      }
+    },
+    {
+      "id": "tik_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "こちらの書類を__いただけませんか。",
+        "correct": "読んで",
+        "distractors": ["読む", "読み", "読んだ"]
+      }
+    },
+    {
+      "id": "tik_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "base_sentence": "ゆっくり話してください。",
+        "correct": "ゆっくり話していただけませんか。",
+        "distractors": [
+          "ゆっくり話すばかりですか。",
+          "ゆっくり話すはずですか。",
+          "ゆっくり話すだけですか。"
+        ]
+      }
+    },
+    {
+      "id": "tik_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "窓を__いただけませんか。",
+        "correct": "開けて",
+        "distractors": ["開ける", "開け", "開けた"]
+      }
+    },
+    {
+      "id": "tik_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "テレビを__いただけませんか。",
+        "correct": "消して",
+        "distractors": ["消す", "消し", "消した"]
+      }
+    },
+    {
+      "id": "tik_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "「案内」していただけませんか。",
+        "correct": "あんない",
+        "distractors": ["かいぎ", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tik_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "ボールペンを__いただけませんか。",
+        "correct": "貸して",
+        "distractors": ["貸す", "貸し", "貸した"]
+      }
+    },
+    {
+      "id": "tik_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "場所を__いただけませんか。",
+        "correct": "替わって",
+        "distractors": ["替わる", "替わり", "替わった"]
+      }
+    },
+    {
+      "id": "tik_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "prefix": "少し",
+        "suffix": "いただけませんか。",
+        "blocks": ["待って"]
+      }
+    },
+    {
+      "id": "tik_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "名前を__いただけませんか。",
+        "correct": "呼んで",
+        "distractors": ["呼ぶ", "呼び", "呼んだ"]
+      }
+    },
+    {
+      "id": "tik_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "手紙を__いただけませんか。",
+        "correct": "書いて",
+        "distractors": ["書く", "書き", "書いた"]
+      }
+    },
+    {
+      "id": "tik_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_itadakemasen_ka"],
+      "payload": {
+        "sentence": "僕のそばに__いただけませんか。",
+        "correct": "いて",
+        "distractors": ["いる", "い", "いた"]
+      }
+    }
+  ]
+}

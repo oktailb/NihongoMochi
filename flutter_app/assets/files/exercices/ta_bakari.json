@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～たばかり - La fraîcheur de l'instant passé. "
+  },
+  "exercises": [
+    {
+      "id": "tba_001",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "ご飯を__ばかりなので、お腹がいっぱいです。",
+        "correct": "食べた",
+        "distractors": ["食べる", "食べて", "食べ", "食べよう"]
+      }
+    },
+    {
+      "id": "tba_002",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "日本に__ばかりで、まだ日本語が上手ではありません。",
+        "correct": "来た",
+        "distractors": ["来る", "来ている", "来", "来よう"]
+      }
+    },
+    {
+      "id": "tba_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "prefix": "この時計は",
+        "suffix": "、すぐに壊れてしまった。",
+        "blocks": ["買った", "ばかりなのに"]
+      }
+    },
+    {
+      "id": "tba_004",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、もう忘れてしまったの？",
+        "correct": "聞いた",
+        "distractors": ["聞く", "聞いている", "聞き"]
+      }
+    },
+    {
+      "id": "tba_005",
+      "type": "WORD_USAGE",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "word": "たばかり",
+        "options": [
+          { "text": "起きたばかりで、まだ眠いです。", "is_correct": true },
+          { "text": "作ったばかりの料理は美味しい。", "is_correct": true },
+          { "text": "食べるばかりで、太ります。", "is_correct": false },
+          { "text": "勉強したばかりに、100点を取った。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tba_006",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "掃除を__ばかりなのに、もう汚れてしまった。",
+        "correct": "した",
+        "distractors": ["する", "している", "し"]
+      }
+    },
+    {
+      "id": "tba_007",
+      "type": "PARAPHRASE",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "base_sentence": "私はつい最近、この本を読み終わりました。",
+        "correct": "この本を読み終わったばかりです。",
+        "distractors": [
+          "この本を読み終わるところです。",
+          "この本を読み終わるばかりです。",
+          "この本を読み終わったところばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tba_008",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっきまで__ばかりなのに、もう雨が降ってきた。",
+        "correct": "晴れていた",
+        "distractors": ["晴れる", "晴れ", "晴れたり"]
+      }
+    },
+    {
+      "id": "tba_009",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "昨日__ばかりの靴を汚してしまった。",
+        "correct": "買った",
+        "distractors": ["買う", "買っている", "買い"]
+      }
+    },
+    {
+      "id": "tba_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "prefix": "あの二人は",
+        "suffix": "、とても仲がいい。",
+        "blocks": ["結婚した", "ばかりで"]
+      }
+    },
+    {
+      "id": "tba_011",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、またお腹が空いたの？",
+        "correct": "食べた",
+        "distractors": ["食べる", "食べ", "食べよう"]
+      }
+    },
+    {
+      "id": "tba_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "「開店」したばかりのお店に行ってみよう。",
+        "correct": "かいてん",
+        "distractors": ["かいぎ", "べんきょう", "けいかく"]
+      }
+    },
+    {
+      "id": "tba_013",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "習った__ばかりの漢字を忘れてしまった。",
+        "correct": "た",
+        "distractors": ["る", "て", "い"]
+      }
+    },
+    {
+      "id": "tba_014",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、もういないんですか。",
+        "correct": "会った",
+        "distractors": ["会う", "会っている", "会い"]
+      }
+    },
+    {
+      "id": "tba_015",
+      "type": "WORD_USAGE",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "word": "たばかりの",
+        "options": [
+          { "text": "届いたばかりの手紙を読みました。", "is_correct": true },
+          { "text": "産まれたばかりの赤ちゃんは可愛い。", "is_correct": true },
+          { "text": "勉強したばかりの合格した。", "is_correct": false },
+          { "text": "ご飯を食べるばかりの準備をする。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tba_016",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、もう眠いの？",
+        "correct": "起きた",
+        "distractors": ["起きる", "起き", "起きよう"]
+      }
+    },
+    {
+      "id": "tba_017",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "大学を__ばかりで、社会のことはまだわかりません。",
+        "correct": "卒業した",
+        "distractors": ["卒業する", "卒業", "卒業しよう"]
+      }
+    },
+    {
+      "id": "tba_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、とても忙しそうだ。",
+        "blocks": ["部長に", "なった", "ばかりで"]
+      }
+    },
+    {
+      "id": "tba_019",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "このパソコン、__ばかりなのに、調子が悪い。",
+        "correct": "買った",
+        "distractors": ["買う", "買っている", "買い"]
+      }
+    },
+    {
+      "id": "tba_020",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "今__ばかりの情報を教えよう。",
+        "correct": "知った",
+        "distractors": ["知る", "知っている", "知り"]
+      }
+    },
+    {
+      "id": "tba_021",
+      "type": "PARAPHRASE",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "base_sentence": "彼はついさっき、帰ってきました。",
+        "correct": "彼は帰ってきたばかりです。",
+        "distractors": [
+          "彼は帰ってくるところです。",
+          "彼は帰ってくるばかりです。",
+          "彼は帰ってきたところばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tba_022",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "修理に__ばかりのスマホをまた落としてしまった。",
+        "correct": "出した",
+        "distractors": ["出す", "出している", "出し"]
+      }
+    },
+    {
+      "id": "tba_023",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりの嘘がもうバレたの？",
+        "correct": "ついた",
+        "distractors": ["つく", "ついて", "つき"]
+      }
+    },
+    {
+      "id": "tba_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "「完成」したばかりの家を見学した。",
+        "correct": "かんせい",
+        "distractors": ["けいかく", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tba_025",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、もう乾いてしまった。",
+        "correct": "洗った",
+        "distractors": ["洗う", "洗い", "洗おう"]
+      }
+    },
+    {
+      "id": "tba_026",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "知り__ばかりの人に秘密を話してはいけない。",
+        "correct": "合った",
+        "distractors": ["合う", "合い", "合おう"]
+      }
+    },
+    {
+      "id": "tba_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "prefix": "日本に",
+        "suffix": "、どこへ行けばいいかわからない。",
+        "blocks": ["着いた", "ばかりで"]
+      }
+    },
+    {
+      "id": "tba_028",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりの言葉をもう忘れてしまったの？",
+        "correct": "習った",
+        "distractors": ["習う", "習い", "習おう"]
+      }
+    },
+    {
+      "id": "tba_029",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "今__ばかりのケーキをどうぞ。",
+        "correct": "焼けた",
+        "distractors": ["焼ける", "焼け", "焼こう"]
+      }
+    },
+    {
+      "id": "tba_030",
+      "type": "FILL_BLANK",
+      "tags": ["ta_bakari"],
+      "payload": {
+        "sentence": "さっき__ばかりなのに、また喧嘩してるの？",
+        "correct": "仲直りした",
+        "distractors": ["仲直りする", "仲直り", "仲直りしよう"]
+      }
+    }
+  ]
+}

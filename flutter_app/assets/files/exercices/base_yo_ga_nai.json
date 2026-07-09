@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ようがない  - Aucun moyen de... - N2"
+  },
+  "exercises": [
+    {
+      "id": "yo_001",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai", "N2"],
+      "payload": {
+        "sentence": "連絡先がわからないので、連絡し__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_002",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの暴走は、もう誰にも止め__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_003",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりの美しさに、例え__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "prefix": "壊れすぎていて",
+        "suffix": "。もう捨てよう。",
+        "blocks": ["直し", "ようが", "ない"]
+      }
+    },
+    {
+      "id": "yo_005",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "今の状況では、どうし__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_006",
+      "type": "WORD_USAGE",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "word": "～ようがない ",
+        "options": [
+          { "text": "鍵をなくしたので、家に入りようがない。", "is_correct": true },
+          { "text": "説明しようがないほど複雑だ。", "is_correct": true },
+          { "text": "漢字が書きようがない。", "is_correct": false },
+          { "text": "ご飯を食べようがない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "yo_007",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの強さは、絶望し__ほどだった。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_008",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "彼の気持ちは、本人にしかわかり__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_009",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりに複雑で、言い__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_010",
+      "type": "PARAPHRASE",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "base_sentence": "その件については、否定しようがない事実だ。",
+        "correct": "その件については、絶対に否定することができない事実だ。",
+        "distractors": [
+          "その件については、否定するつもりはない。",
+          "その件については、否定したほうがいい。",
+          "その件については、否定されたくない。"
+        ]
+      }
+    },
+    {
+      "id": "yo_011",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "準備不足で、言い訳のし__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。どこに行ったんだろう。",
+        "blocks": ["探し", "ようが", "ない"]
+      }
+    },
+    {
+      "id": "yo_013",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりにひどい内容に、助け__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_014",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "そんな高いもの、買い__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_015",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "終わったことは、悔やみ__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "「仕様」がない。",
+        "correct": "しよう",
+        "distractors": ["しがた", "しようが", "しようも", "しような"]
+      }
+    },
+    {
+      "id": "yo_017",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "この事実は動かし__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_018",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりに完璧で、文句の付け__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。完璧だ。",
+        "blocks": ["批判の", "し", "ようがない"]
+      }
+    },
+    {
+      "id": "yo_020",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "彼を信じる__、もう道はない。",
+        "correct": "ほか",
+        "distractors": ["ようが", "わけが", "はずが", "ことが"]
+      }
+    },
+    {
+      "id": "yo_021",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai", "pop_culture"],
+      "payload": {
+        "sentence": "サスケの復讐心は、もう止め__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_022",
+      "type": "WORD_USAGE",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "word": "～ようがない ",
+        "options": [
+          { "text": "過去は変えようがない。", "is_correct": true },
+          { "text": "彼の才能には驚きようがないほどだ。", "is_correct": true },
+          { "text": "ご飯を作りようがない。", "is_correct": false },
+          { "text": "雨が降りようがない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "yo_023",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "この大雨では、外に出__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_024",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりの複雑さに、理解し__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_025",
+      "type": "PARAPHRASE",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "base_sentence": "彼はもう、助けようがない状態だ。",
+        "correct": "彼はもう、どんな方法を使っても助けることができない状態だ。",
+        "distractors": [
+          "彼はもう、助ける必要がない状態だ。",
+          "彼はもう、助けてもらえるのを待っている状態だ。",
+          "彼はもう、助けるのをやめた状態だ。"
+        ]
+      }
+    },
+    {
+      "id": "yo_026",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "この汚れは、洗い__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_027",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "本人がいないので、確かめ__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。残念だ。",
+        "blocks": ["解決の", "し", "ようがない"]
+      }
+    },
+    {
+      "id": "yo_029",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "あまりに遠くて、行き__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    },
+    {
+      "id": "yo_030",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ga_nai"],
+      "payload": {
+        "sentence": "今のところ、対策の立て__。",
+        "correct": "ようがない",
+        "distractors": ["ようもない", "わけがない", "はずがない", "ことがない"]
+      }
+    }
+  ]
+}

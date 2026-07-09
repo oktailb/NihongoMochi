@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur くらい / ぐらい  - Approximation / Degré / Comparaison - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "kurai_001",
+      "type": "FILL_BLANK",
+      "tags": ["kurai", "N4"],
+      "payload": {
+        "sentence": "ここから駅まで、10分__です。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_002",
+      "type": "FILL_BLANK",
+      "tags": ["kurai", "pop_culture"],
+      "payload": {
+        "sentence": "悟空なら、これ__の岩は簡単に壊せるだろう。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_003",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "泣きたい__嬉しいです。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kurai"],
+      "payload": {
+        "prefix": "りんごを",
+        "suffix": "。",
+        "blocks": ["3つ", "くらい", "買ってきてください"]
+      }
+    },
+    {
+      "id": "kurai_005",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "自分の名前__、漢字で書けますよ。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_006",
+      "type": "WORD_USAGE",
+      "tags": ["kurai"],
+      "payload": {
+        "word": "くらい / ぐらい ",
+        "options": [
+          { "text": "1時間くらい待った。", "is_correct": true },
+          { "text": "1000円ぐらい持っている。", "is_correct": true },
+          { "text": "雨がくらい降る。", "is_correct": false },
+          { "text": "これくらいでいい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kurai_007",
+      "type": "FILL_BLANK",
+      "tags": ["kurai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの戦闘力は、100万__だろうか。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_008",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "死ぬ__お腹が空きました。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_009",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "せめて挨拶__はしてください。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_010",
+      "type": "PARAPHRASE",
+      "tags": ["kurai"],
+      "payload": {
+        "base_sentence": "彼は、1ヶ月くらい日本にいました。",
+        "correct": "彼は、正確ではありませんが、だいたい30日間ほど日本に滞在していました。",
+        "distractors": [
+          "彼は1ヶ月間ずっと日本にいました。",
+          "彼は1ヶ月前に日本へ行きました。",
+          "彼は1ヶ月後に日本へ行く予定です。"
+        ]
+      }
+    },
+    {
+      "id": "kurai_011",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "今日は、昨日__の寒さだ。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kurai"],
+      "payload": {
+        "prefix": "お茶",
+        "suffix": "。",
+        "blocks": ["ぐらい", "淹れさせて", "ください"]
+      }
+    },
+    {
+      "id": "kurai_013",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "もうこれ__でいいですか。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_014",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "彼は、驚く__足が速い。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_015",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "ちょっと__待ってくれてもいいのに。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "「くらい」でいい。",
+        "correct": "くらい",
+        "distractors": ["ぐらい", "ぐらいわ", "くらいわ", "ほど"]
+      }
+    },
+    {
+      "id": "kurai_017",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "彼は、毎日1時間__走っている。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_018",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "この本は、小学生__でも読める。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kurai"],
+      "payload": {
+        "prefix": "あの人の",
+        "suffix": "。",
+        "blocks": ["名前", "ぐらいは", "知っている"]
+      }
+    },
+    {
+      "id": "kurai_020",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "外は、暗くて何も見えない__だ。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_021",
+      "type": "FILL_BLANK",
+      "tags": ["kurai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのシンクロ率が、40％__になった。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_022",
+      "type": "WORD_USAGE",
+      "tags": ["kurai"],
+      "payload": {
+        "word": "ぐらい ",
+        "options": [
+          { "text": "ひらがなぐらいは書ける。", "is_correct": true },
+          { "text": "日曜日ぐらいは休みたい。", "is_correct": true },
+          { "text": "雨がぐらい降る。", "is_correct": false },
+          { "text": "自分ぐらいは信じたい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kurai_023",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "このバッグ、1万円__しました。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_024",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "彼は、目に見えない__速さで動いた。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_025",
+      "type": "PARAPHRASE",
+      "tags": ["kurai"],
+      "payload": {
+        "base_sentence": "これくらい、誰にでもできますよ。",
+        "correct": "この程度の簡単なことなら、どんな人でも行うことが可能です。",
+        "distractors": [
+          "これだけは、誰もできません。",
+          "これをするために、準備が必要です。",
+          "これができるかどうか、私にはわかりません。"
+        ]
+      }
+    },
+    {
+      "id": "kurai_026",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "今日は、歩けない__疲れました。",
+        "correct": "くらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_027",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "せめて名前__は教えてください。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kurai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["10分", "ぐらい", "遅れて来た"]
+      }
+    },
+    {
+      "id": "kurai_029",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "嘘__、誰でもついたことがある。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    },
+    {
+      "id": "kurai_030",
+      "type": "FILL_BLANK",
+      "tags": ["kurai"],
+      "payload": {
+        "sentence": "この映画、何回__見ましたか。",
+        "correct": "ぐらい",
+        "distractors": ["ほど", "だけ", "ばかり", "しか"]
+      }
+    }
+  ]
+}

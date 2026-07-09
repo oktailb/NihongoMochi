@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la forme conjonctive  - Base des verbes - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "conjonctive_001",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive", "N5"],
+      "payload": {
+        "sentence": "デパートへ買い物に__ます。",
+        "correct": "行き",
+        "distractors": ["行く", "行け", "行こ", "行って"]
+      }
+    },
+    {
+      "id": "conjonctive_002",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトは修行を__、強くなった。",
+        "correct": "し",
+        "distractors": ["する", "すれ", "しよ", "して"]
+      }
+    },
+    {
+      "id": "conjonctive_003",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "お茶を__ながら、お話ししましょう。",
+        "correct": "飲み",
+        "distractors": ["飲む", "飲め", "飲も", "飲んで"]
+      }
+    },
+    {
+      "id": "conjonctive_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjonctive"],
+      "payload": {
+        "prefix": "映画を",
+        "suffix": "ます。",
+        "blocks": ["見に", "行き", "たい"]
+      }
+    },
+    {
+      "id": "conjonctive_005",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "このペンは__やすいです。",
+        "correct": "書き",
+        "distractors": ["書く", "書け", "書こ", "書いて"]
+      }
+    },
+    {
+      "id": "conjonctive_006",
+      "type": "WORD_USAGE",
+      "tags": ["conjonctive"],
+      "payload": {
+        "word": "Forme conjonctive ",
+        "options": [
+          { "text": "本を読みに行きます。", "is_correct": true },
+          { "text": "この料理は作りやすい。", "is_correct": true },
+          { "text": "ご飯を食べ終わる。", "is_correct": true },
+          { "text": "走りにたい。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "conjonctive_007",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは肉を__すぎだ。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べれ", "食べよ", "食べて"]
+      }
+    },
+    {
+      "id": "conjonctive_008",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "田中さんは、歌を__ながら掃除をしています。",
+        "correct": "歌い",
+        "distractors": ["歌う", "歌え", "歌お", "歌って"]
+      }
+    },
+    {
+      "id": "conjonctive_009",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "ここでお名前を__ください。",
+        "correct": "お書き",
+        "distractors": ["お書く", "お書け", "お書こ", "お書いて"]
+      }
+    },
+    {
+      "id": "conjonctive_010",
+      "type": "PARAPHRASE",
+      "tags": ["conjonctive"],
+      "payload": {
+        "base_sentence": "彼は毎日、日本語を勉強しに行きます。",
+        "correct": "彼は日本語を勉強するという目的で、毎日特定の場所へ出かけます。",
+        "distractors": [
+          "彼は家で日本語を勉強しています。",
+          "彼は日本語の先生に会うのが好きです。",
+          "彼は日本語の勉強をやめて、外に行きました。"
+        ]
+      }
+    },
+    {
+      "id": "conjonctive_011",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "この本は__にくいです。",
+        "correct": "読み",
+        "distractors": ["読む", "読め", "読も", "読んで"]
+      }
+    },
+    {
+      "id": "conjonctive_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjonctive"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["泳ぎに", "海へ", "行き"]
+      }
+    },
+    {
+      "id": "conjonctive_013",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "お__ください。",
+        "correct": "座り",
+        "distractors": ["座る", "座れ", "座ろ", "座って"]
+      }
+    },
+    {
+      "id": "conjonctive_014",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "テレビを__ながら勉強するのは良くない。",
+        "correct": "見",
+        "distractors": ["見る", "見れ", "見よ", "見て"]
+      }
+    },
+    {
+      "id": "conjonctive_015",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "もう一度、やり__ます。",
+        "correct": "直し",
+        "distractors": ["直す", "直せ", "直そ", "直して"]
+      }
+    },
+    {
+      "id": "conjonctive_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "「行き」ます。",
+        "correct": "いき",
+        "distractors": ["いく", "いけ", "いこ", "いって"]
+      }
+    },
+    {
+      "id": "conjonctive_017",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "名前を__忘れました。",
+        "correct": "書き",
+        "distractors": ["書く", "書け", "書こ", "書いて"]
+      }
+    },
+    {
+      "id": "conjonctive_018",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "喉が渇いた。何か__たいです。",
+        "correct": "飲み",
+        "distractors": ["飲む", "飲め", "飲も", "飲んで"]
+      }
+    },
+    {
+      "id": "conjonctive_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjonctive"],
+      "payload": {
+        "prefix": "ご飯を",
+        "suffix": "ました。",
+        "blocks": ["食べ", "終わり", "に"]
+      }
+    },
+    {
+      "id": "conjonctive_020",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "この道は__にくいですね。",
+        "correct": "歩き",
+        "distractors": ["歩く", "歩け", "歩お", "歩いて"]
+      }
+    },
+    {
+      "id": "conjonctive_021",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は界王拳を__すぎた。",
+        "correct": "使い",
+        "distractors": ["使う", "使え", "使お", "使って"]
+      }
+    },
+    {
+      "id": "conjonctive_022",
+      "type": "WORD_USAGE",
+      "tags": ["conjonctive"],
+      "payload": {
+        "word": "Forme conjonctive + Suffixe",
+        "options": [
+          { "text": "本を読み始める。", "is_correct": true },
+          { "text": "ご飯を食べすぎる。", "is_correct": true },
+          { "text": "彼は笑い出した。", "is_correct": true },
+          { "text": "泳ぎてください。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "conjonctive_023",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "お__しましょうか。",
+        "correct": "持ち",
+        "distractors": ["持つ", "持て", "持お", "持って"]
+      }
+    },
+    {
+      "id": "conjonctive_024",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "漢字を__続けなければなりません。",
+        "correct": "書き",
+        "distractors": ["書く", "書け", "書お", "書いて"]
+      }
+    },
+    {
+      "id": "conjonctive_025",
+      "type": "PARAPHRASE",
+      "tags": ["conjonctive"],
+      "payload": {
+        "base_sentence": "この本は読みやすいです。",
+        "correct": "この本は内容が簡単であるか、字が大きくて、読むのが楽です。",
+        "distractors": [
+          "この本は読むのが難しいです。",
+          "この本は読む価値がありません。",
+          "この本は読むのをやめたいです。"
+        ]
+      }
+    },
+    {
+      "id": "conjonctive_026",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "早く__終わりましょう。",
+        "correct": "やり",
+        "distractors": ["やる", "やれ", "やろ", "やって"]
+      }
+    },
+    {
+      "id": "conjonctive_027",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "このお茶は__すぎました。",
+        "correct": "飲み",
+        "distractors": ["飲む", "飲め", "飲も", "飲んで"]
+      }
+    },
+    {
+      "id": "conjonctive_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conjonctive"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "ました。",
+        "blocks": ["驚いて", "走り", "出し"]
+      }
+    },
+    {
+      "id": "conjonctive_029",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "お__ください。",
+        "correct": "入り",
+        "distractors": ["入る", "入れ", "入ろ", "入って"]
+      }
+    },
+    {
+      "id": "conjonctive_030",
+      "type": "FILL_BLANK",
+      "tags": ["conjonctive"],
+      "payload": {
+        "sentence": "仕事が__終わりました。",
+        "correct": "やり",
+        "distractors": ["やる", "やれ", "やろ", "やって"]
+      }
+    }
+  ]
+}

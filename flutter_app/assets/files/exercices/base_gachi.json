@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de GACHI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "gac_001",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi"],
+      "payload": {
+        "sentence": "最近、曇り__の天気が続いています。",
+        "correct": "がち",
+        "distractors": ["っぽい", "そう", "すぎ", "にくい", "やすい"]
+      }
+    },
+    {
+      "id": "gac_002",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "traps"],
+      "payload": {
+        "sentence": "一人暮らしは野菜が不足し__です。",
+        "correct": "がち",
+        "distractors": ["ぎみ", "っぽい", "そう", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "gac_003",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi"],
+      "payload": {
+        "sentence": "休みの日、家でゴロゴロし__です。",
+        "correct": "がち",
+        "distractors": ["にくい", "やすい", "すぎ", "はじめ", "ぎみ"]
+      }
+    },
+    {
+      "id": "gac_004",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "traps"],
+      "payload": {
+        "sentence": "子供のころ、病気__でした。",
+        "correct": "がち",
+        "distractors": ["っぽい", "そう", "ぎみ", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "gac_005",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "pop_culture"],
+      "payload": {
+        "sentence": "初心者は力み__だが、リラックスが大切だ。",
+        "correct": "がち",
+        "distractors": ["ぎみ", "っぽい", "そう", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "gac_006",
+      "type": "WORD_USAGE",
+      "tags": ["base_gachi"],
+      "payload": {
+        "word": "〜がち ",
+        "options": [
+          { "text": "約束を忘れがちなので、メモします。", "is_correct": true },
+          { "text": "最近、遅刻しがちで困っています。", "is_correct": true },
+          { "text": "遠慮しがちな性格です。", "is_correct": true },
+          { "text": "嬉しいがちです。 ", "is_correct": false },
+          { "text": "明日がち会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "gac_007",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi"],
+      "payload": {
+        "sentence": "冬は家に閉じこもり__ですね。",
+        "correct": "がち",
+        "distractors": ["ぎみ", "っぽい", "そう", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "gac_008",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "traps"],
+      "payload": {
+        "sentence": "若いころの苦労は忘れ__です。",
+        "correct": "がち",
+        "distractors": ["やすい", "にくい", "すぎ", "そう", "ぎみ"]
+      }
+    },
+    {
+      "id": "gac_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_gachi"],
+      "payload": {
+        "prefix": "忙しいと、",
+        "suffix": "です。",
+        "blocks": ["周りが見えなくなり", "がち"]
+      }
+    },
+    {
+      "id": "gac_010",
+      "type": "PARAPHRASE",
+      "tags": ["base_gachi"],
+      "payload": {
+        "base_sentence": "彼は病気がちです。",
+        "correct": "彼は健康状態があまり良くなく、たびたび病気になります。",
+        "distractors": [
+          "彼は今病気です。",
+          "彼は病気になりたいです。",
+          "彼は病気かもしれません。",
+          "彼は病気になったことがありません。"
+        ]
+      }
+    },
+    {
+      "id": "gac_011",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi"],
+      "payload": {
+        "sentence": "無理なダイエットは失敗し__です。",
+        "correct": "がち",
+        "distractors": ["やすい", "にくい", "すぎ", "そう", "ぎみ"]
+      }
+    },
+    {
+      "id": "gac_012",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "traps"],
+      "payload": {
+        "sentence": "スマホを使いすぎると、寝不足になり__です。",
+        "correct": "がち",
+        "distractors": ["ぎみ", "っぽい", "そう", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "gac_013",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi"],
+      "payload": {
+        "sentence": "人の意見に左右され__な人は苦労します。",
+        "correct": "がち",
+        "distractors": ["っぽい", "ぎみ", "すぎ", "そう", "やすい"]
+      }
+    },
+    {
+      "id": "gac_014",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "pop_culture"],
+      "payload": {
+        "sentence": "強敵を前にすると、足が止まり__だ。",
+        "correct": "がち",
+        "distractors": ["ぎみ", "っぽい", "そう", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "gac_015",
+      "type": "FILL_BLANK",
+      "tags": ["base_gachi", "traps"],
+      "payload": {
+        "sentence": "大切な約束を__がちです。",
+        "correct": "忘れ",
+        "distractors": ["忘れる", "忘れて", "忘れた", "忘らな", "忘れし"]
+      }
+    }
+  ]
+}

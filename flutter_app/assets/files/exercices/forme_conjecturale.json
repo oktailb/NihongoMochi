@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la forme Volitive/Conjecturale  - Intention / Invitation - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "volitif_001",
+      "type": "FILL_BLANK",
+      "tags": ["volitif", "N5"],
+      "payload": {
+        "sentence": "一緒にご飯を__。",
+        "correct": "食べよう",
+        "distractors": ["食べる", "食べれば", "食べたら", "食べろ"]
+      }
+    },
+    {
+      "id": "volitif_002",
+      "type": "FILL_BLANK",
+      "tags": ["volitif", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王に俺は__！",
+        "correct": "なる",
+        "distractors": ["なろう", "なれば", "なったら", "なれ"]
+      }
+    },
+    {
+      "id": "volitif_003",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "明日、映画を見に__と思っています。",
+        "correct": "行こう",
+        "distractors": ["行く", "行けば", "行ったら", "行け"]
+      }
+    },
+    {
+      "id": "volitif_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["volitif"],
+      "payload": {
+        "prefix": "みんなで",
+        "suffix": "。",
+        "blocks": ["日本語を", "一生懸命", "勉強しよう"]
+      }
+    },
+    {
+      "id": "volitif_005",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "喉が渇いた。何か__。",
+        "correct": "飲もう",
+        "distractors": ["飲む", "飲めば", "飲んだら", "飲め"]
+      }
+    },
+    {
+      "id": "volitif_006",
+      "type": "WORD_USAGE",
+      "tags": ["volitif"],
+      "payload": {
+        "word": "～よう ",
+        "options": [
+          { "text": "明日からタバコをやめようと思う。", "is_correct": true },
+          { "text": "一緒にテニスをしよう。", "is_correct": true },
+          { "text": "早く寝ようとする。", "is_correct": true },
+          { "text": "ご飯を食べようになる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "volitif_007",
+      "type": "FILL_BLANK",
+      "tags": ["volitif", "pop_culture"],
+      "payload": {
+        "sentence": "悟空、一緒に戦い__ぜ！",
+        "correct": "おう",
+        "distractors": ["ましょう", "れば", "たら", "ろ"]
+      }
+    },
+    {
+      "id": "volitif_008",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "疲れたから、少し__。",
+        "correct": "休もう",
+        "distractors": ["休む", "休めば", "休んだら", "休め"]
+      }
+    },
+    {
+      "id": "volitif_009",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "来年、日本へ__と思っています。",
+        "correct": "行こう",
+        "distractors": ["行く", "行けば", "行ったら", "行け"]
+      }
+    },
+    {
+      "id": "volitif_010",
+      "type": "PARAPHRASE",
+      "tags": ["volitif"],
+      "payload": {
+        "base_sentence": "明日、彼に会おうと思っています。",
+        "correct": "明日、彼に会うという意志（プラン）を私は持っています。",
+        "distractors": [
+          "明日、彼に会うことになりました。",
+          "明日、彼に会うかどうか、まだ決めていません。",
+          "明日、彼に会うのをやめようとしています。"
+        ]
+      }
+    },
+    {
+      "id": "volitif_011",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "重そうな荷物ですね。私が__。",
+        "correct": "持とう",
+        "distractors": ["持つ", "持てば", "持ったら", "持て"]
+      }
+    },
+    {
+      "id": "volitif_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["volitif"],
+      "payload": {
+        "prefix": "今日は",
+        "suffix": "。",
+        "blocks": ["外で", "ご飯を", "食べよう"]
+      }
+    },
+    {
+      "id": "volitif_013",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "もう遅いから、__。",
+        "correct": "帰ろう",
+        "distractors": ["帰る", "帰れば", "帰ったら", "帰れ"]
+      }
+    },
+    {
+      "id": "volitif_014",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "新しいパソコンを__と思っています。",
+        "correct": "買おう",
+        "distractors": ["買う", "買えば", "買ったら", "買え"]
+      }
+    },
+    {
+      "id": "volitif_015",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "天気がいいから、散歩に__。",
+        "correct": "行こう",
+        "distractors": ["行く", "行けば", "行ったら", "行け"]
+      }
+    },
+    {
+      "id": "volitif_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "「食べよう」と誘う。",
+        "correct": "たべよう",
+        "distractors": ["たべろ", "たべれば", "たべたら", "たべましょう"]
+      }
+    },
+    {
+      "id": "volitif_017",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "名前を__としたが、思い出せなかった。",
+        "correct": "思い出そう",
+        "distractors": ["思い出す", "思い出せば", "思い出したら", "思い出せ"]
+      }
+    },
+    {
+      "id": "volitif_018",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "将来、医者に__と思っています。",
+        "correct": "なろう",
+        "distractors": ["なる", "なれば", "なったら", "なれ"]
+      }
+    },
+    {
+      "id": "volitif_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["volitif"],
+      "payload": {
+        "prefix": "困っている人を",
+        "suffix": "。",
+        "blocks": ["みんなで", "助け", "あおう"]
+      }
+    },
+    {
+      "id": "volitif_020",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "何を__か迷っている。",
+        "correct": "食べよう",
+        "distractors": ["食べる", "食べれば", "食べたら", "食べろ"]
+      }
+    },
+    {
+      "id": "volitif_021",
+      "type": "FILL_BLANK",
+      "tags": ["volitif", "pop_culture"],
+      "payload": {
+        "sentence": "みんな、オラに元気を分けて__！",
+        "correct": "くれ",
+        "distractors": ["くれよう", "くれば", "くれたら", "くろ"]
+      }
+    },
+    {
+      "id": "volitif_022",
+      "type": "WORD_USAGE",
+      "tags": ["volitif"],
+      "payload": {
+        "word": "～ようとする ",
+        "options": [
+          { "text": "家を出ようとしたら、雨が降ってきた。", "is_correct": true },
+          { "text": "赤ちゃんが歩こうとしている。", "is_correct": true },
+          { "text": "彼は嘘をつこうとした。", "is_correct": true },
+          { "text": "ご飯を食べようになる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "volitif_023",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "どこへ__か相談しましょう。",
+        "correct": "行こう",
+        "distractors": ["行く", "行けば", "行ったら", "行け"]
+      }
+    },
+    {
+      "id": "volitif_024",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "今夜は早く__と思っています。",
+        "correct": "寝よう",
+        "distractors": ["寝る", "寝れば", "寝たら", "寝ろ"]
+      }
+    },
+    {
+      "id": "volitif_025",
+      "type": "PARAPHRASE",
+      "tags": ["volitif"],
+      "payload": {
+        "base_sentence": "彼はタバコをやめようとしている。",
+        "correct": "彼は今、タバコをやめるための努力（または直前の状態）をしています。",
+        "distractors": [
+          "彼はタバコをやめる決心をしました。",
+          "彼はタバコをやめるかどうか、迷っています。",
+          "彼はタバコをやめることができませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "volitif_026",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "窓を__としたが、固くて開かなかった。",
+        "correct": "開けよう",
+        "distractors": ["開ける", "開ければ", "開けたら", "開けろ"]
+      }
+    },
+    {
+      "id": "volitif_027",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "この件については、後で話し__。",
+        "correct": "合おう",
+        "distractors": ["合う", "合えば", "合ったら", "合え"]
+      }
+    },
+    {
+      "id": "volitif_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["volitif"],
+      "payload": {
+        "prefix": "明日",
+        "suffix": "。",
+        "blocks": ["もう一度", "やって", "みよう"]
+      }
+    },
+    {
+      "id": "volitif_029",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "もっと勉強を__と思っています。",
+        "correct": "しよう",
+        "distractors": ["する", "すれば", "したら", "しろ"]
+      }
+    },
+    {
+      "id": "volitif_030",
+      "type": "FILL_BLANK",
+      "tags": ["volitif"],
+      "payload": {
+        "sentence": "みんなで平和を__。",
+        "correct": "祈ろう",
+        "distractors": ["祈る", "祈れば", "祈ったら", "祈れ"]
+      }
+    }
+  ]
+}

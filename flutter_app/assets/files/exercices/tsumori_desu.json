@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de l'Intention  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "tsu_001",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu"],
+      "payload": {
+        "sentence": "来年、日本へ__つもりです。",
+        "correct": "行く",
+        "distractors": ["行きます", "行き", "行って", "行った", "行かない"]
+      }
+    },
+    {
+      "id": "tsu_002",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu", "negative"],
+      "payload": {
+        "sentence": "今日はお酒を__つもりです。",
+        "correct": "飲まない",
+        "distractors": ["飲みない", "飲みません", "飲まないで", "飲まなくて", "飲むない"]
+      }
+    },
+    {
+      "id": "tsu_003",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu", "pop_culture"],
+      "payload": {
+        "sentence": "もっと強く__つもりだ！",
+        "correct": "なる",
+        "distractors": ["なり", "なります", "なって", "なった", "なれ"]
+      }
+    },
+    {
+      "id": "tsu_004",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu", "past"],
+      "payload": {
+        "sentence": "映画を見る__でしたが、忙しくて見られませんでした。",
+        "correct": "つもり",
+        "distractors": ["こと", "もの", "とき", "まえ", "ので"]
+      }
+    },
+    {
+      "id": "tsu_005",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu", "traps"],
+      "payload": {
+        "sentence": "明日、何を__つもりですか。",
+        "correct": "する",
+        "distractors": ["し", "します", "して", "した", "しな"]
+      }
+    },
+    {
+      "id": "tsu_006",
+      "type": "WORD_USAGE",
+      "tags": ["tsumori_desu"],
+      "payload": {
+        "word": "〜つもり ",
+        "options": [
+          { "text": "新しい家を買うつもりです。", "is_correct": true },
+          { "text": "タバコをやめるつもりです。", "is_correct": true },
+          { "text": "嘘をつかないつもりです。", "is_correct": true },
+          { "text": "昨日、行ったつもりです。 ", "is_correct": false },
+          { "text": "勉強しますつもりです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tsu_007",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu"],
+      "payload": {
+        "sentence": "将来、医者に__つもりです。",
+        "correct": "なる",
+        "distractors": ["なり", "なります", "なって", "なった", "なれ"]
+      }
+    },
+    {
+      "id": "tsu_008",
+      "type": "FILL_BLANK",
+      "tags": ["tsumori_desu", "traps"],
+      "payload": {
+        "sentence": "誰に__つもりですか。",
+        "correct": "聞く",
+        "distractors": ["聞き", "聞きます", "聞いて", "聞いた", "聞か"]
+      }
+    },
+    {
+      "id": "tsu_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsumori_desu"],
+      "payload": {
+        "prefix": "週末は",
+        "suffix": "つもりです。",
+        "blocks": ["家でゆっくり", "休む"]
+      }
+    },
+    {
+      "id": "tsu_010",
+      "type": "PARAPHRASE",
+      "tags": ["tsumori_desu"],
+      "payload": {
+        "base_sentence": "留学するつもりです。",
+        "correct": "将来、外国で勉強する予定を立てています。",
+        "distractors": [
+          "今、留学しています。",
+          "留学しました。",
+          "留学したいですが、まだ決めていません。",
+          "留学することができません。"
+        ]
+      }
+    }
+  ]
+}

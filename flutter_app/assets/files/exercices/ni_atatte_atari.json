@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~にあたって / ~に際して  - N2"
+  },
+  "exercises": [
+    {
+      "id": "niatatte_001",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte", "N2"],
+      "payload": {
+        "sentence": "日本へ行く__、準備を整えた。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_002",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte", "pop_culture"],
+      "payload": {
+        "sentence": "戦いを始める__、悟空は覚悟を決めた。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_003",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "新学期を迎える__、目標を立てた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niatatte"],
+      "payload": {
+        "prefix": "結婚する",
+        "suffix": "。",
+        "blocks": ["にあたって", "両親に", "挨拶に行った"]
+      }
+    },
+    {
+      "id": "niatatte_005",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "開会__、一言ご挨拶申し上げます。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_006",
+      "type": "WORD_USAGE",
+      "tags": ["niatatte"],
+      "payload": {
+        "word": "～にあたって ",
+        "options": [
+          { "text": "留学にあたって、ビザを申請した。", "is_correct": true },
+          { "text": "帰国にあたって、お土産を買った。", "is_correct": true },
+          { "text": "雨にあたって、傘を差した。", "is_correct": false },
+          { "text": "開店にあたり、チラシを配った。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "niatatte_007",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの起動__、シンクロ率の確認が行われた。",
+        "correct": "に際して",
+        "distractors": ["にあたって", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_008",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "出発__、忘れ物はないか確認した。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_009",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "調査の開始__、関係者に協力を求めた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_010",
+      "type": "PARAPHRASE",
+      "tags": ["niatatte"],
+      "payload": {
+        "base_sentence": "契約の締結にあたって、慎重に内容を検討した。",
+        "correct": "契約という非常に重要な手続きを正式に行う前の段階で、その内容について間違いがないか細部まで注意深く調べました。",
+        "distractors": [
+          "契約を結んだ後で、内容を検討しました。",
+          "契約を結ぶために、誰かに手伝ってもらいました。",
+          "契約を結ぶのが嫌いなので、検討を中止しました。"
+        ]
+      }
+    },
+    {
+      "id": "niatatte_011",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "就職__、自分の将来について深く考えた。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niatatte"],
+      "payload": {
+        "prefix": "新事業を",
+        "suffix": "。",
+        "blocks": ["始める", "にあたって", "資金を集めた"]
+      }
+    },
+    {
+      "id": "niatatte_013",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "卒業__、恩師に感謝の気持ちを伝えた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_014",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "マンションの購入__、ローンの審査を受けた。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_015",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "試合の開催__、ルールの再確認が行われた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "「に当たり」挨拶する。",
+        "correct": "にあたり",
+        "distractors": ["にさいして", "にあたって", "について", "に対して"]
+      }
+    },
+    {
+      "id": "niatatte_017",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "手術を受ける__、家族の同意が必要だ。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_018",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "帰国の途に__、友人たちが見送りに来てくれた。",
+        "correct": "つくにあたって",
+        "distractors": ["つくに際して", "つくについて", "つくに対して", "つくにわたって"]
+      }
+    },
+    {
+      "id": "niatatte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niatatte"],
+      "payload": {
+        "prefix": "新居への",
+        "suffix": "。",
+        "blocks": ["引越し", "にあたって", "不用品を処分した"]
+      }
+    },
+    {
+      "id": "niatatte_020",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "社長の就任__、祝賀会が開かれた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_021",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte", "pop_culture"],
+      "payload": {
+        "sentence": "ナメック星への出発__、新しい宇宙船が用意された。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_022",
+      "type": "WORD_USAGE",
+      "tags": ["niatatte"],
+      "payload": {
+        "word": "～に際して ",
+        "options": [
+          { "text": "結婚に際して、指輪を交換した。", "is_correct": true },
+          { "text": "契約に際して、保証人が必要だ。", "is_correct": true },
+          { "text": "食事に際して、箸を使う。", "is_correct": false },
+          { "text": "来日に際して、歓迎会が開かれた。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "niatatte_023",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "プロジェクトの完了__、打ち上げが行われた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_024",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "留学の終了__、感謝の作文を書いた。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_025",
+      "type": "PARAPHRASE",
+      "tags": ["niatatte"],
+      "payload": {
+        "base_sentence": "新商品の発売にあたり、大々的な広告を出した。",
+        "correct": "新商品を市場に出すという特別なタイミングに合わせて、非常に多くの人々に知ってもらうための宣伝活動を行いました。",
+        "distractors": [
+          "新商品が発売された後で、広告を出しました。",
+          "新商品を発売するために、広告の準備をしました。",
+          "新商品を発売したおかげで、広告が有名になりました。"
+        ]
+      }
+    },
+    {
+      "id": "niatatte_026",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "会議の開始__、資料の配布が行われた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_027",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "転職__、これまでのキャリアを振り返った。",
+        "correct": "にあたって",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niatatte"],
+      "payload": {
+        "prefix": "新しい",
+        "suffix": "。",
+        "blocks": ["生活を", "始める", "にあたって決意を新たにした"]
+      }
+    },
+    {
+      "id": "niatatte_029",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "建物の取り壊し__、住民への説明が行われた。",
+        "correct": "にあたり",
+        "distractors": ["に際して", "について", "に対して", "にわたって"]
+      }
+    },
+    {
+      "id": "niatatte_030",
+      "type": "FILL_BLANK",
+      "tags": ["niatatte"],
+      "payload": {
+        "sentence": "日本での生活を__にあたって、まずは言葉を覚えたい。",
+        "correct": "始める",
+        "distractors": ["始めた", "始めて", "始めれば", "始めよう"]
+      }
+    }
+  ]
+}

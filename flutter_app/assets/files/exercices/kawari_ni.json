@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur 代わりに  - Au lieu de / À la place de / En échange - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "kawari_001",
+      "type": "FILL_BLANK",
+      "tags": ["kawari", "N3"],
+      "payload": {
+        "sentence": "今日はコーヒーの__、紅茶を飲みました。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_002",
+      "type": "FILL_BLANK",
+      "tags": ["kawari", "pop_culture"],
+      "payload": {
+        "sentence": "病気の父の__、悟空が戦いに行った。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_003",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "映画に行く__、家でゆっくり読書をすることにした。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kawari"],
+      "payload": {
+        "prefix": "手伝ってくれた",
+        "suffix": "。",
+        "blocks": ["お礼に", "晩ご飯を", "ご馳走する代わりに"]
+      }
+    },
+    {
+      "id": "kawari_005",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼は英語を教える__、日本語を教えてもらっている。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_006",
+      "type": "WORD_USAGE",
+      "tags": ["kawari"],
+      "payload": {
+        "word": "代わりに ",
+        "options": [
+          { "text": "バターの代わりに、マーガリンを使う。", "is_correct": true },
+          { "text": "田中さんの代わりに、私が出席します。", "is_correct": true },
+          { "text": "雨の代わりに、雪が降る。", "is_correct": true },
+          { "text": "ご飯を食べる代わりに、お腹が空いた。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kawari_007",
+      "type": "FILL_BLANK",
+      "tags": ["kawari", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗る__、何を犠牲にするつもりだ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_008",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "買い物に行く__、掃除をしてくれない？",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_009",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "このアパートは家賃が安い__、駅から遠い。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_010",
+      "type": "PARAPHRASE",
+      "tags": ["kawari"],
+      "payload": {
+        "base_sentence": "彼は、遊びに行く代わりに、家で勉強した。",
+        "correct": "彼は外へ遊びに行くという行動をしないで、その時間を使って家で勉強をすることにしました。",
+        "distractors": [
+          "彼は遊びに行くために、家で一生懸命勉強しました。",
+          "彼は家で勉強した後で、遊びに行きました。",
+          "彼は遊びに行くのが嫌いなので、家で勉強させられました。"
+        ]
+      }
+    },
+    {
+      "id": "kawari_011",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "昨日休んだ__、今日は残業します。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kawari"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["田中さんの", "代わりに", "会議に出た"]
+      }
+    },
+    {
+      "id": "kawari_013",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "プレゼントをあげる__、私の宿題を手伝ってよ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_014",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "外食する__、デリバリーを頼もう。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_015",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼は不器用な__、根気強い。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "「代わりに」やる。",
+        "correct": "かわりに",
+        "distractors": ["だわりに", "かわわりに", "かわりわ", "だわりわ"]
+      }
+    },
+    {
+      "id": "kawari_017",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "電車の__、バスで行くことにした。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_018",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼女は歌が下手な__、ダンスが上手だ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kawari"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自分の", "代わりに", "ロボットを作った"]
+      }
+    },
+    {
+      "id": "kawari_020",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "このカメラは高い__、非常に高性能だ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_021",
+      "type": "FILL_BLANK",
+      "tags": ["kawari", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトは、サスケの__、里を守る決心をした。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_022",
+      "type": "WORD_USAGE",
+      "tags": ["kawari"],
+      "payload": {
+        "word": "代わりに ",
+        "options": [
+          { "text": "自由がない代わりに、安定した生活がある。", "is_correct": true },
+          { "text": "不便な代わりに、空気が綺麗だ。", "is_correct": true },
+          { "text": "雨が降った代わりに、虹が出た。", "is_correct": false },
+          { "text": "勉強した代わりに、合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kawari_023",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "車で行く__、歩いて行くことにした。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_024",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼は無口な__、聞き上手だ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_025",
+      "type": "PARAPHRASE",
+      "tags": ["kawari"],
+      "payload": {
+        "base_sentence": "私は、お金を払う代わりに、この仕事を任せた。",
+        "correct": "私は、報酬としてお金を支払うという条件で、相手にこの仕事をお願いしました。",
+        "distractors": [
+          "私はお金がないので、この仕事を自分でやりました。",
+          "私はお金をもらうために、この仕事を一生懸命やりました。",
+          "私はお金を払った後で、この仕事の内容を忘れました。"
+        ]
+      }
+    },
+    {
+      "id": "kawari_026",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "名前を書く__、印鑑を押してもいいですか。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_027",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼は、自分の__、息子を留学させた。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kawari"],
+      "payload": {
+        "prefix": "砂糖の",
+        "suffix": "。",
+        "blocks": ["代わりに", "蜂蜜を", "使った"]
+      }
+    },
+    {
+      "id": "kawari_029",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "映画を見る__、ドラマを見ることにした。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    },
+    {
+      "id": "kawari_030",
+      "type": "FILL_BLANK",
+      "tags": ["kawari"],
+      "payload": {
+        "sentence": "彼は厳しい__、頼りになる先輩だ。",
+        "correct": "代わりに",
+        "distractors": ["に代わって", "に対して", "に際して", "について"]
+      }
+    }
+  ]
+}

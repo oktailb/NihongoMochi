@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~反面  - D'un autre côté / En revanche - N2"
+  },
+  "exercises": [
+    {
+      "id": "hanmen_001",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen", "N2"],
+      "payload": {
+        "sentence": "都会の生活は便利な__、ストレスも多い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_002",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は最強である__、家族サービスは苦手だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_003",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "このパソコンは高性能な__、値段が高い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hanmen"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["優しい", "反面", "非常に厳しいところがある"]
+      }
+    },
+    {
+      "id": "hanmen_005",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "自由な時間が増えた__、孤独を感じることもある。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_006",
+      "type": "WORD_USAGE",
+      "tags": ["hanmen"],
+      "payload": {
+        "word": "～反面 ",
+        "options": [
+          { "text": "ネットは便利な反面、怖いところもある。", "is_correct": true },
+          { "text": "薬は病気を治す反面、副作用もある。", "is_correct": true },
+          { "text": "雨が降った反面、涼しくなった。", "is_correct": false },
+          { "text": "仕事が忙しい反面、やりがいがある。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "hanmen_007",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは圧倒的な力を持つ__、部下を信じていない。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_008",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "この仕事は責任が重い__、やりがいも大きい。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_009",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "新しい薬は効果が高い__、副作用も心配だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_010",
+      "type": "PARAPHRASE",
+      "tags": ["hanmen"],
+      "payload": {
+        "base_sentence": "一人暮らしは気楽な反面、寂しいこともある。",
+        "correct": "一人暮らしは誰にも邪魔されず自由ですが、それと同時に（あるいは反対に）孤独を感じることもあります。",
+        "distractors": [
+          "一人暮らしは自由なので、全く寂しくありません。",
+          "一人暮らしは寂しいので、早く誰かと住みたいです。",
+          "一人暮らしは自由ですが、寂しいのでやめました。"
+        ]
+      }
+    },
+    {
+      "id": "hanmen_011",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "日本は治安がいい__、物価が高いと言われる。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hanmen"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["果物は", "甘い", "反面、少し酸味もある"]
+      }
+    },
+    {
+      "id": "hanmen_013",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "彼は頭がいい__、努力を怠るところがある。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_014",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "電気自動車は環境にいい__、充電に時間がかかる。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_015",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "彼女は明るい__、悩みやすい性格だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "「反面」教師。",
+        "correct": "はんめん",
+        "distractors": ["たんめん", "そりめん", "はんおもて", "そりおもて"]
+      }
+    },
+    {
+      "id": "hanmen_017",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "ネット社会は便利な__、プライバシーの問題も多い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_018",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "彼は無口な__、心の中では熱い情熱を持っている。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hanmen"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。",
+        "blocks": ["計画は", "魅力的である", "反面、リスクも大きい"]
+      }
+    },
+    {
+      "id": "hanmen_020",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "都会は刺激が多い__、落ち着かないこともある。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_021",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen", "pop_culture"],
+      "payload": {
+        "sentence": "火影は里の人から愛される__、非常に忙しい仕事だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_022",
+      "type": "WORD_USAGE",
+      "tags": ["hanmen"],
+      "payload": {
+        "word": "～反面 ",
+        "options": [
+          { "text": "このアパートは駅に近い反面、家賃が高い。", "is_correct": true },
+          { "text": "彼は正直な反面、嘘が下手だ。", "is_correct": false },
+          { "text": "勉強は大変な反面、知識が増える楽しみがある。", "is_correct": true },
+          { "text": "雨が降った反面、虹が出た。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "hanmen_023",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "田舎暮らしは自然が豊かな__、生活が不便だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_024",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "この本は面白い__、内容が少し古い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_025",
+      "type": "PARAPHRASE",
+      "tags": ["hanmen"],
+      "payload": {
+        "base_sentence": "彼は才能がある反面、努力をしない。",
+        "correct": "彼は素晴らしい才能を持っていますが、それとは反対に（あるいは残念なことに）努力を全くしません。",
+        "distractors": [
+          "彼は才能があるので、努力する必要がありません。",
+          "彼は才能がないので、もっと努力するべきです。",
+          "彼は才能があるおかげで、努力しなくても成功しました。"
+        ]
+      }
+    },
+    {
+      "id": "hanmen_026",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "新しいビルは綺麗な__、家賃が以前より高い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_027",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "彼は大胆な__、細かいことにこだわる性格だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hanmen"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自信家である", "反面", "他人の評価を気にしている"]
+      }
+    },
+    {
+      "id": "hanmen_029",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "SNSは情報が早い__、嘘の情報も多い。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "hanmen_030",
+      "type": "FILL_BLANK",
+      "tags": ["hanmen"],
+      "payload": {
+        "sentence": "彼は厳格な__、非常に子供思いの父親だ。",
+        "correct": "反面",
+        "distractors": ["一方で", "ながら", "ものの", "ついでに"]
+      }
+    }
+  ]
+}

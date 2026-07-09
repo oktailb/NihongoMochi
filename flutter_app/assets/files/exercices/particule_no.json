@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule NO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "no_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "これ__私のカメラです。",
+        "correct": "は",
+        "distractors": ["の", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "possession"],
+      "payload": {
+        "sentence": "あれは先生__バッグです。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "origin"],
+      "payload": {
+        "sentence": "これは日本__車です。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "で"]
+      }
+    },
+    {
+      "id": "no_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "location"],
+      "payload": {
+        "sentence": "机__うえにペンがあります。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "赤い__花を買いました。",
+        "correct": " ",
+        "distractors": ["の", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "no_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "appartenance"],
+      "payload": {
+        "sentence": "私は東京大学__学生です。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "pop_culture"],
+      "payload": {
+        "sentence": "進撃__巨人 ",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "毎日、日本語__勉強します。",
+        "correct": "を",
+        "distractors": ["の", "は", "が", "に"]
+      }
+    },
+    {
+      "id": "no_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "nominalization"],
+      "payload": {
+        "sentence": "泳ぐ__が好きです。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_no"],
+      "payload": {
+        "word": "の ",
+        "options": [
+          { "text": "私の友達は親切です。", "is_correct": true },
+          { "text": "英語の本を読みます。", "is_correct": true },
+          { "text": "窓の外に猫がいます。", "is_correct": true },
+          { "text": "綺麗の人は誰ですか。", "is_correct": false },
+          { "text": "大きいの家ですね。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "no_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "pop_culture"],
+      "payload": {
+        "sentence": "崖__上のポニョ ",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "父はテニス__上手です。",
+        "correct": "が",
+        "distractors": ["の", "は", "を", "に"]
+      }
+    },
+    {
+      "id": "no_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "substitution"],
+      "payload": {
+        "sentence": "このカバンは田中さん__ですか。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "綺麗な__海ですね。",
+        "correct": " ",
+        "distractors": ["の", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "no_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_no"],
+      "payload": {
+        "base_sentence": "これは私の母の料理です。",
+        "correct": "母が作った料理です。",
+        "distractors": [
+          "母は料理が好きです。",
+          "私は母の料理を食べたいです。",
+          "これは母と私の料理です。",
+          "料理は母の私です。"
+        ]
+      }
+    },
+    {
+      "id": "no_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "友達__名前を忘れました。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "明日、会社__休みます。",
+        "correct": "を",
+        "distractors": ["の", "は", "が", "に"]
+      }
+    },
+    {
+      "id": "no_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "content"],
+      "payload": {
+        "sentence": "料理__本を貸してください。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "no_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_no"],
+      "payload": {
+        "prefix": "あれは",
+        "suffix": "ます。",
+        "blocks": ["私の", "父の", "車で"]
+      }
+    },
+    {
+      "id": "no_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no", "traps"],
+      "payload": {
+        "sentence": "どこ__出身ですか。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    }
+  ]
+}

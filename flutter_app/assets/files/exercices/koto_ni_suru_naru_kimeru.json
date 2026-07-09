@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Décision  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "dec_001",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "健康のために、毎日走ることに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_002",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "来月、日本へ出張することに__。",
+        "correct": "なりました",
+        "distractors": ["しました", "あります", "います", "なりましたでした", "しましたでした"]
+      }
+    },
+    {
+      "id": "dec_003",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "甘いものを食べない__にしています。",
+        "correct": "こと",
+        "distractors": ["もの", "よう", "はず", "わけ", "つもり"]
+      }
+    },
+    {
+      "id": "dec_004",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "明日、10時に会うことに__。",
+        "correct": "なっています",
+        "distractors": ["しています", "あります", "なりましたでした", "しましたでした", "います"]
+      }
+    },
+    {
+      "id": "dec_005",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王になることに__！",
+        "correct": "決めた",
+        "distractors": ["なった", "した", "あり", "いる", "決めたな"]
+      }
+    },
+    {
+      "id": "dec_006",
+      "type": "WORD_USAGE",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "word": "ことになった ",
+        "options": [
+          { "text": "来週、結婚することになりました。", "is_correct": true },
+          { "text": "急に仕事に行かなければならないことになりました。", "is_correct": true },
+          { "text": "試験を受けることになりました。", "is_correct": true },
+          { "text": "毎日、走ることになった。 ", "is_correct": true },
+          { "text": "明日ことになった会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dec_007",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "自分を信じることに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_008",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "今日からタバコを__ことにしました。",
+        "correct": "やめる",
+        "distractors": ["やめ", "やめて", "やめた", "やめな", "やめます"]
+      }
+    },
+    {
+      "id": "dec_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "prefix": "毎日、",
+        "suffix": "にしています。",
+        "blocks": ["漢字を三つ練習する", "こと"]
+      }
+    },
+    {
+      "id": "dec_010",
+      "type": "PARAPHRASE",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "base_sentence": "留学することにしました。",
+        "correct": "自分で留学することを決意しました。",
+        "distractors": [
+          "留学することになりました。",
+          "留学したいです。",
+          "留学するつもりです。",
+          "留学しなければなりません。"
+        ]
+      }
+    },
+    {
+      "id": "dec_011",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "お酒を飲まないことに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_012",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "会議は3時から始まることに__。",
+        "correct": "なりました",
+        "distractors": ["しました", "あります", "います", "なりましたでした", "しましたでした"]
+      }
+    },
+    {
+      "id": "dec_013",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "日記を書く__にしました。",
+        "correct": "こと",
+        "distractors": ["もの", "よう", "はず", "わけ", "つもり"]
+      }
+    },
+    {
+      "id": "dec_014",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトは火影になることに__！",
+        "correct": "決めた",
+        "distractors": ["なった", "した", "あり", "いる", "決めたな"]
+      }
+    },
+    {
+      "id": "dec_015",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "明日、何を__ことにしましたか。",
+        "correct": "する",
+        "distractors": ["し", "して", "した", "しな", "します"]
+      }
+    },
+    {
+      "id": "dec_016",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "日本料理を作ることに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_017",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "来週、引っ越しすることに__。",
+        "correct": "なりました",
+        "distractors": ["しました", "あります", "います", "なりましたでした", "しましたでした"]
+      }
+    },
+    {
+      "id": "dec_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "「決心」したことにしました。",
+        "correct": "けっしん",
+        "distractors": ["けしん", "けっし", "げっしん", "けっじ心"]
+      }
+    },
+    {
+      "id": "dec_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "にしました。",
+        "blocks": ["行くこと"]
+      }
+    },
+    {
+      "id": "dec_020",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "お名前を__ことにしました。",
+        "correct": "変える",
+        "distractors": ["変え", "変えて", "変えた", "変えな", "変えます"]
+      }
+    },
+    {
+      "id": "dec_021",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "嘘をつかないことに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_022",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "この法律は来年から始まることに__。",
+        "correct": "なりました",
+        "distractors": ["しました", "あります", "います", "なりましたでした", "しましたでした"]
+      }
+    },
+    {
+      "id": "dec_023",
+      "type": "WORD_USAGE",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "word": "〜ことに して いる ",
+        "options": [
+          { "text": "毎日、エレベーターを使わないことにしています。", "is_correct": true },
+          { "text": "寝る前に、水を飲むことにしています。", "is_correct": true },
+          { "text": "週末は、仕事のことを考えないことにしています。", "is_correct": true },
+          { "text": "日本語が話せることにしています。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dec_024",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "もっと早く起きる__にしました。",
+        "correct": "こと",
+        "distractors": ["もの", "よう", "はず", "わけ", "つもり"]
+      }
+    },
+    {
+      "id": "dec_025",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "運動不足ですから、歩くことに__。",
+        "correct": "しました",
+        "distractors": ["なりました", "あります", "います", "しましたでした", "なりましたでした"]
+      }
+    },
+    {
+      "id": "dec_026",
+      "type": "PARAPHRASE",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "base_sentence": "明日休みになりました。",
+        "correct": "会社や学校などの都合で、明日は休日だと決まりました。",
+        "distractors": [
+          "明日休むことにしました。",
+          "明日休みます。",
+          "明日休みたいです。",
+          "明日休みでした。"
+        ]
+      }
+    },
+    {
+      "id": "dec_027",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "毎日30分泳ぐ__にしています。",
+        "correct": "こと",
+        "distractors": ["もの", "よう", "はず", "わけ", "つもり"]
+      }
+    },
+    {
+      "id": "dec_028",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "誰かに手伝って__ことにしました。",
+        "correct": "もらう",
+        "distractors": ["あげる", "くれる", "やり", "いただき"]
+      }
+    },
+    {
+      "id": "dec_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["koto_ni_suru_naru"],
+      "payload": {
+        "sentence": "「将来」のことを考えましょう。",
+        "correct": "しょうらい",
+        "distractors": ["そうらい", "しょうれい", "じょうらい", "しょらい"]
+      }
+    },
+    {
+      "id": "dec_030",
+      "type": "FILL_BLANK",
+      "tags": ["koto_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "お風呂に__ことにしました。",
+        "correct": "入る",
+        "distractors": ["入り", "入って", "入った", "入な", "入りし"]
+      }
+    }
+  ]
+}

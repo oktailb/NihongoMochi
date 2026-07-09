@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~からいうと / といえば / からいって  - N2"
+  },
+  "exercises": [
+    {
+      "id": "karaieba_001",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba", "N2"],
+      "payload": {
+        "sentence": "実力__、彼が優勝するのは間違いない。",
+        "correct": "からいって",
+        "distractors": ["によって", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_002",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba", "pop_culture"],
+      "payload": {
+        "sentence": "日本のアニメ__、やっぱり『ONE PIECE』だよね。",
+        "correct": "といえば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karaieba_003",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "今の成績__、志望校に合格するのは難しい。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karaieba"],
+      "payload": {
+        "prefix": "私の",
+        "suffix": "。",
+        "blocks": ["考え", "からいうと", "それは間違っている"]
+      }
+    },
+    {
+      "id": "karaieba_005",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "この冬の寒さ__、今年の収穫は期待できない。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_006",
+      "type": "WORD_USAGE",
+      "tags": ["karaieba"],
+      "payload": {
+        "word": "～といえば ",
+        "options": [
+          { "text": "京都といえば、お寺が有名だ。", "is_correct": true },
+          { "text": "夏といえば、海に行きたくなる。", "is_correct": true },
+          { "text": "彼といえば、元気かな。", "is_correct": false },
+          { "text": "といえば、いいことを思い出した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karaieba_007",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba", "pop_culture"],
+      "payload": {
+        "sentence": "戦闘力__、フリーザは圧倒的だ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_008",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "彼の人柄__、嘘をつくとは思えない。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_009",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "教育的な観点__、このゲームはおすすめできない。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_010",
+      "type": "PARAPHRASE",
+      "tags": ["karaieba"],
+      "payload": {
+        "base_sentence": "実力からいって、彼女が勝つのは当然だ。",
+        "correct": "彼女が持っている本当の能力という側面から判断すれば、彼女が勝利するのは当たり前の結果です。",
+        "distractors": [
+          "彼女の実力があるおかげで、みんなが喜びました。",
+          "彼女の実力については、誰もが知っています。",
+          "彼女の実力があると言われましたが、負けてしまいました。"
+        ]
+      }
+    },
+    {
+      "id": "karaieba_011",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "コストの面__、この計画は中止すべきだ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karaieba"],
+      "payload": {
+        "prefix": "日本料理",
+        "suffix": "。",
+        "blocks": ["といえば", "やっぱり", "寿司が一番だ"]
+      }
+    },
+    {
+      "id": "karaieba_013",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "今の状況__、これ以上の待機は危険だ。",
+        "correct": "からいって",
+        "distractors": ["からいうと", "からして", "によって", "について"]
+      }
+    },
+    {
+      "id": "karaieba_014",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "服装__、彼はサラリーマンではないだろう。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_015",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "使いやすさの点__、こちらの商品が勝っている。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "実力「からいって」。",
+        "correct": "からいって",
+        "distractors": ["からいってわ", "からいってな", "からいうと", "からいいて"]
+      }
+    },
+    {
+      "id": "karaieba_017",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "彼の性格__、一人でやるのは無理だ。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_018",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "安全性__、この飛行機は世界一だ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karaieba"],
+      "payload": {
+        "prefix": "田中さん",
+        "suffix": "。",
+        "blocks": ["といえば", "最近", "結婚したらしいよ"]
+      }
+    },
+    {
+      "id": "karaieba_020",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "歴史の長さ__、この町は非常に価値がある。",
+        "correct": "からいって",
+        "distractors": ["からいうと", "からして", "によって", "について"]
+      }
+    },
+    {
+      "id": "karaieba_021",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba", "pop_culture"],
+      "payload": {
+        "sentence": "忍者__、やっぱりナルトだよね。",
+        "correct": "といえば",
+        "distractors": ["からいうと", "からいって", "によって", "について"]
+      }
+    },
+    {
+      "id": "karaieba_022",
+      "type": "WORD_USAGE",
+      "tags": ["karaieba"],
+      "payload": {
+        "word": "～からいうと ",
+        "options": [
+          { "text": "表情からいうと、彼は怒っているようだ。", "is_correct": true },
+          { "text": "値段からいうと、こちらのほうが安い。", "is_correct": true },
+          { "text": "雨からいうと、傘を差す。", "is_correct": false },
+          { "text": "立場からいうと、反対せざるを得ない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karaieba_023",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "法律の専門家__、この行為は違法だ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_024",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "環境への影響__、プラスチックの使用は控えるべきだ。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_025",
+      "type": "PARAPHRASE",
+      "tags": ["karaieba"],
+      "payload": {
+        "base_sentence": "イタリア料理といえば、パスタが有名ですね。",
+        "correct": "イタリア料理という言葉を聞いて、多くの人がパスタを思い浮かべるほど有名ですね。",
+        "distractors": [
+          "イタリア料理はパスタだけでできています。",
+          "イタリア料理の中でパスタが一番美味しいと言われました。",
+          "イタリア料理を食べるために、パスタを作りました。"
+        ]
+      }
+    },
+    {
+      "id": "karaieba_026",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "体力__、彼はまだ若い選手には負けない。",
+        "correct": "からいって",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_027",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "品質__、この商品は世界一だ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    },
+    {
+      "id": "karaieba_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karaieba"],
+      "payload": {
+        "prefix": "これまでの",
+        "suffix": "。",
+        "blocks": ["経験", "からいうと", "それは正しい"]
+      }
+    },
+    {
+      "id": "karaieba_029",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "人気__、彼はトップクラスだ。",
+        "correct": "からいって",
+        "distractors": ["からいうと", "からして", "によって", "について"]
+      }
+    },
+    {
+      "id": "karaieba_030",
+      "type": "FILL_BLANK",
+      "tags": ["karaieba"],
+      "payload": {
+        "sentence": "彼女の話し方__、かなり怒っているようだ。",
+        "correct": "からいうと",
+        "distractors": ["といえば", "によって", "について", "からして"]
+      }
+    }
+  ]
+}

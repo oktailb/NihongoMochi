@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de l'Espace  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "loc_001",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "机の__にペンがあります。",
+        "correct": "上",
+        "distractors": ["下", "前", "後ろ", "中"]
+      }
+    },
+    {
+      "id": "loc_002",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "机の__に猫がいます。",
+        "correct": "下",
+        "distractors": ["上", "前", "後ろ", "中"]
+      }
+    },
+    {
+      "id": "loc_003",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "箱の__に何がありますか。",
+        "correct": "中",
+        "distractors": ["外", "上", "下", "横"]
+      }
+    },
+    {
+      "id": "loc_004",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "テレビの__にカメラがあります。",
+        "correct": "横",
+        "distractors": ["中", "上", "下", "前"]
+      }
+    },
+    {
+      "id": "loc_005",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "銀行は駅の__にあります。",
+        "correct": "前",
+        "distractors": ["後ろ", "中", "上", "下"]
+      }
+    },
+    {
+      "id": "loc_006",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "郵便局はデパートの__にあります。",
+        "correct": "後ろ",
+        "distractors": ["前", "中", "上", "横"]
+      }
+    },
+    {
+      "id": "loc_007",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux", "pop_culture"],
+      "payload": {
+        "sentence": "トトロは木の__に住んでいます。",
+        "correct": "そば",
+        "distractors": ["中", "上", "後ろ", "下"]
+      }
+    },
+    {
+      "id": "loc_008",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "私の家の__に公園があります。",
+        "correct": "近く",
+        "distractors": ["遠く", "中", "上", "下"]
+      }
+    },
+    {
+      "id": "loc_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "prefix": "本屋は",
+        "suffix": "にあります。",
+        "blocks": ["あそこの", "右"]
+      }
+    },
+    {
+      "id": "loc_010",
+      "type": "WORD_USAGE",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "word": "左 ",
+        "options": [
+          { "text": "駅の左にスーパーがあります。", "is_correct": true },
+          { "text": "左へ曲がってください。", "is_correct": true },
+          { "text": "左のご飯を食べます。", "is_correct": false },
+          { "text": "左の本を読みました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "loc_011",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "学校の__に川が流れています。",
+        "correct": "裏",
+        "distractors": ["前", "中", "上", "下"]
+      }
+    },
+    {
+      "id": "loc_012",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux", "traps"],
+      "payload": {
+        "sentence": "駅はここから__です。",
+        "correct": "遠い",
+        "distractors": ["近い", "高い", "低い", "広い"]
+      }
+    },
+    {
+      "id": "loc_013",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "田中さんと佐藤さんの__に私がいます。",
+        "correct": "間",
+        "distractors": ["中", "横", "隣", "近く"]
+      }
+    },
+    {
+      "id": "loc_014",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux", "traps"],
+      "payload": {
+        "sentence": "駅の__に交番があります。",
+        "correct": "隣",
+        "distractors": ["中", "上", "下", "前"]
+      }
+    },
+    {
+      "id": "loc_015",
+      "type": "PARAPHRASE",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "base_sentence": "駅の前にあります。",
+        "correct": "駅を出てすぐのところにあります。",
+        "distractors": [
+          "駅の後ろにあります。",
+          "駅の中にあります。",
+          "駅から遠いです。",
+          "駅の横にあります。"
+        ]
+      }
+    },
+    {
+      "id": "loc_016",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "窓の__に庭が見えます。",
+        "correct": "外",
+        "distractors": ["中", "上", "下", "横"]
+      }
+    },
+    {
+      "id": "loc_017",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux", "traps"],
+      "payload": {
+        "sentence": "ここは__場所ですね。",
+        "correct": "静かな",
+        "distractors": ["静か", "静かい", "静かだ", "静かの"]
+      }
+    },
+    {
+      "id": "loc_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "sentence": "「右」へ行ってください。",
+        "correct": "みぎ",
+        "distractors": ["ひだり", "まえ", "うしろ", "みぎな"]
+      }
+    },
+    {
+      "id": "loc_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noms_lieux"],
+      "payload": {
+        "prefix": "私の家は",
+        "suffix": "にあります。",
+        "blocks": ["川の", "向こう側"]
+      }
+    },
+    {
+      "id": "loc_020",
+      "type": "FILL_BLANK",
+      "tags": ["noms_lieux", "traps"],
+      "payload": {
+        "sentence": "どこ__出身ですか。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    }
+  ]
+}

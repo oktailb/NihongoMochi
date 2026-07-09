@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に比べて  - Comparaison / Par rapport à - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "nikurabete_001",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete", "N3"],
+      "payload": {
+        "sentence": "去年__、今年は雪が多い。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_002",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete", "pop_culture"],
+      "payload": {
+        "sentence": "人間に__、サイヤ人は戦闘能力が高い。",
+        "correct": "比べて",
+        "distractors": ["対して", "当って", "関して", "際して"]
+      }
+    },
+    {
+      "id": "nikurabete_003",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "都会__、田舎は空気が綺麗だ。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikurabete"],
+      "payload": {
+        "prefix": "以前に",
+        "suffix": "。",
+        "blocks": ["比べて", "日本語が", "上手になった"]
+      }
+    },
+    {
+      "id": "nikurabete_005",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "男性__、女性のほうが長生きする傾向がある。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_006",
+      "type": "WORD_USAGE",
+      "tags": ["nikurabete"],
+      "payload": {
+        "word": "～に比べて ",
+        "options": [
+          { "text": "昨日より今日の方が暑い。", "is_correct": true },
+          { "text": "昨日に比べて、今日は涼しい。", "is_correct": true },
+          { "text": "雨に比べて、傘を差す。", "is_correct": false },
+          { "text": "兄に比べて、弟は背が高い。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nikurabete_007",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザ__、悟空は仲間を大切にする。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_008",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "このパソコンは、以前のモデル__非常に軽い。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_009",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "バス__、電車のほうが時間が正確だ。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_010",
+      "type": "PARAPHRASE",
+      "tags": ["nikurabete"],
+      "payload": {
+        "base_sentence": "以前に比べて、物価が上がりました。",
+        "correct": "過去の特定の時期（以前）の価格水準と比較すると、現在の価格は高くなっています。",
+        "distractors": [
+          "以前と同じように、物価が高いです。",
+          "以前よりも、物価を安くするために準備をしています。",
+          "以前の物価については、よく知りません。"
+        ]
+      }
+    },
+    {
+      "id": "nikurabete_011",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "この町は、10年前__かなり変わった。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikurabete"],
+      "payload": {
+        "prefix": "日本は",
+        "suffix": "。",
+        "blocks": ["他の国に", "比べて", "治安がいい"]
+      }
+    },
+    {
+      "id": "nikurabete_013",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "実家__、一人暮らしは寂しい。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_014",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "今年の夏は、去年__暑さが厳しい。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_015",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "彼女は、姉__おとなしい性格だ。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "「に比べて」高い。",
+        "correct": "にくらべて",
+        "distractors": ["にそなえて", "にしたがって", "にたいして", "にわたって"]
+      }
+    },
+    {
+      "id": "nikurabete_017",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "今の仕事は、以前の仕事__やりがいがある。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_018",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "この本は、あの本__内容が深い。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikurabete"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["他の学生に", "比べて", "よく勉強する"]
+      }
+    },
+    {
+      "id": "nikurabete_020",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "新しい薬は、従来の薬__効果が高い。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_021",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの新型は、旧型__機動力が向上している。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_022",
+      "type": "WORD_USAGE",
+      "tags": ["nikurabete"],
+      "payload": {
+        "word": "～に比べ ",
+        "options": [
+          { "text": "昨年に比べ、輸出が増加した。", "is_correct": true },
+          { "text": "都市に比べ、自然が豊かだ。", "is_correct": true },
+          { "text": "雨に比べ、涼しい。", "is_correct": true },
+          { "text": "勉強に比べ、賢くなった。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nikurabete_023",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "都会の喧騒__、ここは別世界のようだ。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_024",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "彼の話し方は、以前__自信に満ちている。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_025",
+      "type": "PARAPHRASE",
+      "tags": ["nikurabete"],
+      "payload": {
+        "base_sentence": "健康であることに比べて、大切なものはありません。",
+        "correct": "人生において、健康でいるという状態と比較して、それ以上に価値があるものは一つも存在しません。",
+        "distractors": [
+          "健康であるために、大切なものを捨てました。",
+          "健康であるおかげで、大切なものが手に入りました。",
+          "健康であることについては、あまり考えていません。"
+        ]
+      }
+    },
+    {
+      "id": "nikurabete_026",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "この冬は、例年__気温が高い。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_027",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "彼と__、私の努力はまだまだ足りない。",
+        "correct": "比べれば",
+        "distractors": ["対すれば", "当れば", "関すれば", "際すれば"]
+      }
+    },
+    {
+      "id": "nikurabete_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikurabete"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["商品は", "質に", "比べて値段が安すぎる"]
+      }
+    },
+    {
+      "id": "nikurabete_029",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "以前__、情報の量が増えた。",
+        "correct": "に比べて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikurabete_030",
+      "type": "FILL_BLANK",
+      "tags": ["nikurabete"],
+      "payload": {
+        "sentence": "自分を他人と__も、意味がない。",
+        "correct": "比べても",
+        "distractors": ["対しても", "当っても", "関しても", "際しても"]
+      }
+    }
+  ]
+}

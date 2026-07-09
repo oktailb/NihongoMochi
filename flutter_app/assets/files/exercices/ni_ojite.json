@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に応じて  - En fonction de / Selon - N2"
+  },
+  "exercises": [
+    {
+      "id": "niojite_001",
+      "type": "FILL_BLANK",
+      "tags": ["niojite", "N2"],
+      "payload": {
+        "sentence": "予算__、計画を立て直す必要がある。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_002",
+      "type": "FILL_BLANK",
+      "tags": ["niojite", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、相手の力__戦い方を変える。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_003",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "レベル__、クラスを分けます。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niojite"],
+      "payload": {
+        "prefix": "天候に",
+        "suffix": "。",
+        "blocks": ["応じて", "服装を", "選ぶことが大切だ"]
+      }
+    },
+    {
+      "id": "niojite_005",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "個人の能力__、給料が決まる。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_006",
+      "type": "WORD_USAGE",
+      "tags": ["niojite"],
+      "payload": {
+        "word": "～に応じて ",
+        "options": [
+          { "text": "状況に応じて、適切に対処する。", "is_correct": true },
+          { "text": "年齢に応じて、遊び方を変える。", "is_correct": true },
+          { "text": "雨に応じて、傘を差す。", "is_correct": true },
+          { "text": "勉強に応じて合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "niojite_007",
+      "type": "FILL_BLANK",
+      "tags": ["niojite", "pop_culture"],
+      "payload": {
+        "sentence": "使徒の攻撃__、エヴァの装備を変更する。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_008",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "ニーズ__、新しい機能を追求する。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    },
+    {
+      "id": "niojite_009",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "希望__、特別メニューを用意します。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_010",
+      "type": "PARAPHRASE",
+      "tags": ["niojite"],
+      "payload": {
+        "base_sentence": "場所に応じて、靴を履き替える。",
+        "correct": "自分が今いる場所や、これから行く場所の環境やルールに合わせて、最もふさわしい靴を選んで履き直します。",
+        "distractors": [
+          "場所を決めるために、靴を買いに行きました。",
+          "場所が変わったおかげで、新しい靴が手に入りました。",
+          "場所について考えるのをやめて、靴を脱ぎました。"
+        ]
+      }
+    },
+    {
+      "id": "niojite_011",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "収入__生活レベルを調整する。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    },
+    {
+      "id": "niojite_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niojite"],
+      "payload": {
+        "prefix": "時代に",
+        "suffix": "。",
+        "blocks": ["応じて", "法律も", "変えていかなければならない"]
+      }
+    },
+    {
+      "id": "niojite_013",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "子供の成長__、机の高さを変える。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_014",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "状況__指示を出す。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    },
+    {
+      "id": "niojite_015",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "テストの点数__、奨学金が与えられる。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "「に応じて」決める。",
+        "correct": "におうじて",
+        "distractors": ["にこたえて", "によって", "にしたがって", "にそって"]
+      }
+    },
+    {
+      "id": "niojite_017",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "季節の移り変わり__、庭の手入れをする。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_018",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "実力__役割を分担する。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    },
+    {
+      "id": "niojite_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niojite"],
+      "payload": {
+        "prefix": "お客様の",
+        "suffix": "。",
+        "blocks": ["好みに", "応じて", "味を調整します"]
+      }
+    },
+    {
+      "id": "niojite_020",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "緊急度__、優先順位を決める。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_021",
+      "type": "FILL_BLANK",
+      "tags": ["niojite", "pop_culture"],
+      "payload": {
+        "sentence": "サスケの動き__、ナルトも術を繰り出した。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_022",
+      "type": "WORD_USAGE",
+      "tags": ["niojite"],
+      "payload": {
+        "word": "～に応じ ",
+        "options": [
+          { "text": "必要に応じ、医師の診断を受けてください。", "is_correct": true },
+          { "text": "規模に応じ、予算を配分する。", "is_correct": true },
+          { "text": "雨に応じ、傘を差す。", "is_correct": true },
+          { "text": "勉強に応じ、合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "niojite_023",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "参加人数__、会場の広さを選ぶ。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_024",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "専門的な知識__アドバイスをする。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    },
+    {
+      "id": "niojite_025",
+      "type": "PARAPHRASE",
+      "tags": ["niojite"],
+      "payload": {
+        "base_sentence": "体力に応じて、無理のない運動をしてください。",
+        "correct": "自分自身の現在の体の強さや疲れ具合を考慮して、自分にとって負担が大きすぎない程度の適度な運動を心がけてください。",
+        "distractors": [
+          "体力をつけるために、激しい運動をしてください。",
+          "体力があるおかげで、どんな運動でもできます。",
+          "体力について考えるのをやめて、運動を始めましょう。"
+        ]
+      }
+    },
+    {
+      "id": "niojite_026",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "景気の変動__、対策を講じる。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_027",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "素材の良さを__調理法を考える。",
+        "correct": "活かした",
+        "distractors": ["応じた", "対した", "関した", "際した"]
+      }
+    },
+    {
+      "id": "niojite_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niojite"],
+      "payload": {
+        "prefix": "法律の",
+        "suffix": "。",
+        "blocks": ["定めに", "応じて", "適切に処理した"]
+      }
+    },
+    {
+      "id": "niojite_029",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "要望__、営業時間を延長します。",
+        "correct": "に応じて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "niojite_030",
+      "type": "FILL_BLANK",
+      "tags": ["niojite"],
+      "payload": {
+        "sentence": "適性__配属先を決定する。",
+        "correct": "に応じた",
+        "distractors": ["に対する", "に関する", "に際する", "にわたる"]
+      }
+    }
+  ]
+}

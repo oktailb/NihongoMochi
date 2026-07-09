@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du 'Même si'  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "even_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "雨が__、行きます。",
+        "correct": "降っても",
+        "distractors": ["降って", "降るても", "降りても", "降ってもな", "降らなくても"]
+      }
+    },
+    {
+      "id": "even_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "adj_i"],
+      "payload": {
+        "sentence": "__、買いたいです。",
+        "correct": "高くても",
+        "distractors": ["高いでも", "高いても", "高くて", "高くてもな", "高くないても"]
+      }
+    },
+    {
+      "id": "even_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "noun"],
+      "payload": {
+        "sentence": "日曜日__、働きます。",
+        "correct": "でも",
+        "distractors": ["ても", "なでも", "のに", "ので", "から"]
+      }
+    },
+    {
+      "id": "even_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "adj_na"],
+      "payload": {
+        "sentence": "__、テニスをしません。",
+        "correct": "暇でも",
+        "distractors": ["暇ても", "暇なても", "暇なのに", "暇なので", "暇だら"]
+      }
+    },
+    {
+      "id": "even_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "pop_culture"],
+      "payload": {
+        "sentence": "負け__、また立ち上がります！",
+        "correct": "ても",
+        "distractors": ["たなら", "たら", "れば", "のに", "ので"]
+      }
+    },
+    {
+      "id": "even_006",
+      "type": "WORD_USAGE",
+      "tags": ["te_mo"],
+      "payload": {
+        "word": "〜ても ",
+        "options": [
+          { "text": "寒くても泳ぎます。", "is_correct": true },
+          { "text": "名前を聞いてもわかりませんでした。", "is_correct": true },
+          { "text": "どんなに安くても買いません。", "is_correct": true },
+          { "text": "明日ても行きます。 ", "is_correct": false },
+          { "text": "美味しいでも食べます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "even_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "何度__わかりません。",
+        "correct": "聞いても",
+        "distractors": ["聞いて", "聞くても", "聞きても", "聞いたも", "聞かなあも"]
+      }
+    },
+    {
+      "id": "even_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "薬を__、良くなりません。",
+        "correct": "飲んでも",
+        "distractors": ["飲んで", "飲みても", "飲むても", "飲んだも", "飲ななも"]
+      }
+    },
+    {
+      "id": "even_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo"],
+      "payload": {
+        "prefix": "どんなに",
+        "suffix": "頑張ります。",
+        "blocks": ["大変でも"]
+      }
+    },
+    {
+      "id": "even_010",
+      "type": "PARAPHRASE",
+      "tags": ["te_mo"],
+      "payload": {
+        "base_sentence": "安くても買いません。",
+        "correct": "値段が理由で買うことを決めるわけではありません。",
+        "distractors": [
+          "安いから買います。",
+          "安くないから買いません。",
+          "安い時だけ買います。",
+          "安ければ買います。"
+        ]
+      }
+    },
+    {
+      "id": "even_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "辞書を__、わかりませんでした。",
+        "correct": "使っても",
+        "distractors": ["使って", "使うても", "使いても", "使ったも", "使わなあも"]
+      }
+    },
+    {
+      "id": "even_012",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "たくさん__、まだ食べられます。",
+        "correct": "食べても",
+        "distractors": ["食べて", "食べるても", "食べなても", "食べたも", "食べらも"]
+      }
+    },
+    {
+      "id": "even_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "日本語が下手__、一生懸命話します。",
+        "correct": "でも",
+        "distractors": ["ても", "なでも", "のに", "だら", "なので"]
+      }
+    },
+    {
+      "id": "even_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "pop_culture"],
+      "payload": {
+        "sentence": "海が荒れ__、俺たちの船は進む！",
+        "correct": "ても",
+        "distractors": ["たら", "れば", "のに", "ので", "から"]
+      }
+    },
+    {
+      "id": "even_015",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "忙しく__、毎日練習してください。",
+        "correct": "ても",
+        "distractors": ["でも", "なても", "くて", "のに", "ので"]
+      }
+    },
+    {
+      "id": "even_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "説明を__、さっぱりわかりませんでした。",
+        "correct": "聞いても",
+        "distractors": ["聞いて", "聞くても", "聞きても", "聞いたも", "聞きたいも"]
+      }
+    },
+    {
+      "id": "even_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "子供__、わかりますよ。",
+        "correct": "でも",
+        "distractors": ["ても", "なでも", "も", "は", "が"]
+      }
+    },
+    {
+      "id": "even_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "「逆」でもいいですよ。",
+        "correct": "ぎゃく",
+        "distractors": ["きゃく", "ぎゃぐ", "さか", "さかさま"]
+      }
+    },
+    {
+      "id": "even_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "頑張ってください。",
+        "blocks": ["寂しくても"]
+      }
+    },
+    {
+      "id": "even_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "お名前__教えてください。",
+        "correct": "を",
+        "distractors": ["ても", "でも", "に", "が"]
+      }
+    },
+    {
+      "id": "even_021",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "夜10時__、まだ明るいです。",
+        "correct": "でも",
+        "distractors": ["ても", "なでも", "に", "を", "は"]
+      }
+    },
+    {
+      "id": "even_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "静か__、寝られません。",
+        "correct": "でも",
+        "distractors": ["ても", "なても", "なのに", "なので", "だから"]
+      }
+    },
+    {
+      "id": "even_023",
+      "type": "WORD_USAGE",
+      "tags": ["te_mo"],
+      "payload": {
+        "word": "いくら〜ても ",
+        "options": [
+          { "text": "いくら安くても買いません。", "is_correct": true },
+          { "text": "いくら練習しても上手になりません。", "is_correct": true },
+          { "text": "いくら呼んでも返事がありません。", "is_correct": true },
+          { "text": "いくら食べましたがお腹がいっぱいです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "even_024",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "友達に__、寂しくありません。",
+        "correct": "会えなくても",
+        "distractors": ["会えなくて", "会えないても", "会わななくても", "会えなも", "会いたくなくても"]
+      }
+    },
+    {
+      "id": "even_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "道が__、駅へ行きました。",
+        "correct": "わからなくても",
+        "distractors": ["わからなくて", "わからないても", "わからなも", "わからないも", "わかって"]
+      }
+    },
+    {
+      "id": "even_026",
+      "type": "PARAPHRASE",
+      "tags": ["te_mo"],
+      "payload": {
+        "base_sentence": "忙しくても、毎日日本語を勉強します。",
+        "correct": "どんなに多忙であっても、学習を欠かしません。",
+        "distractors": [
+          "忙しいから、勉強しません。",
+          "忙しくない時に勉強します。",
+          "忙しくなったら勉強します。",
+          "忙しいのに、勉強することができません。"
+        ]
+      }
+    },
+    {
+      "id": "even_027",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "靴を__、入ってもいいですか。",
+        "correct": "脱がなくても",
+        "distractors": ["脱がなくて", "脱がないても", "脱げなくても", "脱ぎなくても", "脱いでも"]
+      }
+    },
+    {
+      "id": "even_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "お金が__、幸せになれます。",
+        "correct": "なくても",
+        "distractors": ["なくて", "ないても", "なも", "ないも", "あっても"]
+      }
+    },
+    {
+      "id": "even_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_mo"],
+      "payload": {
+        "sentence": "「努力」しても無駄ですよ。",
+        "correct": "どりょく",
+        "distractors": ["どうりょく", "どりょくな", "とりょく", "どきょく"]
+      }
+    },
+    {
+      "id": "even_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo", "traps"],
+      "payload": {
+        "sentence": "明日__会いましょう。",
+        "correct": "に",
+        "distractors": ["ても", "でも", "を", "が"]
+      }
+    }
+  ]
+}

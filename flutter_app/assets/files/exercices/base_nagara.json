@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur le suffixe ~ながら  - Simultanéité / Opposition - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "nagara_001",
+      "type": "FILL_BLANK",
+      "tags": ["nagara", "N4"],
+      "payload": {
+        "sentence": "音楽を聞き__勉強をします。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_002",
+      "type": "FILL_BLANK",
+      "tags": ["nagara", "pop_culture"],
+      "payload": {
+        "sentence": "彼は「すみません」と言い__逃げていった。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_003",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "テレビを見__ご飯を食べるのは良くない。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagara"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "散歩した。",
+        "blocks": ["考え事を", "し", "ながら"]
+      }
+    },
+    {
+      "id": "nagara_005",
+      "type": "FILL_BLANK",
+      "tags": ["nagara", "N3"],
+      "payload": {
+        "sentence": "悪いと知り__嘘をついてしまった。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_006",
+      "type": "WORD_USAGE",
+      "tags": ["nagara"],
+      "payload": {
+        "word": "～ながら ",
+        "options": [
+          { "text": "歩きながら電話をする。", "is_correct": true },
+          { "text": "泣きながら話を聞いた。", "is_correct": true },
+          { "text": "ご飯を食べ終わってからテレビを見る。", "is_correct": false },
+          { "text": "勉強するために音楽を聴く。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nagara_007",
+      "type": "FILL_BLANK",
+      "tags": ["nagara", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは肉を__ながら寝ている。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べて", "食べれば", "食べよう"]
+      }
+    },
+    {
+      "id": "nagara_008",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "働き__大学を卒業した。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_009",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "お茶を飲み__ゆっくり話しましょう。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_010",
+      "type": "PARAPHRASE",
+      "tags": ["nagara"],
+      "payload": {
+        "base_sentence": "彼は歌いながら料理を作る。",
+        "correct": "彼は歌うことと料理を作ることが同時に行っている。",
+        "distractors": [
+          "彼は歌った後に料理を作る。",
+          "彼は歌うために料理を作る。",
+          "彼は歌わずに料理を作る。"
+        ]
+      }
+    },
+    {
+      "id": "nagara_011",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "残念__、その会には出席できません。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagara"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "帰っていった。",
+        "blocks": ["泣き", "ながら", "走って"]
+      }
+    },
+    {
+      "id": "nagara_013",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "昔を思い出し__この道を歩く。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_014",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "彼はいつも鼻歌を__ながら仕事をしている。",
+        "correct": "歌い",
+        "distractors": ["歌う", "歌って", "歌えば", "歌おう"]
+      }
+    },
+    {
+      "id": "nagara_015",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "危ないから、歩き__スマホはやめなさい。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "働き「ながら」学ぶ。",
+        "correct": "ながら",
+        "distractors": ["つっ", "つつ", "ついでに", "だら"]
+      }
+    },
+    {
+      "id": "nagara_017",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "景色を眺め__ドライブを楽しむ。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_018",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "お菓子を__ながら映画を見る。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べて", "食べれば", "食べよう"]
+      }
+    },
+    {
+      "id": "nagara_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagara"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "笑った。",
+        "blocks": ["冗談を", "言い", "ながら"]
+      }
+    },
+    {
+      "id": "nagara_020",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "子供たちは歌を歌い__行進した。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_021",
+      "type": "FILL_BLANK",
+      "tags": ["nagara", "pop_culture"],
+      "payload": {
+        "sentence": "界王拳を使い__戦うのは体への負担が大きい。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_022",
+      "type": "WORD_USAGE",
+      "tags": ["nagara"],
+      "payload": {
+        "word": "～ながら ",
+        "options": [
+          { "text": "子供ながらによく知っている。", "is_correct": true },
+          { "text": "狭いながらも楽しい我が家。", "is_correct": true },
+          { "text": "知っていながら教えてくれなかった。", "is_correct": true },
+          { "text": "勉強しながら寝る。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nagara_023",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "自分の夢を__ながら努力し続ける。",
+        "correct": "追いかけ",
+        "distractors": ["追いかける", "追いかけて", "追いかければ", "追いかけよう"]
+      }
+    },
+    {
+      "id": "nagara_024",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "手拍子を__ながらみんなで歌った。",
+        "correct": "打ち",
+        "distractors": ["打つ", "打って", "打てば", "打とう"]
+      }
+    },
+    {
+      "id": "nagara_025",
+      "type": "PARAPHRASE",
+      "tags": ["nagara"],
+      "payload": {
+        "base_sentence": "彼は働きながら学んでいる。",
+        "correct": "彼は仕事をしているし、勉強も同時にしている。",
+        "distractors": [
+          "彼は仕事が終わってから勉強している。",
+          "彼は勉強するために仕事をしている。",
+          "彼は仕事をせずに勉強している。"
+        ]
+      }
+    },
+    {
+      "id": "nagara_026",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "お酒を__ながら昔話に花を咲かせる。",
+        "correct": "飲み",
+        "distractors": ["飲む", "飲んで", "飲めば", "飲もう"]
+      }
+    },
+    {
+      "id": "nagara_027",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "涙を__ながら最後のスピーチをした。",
+        "correct": "堪え",
+        "distractors": ["堪える", "堪えて", "堪えれば", "堪えよう"]
+      }
+    },
+    {
+      "id": "nagara_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagara"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "話していた。",
+        "blocks": ["携帯を", "いじり", "ながら"]
+      }
+    },
+    {
+      "id": "nagara_029",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "笛を吹き__子供たちが集まってきた。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    },
+    {
+      "id": "nagara_030",
+      "type": "FILL_BLANK",
+      "tags": ["nagara"],
+      "payload": {
+        "sentence": "彼はいつも鼻歌を歌い__料理をする。",
+        "correct": "ながら",
+        "distractors": ["つつ", "ついでに", "がてら", "ながらも"]
+      }
+    }
+  ]
+}

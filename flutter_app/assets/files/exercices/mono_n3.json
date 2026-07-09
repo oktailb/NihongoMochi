@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~もの  - Cause / Justification  - N3"
+  },
+  "exercises": [
+    {
+      "id": "monon3_001",
+      "type": "FILL_BLANK",
+      "tags": ["mono", "N3"],
+      "payload": {
+        "sentence": "だって、忙しかったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_002",
+      "type": "FILL_BLANK",
+      "tags": ["mono", "pop_culture"],
+      "payload": {
+        "sentence": "だって、悟空が強すぎるんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_003",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "まだ子供なんだ__、仕方ないよ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mono"],
+      "payload": {
+        "prefix": "だって、",
+        "suffix": "。",
+        "blocks": ["本当に", "おいしかったんだ", "もの"]
+      }
+    },
+    {
+      "id": "monon3_005",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "知らないんだ__、教えようがないよ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_006",
+      "type": "WORD_USAGE",
+      "tags": ["mono"],
+      "payload": {
+        "word": "～もの ",
+        "options": [
+          { "text": "だって、嫌いなんだもん。", "is_correct": true },
+          { "text": "仕方ないよ、初めてなんだもの。", "is_correct": true },
+          { "text": "雨が降るもの。", "is_correct": false },
+          { "text": "だって、眠かったんだもの。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "monon3_007",
+      "type": "FILL_BLANK",
+      "tags": ["mono", "pop_culture"],
+      "payload": {
+        "sentence": "だって、フリーザが怖いんだ__。",
+        "correct": "もん",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_008",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "お金がないんだ__、買えないよ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_009",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "お腹がいっぱいなんだ__、もう食べられないよ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_010",
+      "type": "PARAPHRASE",
+      "tags": ["mono"],
+      "payload": {
+        "base_sentence": "だって、知らなかったんだもの。",
+        "correct": "知らなかったという個人的な理由があるので、それをわかってほしいという気持ちを込めて自分を正当化しています。",
+        "distractors": [
+          "知らなかったので、すぐに教えてもらいました。",
+          "知らなかったために、恥をかきました。",
+          "知らなかったおかげで、何も言われませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "monon3_011",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、面白そうだったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mono"],
+      "payload": {
+        "prefix": "仕方ないじゃない、",
+        "suffix": "。",
+        "blocks": ["忘れちゃったんだ", "もの"]
+      }
+    },
+    {
+      "id": "monon3_013",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "疲れたんだ__、少し休ませてよ。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_014",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、彼が嘘をついたんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_015",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "一人じゃ寂しいんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "「だって～んだもの」。",
+        "correct": "だってもんだもの",
+        "distractors": ["だってもんのこと", "だってんだもの", "だってもんのはず", "だってもんのわけ"]
+      }
+    },
+    {
+      "id": "monon3_017",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、安かったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_018",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "見たいテレビがあったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mono"],
+      "payload": {
+        "prefix": "だって、",
+        "suffix": "。",
+        "blocks": ["お腹が", "痛かったんだ", "もの"]
+      }
+    },
+    {
+      "id": "monon3_020",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、欲しかったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_021",
+      "type": "FILL_BLANK",
+      "tags": ["mono", "pop_culture"],
+      "payload": {
+        "sentence": "だって、エヴァに乗るのが怖いんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_022",
+      "type": "WORD_USAGE",
+      "tags": ["mono"],
+      "payload": {
+        "word": "～もん ",
+        "options": [
+          { "text": "だって、知らないもん。", "is_correct": true },
+          { "text": "行きたくないもん。", "is_correct": true },
+          { "text": "勉強するもん。", "is_correct": true },
+          { "text": "雨が降るもん。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "monon3_023",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、時間がなかったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_024",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、道に迷っちゃったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_025",
+      "type": "PARAPHRASE",
+      "tags": ["mono"],
+      "payload": {
+        "base_sentence": "だって、難しかったんだもん。",
+        "correct": "内容が非常に難しかったという、自分にとって回避しがたい理由があったので、多めに見てほしいというニュアンスです。",
+        "distractors": [
+          "難しかったので、あきらめることにしました。",
+          "難しかったために、誰かに手伝ってもらいました。",
+          "難しかったおかげで、もっと勉強するようになりました。"
+        ]
+      }
+    },
+    {
+      "id": "monon3_026",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、眠かったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_027",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、お腹が空いてたんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mono"],
+      "payload": {
+        "prefix": "だって、",
+        "suffix": "。",
+        "blocks": ["彼女が", "可愛かったんだ", "もの"]
+      }
+    },
+    {
+      "id": "monon3_029",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、雨が降ってたんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    },
+    {
+      "id": "monon3_030",
+      "type": "FILL_BLANK",
+      "tags": ["mono"],
+      "payload": {
+        "sentence": "だって、恥ずかしかったんだ__。",
+        "correct": "もの",
+        "distractors": ["こと", "わけ", "はず", "ところ"]
+      }
+    }
+  ]
+}

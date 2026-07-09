@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～というものではない - L'art de la nuance et de la réfutation. "
+  },
+  "exercises": [
+    {
+      "id": "tmn_001",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "お金があれば幸せになれる__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ", "というものか"]
+      }
+    },
+    {
+      "id": "tmn_002",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "安ければいい__。質も大切だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ", "というものか"]
+      }
+    },
+    {
+      "id": "tmn_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "prefix": "謝れば済む",
+        "suffix": "。",
+        "blocks": ["というものではない"]
+      }
+    },
+    {
+      "id": "tmn_004",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "一生懸命やれば成功する__。運も必要だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_005",
+      "type": "WORD_USAGE",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "word": "というものではない",
+        "options": [
+          { "text": "ただ長生きすればいいというものではない。", "is_correct": true },
+          { "text": "多ければ多いほどいいというものではない。", "is_correct": true },
+          { "text": "ご飯を食べるというものではない。", "is_correct": false },
+          { "text": "明日行くというものではない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tmn_006",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "言葉が通じればいい__。心も大切だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_007",
+      "type": "PARAPHRASE",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "base_sentence": "美しければいいというわけではありません。",
+        "correct": "美しければいいというものではない。",
+        "distractors": [
+          "美しければいいというものだ。",
+          "美しければいいといえばだ。",
+          "美しければいいといったらだ。"
+        ]
+      }
+    },
+    {
+      "id": "tmn_008",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "有名な大学に入れば将来が保証される__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_009",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "優しければいい__。時には厳しさも必要だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "prefix": "ただ",
+        "suffix": "。",
+        "blocks": ["早ければ", "いい", "というものではない"]
+      }
+    },
+    {
+      "id": "tmn_011",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "日本語が話せれば日本を理解できる__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "「技術」があればいいというものではない。",
+        "correct": "ぎじゅつ",
+        "distractors": ["げいじゅつ", "じっけん", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tmn_013",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "毎日運動すれば痩せる__。食事制限も必要だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_014",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "本を読めば頭が良くなる__。内容が重要だ。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_015",
+      "type": "WORD_USAGE",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "word": "というものではない",
+        "options": [
+          { "text": "何でも新しければいいというものではない。", "is_correct": true },
+          { "text": "勝てばいいというものではない。マナーも大切だ。", "is_correct": true },
+          { "text": "勉強をするというものではない、上手になります。", "is_correct": false },
+          { "text": "雨が降るというものではない、傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tmn_016",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "大企業に勤めれば安心だ__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_017",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "愛があれば何でも乗り越えられる__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "prefix": "ただ",
+        "suffix": "。",
+        "blocks": ["楽しければ", "いい", "というものではない"]
+      }
+    },
+    {
+      "id": "tmn_019",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "資格を持っていれば実力がある__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_020",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "他人の言う通りにすればうまくいく__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_021",
+      "type": "PARAPHRASE",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "base_sentence": "多ければいいというわけではありません。",
+        "correct": "多ければいいというものではない。",
+        "distractors": [
+          "多ければいいというものだ。",
+          "多ければいいといえばだ。",
+          "多ければいいといったらだ。"
+        ]
+      }
+    },
+    {
+      "id": "tmn_022",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "道具が良ければ素晴らしい作品ができる__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_023",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "見た目が良ければ性格がいい__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "「効率」ばかり求めればいいというものではない。",
+        "correct": "こうりつ",
+        "distractors": ["けいえい", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tmn_025",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "結婚すれば幸せになれる__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_026",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "都会に住めば便利だ__。不便なこともある。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "prefix": "ただ",
+        "suffix": "。",
+        "blocks": ["勝てば", "いい", "というものではない"]
+      }
+    },
+    {
+      "id": "tmn_028",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "流行を追えばおしゃれだ__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_029",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "自分さえ良ければいい__。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    },
+    {
+      "id": "tmn_030",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_mono_deha_nai"],
+      "payload": {
+        "sentence": "君がいれば何もいらない__。ご飯も食べたい。",
+        "correct": "というものではない",
+        "distractors": ["というものだ", "といったらだ", "というよりだ"]
+      }
+    }
+  ]
+}

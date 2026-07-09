@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ものだから  - Cause / Excuse - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "monodakara_001",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara", "N3"],
+      "payload": {
+        "sentence": "道が混んでいた__、遅れてしまいました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_002",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara", "pop_culture"],
+      "payload": {
+        "sentence": "悟空が強すぎる__、修行が終わりません。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_003",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "あまりに暑い__、窓を全部開けました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monodakara"],
+      "payload": {
+        "prefix": "急いでいた",
+        "suffix": "。",
+        "blocks": ["ものだから", "財布を", "忘れてしまった"]
+      }
+    },
+    {
+      "id": "monodakara_005",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "初めてな__、やり方がわかりません。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_006",
+      "type": "WORD_USAGE",
+      "tags": ["monodakara"],
+      "payload": {
+        "word": "～ものだから ",
+        "options": [
+          { "text": "渋滞していたものだから、遅れました。", "is_correct": true },
+          { "text": "忙しかったものだから、電話できませんでした。", "is_correct": true },
+          { "text": "雨が降るものだから、傘を差す。", "is_correct": false },
+          { "text": "あまりに綺麗だったものだから、つい見とれてしまった。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "monodakara_007",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザが怖い__、部下たちはみんな逃げ出した。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_008",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "お腹が空いていた__、全部食べてしまいました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_009",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "彼女が泣き出した__、どうしていいかわからなくなった。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_010",
+      "type": "PARAPHRASE",
+      "tags": ["monodakara"],
+      "payload": {
+        "base_sentence": "あまりに安かったものだから、つい買ってしまった。",
+        "correct": "値段が予想以上に安かったという個人的な理由があって、そのために思わず買ってしまいました。",
+        "distractors": [
+          "安かったので、買うことに決めました。",
+          "安かったために、買わされました。",
+          "安かったおかげで、買うことができました。"
+        ]
+      }
+    },
+    {
+      "id": "monodakara_011",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "時間がなかった__、朝食を抜きにしました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monodakara"],
+      "payload": {
+        "prefix": "道が",
+        "suffix": "。",
+        "blocks": ["わからなかった", "ものだから", "人に聞いた"]
+      }
+    },
+    {
+      "id": "monodakara_013",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "子供が寝ない__、夜中まで起きていました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_014",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "面白そうな__、つい手に取ってしまった。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_015",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "彼が来ない__、一人で始めることにしました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "「ものだから」遅れた。",
+        "correct": "ものだから",
+        "distractors": ["もんだから", "ものなら", "ものに", "ものでから"]
+      }
+    },
+    {
+      "id": "monodakara_017",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "忘れ物をした__、一度家に戻りました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_018",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "暗くて見えない__、電気をつけました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monodakara"],
+      "payload": {
+        "prefix": "お腹が",
+        "suffix": "。",
+        "blocks": ["痛かった", "ものだから", "会社を休んだ"]
+      }
+    },
+    {
+      "id": "monodakara_020",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "雨が降ってきた__、洗濯物を取り込みました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_021",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの起動が遅れた__、都市が壊滅してしまった。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_022",
+      "type": "WORD_USAGE",
+      "tags": ["monodakara"],
+      "payload": {
+        "word": "～ものだから ",
+        "options": [
+          { "text": "喉が渇いたものだから、水を飲んだ。", "is_correct": true },
+          { "text": "寂しかったものだから、電話した。", "is_correct": true },
+          { "text": "勉強した（もの）だから、合格した。", "is_correct": false },
+          { "text": "あまりに静かだったものだから、寝てしまった。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "monodakara_023",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "彼の話し方が面白い__、つい笑ってしまいました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_024",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "予定が変更になった__、慌てて連絡しました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_025",
+      "type": "PARAPHRASE",
+      "tags": ["monodakara"],
+      "payload": {
+        "base_sentence": "あまりに忙しかったものだから、返信が遅れてしまった。",
+        "correct": "非常に忙しかったという個人的な事情があり、そのために返信をするのが遅くなってしまいました。申し訳ありません。",
+        "distractors": [
+          "忙しかったので、返信をするのをやめました。",
+          "忙しくなる前に、返信をするべきでした。",
+          "忙しかったおかげで、返信を忘れずに済みました。"
+        ]
+      }
+    },
+    {
+      "id": "monodakara_026",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "お金が足りなかった__、買うのをあきらめました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_027",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "道に迷ってしまった__、人に道を聞きました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["monodakara"],
+      "payload": {
+        "prefix": "あまりに",
+        "suffix": "。",
+        "blocks": ["綺麗だった", "ものだから", "写真を撮った"]
+      }
+    },
+    {
+      "id": "monodakara_029",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "お腹が痛かった__、学校を休みました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "monodakara_030",
+      "type": "FILL_BLANK",
+      "tags": ["monodakara"],
+      "payload": {
+        "sentence": "鍵を忘れた__、家に入れなくなりました。",
+        "correct": "ものだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    }
+  ]
+}

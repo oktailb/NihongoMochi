@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~にしては  - Pour un... / Considérant que - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "nishiteha_001",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha", "N3"],
+      "payload": {
+        "sentence": "彼は, 外国人__日本語がとても上手だ。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_002",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha", "pop_culture"],
+      "payload": {
+        "sentence": "子供__、悟空の力は並外れている。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_003",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この冬は, 1月__暖かい日が多い。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nishiteha"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["料理は", "初めて作った", "にしては美味しい"]
+      }
+    },
+    {
+      "id": "nishiteha_005",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "1000円__、このバッグは丈夫そうだ。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_006",
+      "type": "WORD_USAGE",
+      "tags": ["nishiteha"],
+      "payload": {
+        "word": "～にしては ",
+        "options": [
+          { "text": "初心者の彼にしては、よくやった。", "is_correct": true },
+          { "text": "都会にしては、空気が綺麗だ。", "is_correct": true },
+          { "text": "雨にしては、傘を差す。", "is_correct": false },
+          { "text": "5歳にしては、漢字をたくさん知っている。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nishiteha_007",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの第一形態__、その戦闘力は高すぎる。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_008",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼は, 10年も日本に住んでいる__、日本語が下手だ。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_009",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "このアパートは, 駅から近い__家賃が安い。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_010",
+      "type": "PARAPHRASE",
+      "tags": ["nishiteha"],
+      "payload": {
+        "base_sentence": "彼は、モデルにしては背が低い。",
+        "correct": "彼はモデルという職業をしていますが、一般的にモデルに期待される高い身長という基準から考えると、意外にも背が低いです。",
+        "distractors": [
+          "彼はモデルなので、背が高いです。",
+          "彼はモデルになるために、背を高くしたいです。",
+          "彼はモデルであることについて、何も知りません。"
+        ]
+      }
+    },
+    {
+      "id": "nishiteha_011",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "練習不足__、いい試合ができた。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nishiteha"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["政治家は", "若い", "にしては落ち着いている"]
+      }
+    },
+    {
+      "id": "nishiteha_013",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "昨日は, 3月__雪が降って寒かった。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_014",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼女は, 独学__ピアノがとても上手だ。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_015",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この本は, 定価__内容が薄い。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "「にしては」上手だ。",
+        "correct": "にしては",
+        "distractors": ["にすれば", "にしたら", "にしてわ", "になれば"]
+      }
+    },
+    {
+      "id": "nishiteha_017",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼は, サラリーマン__派手な格好をしている。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_018",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "このパソコンは, 10年前のモデル__まだ使える。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nishiteha"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["日本人", "にしては", "背が非常に高い"]
+      }
+    },
+    {
+      "id": "nishiteha_020",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この町は, 都会から離れている__賑やかだ。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_021",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロット__、シンジ君は気が弱すぎる。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_022",
+      "type": "WORD_USAGE",
+      "tags": ["nishiteha"],
+      "payload": {
+        "word": "～にしては ",
+        "options": [
+          { "text": "安いにしては、いい買い物をした。", "is_correct": true },
+          { "text": "初めてにしては、手際がいい。", "is_correct": true },
+          { "text": "雨にしては、傘を差さない。", "is_correct": false },
+          { "text": "冬にしては、暖かい日が続く。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nishiteha_023",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼は, 10代__非常に大人びた考えを持っている。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_024",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この料理は, 材料がシンプル__奥が深い味がする。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_025",
+      "type": "PARAPHRASE",
+      "tags": ["nishiteha"],
+      "payload": {
+        "base_sentence": "彼は、学者の息子にしては勉強が嫌いだ。",
+        "correct": "彼の父親が学者であるという事実を考えると、普通は子供も勉強が好きだろうと予想されますが、彼は意外にも勉強を嫌っています。",
+        "distractors": [
+          "彼は学者の息子なので、勉強が大好きです。",
+          "彼は学者の息子になるために、勉強を始めました。",
+          "彼は学者の息子であることが原因で、勉強ができなくなりました。"
+        ]
+      }
+    },
+    {
+      "id": "nishiteha_026",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼女は, 母親__若く見える。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_027",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この冬は, 暖冬__大雪が降った。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nishiteha"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["カメラは", "中古", "にしては非常に綺麗だ"]
+      }
+    },
+    {
+      "id": "nishiteha_029",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "彼は, 忙しい__毎日欠かさずジムに通っている。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nishiteha_030",
+      "type": "FILL_BLANK",
+      "tags": ["nishiteha"],
+      "payload": {
+        "sentence": "この文章は, 子供が書いた__よくできている。",
+        "correct": "にしては",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    }
+  ]
+}

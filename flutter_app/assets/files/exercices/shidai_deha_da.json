@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur 次第では・次第だ - La loi de la cause et de l'effet. "
+  },
+  "exercises": [
+    {
+      "id": "sdd_001",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "検査の結果__、手術が必要になるかもしれません。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第で", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_002",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "このような事情で、欠席させていただく__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら", "次第で"]
+      }
+    },
+    {
+      "id": "sdd_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "prefix": "君の",
+        "suffix": "、道は開ける。",
+        "blocks": ["努力", "次第では"]
+      }
+    },
+    {
+      "id": "sdd_004",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "天候__、イベントが中止になることもあります。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第で"]
+      }
+    },
+    {
+      "id": "sdd_005",
+      "type": "WORD_USAGE",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "word": "次第では",
+        "options": [
+          { "text": "やり方次第では、もっと早く終わるはずだ。", "is_correct": true },
+          { "text": "値段次第では、買うのをやめるつもりだ。", "is_correct": true },
+          { "text": "雨が降る次第では、中止です。", "is_correct": false },
+          { "text": "彼は次第では、元気になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sdd_006",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "以上の理由により、今回の計画は中止する__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_007",
+      "type": "PARAPHRASE",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "base_sentence": "考え方によって、人生は楽しくなる。",
+        "correct": "考え方次第では、人生は楽しくなる。",
+        "distractors": [
+          "考え方次第に、人生は楽しくなる。",
+          "考え方次第だ、人生は楽しくなる。",
+          "考え方次第なら、人生は楽しくなる。"
+        ]
+      }
+    },
+    {
+      "id": "sdd_008",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "相手の出方__、こちらも対応を変える必要がある。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_009",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "今の状況を説明したく、お電話した__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "prefix": "この問題は、",
+        "suffix": "、簡単に解決できる。",
+        "blocks": ["工夫", "次第では"]
+      }
+    },
+    {
+      "id": "sdd_011",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "売り上げ__、ボーナスの額が決まる。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "「運」次第では、勝てるかもしれない。",
+        "correct": "うん",
+        "distractors": ["はこぶ", "めい", "とき"]
+      }
+    },
+    {
+      "id": "sdd_013",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "どうしてもお会いしたく、参上した__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_014",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "交渉__、もっと安くなる可能性がある。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_015",
+      "type": "WORD_USAGE",
+      "tags": ["shidai_da"],
+      "payload": {
+        "word": "次第だ",
+        "options": [
+          { "text": "道が混んでいて遅れた次第だ。", "is_correct": true },
+          { "text": "事の経緯を報告する次第だ。", "is_correct": true },
+          { "text": "明日、天気が次第だに行きます。", "is_correct": false },
+          { "text": "彼は次第だに上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sdd_016",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "本人__、どんなことでも達成できる。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_017",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "君の将来を思って、あえて厳しく言った__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shidai_da"],
+      "payload": {
+        "prefix": "今回の",
+        "suffix": "。",
+        "blocks": ["失敗は", "私の", "責任だ", "次第だ"]
+      }
+    },
+    {
+      "id": "sdd_019",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "場所__、電波が入らないことがある。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_020",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "改めてお願いしたく、お手紙を差し上げた__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_021",
+      "type": "PARAPHRASE",
+      "tags": ["shidai_da"],
+      "payload": {
+        "base_sentence": "そういう理由で、私は反対したのです。",
+        "correct": "そういう理由で、私は反対した次第だ。",
+        "distractors": [
+          "そういう理由で、私は反対した次第では。",
+          "そういう理由で、私は反対した次第に。",
+          "そういう理由で、私は反対した次第なら。"
+        ]
+      }
+    },
+    {
+      "id": "sdd_022",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "時間帯__、道が空いていることもある。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_023",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "今の仕事に満足できず、転職を決意した__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "今回の「経緯」を説明する次第だ。",
+        "correct": "けいい",
+        "distractors": ["けいかく", "けいけん", "けいざい"]
+      }
+    },
+    {
+      "id": "sdd_025",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "演じ方__、観客の反応も変わってくる。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_026",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "自分の不注意で怪我をして、入院した__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "prefix": "天気",
+        "suffix": "、出発を遅らせよう。",
+        "blocks": ["次第では"]
+      }
+    },
+    {
+      "id": "sdd_028",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "使い方__、毒にも薬にもなる。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_029",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_da"],
+      "payload": {
+        "sentence": "ぜひお礼を申し上げたく、伺った__。",
+        "correct": "次第だ",
+        "distractors": ["次第では", "次第に", "次第なら"]
+      }
+    },
+    {
+      "id": "sdd_030",
+      "type": "FILL_BLANK",
+      "tags": ["shidai_deha"],
+      "payload": {
+        "sentence": "気分__、やる気が出ることもある。",
+        "correct": "次第では",
+        "distractors": ["次第に", "次第だ", "次第なら"]
+      }
+    }
+  ]
+}
