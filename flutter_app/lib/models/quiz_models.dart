@@ -14,6 +14,13 @@ class KanaCharacter {
   KanaCharacter({required this.kana, required this.romaji, required this.category});
 }
 
+class LearningScore {
+  final int successes;
+  final int failures;
+
+  LearningScore({required this.successes, required this.failures});
+}
+
 class KanaProgress {
   bool normalSolved = false;
   bool reverseSolved = false;

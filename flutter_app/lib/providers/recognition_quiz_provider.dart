@@ -1,177 +1,80 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import '../models/dictionary.dart';
 import '../models/quiz_models.dart';
+import '../models/dictionary.dart';
 import '../repositories/dictionary_repository.dart';
 import '../repositories/score_repository.dart';
+import '../services/level_content_provider.dart';
+import '../services/recognition_game_engine.dart';
 import '../services/audio_service.dart';
-import '../utils/kana_utils.dart';
-
-enum RecognitionMode { meaning, reading }
 
 class RecognitionQuizProvider extends ChangeNotifier {
   final DictionaryRepository _dictionaryRepo;
   final ScoreRepository _scoreRepo;
+  final LevelContentProvider _contentProvider;
   final AudioService _audioService;
-  final Random _random = Random();
+  late final RecognitionGameEngine _engine;
 
-  RecognitionQuizProvider(this._dictionaryRepo, this._scoreRepo, this._audioService);
-
-  List<DictionaryItem> _allKanji = [];
-  List<DictionaryItem> _currentSet = [];
-  List<DictionaryItem> _revisionList = [];
-  Map<String, GameStatus> _kanjiStatus = {};
-
-  DictionaryItem? _currentKanji;
-  RecognitionMode _mode = RecognitionMode.meaning;
-  KanaQuestionDirection _direction = KanaQuestionDirection.normal;
-  GameState _state = GameState.loading;
-  List<String> _currentAnswers = [];
-  List<AnswerButtonState> _buttonStates = List.filled(4, () => AnswerButtonState.defaultState);
-
-  int _errorCount = 0;
-  int _listPosition = 0;
-
-  // Getters
-  DictionaryItem? get currentKanji => _currentKanji;
-  RecognitionMode get mode => _mode;
-  KanaQuestionDirection get direction => _direction;
-  GameState get state => _state;
-  List<String> get currentAnswers => _currentAnswers;
-  List<AnswerButtonState> get buttonStates => _buttonStates;
-  int get errorCount => _errorCount;
-  List<GameStatus> get progressHistory => _currentSet.map((e) => _kanjiStatus[e.id] ?? GameStatus.notAnswered).toList();
-
-  Future<void> startQuiz(String levelId, RecognitionMode mode, String locale) async {
-    _state = GameState.loading;
-    _mode = mode;
-    notifyListeners();
-
-    final all = await _dictionaryRepo.getFullDictionary(locale);
-    _allKanji = all.where((k) => k.levelIds.contains(levelId)).toList()..shuffle();
-
-    if (_allKanji.isEmpty) {
-      _state = GameState.finished;
-    } else {
-      _listPosition = 0;
-      _errorCount = 0;
-      _startNextSet();
-    }
-    notifyListeners();
+  RecognitionQuizProvider(
+    this._dictionaryRepo,
+    this._scoreRepo,
+    this._contentProvider,
+    this._audioService,
+  ) {
+    _engine = RecognitionGameEngine(_scoreRepo);
   }
 
-  bool _startNextSet() {
-    _revisionList.clear();
-    _kanjiStatus.clear();
+  RecognitionGameEngine get engine => _engine;
 
-    if (_listPosition >= _allKanji.length) return false;
+  Future<void> initializeGame({
+    required String levelId,
+    required String gameMode,
+    required String readingMode,
+    required int quizSize,
+    required String locale,
+  }) async {
+    _engine.resetState();
+    _engine.gameMode = gameMode;
+    _engine.readingMode = readingMode;
 
-    _currentSet = _allKanji.skip(_listPosition).take(10).toList();
-    _listPosition += _currentSet.length;
-    _revisionList = List.from(_currentSet);
+    final characters = await _contentProvider.getItemsForLevel(levelId, ScoreType.recognition, locale);
+    final allDictionary = await _dictionaryRepo.getFullDictionary(locale);
+    final kanjiMap = {for (var k in allDictionary) k.character: k};
 
-    for (var k in _currentSet) {
-      _kanjiStatus[k.id] = GameStatus.notAnswered;
-    }
-    _nextQuestion();
-    return true;
-  }
+    final allForLevel = characters.map((c) => kanjiMap[c]).whereType<DictionaryItem>().toList();
 
-  void _nextQuestion() {
-    if (_revisionList.isEmpty) {
-      if (!_startNextSet()) {
-        _state = GameState.finished;
-        return;
+    // Filter by mastery like in Kotlin
+    final List<DictionaryItem> filtered = [];
+    for (var k in allForLevel) {
+      final entity = await _scoreRepo.getScore(k.character, gameMode == "meaning" ? ScoreType.recognition : ScoreType.reading);
+      final score = LearningScore(
+        successes: entity?.successes ?? 0,
+        failures: entity?.failures ?? 0,
+      );
+      final listName = gameMode == "meaning" ? "Recognition_List" : "Reading_List";
+      final revisionList = await _scoreRepo.getListItems(listName);
+      
+      if (score.successes - score.failures < 10 || revisionList.contains(k.character)) {
+        filtered.add(k);
       }
+      if (filtered.length >= quizSize) break;
     }
 
-    _currentKanji = _revisionList[_random.nextInt(_revisionList.length)];
-    // On alterne aléatoirement la direction comme en Kotlin
-    _direction = _random.nextBool() ? KanaQuestionDirection.normal : KanaQuestionDirection.reverse;
-
-    _generateAnswers();
-    _buttonStates = List.filled(4, AnswerButtonState.defaultState);
-    _state = GameState.waitingForAnswer;
-  }
-
-  void _generateAnswers() {
-    if (_currentKanji == null) return;
-
-    final bool isNormal = _direction == KanaQuestionDirection.normal;
-    String correctAnswer;
-
-    if (isNormal) {
-      correctAnswer = _mode == RecognitionMode.meaning
-          ? (_currentKanji!.meanings.isNotEmpty ? _currentKanji!.meanings.first : "")
-          : (_currentKanji!.readings.isNotEmpty ? _currentKanji!.readings.first.text : "");
-    } else {
-      correctAnswer = _currentKanji!.character;
-    }
-
-    final pool = _allKanji
-        .where((k) => k.id != _currentKanji!.id)
-        .map((k) {
-          if (isNormal) {
-            return _mode == RecognitionMode.meaning
-                ? (k.meanings.isNotEmpty ? k.meanings.first : "")
-                : (k.readings.isNotEmpty ? k.readings.first.text : "");
-          } else {
-            return k.character;
-          }
-        })
-        .where((s) => s.isNotEmpty)
-        .toSet()
-        .toList();
-
-    pool.shuffle();
-    final answers = pool.take(3).toList();
-    answers.add(correctAnswer);
-    answers.shuffle();
-
-    _currentAnswers = answers;
+    _engine.allKanjiDetails.addAll(filtered..shuffle());
+    _engine.startGame();
+    notifyListeners();
   }
 
   Future<void> submitAnswer(int index) async {
-    if (_state != GameState.waitingForAnswer) return;
-
-    final selected = _currentAnswers[index];
-    String correctAnswer;
-    if (_direction == KanaQuestionDirection.normal) {
-      correctAnswer = _mode == RecognitionMode.meaning
-          ? (_currentKanji!.meanings.first)
-          : (_currentKanji!.readings.first.text);
-    } else {
-      correctAnswer = _currentKanji!.character;
-    }
-
-    final isCorrect = selected == correctAnswer;
-
+    final isCorrect = await _engine.submitAnswer(index);
     if (isCorrect) {
       _audioService.playSound("assets/files/sounds/correct.mp3");
-      _kanjiStatus[_currentKanji!.id] = GameStatus.correct;
-      _revisionList.remove(_currentKanji);
-      _buttonStates[index] = AnswerButtonState.correct;
     } else {
       _audioService.playSound("assets/files/sounds/incorrect.mp3");
-      _errorCount++;
-      _kanjiStatus[_currentKanji!.id] = GameStatus.incorrect;
-      _buttonStates[index] = AnswerButtonState.incorrect;
-
-      final correctIdx = _currentAnswers.indexOf(correctAnswer);
-      if (correctIdx != -1) _buttonStates[correctIdx] = AnswerButtonState.correct;
     }
-
-    await _scoreRepo.saveScore(
-      key: _currentKanji!.character,
-      wasCorrect: isCorrect,
-      type: ScoreType.recognition,
-    );
-
-    _state = GameState.showingResult;
     notifyListeners();
 
-    await Future.delayed(const Duration(milliseconds: 1500));
-    _nextQuestion();
+    await Future.delayed(Duration(milliseconds: (1000 * _engine.animationSpeed).toInt()));
+    _engine.acknowledgeResult();
     notifyListeners();
   }
 }

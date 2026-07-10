@@ -17,7 +17,7 @@ dependencies:
   path_provider: ^2.1.0
   path: ^1.9.0
   json_annotation: ^4.9.0
-  flutter_widget_from_html: ^0.15.0 # Updated for compatibility with newer Flutter versions
+  flutter_widget_from_html: ^0.15.0
   google_fonts: ^6.2.1
   provider: ^6.1.2
   xml: ^6.5.0
@@ -46,12 +46,12 @@ flutter:
     - assets/files/words/meanings/
     - assets/files/grammar/
     - assets/files/grammar/lessons/
-    - assets/files/grammar/lessons/fr/
     - assets/files/common/
     - assets/files/langs/ar_SA/
     - assets/files/langs/bn_BD/
     - assets/files/langs/de_DE/
     - assets/files/langs/en_GB/
+    - assets/files/langs/en_US/
     - assets/files/langs/es_ES/
     - assets/files/langs/fr_FR/
     - assets/files/langs/in_ID/
@@ -67,14 +67,8 @@ flutter:
     - assets/files/langs/zh_CN/
     - assets/files/langs/en_GB/grammar/
     - assets/files/langs/fr_FR/grammar/
-    - assets/files/langs/ja_JP/grammar/
     - assets/files/langs/ko_KR/grammar/
     - assets/files/langs/zh_CN/grammar/
-    - assets/files/langs/en_GB/
-    - assets/files/langs/fr_FR/
-    - assets/files/langs/ja_JP/
-    - assets/files/langs/ko_KR/
-    - assets/files/langs/zh_CN/
     - assets/files/meanings/
     - assets/files/sounds/
     - assets/drawable/

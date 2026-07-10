@@ -8,7 +8,8 @@ import 'models/level.dart';
 import 'dictionary_screen.dart';
 import 'grammar_screen.dart';
 import 'kana_screen.dart';
-import 'kana_quiz_screen.dart';
+import 'kana_recap_screen.dart';
+import 'kanji_recap_screen.dart';
 import 'word_quiz_screen.dart';
 import 'writing_quiz_screen.dart';
 import 'saga_map_screen.dart';
@@ -113,7 +114,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Section Vocabulaire
                 _buildSectionCard("VOCABULAIRE", [
                   _buildHomeBlockCard("Reconnaissance", "認識", () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaQuizScreen(type: KanaType.hiragana)));
+                    if (currentLevel != null) {
+                      if (currentLevel.id == "hiragana") {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.hiragana)));
+                      } else if (currentLevel.id == "katakana") {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.katakana)));
+                      } else {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => KanjiRecapScreen(levelId: currentLevel.id, levelName: currentLevel.name)));
+                      }
+                    }
                   }),
                   _buildHomeBlockCard("Lecture", "読解", () {
                     if (currentLevel != null) {
