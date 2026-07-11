@@ -756,4 +756,5 @@
     <string name="tutorial_home_vocabulary">Энд ханз таних, унших, бичих дадлага хий.</string>
     <string name="tutorial_home_grammar">Япон хэлний дүрмийн дүрэм, үйл үгийн холбоог сур.</string>
     <string name="tutorial_home_utilities">Тоглоом, толь бичиг болон сургалтын үр дүнг эндээс авна уу.</string>
+    <string name="settings_audio_volume">Аудио эффектийн хэмжээ</string>
 </resources>

@@ -756,4 +756,5 @@
     <string name="tutorial_home_vocabulary">এখানে কাঞ্জি স্বীকৃতি, পড়া এবং লেখার অনুশীলন করুন।</string>
     <string name="tutorial_home_grammar">জাপানি ব্যাকরণের নিয়ম এবং ক্রিয়া সংযোজন শিখুন।</string>
     <string name="tutorial_home_utilities">এখানে গেম, অভিধান এবং আপনার শেখার ফলাফল অ্যাক্সেস করুন।</string>
+    <string name="settings_audio_volume">অডিও প্রভাব ভলিউম</string>
 </resources>

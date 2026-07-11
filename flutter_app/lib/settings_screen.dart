@@ -19,20 +19,33 @@ class SettingsScreen extends StatelessWidget {
     final settings = context.watch<SettingsProvider>();
 
     final languages = [
+      LanguageItem("ar_SA", "العربية", "assets/drawable/flag_sa_sa.png"),
+      LanguageItem("bn_BD", "বাংলা", "assets/drawable/flag_bn.png"),
+      LanguageItem("de_DE", "Deutsch", "assets/drawable/flag_de.png"),
       LanguageItem("en_GB", "English", "assets/drawable/flag_en_gb.png"),
+      LanguageItem("es_ES", "Español", "assets/drawable/flag_es.png"),
       LanguageItem("fr_FR", "Français", "assets/drawable/flag_fr_fr.png"),
+      LanguageItem("in_ID", "Bahasa Indonesia", "assets/drawable/flag_id.png"),
+      LanguageItem("it_IT", "Italiano", "assets/drawable/flag_it.png"),
       LanguageItem("ja_JP", "日本語", "assets/drawable/flag_jp.png"),
-      // Ajouter les autres selon les assets disponibles
+      LanguageItem("ko_KR", "한국어", "assets/drawable/flag_kr.png"),
+      LanguageItem("mn_MN", "Монгол", "assets/drawable/flag_mn.png"),
+      LanguageItem("pt_BR", "Português", "assets/drawable/flag_pt_br.png"),
+      LanguageItem("ru_RU", "Русский", "assets/drawable/flag_ru.png"),
+      LanguageItem("th_TH", "ไทย", "assets/drawable/flag_th_th.png"),
+      LanguageItem("ua_UA", "Українська", "assets/drawable/flag_ua.png"),
+      LanguageItem("vi_VN", "Tiếng Việt", "assets/drawable/flag_vn.png"),
+      LanguageItem("zh_CN", "简体中文", "assets/drawable/flag_cn.png"),
     ];
 
     final selectedLanguage = languages.firstWhere(
       (l) => l.code == settings.currentLocaleCode,
-      orElse: () => languages.first,
+      orElse: () => languages.firstWhere((l) => l.code == "en_GB", orElse: () => languages.first),
     );
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Paramètres"),
+        title: Text(settings.getString("settings_title")),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -44,16 +57,16 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 _buildSection(
-                  title: "Interface",
+                  title: settings.getString("settings_category_interface"),
                   children: [
                     SwitchListTile(
-                      title: const Text("Mode Sombre"),
+                      title: Text(settings.getString("settings_theme")),
                       value: settings.isDarkMode,
                       onChanged: (val) => settings.toggleTheme(val),
                     ),
                     const Divider(),
                     ListTile(
-                      title: const Text("Langue"),
+                      title: Text(settings.getString("settings_language")),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -69,10 +82,10 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 _buildSection(
-                  title: "Audio & Animations",
+                  title: settings.getString("settings_category_general"),
                   children: [
                     _buildSliderTile(
-                      title: "Vitesse des animations",
+                      title: settings.getString("settings_animation_speed"),
                       value: settings.animationSpeed,
                       onChanged: (val) => settings.updateAnimationSpeed(val),
                       min: 0.5,
@@ -80,7 +93,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(),
                     _buildSliderTile(
-                      title: "Volume des sons",
+                      title: settings.getString("settings_audio_volume"),
                       value: settings.audioVolume,
                       onChanged: (val) => settings.updateAudioVolume(val),
                       min: 0.0,
@@ -88,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(),
                     _buildSliderTile(
-                      title: "Vitesse de lecture (TTS)",
+                      title: settings.getString("settings_tts_speed"),
                       value: settings.ttsRate,
                       onChanged: (val) => settings.updateTtsRate(val),
                       min: 0.5,
@@ -98,37 +111,49 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 _buildSection(
-                  title: "Apprentissage",
+                  title: settings.getString("settings_category_learning"),
                   children: [
                     ListTile(
-                      title: const Text("Mode"),
+                      title: Text(settings.getString("settings_learning_mode")),
                       trailing: DropdownButton<String>(
                         value: settings.currentMode,
                         items: ["JLPT", "School", "Challenge"]
-                            .map((m) => DropdownMenuItem(value: m, child: Text(m)))
+                            .map((m) => DropdownMenuItem(
+                                  value: m,
+                                  child: Text(m == "JLPT"
+                                      ? settings.getString("section_jlpt")
+                                      : m == "School"
+                                          ? settings.getString("section_school")
+                                          : settings.getString("section_challenges")),
+                                ))
                             .toList(),
                         onChanged: (val) => settings.updateMode(val!),
                       ),
                     ),
                     const Divider(),
                     ListTile(
-                      title: const Text("Prononciation"),
+                      title: Text(settings.getString("settings_pronunciation")),
                       trailing: DropdownButton<String>(
                         value: settings.pronunciation,
                         items: ["Roman", "Hiragana"]
-                            .map((p) => DropdownMenuItem(value: p, child: Text(p)))
+                            .map((p) => DropdownMenuItem(
+                                  value: p,
+                                  child: Text(p == "Roman"
+                                      ? settings.getString("settings_pronunciation_roman")
+                                      : settings.getString("settings_pronunciation_hiragana")),
+                                ))
                             .toList(),
                         onChanged: (val) => settings.updatePronunciation(val!),
                       ),
                     ),
                     const Divider(),
                     CheckboxListTile(
-                      title: const Text("Ajouter erreurs à la révision"),
+                      title: Text(settings.getString("settings_add_wrong_answers")),
                       value: settings.addWrongAnswers,
                       onChanged: (val) => settings.toggleAddWrongAnswers(val!),
                     ),
                     CheckboxListTile(
-                      title: const Text("Retirer succès de la révision"),
+                      title: Text(settings.getString("settings_remove_good_answers")),
                       value: settings.removeGoodAnswers,
                       onChanged: (val) => settings.toggleRemoveGoodAnswers(val!),
                     ),

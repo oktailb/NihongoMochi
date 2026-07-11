@@ -6,6 +6,7 @@ import 'repositories/dictionary_repository.dart';
 import 'repositories/word_meaning_repository.dart';
 import 'repositories/score_repository.dart';
 import 'dictionary_screen.dart'; // Pour DictionaryItemCard
+import 'models/dictionary.dart';
 import 'kanji_detail_screen.dart';
 import 'dart:ui' as ui;
 

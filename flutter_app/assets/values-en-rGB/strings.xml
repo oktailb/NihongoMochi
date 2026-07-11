@@ -758,4 +758,5 @@
     <string name="tutorial_home_vocabulary">Practice Kanji recognition, reading, and writing here.</string>
     <string name="tutorial_home_grammar">Learn Japanese grammar rules and verb conjugations.</string>
     <string name="tutorial_home_utilities">Access games, dictionary, and your learning results here.</string>
+    <string name="settings_audio_volume">Audio effects volume</string>
 </resources>

@@ -32,12 +32,12 @@ class _TutorialOverlayState extends State<TutorialOverlay> {
       color: Colors.transparent,
       child: Stack(
         children: [
-          // Background Dim
-          GestureDetector(
-            onTap: _nextStep,
-            child: Container(
-              color: Colors.black.withOpacity(0.4),
-              fill: true,
+          Positioned.fill(
+            child: GestureDetector(
+              onTap: _nextStep,
+              child: Container(
+                color: Colors.black.withOpacity(0.4),
+              ),
             ),
           ),
 

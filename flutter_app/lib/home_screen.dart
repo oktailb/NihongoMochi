@@ -28,8 +28,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final StringProvider _stringProvider = StringProvider();
-
   List<LevelDefinition> _levels = [];
   int _selectedIndex = 0;
   bool _isLoading = true;
@@ -53,9 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // On ne bloque pas l'UI, mais on attend que ce soit prêt si possible
     await lpManager.downloadPack(locale);
 
-    // 2. Initialise les strings et les niveaux
-    String folderLocale = locale.replaceAll('_', '-r');
-    await _stringProvider.loadStrings(folderLocale);
+    // 2. Initialise les niveaux
     final levels = await levelRepo.getFlattenedLevels();
 
     setState(() {
@@ -81,7 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    final mode = context.watch<SettingsProvider>().currentMode;
+    final settings = context.watch<SettingsProvider>();
+    final mode = settings.currentMode;
     final filteredLevels = _getFilteredLevels(mode);
     
     // On s'assure que l'index est valide pour la liste filtrée
@@ -112,8 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 16),
 
                 // Section Vocabulaire
-                _buildSectionCard("VOCABULAIRE", [
-                  _buildHomeBlockCard("Reconnaissance", "認識", () {
+                _buildSectionCard(settings.getString("activity_type_vocabulary").toUpperCase(), [
+                  _buildHomeBlockCard(settings.getString("results_recognition_title"), "認識", () {
                     if (currentLevel != null) {
                       if (currentLevel.id == "hiragana") {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.hiragana)));
@@ -124,12 +121,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     }
                   }),
-                  _buildHomeBlockCard("Lecture", "読解", () {
+                  _buildHomeBlockCard(settings.getString("results_reading_title"), "読解", () {
                     if (currentLevel != null) {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: currentLevel.id)));
                     }
                   }),
-                  _buildHomeBlockCard("Écriture", "書取", () {
+                  _buildHomeBlockCard(settings.getString("results_writing_title"), "書取", () {
                     if (currentLevel != null) {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => WritingQuizScreen(levelId: currentLevel.id)));
                     }
@@ -139,10 +136,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 12),
 
                 // Section Grammaire
-                _buildSectionCard("GRAMMAIRE", [
-                  _buildHomeBlockCard("Bases", "基本", () => _navigateToGrammar("dependencies_basics")),
-                  _buildHomeBlockCard("Verbes", "活用", () => _navigateToGrammar("conjugaison")),
-                  _buildHomeBlockCard("Syntaxe", "文法", () => _navigateToGrammar("rules")),
+                _buildSectionCard(settings.getString("activity_type_grammar").toUpperCase(), [
+                  _buildHomeBlockCard(settings.getString("section_fundamentals"), "基本", () => _navigateToGrammar("dependencies_basics")),
+                  _buildHomeBlockCard(settings.getString("activity_type_grammar_verbs"), "活用", () => _navigateToGrammar("conjugaison")),
+                  _buildHomeBlockCard(settings.getString("activity_type_grammar_syntax"), "文法", () => _navigateToGrammar("rules")),
                 ]),
 
                 const SizedBox(height: 12),
@@ -151,13 +148,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Expanded(
-                      child: _buildSmallUtilityCard("Dictionnaire", Icons.search, () {
+                      child: _buildSmallUtilityCard(settings.getString("menu_dictionary"), Icons.search, () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const DictionaryScreen()));
                       }),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: _buildSmallUtilityCard("Jeux", Icons.videogame_asset, () {
+                      child: _buildSmallUtilityCard(settings.getString("games_title"), Icons.videogame_asset, () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const GamesScreen()));
                       }),
                     ),
@@ -167,15 +164,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 Row(
                   children: [
-                    Expanded(child: _buildSmallUtilityCard("Résultats", Icons.map, () {
+                    Expanded(child: _buildSmallUtilityCard(settings.getString("results_title"), Icons.map, () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const SagaMapScreen()));
                     })),
                     const SizedBox(width: 8),
-                    Expanded(child: _buildSmallUtilityCard("Paramètres", Icons.settings, () {
+                    Expanded(child: _buildSmallUtilityCard(settings.getString("settings_title"), Icons.settings, () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
                     })),
                     const SizedBox(width: 8),
-                    Expanded(child: _buildSmallUtilityCard("À propos", Icons.info, () {
+                    Expanded(child: _buildSmallUtilityCard(settings.getString("menu_about"), Icons.info, () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutScreen()));
                     })),
                   ],

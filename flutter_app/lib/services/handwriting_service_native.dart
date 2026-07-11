@@ -55,7 +55,7 @@ class NativeHandwritingService implements HandwritingService {
       for (final hStroke in handwritingStrokes) {
         final stroke = Stroke();
         for (final p in hStroke.points) {
-          stroke.points.add(Point(x: p.x, y: p.y, t: p.t));
+          stroke.points.add(StrokePoint(x: p.x, y: p.y, t: p.t));
         }
         ink.strokes.add(stroke);
       }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../repositories/settings_repository.dart';
+import '../services/string_provider.dart';
 
 class SettingsProvider extends ChangeNotifier {
   final SettingsRepository _repository;
+  final StringProvider stringProvider = StringProvider();
 
   SettingsProvider(this._repository) {
     _loadSettings();
@@ -28,6 +30,13 @@ class SettingsProvider extends ChangeNotifier {
   bool get addWrongAnswers => _addWrongAnswers;
   bool get removeGoodAnswers => _removeGoodAnswers;
 
+  String getString(String key) => stringProvider.getString(key);
+
+  Future<void> _loadStringsForLocale(String localeCode) async {
+    String folderLocale = localeCode.replaceAll('_', '-r');
+    await stringProvider.loadStrings(folderLocale);
+  }
+
   void _loadSettings() {
     _isDarkMode = _repository.getTheme() == "dark";
     _currentLocaleCode = _repository.getAppLocale();
@@ -38,7 +47,10 @@ class SettingsProvider extends ChangeNotifier {
     _currentMode = _repository.getMode();
     _addWrongAnswers = _repository.shouldAddWrongAnswers();
     _removeGoodAnswers = _repository.shouldRemoveGoodAnswers();
-    notifyListeners();
+    
+    _loadStringsForLocale(_currentLocaleCode).then((_) {
+      notifyListeners();
+    });
   }
 
   Future<void> toggleTheme(bool isDark) async {
@@ -50,6 +62,7 @@ class SettingsProvider extends ChangeNotifier {
   Future<void> updateLocale(String code) async {
     _currentLocaleCode = code;
     await _repository.setAppLocale(code);
+    await _loadStringsForLocale(code);
     notifyListeners();
   }
 
