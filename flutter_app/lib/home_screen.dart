@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // Section Vocabulaire
                 _buildSectionCard(settings.getString("activity_type_vocabulary").toUpperCase(), [
-                  _buildHomeBlockCard(settings.getString("results_recognition_title"), "認識", () {
+                  _buildHomeBlockCard(settings.getString("results_recognition_title"), "見覚え", () {
                     if (currentLevel != null) {
                       if (currentLevel.id == "hiragana") {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.hiragana)));
@@ -121,12 +121,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     }
                   }),
-                  _buildHomeBlockCard(settings.getString("results_reading_title"), "読解", () {
+                  _buildHomeBlockCard(settings.getString("results_reading_title"), "読み方", () {
                     if (currentLevel != null) {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: currentLevel.id)));
                     }
                   }),
-                  _buildHomeBlockCard(settings.getString("results_writing_title"), "書取", () {
+                  _buildHomeBlockCard(settings.getString("results_writing_title"), "書き方", () {
                     if (currentLevel != null) {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => WritingQuizScreen(levelId: currentLevel.id)));
                     }
@@ -212,8 +212,15 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Text(
               level.name.toUpperCase(),
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.pink),
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.pink),
             ),
+            if (level.description.isNotEmpty) ...[
+              const SizedBox(height: 2),
+              Text(
+                level.description,
+                style: const TextStyle(fontSize: 12, color: Colors.black54),
+              ),
+            ],
             const SizedBox(height: 4),
             Slider(
               value: index.toDouble(),
@@ -266,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(kanji, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.pink)),
+              Text(kanji, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF33A3A3))),
               Text(title, textAlign: TextAlign.center, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500)),
             ],
           ),
@@ -286,7 +293,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
           child: Column(
             children: [
-              Icon(icon, color: Colors.pink, size: 24),
+              Icon(icon, color: const Color(0xFF33A3A3), size: 24),
               const SizedBox(height: 4),
               Text(title, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold), textAlign: TextAlign.center),
             ],

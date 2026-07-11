@@ -5,9 +5,11 @@ import '../models/dictionary.dart';
 class KanjiRepository {
   List<DictionaryItem>? _cachedKanji;
   Map<String, DictionaryItem>? _characterMap;
+  String? _cachedLocale;
 
   Future<List<DictionaryItem>> getAllKanji(String locale, {required dynamic dictionaryRepo}) async {
-    if (_cachedKanji != null) return _cachedKanji!;
+    if (_cachedKanji != null && _cachedLocale == locale) return _cachedKanji!;
+    _cachedLocale = locale;
 
     // In our Flutter port, DictionaryRepository already does the heavy lifting of merging meanings.
     // We use it to get the enriched items.

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/memorize_provider.dart';
+import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'memorize_game_screen.dart';
-import 'dart:ui' as ui;
 
 class MemorizeSetupScreen extends StatelessWidget {
   const MemorizeSetupScreen({super.key});
@@ -12,7 +12,7 @@ class MemorizeSetupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<MemorizeProvider>();
-    final locale = ui.PlatformDispatcher.instance.locale.toString();
+    final locale = context.watch<SettingsProvider>().currentLocaleCode;
 
     return GameSetupTemplate(
       title: "Memorize",

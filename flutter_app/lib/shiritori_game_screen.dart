@@ -4,7 +4,7 @@ import 'models/shiritori.dart';
 import 'providers/shiritori_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class ShiritoriGameScreen extends StatefulWidget {
   const ShiritoriGameScreen({super.key});
@@ -245,7 +245,7 @@ class _ShiritoriGameScreenState extends State<ShiritoriGameScreen> {
                   children: [
                     TextButton(onPressed: () => Navigator.pop(context), child: const Text("MENU")),
                     ElevatedButton(
-                      onPressed: () => provider.startGame(ui.PlatformDispatcher.instance.locale.toString()),
+                      onPressed: () => provider.startGame(context.read<SettingsProvider>().currentLocaleCode),
                       child: const Text("REJOUER"),
                     ),
                   ],

@@ -6,7 +6,7 @@ import 'repositories/word_repository.dart';
 import 'repositories/score_repository.dart';
 import 'repositories/word_meaning_repository.dart';
 import 'widgets/mochi_background.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class WordQuizScreen extends StatelessWidget {
   final String levelId;
@@ -22,7 +22,7 @@ class WordQuizScreen extends StatelessWidget {
           context.read<ScoreRepository>(),
           context.read<WordMeaningRepository>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.initializeGame(levelId, locale);
         return provider;
       },

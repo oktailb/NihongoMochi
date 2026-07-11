@@ -10,7 +10,7 @@ import 'word_quiz_screen.dart';
 import 'kana_quiz_screen.dart';
 import 'models/kana.dart';
 import 'widgets/mochi_background.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class GameRecapScreen extends StatelessWidget {
   final String levelId;
@@ -36,7 +36,7 @@ class GameRecapScreen extends StatelessWidget {
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.loadLevel(levelId, "meaning", locale);
         return provider;
       },
@@ -182,7 +182,7 @@ class _GameRecapViewState extends State<GameRecapView> {
         selected: {_gameMode},
         onSelectionChanged: (val) {
           setState(() => _gameMode = val.first);
-          final locale = ui.PlatformDispatcher.instance.locale.toString();
+          final locale = context.read<SettingsProvider>().currentLocaleCode;
           provider.loadLevel(widget.levelId, _gameMode, locale);
         },
       ),

@@ -5,7 +5,7 @@ import 'providers/snake_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'snake_game_screen.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class SnakeSetupScreen extends StatelessWidget {
   const SnakeSetupScreen({super.key});
@@ -13,7 +13,7 @@ class SnakeSetupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SnakeProvider>();
-    final locale = ui.PlatformDispatcher.instance.locale.toString();
+    final locale = context.watch<SettingsProvider>().currentLocaleCode;
 
     return GameSetupTemplate(
       title: "Snake",

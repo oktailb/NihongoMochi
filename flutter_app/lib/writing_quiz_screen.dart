@@ -6,7 +6,9 @@ import 'repositories/dictionary_repository.dart';
 import 'repositories/score_repository.dart';
 import 'utils/romaji_to_kana.dart';
 import 'widgets/mochi_background.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
+
+import 'services/level_content_provider.dart';
 
 class WritingQuizScreen extends StatelessWidget {
   final String levelId;
@@ -20,8 +22,9 @@ class WritingQuizScreen extends StatelessWidget {
         final provider = WritingQuizProvider(
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
+          context.read<LevelContentProvider>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.startQuiz(levelId, locale);
         return provider;
       },

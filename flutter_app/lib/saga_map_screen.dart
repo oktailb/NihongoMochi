@@ -8,7 +8,7 @@ import 'widgets/saga_node_item.dart';
 import 'widgets/billboard_item.dart';
 import 'widgets/saga_path_painter.dart';
 import 'game_recap_screen.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class SagaMapScreen extends StatefulWidget {
   const SagaMapScreen({super.key});
@@ -22,7 +22,7 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final locale = ui.PlatformDispatcher.instance.locale.toString();
+      final locale = context.read<SettingsProvider>().currentLocaleCode;
       context.read<SagaProvider>().loadSaga(SagaTab.jlpt, locale);
     });
   }
@@ -68,19 +68,19 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
             icon: Icons.star,
             label: "JLPT",
             isSelected: provider.currentTab == SagaTab.jlpt,
-            onTap: () => provider.loadSaga(SagaTab.jlpt, ui.PlatformDispatcher.instance.locale.toString()),
+            onTap: () => provider.loadSaga(SagaTab.jlpt, context.read<SettingsProvider>().currentLocaleCode),
           ),
           _TabButton(
             icon: Icons.school,
             label: "SCHOOL",
             isSelected: provider.currentTab == SagaTab.school,
-            onTap: () => provider.loadSaga(SagaTab.school, ui.PlatformDispatcher.instance.locale.toString()),
+            onTap: () => provider.loadSaga(SagaTab.school, context.read<SettingsProvider>().currentLocaleCode),
           ),
           _TabButton(
             icon: Icons.emoji_events,
             label: "CHALLENGES",
             isSelected: provider.currentTab == SagaTab.challenges,
-            onTap: () => provider.loadSaga(SagaTab.challenges, ui.PlatformDispatcher.instance.locale.toString()),
+            onTap: () => provider.loadSaga(SagaTab.challenges, context.read<SettingsProvider>().currentLocaleCode),
           ),
         ],
       ),

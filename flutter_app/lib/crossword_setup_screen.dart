@@ -5,7 +5,7 @@ import 'providers/crossword_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'crossword_game_screen.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class CrosswordSetupScreen extends StatelessWidget {
   const CrosswordSetupScreen({super.key});
@@ -13,7 +13,7 @@ class CrosswordSetupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<CrosswordProvider>();
-    final locale = ui.PlatformDispatcher.instance.locale.toString();
+    final locale = context.watch<SettingsProvider>().currentLocaleCode;
 
     return GameSetupTemplate(
       title: "Mots Croisés",

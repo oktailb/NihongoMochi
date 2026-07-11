@@ -8,7 +8,7 @@ import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
 import 'kanji_detail_screen.dart';
 import 'recognition_quiz_screen.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class KanjiRecapScreen extends StatelessWidget {
   final String levelId;
@@ -29,7 +29,7 @@ class KanjiRecapScreen extends StatelessWidget {
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.loadLevel(levelId, locale);
         return provider;
       },

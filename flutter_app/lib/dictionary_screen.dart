@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/dictionary_provider.dart';
+import 'providers/settings_provider.dart';
 import 'repositories/dictionary_repository.dart';
 import 'models/dictionary.dart';
 import 'models/handwriting.dart';
@@ -12,8 +13,9 @@ class DictionaryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.read<SettingsProvider>().currentLocaleCode;
     return ChangeNotifierProvider(
-      create: (context) => DictionaryProvider(context.read<DictionaryRepository>()),
+      create: (context) => DictionaryProvider(context.read<DictionaryRepository>(), locale),
       child: const DictionaryView(),
     );
   }

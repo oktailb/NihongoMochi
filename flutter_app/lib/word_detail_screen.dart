@@ -8,7 +8,7 @@ import 'repositories/score_repository.dart';
 import 'dictionary_screen.dart'; // Pour DictionaryItemCard
 import 'models/dictionary.dart';
 import 'kanji_detail_screen.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class WordDetailScreen extends StatelessWidget {
   final String wordText;
@@ -25,7 +25,7 @@ class WordDetailScreen extends StatelessWidget {
           context.read<WordMeaningRepository>(),
           context.read<ScoreRepository>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.loadWord(wordText, locale);
         return provider;
       },

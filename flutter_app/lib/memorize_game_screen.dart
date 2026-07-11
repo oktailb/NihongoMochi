@@ -4,7 +4,7 @@ import 'providers/memorize_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
 import 'widgets/memory_card.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class MemorizeGameScreen extends StatelessWidget {
   const MemorizeGameScreen({super.key});
@@ -100,7 +100,7 @@ class MemorizeGameScreen extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        final locale = ui.PlatformDispatcher.instance.locale.toString();
+                        final locale = context.read<SettingsProvider>().currentLocaleCode;
                         provider.startGame(locale);
                       },
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.pink, foregroundColor: Colors.white),

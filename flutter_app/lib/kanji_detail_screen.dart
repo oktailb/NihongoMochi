@@ -5,7 +5,7 @@ import 'providers/kanji_detail_provider.dart';
 import 'repositories/dictionary_repository.dart';
 import 'repositories/score_repository.dart';
 import 'db/database.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class KanjiDetailScreen extends StatelessWidget {
   final String kanjiId;
@@ -21,7 +21,7 @@ class KanjiDetailScreen extends StatelessWidget {
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.loadKanji(kanjiId, locale);
         return provider;
       },

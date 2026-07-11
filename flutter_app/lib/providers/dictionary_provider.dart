@@ -34,20 +34,19 @@ class DictionaryProvider extends ChangeNotifier {
   ModelStatus get modelStatus => _handwritingService.status;
   List<HandwritingStroke> get currentStrokes => _currentStrokes;
 
-  DictionaryProvider(this._repository) {
-    _init();
+  DictionaryProvider(this._repository, String locale) {
+    _init(locale);
   }
 
-  Future<void> _init() async {
+  Future<void> _init(String locale) async {
     await _handwritingService.checkModel();
-    await loadData();
+    await loadData(locale);
   }
 
-  Future<void> loadData() async {
+  Future<void> loadData(String locale) async {
     _isLoading = true;
     notifyListeners();
 
-    final String locale = ui.PlatformDispatcher.instance.locale.languageCode;
     _allKanji = await _repository.getFullDictionary(locale);
 
     _isLoading = false;

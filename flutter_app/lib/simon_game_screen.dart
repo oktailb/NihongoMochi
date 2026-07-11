@@ -4,7 +4,7 @@ import 'models/simon.dart';
 import 'providers/simon_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class SimonGameScreen extends StatelessWidget {
   const SimonGameScreen({super.key});
@@ -133,7 +133,7 @@ class SimonGameScreen extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        final locale = ui.PlatformDispatcher.instance.locale.toString();
+                        final locale = context.read<SettingsProvider>().currentLocaleCode;
                         provider.startGame(locale);
                       },
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.pink, foregroundColor: Colors.white),

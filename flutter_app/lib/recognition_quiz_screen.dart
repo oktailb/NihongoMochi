@@ -9,7 +9,7 @@ import 'services/recognition_game_engine.dart';
 import 'services/audio_service.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_components.dart';
-import 'dart:ui' as ui;
+import 'providers/settings_provider.dart';
 
 class RecognitionQuizScreen extends StatelessWidget {
   final String levelId;
@@ -35,7 +35,7 @@ class RecognitionQuizScreen extends StatelessWidget {
           context.read<LevelContentProvider>(),
           context.read<AudioService>(),
         );
-        final locale = ui.PlatformDispatcher.instance.locale.toString();
+        final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.initializeGame(
           levelId: levelId,
           gameMode: gameMode,
@@ -97,6 +97,33 @@ class RecognitionQuizView extends StatelessWidget {
                   frontFontSize: isNormal ? 100 : 32,
                   backFontSize: isNormal ? 32 : 24,
                 ),
+              const SizedBox(height: 16),
+              // Correct/Incorrect score capsule
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.06),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.check, size: 16, color: Colors.green),
+                    const SizedBox(width: 4),
+                    Text(
+                      "${engine.correctAnswersInSession}",
+                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                    ),
+                    const SizedBox(width: 16),
+                    const Icon(Icons.close, size: 16, color: Colors.red),
+                    const SizedBox(width: 4),
+                    Text(
+                      "${engine.errorCount}",
+                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                    ),
+                  ],
+                ),
+              ),
               const Spacer(),
               _buildAnswerArea(context, provider),
               const SizedBox(height: 40),
@@ -177,8 +204,8 @@ class _AnswerButton extends StatelessWidget {
     final answer = engine.currentAnswers[index];
     final state = engine.buttonStates[index];
 
-    Color bgColor = Colors.white;
-    Color textColor = Colors.black87;
+    Color bgColor = const Color(0xFF33A3A3); // Beautiful teal matching screenshot
+    Color textColor = Colors.white;
 
     if (state == AnswerButtonState.correct) {
       bgColor = Colors.green;
@@ -203,14 +230,17 @@ class _AnswerButton extends StatelessWidget {
             disabledBackgroundColor: bgColor,
             foregroundColor: textColor,
             disabledForegroundColor: textColor,
-            minimumSize: const Size(0, 120),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            elevation: 6,
+            minimumSize: const Size(0, 90),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            elevation: 4,
           ),
           child: Text(
             answer,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: answer.length > 15 ? 13 : 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

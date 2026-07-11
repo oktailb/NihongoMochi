@@ -5,11 +5,13 @@ import '../services/resource_loader.dart';
 class DictionaryRepository {
   final ResourceLoader _loader;
   List<DictionaryItem>? _cachedAllKanji;
+  String? _cachedLocale;
 
   DictionaryRepository(this._loader);
 
   Future<List<DictionaryItem>> getFullDictionary(String locale) async {
-    if (_cachedAllKanji != null) return _cachedAllKanji!;
+    if (_cachedAllKanji != null && _cachedLocale == locale) return _cachedAllKanji!;
+    _cachedLocale = locale;
 
     // Normalisation de la locale pour le Web/Assets
     String effectiveLocale = locale;
@@ -49,7 +51,24 @@ class DictionaryRepository {
             final id = item['@id']?.toString() ?? item['id']?.toString();
             if (id != null) {
               var mRaw = item['meaning'] ?? [];
-              List<String> mList = mRaw is List ? List<String>.from(mRaw) : [mRaw.toString()];
+              List<String> mList = [];
+              if (mRaw is List) {
+                for (var elem in mRaw) {
+                  if (elem is String) {
+                    mList.add(elem);
+                  } else if (elem is Map) {
+                    final text = elem['#text'] ?? elem['text'] ?? elem.toString();
+                    mList.add(text.toString());
+                  } else if (elem != null) {
+                    mList.add(elem.toString());
+                  }
+                }
+              } else if (mRaw is Map) {
+                final text = mRaw['#text'] ?? mRaw['text'] ?? mRaw.toString();
+                mList.add(text.toString());
+              } else if (mRaw != null) {
+                mList.add(mRaw.toString());
+              }
               meaningsMap[id] = mList;
             }
           }
@@ -72,7 +91,24 @@ class DictionaryRepository {
                final id = item['@id']?.toString() ?? item['id']?.toString();
                if (id != null) {
                  var mRaw = item['meaning'] ?? [];
-                 List<String> mList = mRaw is List ? List<String>.from(mRaw) : [mRaw.toString()];
+                 List<String> mList = [];
+                 if (mRaw is List) {
+                   for (var elem in mRaw) {
+                     if (elem is String) {
+                       mList.add(elem);
+                     } else if (elem is Map) {
+                       final text = elem['#text'] ?? elem['text'] ?? elem.toString();
+                       mList.add(text.toString());
+                     } else if (elem != null) {
+                       mList.add(elem.toString());
+                     }
+                   }
+                 } else if (mRaw is Map) {
+                   final text = mRaw['#text'] ?? mRaw['text'] ?? mRaw.toString();
+                   mList.add(text.toString());
+                 } else if (mRaw != null) {
+                   mList.add(mRaw.toString());
+                 }
                  meaningsMap[id] = mList;
                }
              }
