@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'main.dart';
 import 'models/kanji_sort_order.dart';
 import 'providers/game_recap_provider.dart';
+import 'providers/writing_recap_provider.dart';
+import 'providers/settings_provider.dart';
 import 'repositories/dictionary_repository.dart';
 import 'repositories/score_repository.dart';
 import 'services/level_content_provider.dart';
-import 'kanji_detail_screen.dart';
-import 'recognition_quiz_screen.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
-import 'providers/settings_provider.dart';
+import 'widgets/game_components.dart';
+import 'kanji_detail_screen.dart';
+import 'writing_quiz_screen.dart';
+import 'main.dart'; // To access routeObserver
 
-class GameRecapScreen extends StatelessWidget {
+class WritingRecapScreen extends StatelessWidget {
   final String levelId;
   final String levelTitle;
 
-  const GameRecapScreen({
+  const WritingRecapScreen({
     super.key,
     required this.levelId,
     required this.levelTitle,
@@ -26,38 +28,35 @@ class GameRecapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) {
-        final provider = GameRecapProvider(
-          LevelContentProvider(
-            kanaRepo: context.read(),
-            dictionaryRepo: context.read(),
-            wordRepo: context.read(),
-            scoreRepo: context.read(),
-          ),
+        final provider = WritingRecapProvider(
+          context.read<LevelContentProvider>(),
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
         );
         final locale = context.read<SettingsProvider>().currentLocaleCode;
-        provider.loadLevel(levelId, "meaning", locale);
+        provider.loadLevel(levelId, locale);
         return provider;
       },
-      child: GameRecapView(levelTitle: levelTitle, levelId: levelId),
+      child: WritingRecapView(levelTitle: levelTitle, levelId: levelId),
     );
   }
 }
 
-class GameRecapView extends StatefulWidget {
-  final String levelTitle;
+class WritingRecapView extends StatefulWidget {
   final String levelId;
+  final String levelTitle;
 
-  const GameRecapView({super.key, required this.levelTitle, required this.levelId});
+  const WritingRecapView({
+    super.key,
+    required this.levelId,
+    required this.levelTitle,
+  });
 
   @override
-  State<GameRecapView> createState() => _GameRecapViewState();
+  State<WritingRecapView> createState() => _WritingRecapViewState();
 }
 
-class _GameRecapViewState extends State<GameRecapView> with RouteAware {
-  String _gameMode = "meaning";
-  String _readingMode = "common";
+class _WritingRecapViewState extends State<WritingRecapView> with RouteAware {
   final TextEditingController _quizSizeController = TextEditingController(text: "80");
 
   @override
@@ -75,14 +74,14 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
 
   @override
   void didPopNext() {
-    final provider = context.read<GameRecapProvider>();
+    final provider = context.read<WritingRecapProvider>();
     final settings = context.read<SettingsProvider>();
-    provider.loadLevel(widget.levelId, _gameMode, settings.currentLocaleCode);
+    provider.loadLevel(widget.levelId, settings.currentLocaleCode);
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<GameRecapProvider>();
+    final provider = context.watch<WritingRecapProvider>();
     final settings = context.watch<SettingsProvider>();
 
     final resolvedTitle = settings.getString(widget.levelId.toLowerCase());
@@ -108,7 +107,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                   children: [
                     const SizedBox(height: 8),
                     Text(
-                      settings.getString("game_recap_title").toUpperCase(),
+                      settings.getString("writing_game_recap_title").toUpperCase(),
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -131,7 +130,6 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                     _buildHeader(provider, settings),
                     Expanded(child: _buildKanjiGrid(provider)),
                     _buildPagination(provider, settings),
-                    _buildModeSelector(provider, settings),
                     _buildFooterButtons(context, provider, settings),
                   ],
                 ),
@@ -140,7 +138,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
     );
   }
 
-  Widget _buildHeader(GameRecapProvider provider, SettingsProvider settings) {
+  Widget _buildHeader(WritingRecapProvider provider, SettingsProvider settings) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
@@ -174,7 +172,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                   ],
                   onChanged: (val) {
                     if (val != null) {
-                      provider.setSortOrder(val, _gameMode);
+                      provider.setSortOrder(val);
                     }
                   },
                 ),
@@ -201,7 +199,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
     );
   }
 
-  Widget _buildKanjiGrid(GameRecapProvider provider) {
+  Widget _buildKanjiGrid(WritingRecapProvider provider) {
     if (provider.kanjiListWithColors.isEmpty) {
       return const Center(child: Text("Aucun item trouvé pour ce niveau."));
     }
@@ -219,13 +217,12 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
           character: item.kanji.character,
           color: item.color,
           onClick: () {
-            final settings = context.read<SettingsProvider>();
-            final locale = settings.currentLocaleCode;
+            final locale = context.read<SettingsProvider>().currentLocaleCode;
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => KanjiDetailScreen(kanjiId: item.kanji.id)),
             ).then((_) {
-              provider.loadLevel(widget.levelId, _gameMode, locale);
+              provider.loadLevel(widget.levelId, locale);
             });
           },
         );
@@ -233,57 +230,19 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
     );
   }
 
-  Widget _buildPagination(GameRecapProvider provider, SettingsProvider settings) {
+  Widget _buildPagination(WritingRecapProvider provider, SettingsProvider settings) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: PaginationControls(
         currentPage: provider.currentPage,
         totalPages: provider.totalPages,
-        onPrevClick: () => provider.prevPage(_gameMode),
-        onNextClick: () => provider.nextPage(_gameMode),
+        onPrevClick: provider.prevPage,
+        onNextClick: provider.nextPage,
       ),
     );
   }
 
-  Widget _buildModeSelector(GameRecapProvider provider, SettingsProvider settings) {
-    final titleMeaning = settings.getString("game_recap_meaning").isNotEmpty ? settings.getString("game_recap_meaning") : "Sens";
-    final titleReading = settings.getString("game_recap_reading").isNotEmpty ? settings.getString("game_recap_reading") : "Lecture";
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Column(
-        children: [
-          ModeSelector<String>(
-            options: [
-              MapEntry(titleMeaning.toUpperCase(), "meaning"),
-              MapEntry(titleReading.toUpperCase(), "reading"),
-            ],
-            selectedOption: _gameMode,
-            onOptionSelected: (val) {
-              setState(() => _gameMode = val);
-              final locale = context.read<SettingsProvider>().currentLocaleCode;
-              provider.loadLevel(widget.levelId, _gameMode, locale);
-            },
-          ),
-          if (_gameMode == "reading") ...[
-            const SizedBox(height: 8),
-            ModeSelector<String>(
-              options: [
-                MapEntry(settings.getString("game_recap_common_pronunciations").toUpperCase(), "common"),
-                MapEntry(settings.getString("game_recap_random_pronunciations").toUpperCase(), "random"),
-              ],
-              selectedOption: _readingMode,
-              onOptionSelected: (val) {
-                setState(() => _readingMode = val);
-              },
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFooterButtons(BuildContext context, GameRecapProvider provider, SettingsProvider settings) {
+  Widget _buildFooterButtons(BuildContext context, WritingRecapProvider provider, SettingsProvider settings) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: PlayAndReviewButtons(
@@ -292,26 +251,22 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => RecognitionQuizScreen(
+              builder: (context) => WritingQuizScreen(
                 levelId: widget.levelId,
-                gameMode: _gameMode,
-                readingMode: _readingMode,
                 quizSize: size,
+                sortOrder: provider.sortOrder,
               ),
             ),
           );
         },
         onReviewClick: () async {
-          final filteredRevision = await provider.getRevisionKanjiForLevel(_gameMode);
-          
+          final filteredRevision = await provider.getRevisionKanjiForLevel();
           if (context.mounted && filteredRevision.isNotEmpty) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => RecognitionQuizScreen(
+                builder: (context) => WritingQuizScreen(
                   levelId: widget.levelId,
-                  gameMode: _gameMode,
-                  readingMode: _readingMode,
                   quizSize: filteredRevision.length,
                   customKanjiList: filteredRevision,
                 ),

@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/quiz_models.dart';
+import 'models/kanji_sort_order.dart';
 import 'providers/writing_quiz_provider.dart';
 import 'repositories/dictionary_repository.dart';
 import 'repositories/score_repository.dart';
 import 'utils/romaji_to_kana.dart';
 import 'widgets/mochi_background.dart';
 import 'providers/settings_provider.dart';
-
 import 'services/level_content_provider.dart';
+import 'services/audio_service.dart';
+import 'services/statistics_service.dart';
+import 'widgets/game_components.dart';
 
 class WritingQuizScreen extends StatelessWidget {
   final String levelId;
+  final int quizSize;
+  final List<String>? customKanjiList;
+  final KanjiSortOrder sortOrder;
 
-  const WritingQuizScreen({super.key, required this.levelId});
+  const WritingQuizScreen({
+    super.key,
+    required this.levelId,
+    this.quizSize = 80,
+    this.customKanjiList,
+    this.sortOrder = KanjiSortOrder.defaultOrder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +35,42 @@ class WritingQuizScreen extends StatelessWidget {
           context.read<DictionaryRepository>(),
           context.read<ScoreRepository>(),
           context.read<LevelContentProvider>(),
+          context.read<AudioService>(),
+          context.read<StatisticsService>(),
         );
         final locale = context.read<SettingsProvider>().currentLocaleCode;
-        provider.startQuiz(levelId, locale);
+        provider.startQuiz(
+          levelId,
+          locale,
+          quizSize: quizSize,
+          customKanjiList: customKanjiList,
+          sortOrder: sortOrder,
+        );
         return provider;
       },
-      child: const WritingQuizView(),
+      child: WritingQuizView(
+        levelId: levelId,
+        quizSize: quizSize,
+        customKanjiList: customKanjiList,
+        sortOrder: sortOrder,
+      ),
     );
   }
 }
 
 class WritingQuizView extends StatefulWidget {
-  const WritingQuizView({super.key});
+  final String levelId;
+  final int quizSize;
+  final List<String>? customKanjiList;
+  final KanjiSortOrder sortOrder;
+
+  const WritingQuizView({
+    super.key,
+    required this.levelId,
+    required this.quizSize,
+    this.customKanjiList,
+    required this.sortOrder,
+  });
 
   @override
   State<WritingQuizView> createState() => _WritingQuizViewState();
@@ -43,129 +79,239 @@ class WritingQuizView extends StatefulWidget {
 class _WritingQuizViewState extends State<WritingQuizView> {
   final TextEditingController _controller = TextEditingController();
   final FocusNode _focusNode = FocusNode();
+  bool _canPop = false;
+  late WritingQuizProvider _provider;
+
+  @override
+  void initState() {
+    super.initState();
+    _provider = context.read<WritingQuizProvider>();
+    _provider.addListener(_onProviderChange);
+  }
 
   @override
   void dispose() {
+    _provider.removeListener(_onProviderChange);
     _controller.dispose();
     _focusNode.dispose();
     super.dispose();
   }
 
+  void _onProviderChange() {
+    final provider = context.read<WritingQuizProvider>();
+    if (provider.state == GameState.waitingForAnswer && !provider.isProcessing) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_focusNode.hasFocus) {
+          _focusNode.requestFocus();
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<WritingQuizProvider>();
+    final settings = context.watch<SettingsProvider>();
 
     if (provider.state == GameState.loading) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    if (provider.state == GameState.finished) {
-      return _buildFinishedScreen(context, provider);
-    }
+    final isFinished = provider.state == GameState.finished;
 
-    // Request focus on new question
+    // Request focus on new question (initial or fallback)
     if (provider.state == GameState.waitingForAnswer && !_focusNode.hasFocus) {
-      _focusNode.requestFocus();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && !_focusNode.hasFocus) {
+          _focusNode.requestFocus();
+        }
+      });
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Quiz Écriture"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: SafeArea(
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  _buildProgressBar(provider),
-                  Expanded(
-                    child: Center(
-                      child: _buildKanjiCard(provider.currentKanji?.character ?? ""),
-                    ),
-                  ),
-                  _buildInputArea(context, provider),
-                ],
-              ),
-              if (provider.showCorrection)
-                Center(
-                  child: _buildCorrectionCard(provider),
+    return PopScope(
+      canPop: isFinished || _canPop,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => ExitConfirmationDialog(
+            onConfirm: () => Navigator.of(dialogContext).pop(true),
+            onDismiss: () => Navigator.of(dialogContext).pop(false),
+          ),
+        );
+        if (shouldExit == true) {
+          if (context.mounted) {
+            setState(() => _canPop = true);
+            Navigator.of(context).pop();
+          }
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(settings.getString("writing_game_recap_title")),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () async {
+              if (isFinished) {
+                Navigator.of(context).pop();
+                return;
+              }
+              final shouldExit = await showDialog<bool>(
+                context: context,
+                builder: (dialogContext) => ExitConfirmationDialog(
+                  onConfirm: () => Navigator.of(dialogContext).pop(true),
+                  onDismiss: () => Navigator.of(dialogContext).pop(false),
                 ),
-            ],
+              );
+              if (shouldExit == true) {
+                if (context.mounted) {
+                  setState(() => _canPop = true);
+                  Navigator.of(context).pop();
+                }
+              }
+            },
           ),
+        ),
+        extendBodyBehindAppBar: true,
+        body: Stack(
+          children: [
+            MochiBackground(
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    GameProgressBar(statuses: provider.currentSetStatus),
+                    if (!isFinished) ...[
+                      Expanded(
+                        child: Center(
+                          child: _buildKanjiCard(context, provider.currentKanji?.character ?? ""),
+                        ),
+                      ),
+                      _buildInputArea(context, provider, settings),
+                    ] else
+                      const Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            if (provider.showCorrection && provider.currentKanji != null)
+              Center(
+                child: _buildCorrectionCard(provider),
+              ),
+            if (isFinished)
+              GameResultOverlay(
+                isVictory: true,
+                title: settings.getString("game_result_lot_mastery_writing"),
+                score: "${provider.sessionMastery}%",
+                stats: [
+                  MapEntry(settings.getString("game_result_title_session"), "${provider.sessionMastery}%"),
+                  MapEntry(settings.getString("game_result_title_global"), "${provider.globalMastery}%"),
+                  MapEntry(settings.getString("game_result_errors").replaceAll(":", ""), "${provider.errorCount}"),
+                ],
+                onReplayClick: () {
+                  provider.startQuiz(
+                    widget.levelId,
+                    settings.currentLocaleCode,
+                    quizSize: widget.quizSize,
+                    customKanjiList: widget.customKanjiList,
+                    sortOrder: widget.sortOrder,
+                  );
+                },
+                onMenuClick: () {
+                  if (context.mounted) {
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildProgressBar(WritingQuizProvider provider) {
-    double progress = provider.currentSet.isEmpty
-        ? 0
-        : 1.0 - (provider.errorCount / 10); // Simplified for UI
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      child: LinearProgressIndicator(
-        value: progress.clamp(0.0, 1.0),
-        minHeight: 8,
-        borderRadius: BorderRadius.circular(10),
-        backgroundColor: Colors.white.withOpacity(0.3),
-        valueColor: const AlwaysStoppedAnimation<Color>(Colors.purple),
-      ),
-    );
-  }
-
-  Widget _buildKanjiCard(String character) {
+  Widget _buildKanjiCard(BuildContext context, String character) {
+    final theme = Theme.of(context);
+    final double cardSize = (MediaQuery.of(context).size.shortestSide * 0.65).clamp(200.0, 320.0);
     return Card(
-      elevation: 12,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 24,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: Container(
-        width: 250,
-        height: 250,
+        width: cardSize,
+        height: cardSize,
         alignment: Alignment.center,
-        child: Text(
-          character,
-          style: const TextStyle(
-            fontSize: 140,
-            fontFamily: 'KanjiStrokeOrders',
-            color: Colors.purple,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Center(
+          child: Text(
+            character,
+            style: TextStyle(
+              fontSize: cardSize * 0.55,
+              fontFamily: 'KanjiStrokeOrders',
+              color: theme.colorScheme.primary,
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildInputArea(BuildContext context, WritingQuizProvider provider) {
+  Widget _buildInputArea(BuildContext context, WritingQuizProvider provider, SettingsProvider settings) {
+    final theme = Theme.of(context);
+    final hint = provider.currentQuestionType == QuestionType.reading
+        ? settings.getString("game_writing_label_reading")
+        : settings.getString("game_writing_label_meaning");
+
+    final isProcessing = provider.isProcessing || provider.state == GameState.showingResult;
+
+    final Color buttonColor = provider.state == GameState.showingResult
+        ? (provider.isCorrect == true ? theme.colorScheme.primary : theme.colorScheme.error)
+        : theme.colorScheme.secondary;
+
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        color: theme.colorScheme.surface.withOpacity(0.85),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        border: Border(top: BorderSide(color: theme.colorScheme.onSurface.withOpacity(0.08))),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            provider.currentQuestionType == QuestionType.meaning
-                ? "Quel est le SENS de ce kanji ?"
-                : "Quelle est la LECTURE de ce kanji ?",
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.purple),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surfaceVariant.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              hint,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurfaceVariant,
+                fontSize: 16,
+              ),
+            ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
           TextField(
             controller: _controller,
             focusNode: _focusNode,
             textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 24),
+            enableSuggestions: false,
+            autocorrect: false,
+            obscureText: false,
+            keyboardType: TextInputType.visiblePassword, // UX Trick: disables predictive typing
             decoration: InputDecoration(
-              hintText: provider.currentQuestionType == QuestionType.reading ? "romaji -> kana" : "votre réponse",
+              hintText: provider.currentQuestionType == QuestionType.reading ? "romaji -> kana" : settings.getString("your_answer"),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: Colors.grey.shade100,
+              fillColor: theme.colorScheme.surface.withOpacity(0.5),
             ),
-            enabled: !provider.isProcessing,
+            enabled: !isProcessing,
             onChanged: (val) {
               if (provider.currentQuestionType == QuestionType.reading) {
                 final replacement = RomajiToKana.checkReplacement(val);
@@ -176,28 +322,34 @@ class _WritingQuizViewState extends State<WritingQuizView> {
                   _controller.selection = TextSelection.fromPosition(TextPosition(offset: _controller.text.length));
                 }
               }
+              setState(() {}); // Rebuild to update submit button disabled state
             },
             onSubmitted: (val) {
-              if (val.isNotEmpty) {
+              if (val.trim().isNotEmpty) {
                 provider.submitAnswer(val);
                 _controller.clear();
               }
             },
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
           ElevatedButton(
-            onPressed: provider.isProcessing ? null : () {
-              if (_controller.text.isNotEmpty) {
-                provider.submitAnswer(_controller.text);
-                _controller.clear();
-              }
+            onPressed: isProcessing || _controller.text.trim().isEmpty ? null : () {
+              provider.submitAnswer(_controller.text);
+              _controller.clear();
             },
             style: ElevatedButton.styleFrom(
-              minimumSize: const Size(double.infinity, 50),
-              backgroundColor: Colors.purple,
-              foregroundColor: Colors.white,
+              minimumSize: const Size(double.infinity, 52),
+              backgroundColor: theme.colorScheme.secondary,
+              disabledBackgroundColor: provider.state == GameState.showingResult ? buttonColor : theme.colorScheme.onSurface.withOpacity(0.12),
+              foregroundColor: theme.colorScheme.onSecondary,
+              disabledForegroundColor: provider.state == GameState.showingResult ? Colors.white : theme.colorScheme.onSurface.withOpacity(0.38),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              elevation: 4,
             ),
-            child: const Text("VALIDER"),
+            child: Text(
+              settings.getString("submit").toUpperCase(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 1.2),
+            ),
           ),
         ],
       ),
@@ -229,29 +381,6 @@ class _WritingQuizViewState extends State<WritingQuizView> {
               style: const TextStyle(fontSize: 16, color: Colors.black54),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFinishedScreen(BuildContext context, WritingQuizProvider provider) {
-    return Scaffold(
-      body: MochiBackground(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.edit_note, size: 100, color: Colors.purple),
-              const SizedBox(height: 24),
-              const Text("Quiz Terminé !", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
-                child: const Text("RETOUR"),
-              ),
-            ],
-          ),
         ),
       ),
     );
