@@ -10,7 +10,7 @@ import 'grammar_screen.dart';
 import 'kana_screen.dart';
 import 'kana_recap_screen.dart';
 import 'game_recap_screen.dart';
-import 'word_quiz_screen.dart';
+import 'word_list_screen.dart';
 import 'writing_recap_screen.dart';
 import 'saga_map_screen.dart';
 import 'settings_screen.dart';
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }),
                   _buildHomeBlockCard(settings.getString("results_reading_title"), "読み方", () {
                     if (currentLevel != null) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: currentLevel.id)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => WordListScreen(levelId: currentLevel.id, levelTitle: currentLevel.name)));
                     }
                   }),
                   _buildHomeBlockCard(settings.getString("results_writing_title"), "書き方", () {

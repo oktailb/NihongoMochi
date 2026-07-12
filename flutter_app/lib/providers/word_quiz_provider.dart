@@ -7,11 +7,15 @@ import '../repositories/word_repository.dart';
 import '../repositories/score_repository.dart';
 import '../repositories/word_meaning_repository.dart';
 import '../services/word_quiz_engine.dart';
+import '../services/audio_service.dart';
+import '../services/statistics_service.dart';
 
 class WordQuizProvider extends ChangeNotifier {
   final WordRepository _wordRepo;
   final ScoreRepository _scoreRepo;
   final WordMeaningRepository _meaningRepo;
+  final AudioService _audioService;
+  final StatisticsService _statisticsService;
   final FlutterTts _tts = FlutterTts();
   late final WordQuizEngine _engine;
 
@@ -22,6 +26,13 @@ class WordQuizProvider extends ChangeNotifier {
   int _errorCount = 0;
   bool _isInitialized = false;
 
+  String? _levelId;
+  String? _locale;
+  List<String>? _customWordList;
+
+  int _sessionMastery = 0;
+  int _globalMastery = 0;
+
   // Getters
   GameState get state => _state;
   List<AnswerButtonState> get buttonStates => _buttonStates;
@@ -30,20 +41,63 @@ class WordQuizProvider extends ChangeNotifier {
   int get errorCount => _errorCount;
   bool get isInitialized => _isInitialized;
   WordQuizEngine get engine => _engine;
+  int get sessionMastery => _sessionMastery;
+  int get globalMastery => _globalMastery;
 
-  WordQuizProvider(this._wordRepo, this._scoreRepo, this._meaningRepo) {
+  List<GameStatus> get currentSetStatus => _engine.currentWordSet
+      .map((w) => _engine.wordStatus[w.text] ?? GameStatus.notAnswered)
+      .toList();
+
+  WordQuizProvider(
+    this._wordRepo,
+    this._scoreRepo,
+    this._meaningRepo,
+    this._audioService,
+    this._statisticsService,
+  ) {
     _engine = WordQuizEngine();
   }
 
-  Future<void> initializeGame(String levelId, String locale) async {
+  Future<void> initializeGame(String levelId, String locale, {List<String>? customWordList}) async {
     _isInitialized = false;
     _state = GameState.loading;
+    _errorCount = 0;
+    _levelId = levelId;
+    _locale = locale;
+    _customWordList = customWordList;
+    _engine.reset();
     notifyListeners();
 
-    final filtered = await _wordRepo.getWordsForLevel(levelId);
+    List<WordEntry> filtered;
+    if (customWordList != null) {
+      final all = await _wordRepo.getAllWords();
+      final customSet = customWordList.toSet();
+      filtered = all.where((w) => customSet.contains(w.text)).toList();
+    } else {
+      filtered = await _wordRepo.getWordsForLevel(levelId);
+    }
+
     final meanings = await _meaningRepo.getWordMeanings(locale);
 
+    // Filter out mastered words, unless they are in the manual revision list
+    final manualRevisionList = await _scoreRepo.getListItems("Reading_List");
+    final manualRevisionSet = manualRevisionList.toSet();
+
+    if (customWordList == null && levelId != "user_custom_list" && levelId.isNotEmpty) {
+      final List<WordEntry> tmp = [];
+      for (var w in filtered) {
+        final score = await _scoreRepo.getScore(w.text, ScoreType.reading);
+        final mastery = (score?.successes ?? 0) - (score?.failures ?? 0);
+        final isManualRevision = manualRevisionSet.contains(w.id) || manualRevisionSet.contains(w.text);
+        if (mastery < 10 || isManualRevision) {
+          tmp.add(w);
+        }
+      }
+      filtered = tmp;
+    }
+
     if (filtered.isEmpty) {
+      await _calculateMastery();
       _state = GameState.finished;
       _isInitialized = true;
       notifyListeners();
@@ -54,23 +108,36 @@ class WordQuizProvider extends ChangeNotifier {
       text: e.text,
       phonetics: e.phonetics,
       meaning: meanings[e.id],
-    )).toList()..shuffle();
+    )).toList();
+
+    // Shuffle only if it is not a custom list
+    if (customWordList == null) {
+      _engine.allWords.shuffle();
+    }
 
     _engine.wordListPosition = 0;
     _engine.isGameInitialized = true;
 
-    _startNewSet();
+    await _startNewSet();
     _isInitialized = true;
     notifyListeners();
   }
 
-  void _startNewSet() {
+  Future<void> _calculateMastery() async {
+    if (_levelId != null && _locale != null) {
+      _globalMastery = await _statisticsService.getPercentageForLevel(_levelId!, ScoreType.reading, _locale!);
+      final chars = _engine.allWords.map((w) => w.text).toList();
+      _sessionMastery = await _statisticsService.calculateSessionScore(chars, ScoreType.reading);
+    }
+  }
+
+  Future<void> _startNewSet() async {
     if (!_engine.startNewSet()) {
+      await _calculateMastery();
       _state = GameState.finished;
     } else {
       _displayQuestion();
     }
-    notifyListeners();
   }
 
   void _displayQuestion() {
@@ -86,7 +153,6 @@ class WordQuizProvider extends ChangeNotifier {
     _generateAnswers();
     _buttonStates = List.filled(4, AnswerButtonState.defaultState);
     _state = GameState.waitingForAnswer;
-    notifyListeners();
   }
 
   void _generateAnswers() {
@@ -121,10 +187,12 @@ class WordQuizProvider extends ChangeNotifier {
     );
 
     if (isCorrect) {
+      _audioService.playSound("assets/files/sounds/correct.mp3");
       _engine.wordStatus[_currentWord!.text] = GameStatus.correct;
       _engine.revisionList.remove(_currentWord);
       _buttonStates[index] = AnswerButtonState.correct;
     } else {
+      _audioService.playSound("assets/files/sounds/incorrect.mp3");
       _errorCount++;
       _engine.wordStatus[_currentWord!.text] = GameStatus.incorrect;
       _buttonStates[index] = AnswerButtonState.incorrect;
@@ -142,7 +210,16 @@ class WordQuizProvider extends ChangeNotifier {
     }
 
     await Future.delayed(const Duration(milliseconds: 1500));
-    _displayQuestion();
+    await _nextQuestion();
+    notifyListeners();
+  }
+
+  Future<void> _nextQuestion() async {
+    if (_engine.revisionList.isEmpty) {
+      await _startNewSet();
+    } else {
+      _displayQuestion();
+    }
   }
 
   Future<void> speak() async {
