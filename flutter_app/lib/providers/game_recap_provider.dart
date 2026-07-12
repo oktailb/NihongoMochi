@@ -39,6 +39,7 @@ class GameRecapProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<void> loadLevel(String level, String gameMode, String locale) async {
+    debugPrint("[RECAP_PROVIDER] loadLevel called for level: $level, gameMode: $gameMode, locale: $locale");
     _isLoading = true;
     notifyListeners();
 
@@ -51,12 +52,15 @@ class GameRecapProvider extends ChangeNotifier {
     _originalKanjiEntries = characters.map((c) => kanjiMap[c]).whereType<DictionaryItem>().toList();
     _allKanjiEntries = List.from(_originalKanjiEntries);
 
+    debugPrint("[RECAP_PROVIDER] Loaded ${characters.length} characters for level, resolved ${_originalKanjiEntries.length} dictionary entries.");
+
     await _applySortAndRefresh(gameMode);
     _isLoading = false;
     notifyListeners();
   }
 
   Future<void> setSortOrder(KanjiSortOrder order, String gameMode) async {
+    debugPrint("[RECAP_PROVIDER] setSortOrder called with order: $order");
     _sortOrder = order;
     await _applySortAndRefresh(gameMode);
     notifyListeners();
@@ -66,13 +70,16 @@ class GameRecapProvider extends ChangeNotifier {
     final listName = gameMode == "meaning" ? "Recognition_List" : "Reading_List";
     final revisionList = await _scoreRepo.getListItems(listName);
     final revisionSet = revisionList.toSet();
-    return _allKanjiEntries
+    final result = _allKanjiEntries
         .map((k) => k.character)
         .where((char) => revisionSet.contains(char))
         .toList();
+    debugPrint("[RECAP_PROVIDER] getRevisionKanjiForLevel returning ${result.length} characters out of ${revisionList.length} global revision items.");
+    return result;
   }
 
   Future<void> _applySortAndRefresh(String gameMode) async {
+    debugPrint("[RECAP_PROVIDER] _applySortAndRefresh starting with sortOrder: $_sortOrder");
     _allKanjiEntries = List.from(_originalKanjiEntries);
     switch (_sortOrder) {
       case KanjiSortOrder.frequency:
@@ -117,16 +124,22 @@ class GameRecapProvider extends ChangeNotifier {
     final startIndex = _currentPage * _pageSize;
     final endIndex = (startIndex + _pageSize).clamp(0, _allKanjiEntries.length);
 
-    if (startIndex < _allAllEntriesLength) { // Correction logic to match Kotlin
+    debugPrint("[RECAP_PROVIDER] _updateCurrentPageItems: mode=$gameMode, page=$_currentPage/$_totalPages, range=$startIndex..$endIndex");
+
+    if (startIndex < _allAllEntriesLength) {
        final subset = _allKanjiEntries.sublist(startIndex, endIndex);
-       _kanjiListWithColors = [];
+       final List<RecapItem> localItems = [];
        for (var kanji in subset) {
          final score = await _scoreRepo.getScore(kanji.character, scoreType);
-         _kanjiListWithColors.add(RecapItem(
+         if (score != null && (score.successes > 0 || score.failures > 0)) {
+           debugPrint("[RECAP_PROVIDER]   Score updated: ${kanji.character} -> successes=${score.successes}, failures=${score.failures}");
+         }
+         localItems.add(RecapItem(
            kanji: kanji,
            color: _getScoreColor(score?.successes ?? 0, score?.failures ?? 0),
          ));
        }
+       _kanjiListWithColors = localItems;
     } else {
       _kanjiListWithColors = [];
     }

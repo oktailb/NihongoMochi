@@ -111,8 +111,9 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
         : "";
 
     return PopScope(
-      canPop: _canPop,
+      canPop: isFinished || _canPop,
       onPopInvokedWithResult: (didPop, result) async {
+        debugPrint("[QUIZ_SCREEN] onPopInvokedWithResult called: didPop=$didPop, result=$result, isFinished=$isFinished, _canPop=$_canPop");
         if (didPop) return;
         final shouldExit = await showDialog<bool>(
           context: context,
@@ -121,8 +122,11 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
             onDismiss: () => Navigator.of(dialogContext).pop(false),
           ),
         );
+        debugPrint("[QUIZ_SCREEN] ExitConfirmationDialog returned shouldExit: $shouldExit");
         if (shouldExit == true) {
           if (context.mounted) {
+            debugPrint("[QUIZ_SCREEN] Pop confirmed. Setting _canPop = true and calling Navigator.pop");
+            setState(() => _canPop = true);
             Navigator.of(context).pop();
           }
         }
@@ -135,6 +139,12 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () async {
+              debugPrint("[QUIZ_SCREEN] AppBar back button pressed. isFinished: $isFinished");
+              if (isFinished) {
+                debugPrint("[QUIZ_SCREEN] Quiz finished. Calling Navigator.pop directly.");
+                Navigator.of(context).pop();
+                return;
+              }
               final shouldExit = await showDialog<bool>(
                 context: context,
                 builder: (dialogContext) => ExitConfirmationDialog(
@@ -142,8 +152,11 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
                   onDismiss: () => Navigator.of(dialogContext).pop(false),
                 ),
               );
+              debugPrint("[QUIZ_SCREEN] AppBar exit dialog returned shouldExit: $shouldExit");
               if (shouldExit == true) {
                 if (context.mounted) {
+                  debugPrint("[QUIZ_SCREEN] AppBar exit confirmed. Setting _canPop = true and popping.");
+                  setState(() => _canPop = true);
                   Navigator.of(context).pop();
                 }
               }
@@ -224,6 +237,7 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
                   );
                 },
                 onMenuClick: () {
+                  debugPrint("[QUIZ_SCREEN] GameResultOverlay onMenuClick clicked. calling Navigator.pop");
                   if (context.mounted) {
                     Navigator.of(context).pop();
                   }

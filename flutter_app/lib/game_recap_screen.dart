@@ -63,11 +63,13 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    debugPrint("[RECAP_SCREEN] didChangeDependencies: subscribing to routeObserver.");
     routeObserver.subscribe(this, ModalRoute.of(context) as PageRoute);
   }
 
   @override
   void dispose() {
+    debugPrint("[RECAP_SCREEN] dispose: unsubscribing from routeObserver.");
     routeObserver.unsubscribe(this);
     _quizSizeController.dispose();
     super.dispose();
@@ -75,7 +77,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
 
   @override
   void didPopNext() {
-    // Automatically called when the top route is popped and this view is visible again
+    debugPrint("[RECAP_SCREEN] didPopNext triggered! Reloading level scores...");
     final provider = context.read<GameRecapProvider>();
     final settings = context.read<SettingsProvider>();
     provider.loadLevel(widget.levelId, _gameMode, settings.currentLocaleCode);
@@ -290,7 +292,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
       child: PlayAndReviewButtons(
         onPlayClick: () {
           final size = int.tryParse(_quizSizeController.text) ?? 80;
-          final locale = settings.currentLocaleCode;
+          debugPrint("[RECAP_SCREEN] Launching RecognitionQuizScreen (Play).");
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -301,15 +303,13 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                 quizSize: size,
               ),
             ),
-          ).then((_) {
-            provider.loadLevel(widget.levelId, _gameMode, locale);
-          });
+          );
         },
         onReviewClick: () async {
           final filteredRevision = await provider.getRevisionKanjiForLevel(_gameMode);
           
           if (context.mounted && filteredRevision.isNotEmpty) {
-            final locale = settings.currentLocaleCode;
+            debugPrint("[RECAP_SCREEN] Launching RecognitionQuizScreen (Review) with ${filteredRevision.length} kanjis.");
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -321,9 +321,9 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                   customKanjiList: filteredRevision,
                 ),
               ),
-            ).then((_) {
-              provider.loadLevel(widget.levelId, _gameMode, locale);
-            });
+            );
+          } else {
+            debugPrint("[RECAP_SCREEN] Review click: filteredRevision is empty or context not mounted!");
           }
         },
         isReviewEnabled: provider.isReviewEnabled,

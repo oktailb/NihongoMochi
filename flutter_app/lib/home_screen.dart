@@ -9,7 +9,7 @@ import 'dictionary_screen.dart';
 import 'grammar_screen.dart';
 import 'kana_screen.dart';
 import 'kana_recap_screen.dart';
-import 'kanji_recap_screen.dart';
+import 'game_recap_screen.dart';
 import 'word_quiz_screen.dart';
 import 'writing_quiz_screen.dart';
 import 'saga_map_screen.dart';
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       } else if (currentLevel.id == "katakana") {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.katakana)));
                       } else {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => KanjiRecapScreen(levelId: currentLevel.id, levelName: currentLevel.name)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => GameRecapScreen(levelId: currentLevel.id, levelTitle: currentLevel.name)));
                       }
                     }
                   }),
