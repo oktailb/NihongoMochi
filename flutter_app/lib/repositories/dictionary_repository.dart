@@ -161,6 +161,7 @@ class DictionaryRepository {
             kanjiRef: c['kanji_ref']?.toString() ?? c['@kanji_ref']?.toString(),
             text: c['#text']?.toString(),
           )).toList(),
+          frequency: int.tryParse(item['frequency']?.toString() ?? ''),
         );
       }).toList();
 

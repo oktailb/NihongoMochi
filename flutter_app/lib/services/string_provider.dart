@@ -29,7 +29,29 @@ class StringProvider {
     };
   }
 
-  String getString(String key) {
-    return _localizedStrings[key] ?? key;
+  String getString(String key, [List<dynamic>? args]) {
+    String value = _localizedStrings[key] ?? key;
+    if (args == null || args.isEmpty) {
+      return value;
+    }
+
+    // Replace indexed placeholders first, e.g. %1$d, %1$s, %2$d, etc.
+    for (int i = 0; i < args.length; i++) {
+      final indexPlaceholderRegExp = RegExp('%${i + 1}\\\$[ds]');
+      value = value.replaceAll(indexPlaceholderRegExp, args[i].toString());
+    }
+
+    // Replace unindexed placeholders, e.g. %d, %s sequentially
+    for (var arg in args) {
+      final firstUnindexedRegExp = RegExp('%[ds]');
+      if (firstUnindexedRegExp.hasMatch(value)) {
+        value = value.replaceFirst(firstUnindexedRegExp, arg.toString());
+      }
+    }
+
+    // Replace %% with % (standard escaping in format strings)
+    value = value.replaceAll('%%', '%');
+
+    return value;
   }
 }

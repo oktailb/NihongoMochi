@@ -36,6 +36,7 @@ class DictionaryItem {
   final List<String> displayLabelKeys;
   final String? structure; // Structure du Kanji (ex: ⿰, ⿳)
   final List<ComponentEntry> components;
+  final int? frequency;
 
   DictionaryItem({
     required this.id,
@@ -48,6 +49,7 @@ class DictionaryItem {
     this.displayLabelKeys = const [],
     this.structure,
     this.components = const [],
+    this.frequency,
   });
 
   factory DictionaryItem.fromJson(Map<String, dynamic> json) => _$DictionaryItemFromJson(json);

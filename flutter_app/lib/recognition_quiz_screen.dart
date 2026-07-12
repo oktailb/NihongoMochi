@@ -7,6 +7,7 @@ import 'repositories/score_repository.dart';
 import 'services/level_content_provider.dart';
 import 'services/recognition_game_engine.dart';
 import 'services/audio_service.dart';
+import 'services/statistics_service.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_components.dart';
 import 'providers/settings_provider.dart';
@@ -16,6 +17,7 @@ class RecognitionQuizScreen extends StatelessWidget {
   final String gameMode;
   final String readingMode;
   final int quizSize;
+  final List<String>? customKanjiList;
 
   const RecognitionQuizScreen({
     super.key,
@@ -23,6 +25,7 @@ class RecognitionQuizScreen extends StatelessWidget {
     required this.gameMode,
     required this.readingMode,
     required this.quizSize,
+    this.customKanjiList,
   });
 
   @override
@@ -34,6 +37,7 @@ class RecognitionQuizScreen extends StatelessWidget {
           context.read<ScoreRepository>(),
           context.read<LevelContentProvider>(),
           context.read<AudioService>(),
+          context.read<StatisticsService>(),
         );
         final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.initializeGame(
@@ -42,93 +46,190 @@ class RecognitionQuizScreen extends StatelessWidget {
           readingMode: readingMode,
           quizSize: quizSize,
           locale: locale,
+          customKanjiList: customKanjiList,
         );
         return provider;
       },
-      child: const RecognitionQuizView(),
+      child: RecognitionQuizView(
+        levelId: levelId,
+        gameMode: gameMode,
+        readingMode: readingMode,
+        quizSize: quizSize,
+        customKanjiList: customKanjiList,
+      ),
     );
   }
 }
 
-class RecognitionQuizView extends StatelessWidget {
-  const RecognitionQuizView({super.key});
+class RecognitionQuizView extends StatefulWidget {
+  final String levelId;
+  final String gameMode;
+  final String readingMode;
+  final int quizSize;
+  final List<String>? customKanjiList;
+
+  const RecognitionQuizView({
+    super.key,
+    required this.levelId,
+    required this.gameMode,
+    required this.readingMode,
+    required this.quizSize,
+    this.customKanjiList,
+  });
+
+  @override
+  State<RecognitionQuizView> createState() => _RecognitionQuizViewState();
+}
+
+class _RecognitionQuizViewState extends State<RecognitionQuizView> {
+  bool _canPop = false;
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<RecognitionQuizProvider>();
     final engine = provider.engine;
+    final settings = context.watch<SettingsProvider>();
 
     if (engine.state == GameState.loading) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    if (engine.state == GameState.finished) {
-      return _buildFinishedScreen(context, engine);
-    }
-
+    final isFinished = engine.state == GameState.finished;
     final isNormal = engine.currentDirection == QuestionDirection.normal;
-    final questionText = isNormal 
-        ? engine.currentKanji?.character ?? "" 
-        : (engine.gameMode == "meaning" 
-            ? engine.currentKanji?.meanings.first ?? "" 
-            : engine.getFormattedReadings(engine.currentKanji!));
+    final questionText = !isFinished && engine.currentKanji != null
+        ? (isNormal 
+            ? engine.currentKanji?.character ?? "" 
+            : (engine.gameMode == "meaning" 
+                ? engine.currentKanji?.meanings.first ?? "" 
+                : engine.getFormattedReadings(engine.currentKanji!)))
+        : "";
     
-    final secondaryInfo = engine.gameMode == "meaning"
-        ? engine.getFormattedReadings(engine.currentKanji!)
-        : engine.currentKanji?.meanings.join(", ") ?? "";
+    final secondaryInfo = !isFinished && engine.currentKanji != null
+        ? (engine.gameMode == "meaning"
+            ? engine.getFormattedReadings(engine.currentKanji!)
+            : engine.currentKanji?.meanings.join(", ") ?? "")
+        : "";
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(engine.gameMode == "meaning" ? "Sens des Kanji" : "Lecture des Kanji"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              GameProgressBar(statuses: engine.currentSetStatus),
-              const Spacer(),
-              if (engine.currentKanji != null) 
-                FlippableQuestionCard(
-                  frontText: questionText,
-                  backText: secondaryInfo,
-                  frontFontSize: isNormal ? 100 : 32,
-                  backFontSize: isNormal ? 32 : 24,
+    return PopScope(
+      canPop: _canPop,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => ExitConfirmationDialog(
+            onConfirm: () => Navigator.of(dialogContext).pop(true),
+            onDismiss: () => Navigator.of(dialogContext).pop(false),
+          ),
+        );
+        if (shouldExit == true) {
+          if (context.mounted) {
+            Navigator.of(context).pop();
+          }
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(settings.getString(engine.gameMode == "meaning" ? "game_recap_meaning" : "game_recap_reading")),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () async {
+              final shouldExit = await showDialog<bool>(
+                context: context,
+                builder: (dialogContext) => ExitConfirmationDialog(
+                  onConfirm: () => Navigator.of(dialogContext).pop(true),
+                  onDismiss: () => Navigator.of(dialogContext).pop(false),
                 ),
-              const SizedBox(height: 16),
-              // Correct/Incorrect score capsule
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.06),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
+              );
+              if (shouldExit == true) {
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                }
+              }
+            },
+          ),
+        ),
+        extendBodyBehindAppBar: true,
+        body: Stack(
+          children: [
+            MochiBackground(
+              child: SafeArea(
+                child: Column(
                   children: [
-                    const Icon(Icons.check, size: 16, color: Colors.green),
-                    const SizedBox(width: 4),
-                    Text(
-                      "${engine.correctAnswersInSession}",
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
-                    ),
-                    const SizedBox(width: 16),
-                    const Icon(Icons.close, size: 16, color: Colors.red),
-                    const SizedBox(width: 4),
-                    Text(
-                      "${engine.errorCount}",
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
-                    ),
+                    GameProgressBar(statuses: engine.currentSetStatus),
+                    const Spacer(),
+                    if (!isFinished && engine.currentKanji != null) ...[
+                      FlippableQuestionCard(
+                        frontText: questionText,
+                        backText: secondaryInfo,
+                        frontFontSize: _calculateQuestionFontSize(questionText, engine.currentDirection),
+                        backFontSize: _calculateQuestionFontSize(secondaryInfo, isNormal ? QuestionDirection.reverse : QuestionDirection.normal),
+                      ),
+                      const SizedBox(height: 16),
+                      // Correct/Incorrect score capsule (shows learning score of current Kanji)
+                      if (provider.currentKanjiScore != null)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.06),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(Icons.check, size: 16, color: Colors.green),
+                              const SizedBox(width: 4),
+                              Text(
+                                "${provider.currentKanjiScore!.successes}",
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                              ),
+                              const SizedBox(width: 16),
+                              const Icon(Icons.close, size: 16, color: Colors.red),
+                              const SizedBox(width: 4),
+                              Text(
+                                "${provider.currentKanjiScore!.failures}",
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                    const Spacer(),
+                    if (!isFinished)
+                      _buildAnswerArea(context, provider),
+                    const SizedBox(height: 40),
                   ],
                 ),
               ),
-              const Spacer(),
-              _buildAnswerArea(context, provider),
-              const SizedBox(height: 40),
-            ],
-          ),
+            ),
+            if (isFinished)
+              GameResultOverlay(
+                isVictory: true,
+                title: settings.getString("game_result_lot_mastery_recognition"),
+                score: "${provider.sessionMastery}%",
+                stats: [
+                  MapEntry(settings.getString("game_result_title_session"), "${provider.sessionMastery}%"),
+                  MapEntry(settings.getString("game_result_title_global"), "${provider.globalMastery}%"),
+                  MapEntry(settings.getString("game_result_errors").replaceAll(":", ""), "${engine.errorCount}"),
+                ],
+                onReplayClick: () {
+                  provider.initializeGame(
+                    levelId: widget.levelId,
+                    gameMode: widget.gameMode,
+                    readingMode: widget.readingMode,
+                    quizSize: widget.quizSize,
+                    locale: settings.currentLocaleCode,
+                    customKanjiList: widget.customKanjiList,
+                  );
+                },
+                onMenuClick: () {
+                  if (context.mounted) {
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+          ],
         ),
       ),
     );
@@ -159,35 +260,6 @@ class RecognitionQuizView extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildFinishedScreen(BuildContext context, dynamic engine) {
-    return Scaffold(
-      body: MochiBackground(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.check_circle_outline, size: 100, color: Colors.green),
-              const SizedBox(height: 24),
-              const Text("Bravo !", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              Text("Erreurs : ${engine.errorCount}", style: const TextStyle(fontSize: 20, color: Colors.black54)),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                ),
-                child: const Text("RETOUR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class _AnswerButton extends StatelessWidget {
@@ -203,18 +275,19 @@ class _AnswerButton extends StatelessWidget {
 
     final answer = engine.currentAnswers[index];
     final state = engine.buttonStates[index];
+    final theme = Theme.of(context);
 
-    Color bgColor = const Color(0xFF33A3A3); // Beautiful teal matching screenshot
-    Color textColor = Colors.white;
+    Color bgColor = theme.colorScheme.primary;
+    Color textColor = theme.colorScheme.onPrimary;
 
     if (state == AnswerButtonState.correct) {
-      bgColor = Colors.green;
+      bgColor = const Color(0xFF00E676); // Fluo Green A400
       textColor = Colors.white;
     } else if (state == AnswerButtonState.incorrect) {
-      bgColor = Colors.red;
+      bgColor = const Color(0xFFEF5350); // Red 400
       textColor = Colors.white;
     } else if (state == AnswerButtonState.neutral) {
-      bgColor = Colors.orange;
+      bgColor = const Color(0xFF4FC3F7); // Light Blue 300
       textColor = Colors.white;
     }
 
@@ -230,15 +303,15 @@ class _AnswerButton extends StatelessWidget {
             disabledBackgroundColor: bgColor,
             foregroundColor: textColor,
             disabledForegroundColor: textColor,
-            minimumSize: const Size(0, 90),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            minimumSize: const Size(0, 120),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             elevation: 4,
           ),
           child: Text(
             answer,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: answer.length > 15 ? 13 : 16,
+              fontSize: _calculateButtonFontSize(answer, engine.currentDirection),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -247,3 +320,27 @@ class _AnswerButton extends StatelessWidget {
     );
   }
 }
+
+// Helpers for responsive font sizing matching Kotlin rules
+double _calculateQuestionFontSize(String text, QuestionDirection direction) {
+  if (direction == QuestionDirection.normal) {
+    return 140.0;
+  }
+  final lineCount = '\n'.allMatches(text).length + 1;
+  final textLength = text.length;
+  if (lineCount > 7 || textLength > 100) return 14.0;
+  if (lineCount > 5 || textLength > 70) return 18.0;
+  if (lineCount > 3 || textLength > 40) return 24.0;
+  if (lineCount > 1 || textLength > 15) return 32.0;
+  return 48.0;
+}
+
+double _calculateButtonFontSize(String text, QuestionDirection direction) {
+  if (direction == QuestionDirection.reverse) {
+    return 40.0;
+  }
+  if (text.length > 40) return 10.0;
+  if (text.length > 20) return 12.0;
+  return 15.0;
+}
+

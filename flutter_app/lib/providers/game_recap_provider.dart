@@ -26,6 +26,7 @@ class GameRecapProvider extends ChangeNotifier {
   KanjiSortOrder _sortOrder = KanjiSortOrder.defaultOrder;
   bool _isLoading = false;
 
+  List<DictionaryItem> _originalKanjiEntries = [];
   List<DictionaryItem> _allKanjiEntries = [];
   final int _pageSize = 80;
 
@@ -47,24 +48,39 @@ class GameRecapProvider extends ChangeNotifier {
     final allKanji = await _dictionaryRepo.getFullDictionary(locale);
     final kanjiMap = {for (var k in allKanji) k.character: k};
 
-    _allKanjiEntries = characters.map((c) => kanjiMap[c]).whereType<DictionaryItem>().toList();
+    _originalKanjiEntries = characters.map((c) => kanjiMap[c]).whereType<DictionaryItem>().toList();
+    _allKanjiEntries = List.from(_originalKanjiEntries);
 
     await _applySortAndRefresh(gameMode);
     _isLoading = false;
     notifyListeners();
   }
 
-  void setSortOrder(KanjiSortOrder order, String gameMode) {
+  Future<void> setSortOrder(KanjiSortOrder order, String gameMode) async {
     _sortOrder = order;
-    _applySortAndRefresh(gameMode);
+    await _applySortAndRefresh(gameMode);
     notifyListeners();
   }
 
+  Future<List<String>> getRevisionKanjiForLevel(String gameMode) async {
+    final listName = gameMode == "meaning" ? "Recognition_List" : "Reading_List";
+    final revisionList = await _scoreRepo.getListItems(listName);
+    final revisionSet = revisionList.toSet();
+    return _allKanjiEntries
+        .map((k) => k.character)
+        .where((char) => revisionSet.contains(char))
+        .toList();
+  }
+
   Future<void> _applySortAndRefresh(String gameMode) async {
+    _allKanjiEntries = List.from(_originalKanjiEntries);
     switch (_sortOrder) {
       case KanjiSortOrder.frequency:
-        // Note: frequency might need to be added to DictionaryItem or handled as rank
-        // For now, if rank exists in data, we should use it.
+        _allKanjiEntries.sort((a, b) {
+          final fa = a.frequency ?? 99999;
+          final fb = b.frequency ?? 99999;
+          return fa.compareTo(fb);
+        });
         break;
       case KanjiSortOrder.strokes:
         _allKanjiEntries.sort((a, b) => a.strokeCount.compareTo(b.strokeCount));

@@ -283,6 +283,7 @@ class CrosswordProvider extends ChangeNotifier {
   void pauseGame() { _isPaused = true; notifyListeners(); }
   void resumeGame() { _isPaused = false; notifyListeners(); }
   void abandonGame() { _timer?.cancel(); _isFinished = true; notifyListeners(); }
+  void saveAndExit() { _timer?.cancel(); }
 
   @override
   void dispose() {

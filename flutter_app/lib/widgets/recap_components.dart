@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/settings_provider.dart';
 
 class RecapGridItem extends StatelessWidget {
   final String character;
@@ -53,20 +55,25 @@ class PaginationControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final onBackground = Theme.of(context).colorScheme.onBackground;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
           onPressed: currentPage > 0 ? onPrevClick : null,
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: onBackground),
         ),
-        Text(
-          "Page ${currentPage + 1} of $totalPages",
-          style: const TextStyle(fontWeight: FontWeight.bold),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            "Page ${currentPage + 1} of $totalPages",
+            style: TextStyle(fontWeight: FontWeight.bold, color: onBackground),
+          ),
         ),
         IconButton(
           onPressed: currentPage < totalPages - 1 ? onNextClick : null,
-          icon: const Icon(Icons.arrow_forward),
+          icon: Icon(Icons.arrow_forward, color: onBackground),
         ),
       ],
     );
@@ -91,6 +98,8 @@ class ModeSelector<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         if (title != null)
@@ -98,13 +107,13 @@ class ModeSelector<T> extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 4.0),
             child: Text(
               title!,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black54),
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: theme.colorScheme.onBackground.withOpacity(0.7)),
             ),
           ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.5),
+            color: theme.colorScheme.surfaceVariant.withOpacity(0.8),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -118,9 +127,9 @@ class ModeSelector<T> extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: isSelected
                         ? BoxDecoration(
-                            color: Colors.pink.withOpacity(0.2),
+                            color: theme.colorScheme.primary.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.pink, width: 2),
+                            border: Border.all(color: theme.colorScheme.primary, width: 2),
                           )
                         : null,
                     child: Text(
@@ -128,7 +137,7 @@ class ModeSelector<T> extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: isSelected ? Colors.pink : Colors.black54,
+                        color: isSelected ? theme.colorScheme.primary : theme.colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ),
@@ -156,21 +165,28 @@ class PlayAndReviewButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settings = context.read<SettingsProvider>();
+    final theme = Theme.of(context);
+
     return Row(
       children: [
         Expanded(
           child: _BigButton(
-            label: "JOUER",
+            label: settings.getString("game_recap_play").toUpperCase(),
             onPressed: onPlayClick,
-            color: Colors.pink,
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary,
           ),
         ),
         const SizedBox(width: 12),
         Expanded(
           child: _BigButton(
-            label: "RÉVISER",
+            label: settings.getString("mode_revise").toUpperCase(),
             onPressed: isReviewEnabled ? onReviewClick : null,
-            color: Colors.orange,
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary,
+            disabledBackgroundColor: theme.colorScheme.secondary.withOpacity(0.3),
+            disabledForegroundColor: theme.colorScheme.onSecondary.withOpacity(0.3),
           ),
         ),
       ],
@@ -178,15 +194,48 @@ class PlayAndReviewButtons extends StatelessWidget {
   }
 }
 
+class PlayButton extends StatelessWidget {
+  final VoidCallback onClick;
+
+  const PlayButton({super.key, required this.onClick});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final settings = context.read<SettingsProvider>();
+
+    return ElevatedButton(
+      onPressed: onClick,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: theme.colorScheme.primary,
+        foregroundColor: theme.colorScheme.onPrimary,
+        minimumSize: const Size.fromHeight(120),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: 16,
+      ),
+      child: Text(
+        settings.getString("game_recap_play").toUpperCase(),
+        style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
 class _BigButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
-  final Color color;
+  final Color backgroundColor;
+  final Color foregroundColor;
+  final Color? disabledBackgroundColor;
+  final Color? disabledForegroundColor;
 
   const _BigButton({
     required this.label,
     required this.onPressed,
-    required this.color,
+    required this.backgroundColor,
+    required this.foregroundColor,
+    this.disabledBackgroundColor,
+    this.disabledForegroundColor,
   });
 
   @override
@@ -194,16 +243,19 @@ class _BigButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        disabledBackgroundColor: disabledBackgroundColor ?? backgroundColor.withOpacity(0.3),
+        disabledForegroundColor: disabledForegroundColor ?? foregroundColor.withOpacity(0.3),
+        minimumSize: const Size.fromHeight(120),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        elevation: 8,
+        elevation: 16,
       ),
       child: Text(
         label,
-        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
       ),
     );
   }
 }
+

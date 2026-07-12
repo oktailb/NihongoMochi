@@ -30,7 +30,7 @@ class SettingsProvider extends ChangeNotifier {
   bool get addWrongAnswers => _addWrongAnswers;
   bool get removeGoodAnswers => _removeGoodAnswers;
 
-  String getString(String key) => stringProvider.getString(key);
+  String getString(String key, [List<dynamic>? args]) => stringProvider.getString(key, args);
 
   Future<void> _loadStringsForLocale(String localeCode) async {
     String folderLocale = localeCode.replaceAll('_', '-r');

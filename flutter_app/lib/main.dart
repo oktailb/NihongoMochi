@@ -30,6 +30,8 @@ import 'package:nihongo_mochi_flutter/services/statistics_service.dart';
 import 'package:nihongo_mochi_flutter/services/language_pack_manager.dart';
 import 'package:nihongo_mochi_flutter/services/resource_loader.dart';
 import 'package:nihongo_mochi_flutter/home_screen.dart';
+import 'package:nihongo_mochi_flutter/theme/mochi_theme.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,7 +53,9 @@ void main() async {
 
         // Repositories (Singletons)
         Provider<SettingsRepository>(create: (_) => SettingsRepository(prefs)),
-        Provider<ScoreRepository>(create: (_) => ScoreRepository(database)),
+        ProxyProvider<SettingsRepository, ScoreRepository>(
+          update: (_, settings, __) => ScoreRepository(database, settings),
+        ),
         ProxyProvider<ResourceLoader, DictionaryRepository>(
           update: (_, loader, __) => DictionaryRepository(loader),
         ),
@@ -182,6 +186,8 @@ void main() async {
   );
 }
 
+final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
 class NihongoMochiApp extends StatelessWidget {
   const NihongoMochiApp({super.key});
 
@@ -192,14 +198,10 @@ class NihongoMochiApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nihongo Mochi',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFE91E63),
-          brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
-        ),
-        textTheme: GoogleFonts.notoSansTextTheme(),
-      ),
+      navigatorObservers: [routeObserver],
+      theme: MochiTheme.lightTheme,
+      darkTheme: MochiTheme.darkTheme,
+      themeMode: settings.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: const HomeScreen(),
     );
   }

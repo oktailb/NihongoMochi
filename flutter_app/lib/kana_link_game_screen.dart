@@ -4,6 +4,8 @@ import 'models/kana_link.dart';
 import 'providers/kana_link_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
+import 'widgets/game_components.dart';
+import 'providers/settings_provider.dart';
 
 class KanaLinkGameScreen extends StatelessWidget {
   const KanaLinkGameScreen({super.key});
@@ -11,10 +13,11 @@ class KanaLinkGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<KanaLinkProvider>();
+    final settings = context.watch<SettingsProvider>();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Kana Link"),
+        title: Text(settings.getString("game_kana_link_title")),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -30,13 +33,13 @@ class KanaLinkGameScreen extends StatelessWidget {
               : Column(
                   children: [
                     GameHUD(
-                      primaryLabel: "KANA LINK",
+                      primaryLabel: settings.getString("game_kana_link_title").toUpperCase(),
                       primaryValue: "",
-                      secondaryLabel: "SCORE",
+                      secondaryLabel: settings.getString("game_kana_link_score_label").toUpperCase(),
                       secondaryValue: provider.score.toString(),
                       timeSeconds: provider.timeRemaining,
                     ),
-                    _buildCurrentWordArea(provider),
+                    _buildCurrentWordArea(context, provider),
                     Expanded(child: _buildGrid(context, provider)),
                     if (provider.isGameOver)
                       _buildGameOverOverlay(context, provider),
@@ -47,17 +50,18 @@ class KanaLinkGameScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCurrentWordArea(KanaLinkProvider provider) {
+  Widget _buildCurrentWordArea(BuildContext context, KanaLinkProvider provider) {
+    final theme = Theme.of(context);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 16),
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.blue.shade100.withOpacity(0.8),
+        color: theme.colorScheme.primary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
         provider.currentWord.isEmpty ? " " : provider.currentWord,
-        style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue),
+        style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
       ),
     );
   }
@@ -81,7 +85,7 @@ class KanaLinkGameScreen extends StatelessWidget {
                   top: cell.row * cellSize,
                   width: cellSize,
                   height: cellSize,
-                  child: _buildCellItem(cell, cellSize, provider),
+                  child: _buildCellItem(context, cell, cellSize, provider),
                 );
               }).toList(),
             ),
@@ -100,8 +104,9 @@ class KanaLinkGameScreen extends StatelessWidget {
     }
   }
 
-  Widget _buildCellItem(KanaLinkCell cell, double size, KanaLinkProvider provider) {
+  Widget _buildCellItem(BuildContext context, KanaLinkCell cell, double size, KanaLinkProvider provider) {
     final isSelected = provider.selectedCells.any((c) => c.id == cell.id);
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(2),
@@ -109,7 +114,7 @@ class KanaLinkGameScreen extends StatelessWidget {
         opacity: cell.isMatched ? 0.0 : 1.0,
         child: Container(
           decoration: BoxDecoration(
-            color: isSelected ? Colors.blue : Colors.white.withOpacity(0.9),
+            color: isSelected ? theme.colorScheme.primary : Colors.white.withOpacity(0.9),
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 2),
@@ -121,7 +126,7 @@ class KanaLinkGameScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: size * 0.5,
               fontWeight: FontWeight.bold,
-              color: isSelected ? Colors.white : Colors.black87,
+              color: isSelected ? theme.colorScheme.onPrimary : Colors.black87,
             ),
           ),
         ),
@@ -130,6 +135,9 @@ class KanaLinkGameScreen extends StatelessWidget {
   }
 
   Widget _buildGameOverOverlay(BuildContext context, KanaLinkProvider provider) {
+    final settings = context.read<SettingsProvider>();
+    final theme = Theme.of(context);
+
     return Container(
       color: Colors.black54,
       child: Center(
@@ -143,22 +151,29 @@ class KanaLinkGameScreen extends StatelessWidget {
               children: [
                 const Icon(Icons.timer_off, size: 80, color: Colors.orange),
                 const SizedBox(height: 16),
-                const Text("Temps écoulé !", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                Text(
+                  settings.getString("game_kana_link_game_over"),
+                  style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 24),
-                _buildStatRow("Score", provider.score.toString()),
-                _buildStatRow("Mots trouvés", provider.wordsFound.toString()),
+                _buildStatRow(settings.getString("game_kana_link_final_score"), provider.score.toString()),
+                _buildStatRow(settings.getString("game_kana_link_words_found"), provider.wordsFound.toString()),
                 const SizedBox(height: 32),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text("MENU"),
+                      child: Text(settings.getString("game_menu_button").toUpperCase()),
                     ),
                     ElevatedButton(
                       onPressed: () => provider.initGame("n5"),
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.pink, foregroundColor: Colors.white),
-                      child: const Text("REJOUER"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: theme.colorScheme.onPrimary,
+                      ),
+                      child: Text(settings.getString("game_replay_button").toUpperCase()),
                     ),
                   ],
                 )
@@ -187,26 +202,19 @@ class KanaLinkGameScreen extends StatelessWidget {
     provider.pauseGame();
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Abandonner ?"),
-        content: const Text("Voulez-vous vraiment quitter la partie ?"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              provider.resumeGame();
-              Navigator.pop(context);
-            },
-            child: const Text("NON"),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            child: const Text("OUI"),
-          ),
-        ],
+      builder: (context) => ExitConfirmationDialog(
+        onConfirm: () {
+          Navigator.pop(context); // close dialog
+          Navigator.pop(context); // close screen
+        },
+        onDismiss: () {
+          provider.resumeGame();
+          Navigator.pop(context); // close dialog
+        },
+        onPause: provider.pauseGame,
+        onResume: provider.resumeGame,
       ),
     );
   }
 }
+

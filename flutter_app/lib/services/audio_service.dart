@@ -3,7 +3,7 @@ import '../repositories/settings_repository.dart';
 
 class AudioService {
   final SettingsRepository _settingsRepo;
-  final Map<String, AudioPlayer> _players = {};
+  final List<AudioPlayer> _activePlayers = [];
 
   AudioService(this._settingsRepo);
 
@@ -13,38 +13,34 @@ class AudioService {
     if (volume <= 0) return;
 
     try {
-      AudioPlayer? player = _players[assetPath];
+      final player = AudioPlayer();
+      _activePlayers.add(player);
 
-      if (player == null) {
-        player = AudioPlayer();
-        // just_audio gère le pré-chargement des assets automatiquement
-        await player.setAsset(assetPath);
-        _players[assetPath] = player;
-      }
-
+      await player.setAsset(assetPath);
       await player.setVolume(volume);
-
-      // On rembobine au début avant de jouer
-      if (player.processingState == ProcessingState.completed) {
-        await player.seek(Duration.zero);
-      }
-
       player.play();
+
+      player.processingStateStream.listen((state) {
+        if (state == ProcessingState.completed) {
+          player.dispose();
+          _activePlayers.remove(player);
+        }
+      });
     } catch (e) {
       print("Erreur AudioService (playSound): $e");
     }
   }
 
   void stopAll() {
-    for (var player in _players.values) {
+    for (var player in _activePlayers) {
       player.stop();
     }
   }
 
   void dispose() {
-    for (var player in _players.values) {
+    for (var player in _activePlayers) {
       player.dispose();
     }
-    _players.clear();
+    _activePlayers.clear();
   }
 }

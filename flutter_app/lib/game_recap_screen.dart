@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'main.dart';
 import 'models/kanji_sort_order.dart';
 import 'providers/game_recap_provider.dart';
 import 'repositories/dictionary_repository.dart';
 import 'repositories/score_repository.dart';
 import 'services/level_content_provider.dart';
 import 'kanji_detail_screen.dart';
-import 'word_quiz_screen.dart';
-import 'kana_quiz_screen.dart';
-import 'models/kana.dart';
+import 'recognition_quiz_screen.dart';
 import 'widgets/mochi_background.dart';
+import 'widgets/recap_components.dart';
 import 'providers/settings_provider.dart';
 
 class GameRecapScreen extends StatelessWidget {
@@ -55,19 +55,50 @@ class GameRecapView extends StatefulWidget {
   State<GameRecapView> createState() => _GameRecapViewState();
 }
 
-class _GameRecapViewState extends State<GameRecapView> {
+class _GameRecapViewState extends State<GameRecapView> with RouteAware {
   String _gameMode = "meaning";
+  String _readingMode = "common";
   final TextEditingController _quizSizeController = TextEditingController(text: "80");
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context) as PageRoute);
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    _quizSizeController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didPopNext() {
+    // Automatically called when the top route is popped and this view is visible again
+    final provider = context.read<GameRecapProvider>();
+    final settings = context.read<SettingsProvider>();
+    provider.loadLevel(widget.levelId, _gameMode, settings.currentLocaleCode);
+  }
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<GameRecapProvider>();
+    final settings = context.watch<SettingsProvider>();
+
+    final resolvedTitle = settings.getString(widget.levelId.toLowerCase());
+    final titleToDisplay = resolvedTitle.isNotEmpty && resolvedTitle != widget.levelId.toLowerCase()
+        ? resolvedTitle
+        : widget.levelTitle;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.levelTitle),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -76,11 +107,33 @@ class _GameRecapViewState extends State<GameRecapView> {
               ? const Center(child: CircularProgressIndicator())
               : Column(
                   children: [
-                    _buildHeader(provider),
+                    const SizedBox(height: 8),
+                    Text(
+                      settings.getString("game_recap_title").toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        letterSpacing: 1.5,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      titleToDisplay,
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    _buildHeader(provider, settings),
                     Expanded(child: _buildKanjiGrid(provider)),
-                    _buildPagination(provider),
-                    _buildModeSelector(provider),
-                    _buildFooterButtons(context, provider),
+                    _buildPagination(provider, settings),
+                    _buildModeSelector(provider, settings),
+                    _buildFooterButtons(context, provider, settings),
                   ],
                 ),
         ),
@@ -88,29 +141,60 @@ class _GameRecapViewState extends State<GameRecapView> {
     );
   }
 
-  Widget _buildHeader(GameRecapProvider provider) {
+  Widget _buildHeader(GameRecapProvider provider, SettingsProvider settings) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         children: [
           Expanded(
-            child: DropdownButton<KanjiSortOrder>(
-              value: provider.sortOrder,
-              isExpanded: true,
-              items: const [
-                DropdownMenuItem(value: KanjiSortOrder.defaultOrder, child: Text("Ordre par défaut")),
-                DropdownMenuItem(value: KanjiSortOrder.strokes, child: Text("Trier par traits")),
-              ],
-              onChanged: (val) => provider.setSortOrder(val!, _gameMode),
+            flex: 7,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.black12),
+              ),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<KanjiSortOrder>(
+                  value: provider.sortOrder,
+                  isExpanded: true,
+                  items: [
+                    DropdownMenuItem(
+                      value: KanjiSortOrder.defaultOrder,
+                      child: Text(settings.getString("game_recap_sort_default")),
+                    ),
+                    DropdownMenuItem(
+                      value: KanjiSortOrder.frequency,
+                      child: Text(settings.getString("game_recap_sort_frequency")),
+                    ),
+                    DropdownMenuItem(
+                      value: KanjiSortOrder.strokes,
+                      child: Text(settings.getString("game_recap_sort_strokes")),
+                    ),
+                  ],
+                  onChanged: (val) {
+                    if (val != null) {
+                      provider.setSortOrder(val, _gameMode);
+                    }
+                  },
+                ),
+              ),
             ),
           ),
-          const SizedBox(width: 16),
-          SizedBox(
-            width: 60,
+          const SizedBox(width: 12),
+          Expanded(
+            flex: 3,
             child: TextField(
               controller: _quizSizeController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: "Taille"),
+              decoration: InputDecoration(
+                labelText: settings.getString("size").isNotEmpty ? settings.getString("size") : "Taille",
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                filled: true,
+                fillColor: Colors.white.withOpacity(0.5),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              ),
             ),
           ),
         ],
@@ -125,116 +209,124 @@ class _GameRecapViewState extends State<GameRecapView> {
     return GridView.builder(
       padding: const EdgeInsets.all(12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 5,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
+        crossAxisCount: 8,
+        crossAxisSpacing: 6,
+        mainAxisSpacing: 6,
       ),
       itemCount: provider.kanjiListWithColors.length,
       itemBuilder: (context, index) {
         final item = provider.kanjiListWithColors[index];
-        return GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => KanjiDetailScreen(kanjiId: item.kanji.id)),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: item.color,
-              borderRadius: BorderRadius.circular(4),
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 2)],
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              item.kanji.character,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
+        return RecapGridItem(
+          character: item.kanji.character,
+          color: item.color,
+          onClick: () {
+            final settings = context.read<SettingsProvider>();
+            final locale = settings.currentLocaleCode;
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => KanjiDetailScreen(kanjiId: item.kanji.id)),
+            ).then((_) {
+              provider.loadLevel(widget.levelId, _gameMode, locale);
+            });
+          },
         );
       },
     );
   }
 
-  Widget _buildPagination(GameRecapProvider provider) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.chevron_left),
-          onPressed: provider.currentPage > 0 ? () => provider.prevPage(_gameMode) : null,
-        ),
-        Text("Page ${provider.currentPage + 1} / ${provider.totalPages}"),
-        IconButton(
-          icon: const Icon(Icons.chevron_right),
-          onPressed: provider.currentPage < provider.totalPages - 1 ? () => provider.nextPage(_gameMode) : null,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildModeSelector(GameRecapProvider provider) {
+  Widget _buildPagination(GameRecapProvider provider, SettingsProvider settings) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: SegmentedButton<String>(
-        segments: const [
-          ButtonSegment(value: "meaning", label: Text("Sens"), icon: Icon(Icons.translate)),
-          ButtonSegment(value: "reading", label: Text("Lecture"), icon: Icon(Icons.menu_book)),
-        ],
-        selected: {_gameMode},
-        onSelectionChanged: (val) {
-          setState(() => _gameMode = val.first);
-          final locale = context.read<SettingsProvider>().currentLocaleCode;
-          provider.loadLevel(widget.levelId, _gameMode, locale);
-        },
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: PaginationControls(
+        currentPage: provider.currentPage,
+        totalPages: provider.totalPages,
+        onPrevClick: () => provider.prevPage(_gameMode),
+        onNextClick: () => provider.nextPage(_gameMode),
       ),
     );
   }
 
-  Widget _buildFooterButtons(BuildContext context, GameRecapProvider provider) {
+  Widget _buildModeSelector(GameRecapProvider provider, SettingsProvider settings) {
+    final titleMeaning = settings.getString("game_recap_meaning").isNotEmpty ? settings.getString("game_recap_meaning") : "Sens";
+    final titleReading = settings.getString("game_recap_reading").isNotEmpty ? settings.getString("game_recap_reading") : "Lecture";
+
     return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Column(
         children: [
-          Expanded(
-            child: ElevatedButton.icon(
-              onPressed: () {
-                if (_gameMode == "meaning") {
-                   // Note: Adapté selon le type de niveau
-                   if (widget.levelId.contains("kana")) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaQuizScreen(type: KanaType.hiragana)));
-                   } else {
-                      // Kanji Quiz non encore implémenté, on redirige vers Word Quiz par défaut
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: widget.levelId)));
-                   }
-                } else {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: widget.levelId)));
-                }
-              },
-              icon: const Icon(Icons.play_arrow),
-              label: const Text("JOUER"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pink,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-              ),
-            ),
+          ModeSelector<String>(
+            options: [
+              MapEntry(titleMeaning.toUpperCase(), "meaning"),
+              MapEntry(titleReading.toUpperCase(), "reading"),
+            ],
+            selectedOption: _gameMode,
+            onOptionSelected: (val) {
+              setState(() => _gameMode = val);
+              final locale = context.read<SettingsProvider>().currentLocaleCode;
+              provider.loadLevel(widget.levelId, _gameMode, locale);
+            },
           ),
-          if (provider.isReviewEnabled) ...[
-            const SizedBox(width: 12),
-            Expanded(
-              child: OutlinedButton.icon(
-                onPressed: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context) => WordQuizScreen(levelId: "user_custom_list")));
-                },
-                icon: const Icon(Icons.star),
-                label: const Text("RÉVISER"),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.pink,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                ),
-              ),
+          if (_gameMode == "reading") ...[
+            const SizedBox(height: 8),
+            ModeSelector<String>(
+              options: [
+                MapEntry(settings.getString("game_recap_common_pronunciations").toUpperCase(), "common"),
+                MapEntry(settings.getString("game_recap_random_pronunciations").toUpperCase(), "random"),
+              ],
+              selectedOption: _readingMode,
+              onOptionSelected: (val) {
+                setState(() => _readingMode = val);
+              },
             ),
           ],
         ],
+      ),
+    );
+  }
+
+  Widget _buildFooterButtons(BuildContext context, GameRecapProvider provider, SettingsProvider settings) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: PlayAndReviewButtons(
+        onPlayClick: () {
+          final size = int.tryParse(_quizSizeController.text) ?? 80;
+          final locale = settings.currentLocaleCode;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RecognitionQuizScreen(
+                levelId: widget.levelId,
+                gameMode: _gameMode,
+                readingMode: _readingMode,
+                quizSize: size,
+              ),
+            ),
+          ).then((_) {
+            provider.loadLevel(widget.levelId, _gameMode, locale);
+          });
+        },
+        onReviewClick: () async {
+          final filteredRevision = await provider.getRevisionKanjiForLevel(_gameMode);
+          
+          if (context.mounted && filteredRevision.isNotEmpty) {
+            final locale = settings.currentLocaleCode;
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RecognitionQuizScreen(
+                  levelId: widget.levelId,
+                  gameMode: _gameMode,
+                  readingMode: _readingMode,
+                  quizSize: filteredRevision.length,
+                  customKanjiList: filteredRevision,
+                ),
+              ),
+            ).then((_) {
+              provider.loadLevel(widget.levelId, _gameMode, locale);
+            });
+          }
+        },
+        isReviewEnabled: provider.isReviewEnabled,
       ),
     );
   }
