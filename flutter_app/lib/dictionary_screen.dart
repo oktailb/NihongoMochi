@@ -50,7 +50,7 @@ class DictionaryView extends StatelessWidget {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
-          settings.getString("dictionary_title"),
+          settings.getString("menu_dictionary"),
           style: TextStyle(color: theme.colorScheme.onBackground),
         ),
         elevation: 0,

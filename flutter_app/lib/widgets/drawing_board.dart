@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:math';
 import '../models/handwriting.dart';
 import '../providers/dictionary_provider.dart';
@@ -265,7 +266,15 @@ class _ComposeDrawingDialogState extends State<ComposeDrawingDialog> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            if (provider.modelStatus == ModelStatus.notDownloaded ||
+            if (kIsWeb) ...[
+              const Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 48),
+              const SizedBox(height: 16),
+              const Text(
+                "La reconnaissance d'écriture n'est pas supportée sur le Web.\n\nVeuillez utiliser l'application mobile (Android/iOS) pour tester cette fonctionnalité.",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ] else if (provider.modelStatus == ModelStatus.notDownloaded ||
                 provider.modelStatus == ModelStatus.downloading ||
                 provider.modelStatus == ModelStatus.failed) ...[
               const CircularProgressIndicator(),
