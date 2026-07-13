@@ -26,13 +26,18 @@ class RecapGridItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
         ),
         alignment: Alignment.center,
-        child: Text(
-          character,
-          style: TextStyle(
-            fontSize: 20,
-            color: textColor,
-            fontWeight: FontWeight.bold,
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final fontSize = (constraints.maxWidth * 0.45).clamp(18.0, 36.0);
+            return Text(
+              character,
+              style: TextStyle(
+                fontSize: fontSize,
+                color: textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          },
         ),
       ),
     );

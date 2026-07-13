@@ -84,6 +84,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
   Widget build(BuildContext context) {
     final provider = context.watch<GameRecapProvider>();
     final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
 
     final resolvedTitle = settings.getString(widget.levelId.toLowerCase());
     final titleToDisplay = resolvedTitle.isNotEmpty && resolvedTitle != widget.levelId.toLowerCase()
@@ -95,7 +96,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -112,7 +113,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        color: theme.colorScheme.onSurfaceVariant,
                         letterSpacing: 1.5,
                       ),
                       textAlign: TextAlign.center,
@@ -123,7 +124,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: theme.colorScheme.onSurface,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -141,6 +142,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
   }
 
   Widget _buildHeader(GameRecapProvider provider, SettingsProvider settings) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
@@ -150,9 +152,9 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5),
+                color: theme.colorScheme.surface.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.black12),
+                border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<KanjiSortOrder>(
@@ -191,7 +193,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                 labelText: settings.getString("size").isNotEmpty ? settings.getString("size") : "Taille",
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 filled: true,
-                fillColor: Colors.white.withOpacity(0.5),
+                fillColor: theme.colorScheme.surface.withOpacity(0.5),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
             ),
@@ -202,13 +204,21 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
   }
 
   Widget _buildKanjiGrid(GameRecapProvider provider) {
+    final settings = context.read<SettingsProvider>();
     if (provider.kanjiListWithColors.isEmpty) {
-      return const Center(child: Text("Aucun item trouvé pour ce niveau."));
+      return Center(
+        child: Text(
+          settings.currentLocaleCode.startsWith("fr") 
+              ? "Aucun élément trouvé pour ce niveau." 
+              : "No items found for this level.",
+          style: TextStyle(color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7)),
+        ),
+      );
     }
     return GridView.builder(
       padding: const EdgeInsets.all(12),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 8,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 65,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

@@ -130,11 +130,14 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(settings.getString(engine.gameMode == "meaning" ? "game_recap_meaning" : "game_recap_reading")),
+          title: Text(
+            settings.getString(engine.gameMode == "meaning" ? "game_recap_meaning" : "game_recap_reading"),
+            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+          ),
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onBackground),
             onPressed: () async {
               if (isFinished) {
                 Navigator.of(context).pop();
@@ -178,7 +181,7 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.06),
+                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.06),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
@@ -188,14 +191,14 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
                               const SizedBox(width: 4),
                               Text(
                                 "${provider.currentKanjiScore!.successes}",
-                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface),
                               ),
                               const SizedBox(width: 16),
                               const Icon(Icons.close, size: 16, color: Colors.red),
                               const SizedBox(width: 4),
                               Text(
                                 "${provider.currentKanjiScore!.failures}",
-                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black87),
+                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface),
                               ),
                             ],
                           ),
