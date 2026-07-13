@@ -8,6 +8,7 @@ import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
 import 'kana_quiz_screen.dart';
 
+
 class KanaRecapScreen extends StatelessWidget {
   final KanaType type;
 
@@ -35,59 +36,61 @@ class KanaRecapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<KanaRecapProvider>();
+    final theme = Theme.of(context);
+    
     final title = provider.currentType == KanaType.hiragana ? "Hiragana" : "Katakana";
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: TextStyle(color: theme.colorScheme.onBackground),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
         child: SafeArea(
-          child: provider.isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: _buildGojuonGrid(provider),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 500),
+              child: provider.isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: _buildGojuonGrid(provider),
+                          ),
+                          const SizedBox(height: 16),
+                          PaginationControls(
+                            currentPage: provider.currentPage,
+                            totalPages: provider.totalPages,
+                            onPrevClick: provider.prevPage,
+                            onNextClick: provider.nextPage,
+                          ),
+                          const SizedBox(height: 16),
+                          PlayButton(
+                            onClick: () {
+                              final type = provider.currentType ?? KanaType.hiragana;
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => KanaQuizScreen(type: type),
+                                ),
+                              ).then((_) {
+                                provider.refreshScoresOnly();
+                              });
+                            },
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 16),
-                      PaginationControls(
-                        currentPage: provider.currentPage,
-                        totalPages: provider.totalPages,
-                        onPrevClick: provider.prevPage,
-                        onNextClick: provider.nextPage,
-                      ),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Navigate to Quiz
-                          final type = provider.charactersByLine.values.first.first.type;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => KanaQuizScreen(type: type),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.pink,
-                          foregroundColor: Colors.white,
-                          minimumSize: const Size(double.infinity, 80),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                        ),
-                        child: const Text(
-                          "JOUER",
-                          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    ),
+            ),
+          ),
         ),
       ),
     );
@@ -127,3 +130,4 @@ class KanaRecapView extends StatelessWidget {
     );
   }
 }
+

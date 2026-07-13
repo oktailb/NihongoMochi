@@ -54,6 +54,11 @@ class KanaRecapProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> refreshScoresOnly() async {
+    await _refreshScores();
+    notifyListeners();
+  }
+
   Future<void> _refreshScores() async {
     final colorMap = <String, Color>{};
     for (var line in _charactersByLine.values) {

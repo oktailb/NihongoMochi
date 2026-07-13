@@ -6,7 +6,10 @@ import 'providers/kana_quiz_provider.dart';
 import 'repositories/kana_repository.dart';
 import 'repositories/score_repository.dart';
 import 'services/audio_service.dart';
+import 'services/statistics_service.dart';
 import 'widgets/mochi_background.dart';
+import 'widgets/game_components.dart';
+import 'providers/settings_provider.dart';
 
 class KanaQuizScreen extends StatelessWidget {
   final KanaType type;
@@ -21,98 +24,183 @@ class KanaQuizScreen extends StatelessWidget {
           context.read<KanaRepository>(),
           context.read<ScoreRepository>(),
           context.read<AudioService>(),
+          context.read<StatisticsService>(),
         );
         provider.startQuiz(type);
         return provider;
       },
-      child: const KanaQuizView(),
+      child: KanaQuizView(type: type),
     );
   }
 }
 
-class KanaQuizView extends StatelessWidget {
-  const KanaQuizView({super.key});
+class KanaQuizView extends StatefulWidget {
+  final KanaType type;
+
+  const KanaQuizView({super.key, required this.type});
+
+  @override
+  State<KanaQuizView> createState() => _KanaQuizViewState();
+}
+
+class _KanaQuizViewState extends State<KanaQuizView> {
+  bool _canPop = false;
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<KanaQuizProvider>();
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
     final engine = provider.engine;
 
     if (!provider.isInitialized) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    if (engine.state == GameState.finished) {
-      return _buildFinishedScreen(context, engine);
-    }
+    final isFinished = engine.state == GameState.finished;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(provider.title),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              _buildProgressBar(engine),
-              const Spacer(),
-              _buildQuestionArea(engine),
-              const Spacer(),
-              _buildAnswerArea(context, provider, engine),
-              const SizedBox(height: 40),
-            ],
+    return PopScope(
+      canPop: isFinished || _canPop,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => ExitConfirmationDialog(
+            onConfirm: () => Navigator.of(dialogContext).pop(true),
+            onDismiss: () => Navigator.of(dialogContext).pop(false),
           ),
+        );
+        if (shouldExit == true) {
+          if (context.mounted) {
+            setState(() => _canPop = true);
+            Navigator.of(context).pop();
+          }
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            provider.title,
+            style: TextStyle(color: theme.colorScheme.onBackground),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+            onPressed: () async {
+              if (isFinished) {
+                Navigator.of(context).pop();
+                return;
+              }
+              final shouldExit = await showDialog<bool>(
+                context: context,
+                builder: (dialogContext) => ExitConfirmationDialog(
+                  onConfirm: () => Navigator.of(dialogContext).pop(true),
+                  onDismiss: () => Navigator.of(dialogContext).pop(false),
+                ),
+              );
+              if (shouldExit == true) {
+                if (context.mounted) {
+                  setState(() => _canPop = true);
+                  Navigator.of(context).pop();
+                }
+              }
+            },
+          ),
+        ),
+        extendBodyBehindAppBar: true,
+        body: Stack(
+          children: [
+            MochiBackground(
+              child: SafeArea(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 500),
+                    child: Column(
+                      children: [
+                        _buildProgressBar(engine),
+                        const Spacer(),
+                        if (!isFinished) _buildQuestionArea(engine, settings, theme),
+                        const Spacer(),
+                        if (!isFinished) _buildAnswerArea(context, provider, engine, theme),
+                        const SizedBox(height: 40),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            if (isFinished)
+              GameResultOverlay(
+                isVictory: true,
+                title: settings.getString("game_result_lot_mastery_kana"),
+                score: "${provider.sessionMastery}%",
+                stats: [
+                  MapEntry(settings.getString("game_result_title_session"), "${provider.sessionMastery}%"),
+                  MapEntry(settings.getString("game_result_title_global"), "${provider.globalMastery}%"),
+                  MapEntry(settings.getString("game_result_errors").replaceAll(":", ""), "${engine.errorCount}"),
+                ],
+                onReplayClick: () {
+                  provider.startQuiz(widget.type);
+                },
+                onMenuClick: () {
+                  if (context.mounted) {
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+          ],
         ),
       ),
     );
   }
 
   Widget _buildProgressBar(dynamic engine) {
-    double total = (engine.currentKanaSet.length > 0) ? engine.currentKanaSet.length.toDouble() : 1.0;
-    double progress = 1.0 - (engine.revisionList.length / total);
+    final List<GameStatus> progressStatuses = [];
+    for (var item in engine.currentKanaSet) {
+      if (item is KanaCharacter) {
+        progressStatuses.add(engine.kanaStatus[item.kana] ?? GameStatus.notAnswered);
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: LinearProgressIndicator(
-          value: progress.clamp(0.0, 1.0),
-          minHeight: 10,
-          backgroundColor: Colors.white.withOpacity(0.3),
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.pink),
-        ),
+      child: GameProgressBar(
+        statuses: progressStatuses,
       ),
     );
   }
 
-  Widget _buildQuestionArea(dynamic engine) {
+  Widget _buildQuestionArea(dynamic engine, SettingsProvider settings, ThemeData theme) {
     final isNormal = engine.currentDirection == KanaQuestionDirection.normal;
     final questionText = isNormal ? engine.currentQuestion.kana : engine.currentQuestion.romaji;
+    final isFr = settings.currentLocaleCode.startsWith("fr");
+    final double cardSize = (MediaQuery.of(context).size.shortestSide * 0.65).clamp(200.0, 300.0);
 
     return Column(
       children: [
         Text(
-          isNormal ? "Quel est ce kana ?" : "Trouvez le kana pour :",
-          style: const TextStyle(fontSize: 18, color: Colors.black54),
+          isNormal 
+              ? (isFr ? "Quel est ce kana ?" : "What is this kana?")
+              : (isFr ? "Trouvez le kana pour :" : "Find the kana for:"),
+          style: TextStyle(fontSize: 18, color: theme.colorScheme.onBackground.withOpacity(0.7)),
         ),
         const SizedBox(height: 20),
-        Container(
-          padding: const EdgeInsets.all(40),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.9),
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 20),
-            ],
-          ),
-          child: Text(
-            questionText,
-            style: TextStyle(
-              fontSize: isNormal ? 80 : 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.pink,
+        Card(
+          elevation: 24,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+          color: theme.colorScheme.surface,
+          child: Container(
+            width: cardSize,
+            height: cardSize,
+            alignment: Alignment.center,
+            child: Text(
+              questionText,
+              style: TextStyle(
+                fontSize: isNormal ? 80 : 40,
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurface,
+              ),
             ),
           ),
         ),
@@ -120,7 +208,7 @@ class KanaQuizView extends StatelessWidget {
     );
   }
 
-  Widget _buildAnswerArea(BuildContext context, KanaQuizProvider provider, dynamic engine) {
+  Widget _buildAnswerArea(BuildContext context, KanaQuizProvider provider, dynamic engine, ThemeData theme) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: GridView.builder(
@@ -139,17 +227,17 @@ class KanaQuizView extends StatelessWidget {
           final answer = engine.currentAnswers[index];
           final state = engine.buttonStates[index];
 
-          Color bgColor = Colors.white;
-          Color textColor = Colors.black87;
+          Color bgColor = theme.colorScheme.primary;
+          Color textColor = theme.colorScheme.onPrimary;
 
           if (state == AnswerButtonState.correct) {
-            bgColor = Colors.green;
+            bgColor = const Color(0xFF00E676);
             textColor = Colors.white;
           } else if (state == AnswerButtonState.incorrect) {
-            bgColor = Colors.red;
+            bgColor = const Color(0xFFEF5350);
             textColor = Colors.white;
           } else if (state == AnswerButtonState.neutral) {
-            bgColor = Colors.orange;
+            bgColor = const Color(0xFF4FC3F7);
             textColor = Colors.white;
           }
 
@@ -159,7 +247,9 @@ class KanaQuizView extends StatelessWidget {
                 : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: bgColor,
+              disabledBackgroundColor: bgColor,
               foregroundColor: textColor,
+              disabledForegroundColor: textColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 4,
             ),
@@ -172,39 +262,5 @@ class KanaQuizView extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildFinishedScreen(BuildContext context, dynamic engine) {
-    return Scaffold(
-      body: MochiBackground(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.emoji_events, size: 100, color: Colors.orange),
-              const SizedBox(height: 24),
-              const Text(
-                "Session terminée !",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                "Erreurs : ${engine.errorCount}",
-                style: const TextStyle(fontSize: 20, color: Colors.black54),
-              ),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
-                  backgroundColor: Colors.pink,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                ),
-                child: const Text("RETOUR", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
+

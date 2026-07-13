@@ -19,7 +19,7 @@ class GameProgressBar extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-      color: Colors.white.withOpacity(0.5),
+      color: theme.colorScheme.surface.withOpacity(0.5),
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       child: Padding(
