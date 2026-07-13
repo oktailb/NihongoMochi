@@ -26,6 +26,7 @@ class KanjiDetailProvider extends ChangeNotifier {
   bool _isInRevisionList = false;
   ComponentNode? _componentTree;
   List<DictionaryItem> _examples = [];
+  final Map<String, String> _characterToIdMap = {};
 
   // Getters
   DictionaryItem? get kanji => _kanji;
@@ -33,6 +34,7 @@ class KanjiDetailProvider extends ChangeNotifier {
   bool get isInRevisionList => _isInRevisionList;
   ComponentNode? get componentTree => _componentTree;
   List<DictionaryItem> get examples => _examples;
+  Map<String, String> get characterToIdMap => _characterToIdMap;
 
   KanjiDetailProvider(this._dictionaryRepo, this._scoreRepo);
 
@@ -44,6 +46,14 @@ class KanjiDetailProvider extends ChangeNotifier {
     _kanji = allItems.firstWhere((item) => item.id == kanjiId);
 
     if (_kanji != null) {
+      // Remplir la map character -> id
+      _characterToIdMap.clear();
+      for (var item in allItems) {
+        if (item.character.isNotEmpty) {
+          _characterToIdMap[item.character] = item.id;
+        }
+      }
+
       // 1. Liste de révision
       _isInRevisionList = await _scoreRepo.isInList("Recognition_List", _kanji!.character);
 

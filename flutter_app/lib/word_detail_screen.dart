@@ -8,7 +8,6 @@ import 'repositories/score_repository.dart';
 import 'repositories/settings_repository.dart';
 import 'dictionary_screen.dart'; // Pour DictionaryItemCard
 import 'models/dictionary.dart';
-import 'kanji_detail_screen.dart';
 import 'providers/settings_provider.dart';
 import 'widgets/mochi_background.dart';
 
@@ -182,7 +181,7 @@ class WordDetailView extends StatelessWidget {
 
   Widget _buildKanjiComponentsList(BuildContext context, List<DictionaryItem> components) {
     return Column(
-      children: components.map((item) => DictionaryItemCard(item: item)).toList(),
+      children: components.map((item) => DictionaryItemRow(item: item)).toList(),
     );
   }
 }

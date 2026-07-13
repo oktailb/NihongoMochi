@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 import '../models/dictionary.dart';
 import '../models/handwriting.dart';
 import '../repositories/dictionary_repository.dart';
+import '../repositories/level_repository.dart';
 import '../utils/romaji_to_kana.dart';
 import '../services/handwriting_service.dart';
 
 enum SearchMode { reading, meaning }
+
+class LevelFilterOption {
+  final String id;
+  final String labelKey;
+  LevelFilterOption({required this.id, required this.labelKey});
+}
 
 class DictionaryProvider extends ChangeNotifier {
   final DictionaryRepository _repository;
@@ -20,6 +26,10 @@ class DictionaryProvider extends ChangeNotifier {
   String _textQuery = "";
   String _strokeQuery = "";
   String _selectedLevelId = "ALL";
+  bool _exactMatch = false;
+  List<LevelFilterOption> _levelOptions = [
+    LevelFilterOption(id: "ALL", labelKey: "word_type_all")
+  ];
 
   List<String>? _drawingCandidates;
   final List<HandwritingStroke> _currentStrokes = [];
@@ -31,15 +41,36 @@ class DictionaryProvider extends ChangeNotifier {
   String get textQuery => _textQuery;
   String get strokeQuery => _strokeQuery;
   String get selectedLevelId => _selectedLevelId;
+  bool get exactMatch => _exactMatch;
+  List<LevelFilterOption> get levelOptions => _levelOptions;
   ModelStatus get modelStatus => _handwritingService.status;
   List<HandwritingStroke> get currentStrokes => _currentStrokes;
+  List<String>? get recognitionResults => _drawingCandidates;
 
-  DictionaryProvider(this._repository, String locale) {
-    _init(locale);
+  DictionaryProvider(this._repository, LevelRepository levelRepo, String locale) {
+    _init(levelRepo, locale);
   }
 
-  Future<void> _init(String locale) async {
+  Future<void> _init(LevelRepository levelRepo, String locale) async {
     await _handwritingService.checkModel();
+    
+    try {
+      final defs = await levelRepo.loadLevels();
+      final List<LevelFilterOption> options = [
+        LevelFilterOption(id: "ALL", labelKey: "word_type_all")
+      ];
+      for (var section in defs.sections.values) {
+        for (var level in section.levels) {
+          if (level.activities.values.any((act) => act.dataFile == "kanji_details")) {
+            options.add(LevelFilterOption(id: level.id, labelKey: level.name));
+          }
+        }
+      }
+      _levelOptions = options;
+    } catch (e) {
+      print("Error loading level options in provider: $e");
+    }
+
     await loadData(locale);
   }
 
@@ -55,6 +86,11 @@ class DictionaryProvider extends ChangeNotifier {
 
   void setSearchMode(SearchMode mode) {
     _searchMode = mode;
+    applyFilters();
+  }
+
+  void setExactMatch(bool value) {
+    _exactMatch = value;
     applyFilters();
   }
 
@@ -146,13 +182,25 @@ class DictionaryProvider extends ChangeNotifier {
     if (query.isNotEmpty) {
       if (_searchMode == SearchMode.reading) {
         final cleanQuery = query.replaceAll(".", "");
-        filtered = filtered.where((item) => item.readings.any(
-          (r) => r.text.replaceAll(".", "").toLowerCase().contains(cleanQuery)
-        ));
+        if (_exactMatch) {
+          filtered = filtered.where((item) => item.readings.any(
+            (r) => r.text.replaceAll(".", "").toLowerCase() == cleanQuery
+          ));
+        } else {
+          filtered = filtered.where((item) => item.readings.any(
+            (r) => r.text.replaceAll(".", "").toLowerCase().contains(cleanQuery)
+          ));
+        }
       } else {
-        filtered = filtered.where((item) => item.meanings.any(
-          (m) => m.toLowerCase().contains(query)
-        ));
+        if (_exactMatch) {
+          filtered = filtered.where((item) => item.meanings.any(
+            (m) => m.toLowerCase() == query
+          ));
+        } else {
+          filtered = filtered.where((item) => item.meanings.any(
+            (m) => m.toLowerCase().contains(query)
+          ));
+        }
       }
     }
 

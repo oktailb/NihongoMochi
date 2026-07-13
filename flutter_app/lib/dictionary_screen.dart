@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'providers/dictionary_provider.dart';
 import 'providers/settings_provider.dart';
 import 'repositories/dictionary_repository.dart';
+import 'repositories/level_repository.dart';
 import 'models/dictionary.dart';
-import 'models/handwriting.dart';
+import 'widgets/mochi_background.dart';
 import 'widgets/drawing_board.dart';
 import 'kanji_detail_screen.dart';
 
@@ -15,7 +16,11 @@ class DictionaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final locale = context.read<SettingsProvider>().currentLocaleCode;
     return ChangeNotifierProvider(
-      create: (context) => DictionaryProvider(context.read<DictionaryRepository>(), locale),
+      create: (context) => DictionaryProvider(
+        context.read<DictionaryRepository>(),
+        context.read<LevelRepository>(),
+        locale,
+      ),
       child: const DictionaryView(),
     );
   }
@@ -24,21 +29,13 @@ class DictionaryScreen extends StatelessWidget {
 class DictionaryView extends StatelessWidget {
   const DictionaryView({super.key});
 
-  void _showDrawingBoard(BuildContext context, DictionaryProvider provider) {
-    showModalBottomSheet(
+  void _showDrawingDialog(BuildContext context, DictionaryProvider provider) {
+    showDialog(
       context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.6,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: DrawingBoard(
-          onStrokeDone: (stroke) => provider.addStroke(stroke),
-          onClear: () => provider.clearDrawing(),
-        ),
+      builder: (context) => ComposeDrawingDialog(
+        provider: provider,
+        onDismiss: () => Navigator.pop(context),
+        onConfirm: () => Navigator.pop(context),
       ),
     );
   }
@@ -46,68 +43,72 @@ class DictionaryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<DictionaryProvider>();
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: const Text('Dictionnaire'),
+        title: Text(
+          settings.getString("dictionary_title"),
+          style: TextStyle(color: theme.colorScheme.onBackground),
+        ),
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
       ),
-      body: Column(
-        children: [
-          _buildFilterPanel(context, provider),
-          if (provider.modelStatus == ModelStatus.notDownloaded)
-            _buildDownloadBanner(provider),
-          Expanded(
-            child: provider.isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : _buildResultsList(provider),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDownloadBanner(DictionaryProvider provider) {
-    return Container(
-      color: Colors.blue.shade50,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        children: [
-          const Icon(Icons.info_outline, size: 20, color: Colors.blue),
-          const SizedBox(width: 8),
-          const Expanded(
-            child: Text(
-              "Télécharger le modèle pour la reconnaissance d'écriture ?",
-              style: TextStyle(fontSize: 12),
+      extendBodyBehindAppBar: true,
+      body: MochiBackground(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              children: [
+                _buildFilterPanel(context, provider, settings, theme),
+                const SizedBox(height: 8),
+                Expanded(
+                  child: provider.isLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : _buildResultsList(provider, settings),
+                ),
+              ],
             ),
           ),
-          TextButton(
-            onPressed: () => provider.downloadModel(),
-            child: const Text("Télécharger"),
-          ),
-        ],
+        ),
       ),
     );
   }
 
-  Widget _buildFilterPanel(BuildContext context, DictionaryProvider provider) {
+  Widget _buildFilterPanel(
+    BuildContext context,
+    DictionaryProvider provider,
+    SettingsProvider settings,
+    ThemeData theme,
+  ) {
+    // Determine selected option label
+    final selectedOption = provider.levelOptions.firstWhere(
+      (opt) => opt.id == provider.selectedLevelId,
+      orElse: () => LevelFilterOption(id: "ALL", labelKey: "word_type_all"),
+    );
+    final displayLabel = settings.getString(selectedOption.labelKey);
+
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          )
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Text Search & Drawing Button
           Row(
             children: [
               Expanded(
@@ -120,114 +121,171 @@ class DictionaryView extends StatelessWidget {
                   ),
                   onChanged: provider.onSearchTextChange,
                   decoration: InputDecoration(
-                    hintText: provider.searchMode == SearchMode.reading
-                        ? "Lecture (romaji/kana)..."
-                        : "Sens (français)...",
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                    labelText: settings.getString("dictionary_search_hint_text"),
+                    border: const OutlineInputBorder(),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
-              GestureDetector(
-                onTap: () => _showDrawingBoard(context, provider),
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: provider.currentStrokes.isNotEmpty
-                        ? Colors.blue.shade100
-                        : Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    Icons.edit,
-                    color: provider.currentStrokes.isNotEmpty ? Colors.blue : Colors.black54,
-                  ),
+              const SizedBox(width: 8),
+              IconButton(
+                icon: Icon(Icons.edit, color: theme.colorScheme.primary),
+                onPressed: () => _showDrawingDialog(context, provider),
+                style: IconButton.styleFrom(
+                  minimumSize: const Size(64, 64),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 8),
+
+          // Search Mode Radio Buttons
           Row(
             children: [
-              _buildSearchModeChip(provider, SearchMode.reading, "Lecture"),
-              const SizedBox(width: 8),
-              _buildSearchModeChip(provider, SearchMode.meaning, "Sens"),
-              const Spacer(),
-              _buildLevelDropdown(provider),
+              Radio<SearchMode>(
+                value: SearchMode.reading,
+                groupValue: provider.searchMode,
+                onChanged: (val) => provider.setSearchMode(val!),
+              ),
+              GestureDetector(
+                onTap: () => provider.setSearchMode(SearchMode.reading),
+                child: Text(
+                  settings.getString("reading"),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Radio<SearchMode>(
+                value: SearchMode.meaning,
+                groupValue: provider.searchMode,
+                onChanged: (val) => provider.setSearchMode(val!),
+              ),
+              GestureDetector(
+                onTap: () => provider.setSearchMode(SearchMode.meaning),
+                child: Text(
+                  settings.getString("meaning"),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 8),
+
+          // Level Filter Dropdown (PopupMenuButton)
+          Row(
+            children: [
+              PopupMenuButton<String>(
+                onSelected: (val) => provider.setLevel(val),
+                itemBuilder: (context) => provider.levelOptions.map((opt) {
+                  return PopupMenuItem<String>(
+                    value: opt.id,
+                    child: Text(settings.getString(opt.labelKey)),
+                  );
+                }).toList(),
+                child: Container(
+                  width: 160,
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: theme.colorScheme.outline),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          displayLabel,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ),
+                      const Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+
+          // Stroke Count, Exact Match, Drawing Preview
           Row(
             children: [
               SizedBox(
                 width: 100,
                 child: TextField(
+                  controller: TextEditingController.fromValue(
+                    TextEditingValue(
+                      text: provider.strokeQuery,
+                      selection: TextSelection.collapsed(offset: provider.strokeQuery.length),
+                    ),
+                  ),
                   onChanged: provider.setStrokeQuery,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    labelText: "Traits",
-                    isDense: true,
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                    labelText: settings.getString("dictionary_search_hint_strokes"),
+                    border: const OutlineInputBorder(),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Checkbox(
+                value: provider.exactMatch,
+                onChanged: (val) => provider.setExactMatch(val ?? false),
+              ),
+              GestureDetector(
+                onTap: () => provider.setExactMatch(!provider.exactMatch),
+                child: Text(
+                  settings.getString("dictionary_match_exact"),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ),
               const Spacer(),
-              if (provider.currentStrokes.isNotEmpty)
-                TextButton.icon(
-                  onPressed: () => provider.clearDrawing(),
-                  icon: const Icon(Icons.clear, size: 16),
-                  label: const Text("Effacer dessin"),
+              if (provider.currentStrokes.isNotEmpty) ...[
+                GestureDetector(
+                  onTap: () => _showDrawingDialog(context, provider),
+                  child: DrawingThumbnail(strokes: provider.currentStrokes, size: 48),
                 ),
-              Text(
-                "${provider.results.length} résultats",
-                style: const TextStyle(fontSize: 12, color: Colors.grey, fontWeight: FontWeight.bold),
-              ),
+                IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => provider.clearDrawing(),
+                ),
+              ],
             ],
+          ),
+          const SizedBox(height: 8),
+
+          // Results Count
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              settings.getString(
+                "dictionary_results_count_format",
+                [provider.results.length],
+              ),
+              style: TextStyle(
+                fontSize: 12,
+                color: theme.colorScheme.onSurface,
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildSearchModeChip(DictionaryProvider provider, SearchMode mode, String label) {
-    final isSelected = provider.searchMode == mode;
-    return ChoiceChip(
-      label: Text(label, style: TextStyle(fontSize: 12, color: isSelected ? Colors.white : Colors.black)),
-      selected: isSelected,
-      onSelected: (_) => provider.setSearchMode(mode),
-      selectedColor: Colors.blue,
-      backgroundColor: Colors.grey.shade200,
-    );
-  }
-
-  Widget _buildLevelDropdown(DictionaryProvider provider) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-          value: provider.selectedLevelId,
-          style: const TextStyle(fontSize: 13, color: Colors.black),
-          items: ["ALL", "N5", "N4", "N3", "N2", "N1"]
-              .map((l) => DropdownMenuItem(value: l, child: Text(l)))
-              .toList(),
-          onChanged: (val) => provider.setLevel(val!),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildResultsList(DictionaryProvider provider) {
+  Widget _buildResultsList(DictionaryProvider provider, SettingsProvider settings) {
     if (provider.results.isEmpty) {
       return Center(
         child: Column(
@@ -235,108 +293,140 @@ class DictionaryView extends StatelessWidget {
           children: [
             Icon(Icons.search_off, size: 64, color: Colors.grey.shade300),
             const SizedBox(height: 16),
-            const Text("Aucun Kanji trouvé", style: TextStyle(color: Colors.grey)),
+            Text(
+              settings.getString("dictionary_no_results") != "dictionary_no_results"
+                  ? settings.getString("dictionary_no_results")
+                  : "Aucun Kanji trouvé",
+              style: const TextStyle(color: Colors.grey),
+            ),
           ],
         ),
       );
     }
     return ListView.builder(
-      padding: const EdgeInsets.all(12),
       itemCount: provider.results.length,
-      itemBuilder: (context, index) => DictionaryItemCard(item: provider.results[index]),
+      itemBuilder: (context, index) {
+        final item = provider.results[index];
+        return Column(
+          children: [
+            DictionaryItemRow(item: item),
+            Divider(color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.5)),
+          ],
+        );
+      },
     );
   }
 }
 
-class DictionaryItemCard extends StatelessWidget {
+class DictionaryItemRow extends StatelessWidget {
   final DictionaryItem item;
-  const DictionaryItemCard({super.key, required this.item});
+  const DictionaryItemRow({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
-    final onReadings = item.readings.where((r) => r.type == 'on').map((r) => r.text).join(", ");
-    final kunReadings = item.readings.where((r) => r.type == 'kun').map((r) => r.text).join(", ");
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
 
-    return Card(
-      elevation: 0,
-      margin: const EdgeInsets.only(bottom: 12),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey.shade200),
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => KanjiDetailScreen(kanjiId: item.id)));
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 60,
-                height: 60,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade50,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Text(
-                  item.character,
-                  style: const TextStyle(fontSize: 32, color: Colors.blue, fontWeight: FontWeight.bold),
+    final levelTextList = item.displayLabelKeys.map((key) => settings.getString(key));
+    final levelText = levelTextList.join(" • ");
+
+    final onReadings = item.readings.where((r) => r.type == "on").map((r) => _hiraganaToKatakana(r.text));
+    final kunReadings = item.readings.where((r) => r.type == "kun").map((r) => r.text);
+
+    final List<String> readingsParts = [];
+    if (onReadings.isNotEmpty) {
+      readingsParts.add("On: ${onReadings.join(', ')}");
+    }
+    if (kunReadings.isNotEmpty) {
+      readingsParts.add("Kun: ${kunReadings.join(', ')}");
+    }
+    final readingText = readingsParts.join("  ");
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => KanjiDetailScreen(kanjiId: item.id),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            // Kanji character block
+            Container(
+              width: 50,
+              alignment: Alignment.center,
+              child: Text(
+                item.character,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
                 ),
               ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (onReadings.isNotEmpty || kunReadings.isNotEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Text(
-                          onReadings.isNotEmpty ? "On: $onReadings" : "Kun: $kunReadings",
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                        ),
-                      ),
-                    Text(
-                      item.meanings.join(", "),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+            ),
+            const SizedBox(width: 16),
+            // Information column
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    readingText,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    item.meanings.join(", "),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: theme.colorScheme.onSurfaceVariant,
                     ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        ...item.displayLabelKeys.map((label) => Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: Colors.orange.shade50,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              label,
-                              style: const TextStyle(fontSize: 10, color: Colors.orange, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        )),
-                        const Spacer(),
-                        Text(
-                          "${item.strokeCount} traits",
-                          style: const TextStyle(fontSize: 11, color: Colors.grey),
-                        ),
-                      ],
+                  ),
+                  if (levelText.isNotEmpty) ...[
+                    const SizedBox(height: 4),
+                    Text(
+                      levelText,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: theme.colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              "${item.strokeCount} traits",
+              style: TextStyle(
+                fontSize: 12,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  String _hiraganaToKatakana(String s) {
+    return s.runes.map((r) {
+      if (r >= 0x3041 && r <= 0x3096) {
+        return r + 0x60;
+      }
+      return r;
+    }).map((r) => String.fromCharCode(r)).join();
   }
 }
