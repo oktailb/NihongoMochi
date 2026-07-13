@@ -252,78 +252,40 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
         children: [
           Row(
             children: [
-              _AnswerButton(index: 0, provider: provider),
+              _buildButton(0, provider),
               const SizedBox(width: 12),
-              _AnswerButton(index: 1, provider: provider),
+              _buildButton(1, provider),
             ],
           ),
           const SizedBox(height: 12),
           Row(
             children: [
-              _AnswerButton(index: 2, provider: provider),
+              _buildButton(2, provider),
               const SizedBox(width: 12),
-              _AnswerButton(index: 3, provider: provider),
+              _buildButton(3, provider),
             ],
           ),
         ],
       ),
     );
   }
-}
 
-class _AnswerButton extends StatelessWidget {
-  final int index;
-  final RecognitionQuizProvider provider;
-
-  const _AnswerButton({required this.index, required this.provider});
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildButton(int index, RecognitionQuizProvider provider) {
     final engine = provider.engine;
     if (index >= engine.currentAnswers.length) return const Expanded(child: SizedBox.shrink());
 
     final answer = engine.currentAnswers[index];
     final state = engine.buttonStates[index];
-    final theme = Theme.of(context);
-
-    Color bgColor = theme.colorScheme.primary;
-    Color textColor = theme.colorScheme.onPrimary;
-
-    if (state == AnswerButtonState.correct) {
-      bgColor = const Color(0xFF00E676); // Fluo Green A400
-      textColor = Colors.white;
-    } else if (state == AnswerButtonState.incorrect) {
-      bgColor = const Color(0xFFEF5350); // Red 400
-      textColor = Colors.white;
-    } else if (state == AnswerButtonState.neutral) {
-      bgColor = const Color(0xFF4FC3F7); // Light Blue 300
-      textColor = Colors.white;
-    }
 
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(4.0),
-        child: ElevatedButton(
-          onPressed: engine.state == GameState.waitingForAnswer
-              ? () => provider.submitAnswer(index)
-              : null,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: bgColor,
-            disabledBackgroundColor: bgColor,
-            foregroundColor: textColor,
-            disabledForegroundColor: textColor,
-            minimumSize: const Size(0, 120),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            elevation: 4,
-          ),
-          child: Text(
-            answer,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: _calculateButtonFontSize(answer, engine.currentDirection),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        child: GameAnswerButton(
+          text: answer,
+          state: state,
+          enabled: engine.state == GameState.waitingForAnswer,
+          fontSize: _calculateButtonFontSize(answer, engine.currentDirection),
+          onClick: () => provider.submitAnswer(index),
         ),
       ),
     );

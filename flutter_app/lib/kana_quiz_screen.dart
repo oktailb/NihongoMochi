@@ -113,20 +113,15 @@ class _KanaQuizViewState extends State<KanaQuizView> {
           children: [
             MochiBackground(
               child: SafeArea(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 500),
-                    child: Column(
-                      children: [
-                        _buildProgressBar(engine),
-                        const Spacer(),
-                        if (!isFinished) _buildQuestionArea(engine, settings, theme),
-                        const Spacer(),
-                        if (!isFinished) _buildAnswerArea(context, provider, engine, theme),
-                        const SizedBox(height: 40),
-                      ],
-                    ),
-                  ),
+                child: Column(
+                  children: [
+                    _buildProgressBar(engine),
+                    const Spacer(),
+                    if (!isFinished) _buildQuestionArea(engine, settings, theme),
+                    const Spacer(),
+                    if (!isFinished) _buildAnswerArea(context, provider, engine, theme),
+                    const SizedBox(height: 40),
+                  ],
                 ),
               ),
             ),
@@ -163,11 +158,8 @@ class _KanaQuizViewState extends State<KanaQuizView> {
       }
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      child: GameProgressBar(
-        statuses: progressStatuses,
-      ),
+    return GameProgressBar(
+      statuses: progressStatuses,
     );
   }
 
@@ -211,54 +203,45 @@ class _KanaQuizViewState extends State<KanaQuizView> {
   Widget _buildAnswerArea(BuildContext context, KanaQuizProvider provider, dynamic engine, ThemeData theme) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          childAspectRatio: 2.5,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              _buildButton(0, provider),
+              const SizedBox(width: 12),
+              _buildButton(1, provider),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              _buildButton(2, provider),
+              const SizedBox(width: 12),
+              _buildButton(3, provider),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildButton(int index, KanaQuizProvider provider) {
+    final engine = provider.engine;
+    if (index >= engine.currentAnswers.length) return const Expanded(child: SizedBox.shrink());
+
+    final answer = engine.currentAnswers[index];
+    final state = engine.buttonStates[index];
+
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: GameAnswerButton(
+          text: answer,
+          state: state,
+          enabled: engine.state == GameState.waitingForAnswer,
+          fontSize: 24.0,
+          onClick: () => provider.submitAnswer(index),
         ),
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          if (index >= engine.currentAnswers.length) return const SizedBox.shrink();
-
-          final answer = engine.currentAnswers[index];
-          final state = engine.buttonStates[index];
-
-          Color bgColor = theme.colorScheme.primary;
-          Color textColor = theme.colorScheme.onPrimary;
-
-          if (state == AnswerButtonState.correct) {
-            bgColor = const Color(0xFF00E676);
-            textColor = Colors.white;
-          } else if (state == AnswerButtonState.incorrect) {
-            bgColor = const Color(0xFFEF5350);
-            textColor = Colors.white;
-          } else if (state == AnswerButtonState.neutral) {
-            bgColor = const Color(0xFF4FC3F7);
-            textColor = Colors.white;
-          }
-
-          return ElevatedButton(
-            onPressed: engine.state == GameState.waitingForAnswer
-                ? () => provider.submitAnswer(index)
-                : null,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: bgColor,
-              disabledBackgroundColor: bgColor,
-              foregroundColor: textColor,
-              disabledForegroundColor: textColor,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              elevation: 4,
-            ),
-            child: Text(
-              answer,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          );
-        },
       ),
     );
   }

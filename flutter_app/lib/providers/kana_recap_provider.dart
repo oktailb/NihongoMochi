@@ -19,7 +19,6 @@ class KanaRecapProvider extends ChangeNotifier {
   Map<String, Color> _kanaColors = {};
   int _currentPage = 0;
   int _totalPages = 0;
-  final int _pageSize = 8; // Number of lines per page
 
   bool get isLoading => _isLoading;
   KanaType? get currentType => _currentType;
@@ -44,7 +43,7 @@ class KanaRecapProvider extends ChangeNotifier {
     
     _charactersByLine = grouped;
     _allLineKeys = grouped.keys.toList()..sort();
-    _totalPages = (_allLineKeys.length / _pageSize).ceil();
+    _totalPages = 3; // 3 pages distinctes: Gojuon, Dakuon/Handakuon, Yoon
     _currentPage = 0;
 
     await _refreshScores();
@@ -75,9 +74,16 @@ class KanaRecapProvider extends ChangeNotifier {
   }
 
   void _updateLinesToShow() {
-    final start = _currentPage * _pageSize;
-    final end = (start + _pageSize).clamp(0, _allLineKeys.length);
-    _linesToShow = _allLineKeys.sublist(start, end);
+    if (_currentPage == 0) {
+      // Tableau classique (Gojuon): lignes 1 à 11
+      _linesToShow = _allLineKeys.where((line) => line <= 11).toList();
+    } else if (_currentPage == 1) {
+      // Avec dakuten et handakuten: lignes 12 à 16
+      _linesToShow = _allLineKeys.where((line) => line >= 12 && line <= 16).toList();
+    } else {
+      // Les diphtongues (Yoon): lignes 17 à 27
+      _linesToShow = _allLineKeys.where((line) => line >= 17).toList();
+    }
   }
 
   void nextPage() {

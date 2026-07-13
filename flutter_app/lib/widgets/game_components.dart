@@ -465,3 +465,67 @@ class GameResultOverlay extends StatelessWidget {
     );
   }
 }
+
+class GameAnswerButton extends StatelessWidget {
+  final String text;
+  final AnswerButtonState state;
+  final bool enabled;
+  final double fontSize;
+  final VoidCallback onClick;
+
+  const GameAnswerButton({
+    super.key,
+    required this.text,
+    required this.state,
+    required this.enabled,
+    required this.fontSize,
+    required this.onClick,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    
+    Color backgroundColor = theme.colorScheme.primary;
+    Color contentColor = theme.colorScheme.onPrimary;
+
+    switch (state) {
+      case AnswerButtonState.correct:
+        backgroundColor = const Color(0xFF00E676); // Fluo Green A400
+        contentColor = Colors.white;
+        break;
+      case AnswerButtonState.incorrect:
+        backgroundColor = const Color(0xFFEF5350); // Red 400
+        contentColor = Colors.white;
+        break;
+      case AnswerButtonState.neutral:
+        backgroundColor = const Color(0xFF4FC3F7); // Light Blue 300
+        contentColor = Colors.white;
+        break;
+      default:
+        backgroundColor = theme.colorScheme.primary;
+        contentColor = theme.colorScheme.onPrimary;
+    }
+
+    return ElevatedButton(
+      onPressed: enabled ? onClick : null,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        disabledBackgroundColor: backgroundColor,
+        foregroundColor: contentColor,
+        disabledForegroundColor: contentColor,
+        minimumSize: const Size(0, 120),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        elevation: 4,
+      ),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: fontSize,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}

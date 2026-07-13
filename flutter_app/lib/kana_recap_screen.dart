@@ -7,7 +7,7 @@ import 'repositories/score_repository.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
 import 'kana_quiz_screen.dart';
-
+import 'providers/settings_provider.dart';
 
 class KanaRecapScreen extends StatelessWidget {
   final KanaType type;
@@ -36,61 +36,83 @@ class KanaRecapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<KanaRecapProvider>();
+    final settings = context.watch<SettingsProvider>();
     final theme = Theme.of(context);
     
     final title = provider.currentType == KanaType.hiragana ? "Hiragana" : "Katakana";
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(color: theme.colorScheme.onBackground),
-        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
         child: SafeArea(
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 500),
-              child: provider.isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Expanded(
+          child: provider.isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      Text(
+                        settings.getString("game_recap_title").toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSurfaceVariant,
+                          letterSpacing: 1.5,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSurface,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 500),
                             child: _buildGojuonGrid(provider),
                           ),
-                          const SizedBox(height: 16),
-                          PaginationControls(
-                            currentPage: provider.currentPage,
-                            totalPages: provider.totalPages,
-                            onPrevClick: provider.prevPage,
-                            onNextClick: provider.nextPage,
-                          ),
-                          const SizedBox(height: 16),
-                          PlayButton(
-                            onClick: () {
-                              final type = provider.currentType ?? KanaType.hiragana;
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => KanaQuizScreen(type: type),
-                                ),
-                              ).then((_) {
-                                provider.refreshScoresOnly();
-                              });
-                            },
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-            ),
-          ),
+                      const SizedBox(height: 16),
+                      PaginationControls(
+                        currentPage: provider.currentPage,
+                        totalPages: provider.totalPages,
+                        onPrevClick: provider.prevPage,
+                        onNextClick: provider.nextPage,
+                      ),
+                      const SizedBox(height: 16),
+                      PlayButton(
+                        onClick: () {
+                          final type = provider.currentType ?? KanaType.hiragana;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => KanaQuizScreen(type: type),
+                            ),
+                          ).then((_) {
+                            provider.refreshScoresOnly();
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
         ),
       ),
     );
@@ -130,4 +152,3 @@ class KanaRecapView extends StatelessWidget {
     );
   }
 }
-
