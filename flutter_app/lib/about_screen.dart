@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'widgets/mochi_background.dart';
+import 'providers/settings_provider.dart';
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
@@ -30,6 +32,7 @@ class _AboutScreenState extends State<AboutScreen> {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       if (mounted) {
+        final settings = context.read<SettingsProvider>();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Impossible d\'ouvrir : $url')),
         );
@@ -39,11 +42,18 @@ class _AboutScreenState extends State<AboutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("À propos"),
+        title: Text(
+          settings.getString("menu_about"),
+          style: TextStyle(color: theme.colorScheme.onBackground),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -56,12 +66,12 @@ class _AboutScreenState extends State<AboutScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       "Nihongo\nMochi",
                       style: TextStyle(
                         fontSize: 34,
                         fontWeight: FontWeight.bold,
-                        color: Colors.pink,
+                        color: theme.colorScheme.primary,
                       ),
                     ),
                     Image.asset('assets/drawable/nihongomochi.webp', width: 96),
@@ -69,11 +79,12 @@ class _AboutScreenState extends State<AboutScreen> {
                 ),
                 const SizedBox(height: 24),
                 _buildSectionCard(
-                  title: "Informations",
+                  context,
+                  title: settings.getString("about_category_informations"),
                   icon: Icons.info_outline,
                   children: [
-                    _buildInfoRow("Version", _version),
-                    _buildInfoRow("Date", "2024"),
+                    _buildInfoRow(context, settings.getString("about_version_label"), _version),
+                    _buildInfoRow(context, settings.getString("about_date_label"), "2024"),
                     const SizedBox(height: 16),
                     Row(
                       children: [
@@ -82,33 +93,50 @@ class _AboutScreenState extends State<AboutScreen> {
                           child: Image.asset('assets/drawable/ebi.webp', width: 48, height: 48, errorBuilder: (_, __, ___) => const Icon(Icons.pets, size: 48)),
                         ),
                         const SizedBox(width: 12),
-                        const Expanded(
+                        Expanded(
                           child: Text(
-                            "In memoriam Ebi, mon toutounet adoré.",
-                            style: TextStyle(fontSize: 12, color: Colors.black54, fontStyle: FontStyle.italic),
+                            settings.getString("in_memoriam"),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: theme.colorScheme.onSurface.withOpacity(0.7),
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 16),
-                    _buildFullWidthButton("Signaler un bug", Icons.bug_report, () => _launchUrl("https://github.com/oktailb/NihongoMochi/issues")),
-                    _buildFullWidthButton("Noter l'application", Icons.star, () {}),
-                    _buildFullWidthButton("Licences Open Source", Icons.description, () => showLicensePage(context: context)),
+                    _buildFullWidthButton(context, settings.getString("about_issue_tracker"), Icons.bug_report, () => _launchUrl("https://github.com/oktailb/NihongoMochi/issues")),
+                    _buildFullWidthButton(context, settings.getString("about_rate_app"), Icons.star, () {}),
+                    _buildFullWidthButton(context, "Open Source Licenses", Icons.description, () => showLicensePage(context: context)),
                   ],
                 ),
                 const SizedBox(height: 16),
                 _buildSectionCard(
-                  title: "Crédits",
+                  context,
+                  title: settings.getString("about_category_credits"),
                   icon: Icons.people_outline,
                   children: [
-                    const Text("Design & Développement", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pink)),
-                    const Text("LECOQ Vincent"),
+                    Text(
+                      settings.getString("about_design_dev"),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
+                    ),
+                    Text(
+                      settings.getString("about_author_name"),
+                      style: TextStyle(color: theme.colorScheme.onSurface),
+                    ),
                     const SizedBox(height: 16),
-                    _buildFullWidthButton("Soutenir sur Patreon", Icons.favorite, () => _launchUrl("https://www.patreon.com/nihongomochi")),
-                    _buildFullWidthButton("Soutenir sur Tipeee", Icons.volunteer_activism, () => _launchUrl("https://fr.tipeee.com/nihongomochi")),
+                    _buildFullWidthButton(context, settings.getString("about_patreon"), Icons.favorite, () => _launchUrl("https://www.patreon.com/nihongomochi")),
+                    _buildFullWidthButton(context, settings.getString("about_tipeee"), Icons.volunteer_activism, () => _launchUrl("https://fr.tipeee.com/nihongomochi")),
                     const SizedBox(height: 16),
-                    const Text("Conseils pédagogiques", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.pink)),
-                    const Text("À venir..."),
+                    Text(
+                      settings.getString("about_pedagogical"),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
+                    ),
+                    Text(
+                      settings.getString("about_coming_soon"),
+                      style: TextStyle(color: theme.colorScheme.onSurface),
+                    ),
                   ],
                 ),
               ],
@@ -119,10 +147,11 @@ class _AboutScreenState extends State<AboutScreen> {
     );
   }
 
-  Widget _buildSectionCard({required String title, required IconData icon, required List<Widget> children}) {
+  Widget _buildSectionCard(BuildContext context, {required String title, required IconData icon, required List<Widget> children}) {
+    final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white.withOpacity(0.9),
+      color: theme.colorScheme.surface.withOpacity(0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -132,8 +161,11 @@ class _AboutScreenState extends State<AboutScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                Icon(icon, color: Colors.pink),
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+                ),
+                Icon(icon, color: theme.colorScheme.primary),
               ],
             ),
             const SizedBox(height: 16),
@@ -144,20 +176,28 @@ class _AboutScreenState extends State<AboutScreen> {
     );
   }
 
-  Widget _buildInfoRow(String label, String value) {
+  Widget _buildInfoRow(BuildContext context, String label, String value) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Row(
         children: [
-          Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(
+            label,
+            style: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+          ),
           const SizedBox(width: 16),
-          Text(value),
+          Text(
+            value,
+            style: TextStyle(color: theme.colorScheme.onSurface),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildFullWidthButton(String text, IconData icon, VoidCallback onTap) {
+  Widget _buildFullWidthButton(BuildContext context, String text, IconData icon, VoidCallback onTap) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: ElevatedButton.icon(
@@ -166,9 +206,10 @@ class _AboutScreenState extends State<AboutScreen> {
         label: Text(text),
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(double.infinity, 45),
-          backgroundColor: Colors.pink,
-          foregroundColor: Colors.white,
+          backgroundColor: theme.colorScheme.primary,
+          foregroundColor: theme.colorScheme.onPrimary,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          elevation: 4,
         ),
       ),
     );
