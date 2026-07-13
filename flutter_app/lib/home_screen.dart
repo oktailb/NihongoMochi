@@ -3,12 +3,10 @@ import 'package:provider/provider.dart';
 import 'repositories/level_repository.dart';
 import 'repositories/settings_repository.dart';
 import 'repositories/score_repository.dart';
-import 'services/string_provider.dart';
 import 'services/language_pack_manager.dart';
 import 'models/level.dart';
 import 'dictionary_screen.dart';
 import 'grammar_screen.dart';
-import 'kana_screen.dart';
 import 'kana_recap_screen.dart';
 import 'game_recap_screen.dart';
 import 'word_list_screen.dart';
@@ -242,7 +240,10 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => GrammarScreen(maxLevelId: filteredLevels[displayIndex].id),
+        builder: (context) => GrammarScreen(
+          maxLevelId: filteredLevels[displayIndex].id,
+          block: block,
+        ),
       ),
     );
   }

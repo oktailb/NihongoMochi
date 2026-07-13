@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/grammar.dart';
 import '../repositories/grammar_repository.dart';
@@ -47,18 +46,21 @@ class GrammarProvider extends ChangeNotifier {
   double _totalLayoutSlots = 1.0;
   bool _isLoading = true;
   String _currentLevelId = "N5";
+  String _currentBlock = "rules";
 
   List<GrammarNode> get nodes => _nodes;
   List<GrammarLevelSeparator> get separators => _separators;
   double get totalLayoutSlots => _totalLayoutSlots;
   bool get isLoading => _isLoading;
   String get currentLevelId => _currentLevelId;
+  String get currentBlock => _currentBlock;
 
   GrammarProvider(this._repository, this._scoreRepo);
 
-  Future<void> loadGraph(String maxLevelId) async {
+  Future<void> loadGraph(String maxLevelId, [String block = "rules"]) async {
     _isLoading = true;
     _currentLevelId = maxLevelId;
+    _currentBlock = block;
     notifyListeners();
 
     await _refreshGraph();
@@ -69,11 +71,28 @@ class GrammarProvider extends ChangeNotifier {
 
   Future<void> _refreshGraph() async {
     final def = await _repository.loadGrammarDefinition();
-    final allLevels = def.metadata.levels;
-    final targetIndex = allLevels.indexOf(_currentLevelId.toLowerCase());
-    final levelsToShow = allLevels.take(targetIndex != -1 ? targetIndex + 1 : allLevels.length).toList();
+    
+    final isRevisionMode = _currentLevelId == "user_custom_list";
+    List<GrammarRule> rules;
+    List<String> levelsToShow;
 
-    final rules = await _repository.getRulesByBlock('rules', _currentLevelId);
+    if (isRevisionMode) {
+      final scores = await _scoreRepo.getAllScores(ScoreType.grammar);
+      final List<GrammarRule> revisionRules = [];
+      for (var score in scores) {
+        final rule = await _repository.getRuleById(score.key);
+        if (rule != null) {
+          revisionRules.add(rule);
+        }
+      }
+      rules = revisionRules;
+      levelsToShow = ["user_custom_list"];
+    } else {
+      final allLevels = def.metadata.levels;
+      final targetIndex = allLevels.indexOf(_currentLevelId.toLowerCase());
+      levelsToShow = allLevels.take(targetIndex != -1 ? targetIndex + 1 : allLevels.length).toList();
+      rules = await _repository.getRulesByBlock(_currentBlock, _currentLevelId);
+    }
 
     // Algorithme de layout (porté depuis Kotlin)
     const slotHeightPerNode = 1.0;
@@ -85,8 +104,12 @@ class GrammarProvider extends ChangeNotifier {
 
     int getDepth(String ruleId) {
       if (depthCache.containsKey(ruleId)) return depthCache[ruleId]!;
+      
       final rule = rulesMap[ruleId];
       if (rule == null) return 0;
+
+      // Variable sentinelle pour éviter les récursions infinies (Stack Overflow)
+      depthCache[ruleId] = -1;
 
       int maxDepDepth = -1;
       for (var depId in rule.dependencies) {
@@ -103,9 +126,13 @@ class GrammarProvider extends ChangeNotifier {
     }
 
     final rulesByLevel = <String, List<GrammarRule>>{};
-    for (var r in rules) {
-      final level = r.level.toLowerCase();
-      rulesByLevel.putIfAbsent(level, () => []).add(r);
+    if (isRevisionMode) {
+      rulesByLevel["user_custom_list"] = rules;
+    } else {
+      for (var r in rules) {
+        final level = r.level.toLowerCase();
+        rulesByLevel.putIfAbsent(level, () => []).add(r);
+      }
     }
 
     double currentSlot = initialTopPadding;

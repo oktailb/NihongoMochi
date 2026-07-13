@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'providers/grammar_provider.dart';
+import 'providers/settings_provider.dart';
 import 'repositories/grammar_repository.dart';
 import 'repositories/score_repository.dart';
 import 'widgets/grammar_painter.dart';
 import 'widgets/grammar_node_item.dart';
 
+import 'widgets/mochi_background.dart';
+import 'grammar_quiz_screen.dart';
+
 class GrammarScreen extends StatelessWidget {
   final String maxLevelId;
+  final String block;
 
-  const GrammarScreen({super.key, required this.maxLevelId});
+  const GrammarScreen({
+    super.key,
+    required this.maxLevelId,
+    this.block = "rules",
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,7 @@ class GrammarScreen extends StatelessWidget {
           context.read<GrammarRepository>(),
           context.read<ScoreRepository>(),
         );
-        provider.loadGraph(maxLevelId);
+        provider.loadGraph(maxLevelId, block);
         return provider;
       },
       child: const GrammarView(),
@@ -74,14 +83,16 @@ class _GrammarViewState extends State<GrammarView> {
   }
 
   void _showLesson(BuildContext context, GrammarNode node) async {
-    final provider = context.read<GrammarProvider>();
     final repo = context.read<GrammarRepository>();
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.read<SettingsProvider>();
+    final isDark = settings.isDarkMode;
 
     final css = await repo.loadCss(isDark);
     final htmlContent = await repo.loadLessonHtml(node.rule.id, "fr"); // TODO: i18n locale
 
     if (!context.mounted) return;
+
+    final formattedHtml = _applyCommonStyle(htmlContent, css);
 
     showModalBottomSheet(
       context: context,
@@ -108,7 +119,7 @@ class _GrammarViewState extends State<GrammarView> {
                 children: [
                   Expanded(
                     child: Text(
-                      node.rule.description,
+                      settings.getString(node.rule.description),
                       style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -123,7 +134,7 @@ class _GrammarViewState extends State<GrammarView> {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: HtmlWidget(
-                  "<style>$css</style>$htmlContent",
+                  formattedHtml,
                   textStyle: TextStyle(color: isDark ? Colors.white : Colors.black87),
                 ),
               ),
@@ -132,6 +143,25 @@ class _GrammarViewState extends State<GrammarView> {
         ),
       ),
     );
+  }
+
+  String _applyCommonStyle(String htmlContent, String cssContent) {
+    // Transform `text` to <strong>text</strong>
+    var processedHtml = htmlContent.replaceAllMapped(
+      RegExp(r'`([^`]+)`'),
+      (match) => '<strong>${match.group(1)}</strong>',
+    );
+    processedHtml = processedHtml.replaceAll('«', '<strong>«');
+    processedHtml = processedHtml.replaceAll('»', '»</strong>');
+
+    final styleTag = '<style>\n$cssContent\n</style>';
+    if (processedHtml.contains('</head>')) {
+      return processedHtml.replaceAll('</head>', '$styleTag</head>');
+    } else if (processedHtml.contains('<body>')) {
+      return processedHtml.replaceAll('<body>', '<body>$styleTag');
+    } else {
+      return '$styleTag$processedHtml';
+    }
   }
 
   @override
@@ -160,14 +190,8 @@ class _GrammarViewState extends State<GrammarView> {
     }
 
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFFDFCFB), Color(0xFFE2D1C3)],
-          ),
-        ),
+      backgroundColor: Colors.transparent,
+      body: MochiBackground(
         child: Stack(
           children: [
             SingleChildScrollView(
@@ -177,20 +201,15 @@ class _GrammarViewState extends State<GrammarView> {
                 height: canvasHeight,
                 child: Stack(
                   children: [
-                    // 1. Stone Path (Repeated Background)
                     Positioned.fill(
                       child: Align(
                         alignment: Alignment.topCenter,
                         child: SizedBox(
                           width: 48,
-                          child: ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) => Image.asset(
-                              'assets/drawable/stonepath.webp',
-                              fit: BoxFit.fitWidth,
-                              opacity: const AlwaysStoppedAnimation(0.9),
-                            ),
+                          child: Image.asset(
+                            'assets/drawable/stonepath.webp',
+                            repeat: ImageRepeat.repeatY,
+                            opacity: const AlwaysStoppedAnimation(0.9),
                           ),
                         ),
                       ),
@@ -212,7 +231,16 @@ class _GrammarViewState extends State<GrammarView> {
                       child: Column(
                         children: [
                           ElevatedButton.icon(
-                            onPressed: () { /* TODO: Start Exam */ },
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GrammarQuizScreen(grammarTags: sep.ruleIds),
+                                ),
+                              ).then((_) {
+                                provider.loadGraph(provider.currentLevelId, provider.currentBlock);
+                              });
+                            },
                             icon: const Icon(Icons.assignment, size: 18),
                             label: const Text("Passer l'examen"),
                             style: ElevatedButton.styleFrom(
@@ -244,14 +272,22 @@ class _GrammarViewState extends State<GrammarView> {
                         ],
                       ),
                     )),
-                    // 4. Grammar Nodes
                     ...provider.nodes.map((node) => Positioned(
-                      left: (node.x * canvasWidth) - 55,
+                      left: (node.x * canvasWidth) - 82,
                       top: (node.y * canvasHeight) - 67,
                       child: GrammarNodeItem(
                         node: node,
                         isLeft: node.x < 0.5,
-                        onNodeClick: () { /* TODO: Start Quiz */ },
+                        onNodeClick: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GrammarQuizScreen(grammarTags: [node.rule.id]),
+                            ),
+                          ).then((_) {
+                            provider.loadGraph(provider.currentLevelId, provider.currentBlock);
+                          });
+                        },
                         onLessonClick: () => _showLesson(context, node),
                       ),
                     )),

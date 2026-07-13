@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../providers/grammar_provider.dart';
+import '../providers/settings_provider.dart';
+import '../models/quiz_models.dart';
+import '../utils/score_presentation_utils.dart';
 
 class GrammarNodeItem extends StatelessWidget {
   final GrammarNode node;
@@ -17,21 +21,34 @@ class GrammarNodeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Calcul de la couleur en fonction du score (similaire à ScorePresentationUtils.getScoreColor)
-    final Color backgroundColor = _getScoreColor(node.score);
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.watch<SettingsProvider>();
+    final isDark = settings.isDarkMode;
 
-    return GestureDetector(
-      onTap: onNodeClick,
-      child: SizedBox(
-        width: 110,
-        height: 134,
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            // Card Background Image
-            Positioned.fill(
-              bottom: 64,
+    // Calcul de la couleur de fond en fonction du score
+    final scoreObj = LearningScore(
+      successes: node.successes,
+      failures: node.failures,
+    );
+    final Color baseColor = isDark ? Colors.grey.shade800 : Colors.white;
+    final Color backgroundColor = ScorePresentationUtils.getScoreColor(scoreObj, baseColor);
+
+    final String cardBg = isDark ? 'assets/drawable/card_bg_dark.webp' : 'assets/drawable/card_bg_light.webp';
+    final String description = settings.getString(node.rule.description);
+
+    return SizedBox(
+      width: 164,
+      height: 134,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          // 1. Zone cliquable pour le quiz (la carte centrée)
+          Positioned(
+            left: 27,
+            width: 110,
+            top: 0,
+            bottom: 64,
+            child: GestureDetector(
+              onTap: onNodeClick,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -43,9 +60,7 @@ class GrammarNodeItem extends StatelessWidget {
                     ),
                   ],
                   image: DecorationImage(
-                    image: AssetImage(
-                      isDark ? 'assets/drawable/card_bg_dark.webp' : 'assets/drawable/card_bg_light.webp',
-                    ),
+                    image: AssetImage(cardBg),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -57,7 +72,7 @@ class GrammarNodeItem extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   alignment: Alignment.center,
                   child: Text(
-                    node.rule.description,
+                    description,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
@@ -70,40 +85,36 @@ class GrammarNodeItem extends StatelessWidget {
                 ),
               ),
             ),
-            // Lesson Icon
-            if (node.hasLesson)
-              Positioned(
-                left: isLeft ? -25 : 105,
-                top: 35,
-                child: GestureDetector(
-                  onTap: onLessonClick,
-                  child: Container(
+          ),
+          // 2. Zone cliquable pour la leçon (icône suspendue)
+          if (node.hasLesson)
+            Positioned(
+              left: isLeft ? 2 : 132,
+              top: 35,
+              child: GestureDetector(
+                onTap: onLessonClick,
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: SizedBox(
                     width: 32,
-                    height: 32,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
+                    child: Image.asset(
+                      'assets/drawable/have_lesson.webp',
+                      fit: BoxFit.fitWidth,
                     ),
-                    child: Image.asset('assets/drawable/have_lesson.webp'),
                   ),
                 ),
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
-  }
-
-  Color _getScoreColor(int score) {
-    if (score <= -5) return Colors.red;
-    if (score < 0) return Colors.orange;
-    if (score == 0) return Colors.transparent;
-    if (score < 5) return Colors.lightGreen;
-    return Colors.green;
   }
 }
