@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import '../repositories/settings_repository.dart';
 import '../services/string_provider.dart';
+import '../services/tts_service.dart';
 
 class SettingsProvider extends ChangeNotifier {
   final SettingsRepository _repository;
+  final TtsService _ttsService;
   final StringProvider stringProvider = StringProvider();
 
-  SettingsProvider(this._repository) {
+  SettingsProvider(this._repository, this._ttsService) {
     _loadSettings();
   }
 
@@ -19,6 +21,7 @@ class SettingsProvider extends ChangeNotifier {
   String _currentMode = "JLPT";
   bool _addWrongAnswers = true;
   bool _removeGoodAnswers = true;
+  String? _selectedVoiceId;
 
   bool get isDarkMode => _isDarkMode;
   String get currentLocaleCode => _currentLocaleCode;
@@ -29,6 +32,8 @@ class SettingsProvider extends ChangeNotifier {
   String get currentMode => _currentMode;
   bool get addWrongAnswers => _addWrongAnswers;
   bool get removeGoodAnswers => _removeGoodAnswers;
+  String? get selectedVoiceId => _selectedVoiceId;
+  List<String> get availableVoices => _ttsService.availableVoices;
 
   String getString(String key, [List<dynamic>? args]) => stringProvider.getString(key, args);
 
@@ -47,11 +52,17 @@ class SettingsProvider extends ChangeNotifier {
     _currentMode = _repository.getMode();
     _addWrongAnswers = _repository.shouldAddWrongAnswers();
     _removeGoodAnswers = _repository.shouldRemoveGoodAnswers();
+    _selectedVoiceId = _repository.getTtsVoiceId();
     
     _loadStringsForLocale(_currentLocaleCode).then((_) {
       notifyListeners();
     });
+
+    _ttsService.init().then((_) {
+      notifyListeners();
+    });
   }
+
 
   Future<void> toggleTheme(bool isDark) async {
     _isDarkMode = isDark;
@@ -107,4 +118,15 @@ class SettingsProvider extends ChangeNotifier {
     await _repository.setRemoveGoodAnswers(value);
     notifyListeners();
   }
+
+  Future<void> updateTtsVoiceId(String? value) async {
+    _selectedVoiceId = value;
+    await _repository.setTtsVoiceId(value);
+    notifyListeners();
+  }
+
+  Future<void> testSpeak() async {
+    await _ttsService.testSpeak();
+  }
 }
+

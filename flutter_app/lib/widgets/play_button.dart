@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/settings_provider.dart';
 
 class PlayButton extends StatelessWidget {
   final VoidCallback onClick;
@@ -12,11 +14,15 @@ class PlayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
+    final resolvedLabel = label == "JOUER" ? settings.getString("game_recap_play").toUpperCase() : label;
+
     return ElevatedButton(
       onPressed: onClick,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.pink,
-        foregroundColor: Colors.white,
+        backgroundColor: theme.colorScheme.primary,
+        foregroundColor: theme.colorScheme.onPrimary,
         padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
@@ -24,7 +30,7 @@ class PlayButton extends StatelessWidget {
         elevation: 8,
       ),
       child: Text(
-        label,
+        resolvedLabel,
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,

@@ -37,4 +37,48 @@ class LevelRepository {
 
     return allLevels;
   }
+
+  List<LevelDefinition> getLevelsForModeCached(String mode) {
+    final defs = _definitions;
+    if (defs == null) return [];
+
+    String? sectionKey;
+    for (var entry in defs.sections.entries) {
+      if (entry.value.name.toLowerCase() == 'section_${mode.toLowerCase()}' ||
+          entry.key.toLowerCase() == mode.toLowerCase()) {
+        sectionKey = entry.key;
+        break;
+      }
+    }
+    sectionKey ??= 'jlpt';
+
+    final targetSection = defs.sections[sectionKey];
+    final List<LevelDefinition> levels = [];
+    
+    if (targetSection != null) {
+      // Find sections that have prerequisiteFor containing targetSection key
+      final prerequisites = defs.sections.entries
+          .where((e) => e.value.prerequisiteFor.contains(sectionKey))
+          .expand((e) => e.value.levels)
+          .toList();
+      levels.addAll(prerequisites);
+      levels.addAll(targetSection.levels);
+    }
+
+    // Add revision level
+    levels.add(LevelDefinition(
+      id: 'user_custom_list',
+      name: 'Revisions',
+      description: 'Vos révisions personnalisées',
+      activities: {
+        'RECOGNITION': ActivityConfig(dataFile: 'user_custom_list', enabled: true),
+        'READING': ActivityConfig(dataFile: 'user_custom_list', enabled: true),
+        'WRITING': ActivityConfig(dataFile: 'user_custom_list', enabled: true),
+        'GRAMMAR': ActivityConfig(dataFile: 'user_custom_list', enabled: true),
+      },
+    ));
+
+    return levels;
+  }
 }
+

@@ -29,6 +29,7 @@ import 'package:nihongo_mochi_flutter/services/level_content_provider.dart';
 import 'package:nihongo_mochi_flutter/services/statistics_service.dart';
 import 'package:nihongo_mochi_flutter/services/language_pack_manager.dart';
 import 'package:nihongo_mochi_flutter/services/resource_loader.dart';
+import 'package:nihongo_mochi_flutter/services/tts_service.dart';
 import 'package:nihongo_mochi_flutter/home_screen.dart';
 import 'package:nihongo_mochi_flutter/theme/mochi_theme.dart';
 
@@ -53,6 +54,9 @@ void main() async {
 
         // Repositories (Singletons)
         Provider<SettingsRepository>(create: (_) => SettingsRepository(prefs)),
+        ProxyProvider<SettingsRepository, TtsService>(
+          update: (_, settings, previous) => previous ?? (TtsService(settings)..init()),
+        ),
         ProxyProvider<SettingsRepository, ScoreRepository>(
           update: (_, settings, __) => ScoreRepository(database, settings),
         ),
@@ -99,7 +103,10 @@ void main() async {
 
         // Global Providers (State)
         ChangeNotifierProvider(
-          create: (context) => SettingsProvider(context.read<SettingsRepository>()),
+          create: (context) => SettingsProvider(
+            context.read<SettingsRepository>(),
+            context.read<TtsService>(),
+          ),
         ),
         ChangeNotifierProxyProvider2<LevelRepository, StatisticsService, SagaProvider>(
           create: (context) => SagaProvider(context.read<LevelRepository>(), context.read<StatisticsService>()),

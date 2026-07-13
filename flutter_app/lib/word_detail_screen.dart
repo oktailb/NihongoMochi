@@ -5,10 +5,12 @@ import 'repositories/word_repository.dart';
 import 'repositories/dictionary_repository.dart';
 import 'repositories/word_meaning_repository.dart';
 import 'repositories/score_repository.dart';
+import 'repositories/settings_repository.dart';
 import 'dictionary_screen.dart'; // Pour DictionaryItemCard
 import 'models/dictionary.dart';
 import 'kanji_detail_screen.dart';
 import 'providers/settings_provider.dart';
+import 'widgets/mochi_background.dart';
 
 class WordDetailScreen extends StatelessWidget {
   final String wordText;
@@ -24,6 +26,7 @@ class WordDetailScreen extends StatelessWidget {
           context.read<DictionaryRepository>(),
           context.read<WordMeaningRepository>(),
           context.read<ScoreRepository>(),
+          context.read<SettingsRepository>(),
         );
         final locale = context.read<SettingsProvider>().currentLocaleCode;
         provider.loadWord(wordText, locale);
@@ -40,55 +43,53 @@ class WordDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<WordDetailProvider>();
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFFDFCFB), Color(0xFFE2D1C3)],
-          ),
-        ),
-        child: provider.isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : provider.word == null
-                ? const Center(child: Text("Mot non trouvé"))
-                : SingleChildScrollView(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        _buildWordCard(context, provider),
-                        const SizedBox(height: 24),
-                        if (provider.meaning != null) ...[
-                          _buildSectionHeader("SIGNIFICATION"),
-                          _buildMeaningBox(provider.meaning!),
+      body: MochiBackground(
+        child: SafeArea(
+          child: provider.isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : provider.word == null
+                  ? const Center(child: Text("Mot non trouvé"))
+                  : SingleChildScrollView(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          _buildWordCard(context, provider),
                           const SizedBox(height: 24),
+                          if (provider.meaning != null) ...[
+                            _buildSectionHeader(context, "SIGNIFICATION"),
+                            _buildMeaningBox(context, provider.meaning!),
+                            const SizedBox(height: 24),
+                          ],
+                          if (provider.kanjiComponents.isNotEmpty) ...[
+                            _buildSectionHeader(context, "COMPOSANTS KANJI"),
+                            _buildKanjiComponentsList(context, provider.kanjiComponents),
+                          ],
                         ],
-                        if (provider.kanjiComponents.isNotEmpty) ...[
-                          _buildSectionHeader("COMPOSANTS KANJI"),
-                          _buildKanjiComponentsList(context, provider.kanjiComponents),
-                        ],
-                      ],
+                      ),
                     ),
-                  ),
+        ),
       ),
     );
   }
 
   Widget _buildWordCard(BuildContext context, WordDetailProvider provider) {
+    final theme = Theme.of(context);
     return Card(
-      elevation: 16,
+      elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      color: theme.colorScheme.surface.withOpacity(0.9),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(24),
@@ -99,7 +100,7 @@ class WordDetailView extends StatelessWidget {
               child: IconButton(
                 icon: Icon(
                   provider.isInRevisionList ? Icons.star : Icons.star_border,
-                  color: provider.isInRevisionList ? Colors.blue : Colors.grey,
+                  color: provider.isInRevisionList ? theme.colorScheme.primary : theme.colorScheme.onSurface.withOpacity(0.5),
                 ),
                 onPressed: () => provider.toggleRevisionList(),
               ),
@@ -109,10 +110,10 @@ class WordDetailView extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   provider.word!.text,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: theme.colorScheme.primary,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -125,12 +126,12 @@ class WordDetailView extends StatelessWidget {
                         provider.word!.phonetics,
                         style: TextStyle(
                           fontSize: 24,
-                          color: Colors.blueGrey.shade700,
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                     const SizedBox(width: 16),
                     IconButton(
-                      icon: const Icon(Icons.volume_up, color: Colors.blue, size: 32),
+                      icon: Icon(Icons.volume_up, color: theme.colorScheme.primary, size: 32),
                       onPressed: () => provider.speak(),
                     ),
                   ],
@@ -143,17 +144,17 @@ class WordDetailView extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(String text) {
+  Widget _buildSectionHeader(BuildContext context, String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Align(
         alignment: Alignment.centerLeft,
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Colors.black54,
+            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
             letterSpacing: 1.2,
           ),
         ),
@@ -161,19 +162,20 @@ class WordDetailView extends StatelessWidget {
     );
   }
 
-  Widget _buildMeaningBox(String meaning) {
+  Widget _buildMeaningBox(BuildContext context, String meaning) {
+    final theme = Theme.of(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.7),
+        color: theme.colorScheme.surface.withOpacity(0.7),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
       ),
       child: Text(
         meaning,
         textAlign: TextAlign.center,
-        style: const TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 18, color: theme.colorScheme.onSurface),
       ),
     );
   }
@@ -184,3 +186,4 @@ class WordDetailView extends StatelessWidget {
     );
   }
 }
+

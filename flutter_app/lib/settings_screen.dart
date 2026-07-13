@@ -45,9 +45,10 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(settings.getString("settings_title")),
+        title: Text(settings.getString("settings_title"), style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onBackground),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -57,6 +58,7 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 _buildSection(
+                  context,
                   title: settings.getString("settings_category_interface"),
                   children: [
                     SwitchListTile(
@@ -82,9 +84,11 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 _buildSection(
+                  context,
                   title: settings.getString("settings_category_general"),
                   children: [
                     _buildSliderTile(
+                      context,
                       title: settings.getString("settings_animation_speed"),
                       value: settings.animationSpeed,
                       onChanged: (val) => settings.updateAnimationSpeed(val),
@@ -93,6 +97,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(),
                     _buildSliderTile(
+                      context,
                       title: settings.getString("settings_audio_volume"),
                       value: settings.audioVolume,
                       onChanged: (val) => settings.updateAudioVolume(val),
@@ -101,16 +106,48 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const Divider(),
                     _buildSliderTile(
+                      context,
                       title: settings.getString("settings_tts_speed"),
                       value: settings.ttsRate,
                       onChanged: (val) => settings.updateTtsRate(val),
                       min: 0.5,
                       max: 2.0,
                     ),
+                    const Divider(),
+                    ListTile(
+                      title: Text(settings.getString("settings_tts_voice_selection")),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          DropdownButton<String?>(
+                            value: settings.selectedVoiceId,
+                            items: [
+                              DropdownMenuItem<String?>(
+                                value: null,
+                                child: Text(settings.getString("settings_tts_voice_default")),
+                              ),
+                              ...settings.availableVoices.map((voiceId) => DropdownMenuItem<String?>(
+                                    value: voiceId,
+                                    child: Text(_getFriendlyVoiceName(voiceId, settings)),
+                                  )),
+                            ],
+                            onChanged: settings.currentLocaleCode.startsWith("ar") 
+                                ? null 
+                                : (val) => settings.updateTtsVoiceId(val),
+                          ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.play_arrow),
+                            onPressed: () => settings.testSpeak(),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 _buildSection(
+                  context,
                   title: settings.getString("settings_category_learning"),
                   children: [
                     ListTile(
@@ -167,10 +204,31 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSection({required String title, required List<Widget> children}) {
+  String _getFriendlyVoiceName(String? voiceId, SettingsProvider settings) {
+    if (voiceId == null || voiceId.isEmpty) {
+      return settings.getString("settings_tts_voice_default");
+    }
+    final name = voiceId.toLowerCase();
+    if (name.contains("jad-local") || name.contains("-m-") || name.contains("male")) {
+      return settings.getString("settings_tts_voice_male");
+    }
+    if (name.contains("jab-local") || name.contains("-f-") || name.contains("female")) {
+      return settings.getString("settings_tts_voice_female");
+    }
+    if (name.contains("sjp-local")) {
+      return "${settings.getString("settings_tts_voice_male")} (Samsung)";
+    }
+    if (name.contains("sja-local")) {
+      return "${settings.getString("settings_tts_voice_female")} (Samsung)";
+    }
+    return voiceId;
+  }
+
+  Widget _buildSection(BuildContext context, {required String title, required List<Widget> children}) {
+    final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white.withOpacity(0.9),
+      color: theme.colorScheme.surface.withOpacity(0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -179,7 +237,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.pink),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
             ),
             const SizedBox(height: 8),
             ...children,
@@ -189,17 +247,19 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSliderTile({
+  Widget _buildSliderTile(
+    BuildContext context, {
     required String title,
     required double value,
     required ValueChanged<double> onChanged,
     required double min,
     required double max,
   }) {
+    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title),
+        Text(title, style: TextStyle(color: theme.colorScheme.onSurface)),
         Row(
           children: [
             Expanded(
@@ -207,7 +267,7 @@ class SettingsScreen extends StatelessWidget {
                 value: value,
                 min: min,
                 max: max,
-                activeColor: Colors.pink,
+                activeColor: theme.colorScheme.primary,
                 onChanged: onChanged,
               ),
             ),

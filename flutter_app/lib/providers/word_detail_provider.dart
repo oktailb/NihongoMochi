@@ -5,12 +5,15 @@ import '../repositories/word_repository.dart';
 import '../repositories/dictionary_repository.dart';
 import '../repositories/word_meaning_repository.dart';
 import '../repositories/score_repository.dart';
+import '../repositories/settings_repository.dart';
+
 
 class WordDetailProvider extends ChangeNotifier {
   final WordRepository _wordRepo;
   final DictionaryRepository _dictionaryRepo;
   final WordMeaningRepository _wordMeaningRepo;
   final ScoreRepository _scoreRepo;
+  final SettingsRepository _settingsRepo;
   final FlutterTts _tts = FlutterTts();
 
   WordEntry? _word;
@@ -26,7 +29,7 @@ class WordDetailProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   bool get isInRevisionList => _isInRevisionList;
 
-  WordDetailProvider(this._wordRepo, this._dictionaryRepo, this._wordMeaningRepo, this._scoreRepo);
+  WordDetailProvider(this._wordRepo, this._dictionaryRepo, this._wordMeaningRepo, this._scoreRepo, this._settingsRepo);
 
   Future<void> loadWord(String wordText, String locale) async {
     _isLoading = true;
@@ -76,8 +79,16 @@ class WordDetailProvider extends ChangeNotifier {
 
   Future<void> speak() async {
     if (_word == null) return;
+    final rate = _settingsRepo.getTtsRate();
+    final voiceId = _settingsRepo.getTtsVoiceId();
+
     await _tts.setLanguage("ja-JP");
-    await _tts.setSpeechRate(0.5);
+    await _tts.setSpeechRate(rate);
+
+    if (voiceId != null && voiceId.isNotEmpty) {
+      await _tts.setVoice({"name": voiceId, "locale": "ja-JP"});
+    }
+
     await _tts.speak(_word!.phonetics.isNotEmpty ? _word!.phonetics : _word!.text);
   }
 
