@@ -111,6 +111,20 @@ class CrosswordGenerator {
     if (isHorizontal && col + word.length > gridSize) return false;
     if (!isHorizontal && row + word.length > gridSize) return false;
 
+    // Check boundary before the start of the word (unconditionally)
+    if (isHorizontal) {
+      if (_isOccupied(row, col - 1)) return false;
+    } else {
+      if (_isOccupied(row - 1, col)) return false;
+    }
+
+    // Check boundary after the end of the word (unconditionally)
+    if (isHorizontal) {
+      if (_isOccupied(row, col + word.length)) return false;
+    } else {
+      if (_isOccupied(row + word.length, col)) return false;
+    }
+
     for (int i = 0; i < word.length; i++) {
       final r = isHorizontal ? row : row + i;
       final c = isHorizontal ? col + i : col;
@@ -119,14 +133,11 @@ class CrosswordGenerator {
       if (existing != "" && existing != word[i]) return false;
 
       if (existing == "") {
+        // Parallel neighbor checks to keep words isolated
         if (isHorizontal) {
           if (_isOccupied(r - 1, c) || _isOccupied(r + 1, c)) return false;
-          if (i == 0 && _isOccupied(r, c - 1)) return false;
-          if (i == word.length - 1 && _isOccupied(r, c + 1)) return false;
         } else {
           if (_isOccupied(r, c - 1) || _isOccupied(r, c + 1)) return false;
-          if (i == 0 && _isOccupied(r - 1, c)) return false;
-          if (i == word.length - 1 && _isOccupied(r + 1, c)) return false;
         }
       }
     }

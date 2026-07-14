@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/crossword.dart';
@@ -8,6 +9,7 @@ import '../repositories/score_repository.dart';
 import '../repositories/settings_repository.dart';
 import '../services/audio_service.dart';
 import '../services/crossword_generator.dart';
+import '../db/database.dart';
 
 class CrosswordProvider extends ChangeNotifier {
   final WordRepository _wordRepo;
@@ -24,6 +26,7 @@ class CrosswordProvider extends ChangeNotifier {
     this._audioService,
   ) {
     _loadHistory();
+    _checkSavedGame();
   }
 
   CrosswordMode _selectedMode = CrosswordMode.kanas;
@@ -42,6 +45,9 @@ class CrosswordProvider extends ChangeNotifier {
   bool _isFinished = false;
   bool _isPaused = false;
 
+  bool _hasSavedGame = false;
+  bool _autoRestoreDone = false;
+
   Timer? _timer;
 
   // Getters
@@ -59,10 +65,87 @@ class CrosswordProvider extends ChangeNotifier {
   List<String> get keyboardKeys => _keyboardKeys;
   bool get isFinished => _isFinished;
   bool get isPaused => _isPaused;
+  bool get hasSavedGame => _hasSavedGame;
 
-  void _loadHistory() {
-    // Fetch from repository in real app
+  Future<void> _loadHistory() async {
+    try {
+      final List<GameHistory> rows = await _scoreRepo.getGameHistory("CROSSWORD");
+      _scoresHistory = rows.map((r) {
+        final parts = r.metadata?.split(',') ?? [];
+        final modeStr = parts.isNotEmpty ? parts[0] : "kanas";
+        final mode = modeStr == "kanjis" ? CrosswordMode.kanjis : CrosswordMode.kanas;
+        final wordCount = parts.length > 1 ? (int.tryParse(parts[1]) ?? 10) : 10;
+
+        return CrosswordGameResult(
+          wordCount: wordCount,
+          mode: mode,
+          timeSeconds: r.timeSeconds ?? 0,
+          completionPercentage: r.score,
+          timestamp: r.timestamp,
+        );
+      }).toList();
+      notifyListeners();
+    } catch (e) {
+      _scoresHistory = [];
+      notifyListeners();
+    }
+  }
+
+  void _checkSavedGame() {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_crossword");
+    _hasSavedGame = savedJson != null;
     notifyListeners();
+  }
+
+  void tryAutoRestore(VoidCallback onRestored) {
+    if (!_autoRestoreDone && _hasSavedGame) {
+      _autoRestoreDone = true;
+      restoreGame(onRestored);
+    }
+  }
+
+  void restoreGame(VoidCallback onRestored) {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_crossword");
+    if (savedJson == null) return;
+    try {
+      final map = jsonDecode(savedJson) as Map<String, dynamic>;
+
+      final List<dynamic> cellsList = map['cells'];
+      _cells = cellsList.map((e) => CrosswordCell.fromJson(e as Map<String, dynamic>)).toList();
+
+      final List<dynamic> wordsList = map['placedWords'];
+      _placedWords = wordsList.map((e) => CrosswordWord.fromJson(e as Map<String, dynamic>)).toList();
+
+      _gameTimeSeconds = map['gameTimeSeconds'] as int;
+
+      final modeStr = map['selectedMode'] as String;
+      _selectedMode = modeStr == 'KANJIS' || modeStr == 'kanjis' ? CrosswordMode.kanjis : CrosswordMode.kanas;
+
+      final hintStr = map['selectedHintType'] as String;
+      _selectedHintType = hintStr == 'MEANING' || hintStr == 'meaning' ? CrosswordHintType.meaning : CrosswordHintType.kanji;
+
+      _isFinished = map['isFinished'] as bool;
+      _selectedRow = map['selectedRow'] as int?;
+      _selectedCol = map['selectedCol'] as int?;
+      _isVerticalInput = map['isVerticalInput'] as bool;
+
+      final List<dynamic> keysList = map['keyboardKeys'] ?? [];
+      _keyboardKeys = keysList.map((e) => e.toString()).toList();
+
+      _wordCount = map['wordCount'] as int? ?? 10;
+
+      _isPaused = true;
+      _hasSavedGame = false;
+      _autoRestoreDone = true;
+
+      _startTimer();
+      onRestored();
+      notifyListeners();
+    } catch (e) {
+      _settingsRepo.removeGeneric("game_state_crossword");
+      _hasSavedGame = false;
+      notifyListeners();
+    }
   }
 
   void onModeSelected(CrosswordMode mode) {
@@ -81,6 +164,9 @@ class CrosswordProvider extends ChangeNotifier {
   }
 
   Future<void> startGame(String locale) async {
+    _settingsRepo.removeGeneric("game_state_crossword");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
     _isGenerating = true;
     _isFinished = false;
     _isPaused = false;
@@ -102,32 +188,22 @@ class CrosswordProvider extends ChangeNotifier {
     _cells = result['cells'];
     final List<CrosswordWord> genWords = result['words'];
 
-    // Fill meanings
-    _placedWords = genWords.map((cw) {
+    _placedWords = [];
+    for (var cw in genWords) {
       final originalEntry = words.cast<WordEntry?>().firstWhere(
         (entry) => _selectedMode == CrosswordMode.kanjis ? entry?.text == cw.word : entry?.phonetics == cw.word,
         orElse: () => null,
       );
-      return cw.copyWith(isSolved: false); // Meaning would be here if we updated model
-    }).toList();
-
-    // Actually we need to make sure meanings are available
-    _placedWords = [];
-    for (var cw in genWords) {
-        final originalEntry = words.cast<WordEntry?>().firstWhere(
-            (entry) => _selectedMode == CrosswordMode.kanjis ? entry?.text == cw.word : entry?.phonetics == cw.word,
-            orElse: () => null,
-        );
-        _placedWords.add(CrosswordWord(
-            number: cw.number,
-            word: cw.word,
-            kanji: cw.kanji,
-            meaning: originalEntry != null ? (meanings[originalEntry.id] ?? "???") : "???",
-            phonetics: cw.phonetics,
-            row: cw.row,
-            col: cw.col,
-            isHorizontal: cw.isHorizontal,
-        ));
+      _placedWords.add(CrosswordWord(
+        number: cw.number,
+        word: cw.word,
+        kanji: cw.kanji,
+        meaning: originalEntry != null ? (meanings[originalEntry.id] ?? "???") : "???",
+        phonetics: cw.phonetics,
+        row: cw.row,
+        col: cw.col,
+        isHorizontal: cw.isHorizontal,
+      ));
     }
 
     _isGenerating = false;
@@ -192,7 +268,7 @@ class CrosswordProvider extends ChangeNotifier {
     final wordChars = activeWord.word.split('').toSet();
     final random = Random();
 
-    final allKanas = "あいうえおかきくけこさしすせそたちつteとなにぬねのはひふへほまみむめもやゆよらりるれろわをん".split('');
+    final allKanas = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまmiむめもやゆよらりるれろわをん".replaceAll("mi", "み").split('');
     final List<String> keys = wordChars.toList();
 
     while (keys.length < 12) {
@@ -259,7 +335,6 @@ class CrosswordProvider extends ChangeNotifier {
       }).toList();
 
       if (wordCells.every((cell) => cell.userInput == cell.solution)) {
-        // Mark as correct
         for (var wc in wordCells) {
           final idx = _cells.indexWhere((cell) => cell.r == wc.r && cell.c == wc.c);
           _cells[idx] = _cells[idx].copyWith(isCorrect: true);
@@ -277,13 +352,71 @@ class CrosswordProvider extends ChangeNotifier {
   }
 
   void _saveResult() {
-    // Save to history and db
+    final modeName = _selectedMode.toString().split('.').last;
+    final solvedCount = _placedWords.where((w) => w.isSolved).length;
+    final percentage = _placedWords.isEmpty ? 0 : (solvedCount * 100) ~/ _placedWords.length;
+
+    final result = CrosswordGameResult(
+      wordCount: _wordCount,
+      mode: _selectedMode,
+      timeSeconds: _gameTimeSeconds,
+      completionPercentage: percentage,
+      timestamp: DateTime.now().millisecondsSinceEpoch,
+    );
+
+    _scoresHistory = [result, ..._scoresHistory].take(10).toList();
+    notifyListeners();
+
+    try {
+      _scoreRepo.saveGameHistory(
+        gameType: "CROSSWORD",
+        score: percentage,
+        timeSeconds: _gameTimeSeconds,
+        wordsFound: solvedCount,
+        metadata: "$modeName,$_wordCount",
+      );
+    } catch (e) {
+      // Silent catch
+    }
   }
 
   void pauseGame() { _isPaused = true; notifyListeners(); }
   void resumeGame() { _isPaused = false; notifyListeners(); }
-  void abandonGame() { _timer?.cancel(); _isFinished = true; notifyListeners(); }
-  void saveAndExit() { _timer?.cancel(); }
+
+  void saveAndExit() {
+    final stateMap = {
+      'cells': _cells.map((e) => e.toJson()).toList(),
+      'placedWords': _placedWords.map((e) => e.toJson()).toList(),
+      'gameTimeSeconds': _gameTimeSeconds,
+      'selectedMode': _selectedMode.toString().split('.').last.toUpperCase(),
+      'selectedHintType': _selectedHintType.toString().split('.').last.toUpperCase(),
+      'isFinished': _isFinished,
+      'selectedRow': _selectedRow,
+      'selectedCol': _selectedCol,
+      'isVerticalInput': _isVerticalInput,
+      'keyboardKeys': _keyboardKeys,
+      'wordCount': _wordCount,
+    };
+    _settingsRepo.setStringGeneric("game_state_crossword", jsonEncode(stateMap));
+    _hasSavedGame = true;
+    _autoRestoreDone = true;
+    _timer?.cancel();
+    notifyListeners();
+  }
+
+  void abandonGame() {
+    _timer?.cancel();
+    _settingsRepo.removeGeneric("game_state_crossword");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+    _cells = [];
+    _placedWords = [];
+    _isFinished = false;
+    _isPaused = false;
+    _selectedRow = null;
+    _selectedCol = null;
+    notifyListeners();
+  }
 
   @override
   void dispose() {

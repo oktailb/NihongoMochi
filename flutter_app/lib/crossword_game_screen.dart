@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/crossword.dart';
-import 'models/quiz_models.dart';
 import 'providers/crossword_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
@@ -15,63 +14,72 @@ class CrosswordGameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<CrosswordProvider>();
     final settings = context.watch<SettingsProvider>();
+    final locale = settings.currentLocaleCode;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(settings.getString("game_crosswords_title")),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => _showExitDialog(context, provider),
+    return PopScope(
+      canPop: provider.isFinished,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _showExitDialog(context, provider);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(settings.getString("game_crosswords_title")),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => _showExitDialog(context, provider),
+          ),
         ),
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: Stack(
-          children: [
-            SafeArea(
-              child: Column(
-                children: [
-                  GameHUD(
-                    primaryLabel: settings.getString("game_crosswords_title").toUpperCase(),
-                    primaryValue: "",
-                    secondaryLabel: settings.getString("game_kana_link_time_label").toUpperCase(),
-                    secondaryValue: "",
-                    timeSeconds: provider.gameTimeSeconds,
-                  ),
-                  Expanded(
-                    child: InteractiveViewer(
-                      boundaryMargin: const EdgeInsets.all(100),
-                      minScale: 0.5,
-                      maxScale: 3.0,
-                      child: Center(
-                        child: _buildGrid(context, provider),
+        extendBodyBehindAppBar: true,
+        body: MochiBackground(
+          child: Stack(
+            children: [
+              SafeArea(
+                child: Column(
+                  children: [
+                    GameHUD(
+                      primaryLabel: settings.getString("game_crosswords_title").toUpperCase(),
+                      primaryValue: "",
+                      secondaryLabel: settings.getString("game_kana_link_time_label").toUpperCase(),
+                      secondaryValue: "",
+                      timeSeconds: provider.gameTimeSeconds,
+                    ),
+                    Expanded(
+                      child: InteractiveViewer(
+                        boundaryMargin: const EdgeInsets.all(100),
+                        minScale: 0.5,
+                        maxScale: 3.0,
+                        child: Center(
+                          child: _buildGrid(context, provider),
+                        ),
                       ),
                     ),
-                  ),
-                  _buildClueArea(context, provider),
-                  _buildKeyboard(context, provider),
-                ],
+                    _buildClueArea(context, provider),
+                    _buildKeyboard(context, provider),
+                  ],
+                ),
               ),
-            ),
-            if (provider.isFinished)
-              GameResultOverlay(
-                isVictory: true,
-                title: settings.getString("game_crossword_congrats"),
-                stats: [
-                  MapEntry(
-                    settings.getString("game_crossword_history_item", [
-                      provider.placedWords.length,
-                      provider.selectedMode == CrosswordMode.kanjis ? "KANJI" : "KANA/MEANING"
-                    ]),
-                    _formatGameTimeHUD(provider.gameTimeSeconds),
-                  ),
-                ],
-                onReplayClick: () => provider.startGame("n5"),
-                onMenuClick: () => Navigator.pop(context),
-              ),
-          ],
+              if (provider.isFinished)
+                GameResultOverlay(
+                  isVictory: true,
+                  title: settings.getString("game_crossword_congrats"),
+                  stats: [
+                    MapEntry(
+                      settings.getString("game_crossword_history_item").isNotEmpty && settings.getString("game_crossword_history_item") != "game_crossword_history_item"
+                          ? settings.getString("game_crossword_history_item")
+                              .replaceFirst("%d", "${provider.placedWords.length}")
+                              .replaceFirst("%s", provider.selectedMode == CrosswordMode.kanjis ? "KANJI" : "KANA/MEANING")
+                          : "${provider.placedWords.length} mots (${provider.selectedMode == CrosswordMode.kanjis ? "KANJI" : "KANA/MEANING"})",
+                      _formatGameTimeHUD(provider.gameTimeSeconds),
+                    ),
+                  ],
+                  onReplayClick: () => provider.startGame(locale),
+                  onMenuClick: () => Navigator.pop(context),
+                ),
+            ],
+          ),
         ),
       ),
     );
@@ -91,7 +99,7 @@ class CrosswordGameScreen extends StatelessWidget {
     return Container(
       width: gridSize * cellSize,
       height: gridSize * cellSize,
-      color: theme.colorScheme.onSurface.withOpacity(0.1),
+      color: theme.colorScheme.onSurface.withValues(alpha: 0.1),
       child: Stack(
         children: provider.cells.map((cell) {
           if (cell.isBlack) return const SizedBox.shrink();
@@ -118,7 +126,7 @@ class CrosswordGameScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: backgroundColor,
                   border: Border.all(
-                    color: isSelected ? theme.colorScheme.primary : Colors.grey.withOpacity(0.5),
+                    color: isSelected ? theme.colorScheme.primary : Colors.grey.withValues(alpha: 0.5),
                     width: isSelected ? 1.5 : 0.5,
                   ),
                   borderRadius: BorderRadius.circular(2),
@@ -185,7 +193,7 @@ class CrosswordGameScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.secondaryContainer,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 4)],
       ),
       child: Text(
         clueText,
@@ -205,7 +213,7 @@ class CrosswordGameScreen extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(8),
-      color: theme.colorScheme.surface.withOpacity(0.95),
+      color: theme.colorScheme.surface.withValues(alpha: 0.95),
       child: Row(
         children: [
           Expanded(
