@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter/foundation.dart';
 import '../models/handwriting.dart';
 import 'handwriting_service.dart';
 
@@ -84,13 +83,11 @@ class WebHandwritingService implements HandwritingService {
       };
       
       final String bodyString = json.encode(bodyPayload);
-      debugPrint("[WebHandwritingService] POST payload : $bodyString");
 
       // Utilisation de corsproxy.io en POST
       const targetUrl = 'https://inputtools.google.com/request?itc=ja-t-i0-handwrit&app=translate';
       const proxyUrl = 'https://corsproxy.io/?$targetUrl';
 
-      debugPrint("[WebHandwritingService] Envoi POST via proxy : $proxyUrl");
       String? responseBody;
       
       try {
@@ -100,12 +97,11 @@ class WebHandwritingService implements HandwritingService {
           body: bodyString,
         ).timeout(const Duration(seconds: 6));
         
-        debugPrint("[WebHandwritingService] Réponse reçue du proxy. Status Code = ${response.statusCode}");
         if (response.statusCode == 200) {
           responseBody = response.body;
         }
       } catch (e) {
-        debugPrint('[WebHandwritingService] Proxy POST failed ($proxyUrl) : $e. Tentative de repli en direct...');
+        // Ignorer et passer au fallback direct
       }
 
       if (responseBody == null) {
@@ -115,17 +111,15 @@ class WebHandwritingService implements HandwritingService {
             headers: {'Content-Type': 'application/json'},
             body: bodyString,
           ).timeout(const Duration(seconds: 4));
-          debugPrint("[WebHandwritingService] Réponse reçue en direct. Status Code = ${response.statusCode}");
           if (response.statusCode == 200) {
             responseBody = response.body;
           }
         } catch (e) {
-          debugPrint('[WebHandwritingService] Direct POST failed : $e');
+          // Ignorer l'erreur
         }
       }
 
       if (responseBody != null) {
-        debugPrint("[WebHandwritingService] Réponse brute = $responseBody");
         final decoded = json.decode(responseBody);
         if (decoded is List && decoded.length > 1) {
           final results = decoded[1];
@@ -134,26 +128,24 @@ class WebHandwritingService implements HandwritingService {
             if (firstResult is List && firstResult.length > 1) {
               final candidates = firstResult[1];
               if (candidates is List) {
-                final list = List<String>.from(candidates);
-                debugPrint("[WebHandwritingService] Candidats reconnus décodés = $list");
-                return list;
+                return List<String>.from(candidates)
+                    .where((c) => c.length == 1)
+                    .toList();
               }
             } else if (firstResult is Map && firstResult.containsKey('candidate')) {
               final candidates = firstResult['candidate'];
               if (candidates is List) {
-                final list = List<String>.from(candidates);
-                debugPrint("[WebHandwritingService] Candidats reconnus décodés = $list");
-                return list;
+                return List<String>.from(candidates)
+                    .where((c) => c.length == 1)
+                    .toList();
               }
             }
           }
         }
       }
       
-      debugPrint("[WebHandwritingService] Aucun résultat décodé");
       return [];
     } catch (e) {
-      debugPrint('[WebHandwritingService] Web recognition error: $e');
       return [];
     }
   }

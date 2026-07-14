@@ -120,12 +120,10 @@ class DictionaryProvider extends ChangeNotifier {
 
   void addStroke(HandwritingStroke stroke) {
     _currentStrokes.add(stroke);
-    debugPrint("[DictionaryProvider] addStroke : tracé ajouté, total tracés = ${_currentStrokes.length}");
     _recognizeDrawing();
   }
 
   void clearDrawing() {
-    debugPrint("[DictionaryProvider] clearDrawing : dessin effacé");
     _currentStrokes.clear();
     _drawingCandidates = null;
     applyFilters();
@@ -134,15 +132,10 @@ class DictionaryProvider extends ChangeNotifier {
   Future<void> _recognizeDrawing() async {
     if (_currentStrokes.isEmpty) return;
 
-    debugPrint("[DictionaryProvider] _recognizeDrawing : début de reconnaissance...");
     final candidates = await _handwritingService.recognize(_currentStrokes);
-    if (_isDisposed) {
-      debugPrint("[DictionaryProvider] _recognizeDrawing : abandon (provider déjà disposé)");
-      return;
-    }
+    if (_isDisposed) return;
 
     _drawingCandidates = candidates;
-    debugPrint("[DictionaryProvider] _recognizeDrawing : candidats reçus = $candidates");
     if (_drawingCandidates != null && _drawingCandidates!.isNotEmpty) {
       if (_selectedLevelId != "ALL") {
         _selectedLevelId = "ALL";
