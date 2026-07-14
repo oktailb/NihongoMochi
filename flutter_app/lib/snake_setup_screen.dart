@@ -2,22 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/snake.dart';
 import 'providers/snake_provider.dart';
+import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'snake_game_screen.dart';
-import 'providers/settings_provider.dart';
 
-class SnakeSetupScreen extends StatelessWidget {
+class SnakeSetupScreen extends StatefulWidget {
   const SnakeSetupScreen({super.key});
+
+  @override
+  State<SnakeSetupScreen> createState() => _SnakeSetupScreenState();
+}
+
+class _SnakeSetupScreenState extends State<SnakeSetupScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<SnakeProvider>().tryAutoRestore(() {
+        if (mounted) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SnakeGameScreen()),
+          );
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SnakeProvider>();
-    final locale = context.watch<SettingsProvider>().currentLocaleCode;
+    final settings = context.watch<SettingsProvider>();
+    final locale = settings.currentLocaleCode;
+    final theme = Theme.of(context);
+
+    final titleVal = settings.getString("game_snake_title");
+    final subVal = settings.getString("game_snake_subtitle");
+
+    final title = (titleVal.isNotEmpty && titleVal != "game_snake_title") ? titleVal : "Snake";
+    final subtitle = (subVal.isNotEmpty && subVal != "game_snake_subtitle") ? subVal : "ヘビ";
 
     return GameSetupTemplate(
-      title: "Snake",
-      subtitle: "ヘビ",
+      title: title,
+      subtitle: subtitle,
       onPlayClick: () async {
         await provider.startGame(locale);
         if (context.mounted) {
@@ -28,30 +56,100 @@ class SnakeSetupScreen extends StatelessWidget {
         }
       },
       children: [
+        // Partie en cours (Restauration)
+        if (provider.hasSavedGame) ...[
+          Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            color: theme.colorScheme.primaryContainer,
+            elevation: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Text(
+                    "Une partie est en pause",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: theme.colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(48),
+                      backgroundColor: theme.colorScheme.primary,
+                      foregroundColor: theme.colorScheme.onPrimary,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    icon: const Icon(Icons.history),
+                    label: const Text("Reprendre la partie"),
+                    onPressed: () {
+                      provider.restoreGame(() {
+                        if (context.mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SnakeGameScreen()),
+                          );
+                        }
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () async {
+                      await provider.startGame(locale);
+                      if (context.mounted) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SnakeGameScreen()),
+                        );
+                      }
+                    },
+                    child: Text(
+                      "Nouvelle partie (effacer la précédente)",
+                      style: TextStyle(color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+
         // Mode Selection
         Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          color: Colors.white.withOpacity(0.9),
+          color: Colors.white.withValues(alpha: 0.9),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "MODE DE JEU",
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+                Text(
+                  settings.getString("game_config_title").isNotEmpty
+                      ? settings.getString("game_config_title").toUpperCase()
+                      : "MODE DE JEU",
+                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                 ),
                 const SizedBox(height: 12),
                 Wrap(
                   spacing: 8,
                   children: SnakeMode.values.map((mode) {
-                    return ChoiceChip(
-                      label: Text(_getModeLabel(mode)),
-                      selected: provider.selectedMode == mode,
+                    final isSelected = provider.selectedMode == mode;
+                    return FilterChip(
+                      label: Text(_getModeLabel(mode, settings)),
+                      selected: isSelected,
                       onSelected: (selected) {
                         if (selected) provider.onModeSelected(mode);
                       },
-                      selectedColor: Colors.pink.shade100,
+                      selectedColor: theme.colorScheme.primaryContainer,
+                      checkmarkColor: theme.colorScheme.onPrimaryContainer,
+                      labelStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: isSelected ? theme.colorScheme.onPrimaryContainer : Colors.black87,
+                      ),
                     );
                   }).toList(),
                 ),
@@ -59,16 +157,24 @@ class SnakeSetupScreen extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(height: 12),
 
         // Recent Scores
         GameHistoryCard(
           history: provider.scoresHistory,
-          emptyMessage: "Aucun score pour le moment",
+          emptyMessage: settings.getString("game_memorize_no_scores").isNotEmpty
+              ? settings.getString("game_memorize_no_scores")
+              : "Aucun score pour le moment",
           itemBuilder: (result) {
             return GameHistoryRow(
-              label: _getModeLabel(result.mode),
+              label: _getModeLabel(result.mode, settings),
               score: "${result.score} pts",
-              time: "${result.timeSeconds}s",
+              time: _formatString(
+                settings,
+                "game_memorize_time_format",
+                "%ds",
+                "${result.timeSeconds}",
+              ),
             );
           },
         ),
@@ -76,12 +182,32 @@ class SnakeSetupScreen extends StatelessWidget {
     );
   }
 
-  String _getModeLabel(SnakeMode mode) {
+  String _getModeLabel(SnakeMode mode, SettingsProvider settings) {
     switch (mode) {
-      case SnakeMode.hiragana: return "Hiragana";
-      case SnakeMode.katakana: return "Katakana";
-      case SnakeMode.numbers: return "Chiffres";
-      case SnakeMode.words: return "Mots";
+      case SnakeMode.hiragana:
+        final str = settings.getString("game_taquin_mode_hiragana");
+        return (str.isNotEmpty && str != "game_taquin_mode_hiragana") ? str : "Hiragana";
+      case SnakeMode.katakana:
+        final str = settings.getString("game_taquin_mode_katakana");
+        return (str.isNotEmpty && str != "game_taquin_mode_katakana") ? str : "Katakana";
+      case SnakeMode.numbers:
+        final str = settings.getString("game_taquin_mode_numbers");
+        return (str.isNotEmpty && str != "game_taquin_mode_numbers") ? str : "Chiffres";
+      case SnakeMode.words:
+        final str = settings.getString("game_writing_label_meaning");
+        return (str.isNotEmpty && str != "game_writing_label_meaning") ? str : "Mots";
     }
+  }
+
+  String _formatString(SettingsProvider settings, String key, String fallback, String value) {
+    final raw = settings.getString(key);
+    final text = raw.isNotEmpty && raw != key ? raw : fallback;
+    if (text.contains("%")) {
+      return text
+          .replaceAll("%1\$d", value)
+          .replaceAll("%1%d", value)
+          .replaceAll("%d", value);
+    }
+    return "$text $value";
   }
 }

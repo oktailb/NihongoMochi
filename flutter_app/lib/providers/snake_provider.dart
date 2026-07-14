@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/snake.dart';
@@ -7,7 +8,7 @@ import '../repositories/word_repository.dart';
 import '../repositories/settings_repository.dart';
 import '../services/level_content_provider.dart';
 import '../services/audio_service.dart';
-import '../utils/kana_utils.dart';
+import '../db/database.dart';
 
 class SnakeProvider extends ChangeNotifier {
   final LevelContentProvider _levelContentProvider;
@@ -24,6 +25,7 @@ class SnakeProvider extends ChangeNotifier {
     this._audioService,
   ) {
     _loadHistory();
+    _checkSavedGame();
   }
 
   SnakeGameState _gameState = SnakeGameState();
@@ -35,14 +37,83 @@ class SnakeProvider extends ChangeNotifier {
   List<SnakeGameResult> _scoresHistory = [];
   List<SnakeGameResult> get scoresHistory => _scoresHistory;
 
+  bool _hasSavedGame = false;
+  bool _autoRestoreDone = false;
+
+  bool get hasSavedGame => _hasSavedGame;
+
   Timer? _gameTimer;
   Timer? _tickTimer;
   List<String> _itemSequence = [];
   dynamic _currentWord; // WordEntry but dynamic for now
 
-  void _loadHistory() {
-    // In a real app, fetch from repository
+  Future<void> _loadHistory() async {
+    try {
+      final List<GameHistory> rows = await _scoreRepo.getGameHistory("SNAKE");
+      _scoresHistory = rows.map((r) {
+        final modeStr = r.metadata ?? "hiragana";
+        final mode = SnakeMode.values.cast<SnakeMode?>().firstWhere(
+          (m) => m.toString().split('.').last == modeStr,
+          orElse: () => SnakeMode.hiragana,
+        )!;
+
+        return SnakeGameResult(
+          mode: mode,
+          score: r.score,
+          wordsCompleted: r.wordsFound ?? 0,
+          timeSeconds: r.timeSeconds ?? 0,
+          timestamp: r.timestamp,
+        );
+      }).toList();
+      notifyListeners();
+    } catch (e) {
+      _scoresHistory = [];
+      notifyListeners();
+    }
+  }
+
+  void _checkSavedGame() {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_snake");
+    _hasSavedGame = savedJson != null;
     notifyListeners();
+  }
+
+  void tryAutoRestore(VoidCallback onRestored) {
+    if (!_autoRestoreDone && _hasSavedGame) {
+      _autoRestoreDone = true;
+      restoreGame(onRestored);
+    }
+  }
+
+  void restoreGame(VoidCallback onRestored) {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_snake");
+    if (savedJson == null) return;
+    try {
+      final map = jsonDecode(savedJson) as Map<String, dynamic>;
+
+      _gameState = SnakeGameState.fromJson(map['gameState'] as Map<String, dynamic>);
+      _selectedMode = _gameState.mode;
+
+      final List<dynamic> seqList = map['itemSequence'] ?? [];
+      _itemSequence = seqList.map((e) => e.toString()).toList();
+
+      if (map['currentWord'] != null) {
+        _currentWord = WordEntry.fromJson(map['currentWord'] as Map<String, dynamic>);
+      } else {
+        _currentWord = null;
+      }
+
+      _hasSavedGame = false;
+      _autoRestoreDone = true;
+
+      _startTimers(_settingsRepo.getAppLocale());
+      onRestored();
+      notifyListeners();
+    } catch (e) {
+      _settingsRepo.removeGeneric("game_state_snake");
+      _hasSavedGame = false;
+      notifyListeners();
+    }
   }
 
   void onModeSelected(SnakeMode mode) {
@@ -64,6 +135,9 @@ class SnakeProvider extends ChangeNotifier {
   }
 
   Future<void> startGame(String locale) async {
+    _settingsRepo.removeGeneric("game_state_snake");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
     _stopTimers();
     await _prepareSequence(locale);
 
@@ -174,7 +248,6 @@ class SnakeProvider extends ChangeNotifier {
     final targetItem = SnakeItem(character: targetChar, position: randomPoint(), isTarget: true);
 
     List<SnakeItem> distractions = [];
-    // Simple distractions for now
     for (int i = 0; i < 2; i++) {
       distractions.add(SnakeItem(character: "？", position: randomPoint(), isTarget: false));
     }
@@ -225,9 +298,13 @@ class SnakeProvider extends ChangeNotifier {
       return;
     }
 
-    final newSnake = [nextHead, ... (grew ? _gameState.snake : _gameState.snake.sublist(0, _gameState.snake.length - 1))];
+    final newSnake = [nextHead, ... (_grewSnake(grew))];
     _gameState = _gameState.copyWith(snake: newSnake);
     notifyListeners();
+  }
+
+  List<SnakePoint> _grewSnake(bool grew) {
+    return grew ? _gameState.snake : _gameState.snake.sublist(0, _gameState.snake.length - 1);
   }
 
   void _gameOver() {
@@ -243,8 +320,22 @@ class SnakeProvider extends ChangeNotifier {
       timeSeconds: _gameState.timeSeconds,
       timestamp: DateTime.now().millisecondsSinceEpoch,
     );
-    // _scoreRepo.saveSnakeResult(result);
     _scoresHistory.insert(0, result);
+    _settingsRepo.removeGeneric("game_state_snake");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+
+    try {
+      _scoreRepo.saveGameHistory(
+        gameType: "SNAKE",
+        score: _gameState.score,
+        timeSeconds: _gameState.timeSeconds,
+        wordsFound: _gameState.wordsCompleted,
+        metadata: _selectedMode.toString().split('.').last,
+      );
+    } catch (e) {
+      // Silent catch
+    }
     notifyListeners();
   }
 
@@ -268,9 +359,37 @@ class SnakeProvider extends ChangeNotifier {
     return res;
   }
 
-  void pauseGame() { _gameState = _gameState.copyWith(isPaused: true); notifyListeners(); }
-  void resumeGame() { _gameState = _gameState.copyWith(isPaused: false); notifyListeners(); }
-  void abandonGame() { _gameOver(); }
+  void pauseGame() {
+    _gameState = _gameState.copyWith(isPaused: true);
+    notifyListeners();
+  }
+
+  void resumeGame() {
+    _gameState = _gameState.copyWith(isPaused: false);
+    notifyListeners();
+  }
+
+  void saveAndExit() {
+    final stateMap = {
+      'gameState': _gameState.toJson(),
+      'itemSequence': _itemSequence,
+      'currentWord': _currentWord != null ? _currentWord.toJson() : null,
+    };
+    _settingsRepo.setStringGeneric("game_state_snake", jsonEncode(stateMap));
+    _hasSavedGame = true;
+    _autoRestoreDone = true;
+    _stopTimers();
+    notifyListeners();
+  }
+
+  void abandonGame() {
+    _stopTimers();
+    _settingsRepo.removeGeneric("game_state_snake");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+    _gameState = _gameState.copyWith(isGameOver: true);
+    notifyListeners();
+  }
 
   @override
   void dispose() {
