@@ -13,7 +13,7 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-  String _version = "1.0.0";
+  String _version = "0.9.8";
 
   @override
   void initState() {
@@ -84,7 +84,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   icon: Icons.info_outline,
                   children: [
                     _buildInfoRow(context, settings.getString("about_version_label"), _version),
-                    _buildInfoRow(context, settings.getString("about_date_label"), "2024"),
+                    _buildInfoRow(context, settings.getString("about_date_label"), "2026"),
                     const SizedBox(height: 16),
                     Row(
                       children: [
