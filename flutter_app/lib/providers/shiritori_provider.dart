@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../models/shiritori.dart';
 import '../repositories/word_repository.dart';
@@ -36,6 +37,7 @@ class ShiritoriProvider extends ChangeNotifier {
     this._audioService,
   ) {
     _loadHistory();
+    _checkSavedGame();
   }
 
   ShiritoriGameState _gameState = ShiritoriGameState.idle;
@@ -48,6 +50,8 @@ class ShiritoriProvider extends ChangeNotifier {
   int _gameTimeSeconds = 0;
   bool _isVictory = false;
   String _inputText = "";
+  bool _hasSavedGame = false;
+  bool _autoRestoreDone = false;
 
   Timer? _timer;
   List<WordEntry> _allWords = [];
@@ -66,11 +70,87 @@ class ShiritoriProvider extends ChangeNotifier {
   int get gameTimeSeconds => _gameTimeSeconds;
   bool get isVictory => _isVictory;
   String get inputText => _inputText;
+  bool get hasSavedGame => _hasSavedGame;
 
-  void _loadHistory() {
-    // _scoresHistory = await _scoreRepo.getShiritoriHistory();
-    // _bestScore = ...
+  Future<void> _loadHistory() async {
+    try {
+      final history = await _scoreRepo.getGameHistory("SHIRITORI");
+      _scoresHistory = history.map((r) => ShiritoriGameResult(
+        levelId: r.metadata ?? _settingsRepo.getMode(),
+        score: r.score,
+        timeSeconds: r.timeSeconds ?? 0,
+        timestamp: r.timestamp,
+      )).toList();
+      _bestScore = _scoresHistory.isNotEmpty 
+          ? _scoresHistory.map((e) => e.score).reduce(max) 
+          : 0;
+      notifyListeners();
+    } catch (e) {
+      _scoresHistory = [];
+      notifyListeners();
+    }
+  }
+
+  void _checkSavedGame() {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_shiritori");
+    _hasSavedGame = savedJson != null;
     notifyListeners();
+  }
+
+  void tryAutoRestore(VoidCallback onRestored) {
+    if (!_autoRestoreDone && _hasSavedGame) {
+      _autoRestoreDone = true;
+      restoreGame(onRestored);
+    }
+  }
+
+  void restoreGame(VoidCallback onRestored) async {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_shiritori");
+    if (savedJson == null) return;
+    try {
+      final restoredMap = jsonDecode(savedJson) as Map<String, dynamic>;
+      final restored = ShiritoriGameStateData.fromJson(restoredMap);
+      if (restored.gameState != ShiritoriGameState.gameOver) {
+        _playedWords = restored.playedWords;
+        _lastKana = restored.lastKana;
+        _score = restored.score;
+        _gameTimeSeconds = restored.gameTimeSeconds;
+        _usedPhonetics = restored.usedPhonetics.toSet();
+        _gameState = ShiritoriGameState.paused;
+
+        _currentMeanings = await _meaningRepo.getWordMeanings(_settingsRepo.getAppLocale());
+        _allWords = await _wordRepo.getAllWords();
+        
+        final levelId = _settingsRepo.getMode();
+        _aiAvailableWords = await _wordRepo.getWordsForLevel(levelId);
+
+        _startTimer();
+        onRestored();
+        notifyListeners();
+      }
+    } catch (e) {
+      _settingsRepo.removeGeneric("game_state_shiritori");
+      _hasSavedGame = false;
+      notifyListeners();
+    }
+  }
+
+  void saveAndExit() {
+    if (_gameState != ShiritoriGameState.gameOver && _gameState != ShiritoriGameState.idle) {
+      final data = ShiritoriGameStateData(
+        playedWords: _playedWords,
+        lastKana: _lastKana,
+        score: _score,
+        gameTimeSeconds: _gameTimeSeconds,
+        usedPhonetics: _usedPhonetics.toList(),
+        gameState: _gameState,
+      );
+      final jsonStr = jsonEncode(data.toJson());
+      _settingsRepo.setStringGeneric("game_state_shiritori", jsonStr);
+      _hasSavedGame = true;
+      _autoRestoreDone = true;
+      notifyListeners();
+    }
   }
 
   void onInputChanged(String text) {
@@ -86,6 +166,9 @@ class ShiritoriProvider extends ChangeNotifier {
 
   Future<void> startGame(String locale) async {
     _gameState = ShiritoriGameState.loading;
+    _settingsRepo.removeGeneric("game_state_shiritori");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
     notifyListeners();
 
     _currentMeanings = await _meaningRepo.getWordMeanings(locale);
@@ -244,21 +327,75 @@ class ShiritoriProvider extends ChangeNotifier {
     return normalization[lastChar] ?? lastChar;
   }
 
+  ShiritoriGameState? _previousGameState;
+
   void _gameOver(bool victory) {
+    if (_gameState == ShiritoriGameState.gameOver) return;
+
     _gameState = ShiritoriGameState.gameOver;
     _isVictory = victory;
     _timer?.cancel();
+    _settingsRepo.removeGeneric("game_state_shiritori");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+
     if (victory) {
-       _audioService.playSound("assets/files/sounds/correct.mp3"); // success sound
+       _audioService.playSound("assets/files/sounds/correct.mp3");
     } else {
        _audioService.playSound("assets/files/sounds/game_over.mp3");
     }
+
+    _saveResult();
     notifyListeners();
   }
 
-  void pauseGame() { _gameState = ShiritoriGameState.paused; notifyListeners(); }
-  void resumeGame() { _gameState = ShiritoriGameState.playerTurn; notifyListeners(); }
-  void abandonGame() { _gameOver(false); }
+  Future<void> _saveResult() async {
+    final result = ShiritoriGameResult(
+      levelId: _settingsRepo.getMode(),
+      score: _score,
+      timeSeconds: _gameTimeSeconds,
+      timestamp: DateTime.now().millisecondsSinceEpoch,
+    );
+
+    _scoresHistory = [result, ..._scoresHistory].take(10).toList();
+    notifyListeners();
+
+    try {
+      await _scoreRepo.saveGameHistory(
+        gameType: "SHIRITORI",
+        score: _score,
+        timeSeconds: _gameTimeSeconds,
+        metadata: _settingsRepo.getMode(),
+      );
+    } catch (e) {
+      // Silent catch
+    }
+  }
+
+  void pauseGame() {
+    if (_gameState != ShiritoriGameState.gameOver && _gameState != ShiritoriGameState.idle) {
+      _previousGameState = _gameState;
+      _gameState = ShiritoriGameState.paused;
+      notifyListeners();
+    }
+  }
+
+  void resumeGame() {
+    if (_gameState == ShiritoriGameState.paused) {
+      _gameState = _previousGameState ?? ShiritoriGameState.playerTurn;
+      notifyListeners();
+    }
+  }
+
+  void abandonGame() {
+    _gameOver(false);
+  }
+
+  void resetToIdle() {
+    _timer?.cancel();
+    _gameState = ShiritoriGameState.idle;
+    notifyListeners();
+  }
 
   @override
   void dispose() {

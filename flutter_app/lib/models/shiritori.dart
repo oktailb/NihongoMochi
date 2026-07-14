@@ -48,3 +48,48 @@ class ShiritoriGameResult {
   factory ShiritoriGameResult.fromJson(Map<String, dynamic> json) => _$ShiritoriGameResultFromJson(json);
   Map<String, dynamic> toJson() => _$ShiritoriGameResultToJson(this);
 }
+
+class ShiritoriGameStateData {
+  final List<ShiritoriWord> playedWords;
+  final String lastKana;
+  final int score;
+  final int gameTimeSeconds;
+  final List<String> usedPhonetics;
+  final ShiritoriGameState gameState;
+
+  ShiritoriGameStateData({
+    required this.playedWords,
+    required this.lastKana,
+    required this.score,
+    required this.gameTimeSeconds,
+    required this.usedPhonetics,
+    required this.gameState,
+  });
+
+  factory ShiritoriGameStateData.fromJson(Map<String, dynamic> json) {
+    return ShiritoriGameStateData(
+      playedWords: (json['playedWords'] as List)
+          .map((e) => ShiritoriWord.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      lastKana: json['lastKana'] as String,
+      score: json['score'] as int,
+      gameTimeSeconds: json['gameTimeSeconds'] as int,
+      usedPhonetics: (json['usedPhonetics'] as List).cast<String>(),
+      gameState: ShiritoriGameState.values.firstWhere(
+        (e) => e.toString().split('.').last == json['gameState'],
+        orElse: () => ShiritoriGameState.idle,
+      ),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'playedWords': playedWords.map((e) => e.toJson()).toList(),
+      'lastKana': lastKana,
+      'score': score,
+      'gameTimeSeconds': gameTimeSeconds,
+      'usedPhonetics': usedPhonetics,
+      'gameState': gameState.toString().split('.').last,
+    };
+  }
+}
