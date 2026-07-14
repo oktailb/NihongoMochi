@@ -1,4 +1,5 @@
 import 'package:google_mlkit_digital_ink_recognition/google_mlkit_digital_ink_recognition.dart';
+import 'package:flutter/foundation.dart';
 import '../models/handwriting.dart';
 import 'handwriting_service.dart';
 
@@ -62,7 +63,7 @@ class NativeHandwritingService implements HandwritingService {
       final candidates = await _recognizer!.recognize(ink);
       return candidates.map((c) => c.text).toList();
     } catch (e) {
-      print('Recognition error: $e');
+      debugPrint('Recognition error: $e');
       return [];
     }
   }

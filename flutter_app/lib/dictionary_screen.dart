@@ -34,7 +34,10 @@ class DictionaryView extends StatelessWidget {
       context: context,
       builder: (context) => ComposeDrawingDialog(
         provider: provider,
-        onDismiss: () => Navigator.pop(context),
+        onDismiss: () {
+          provider.clearDrawing();
+          Navigator.pop(context);
+        },
         onConfirm: () => Navigator.pop(context),
       ),
     );
@@ -51,11 +54,11 @@ class DictionaryView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           settings.getString("menu_dictionary"),
-          style: TextStyle(color: theme.colorScheme.onBackground),
+          style: TextStyle(color: theme.colorScheme.onSurface),
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
+        iconTheme: IconThemeData(color: theme.colorScheme.onSurface),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -95,11 +98,11 @@ class DictionaryView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.9),
+        color: theme.colorScheme.surface.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -142,9 +145,12 @@ class DictionaryView extends StatelessWidget {
           // Search Mode Radio Buttons
           Row(
             children: [
+              // ignore: deprecated_member_use
               Radio<SearchMode>(
                 value: SearchMode.reading,
+                // ignore: deprecated_member_use
                 groupValue: provider.searchMode,
+                // ignore: deprecated_member_use
                 onChanged: (val) => provider.setSearchMode(val!),
               ),
               GestureDetector(
@@ -158,9 +164,12 @@ class DictionaryView extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
+              // ignore: deprecated_member_use
               Radio<SearchMode>(
                 value: SearchMode.meaning,
+                // ignore: deprecated_member_use
                 groupValue: provider.searchMode,
+                // ignore: deprecated_member_use
                 onChanged: (val) => provider.setSearchMode(val!),
               ),
               GestureDetector(
@@ -310,7 +319,7 @@ class DictionaryView extends StatelessWidget {
         return Column(
           children: [
             DictionaryItemRow(item: item),
-            Divider(color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.5)),
+            Divider(color: Theme.of(context).colorScheme.outlineVariant.withValues(alpha: 0.5)),
           ],
         );
       },
@@ -355,7 +364,7 @@ class DictionaryItemRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
-          color: theme.colorScheme.surface.withOpacity(0.7),
+          color: theme.colorScheme.surface.withValues(alpha: 0.7),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(

@@ -17,6 +17,7 @@ class LevelFilterOption {
 class DictionaryProvider extends ChangeNotifier {
   final DictionaryRepository _repository;
   final HandwritingService _handwritingService = HandwritingService();
+  bool _isDisposed = false;
 
   List<DictionaryItem> _allKanji = [];
   List<DictionaryItem> _filteredResults = [];
@@ -68,7 +69,7 @@ class DictionaryProvider extends ChangeNotifier {
       }
       _levelOptions = options;
     } catch (e) {
-      print("Error loading level options in provider: $e");
+      debugPrint("Error loading level options in provider: $e");
     }
 
     await loadData(locale);
@@ -119,10 +120,12 @@ class DictionaryProvider extends ChangeNotifier {
 
   void addStroke(HandwritingStroke stroke) {
     _currentStrokes.add(stroke);
+    debugPrint("[DictionaryProvider] addStroke : tracé ajouté, total tracés = ${_currentStrokes.length}");
     _recognizeDrawing();
   }
 
   void clearDrawing() {
+    debugPrint("[DictionaryProvider] clearDrawing : dessin effacé");
     _currentStrokes.clear();
     _drawingCandidates = null;
     applyFilters();
@@ -131,7 +134,15 @@ class DictionaryProvider extends ChangeNotifier {
   Future<void> _recognizeDrawing() async {
     if (_currentStrokes.isEmpty) return;
 
-    _drawingCandidates = await _handwritingService.recognize(_currentStrokes);
+    debugPrint("[DictionaryProvider] _recognizeDrawing : début de reconnaissance...");
+    final candidates = await _handwritingService.recognize(_currentStrokes);
+    if (_isDisposed) {
+      debugPrint("[DictionaryProvider] _recognizeDrawing : abandon (provider déjà disposé)");
+      return;
+    }
+
+    _drawingCandidates = candidates;
+    debugPrint("[DictionaryProvider] _recognizeDrawing : candidats reçus = $candidates");
     if (_drawingCandidates != null && _drawingCandidates!.isNotEmpty) {
       if (_selectedLevelId != "ALL") {
         _selectedLevelId = "ALL";
@@ -142,10 +153,13 @@ class DictionaryProvider extends ChangeNotifier {
 
   Future<void> downloadModel() async {
     await _handwritingService.downloadModel();
-    notifyListeners();
+    if (!_isDisposed) {
+      notifyListeners();
+    }
   }
 
   void applyFilters() {
+    if (_isDisposed) return;
     Iterable<DictionaryItem> filtered = _allKanji;
 
     if (_selectedLevelId != "ALL") {
@@ -210,6 +224,7 @@ class DictionaryProvider extends ChangeNotifier {
 
   @override
   void dispose() {
+    _isDisposed = true;
     _handwritingService.dispose();
     super.dispose();
   }

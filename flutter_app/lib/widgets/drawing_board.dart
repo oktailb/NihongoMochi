@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'dart:math';
 import '../models/handwriting.dart';
 import '../providers/dictionary_provider.dart';
@@ -138,7 +137,7 @@ class DrawingThumbnail extends StatelessWidget {
       height: size,
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surfaceVariant,
+        color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(4),
       ),
       child: CustomPaint(
@@ -235,6 +234,7 @@ class _ComposeDrawingDialogState extends State<ComposeDrawingDialog> {
   @override
   void initState() {
     super.initState();
+    widget.provider.addListener(_onProviderUpdate);
     final status = widget.provider.modelStatus;
     if (status == ModelStatus.notDownloaded || status == ModelStatus.failed) {
       widget.provider.downloadModel();
@@ -242,6 +242,18 @@ class _ComposeDrawingDialogState extends State<ComposeDrawingDialog> {
     // Pre-fill existing strokes from provider if any
     for (var stroke in widget.provider.currentStrokes) {
       _allStrokes.add(stroke.points.map((p) => Offset(p.x, p.y)).toList());
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.provider.removeListener(_onProviderUpdate);
+    super.dispose();
+  }
+
+  void _onProviderUpdate() {
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -266,15 +278,7 @@ class _ComposeDrawingDialogState extends State<ComposeDrawingDialog> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            if (kIsWeb) ...[
-              const Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 48),
-              const SizedBox(height: 16),
-              const Text(
-                "La reconnaissance d'écriture n'est pas supportée sur le Web.\n\nVeuillez utiliser l'application mobile (Android/iOS) pour tester cette fonctionnalité.",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ] else if (provider.modelStatus == ModelStatus.notDownloaded ||
+            if (provider.modelStatus == ModelStatus.notDownloaded ||
                 provider.modelStatus == ModelStatus.downloading ||
                 provider.modelStatus == ModelStatus.failed) ...[
               const CircularProgressIndicator(),
@@ -312,7 +316,7 @@ class _ComposeDrawingDialogState extends State<ComposeDrawingDialog> {
                   child: ElevatedButton(
                     onPressed: widget.onDismiss,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.colorScheme.surfaceVariant,
+                      backgroundColor: theme.colorScheme.surfaceContainerHighest,
                       foregroundColor: theme.colorScheme.onSurfaceVariant,
                     ),
                     child: const Text("Annuler"),
