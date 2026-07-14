@@ -5,6 +5,7 @@ import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'memorize_game_screen.dart';
+import 'widgets/game_restore_card.dart';
 
 class MemorizeSetupScreen extends StatefulWidget {
   const MemorizeSetupScreen({super.key});
@@ -57,62 +58,26 @@ class _MemorizeSetupScreenState extends State<MemorizeSetupScreen> {
       children: [
         // Partie en cours (Restauration)
         if (provider.hasSavedGame) ...[
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: theme.colorScheme.primaryContainer,
-            elevation: 8,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Une partie est en pause",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: theme.colorScheme.onPrimaryContainer,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(48),
-                      backgroundColor: theme.colorScheme.primary,
-                      foregroundColor: theme.colorScheme.onPrimary,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    icon: const Icon(Icons.history),
-                    label: const Text("Reprendre la partie"),
-                    onPressed: () {
-                      provider.restoreGame(() {
-                        if (context.mounted) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const MemorizeGameScreen()),
-                          );
-                        }
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () async {
-                      await provider.startGame(locale);
-                      if (context.mounted) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const MemorizeGameScreen()),
-                        );
-                      }
-                    },
-                    child: Text(
-                      "Nouvelle partie (effacer la précédente)",
-                      style: TextStyle(color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          GameRestoreCard(
+            onResumeClick: () {
+              provider.restoreGame(() {
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MemorizeGameScreen()),
+                  );
+                }
+              });
+            },
+            onNewGameClick: () async {
+              await provider.startGame(locale);
+              if (context.mounted) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MemorizeGameScreen()),
+                );
+              }
+            },
           ),
           const SizedBox(height: 16),
         ],
@@ -127,9 +92,7 @@ class _MemorizeSetupScreenState extends State<MemorizeSetupScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  settings.getString("game_memorize_grid_size_label").isNotEmpty
-                      ? settings.getString("game_memorize_grid_size_label").toUpperCase()
-                      : "TAILLE DE LA GRILLE",
+                  settings.getString("game_memorize_grid_size").toUpperCase(),
                   style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                 ),
                 const SizedBox(height: 12),
@@ -171,12 +134,7 @@ class _MemorizeSetupScreenState extends State<MemorizeSetupScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    _formatString(
-                      settings,
-                      "game_memorize_strokes_max_label",
-                      "MAXIMUM DE TRAITS : %d",
-                      "${provider.selectedMaxStrokes}",
-                    ),
+                    settings.getString("game_memorize_max_strokes", [provider.selectedMaxStrokes]).toUpperCase(),
                     style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                   ),
                   Slider(
@@ -198,42 +156,16 @@ class _MemorizeSetupScreenState extends State<MemorizeSetupScreen> {
         // Historique
         GameHistoryCard(
           history: provider.scoresHistory,
-          emptyMessage: settings.getString("game_memorize_no_scores").isNotEmpty
-              ? settings.getString("game_memorize_no_scores")
-              : "Aucun score pour le moment",
+          emptyMessage: settings.getString("game_memorize_no_scores"),
           itemBuilder: (result) {
             return GameHistoryRow(
-              label: settings.getString("game_memorize_grid_size_format").isNotEmpty
-                  ? settings.getString("game_memorize_grid_size_format").replaceFirst("%s", result.gridSizeLabel)
-                  : "Grille ${result.gridSizeLabel}",
-              score: _formatString(
-                settings,
-                "game_memorize_score_format",
-                "%d coups",
-                "${result.moves}",
-              ),
-              time: _formatString(
-                settings,
-                "game_memorize_time_format",
-                "%ds",
-                "${result.timeSeconds}",
-              ),
+              label: settings.getString("game_memorize_grid_label", [result.gridSizeLabel]),
+              score: settings.getString("game_memorize_score_format", [result.moves]),
+              time: settings.getString("game_memorize_time_format", [result.timeSeconds]),
             );
           },
         ),
       ],
     );
-  }
-
-  String _formatString(SettingsProvider settings, String key, String fallback, String value) {
-    final raw = settings.getString(key);
-    final text = raw.isNotEmpty ? raw : fallback;
-    if (text.contains("%")) {
-      return text
-          .replaceAll("%1\$d", value)
-          .replaceAll("%1%d", value)
-          .replaceAll("%d", value);
-    }
-    return "$text $value";
   }
 }

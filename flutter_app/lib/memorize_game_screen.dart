@@ -45,14 +45,13 @@ class MemorizeGameScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     GameHUD(
-                      primaryLabel: settings.getString("game_memorize_moves_label").isNotEmpty
-                          ? settings.getString("game_memorize_moves_label").toUpperCase()
-                          : "COUPS",
+                      primaryLabel: settings.getString("game_taquin_moves_label").toUpperCase(),
                       primaryValue: provider.moves.toString(),
-                      secondaryLabel: settings.getString("game_memorize_pairs_label").isNotEmpty
-                          ? settings.getString("game_memorize_pairs_label").toUpperCase()
-                          : "PAIRES",
-                      secondaryValue: "${provider.cards.where((c) => c.isMatched).length ~/ 2} / ${gridSize.pairsCount}",
+                      secondaryLabel: "",
+                      secondaryValue: settings.getString("game_memorize_pairs_count", [
+                        provider.cards.where((c) => c.isMatched).length ~/ 2,
+                        gridSize.pairsCount,
+                      ]),
                       timeSeconds: provider.gameTimeSeconds,
                     ),
                     const SizedBox(height: 16),
@@ -96,16 +95,12 @@ class MemorizeGameScreen extends StatelessWidget {
               if (provider.isGameFinished)
                 GameResultOverlay(
                   isVictory: true,
-                  title: settings.getString("game_memorize_success_title").isNotEmpty
-                      ? settings.getString("game_memorize_success_title")
-                      : "Terminé !",
+                  title: settings.getString("game_memorize_success_title"),
                   score: provider.moves.toString(),
                   bestScore: null,
                   stats: [
                     MapEntry(
-                      settings.getString("game_taquin_time_label").isNotEmpty
-                          ? settings.getString("game_taquin_time_label")
-                          : "Temps",
+                      settings.getString("game_taquin_time_label"),
                       _formatGameTimeHUD(provider.gameTimeSeconds),
                     ),
                   ],

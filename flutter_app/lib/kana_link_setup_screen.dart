@@ -6,6 +6,7 @@ import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'kana_link_game_screen.dart';
+import 'widgets/game_restore_card.dart';
 
 class KanaLinkSetupScreen extends StatefulWidget {
   const KanaLinkSetupScreen({super.key});
@@ -60,63 +61,27 @@ class _KanaLinkSetupScreenState extends State<KanaLinkSetupScreen> {
       children: [
         // Partie en cours (Restauration)
         if (provider.hasSavedGame) ...[
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: theme.colorScheme.primaryContainer,
-            elevation: 8,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Une partie est en pause",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: theme.colorScheme.onPrimaryContainer,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(48),
-                      backgroundColor: theme.colorScheme.primary,
-                      foregroundColor: theme.colorScheme.onPrimary,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    icon: const Icon(Icons.history),
-                    label: const Text("Reprendre la partie"),
-                    onPressed: () {
-                      provider.restoreGame(() {
-                        if (context.mounted) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
-                          );
-                        }
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () async {
-                      final levelId = settings.selectedLevel;
-                      await provider.initGame(levelId.isEmpty ? "n5" : levelId, mode: _selectedMode);
-                      if (context.mounted) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
-                        );
-                      }
-                    },
-                    child: Text(
-                      "Nouvelle partie (effacer la précédente)",
-                      style: TextStyle(color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          GameRestoreCard(
+            onResumeClick: () {
+              provider.restoreGame(() {
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
+                  );
+                }
+              });
+            },
+            onNewGameClick: () async {
+              final levelId = settings.selectedLevel;
+              await provider.initGame(levelId.isEmpty ? "n5" : levelId, mode: _selectedMode);
+              if (context.mounted) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
+                );
+              }
+            },
           ),
           const SizedBox(height: 16),
         ],

@@ -5,15 +5,21 @@ class StringProvider {
   Map<String, String> _localizedStrings = {};
 
   Future<void> loadStrings(String locale) async {
-    // Try specific locale, fallback to default 'values'
-    String path = 'assets/values-$locale/strings.xml';
+    _localizedStrings.clear();
+    // 1. Load default strings first to ensure fallbacks for missing keys
     try {
-      await _loadFromPath(path);
+      await _loadFromPath('assets/values/strings.xml');
     } catch (e) {
+      print("Could not load default strings: $e");
+    }
+
+    // 2. Load localized strings on top of default ones
+    if (locale != 'values' && locale.isNotEmpty) {
+      final path = 'assets/values-$locale/strings.xml';
       try {
-        await _loadFromPath('assets/values/strings.xml');
+        await _loadFromPath(path);
       } catch (e) {
-        print("Could not load strings for $locale or default");
+        // Keep default fallbacks if localized file fails or is missing
       }
     }
   }
@@ -23,10 +29,12 @@ class StringProvider {
     final document = XmlDocument.parse(xmlString);
     final resources = document.findAllElements('string');
 
-    _localizedStrings = {
-      for (var element in resources)
-        element.getAttribute('name') ?? '': element.innerText
-    };
+    for (var element in resources) {
+      final name = element.getAttribute('name');
+      if (name != null) {
+        _localizedStrings[name] = element.innerText;
+      }
+    }
   }
 
   String getString(String key, [List<dynamic>? args]) {

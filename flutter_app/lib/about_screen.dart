@@ -126,8 +126,8 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(color: theme.colorScheme.onSurface),
                     ),
                     const SizedBox(height: 16),
-                    _buildFullWidthButton(context, settings.getString("about_patreon"), Icons.favorite, () => _launchUrl("https://www.patreon.com/nihongomochi")),
-                    _buildFullWidthButton(context, settings.getString("about_tipeee"), Icons.volunteer_activism, () => _launchUrl("https://fr.tipeee.com/nihongomochi")),
+                    _buildFullWidthButton(context, settings.getString("about_patreon"), Icons.favorite, () => _launchUrl("https://www.patreon.com/cw/Oktail")),
+                    _buildFullWidthButton(context, settings.getString("about_tipeee"), Icons.volunteer_activism, () => _launchUrl("https://en.tipeee.com/lecoq-vincent/news/246869")),
                     const SizedBox(height: 16),
                     Text(
                       settings.getString("about_pedagogical"),

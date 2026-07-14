@@ -6,6 +6,7 @@ import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'simon_game_screen.dart';
+import 'widgets/game_restore_card.dart';
 
 class SimonSetupScreen extends StatefulWidget {
   const SimonSetupScreen({super.key});
@@ -58,62 +59,26 @@ class _SimonSetupScreenState extends State<SimonSetupScreen> {
       children: [
         // Partie en cours (Restauration)
         if (provider.hasSavedGame) ...[
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            color: theme.colorScheme.primaryContainer,
-            elevation: 8,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Une partie est en pause",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: theme.colorScheme.onPrimaryContainer,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(48),
-                      backgroundColor: theme.colorScheme.primary,
-                      foregroundColor: theme.colorScheme.onPrimary,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    icon: const Icon(Icons.history),
-                    label: const Text("Reprendre la partie"),
-                    onPressed: () {
-                      provider.restoreGame(() {
-                        if (context.mounted) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SimonGameScreen()),
-                          );
-                        }
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () async {
-                      await provider.startGame(locale);
-                      if (context.mounted) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const SimonGameScreen()),
-                        );
-                      }
-                    },
-                    child: Text(
-                      "Nouvelle partie (effacer la précédente)",
-                      style: TextStyle(color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          GameRestoreCard(
+            onResumeClick: () {
+              provider.restoreGame(() {
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SimonGameScreen()),
+                  );
+                }
+              });
+            },
+            onNewGameClick: () async {
+              await provider.startGame(locale);
+              if (context.mounted) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SimonGameScreen()),
+                );
+              }
+            },
           ),
           const SizedBox(height: 16),
         ],
