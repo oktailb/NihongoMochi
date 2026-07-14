@@ -108,9 +108,14 @@ void main() async {
             context.read<TtsService>(),
           ),
         ),
-        ChangeNotifierProxyProvider2<LevelRepository, StatisticsService, SagaProvider>(
-          create: (context) => SagaProvider(context.read<LevelRepository>(), context.read<StatisticsService>()),
-          update: (context, levelRepo, stats, saga) => saga ?? SagaProvider(levelRepo, stats),
+        ChangeNotifierProxyProvider3<LevelRepository, StatisticsService, SettingsRepository, SagaProvider>(
+          create: (context) => SagaProvider(
+            context.read<LevelRepository>(),
+            context.read<StatisticsService>(),
+            context.read<SettingsRepository>(),
+          ),
+          update: (context, levelRepo, stats, settingsRepo, saga) =>
+              saga ?? SagaProvider(levelRepo, stats, settingsRepo),
         ),
         ChangeNotifierProxyProvider4<KanaRepository, ScoreRepository, SettingsRepository, AudioService, TaquinProvider>(
           create: (context) => TaquinProvider(

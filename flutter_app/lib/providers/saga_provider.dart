@@ -6,11 +6,67 @@ import '../repositories/level_repository.dart';
 import '../services/statistics_service.dart';
 import '../repositories/score_repository.dart';
 
+import '../repositories/settings_repository.dart';
+
 class SagaProvider extends ChangeNotifier {
   final LevelRepository _levelRepo;
   final StatisticsService _statsService;
+  final SettingsRepository _settingsRepo;
 
-  SagaProvider(this._levelRepo, this._statsService);
+  SagaProvider(this._levelRepo, this._statsService, this._settingsRepo) {
+    _loadAuthState();
+  }
+
+  bool _isAuthenticated = false;
+  String? _displayName;
+  String? _avatarAsset;
+  String? _accountType;
+
+  bool get isAuthenticated => _isAuthenticated;
+  String? get displayName => _displayName;
+  String? get avatarAsset => _avatarAsset;
+  String? get accountType => _accountType;
+
+  void _loadAuthState() {
+    _isAuthenticated = _settingsRepo.getBool("auth_authenticated") ?? false;
+    _displayName = _settingsRepo.getStringGeneric("auth_display_name");
+    _avatarAsset = _settingsRepo.getStringGeneric("auth_avatar_asset");
+    _accountType = _settingsRepo.getStringGeneric("auth_account_type");
+  }
+
+  Future<void> signIn(String type, {String? customName, String? customAvatar}) async {
+    _isAuthenticated = true;
+    _accountType = type;
+    if (type == "Google") {
+      _displayName = "Chrome Explorer";
+      _avatarAsset = "assets/drawable/mascot_chrome.webp";
+    } else if (type == "Firefox") {
+      _displayName = "Firefox Fox";
+      _avatarAsset = "assets/drawable/mascot_firefox.webp";
+    } else {
+      _displayName = (customName == null || customName.isEmpty) ? "Mochi Student" : customName;
+      _avatarAsset = customAvatar ?? "assets/drawable/nihongomochi.webp";
+    }
+
+    await _settingsRepo.setBool("auth_authenticated", true);
+    await _settingsRepo.setStringGeneric("auth_display_name", _displayName!);
+    await _settingsRepo.setStringGeneric("auth_avatar_asset", _avatarAsset!);
+    await _settingsRepo.setStringGeneric("auth_account_type", _accountType!);
+    notifyListeners();
+  }
+
+  Future<void> signOut() async {
+    _isAuthenticated = false;
+    _displayName = null;
+    _avatarAsset = null;
+    _accountType = null;
+
+    await _settingsRepo.setBool("auth_authenticated", false);
+    await _settingsRepo.removeGeneric("auth_display_name");
+    await _settingsRepo.removeGeneric("auth_avatar_asset");
+    await _settingsRepo.removeGeneric("auth_account_type");
+    notifyListeners();
+  }
 
   List<SagaStep> _steps = [];
   Map<String, UserSagaProgress> _nodeProgress = {};
@@ -99,8 +155,11 @@ class SagaProvider extends ChangeNotifier {
       for (var level in levelsByDepth[depth]!) {
         // Déterminer le type principal
         StatisticsType mainType = StatisticsType.recognition;
-        if (level.activities.containsKey("READING")) mainType = StatisticsType.reading;
-        else if (level.activities.containsKey("GRAMMAR")) mainType = StatisticsType.grammar;
+        if (level.activities.containsKey("READING")) {
+          mainType = StatisticsType.reading;
+        } else if (level.activities.containsKey("GRAMMAR")) {
+          mainType = StatisticsType.grammar;
+        }
 
         final sagaNode = SagaNode(
           id: level.id,

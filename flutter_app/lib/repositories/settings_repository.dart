@@ -59,5 +59,13 @@ class SettingsRepository {
     }
     return _prefs.setString(_ttsVoiceIdKey, value);
   }
+
+  bool? getBool(String key) => _prefs.getBool(key);
+  Future<void> setBool(String key, bool value) => _prefs.setBool(key, value);
+
+  String? getStringGeneric(String key) => _prefs.getString(key);
+  Future<void> setStringGeneric(String key, String value) => _prefs.setString(key, value);
+
+  Future<void> removeGeneric(String key) => _prefs.remove(key);
 }
 

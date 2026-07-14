@@ -17,23 +17,28 @@ class BillboardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final IconData icon = _getIcon();
+    final String imageAsset = _getImageAsset();
     final Color color = _getColor(context);
 
     Widget content = Container(
       padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
+        color: Colors.white.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: color.withOpacity(0.5)),
+        border: Border.all(color: color.withValues(alpha: 0.5)),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 4),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 4),
         ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 24, color: color),
+          Image.asset(
+            imageAsset,
+            width: 36,
+            height: 36,
+            fit: BoxFit.contain,
+          ),
           Text(
             "$progress%",
             style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
@@ -50,7 +55,7 @@ class BillboardItem extends StatelessWidget {
           if (isLeftSide) content,
           Icon(
             isLeftSide ? Icons.arrow_right : Icons.arrow_left,
-            color: color.withOpacity(0.7),
+            color: color.withValues(alpha: 0.7),
           ),
           if (!isLeftSide) content,
         ],
@@ -58,13 +63,13 @@ class BillboardItem extends StatelessWidget {
     );
   }
 
-  IconData _getIcon() {
+  String _getImageAsset() {
     switch (type) {
-      case StatisticsType.recognition: return Icons.visibility;
-      case StatisticsType.reading: return Icons.menu_book;
-      case StatisticsType.grammar: return Icons.g_translate;
-      case StatisticsType.writing: return Icons.edit;
-      case StatisticsType.games: return Icons.videogame_asset;
+      case StatisticsType.recognition: return 'assets/drawable/recognising.webp';
+      case StatisticsType.reading: return 'assets/drawable/reading.webp';
+      case StatisticsType.grammar: return 'assets/drawable/grammar.webp';
+      case StatisticsType.writing: return 'assets/drawable/writing.webp';
+      case StatisticsType.games: return 'assets/drawable/recognising.webp';
     }
   }
 

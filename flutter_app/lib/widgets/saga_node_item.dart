@@ -33,52 +33,51 @@ class SagaNodeItem extends StatelessWidget {
         ? Theme.of(context).colorScheme.primary
         : Theme.of(context).colorScheme.onSurface;
 
+    final String levelBgRes = Theme.of(context).brightness == Brightness.dark
+        ? 'assets/drawable/level_dark.webp'
+        : 'assets/drawable/level_light.webp';
+
     return GestureDetector(
       onTap: () => onNodeClick(node.id, node.mainType),
-      child: Column(
-        children: [
-          Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white.withValues(alpha: 0.9),
-              border: Border.all(
-                color: avgProgress >= 100 ? Colors.orange : Colors.blue.withValues(alpha: 0.5),
-                width: 4,
+      child: SizedBox(
+        width: 110,
+        height: 110,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              levelBgRes,
+              width: 110,
+              height: 110,
+              fit: BoxFit.contain,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    settings.getString(node.title).toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: contentColor,
+                    ),
+                  ),
+                  Text(
+                    "$avgProgress%",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w900,
+                      color: contentColor,
+                    ),
+                  ),
+                ],
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
-                  blurRadius: 8,
-                  offset: const Offset(0, 4),
-                ),
-              ],
             ),
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  settings.getString(node.title).toUpperCase(),
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: contentColor,
-                  ),
-                ),
-                Text(
-                  "$avgProgress%",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w900, // Fixed: FontWeight.black -> FontWeight.w900
-                    color: contentColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
