@@ -96,7 +96,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -152,9 +152,9 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: theme.colorScheme.surface.withOpacity(0.5),
+                color: theme.colorScheme.surface.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
+                border: Border.all(color: theme.colorScheme.outline.withValues(alpha: 0.2)),
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<KanjiSortOrder>(
@@ -193,7 +193,7 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
                 labelText: settings.getString("size").isNotEmpty ? settings.getString("size") : "Taille",
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 filled: true,
-                fillColor: theme.colorScheme.surface.withOpacity(0.5),
+                fillColor: theme.colorScheme.surface.withValues(alpha: 0.5),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
             ),
@@ -211,14 +211,14 @@ class _GameRecapViewState extends State<GameRecapView> with RouteAware {
           settings.currentLocaleCode.startsWith("fr") 
               ? "Aucun élément trouvé pour ce niveau." 
               : "No items found for this level.",
-          style: TextStyle(color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7)),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)),
         ),
       );
     }
     return GridView.builder(
       padding: const EdgeInsets.all(12),
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 65,
+        maxCrossAxisExtent: 110,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),

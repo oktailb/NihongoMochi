@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/kanji_sort_order.dart';
-import 'providers/game_recap_provider.dart';
 import 'providers/writing_recap_provider.dart';
 import 'providers/settings_provider.dart';
 import 'repositories/dictionary_repository.dart';
@@ -9,7 +8,6 @@ import 'repositories/score_repository.dart';
 import 'services/level_content_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
-import 'widgets/game_components.dart';
 import 'kanji_detail_screen.dart';
 import 'writing_quiz_screen.dart';
 import 'main.dart'; // To access routeObserver
@@ -148,7 +146,7 @@ class _WritingRecapViewState extends State<WritingRecapView> with RouteAware {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.black12),
               ),
@@ -189,7 +187,7 @@ class _WritingRecapViewState extends State<WritingRecapView> with RouteAware {
                 labelText: settings.getString("size").isNotEmpty ? settings.getString("size") : "Taille",
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 filled: true,
-                fillColor: Colors.white.withOpacity(0.5),
+                fillColor: Colors.white.withValues(alpha: 0.5),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               ),
             ),
@@ -205,8 +203,8 @@ class _WritingRecapViewState extends State<WritingRecapView> with RouteAware {
     }
     return GridView.builder(
       padding: const EdgeInsets.all(12),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 8,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 110,
         crossAxisSpacing: 6,
         mainAxisSpacing: 6,
       ),
