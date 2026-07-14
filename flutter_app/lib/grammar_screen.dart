@@ -267,6 +267,7 @@ class _GrammarViewState extends State<GrammarView> {
                         nodes: provider.nodes,
                         separators: provider.separators,
                         lineColor: isDark ? Colors.white54 : Colors.brown.shade300,
+                        scale: scale,
                       ),
                     ),
                     // 2. Stonepath (au-dessus des lignes, en dessous du Torii)
