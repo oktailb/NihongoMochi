@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/saga.dart';
+import '../providers/settings_provider.dart';
 
 class SagaNodeItem extends StatelessWidget {
   final SagaNode node;
@@ -15,6 +17,7 @@ class SagaNodeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<SettingsProvider>();
     // Calcul de la moyenne de progression pour l'affichage principal
     final scores = [
       if (node.recognitionId != null) progress.recognitionIndex,
@@ -26,7 +29,6 @@ class SagaNodeItem extends StatelessWidget {
         ? 0
         : (scores.reduce((a, b) => a + b) / scores.length).round();
 
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final Color contentColor = avgProgress >= 100
         ? Theme.of(context).colorScheme.primary
         : Theme.of(context).colorScheme.onSurface;
@@ -40,14 +42,14 @@ class SagaNodeItem extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
               border: Border.all(
-                color: avgProgress >= 100 ? Colors.orange : Colors.blue.withOpacity(0.5),
+                color: avgProgress >= 100 ? Colors.orange : Colors.blue.withValues(alpha: 0.5),
                 width: 4,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),
@@ -58,7 +60,7 @@ class SagaNodeItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  node.title.toUpperCase(),
+                  settings.getString(node.title).toUpperCase(),
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,

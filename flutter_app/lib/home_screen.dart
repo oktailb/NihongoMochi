@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
 
                     // Sélecteur de niveau (Slider)
-                    if (filteredLevels.isNotEmpty) _buildLevelSelector(filteredLevels, displayIndex),
+                    if (filteredLevels.isNotEmpty) _buildLevelSelector(settings, filteredLevels, displayIndex),
                     const SizedBox(height: 16),
 
                     // Section Vocabulaire
@@ -165,18 +165,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           } else if (currentLevel.id == "katakana") {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => const KanaRecapScreen(type: KanaType.katakana)));
                           } else {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => GameRecapScreen(levelId: currentLevel.id, levelTitle: currentLevel.name)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => GameRecapScreen(levelId: currentLevel.id, levelTitle: settings.getString(currentLevel.name))));
                           }
                         }
                       }),
                       _buildHomeBlockCard(context, settings.getString("results_reading_title"), "読み方", isReadEnabled, () {
                         if (currentLevel != null) {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => WordListScreen(levelId: currentLevel.id, levelTitle: currentLevel.name)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => WordListScreen(levelId: currentLevel.id, levelTitle: settings.getString(currentLevel.name))));
                         }
                       }),
                       _buildHomeBlockCard(context, settings.getString("results_writing_title"), "書き方", isWriteEnabled, () {
                         if (currentLevel != null) {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => WritingRecapScreen(levelId: currentLevel.id, levelTitle: currentLevel.name)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => WritingRecapScreen(levelId: currentLevel.id, levelTitle: settings.getString(currentLevel.name))));
                         }
                       }),
                     ]),
@@ -248,26 +248,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildLevelSelector(List<LevelDefinition> levels, int index) {
+  Widget _buildLevelSelector(SettingsProvider settings, List<LevelDefinition> levels, int index) {
     final level = levels[index];
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.colorScheme.surface.withOpacity(0.9),
+      color: theme.colorScheme.surface.withValues(alpha: 0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Text(
-              level.name.toUpperCase(),
+              settings.getString(level.name).toUpperCase(),
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
             ),
             if (level.description.isNotEmpty) ...[
               const SizedBox(height: 2),
               Text(
-                level.description,
-                style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface.withOpacity(0.7)),
+                settings.getString(level.description),
+                style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
               ),
             ],
             const SizedBox(height: 4),
@@ -291,13 +291,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: theme.colorScheme.surface.withOpacity(0.8),
+      color: theme.colorScheme.surface.withValues(alpha: 0.8),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface.withOpacity(0.6))),
+            Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface.withValues(alpha: 0.6))),
             const SizedBox(height: 12),
             Row(
               children: items.map((item) => Expanded(
@@ -316,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: enabled ? 1 : 0,
-      color: theme.colorScheme.surface.withOpacity(enabled ? 0.9 : 0.4),
+      color: theme.colorScheme.surface.withValues(alpha: enabled ? 0.9 : 0.4),
       child: InkWell(
         onTap: enabled ? onClick : null,
         borderRadius: BorderRadius.circular(16),
@@ -331,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary.withOpacity(alpha),
+                  color: theme.colorScheme.primary.withValues(alpha: alpha),
                 ),
               ),
               const SizedBox(height: 4),
@@ -341,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w500,
-                  color: theme.colorScheme.onSurface.withOpacity(alpha),
+                  color: theme.colorScheme.onSurface.withValues(alpha: alpha),
                 ),
               ),
             ],
@@ -355,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      color: theme.colorScheme.surface.withOpacity(0.9),
+      color: theme.colorScheme.surface.withValues(alpha: 0.9),
       child: InkWell(
         onTap: onClick,
         borderRadius: BorderRadius.circular(12),

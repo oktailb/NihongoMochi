@@ -57,9 +57,9 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.9),
+        color: Colors.white.withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 10)],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -118,6 +118,7 @@ class SagaMapContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SagaProvider>();
+    final settings = context.watch<SettingsProvider>();
     final steps = provider.steps;
 
     return LayoutBuilder(
@@ -172,7 +173,7 @@ class SagaMapContent extends StatelessWidget {
                           progress: progress,
                           onNodeClick: (id, type) {
                             Navigator.push(context, MaterialPageRoute(
-                              builder: (context) => GameRecapScreen(levelId: id, levelTitle: node.title),
+                              builder: (context) => GameRecapScreen(levelId: id, levelTitle: settings.getString(node.title)),
                             ));
                           },
                         ),
@@ -189,7 +190,7 @@ class SagaMapContent extends StatelessWidget {
                             isLeftSide: sin(phase) > 0,
                             onClick: () {
                               Navigator.push(context, MaterialPageRoute(
-                                builder: (context) => GameRecapScreen(levelId: node.readingId!, levelTitle: "${node.title} - Lecture"),
+                                builder: (context) => GameRecapScreen(levelId: node.readingId!, levelTitle: "${settings.getString(node.title)} - Lecture"),
                               ));
                             },
                           ),
