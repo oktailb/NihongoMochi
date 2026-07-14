@@ -22,6 +22,7 @@ class SettingsProvider extends ChangeNotifier {
   bool _addWrongAnswers = true;
   bool _removeGoodAnswers = true;
   String? _selectedVoiceId;
+  String _selectedLevel = "";
 
   bool get isDarkMode => _isDarkMode;
   String get currentLocaleCode => _currentLocaleCode;
@@ -33,6 +34,7 @@ class SettingsProvider extends ChangeNotifier {
   bool get addWrongAnswers => _addWrongAnswers;
   bool get removeGoodAnswers => _removeGoodAnswers;
   String? get selectedVoiceId => _selectedVoiceId;
+  String get selectedLevel => _selectedLevel;
   List<String> get availableVoices => _ttsService.availableVoices;
 
   String getString(String key, [List<dynamic>? args]) => stringProvider.getString(key, args);
@@ -52,6 +54,7 @@ class SettingsProvider extends ChangeNotifier {
     _currentMode = _repository.getMode();
     _addWrongAnswers = _repository.shouldAddWrongAnswers();
     _removeGoodAnswers = _repository.shouldRemoveGoodAnswers();
+    _selectedLevel = _repository.getSelectedLevel();
     _selectedVoiceId = _repository.getTtsVoiceId();
     
     _loadStringsForLocale(_currentLocaleCode).then((_) {
@@ -63,6 +66,11 @@ class SettingsProvider extends ChangeNotifier {
     });
   }
 
+  Future<void> updateSelectedLevel(String value) async {
+    _selectedLevel = value;
+    await _repository.setSelectedLevel(value);
+    notifyListeners();
+  }
 
   Future<void> toggleTheme(bool isDark) async {
     _isDarkMode = isDark;

@@ -2,23 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/kana_link.dart';
 import 'providers/kana_link_provider.dart';
+import 'providers/settings_provider.dart';
 import 'widgets/game_setup_template.dart';
 import 'widgets/game_history_card.dart';
 import 'kana_link_game_screen.dart';
 
-class KanaLinkSetupScreen extends StatelessWidget {
+class KanaLinkSetupScreen extends StatefulWidget {
   const KanaLinkSetupScreen({super.key});
+
+  @override
+  State<KanaLinkSetupScreen> createState() => _KanaLinkSetupScreenState();
+}
+
+class _KanaLinkSetupScreenState extends State<KanaLinkSetupScreen> {
+  KanaLinkMode _selectedMode = KanaLinkMode.timeAttack;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<KanaLinkProvider>().tryAutoRestore(() {
+        if (mounted) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
+          );
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<KanaLinkProvider>();
+    final settings = context.watch<SettingsProvider>();
+    final theme = Theme.of(context);
+
+    final titleVal = settings.getString("game_kana_link_title");
+    final subVal = settings.getString("game_kana_link_subtitle");
+
+    final title = (titleVal.isNotEmpty && titleVal != "game_kana_link_title") ? titleVal : "Kana Link";
+    final subtitle = (subVal.isNotEmpty && subVal != "game_kana_link_subtitle") ? subVal : "カナリンク";
 
     return GameSetupTemplate(
-      title: "Kana Link",
-      subtitle: "リンク",
+      title: title,
+      subtitle: subtitle,
       onPlayClick: () async {
-        // Le mode est géré par l'état local du setup ou passé ici
-        await provider.initGame("n5", mode: provider.history.isEmpty ? KanaLinkMode.timeAttack : KanaLinkMode.timeAttack);
+        final levelId = settings.selectedLevel;
+        await provider.initGame(levelId.isEmpty ? "n5" : levelId, mode: _selectedMode);
         if (context.mounted) {
           Navigator.push(
             context,
@@ -27,47 +58,152 @@ class KanaLinkSetupScreen extends StatelessWidget {
         }
       },
       children: [
+        // Partie en cours (Restauration)
+        if (provider.hasSavedGame) ...[
+          Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            color: theme.colorScheme.primaryContainer,
+            elevation: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Text(
+                    "Une partie est en pause",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: theme.colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(48),
+                      backgroundColor: theme.colorScheme.primary,
+                      foregroundColor: theme.colorScheme.onPrimary,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    icon: const Icon(Icons.history),
+                    label: const Text("Reprendre la partie"),
+                    onPressed: () {
+                      provider.restoreGame(() {
+                        if (context.mounted) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
+                          );
+                        }
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () async {
+                      final levelId = settings.selectedLevel;
+                      await provider.initGame(levelId.isEmpty ? "n5" : levelId, mode: _selectedMode);
+                      if (context.mounted) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const KanaLinkGameScreen()),
+                        );
+                      }
+                    },
+                    child: Text(
+                      "Nouvelle partie (effacer la précédente)",
+                      style: TextStyle(color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+
+        // Choix du Mode de Jeu
         Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          color: Colors.white.withOpacity(0.9),
+          color: Colors.white.withValues(alpha: 0.9),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "MODE DE JEU",
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+                Text(
+                  settings.getString("game_config_title").isNotEmpty
+                      ? settings.getString("game_config_title").toUpperCase()
+                      : "MODE DE JEU",
+                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
                 ),
                 const SizedBox(height: 12),
                 Row(
-                  children: [
-                    Expanded(
-                      child: ChoiceChip(
-                        label: const Center(child: Text("Time Attack")),
-                        selected: true, // Simplifié pour le portage
-                        onSelected: (val) {},
-                        selectedColor: Colors.pink.shade100,
+                  children: KanaLinkMode.values.map((mode) {
+                    final isSelected = _selectedMode == mode;
+                    return Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: FilterChip(
+                          label: Center(
+                            child: Text(mode == KanaLinkMode.timeAttack ? "Time Attack" : "Survival"),
+                          ),
+                          selected: isSelected,
+                          onSelected: (selected) {
+                            if (selected) {
+                              setState(() {
+                                _selectedMode = mode;
+                              });
+                            }
+                          },
+                          selectedColor: theme.colorScheme.primaryContainer,
+                          checkmarkColor: theme.colorScheme.onPrimaryContainer,
+                          labelStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: isSelected ? theme.colorScheme.onPrimaryContainer : Colors.black87,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    );
+                  }).toList(),
                 ),
               ],
             ),
           ),
         ),
+        const SizedBox(height: 12),
+
+        // Historique
         GameHistoryCard(
           history: provider.history,
-          emptyMessage: "Aucun score pour le moment",
+          emptyMessage: settings.getString("game_memorize_no_scores").isNotEmpty
+              ? settings.getString("game_memorize_no_scores")
+              : "Aucun score pour le moment",
           itemBuilder: (result) {
             return GameHistoryRow(
               label: result.levelId.toUpperCase(),
               score: "${result.score} pts",
-              time: "${result.timeSeconds}s",
+              time: _formatString(
+                settings,
+                "game_memorize_time_format",
+                "%ds",
+                "${result.timeSeconds}",
+              ),
             );
           },
         ),
       ],
     );
+  }
+
+  String _formatString(SettingsProvider settings, String key, String fallback, String value) {
+    final raw = settings.getString(key);
+    final text = raw.isNotEmpty && raw != key ? raw : fallback;
+    if (text.contains("%")) {
+      return text
+          .replaceAll("%1\$d", value)
+          .replaceAll("%1%d", value)
+          .replaceAll("%d", value);
+    }
+    return "$text $value";
   }
 }
