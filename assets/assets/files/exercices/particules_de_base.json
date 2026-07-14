@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur les particules de base  - Dojo Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "part_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "particule_ga"],
+      "payload": {
+        "sentence": "私__佐藤です。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "りんご__食べます。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "明日、日本__行きます。",
+        "correct": "に",
+        "distractors": ["を", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "レストラン__ご飯を食べます。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "これ__私の本です。",
+        "correct": "は",
+        "distractors": ["の", "を", "が", "に", "で"]
+      }
+    },
+    {
+      "id": "part_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "日本__地図を持っていますか。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "part_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_e", "particule_ni"],
+      "payload": {
+        "sentence": "どちら__行きますか。",
+        "correct": "へ",
+        "distractors": ["を", "が", "で", "の", "は"]
+      }
+    },
+    {
+      "id": "part_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni", "traps"],
+      "payload": {
+        "sentence": "机のうえ__ペンがあります。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "へ"]
+      }
+    },
+    {
+      "id": "part_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ha", "particule_wo"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["日本語を", "勉強し"]
+      }
+    },
+    {
+      "id": "part_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_de", "particule_ni"],
+      "payload": {
+        "word": "で ",
+        "options": [
+          { "text": "図書館で勉強します。", "is_correct": true },
+          { "text": "タクシーで行きます。", "is_correct": true },
+          { "text": "箸で食べます。", "is_correct": true },
+          { "text": "日本で行きます。", "is_correct": false },
+          { "text": "椅子で座ります。", "is_correct": false },
+          { "text": "公園であります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "part_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ga"],
+      "payload": {
+        "sentence": "雨__降っています。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "朝、７時__起きます。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "テレビ__見ます。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "日本語__話してください。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_no"],
+      "payload": {
+        "base_sentence": "これは私の先生の車です。",
+        "correct": "この車は私の先生のものです。",
+        "distractors": [
+          "この車は私の先生です。",
+          "私は先生の車が好きです。",
+          "先生は私の車を持っています。",
+          "これは先生と私の車です。"
+        ]
+      }
+    },
+    {
+      "id": "part_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "炭治郎は禰豆子__会いたいです。",
+        "correct": "に",
+        "distractors": ["を", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "モンスターボール__投げます！",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "今日は「は」と読みますか、「わ」と読みますか？",
+        "correct": "わ",
+        "distractors": ["は", "はな", "わな"]
+      }
+    },
+    {
+      "id": "part_019",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "新幹線__行きます。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_020",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ni", "particule_de"],
+      "payload": {
+        "prefix": "スーパー",
+        "suffix": "ます。",
+        "blocks": ["で", "卵を", "買い"]
+      }
+    },
+    {
+      "id": "part_021",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ga", "traps"],
+      "payload": {
+        "sentence": "誰__来ましたか。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_022",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "東京__天気はどうですか。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "part_023",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ni"],
+      "payload": {
+        "word": "に ",
+        "options": [
+          { "text": "月曜日に会いましょう。", "is_correct": true },
+          { "text": "日本に行きます。", "is_correct": true },
+          { "text": "部屋に猫がいます。", "is_correct": true },
+          { "text": "３時間に行きます。", "is_correct": false },
+          { "text": "コーヒーに飲みます。", "is_correct": false },
+          { "text": "お風呂に洗います。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "part_024",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni", "traps"],
+      "payload": {
+        "sentence": "友達__プレゼントをあげました。",
+        "correct": "に",
+        "distractors": ["を", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_025",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "パソコン__仕事をします。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_026",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ha", "particule_ga"],
+      "payload": {
+        "base_sentence": "象は鼻が長いです。",
+        "correct": "象の鼻は長いです。",
+        "distractors": [
+          "象は鼻を長くします。",
+          "象の鼻が長くなります。",
+          "鼻は象が長いです。",
+          "象は長い鼻を持っています。"
+        ]
+      }
+    },
+    {
+      "id": "part_027",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni", "traps"],
+      "payload": {
+        "sentence": "椅子__座ってください。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "へ"]
+      }
+    },
+    {
+      "id": "part_028",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "音楽__聴きながら勉強します。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "本を「を」と読みますか、「お」と読みますか？",
+        "correct": "お",
+        "distractors": ["を", "をな", "おな"]
+      }
+    },
+    {
+      "id": "part_030",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "隣__部屋から音がします。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "part_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ha", "particule_ni"],
+      "payload": {
+        "prefix": "明日の",
+        "suffix": "会います。",
+        "blocks": ["10時に", "先生に"]
+      }
+    },
+    {
+      "id": "part_032",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "全部__いくらですか。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_033",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ga", "particule_ha"],
+      "payload": {
+        "sentence": "何__いいですか。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_034",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "１ヶ月__１回映画を見ます。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_035",
+      "type": "WORD_USAGE",
+      "tags": ["particule_no"],
+      "payload": {
+        "word": "の ",
+        "options": [
+          { "text": "これは日本のカメラです。", "is_correct": true },
+          { "text": "あそこに私のバッグがあります。", "is_correct": true },
+          { "text": "学校の先生に会いました。", "is_correct": true },
+          { "text": "本をの読みます。", "is_correct": false },
+          { "text": "明日のみます。", "is_correct": false },
+          { "text": "日本に行きますの。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "part_036",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "この角__右へ曲がってください。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_037",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "ニュース__見ました。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_038",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ni", "particule_de"],
+      "payload": {
+        "base_sentence": "学校にいます。",
+        "correct": "学校で勉強しています。",
+        "distractors": [
+          "学校へ行きます。",
+          "学校があります。",
+          "学校は大きいです。",
+          "学校で見ました。"
+        ]
+      }
+    },
+    {
+      "id": "part_039",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "壁__地図が貼ってあります。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_040",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "お名前__教えてください。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_041",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "今日は日曜日__ありません。",
+        "correct": "では",
+        "distractors": ["には", "をは", "がは", "のは"]
+      }
+    },
+    {
+      "id": "part_042",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ga"],
+      "payload": {
+        "sentence": "日本語__わかりますか。",
+        "correct": "が",
+        "distractors": ["を", "に", "で", "は", "の"]
+      }
+    },
+    {
+      "id": "part_043",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "１日__３回薬を飲みます。",
+        "correct": "に",
+        "distractors": ["で", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_044",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "鉛筆__書いてもいいですか。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_045",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "あそこに青い車__あります。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "part_046",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "公園__散歩します。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_047",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ni"],
+      "payload": {
+        "sentence": "田中さん__お土産をあげました。",
+        "correct": "に",
+        "distractors": ["を", "で", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_048",
+      "type": "FILL_BLANK",
+      "tags": ["particule_de"],
+      "payload": {
+        "sentence": "駅の前__会いましょう。",
+        "correct": "で",
+        "distractors": ["に", "を", "が", "は", "の"]
+      }
+    },
+    {
+      "id": "part_049",
+      "type": "FILL_BLANK",
+      "tags": ["particule_no"],
+      "payload": {
+        "sentence": "私__国はフランスです。",
+        "correct": "の",
+        "distractors": ["は", "が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "part_050",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "お茶__飲みませんか。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    }
+  ]
+}

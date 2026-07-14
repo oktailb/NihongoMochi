@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～とか - L'art de l'énumération décontractée. "
+  },
+  "exercises": [
+    {
+      "id": "tka_001",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "週末は映画を見に行ったり、買い物に__します。",
+        "correct": "行ったり",
+        "distractors": ["行くとかな", "行くとか", "行ってとか", "行くとかに"]
+      }
+    },
+    {
+      "id": "tka_002",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "冷蔵庫にビール__ジュース__が入っています。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり", "だり"]
+      }
+    },
+    {
+      "id": "tka_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["toka"],
+      "payload": {
+        "prefix": "休みの日には、",
+        "suffix": "、のんびり過ごします。",
+        "blocks": ["読書をするとか", "音楽を聴くとか"]
+      }
+    },
+    {
+      "id": "tka_004",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「忙しい」__「時間がない」__言っていないで、少しは手伝ってよ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_005",
+      "type": "WORD_USAGE",
+      "tags": ["toka"],
+      "payload": {
+        "word": "とか",
+        "options": [
+          { "text": "テニスとか水泳とか、スポーツは何でも好きです。", "is_correct": true },
+          { "text": "明日、雨が降るとか聞いたけど、本当かな。", "is_correct": true },
+          { "text": "ご飯とか食べました。", "is_correct": false },
+          { "text": "勉強とか上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tka_006",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "駅前に新しいカフェができた__、行ってみない？",
+        "correct": "とかで",
+        "distractors": ["とかに", "とかを", "とかは"]
+      }
+    },
+    {
+      "id": "tka_007",
+      "type": "PARAPHRASE",
+      "tags": ["toka"],
+      "payload": {
+        "base_sentence": "お寿司や天ぷらなど、日本料理が好きです。",
+        "correct": "お寿司とか天ぷらとか、日本料理が好きです。",
+        "distractors": [
+          "お寿司やら天ぷらやら、日本料理が好きです。",
+          "お寿司だの天ぷらだの、日本料理が好きです。",
+          "お寿司なり天ぷらなり、日本料理が好きです。"
+        ]
+      }
+    },
+    {
+      "id": "tka_008",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "彼が結婚した__いう話、聞いたことある？",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_009",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "漢字__文法__、日本語の勉強は大変だ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["toka"],
+      "payload": {
+        "prefix": "山に",
+        "suffix": "、アウトドアが好きだ。",
+        "blocks": ["登るとか", "川で泳ぐとか"]
+      }
+    },
+    {
+      "id": "tka_011",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「わからない」__言わずに、自分で調べてみて。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「伝統」とか文化とか、守るべきものは多い。",
+        "correct": "でんとう",
+        "distractors": ["れきし", "ぶんか", "げいじゅつ"]
+      }
+    },
+    {
+      "id": "tka_013",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "頭が痛い__熱がある__、体調が悪い時は無理しないで。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_014",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "映画館__遊園地__、どこか遊びに行こうよ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_015",
+      "type": "WORD_USAGE",
+      "tags": ["toka"],
+      "payload": {
+        "word": "とかで",
+        "options": [
+          { "text": "風邪を引いたとかで、彼は休みです。", "is_correct": true },
+          { "text": "道が混んでいるとかで、遅れるそうです。", "is_correct": true },
+          { "text": "勉強するとかで、上手になります。", "is_correct": false },
+          { "text": "雨が降るとかで、傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tka_016",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "犬__猫__、動物を飼ってみたい。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_017",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "掃除__洗濯__、家事は終わらせたよ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["toka"],
+      "payload": {
+        "prefix": "日本のアニメ",
+        "suffix": "、海外でも人気だ。",
+        "blocks": ["とか漫画", "とか"]
+      }
+    },
+    {
+      "id": "tka_019",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "プレゼントに時計__財布__はどうかな？",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_020",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「疲れた」__言わずに、あともう少し頑張ろう。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_021",
+      "type": "PARAPHRASE",
+      "tags": ["toka"],
+      "payload": {
+        "base_sentence": "彼は「忙しい」という理由で来ませんでした。",
+        "correct": "彼は忙しいとかで来ませんでした。",
+        "distractors": [
+          "彼は忙しいやらで来ませんでした。",
+          "彼は忙しいだので来ませんでした。",
+          "彼は忙しいなりで来ませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "tka_022",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "リンゴ__バナナ__、果物を買ってきたよ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_023",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "将来、海外に住む__、大きな夢があるんだね。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「流行」とかファッションとか、興味がないんだ。",
+        "correct": "りゅうこう",
+        "distractors": ["ぶんか", "げいじゅつ", "れきし"]
+      }
+    },
+    {
+      "id": "tka_025",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "ペン__ノート__、筆記用具を持ってきてください。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_026",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "美味しい店がある__聞いたので、行ってみよう。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["toka"],
+      "payload": {
+        "prefix": "海に",
+        "suffix": "、夏を楽しもう。",
+        "blocks": ["行くとか", "花火を見るとか"]
+      }
+    },
+    {
+      "id": "tka_028",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "「無理だ」__「できない」__、後ろ向きなことばかり言わないで。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_029",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "ケーキ__アイス__、甘いものが食べたい気分だ。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    },
+    {
+      "id": "tka_030",
+      "type": "FILL_BLANK",
+      "tags": ["toka"],
+      "payload": {
+        "sentence": "君が僕を好きだ__、そんな噂を聞いたんだけど。",
+        "correct": "とか",
+        "distractors": ["やら", "だの", "なり"]
+      }
+    }
+  ]
+}

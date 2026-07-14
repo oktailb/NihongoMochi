@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule MO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "mo_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo"],
+      "payload": {
+        "sentence": "田中さんは学生です。私も学生__。",
+        "correct": "です",
+        "distractors": ["もです", "だです", "もだです", "だ"]
+      }
+    },
+    {
+      "id": "mo_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "substitution"],
+      "payload": {
+        "sentence": "りんごを買いました。バナナ__買いました。",
+        "correct": "も",
+        "distractors": ["を", "は", "が", "に"]
+      }
+    },
+    {
+      "id": "mo_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "明日、日本__行きます。",
+        "correct": "に",
+        "distractors": ["も", "を", "で", "の"]
+      }
+    },
+    {
+      "id": "mo_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "addition"],
+      "payload": {
+        "sentence": "肉も魚__食べます。",
+        "correct": "も",
+        "distractors": ["を", "は", "が", "に"]
+      }
+    },
+    {
+      "id": "mo_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "どこ__行きませんでした。",
+        "correct": "へも",
+        "distractors": ["をも", "がも", "のもの", "でも"]
+      }
+    },
+    {
+      "id": "mo_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "total_negative"],
+      "payload": {
+        "sentence": "何も__。",
+        "correct": "ありません",
+        "distractors": ["あります", "ありますも", "ないも", "あったも"]
+      }
+    },
+    {
+      "id": "mo_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトもサスケ__強いです。",
+        "correct": "も",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "mo_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "これは私__本です。",
+        "correct": "の",
+        "distractors": ["も", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "mo_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "intensity"],
+      "payload": {
+        "sentence": "1時間__待ちましたよ！",
+        "correct": "も",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "mo_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_mo"],
+      "payload": {
+        "word": "も ",
+        "options": [
+          { "text": "私も行きます。", "is_correct": true },
+          { "text": "昨日も雨でした。", "is_correct": true },
+          { "text": "一つもありません。", "is_correct": true },
+          { "text": "水を飲みますも。", "is_correct": false },
+          { "text": "も明日会いましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "mo_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "location_inclusion"],
+      "payload": {
+        "sentence": "庭に花があります。部屋の中__あります。",
+        "correct": "にも",
+        "distractors": ["を", "が", "は", "でも"]
+      }
+    },
+    {
+      "id": "mo_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "お名前__教えてください。",
+        "correct": "を",
+        "distractors": ["も", "は", "が", "に"]
+      }
+    },
+    {
+      "id": "mo_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "negative_inclusion"],
+      "payload": {
+        "sentence": "テニスもしません。野球__しません。",
+        "correct": "も",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "mo_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "毎日、お風呂__入りますか。",
+        "correct": "に",
+        "distractors": ["も", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "mo_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_mo"],
+      "payload": {
+        "base_sentence": "私も食べます。",
+        "correct": "他の人と同じように食べます。",
+        "distractors": [
+          "私だけ食べます。",
+          "私は食べたくありません。",
+          "私が一番食べます。",
+          "私は食べません。"
+        ]
+      }
+    },
+    {
+      "id": "mo_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "time_inclusion"],
+      "payload": {
+        "sentence": "10時になりました。11時__なりました。",
+        "correct": "にも",
+        "distractors": ["も", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "mo_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "どこ__出身ですか。",
+        "correct": "の",
+        "distractors": ["も", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "mo_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "emphasis"],
+      "payload": {
+        "sentence": "一度__日本へ行きたいです。",
+        "correct": "も",
+        "distractors": ["は", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "mo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_mo"],
+      "payload": {
+        "prefix": "明日は",
+        "suffix": "です。",
+        "blocks": ["雨", "も", "降りそう"]
+      }
+    },
+    {
+      "id": "mo_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_mo", "traps"],
+      "payload": {
+        "sentence": "ペン__3本あります。",
+        "correct": "が",
+        "distractors": ["も", "を", "に", "は"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de NONI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "non_001",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "一生懸命勉強した__、不合格でした。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "けれど", "のでから", "のにね"]
+      }
+    },
+    {
+      "id": "non_002",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "雨が降っている__、傘を持っていません。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "に", "も", "のにに"]
+      }
+    },
+    {
+      "id": "non_003",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "adj_na"],
+      "payload": {
+        "sentence": "暇な__、手伝ってくれません。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "だのに", "なのので", "のにに"]
+      }
+    },
+    {
+      "id": "non_004",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "noun"],
+      "payload": {
+        "sentence": "日曜日な__、仕事があります。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "だのに", "なのので", "のにに"]
+      }
+    },
+    {
+      "id": "non_005",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィはカナヅチな__、海賊をしています。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "だのに", "のにに", "のにね"]
+      }
+    },
+    {
+      "id": "non_006",
+      "type": "WORD_USAGE",
+      "tags": ["noni"],
+      "payload": {
+        "word": "〜のに ",
+        "options": [
+          { "text": "約束したのに、彼は来ませんでした。", "is_correct": true },
+          { "text": "美味しいのに、安いです。", "is_correct": true },
+          { "text": "病気なのに、働いています。", "is_correct": true },
+          { "text": "明日なのに会いましょう。 ", "is_correct": false },
+          { "text": "日本に行くのに勉強します。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "non_007",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "薬を飲んだ__、熱が下がりません。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "けれど", "のでから", "のにね"]
+      }
+    },
+    {
+      "id": "non_008",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "あんなに言った__！",
+        "correct": "のに",
+        "distractors": ["ので", "から", "に", "も", "のだ"]
+      }
+    },
+    {
+      "id": "non_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noni"],
+      "payload": {
+        "prefix": "お金が",
+        "suffix": "何も買いません。",
+        "blocks": ["あるのに"]
+      }
+    },
+    {
+      "id": "non_010",
+      "type": "PARAPHRASE",
+      "tags": ["noni"],
+      "payload": {
+        "base_sentence": "忙しいのに、遊びに来てくれてありがとう。",
+        "correct": "あなたが多忙であるにもかかわらず、時間を割いてくれたことに感謝しています。",
+        "distractors": [
+          "忙しいので、遊びに来てください。",
+          "忙しいから、遊びに来られませんでした。",
+          "忙しい時に、遊びに来ました。",
+          "忙しいなら、遊びに来ないでください。"
+        ]
+      }
+    },
+    {
+      "id": "non_011",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "春__、雪が降っています。",
+        "correct": "なのに",
+        "distractors": ["ので", "から", "だのに", "なに", "のにに"]
+      }
+    },
+    {
+      "id": "non_012",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "ダイエット中__、ケーキを食べてしまいました。",
+        "correct": "なのに",
+        "distractors": ["ので", "から", "だのに", "なに", "のにに"]
+      }
+    },
+    {
+      "id": "non_013",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "夜12時__、外は明るいです。",
+        "correct": "なのに",
+        "distractors": ["ので", "から", "だのに", "なに", "のにに"]
+      }
+    },
+    {
+      "id": "non_014",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "pop_culture"],
+      "payload": {
+        "sentence": "あきらめたらそこで試合終了__…",
+        "correct": "ですよ",
+        "distractors": ["のに", "なので", "だから", "なのにに"]
+      }
+    },
+    {
+      "id": "non_015",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "もっと早く来ればよかっ__。",
+        "correct": "たのに",
+        "distractors": ["たので", "たから", "たのにに", "たのだ"]
+      }
+    },
+    {
+      "id": "non_016",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "静かな__、眠れません。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "だのに", "なに", "のにに"]
+      }
+    },
+    {
+      "id": "non_017",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "日本語が上手な__、謙遜しています。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "だのに", "なに", "のにに"]
+      }
+    },
+    {
+      "id": "non_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "「不満」があるのに言いません。",
+        "correct": "ふまん",
+        "distractors": ["ふばん", "ふもん", "ふむん", "ぷまん"]
+      }
+    },
+    {
+      "id": "non_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noni"],
+      "payload": {
+        "prefix": "あんなに",
+        "suffix": "嘘をつきました。",
+        "blocks": ["約束したのに"]
+      }
+    },
+    {
+      "id": "non_020",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えるのに", "教えたのに", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "non_021",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "安い__、買いませんでした。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "けれど", "のでから", "のにに"]
+      }
+    },
+    {
+      "id": "non_022",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "道がわかっている__、迷いました。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "に", "も", "のにに"]
+      }
+    },
+    {
+      "id": "non_023",
+      "type": "WORD_USAGE",
+      "tags": ["noni"],
+      "payload": {
+        "word": "〜のに ",
+        "options": [
+          { "text": "このハサミは紙を切るのに使います。", "is_correct": true },
+          { "text": "お湯を沸かすのに時間がかかります。", "is_correct": true },
+          { "text": "日本へ行くのにお金が必要です。", "is_correct": true },
+          { "text": "食べるのに美味しいです。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "non_024",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "友達に会いたい__、会えません。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "けれど", "のでから", "のにに"]
+      }
+    },
+    {
+      "id": "non_025",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "名前を__のに、忘れられてしまいました。",
+        "correct": "書いた",
+        "distractors": ["書く", "書き", "書いて", "書な", "書ける"]
+      }
+    },
+    {
+      "id": "non_026",
+      "type": "PARAPHRASE",
+      "tags": ["noni"],
+      "payload": {
+        "base_sentence": "雨なのに、テニスをしています。",
+        "correct": "天候が悪いという状況にもかかわらず、スポーツを強行しています。",
+        "distractors": [
+          "雨が降ったので、テニスをやめました。",
+          "雨が降る前に、テニスをしました。",
+          "雨が降っている時、テニスをしました。",
+          "雨が降っても、テニスをするつもりです。"
+        ]
+      }
+    },
+    {
+      "id": "non_027",
+      "type": "FILL_BLANK",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "昨日寝た__、まだ眠いです。",
+        "correct": "のに",
+        "distractors": ["ので", "から", "けれど", "のでから", "のにね"]
+      }
+    },
+    {
+      "id": "non_028",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "お金が__のに、幸せです。",
+        "correct": "なくても",
+        "distractors": ["あるのに", "ないので", "ないから", "あったのに"]
+      }
+    },
+    {
+      "id": "non_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["noni"],
+      "payload": {
+        "sentence": "「皮肉」なものですね。",
+        "correct": "ひにく",
+        "distractors": ["ひにぐ", "きにく", "しにく", "ひにくな"]
+      }
+    },
+    {
+      "id": "non_030",
+      "type": "FILL_BLANK",
+      "tags": ["noni", "traps"],
+      "payload": {
+        "sentence": "お菓子を全部__のに、まだお腹が空いています。",
+        "correct": "食べた",
+        "distractors": ["食べる", "食べ", "食べて", "書いた", "飲んだ"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de SHIKANAI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "shi_001",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "バスが来ませんから、歩く__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "なければならない", "ほうがいい", "ほうがよい", "しかないです"]
+      }
+    },
+    {
+      "id": "shi_002",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "noun"],
+      "payload": {
+        "sentence": "冷蔵庫には卵__ありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "も", "を", "に", "が"]
+      }
+    },
+    {
+      "id": "shi_003",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "やる__！",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "なければならない", "ないし", "しかないな"]
+      }
+    },
+    {
+      "id": "shi_004",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "お金が100円__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "しかある", "しかないな", "だけしかない", "しかな"]
+      }
+    },
+    {
+      "id": "shi_005",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "pop_culture"],
+      "payload": {
+        "sentence": "逃げる__！",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しかないな", "しないで"]
+      }
+    },
+    {
+      "id": "shi_006",
+      "type": "WORD_USAGE",
+      "tags": ["shikanai"],
+      "payload": {
+        "word": "〜しかない ",
+        "options": [
+          { "text": "諦めるしかありません。", "is_correct": true },
+          { "text": "彼に頼むしかありません。", "is_correct": true },
+          { "text": "こうするしかありませんでした。", "is_correct": true },
+          { "text": "水しかない飲みます。 ", "is_correct": false },
+          { "text": "明日しかない会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_007",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "約束したから、行く__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "なければならない", "しかないな", "ではない"]
+      }
+    },
+    {
+      "id": "shi_008",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "もう時間がないから、急ぐ__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しないで", "しかな"]
+      }
+    },
+    {
+      "id": "shi_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shikanai"],
+      "payload": {
+        "prefix": "誰もいないから、",
+        "suffix": "。",
+        "blocks": ["自分でやる", "しかない"]
+      }
+    },
+    {
+      "id": "shi_010",
+      "type": "PARAPHRASE",
+      "tags": ["shikanai"],
+      "payload": {
+        "base_sentence": "謝るしかありません。",
+        "correct": "他に解決策がないので、謝罪する以外に道はありません。",
+        "distractors": [
+          "謝らなくてもいいです。",
+          "謝るほうがいいです。",
+          "謝るつもりはありません。",
+          "謝ることができません。"
+        ]
+      }
+    },
+    {
+      "id": "shi_011",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "雨ですから、家で勉強する__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "なければならない", "しかないな", "ではない"]
+      }
+    },
+    {
+      "id": "shi_012",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "このパソコンは__しかない。",
+        "correct": "中古",
+        "distractors": ["中古な", "中古だ", "中古の", "中古に", "中古を"]
+      }
+    },
+    {
+      "id": "shi_013",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "自分で決めたことだから、やる__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "なければならない", "しない", "しかな"]
+      }
+    },
+    {
+      "id": "shi_014",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "pop_culture"],
+      "payload": {
+        "sentence": "信じて待つ__！",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しかないな", "しないで"]
+      }
+    },
+    {
+      "id": "shi_015",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "これ__ありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "も", "を", "に", "が"]
+      }
+    },
+    {
+      "id": "shi_016",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "秘密を知られたから、殺す__…",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しかないな", "しないで"]
+      }
+    },
+    {
+      "id": "shi_017",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "名前を__しかない。",
+        "correct": "書く",
+        "distractors": ["書き", "書いて", "書いた", "書な", "書ける"]
+      }
+    },
+    {
+      "id": "shi_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "「最後」の手段はこれしかない。",
+        "correct": "さいご",
+        "distractors": ["さきご", "さいごな", "さいこ", "ざいご"]
+      }
+    },
+    {
+      "id": "shi_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["shikanai"],
+      "payload": {
+        "prefix": "こうなったら、",
+        "suffix": "。",
+        "blocks": ["戦う", "しかない"]
+      }
+    },
+    {
+      "id": "shi_020",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えるしかない", "教えたしかない", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "shi_021",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "道がわからないから、誰かに聞く__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しないで", "しかな"]
+      }
+    },
+    {
+      "id": "shi_022",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "財布を__しかない。",
+        "correct": "探す",
+        "distractors": ["探し", "探して", "探した", "探さ", "探な"]
+      }
+    },
+    {
+      "id": "shi_023",
+      "type": "WORD_USAGE",
+      "tags": ["shikanai"],
+      "payload": {
+        "word": "〜しか ",
+        "options": [
+          { "text": "10分しかありません。", "is_correct": true },
+          { "text": "彼しか来ませんでした。", "is_correct": true },
+          { "text": "ひらがなしか書けません。", "is_correct": true },
+          { "text": "水しか飲みます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "shi_024",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "荷物が重いから、タクシーを呼ぶ__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しないで", "しかな"]
+      }
+    },
+    {
+      "id": "shi_025",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "彼は真面目__しかない。",
+        "correct": "だ",
+        "distractors": ["な", "の", "に", "を"]
+      }
+    },
+    {
+      "id": "shi_026",
+      "type": "PARAPHRASE",
+      "tags": ["shikanai"],
+      "payload": {
+        "base_sentence": "走るしかありません。",
+        "correct": "目的を達成するためには、走るという行動が唯一の手段です。",
+        "distractors": [
+          "走らなくてもいいです。",
+          "走るほうがいいです。",
+          "走るつもりはありません。",
+          "走ることができません。"
+        ]
+      }
+    },
+    {
+      "id": "shi_027",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "道がわかるまで待つ__。",
+        "correct": "しかない",
+        "distractors": ["だけだ", "ほうがいい", "ければならない", "しないで", "しかな"]
+      }
+    },
+    {
+      "id": "shi_028",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "昨日、__しかない。",
+        "correct": "昨日",
+        "distractors": ["昨日な", "昨日だ", "昨日の", "昨日に", "昨日を"]
+      }
+    },
+    {
+      "id": "shi_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["shikanai"],
+      "payload": {
+        "sentence": "「覚悟」を決めるしかない。",
+        "correct": "かくご",
+        "distractors": ["がくご", "かくこ", "かっご", "かくごな"]
+      }
+    },
+    {
+      "id": "shi_030",
+      "type": "FILL_BLANK",
+      "tags": ["shikanai", "traps"],
+      "payload": {
+        "sentence": "お風呂に__しかない。",
+        "correct": "入る",
+        "distractors": ["入り", "入って", "入った", "入な", "入りし"]
+      }
+    }
+  ]
+}

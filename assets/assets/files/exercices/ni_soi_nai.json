@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に相違ない  - Sans aucun doute / Assurément - N2"
+  },
+  "exercises": [
+    {
+      "id": "nisoinai_001",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai", "N2"],
+      "payload": {
+        "sentence": "犯人は彼__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_002",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai", "pop_culture"],
+      "payload": {
+        "sentence": "悟空なら、新しい変身を遂げた__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_003",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "この証拠を見る限り、彼の主張は正しい__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisoinai"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。",
+        "blocks": ["情報は", "間違いなく", "事実に相違ない"]
+      }
+    },
+    {
+      "id": "nisoinai_005",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "彼が黙っているのは、肯定している__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_006",
+      "type": "WORD_USAGE",
+      "tags": ["nisoinai"],
+      "payload": {
+        "word": "～に相違ない ",
+        "options": [
+          { "text": "それは君の勘違いに相違ない。", "is_correct": true },
+          { "text": "今回の成功は、運に相違ない。", "is_correct": true },
+          { "text": "雨に相違ない、傘を差す。", "is_correct": false },
+          { "text": "彼は天才に相違ない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisoinai_007",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの目的は、不老不死__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_008",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "この古い地図が示す場所には、お宝が眠っている__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_009",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "将来、彼が偉大な人物になるのは__。",
+        "correct": "疑いのない事実に相違ない",
+        "distractors": ["疑いのない事実にすぎない", "疑いのない事実によると", "疑いのない事実に当たって", "疑いのない事実に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_010",
+      "type": "PARAPHRASE",
+      "tags": ["nisoinai"],
+      "payload": {
+        "base_sentence": "契約内容に相違ありません。",
+        "correct": "契約書に書かれていることと、実際の事実や私の理解との間に、間違いや違いは全くありません。",
+        "distractors": [
+          "契約内容はだいたい合っています。",
+          "契約内容をこれから確認します。",
+          "契約内容を変えることにしました。"
+        ]
+      }
+    },
+    {
+      "id": "nisoinai_011",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "この美しい景色は、一生の思い出になる__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisoinai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["今の", "生活に", "満足しているに相違ない"]
+      }
+    },
+    {
+      "id": "nisoinai_013",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "不適切な発言があった以上、批判されるのは__。",
+        "correct": "免れ得ぬ事実に相違ない",
+        "distractors": ["免れ得ぬ事実にすぎない", "免れ得ぬ事実によると", "免れ得ぬ事実に当たって", "免れ得ぬ事実に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_014",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "最新のデータによれば、この傾向は続く__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_015",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "彼女の驚いた顔を見れば、知らなかったのは__。",
+        "correct": "明白な事実に相違ない",
+        "distractors": ["明白な事実にすぎない", "明白な事実によると", "明白な事実に当たって", "明白な事実に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "「相違ない」。",
+        "correct": "そういない",
+        "distractors": ["そいいない", "あいいない", "あいいでない", "そういないわ"]
+      }
+    },
+    {
+      "id": "nisoinai_017",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "この計画には、まだ欠陥がある__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_018",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "彼なら、もう解決策を見つけている__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisoinai"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。",
+        "blocks": ["決断は", "歴史的に見て", "正しいに相違ない"]
+      }
+    },
+    {
+      "id": "nisoinai_020",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "不気味な静けさは、嵐の前の静けさ__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_021",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの影に潜むのは、人ならざるもの__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_022",
+      "type": "WORD_USAGE",
+      "tags": ["nisoinai"],
+      "payload": {
+        "word": "～に相違ない ",
+        "options": [
+          { "text": "記載内容に相違ありません。", "is_correct": true },
+          { "text": "本人に相違ないことを確認した。", "is_correct": true },
+          { "text": "雨に相違ない。", "is_correct": false },
+          { "text": "事実に相違ない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisoinai_023",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "彼が犯人であるのは、もはや疑いの余地が__。",
+        "correct": "ない事実に相違ない",
+        "distractors": ["ない事実にすぎない", "ない事実によると", "ない事実に当たって", "ない事実に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_024",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "この味は、お母さんが心を込めて作った__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_025",
+      "type": "PARAPHRASE",
+      "tags": ["nisoinai"],
+      "payload": {
+        "base_sentence": "彼は、絶対に成功するに相違ない。",
+        "correct": "彼のこれまでの努力や実力を考えれば、成功することは100%確実であると私は非常に強く確信しています。",
+        "distractors": [
+          "彼は成功するかもしれません。",
+          "彼は成功するために準備をしています。",
+          "彼は成功しなくても大丈夫です。"
+        ]
+      }
+    },
+    {
+      "id": "nisoinai_026",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "不測の事態が起きるのは、避けられぬ運命__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_027",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "真実は、いつか明らかになる__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisoinai"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["建物は", "非常に古い", "歴史があるに相違ない"]
+      }
+    },
+    {
+      "id": "nisoinai_029",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "未来は、もっと明るいものになる__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    },
+    {
+      "id": "nisoinai_030",
+      "type": "FILL_BLANK",
+      "tags": ["nisoinai"],
+      "payload": {
+        "sentence": "自分を信じれば、道は開ける__。",
+        "correct": "に相違ない",
+        "distractors": ["にすぎない", "にかぎらない", "によると", "に際して"]
+      }
+    }
+  ]
+}

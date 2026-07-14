@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ただの・単に - L'art de la simplicité et de la banalité. "
+  },
+  "exercises": [
+    {
+      "id": "ttn_001",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは__噂にすぎません。",
+        "correct": "ただの",
+        "distractors": ["単に", "だけ", "ばかり", "こそ"]
+      }
+    },
+    {
+      "id": "ttn_002",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "彼は__冗談で言っただけですよ。",
+        "correct": "単に",
+        "distractors": ["ただの", "だけ", "ばかり", "反面"]
+      }
+    },
+    {
+      "id": "ttn_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tada_no"],
+      "payload": {
+        "prefix": "あれは",
+        "suffix": "、気にすることはありません。",
+        "blocks": ["ただの", "偶然ですから"]
+      }
+    },
+    {
+      "id": "ttn_004",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "その問題は、__私の不注意でした。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_005",
+      "type": "WORD_USAGE",
+      "tags": ["tada_no"],
+      "payload": {
+        "word": "ただの",
+        "options": [
+          { "text": "彼はただの友達です。", "is_correct": true },
+          { "text": "それはただの夢にすぎない。", "is_correct": true },
+          { "text": "単に勉強します。", "is_correct": false },
+          { "text": "ただの美味しいです。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ttn_006",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "合格したのは、__運が良かっただけだ。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_007",
+      "type": "PARAPHRASE",
+      "tags": ["tada_no"],
+      "payload": {
+        "base_sentence": "彼は有名な人ではありません。普通の人間です。",
+        "correct": "彼はただの人間です。",
+        "distractors": [
+          "彼は単に人間です。",
+          "彼はだけの人間です。",
+          "彼はばかりの人間です。"
+        ]
+      }
+    },
+    {
+      "id": "ttn_008",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは__飾りですから、使えません。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_009",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "私は__、真実を知りたいだけなのです。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tan_ni"],
+      "payload": {
+        "prefix": "それは、",
+        "suffix": "、何も深い意味はありません。",
+        "blocks": ["単に", "勘違いでした"]
+      }
+    },
+    {
+      "id": "ttn_011",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "昨日のことは__思い出です。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは「偶然」にすぎません。",
+        "correct": "ぐうぜん",
+        "distractors": ["とうぜん", "ひつぜん", "がくぜん"]
+      }
+    },
+    {
+      "id": "ttn_013",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "料理がまずいのは、__火加減のせいです。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_014",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "彼は、__嘘つきではありません。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_015",
+      "type": "WORD_USAGE",
+      "tags": ["tan_ni"],
+      "payload": {
+        "word": "単に",
+        "options": [
+          { "text": "それは単に、私の意見です。", "is_correct": true },
+          { "text": "彼は単に、忙しいだけでしょう。", "is_correct": true },
+          { "text": "ただの勉強します。", "is_correct": false },
+          { "text": "単にの友達です。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ttn_016",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは__石ころではありません、ダイヤモンドです。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_017",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "道に迷ったのは、__地図を見なかったからです。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tada_no"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、そんなに怖がる必要はありません。",
+        "blocks": ["ただの", "子供ですから"]
+      }
+    },
+    {
+      "id": "ttn_019",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは__気休めにすぎない。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_020",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "君が怒っているのは、__お腹が空いているからだろう。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_021",
+      "type": "PARAPHRASE",
+      "tags": ["tan_ni"],
+      "payload": {
+        "base_sentence": "理由は一つだけです。時間がなかったからです。",
+        "correct": "単に、時間がなかっただけです。",
+        "distractors": [
+          "ただの、時間がなかっただけです。",
+          "だけの、時間がなかっただけです。",
+          "ばかりに、時間がなかっただけです。"
+        ]
+      }
+    },
+    {
+      "id": "ttn_022",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "あそこにあるのは__ゴミです。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_023",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "彼女が泣いているのは、__悲しいからではありません。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "これは「気休め」にすぎない。",
+        "correct": "きやすめ",
+        "distractors": ["あんしん", "きぼう", "ゆめ"]
+      }
+    },
+    {
+      "id": "ttn_025",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "君の言葉は、__慰めにすぎないよ。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_026",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "不合格だったのは、__勉強不足だったからです。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tan_ni"],
+      "payload": {
+        "prefix": "それは、",
+        "suffix": "、何も難しいことはありません。",
+        "blocks": ["単に", "習慣の問題です"]
+      }
+    },
+    {
+      "id": "ttn_028",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "人生は__暇つぶしだという人もいる。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_029",
+      "type": "FILL_BLANK",
+      "tags": ["tan_ni"],
+      "payload": {
+        "sentence": "彼は、__自分の利益しか考えていない。",
+        "correct": "単に",
+        "distractors": ["ただの", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "ttn_030",
+      "type": "FILL_BLANK",
+      "tags": ["tada_no"],
+      "payload": {
+        "sentence": "君は、僕にとって__知り合いではない。",
+        "correct": "ただの",
+        "distractors": ["単に", "ばかりに", "反面"]
+      }
+    }
+  ]
+}

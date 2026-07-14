@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de BAKARI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "bak_001",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "彼は寝て__います。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "ころ", "まで", "から"]
+      }
+    },
+    {
+      "id": "bak_002",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "past_immediate"],
+      "payload": {
+        "sentence": "今、起きた__です。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "だけ", "しか", "まえ", "ので"]
+      }
+    },
+    {
+      "id": "bak_003",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "肉__食べないで、野菜も食べて。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_004",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "さっき食べた__なのに、もうお腹が空きました。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "まえ", "あとで", "ので", "から"]
+      }
+    },
+    {
+      "id": "bak_005",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは肉__食べていますね。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_006",
+      "type": "WORD_USAGE",
+      "tags": ["bakari"],
+      "payload": {
+        "word": "〜たばかり ",
+        "options": [
+          { "text": "さっき日本に来たばかりです。", "is_correct": true },
+          { "text": "この本は昨日買ったばかりです。", "is_correct": true },
+          { "text": "起きたばかりで眠いです。", "is_correct": true },
+          { "text": "明日食べたばかりです。 ", "is_correct": false },
+          { "text": "毎日見たばかりです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "bak_007",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "あの人は文句__言っています。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_008",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "結婚した__の二人です。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "だけ", "しか", "まえ", "ので"]
+      }
+    },
+    {
+      "id": "bak_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["bakari"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "います。",
+        "blocks": ["遊んで", "ばかり"]
+      }
+    },
+    {
+      "id": "bak_010",
+      "type": "PARAPHRASE",
+      "tags": ["bakari"],
+      "payload": {
+        "base_sentence": "買ったばかりの時計をなくしました。",
+        "correct": "昨日や今日買ったばかりの新しい時計を紛失してしまいました。",
+        "distractors": [
+          "昔買った時計をなくしました。",
+          "時計だけなくしました。",
+          "時計をなくしてばかりいます。",
+          "時計をなくしたところです。"
+        ]
+      }
+    },
+    {
+      "id": "bak_011",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "テレビを見て__いると、目が悪くなりますよ。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_012",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "さっき聞いた__ですから、まだ覚えています。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "まえ", "あとで", "ので", "から"]
+      }
+    },
+    {
+      "id": "bak_013",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "嘘__ついていると、誰も信じてくれませんよ。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_014",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトは修行__していますね。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_015",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "ご飯を__ばかりです。",
+        "correct": "食べた",
+        "distractors": ["食べる", "食べ", "食べて", "食べな", "食べし"]
+      }
+    },
+    {
+      "id": "bak_016",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "お酒を飲んで__いないで、水も飲んで。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_017",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "日本に来た__の時は、何もわかりませんでした。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "だけ", "しか", "まえ", "ので"]
+      }
+    },
+    {
+      "id": "bak_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "「昨日」買ったばかりです。",
+        "correct": "きのう",
+        "distractors": ["きょう", "あした", "おととい", "さっき"]
+      }
+    },
+    {
+      "id": "bak_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["bakari"],
+      "payload": {
+        "prefix": "この鞄は",
+        "suffix": "ばかりです。",
+        "blocks": ["昨日", "買った"]
+      }
+    },
+    {
+      "id": "bak_020",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えたばかり", "教えてばかり", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "bak_021",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "雨__降っていて、外へ出られません。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_022",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "さっき起きた__で、頭が働きません。",
+        "correct": "ばかり",
+        "distractors": ["ところ", "まえ", "あとで", "ので", "から"]
+      }
+    },
+    {
+      "id": "bak_023",
+      "type": "WORD_USAGE",
+      "tags": ["bakari"],
+      "payload": {
+        "word": "〜ばかり ",
+        "options": [
+          { "text": "一時間ばかり歩きました。", "is_correct": true },
+          { "text": "彼は遊んでばかりいます。", "is_correct": true },
+          { "text": "少しばかりのお金です。", "is_correct": true },
+          { "text": "本をばかり読みます。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "bak_024",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "間違い__で、恥ずかしいです。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_025",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "説明を__ばかりですから、まだよくわかりません。",
+        "correct": "聞いた",
+        "distractors": ["聞く", "聞き", "聞いて", "聞いたな", "聞か"]
+      }
+    },
+    {
+      "id": "bak_026",
+      "type": "PARAPHRASE",
+      "tags": ["bakari"],
+      "payload": {
+        "base_sentence": "彼は遊んでばかりいます。",
+        "correct": "勉強や仕事をせず、ほとんどの時間を遊びに費やしています。",
+        "distractors": [
+          "彼は遊びたいと思っています。",
+          "彼は遊ぶことができます。",
+          "彼は遊ぶのが好きです。",
+          "彼は時々遊びます。"
+        ]
+      }
+    },
+    {
+      "id": "bak_027",
+      "type": "FILL_BLANK",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "自分のこと__考えないで、他人のことも考えて。",
+        "correct": "ばかり",
+        "distractors": ["だけ", "しか", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "bak_028",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "日本に__ばかりの時は、道に迷いました。",
+        "correct": "来た",
+        "distractors": ["来る", "来", "来て", "来たな", "来し"]
+      }
+    },
+    {
+      "id": "bak_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["bakari"],
+      "payload": {
+        "sentence": "「最近」遊んでばかりいます。",
+        "correct": "さいきん",
+        "distractors": ["さきほど", "これから", "ずっと", "さいきんな"]
+      }
+    },
+    {
+      "id": "bak_030",
+      "type": "FILL_BLANK",
+      "tags": ["bakari", "traps"],
+      "payload": {
+        "sentence": "お風呂に__ばかりです。",
+        "correct": "入った",
+        "distractors": ["入る", "入って", "入な", "入りし", "入るの"]
+      }
+    }
+  ]
+}

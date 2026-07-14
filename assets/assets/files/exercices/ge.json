@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur le suffixe ~げ  - Avoir l'air de / Un air de - N2"
+  },
+  "exercises": [
+    {
+      "id": "ge_001",
+      "type": "FILL_BLANK",
+      "tags": ["ge", "N2"],
+      "payload": {
+        "sentence": "彼は悲し__な顔をして、遠くを見つめていた。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_002",
+      "type": "FILL_BLANK",
+      "tags": ["ge", "pop_culture"],
+      "payload": {
+        "sentence": "その男は、怪し__な笑みを浮かべていた。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_003",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "楽し__に遊んでいる子供たち。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ge"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自慢", "げに", "メダルを見せた"]
+      }
+    },
+    {
+      "id": "ge_005",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "何か言い__な様子だったが、結局何も言わなかった。",
+        "correct": "たげ",
+        "distractors": ["たいそう", "たいらしい", "たいみたい", "たいな"]
+      }
+    },
+    {
+      "id": "ge_006",
+      "type": "WORD_USAGE",
+      "tags": ["ge"],
+      "payload": {
+        "word": "～げ ",
+        "options": [
+          { "text": "自信ありげに答える。", "is_correct": true },
+          { "text": "涼しげな服を着る。", "is_correct": true },
+          { "text": "雨げな天気。", "is_correct": false },
+          { "text": "不満げな表情をする。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ge_007",
+      "type": "FILL_BLANK",
+      "tags": ["ge", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは、余裕__な態度で立っていた。",
+        "correct": "ありげ",
+        "distractors": ["ありそう", "ありらしい", "ありみたい", "ありな"]
+      }
+    },
+    {
+      "id": "ge_008",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "懐かし__に昔のアルバムを眺める。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_009",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "寂し__な背中が、夕日に染まっていた。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_010",
+      "type": "PARAPHRASE",
+      "tags": ["ge"],
+      "payload": {
+        "base_sentence": "彼は満足げに頷いた。",
+        "correct": "彼は満足しているような様子（表情や態度）で、首を縦に振りました。",
+        "distractors": [
+          "彼は満足したので、首を縦に振りました。",
+          "彼は満足していると言って、頷きました。",
+          "彼は満足しているふりをして、頷きました。"
+        ]
+      }
+    },
+    {
+      "id": "ge_011",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "危な__な場所には近づかないでください。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ge"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "。",
+        "blocks": ["不思議", "げな", "顔をした"]
+      }
+    },
+    {
+      "id": "ge_013",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "不満__な声を上げる。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_014",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "得意__に自分の作品を説明する。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_015",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "不安__な面持ちで結果を待つ。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "「悲しげ」な顔。",
+        "correct": "かなしげ",
+        "distractors": ["かなしそう", "かなしいげ", "かなしが", "かなしな"]
+      }
+    },
+    {
+      "id": "ge_017",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "誇らし__に胸を張る。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_018",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "惜し__に最後の一口を食べる。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ge"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["意味", "あり", "げに笑った"]
+      }
+    },
+    {
+      "id": "ge_020",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "親し__に話しかけてきた。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_021",
+      "type": "FILL_BLANK",
+      "tags": ["ge", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、迎え撃つ準備が__な様子だ。",
+        "correct": "できあがったげ",
+        "distractors": ["できあがったそう", "できあがったらしい", "できあがったみたい", "できあがったな"]
+      }
+    },
+    {
+      "id": "ge_022",
+      "type": "WORD_USAGE",
+      "tags": ["ge"],
+      "payload": {
+        "word": "～げ ",
+        "options": [
+          { "text": "自信なげな答え。", "is_correct": true },
+          { "text": "可愛げのある子供。", "is_correct": true },
+          { "text": "忙しげな毎日。", "is_correct": false },
+          { "text": "怪しげな人物。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ge_023",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "退屈__に窓の外を眺める。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_024",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "悲し__な音楽が流れている。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_025",
+      "type": "PARAPHRASE",
+      "tags": ["ge"],
+      "payload": {
+        "base_sentence": "彼は自慢げに話した。",
+        "correct": "彼は自分のことを自慢したいという気持ちが伝わってくるような態度で話をしました。",
+        "distractors": [
+          "彼は自慢するために話をしました。",
+          "彼は自慢した後に、別の話をしました。",
+          "彼は自慢するのが嫌いなので、静かに話しました。"
+        ]
+      }
+    },
+    {
+      "id": "ge_026",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "幼__な顔立ちをしている。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_027",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "羨まし__に人の物を見る。",
+        "correct": "げ",
+        "distractors": ["そう", "らしい", "みたい", "な"]
+      }
+    },
+    {
+      "id": "ge_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ge"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自信", "な", "げに答えた"]
+      }
+    },
+    {
+      "id": "ge_029",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "何やら__な密談を交わしている。",
+        "correct": "ありげ",
+        "distractors": ["ありそう", "ありらしい", "ありみたい", "ありな"]
+      }
+    },
+    {
+      "id": "ge_030",
+      "type": "FILL_BLANK",
+      "tags": ["ge"],
+      "payload": {
+        "sentence": "愛想__に笑いかける。",
+        "correct": "よさげ",
+        "distractors": ["よさそう", "いいらしい", "いいみたい", "いいな"]
+      }
+    }
+  ]
+}

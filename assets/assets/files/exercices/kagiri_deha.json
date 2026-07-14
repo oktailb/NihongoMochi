@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~限りでは  - Pour autant que / Selon - N2"
+  },
+  "exercises": [
+    {
+      "id": "kagiri_de_001",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "N2"],
+      "payload": {
+        "sentence": "私が知っている__、彼は嘘をつくような人ではない。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_002",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "このスカウターの数値を見る__、悟空の戦闘力は異常だ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_003",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "今日の新聞のニュースの__、事件は解決したらしい。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "私が",
+        "suffix": "。",
+        "blocks": ["調べた", "限りでは", "その情報は正しい"]
+      }
+    },
+    {
+      "id": "kagiri_de_005",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "昨日の話し合いの__、彼は納得していないようだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_006",
+      "type": "WORD_USAGE",
+      "tags": ["kagiri"],
+      "payload": {
+        "word": "～限りでは ",
+        "options": [
+          { "text": "私の見た限りでは、異常はありませんでした。", "is_correct": true },
+          { "text": "本を読んだ限りでは、よくわかりませんでした。", "is_correct": true },
+          { "text": "雨が降る限りでは、傘を差す。", "is_correct": false },
+          { "text": "彼に聞いた限りでは、予定通りだそうです。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kagiri_de_007",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "使徒の動きを見る__、目的地はここではないようだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_008",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "今のところわかっている__、被害はそれほど大きくない。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_009",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "専門家の意見をきいた__、この薬は安全だ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_010",
+      "type": "PARAPHRASE",
+      "tags": ["kagiri"],
+      "payload": {
+        "base_sentence": "私の調べた限りでは、他に方法はありません。",
+        "correct": "私が一生懸命に情報を収集し、調べた範囲内という限定的な条件の下では、別の手段は見つかりませんでした。",
+        "distractors": [
+          "私は調べていないので、方法があるかどうかわかりません。",
+          "私が調べたおかげで、新しい方法が見つかりました。",
+          "私が調べるために、時間をたくさん使いました。"
+        ]
+      }
+    },
+    {
+      "id": "kagiri_de_011",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "予報の__、明日は晴れる見込みだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "昨日",
+        "suffix": "。",
+        "blocks": ["会った", "限りでは", "彼は元気そうだった"]
+      }
+    },
+    {
+      "id": "kagiri_de_013",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "ここ数年のデータを見る__、人口は減少している。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_014",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "私の聞いた__、彼はまだ日本にいるらしい。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_015",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "表面的な観察の__、問題は見つからなかった。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "私が「調べた限りでは」。",
+        "correct": "しらべたかぎりでは",
+        "distractors": ["しらべただけで", "しらべたのみでは", "しらべたこそは", "しらべたばかりでは"]
+      }
+    },
+    {
+      "id": "kagiri_de_017",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "地図で見る__、ここはかなり遠そうだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_018",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "彼の話し方の__、反省はしていないようだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "今のところ、",
+        "suffix": "。",
+        "blocks": ["私が", "知っている", "限りでは問題ない"]
+      }
+    },
+    {
+      "id": "kagiri_de_020",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "この資料の__、利益は昨年の半分だ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_021",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "サスケの目を見る__、彼はまだ復讐をあきらめていない。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_022",
+      "type": "WORD_USAGE",
+      "tags": ["kagiri"],
+      "payload": {
+        "word": "～限りでは ",
+        "options": [
+          { "text": "私が確かめた限りでは、鍵はかかっていました。", "is_correct": true },
+          { "text": "天気予報の限りでは、明日は雪だ。", "is_correct": true },
+          { "text": "雨が降る限りでは、外へ行かない。", "is_correct": false },
+          { "text": "噂の限りでは、彼は結婚したらしい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kagiri_de_023",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "アンケートの結果を見る__、多くの人が賛成している。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_024",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "本人の説明の__、不注意による事故だったようだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_025",
+      "type": "PARAPHRASE",
+      "tags": ["kagiri"],
+      "payload": {
+        "base_sentence": "私の経験した限りでは、あんなにひどい台風は初めてでした。",
+        "correct": "私がこれまでの人生で体験した全ての出来事という範囲の中で考えるならば、あのような激しい台風は一度もありませんでした。",
+        "distractors": [
+          "私は台風を経験したことがないので、怖くありませんでした。",
+          "私は台風を経験するために、外に出かけました。",
+          "私は台風を経験したおかげで、天気に詳しくなりました。"
+        ]
+      }
+    },
+    {
+      "id": "kagiri_de_026",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "誰に聞いても、私の知っている__と同じ答えが返ってくる。",
+        "correct": "限り",
+        "distractors": ["だけ", "のみ", "ばかり", "こそ"]
+      }
+    },
+    {
+      "id": "kagiri_de_027",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "今の自分の力の__、全力を尽くすつもりだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "統計の",
+        "suffix": "。",
+        "blocks": ["数値を見る", "限りでは", "景気は上向いている"]
+      }
+    },
+    {
+      "id": "kagiri_de_029",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "ここから眺める__、町は平和そのものだ。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    },
+    {
+      "id": "kagiri_de_030",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "昨日まで調べた__、まだ欠陥は見つかっていない。",
+        "correct": "限りでは",
+        "distractors": ["だけで", "のみでは", "ばかりでは", "こそは"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Temps  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "time_001",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__は月曜日でした。",
+        "correct": "昨日",
+        "distractors": ["今日", "明日", "あさって", "おととい"]
+      }
+    },
+    {
+      "id": "time_002",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__は休みです。遊びましょう！",
+        "correct": "今日",
+        "distractors": ["昨日", "明日", "毎日", "去年"]
+      }
+    },
+    {
+      "id": "time_003",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__から頑張ります！",
+        "correct": "明日",
+        "distractors": ["昨日", "今日", "さっき", "今"]
+      }
+    },
+    {
+      "id": "time_004",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__、７時に起きました。",
+        "correct": "今朝",
+        "distractors": ["今日", "朝", "毎朝", "明日"]
+      }
+    },
+    {
+      "id": "time_005",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "私は__日本語を勉強します。",
+        "correct": "毎日",
+        "distractors": ["毎週", "毎月", "毎年", "昨日"]
+      }
+    },
+    {
+      "id": "time_006",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__、日本へ行きました。",
+        "correct": "去年",
+        "distractors": ["今年", "来年", "毎年", "昨日"]
+      }
+    },
+    {
+      "id": "time_007",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps", "pop_culture"],
+      "payload": {
+        "sentence": "「__の名前は。」",
+        "correct": "君",
+        "distractors": ["僕", "私", "昨日", "誰"]
+      }
+    },
+    {
+      "id": "time_008",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__はとても暑いですね。",
+        "correct": "今年",
+        "distractors": ["去年", "来年", "毎年", "今日"]
+      }
+    },
+    {
+      "id": "time_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noms_temps"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["毎朝", "水を", "飲み"]
+      }
+    },
+    {
+      "id": "time_010",
+      "type": "WORD_USAGE",
+      "tags": ["noms_temps"],
+      "payload": {
+        "word": "明日 ",
+        "options": [
+          { "text": "明日の天気はどうですか。", "is_correct": true },
+          { "text": "明日、会いましょう。", "is_correct": true },
+          { "text": "明日は月曜日でした。", "is_correct": false },
+          { "text": "昨日、明日へ行きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "time_011",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__、一緒にご飯を食べませんか。",
+        "correct": "今晩",
+        "distractors": ["晩", "今夜", "今日", "昨夜"]
+      }
+    },
+    {
+      "id": "time_012",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__は雨でしたが、今日は晴れです。",
+        "correct": "昨日",
+        "distractors": ["一昨日", "明日", "今朝", "先週"]
+      }
+    },
+    {
+      "id": "time_013",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__、映画を見に行きます。",
+        "correct": "来週",
+        "distractors": ["先週", "今週", "毎週", "来月"]
+      }
+    },
+    {
+      "id": "time_014",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "日本に来て、__になります。",
+        "correct": "一ヶ月",
+        "distractors": ["一月", "一つ月", "一回", "一時間"]
+      }
+    },
+    {
+      "id": "time_015",
+      "type": "PARAPHRASE",
+      "tags": ["noms_temps"],
+      "payload": {
+        "base_sentence": "明後日、会いましょう。",
+        "correct": "二日後に会いましょう。",
+        "distractors": [
+          "明日の次に会いましょう。",
+          "昨日会いましょう。",
+          "今日会いましょう。",
+          "一週間後に会いましょう。"
+        ]
+      }
+    },
+    {
+      "id": "time_016",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "__はテストですから、頑張ってください。",
+        "correct": "来週",
+        "distractors": ["先週", "今週", "昨日", "明日"]
+      }
+    },
+    {
+      "id": "time_017",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps", "traps"],
+      "payload": {
+        "sentence": "__は二十歳になります。",
+        "correct": "来年",
+        "distractors": ["今年", "去年", "明日", "毎月"]
+      }
+    },
+    {
+      "id": "time_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["noms_temps"],
+      "payload": {
+        "sentence": "「今日」は何曜日ですか。",
+        "correct": "きょう",
+        "distractors": ["こんにち", "きゅう", "きょうな", "こんじつ"]
+      }
+    },
+    {
+      "id": "time_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["noms_temps"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "休んでいます。",
+        "blocks": ["今", "ちょっと"]
+      }
+    },
+    {
+      "id": "time_020",
+      "type": "FILL_BLANK",
+      "tags": ["noms_temps", "traps"],
+      "payload": {
+        "sentence": "__のご飯は何でしたか。",
+        "correct": "昨日",
+        "distractors": ["明日", "今日", "先週", "去年"]
+      }
+    }
+  ]
+}

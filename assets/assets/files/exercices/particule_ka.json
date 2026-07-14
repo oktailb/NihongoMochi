@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 5,
+    "description": "Dojo de la particule KA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "ka_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "飲み物は、コーヒー__お茶がいいです。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "や"]
+      }
+    },
+    {
+      "id": "ka_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "鞄の中に何__ありますか。",
+        "correct": "か",
+        "distractors": ["を", "が", "も", "に", "は"]
+      }
+    },
+    {
+      "id": "ka_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "誰__来ましたよ。",
+        "correct": "か",
+        "distractors": ["が", "は", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "ka_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "どこ__へ行きましょう。",
+        "correct": "か",
+        "distractors": ["に", "も", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "明日__明後日、会いましょう。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "の"]
+      }
+    },
+    {
+      "id": "ka_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "question"],
+      "payload": {
+        "sentence": "これはあなたのです__。",
+        "correct": "か",
+        "distractors": ["ね", "よ", "わ", "の", "だ"]
+      }
+    },
+    {
+      "id": "ka_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "いつ__日本へ行きたいです。",
+        "correct": "か",
+        "distractors": ["も", "に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "pop_culture"],
+      "payload": {
+        "sentence": "生か死__。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "や"]
+      }
+    },
+    {
+      "id": "ka_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "prefix": "お腹が空きましたから、",
+        "suffix": "食べましょう。",
+        "blocks": ["何か"]
+      }
+    },
+    {
+      "id": "ka_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ka"],
+      "payload": {
+        "word": "か ",
+        "options": [
+          { "text": "リンゴかバナナを食べます。", "is_correct": true },
+          { "text": "月曜日か火曜日に来てください。", "is_correct": true },
+          { "text": "行くか行かないかわかりません。", "is_correct": true },
+          { "text": "本か読みます。", "is_correct": false },
+          { "text": "明日か会いましょうか。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ka_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "あそこに誰__いますか。",
+        "correct": "か",
+        "distractors": ["が", "は", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "ka_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "何か飲み物__ありますか。",
+        "correct": "が",
+        "distractors": ["か", "を", "に", "で", "は"]
+      }
+    },
+    {
+      "id": "ka_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "バス__タクシーで行きます。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "で", "の"]
+      }
+    },
+    {
+      "id": "ka_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "どこ__で休みましょう。",
+        "correct": "か",
+        "distractors": ["に", "も", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "base_sentence": "誰かいますか。",
+        "correct": "そこに人がいるかどうか聞いています。",
+        "distractors": [
+          "誰がいますか。",
+          "誰もいません。",
+          "誰かを知っていますか。",
+          "誰に会いますか。"
+        ]
+      }
+    },
+    {
+      "id": "ka_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "食べる__寝る__、どちらがいいですか。",
+        "correct": "か / か",
+        "distractors": ["と / と", "に / に", "を / を", "は / は"]
+      }
+    },
+    {
+      "id": "ka_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "traps"],
+      "payload": {
+        "sentence": "お茶__飲みませんか。",
+        "correct": "でも",
+        "distractors": ["か", "を", "に", "が"]
+      }
+    },
+    {
+      "id": "ka_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "何__質問がありますか。",
+        "correct": "か",
+        "distractors": ["を", "が", "も", "に", "は"]
+      }
+    },
+    {
+      "id": "ka_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "prefix": "明日は",
+        "suffix": "でしょう。",
+        "blocks": ["雨か", "雪"]
+      }
+    },
+    {
+      "id": "ka_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "いつ__会いましょう。",
+        "correct": "か",
+        "distractors": ["も", "に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_021",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "ペン__鉛筆で書いてください。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "の"]
+      }
+    },
+    {
+      "id": "ka_022",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "どこ__に財布を忘れました。",
+        "correct": "か",
+        "distractors": ["も", "を", "が", "は", "に"]
+      }
+    },
+    {
+      "id": "ka_023",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "word": "何か ",
+        "options": [
+          { "text": "何か食べたいです。", "is_correct": true },
+          { "text": "何かわかりますか。", "is_correct": true },
+          { "text": "何か美味しいものを買いましょう。", "is_correct": true },
+          { "text": "何かがいますか。", "is_correct": false },
+          { "text": "何かを食べますか。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ka_024",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "右__左へ曲がってください。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "の"]
+      }
+    },
+    {
+      "id": "ka_025",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "誰__に聞いてみてください。",
+        "correct": "か",
+        "distractors": ["が", "は", "も", "を", "の"]
+      }
+    },
+    {
+      "id": "ka_026",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "base_sentence": "コーヒーか紅茶がいいです。",
+        "correct": "コーヒーでも紅茶でも、どちらか一方で満足です。",
+        "distractors": [
+          "コーヒーと紅茶の両方がいいです。",
+          "コーヒーも紅茶も嫌いです。",
+          "コーヒーの後に紅茶を飲みます。",
+          "コーヒーより紅茶が好きです。"
+        ]
+      }
+    },
+    {
+      "id": "ka_027",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "いつ__手紙を書きます。",
+        "correct": "か",
+        "distractors": ["も", "に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_028",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "大人__子供__、料金は同じです。",
+        "correct": "か / か",
+        "distractors": ["と / と", "に / に", "を / を", "は / は"]
+      }
+    },
+    {
+      "id": "ka_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["particule_ka"],
+      "payload": {
+        "sentence": "「何か」手伝いましょうか。",
+        "correct": "なにか",
+        "distractors": ["なにが", "なにわ", "なにを", "なにに"]
+      }
+    },
+    {
+      "id": "ka_030",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "どこ__で会いましょうか。",
+        "correct": "か",
+        "distractors": ["に", "も", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "prefix": "教室に",
+        "suffix": "いますか。",
+        "blocks": ["誰か"]
+      }
+    },
+    {
+      "id": "ka_032",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "安い__高い__、よく見てください。",
+        "correct": "か / か",
+        "distractors": ["と / と", "に / に", "を / を", "は / は"]
+      }
+    },
+    {
+      "id": "ka_033",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "何__いいニュースはありませんか。",
+        "correct": "か",
+        "distractors": ["を", "が", "も", "に", "は"]
+      }
+    },
+    {
+      "id": "ka_034",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "pop_culture"],
+      "payload": {
+        "sentence": "敵__味方__。",
+        "correct": "か / か",
+        "distractors": ["と / と", "に / に", "を / を", "は / は"]
+      }
+    },
+    {
+      "id": "ka_035",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "word": "どこか ",
+        "options": [
+          { "text": "どこかへ行きましょう。", "is_correct": true },
+          { "text": "どこかで会ったことがありますね。", "is_correct": true },
+          { "text": "どこかに鞄を置きました。", "is_correct": true },
+          { "text": "どこかは誰ですか。", "is_correct": false },
+          { "text": "どこかに行きますを。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ka_036",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "自分__誰か__に頼んでください。",
+        "correct": "か",
+        "distractors": ["と", "に", "を", "は", "の"]
+      }
+    },
+    {
+      "id": "ka_037",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "いつ__終わるでしょう。",
+        "correct": "か",
+        "distractors": ["も", "に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "ka_038",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "base_sentence": "何か食べたいです。",
+        "correct": "空腹なので、食べ物が必要です。",
+        "distractors": [
+          "何を食べたいですか。",
+          "何も食べたくありません。",
+          "これを食べたいです。",
+          "誰かと食べたいです。"
+        ]
+      }
+    },
+    {
+      "id": "ka_039",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "alternative"],
+      "payload": {
+        "sentence": "本当__嘘__、教えてください。",
+        "correct": "か / か",
+        "distractors": ["と / と", "に / に", "を / を", "は / は"]
+      }
+    },
+    {
+      "id": "ka_040",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ka", "indetermine"],
+      "payload": {
+        "sentence": "誰__の手紙ですか。",
+        "correct": "か",
+        "distractors": ["が", "は", "も", "を", "に"]
+      }
+    }
+  ]
+}

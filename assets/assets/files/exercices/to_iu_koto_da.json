@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de TO IU KOTO DA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "tik_001",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "不合格というのは、試験に落ちた__です。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_002",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "rumor"],
+      "payload": {
+        "sentence": "ニュースによると、来年物価が上がる__。",
+        "correct": "ということだ",
+        "distractors": ["というものだ", "というはずだ", "というのだ", "というからだ", "というのでだ"]
+      }
+    },
+    {
+      "id": "tik_003",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "反対意見がないのは、賛成だ__ですね。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_004",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "「禁煙」はタバコを吸ってはいけない__です。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_005",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "pop_culture"],
+      "payload": {
+        "sentence": "彼が来ないのは、諦めた__かな。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_006",
+      "type": "WORD_USAGE",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "word": "〜ということだ ",
+        "options": [
+          { "text": "AはBだということです。", "is_correct": true },
+          { "text": "物価が上がるということだ。", "is_correct": true },
+          { "text": "彼は学生だということだ。", "is_correct": true },
+          { "text": "明日ということだ会いましょう。 ", "is_correct": false },
+          { "text": "美味しいということだ食べます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tik_007",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "欠席届を出さないのは、出席する__ですね。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_008",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "「自由」というのは、何でもできる__ではありません。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "prefix": "返事がないのは、",
+        "suffix": "だ。",
+        "blocks": ["忙しいという", "こと"]
+      }
+    },
+    {
+      "id": "tik_010",
+      "type": "PARAPHRASE",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "base_sentence": "彼は来られないということです。",
+        "correct": "彼が参加できないという連絡や情報を要約しています。",
+        "distractors": [
+          "彼は来たいと思っています。",
+          "彼は来なければなりません。",
+          "彼は来るかもしれません。",
+          "彼は来るつもりです。"
+        ]
+      }
+    },
+    {
+      "id": "tik_011",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "「完売」は全部売れた__です。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_012",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "道が混んでいるのは、事故があった__だろう。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_013",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "メールが届かないのは、アドレスが違う__ですね。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_014",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "pop_culture"],
+      "payload": {
+        "sentence": "「海賊」は自由だ__。",
+        "correct": "ということだ",
+        "distractors": ["というものだ", "というはずだ", "というのだ", "というからだ", "というのでだ"]
+      }
+    },
+    {
+      "id": "tik_015",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "物価が上がる__、生活が大変になるということだ。",
+        "correct": "ということは",
+        "distractors": ["ということが", "ということに", "というので", "というから"]
+      }
+    },
+    {
+      "id": "tik_016",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "静かなのは、誰もいない__ですね。",
+        "correct": "ということ",
+        "distractors": ["というもの", "というはず", "というの", "というから", "というので"]
+      }
+    },
+    {
+      "id": "tik_017",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "名前を__ということは、参加するということですね。",
+        "correct": "書く",
+        "distractors": ["書き", "書いて", "書いた", "書な", "書ける"]
+      }
+    },
+    {
+      "id": "tik_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "sentence": "「意味」はそういうことです。",
+        "correct": "いみ",
+        "distractors": ["いじ", "いみい", "いみな", "きみ"]
+      }
+    },
+    {
+      "id": "tik_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_iu_koto_da"],
+      "payload": {
+        "prefix": "つまり、",
+        "suffix": "だ。",
+        "blocks": ["失敗したという", "こと"]
+      }
+    },
+    {
+      "id": "tik_020",
+      "type": "FILL_BLANK",
+      "tags": ["to_iu_koto_da", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えるということだ", "教えたということだ", "教えなな", "教えな"]
+      }
+    }
+  ]
+}

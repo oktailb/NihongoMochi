@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Changement et de l'Habitude  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "ynsn_001",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "毎日、日本語を話すように__。",
+        "correct": "しています",
+        "distractors": ["なっていますしています", "なります", "なっています", "しました", "した"]
+      }
+    },
+    {
+      "id": "ynsn_002",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "change"],
+      "payload": {
+        "sentence": "日本語が話せるように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_003",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "忘れない__、メモしておきます。",
+        "correct": "ように",
+        "distractors": ["ために", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "ynsn_004",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "肉を食べないように__。",
+        "correct": "しています",
+        "distractors": ["なっています", "なります", "しました", "した", "あります"]
+      }
+    },
+    {
+      "id": "ynsn_005",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王になれるように__！",
+        "correct": "する",
+        "distractors": ["なる", "なれる", "あり", "いる", "するる"]
+      }
+    },
+    {
+      "id": "ynsn_006",
+      "type": "WORD_USAGE",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "word": "〜ように なる ",
+        "options": [
+          { "text": "泳げるようになりました。", "is_correct": true },
+          { "text": "日本料理を食べるようになりました。", "is_correct": true },
+          { "text": "最近、早く起きるようになりました。", "is_correct": true },
+          { "text": "毎日、勉強するように鳴ります。 ", "is_correct": false },
+          { "text": "明日ようになる会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ynsn_007",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "健康のために、毎日歩くように__。",
+        "correct": "しています",
+        "distractors": ["なっています", "なります", "しました", "した", "あります"]
+      }
+    },
+    {
+      "id": "ynsn_008",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "早く__ようにしてください。",
+        "correct": "起きる",
+        "distractors": ["起きて", "起きた", "起き", "起きな", "起きます"]
+      }
+    },
+    {
+      "id": "ynsn_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "prefix": "毎日、",
+        "suffix": "しています。",
+        "blocks": ["10時に寝る", "ように"]
+      }
+    },
+    {
+      "id": "ynsn_010",
+      "type": "PARAPHRASE",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "base_sentence": "日本語が読めるようになりました。",
+        "correct": "以前は読めませんでしたが、今は読むことができます。",
+        "distractors": [
+          "日本語を読みたいです。",
+          "日本語を読んでください。",
+          "日本語を読むつもりです。",
+          "日本語を読まなければなりません。"
+        ]
+      }
+    },
+    {
+      "id": "ynsn_011",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "刺身が食べられるように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_012",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "甘いものを食べないように__。",
+        "correct": "しています",
+        "distractors": ["なっています", "なります", "しました", "した", "あります"]
+      }
+    },
+    {
+      "id": "ynsn_013",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "聞こえる__、大きく話してください。",
+        "correct": "ように",
+        "distractors": ["ために", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "ynsn_014",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "pop_culture"],
+      "payload": {
+        "sentence": "ナルトのように強く__たい！",
+        "correct": "なり",
+        "distractors": ["なる", "なって", "なった", "なれ", "なな"]
+      }
+    },
+    {
+      "id": "ynsn_015",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "明日、10時に来るように__。",
+        "correct": "します",
+        "distractors": ["なります", "なっています", "しています", "しました", "した"]
+      }
+    },
+    {
+      "id": "ynsn_016",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "ピアノが弾けるように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_017",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "遅れないように__。",
+        "correct": "してください",
+        "distractors": ["なってください", "しましょう", "なりました", "しました", "ください"]
+      }
+    },
+    {
+      "id": "ynsn_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "「習慣」にしましょう。",
+        "correct": "しゅうかん",
+        "distractors": ["しゅうがん", "じゅうかん", "しゅかん", "しゅうか"]
+      }
+    },
+    {
+      "id": "ynsn_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "prefix": "野菜をたくさん",
+        "suffix": "しています。",
+        "blocks": ["食べるように"]
+      }
+    },
+    {
+      "id": "ynsn_020",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "日本語が__ようになりました。",
+        "correct": "話せる",
+        "distractors": ["話す", "話して", "話した", "話さ", "話したい"]
+      }
+    },
+    {
+      "id": "ynsn_021",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "毎日、練習する__してください。 ",
+        "correct": "ように",
+        "distractors": ["ために", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "ynsn_022",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "お酒を飲まないように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_023",
+      "type": "WORD_USAGE",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "word": "〜ように する ",
+        "options": [
+          { "text": "明日からタバコをやめるようにします。", "is_correct": true },
+          { "text": "塩を入れすぎないようにしています。", "is_correct": true },
+          { "text": "忘れないように、カレンダーに書きます。", "is_correct": true },
+          { "text": "日本語が話せるようにします。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ynsn_024",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "夜、一人で出かけないように__。",
+        "correct": "しています",
+        "distractors": ["なっています", "なります", "しました", "した", "あります"]
+      }
+    },
+    {
+      "id": "ynsn_025",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "自転車に乗れるように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_026",
+      "type": "PARAPHRASE",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "base_sentence": "毎日野菜を食べるようにしています。",
+        "correct": "健康のために野菜を食べる習慣を維持しようと努力しています。",
+        "distractors": [
+          "毎日野菜を食べることができます。",
+          "毎日野菜を食べています。",
+          "毎日野菜を食べるつもりです。",
+          "毎日野菜を食べなければなりません。"
+        ]
+      }
+    },
+    {
+      "id": "ynsn_027",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "道がわかるように__。",
+        "correct": "なりました",
+        "distractors": ["しました", "なっています", "しています", "しましたでした", "なった"]
+      }
+    },
+    {
+      "id": "ynsn_028",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "嘘をつかないように__。",
+        "correct": "してください",
+        "distractors": ["なってください", "しましょう", "なりました", "しました", "ください"]
+      }
+    },
+    {
+      "id": "ynsn_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["yo_ni_suru_naru"],
+      "payload": {
+        "sentence": "「決心」しました。",
+        "correct": "けっしん",
+        "distractors": ["けしん", "けっし", "げっしん", "けっじ心"]
+      }
+    },
+    {
+      "id": "ynsn_030",
+      "type": "FILL_BLANK",
+      "tags": ["yo_ni_suru_naru", "traps"],
+      "payload": {
+        "sentence": "泳げるようになる__、毎日練習します。",
+        "correct": "ために",
+        "distractors": ["ように", "ので", "から", "まえに", "ときに"]
+      }
+    }
+  ]
+}

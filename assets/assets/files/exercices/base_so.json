@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~そう  - Apparence / Ouï-dire - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "so_001",
+      "type": "FILL_BLANK",
+      "tags": ["so", "N4"],
+      "payload": {
+        "sentence": "このケーキはとてもおいし__です。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_002",
+      "type": "FILL_BLANK",
+      "tags": ["so", "pop_culture"],
+      "payload": {
+        "sentence": "彼は強__に見えるが、実は優しい。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_003",
+      "type": "FILL_BLANK",
+      "tags": ["so", "hearsay"],
+      "payload": {
+        "sentence": "天気予報によると、明日は雨が降る__だ。",
+        "correct": "そう",
+        "distractors": ["そうに", "そうな", "そうにない", "そうだった"]
+      }
+    },
+    {
+      "id": "so_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["so"],
+      "payload": {
+        "prefix": "あの人は",
+        "suffix": "見えます。",
+        "blocks": ["とても", "幸せ", "そうに"]
+      }
+    },
+    {
+      "id": "so_005",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "棚から荷物が落ち__ですよ。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_006",
+      "type": "WORD_USAGE",
+      "tags": ["so"],
+      "payload": {
+        "word": "～そう ",
+        "options": [
+          { "text": "重そうな荷物ですね。持ちましょうか。", "is_correct": true },
+          { "text": "この本は難しそうです。", "is_correct": true },
+          { "text": "彼は学生そうだ。", "is_correct": false },
+          { "text": "この料理は辛そうだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "so_007",
+      "type": "FILL_BLANK",
+      "tags": ["so", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは怒り__な顔をしている。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_008",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "彼女は元気__ですね。良かったです。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_009",
+      "type": "FILL_BLANK",
+      "tags": ["so", "hearsay"],
+      "payload": {
+        "sentence": "田中さんは来月結婚する__ですよ。",
+        "correct": "そう",
+        "distractors": ["そうに", "そうな", "そうにない", "そうだった"]
+      }
+    },
+    {
+      "id": "so_010",
+      "type": "PARAPHRASE",
+      "tags": ["so"],
+      "payload": {
+        "base_sentence": "雨が降りそうです。",
+        "correct": "空が暗いなど、雨が降る様子が見えます。",
+        "distractors": [
+          "今、雨が降っています。",
+          "雨が降ったことがあります。",
+          "誰かが雨が降ると言っていました。"
+        ]
+      }
+    },
+    {
+      "id": "so_011",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "このパソコンは使いやす__ですね。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["so"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "話していた。",
+        "blocks": ["とても", "楽し", "そうに"]
+      }
+    },
+    {
+      "id": "so_013",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "ボタンが取れ__ですよ。気をつけて。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_014",
+      "type": "FILL_BLANK",
+      "tags": ["so", "hearsay"],
+      "payload": {
+        "sentence": "あの映画はあまりおもしろくない__だ。",
+        "correct": "そう",
+        "distractors": ["そうに", "そうな", "そうにない", "そうだった"]
+      }
+    },
+    {
+      "id": "so_015",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "眠__な目をしていますね。昨日は寝ていないんですか。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "おいし「そう」ですね。",
+        "correct": "そう",
+        "distractors": ["ぞう", "しょう", "そうに", "そうな"]
+      }
+    },
+    {
+      "id": "so_017",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "彼は寂し__に一人でベンチに座っている。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_018",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "火事でビルが燃え__だ。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["so"],
+      "payload": {
+        "prefix": "ニュースに",
+        "suffix": "上がったそうだ。",
+        "blocks": ["よると", "物価が", "さらに"]
+      }
+    },
+    {
+      "id": "so_020",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "彼は頭がよ__に見える。",
+        "correct": "さそう",
+        "distractors": ["そう", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_021",
+      "type": "FILL_BLANK",
+      "tags": ["so", "pop_culture"],
+      "payload": {
+        "sentence": "ナメック星は今にも爆発し__だ。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_022",
+      "type": "WORD_USAGE",
+      "tags": ["so", "hearsay"],
+      "payload": {
+        "word": "～そう ",
+        "options": [
+          { "text": "明日から安くなるそうです。", "is_correct": true },
+          { "text": "昨日は天気がよかったそうです。", "is_correct": true },
+          { "text": "田中さんは忙しいそうだ。", "is_correct": true },
+          { "text": "田中さんは忙しそうだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "so_023",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "この本は子供でも読め__だ。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_024",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "彼はいつも暇__にしている。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_025",
+      "type": "PARAPHRASE",
+      "tags": ["so", "hearsay"],
+      "payload": {
+        "base_sentence": "彼は病気だそうです。",
+        "correct": "誰かから、彼が病気であると聞きました。",
+        "distractors": [
+          "彼は病気のように見えます。",
+          "彼は病気になったことがあります。",
+          "彼が病気かどうか、私は知りません。"
+        ]
+      }
+    },
+    {
+      "id": "so_026",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "雨が__そうですね。傘を持っていきましょう。",
+        "correct": "降り",
+        "distractors": ["降る", "降って", "降れば", "降ろう"]
+      }
+    },
+    {
+      "id": "so_027",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "あの人は優し__です。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    },
+    {
+      "id": "so_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["so"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "笑った。",
+        "blocks": ["うれし", "そうに", "にこにこと"]
+      }
+    },
+    {
+      "id": "so_029",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "この仕事はすぐに終わら__にない。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうだった"]
+      }
+    },
+    {
+      "id": "so_030",
+      "type": "FILL_BLANK",
+      "tags": ["so"],
+      "payload": {
+        "sentence": "彼は合格して、とても満足__だ。",
+        "correct": "そう",
+        "distractors": ["そうだ", "そうに", "そうな", "そうにない"]
+      }
+    }
+  ]
+}

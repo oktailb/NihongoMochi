@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de TE YOKATTA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "yok_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "日本へ来__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "雨が__よかったです。",
+        "correct": "降らなくて",
+        "distractors": ["降らないで", "降らなくては", "降った", "降りて", "降らななで"]
+      }
+    },
+    {
+      "id": "yok_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "あなたに会え__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "adj_i"],
+      "payload": {
+        "sentence": "安__よかったです。",
+        "correct": "くて",
+        "distractors": ["に", "な", "い", "を", "が"]
+      }
+    },
+    {
+      "id": "yok_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "pop_culture"],
+      "payload": {
+        "sentence": "仲間が__よかったです！",
+        "correct": "いて",
+        "distractors": ["あって", "いた", "あった", "いな", "しって"]
+      }
+    },
+    {
+      "id": "yok_006",
+      "type": "WORD_USAGE",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "word": "〜て よかった ",
+        "options": [
+          { "text": "試験に合格してよかったです。", "is_correct": true },
+          { "text": "傘を持って行ってよかったです。", "is_correct": true },
+          { "text": "美味しくてよかったです。", "is_correct": true },
+          { "text": "明日てよかったです。 ", "is_correct": false },
+          { "text": "食べよかったです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "yok_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "忘れ物をし__よかったです。",
+        "correct": "なくて",
+        "distractors": ["ないで", "なくては", "ました", "した", "しななで"]
+      }
+    },
+    {
+      "id": "yok_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "道がわかっ__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "prefix": "今日は晴れ",
+        "suffix": "よかったです。",
+        "blocks": ["て"]
+      }
+    },
+    {
+      "id": "yok_010",
+      "type": "PARAPHRASE",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "base_sentence": "薬を飲んでよかったです。",
+        "correct": "薬を飲んだおかげで、状況が改善したことを喜んでいます。",
+        "distractors": [
+          "薬を飲まなければなりません。",
+          "薬を飲みたいです。",
+          "薬を飲んだことがあります。",
+          "薬を飲むことができません。"
+        ]
+      }
+    },
+    {
+      "id": "yok_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "早くつい__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_012",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "病気になら__よかったです。",
+        "correct": "なくて",
+        "distractors": ["ないで", "なくては", "なった", "なりて", "なななで"]
+      }
+    },
+    {
+      "id": "yok_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "説明を聞い__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "pop_culture"],
+      "payload": {
+        "sentence": "自分を信じ__よかったです！",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_015",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "財布が見つかっ__よかったです。",
+        "correct": "て",
+        "distractors": ["た", "ので", "から", "まえに", "ときに"]
+      }
+    },
+    {
+      "id": "yok_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "静か__よかったです。",
+        "correct": "で",
+        "distractors": ["に", "な", "くて", "を", "が"]
+      }
+    },
+    {
+      "id": "yok_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "お名前を__よかったです。",
+        "correct": "聞いて",
+        "distractors": ["聞く", "聞いた", "聞きして", "聞きなな", "聞いたな"]
+      }
+    },
+    {
+      "id": "yok_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "sentence": "「安心」してよかったです。",
+        "correct": "あんしん",
+        "distractors": ["あんぜん", "しんしん", "あんしな", "えんしん"]
+      }
+    },
+    {
+      "id": "yok_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_yokatta"],
+      "payload": {
+        "prefix": "お弁当を",
+        "suffix": "よかったです。",
+        "blocks": ["持ってきて"]
+      }
+    },
+    {
+      "id": "yok_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_yokatta", "traps"],
+      "payload": {
+        "sentence": "早く__よかったです。",
+        "correct": "終わって",
+        "distractors": ["終わる", "終わった", "終わりして", "終わりなな", "終わってな"]
+      }
+    }
+  ]
+}

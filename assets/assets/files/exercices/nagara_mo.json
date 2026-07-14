@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ながら（も）  - Bien que / Tout en étant - N2"
+  },
+  "exercises": [
+    {
+      "id": "nagaramo_001",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo", "N2"],
+      "payload": {
+        "sentence": "狭い__、楽しい我が家です。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_002",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、子供__地球を救うために戦った。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_003",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "悪いと知り__、嘘をついてしまった。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagaramo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["貧しい", "ながらも", "幸せに暮らしている"]
+      }
+    },
+    {
+      "id": "nagaramo_005",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "残念__、そのお誘いはお受けできません。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_006",
+      "type": "WORD_USAGE",
+      "tags": ["nagaramo"],
+      "payload": {
+        "word": "～ながら（も） ",
+        "options": [
+          { "text": "子供ながらも、よく理解している。", "is_correct": true },
+          { "text": "初心者ながらも、素晴らしい作品を作った。", "is_correct": true },
+          { "text": "雨が降りながらも、傘を差す。", "is_correct": false },
+          { "text": "下手ながらも、一生懸命練習している。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nagaramo_007",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは、冷酷__、部下には慕われていた面もある。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "おかげで"]
+      }
+    },
+    {
+      "id": "nagaramo_008",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "不便__、この村の生活は気に入っている。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_009",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "体は小さい__、力は強い。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_010",
+      "type": "PARAPHRASE",
+      "tags": ["nagaramo"],
+      "payload": {
+        "base_sentence": "未熟ながらも、精一杯頑張ります。",
+        "correct": "私はまだ経験が浅く未熟であるという事実は認めますが、それでも今の自分にできる限りの力を尽くして頑張ります。",
+        "distractors": [
+          "未熟なので、頑張ることができません。",
+          "未熟であるために、誰かに手伝ってもらいます。",
+          "未熟であっても、頑張れば成功します。"
+        ]
+      }
+    },
+    {
+      "id": "nagaramo_011",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "涙を流し__、彼女は最後の挨拶をした。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagaramo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["高齢", "ながらも", "元気に働いている"]
+      }
+    },
+    {
+      "id": "nagaramo_013",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "自分の間違いを認め__、心の中では納得していなかった。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_014",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "忙しい__、毎日日記を欠かさない。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_015",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "古くさい__、この伝統は守る価値がある。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "「狭いながらも」楽しい。",
+        "correct": "せまいながらも",
+        "distractors": ["せまいつつも", "せまいものの", "せまいわりに", "せまいながら"]
+      }
+    },
+    {
+      "id": "nagaramo_017",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "不安__、一歩踏み出すことにした。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_018",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "素人__、プロ顔負けの腕前だ。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagaramo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["失敗を", "繰り返し", "ながらも成功を掴んだ"]
+      }
+    },
+    {
+      "id": "nagaramo_020",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "一度は諦め__、再び立ち上がった。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_021",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロットとして、恐怖に__戦い続けた。",
+        "correct": "震えながらも",
+        "distractors": ["震えつつも", "震えものの", "震えわりに", "震えからには"]
+      }
+    },
+    {
+      "id": "nagaramo_022",
+      "type": "WORD_USAGE",
+      "tags": ["nagaramo"],
+      "payload": {
+        "word": "～ながら（も） ",
+        "options": [
+          { "text": "独学ながらも、日本語をマスターした。", "is_correct": true },
+          { "text": "病身ながらも、家族を支え続けた。", "is_correct": true },
+          { "text": "雨が降りながらも、虹が出た。", "is_correct": false },
+          { "text": "不器用ながらも、一生懸命作った。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nagaramo_023",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "敵同士__、お互いの実力を認め合っていた。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_024",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "短い期間__、多くのことを学んだ。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_025",
+      "type": "PARAPHRASE",
+      "tags": ["nagaramo"],
+      "payload": {
+        "base_sentence": "彼は、苦労しながらも夢を叶えた。",
+        "correct": "彼は多くの困難や苦しみの中にいましたが、それでも途中でやめることなく努力を続けて、最終的に夢を実現させました。",
+        "distractors": [
+          "彼は苦労したので、夢を叶えることができませんでした。",
+          "彼は苦労するために、夢を叶えようとしています。",
+          "彼は苦労したおかげで、夢を叶えるのが簡単になりました。"
+        ]
+      }
+    },
+    {
+      "id": "nagaramo_026",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "彼は、自分の弱さを知り__、強くあろうとした。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_027",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "このパソコンは、古い__、まだ現役で使えている。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nagaramo"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["反対され", "ながらも", "自分の信念を貫いた"]
+      }
+    },
+    {
+      "id": "nagaramo_029",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "言葉は通じない__、心は通じ合っていた。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    },
+    {
+      "id": "nagaramo_030",
+      "type": "FILL_BLANK",
+      "tags": ["nagaramo"],
+      "payload": {
+        "sentence": "小さな一歩__、未来への大きな前進だ。",
+        "correct": "ながらも",
+        "distractors": ["つつも", "ものの", "わりに", "からには"]
+      }
+    }
+  ]
+}

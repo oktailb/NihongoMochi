@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Changement  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "nar_001",
+      "type": "FILL_BLANK",
+      "tags": ["naru"],
+      "payload": {
+        "sentence": "将来、先生__なりたいです。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で", "の"]
+      }
+    },
+    {
+      "id": "nar_002",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "だんだん寒__なりましたね。",
+        "correct": "く",
+        "distractors": ["に", "な", "い", "くて", "かった"]
+      }
+    },
+    {
+      "id": "nar_003",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_na"],
+      "payload": {
+        "sentence": "日本語が上手__なりましたね！",
+        "correct": "に",
+        "distractors": ["く", "な", "を", "が", "だ"]
+      }
+    },
+    {
+      "id": "nar_004",
+      "type": "FILL_BLANK",
+      "tags": ["naru"],
+      "payload": {
+        "sentence": "もうすぐ10時__なります。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_005",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "pop_culture"],
+      "payload": {
+        "sentence": "スーパーサイヤ人__なる！",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_006",
+      "type": "WORD_USAGE",
+      "tags": ["naru"],
+      "payload": {
+        "word": "なる ",
+        "options": [
+          { "text": "春になりました。", "is_correct": true },
+          { "text": "部屋が綺麗になりました。", "is_correct": true },
+          { "text": "背が高くなりました。", "is_correct": true },
+          { "text": "ご飯をなります。 ", "is_correct": false },
+          { "text": "明日をなります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nar_007",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "テレビの音を大き__してください。",
+        "correct": "く",
+        "distractors": ["に", "な", "い", "を", "が"]
+      }
+    },
+    {
+      "id": "nar_008",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "病気__なりましたから、休みます。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naru"],
+      "payload": {
+        "prefix": "将来は",
+        "suffix": "なりたいです。",
+        "blocks": ["医者に"]
+      }
+    },
+    {
+      "id": "nar_010",
+      "type": "PARAPHRASE",
+      "tags": ["naru"],
+      "payload": {
+        "base_sentence": "上手になりました。",
+        "correct": "以前より能力が向上しました。",
+        "distractors": [
+          "今、練習しています。",
+          "上手になりたいです。",
+          "上手じゃありません。",
+          "上手ではありませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "nar_011",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "暗__なりましたから、帰りましょう。",
+        "correct": "く",
+        "distractors": ["に", "な", "い", "を", "が"]
+      }
+    },
+    {
+      "id": "nar_012",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "20歳__なりました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_013",
+      "type": "FILL_BLANK",
+      "tags": ["naru"],
+      "payload": {
+        "sentence": "有名__なりたいですか。",
+        "correct": "に",
+        "distractors": ["く", "な", "を", "が", "だ"]
+      }
+    },
+    {
+      "id": "nar_014",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "pop_culture"],
+      "payload": {
+        "sentence": "静か__しろ！",
+        "correct": "に",
+        "distractors": ["く", "な", "を", "が", "だ"]
+      }
+    },
+    {
+      "id": "nar_015",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "おにぎり__なりました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_016",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "安__なったら、買います。",
+        "correct": "く",
+        "distractors": ["に", "な", "い", "を", "が"]
+      }
+    },
+    {
+      "id": "nar_017",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "何__なりたいですか。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["naru"],
+      "payload": {
+        "sentence": "将来「公務員」になりたいです。",
+        "correct": "こうむいん",
+        "distractors": ["こむいん", "こうむにん", "こむにん", "ごうむいん"]
+      }
+    },
+    {
+      "id": "nar_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naru"],
+      "payload": {
+        "prefix": "空が",
+        "suffix": "なりました。",
+        "blocks": ["青く"]
+      }
+    },
+    {
+      "id": "nar_020",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "大人__なったら、何がしたいですか。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_021",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "もっと強__なりたい！",
+        "correct": "く",
+        "distractors": ["に", "な", "い", "を", "が"]
+      }
+    },
+    {
+      "id": "nar_022",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "1月__なりました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_023",
+      "type": "WORD_USAGE",
+      "tags": ["naru"],
+      "payload": {
+        "word": "くする / にする ",
+        "options": [
+          { "text": "部屋を綺麗にしました。", "is_correct": true },
+          { "text": "お茶を熱くしました。", "is_correct": true },
+          { "text": "コーヒーにします。", "is_correct": true },
+          { "text": "本をくします。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nar_024",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_na"],
+      "payload": {
+        "sentence": "不便__なりましたね。",
+        "correct": "に",
+        "distractors": ["く", "な", "を", "が", "だ"]
+      }
+    },
+    {
+      "id": "nar_025",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "友達__なりました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "nar_026",
+      "type": "PARAPHRASE",
+      "tags": ["naru"],
+      "payload": {
+        "base_sentence": "背が高くなりましたね。",
+        "correct": "以前より身長が伸びましたね。",
+        "distractors": [
+          "背が高いですね。",
+          "背が高くないですね。",
+          "背を高くしたいですね。",
+          "背が高かったですね。"
+        ]
+      }
+    },
+    {
+      "id": "nar_027",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "adj_i"],
+      "payload": {
+        "sentence": "美味しく__なりました。",
+        "correct": " ",
+        "distractors": ["に", "な", "を", "が"]
+      }
+    },
+    {
+      "id": "nar_028",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "雨__なりました。",
+        "correct": "が降るように",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "nar_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["naru"],
+      "payload": {
+        "sentence": "「昨日」から寒くなりました。",
+        "correct": "きのう",
+        "distractors": ["きょう", "あした", "おととい", "さっき"]
+      }
+    },
+    {
+      "id": "nar_030",
+      "type": "FILL_BLANK",
+      "tags": ["naru", "traps"],
+      "payload": {
+        "sentence": "先生__なりました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    }
+  ]
+}

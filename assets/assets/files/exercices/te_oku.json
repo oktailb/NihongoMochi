@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Préparation  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "oku_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "旅行の前に、地図を買って__。",
+        "correct": "おきます",
+        "distractors": ["います", "あります", "しまいます", "みます", "あげます"]
+      }
+    },
+    {
+      "id": "oku_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "お客さんが来ますから、部屋を掃除して__ください。",
+        "correct": "おいて",
+        "distractors": ["いて", "あって", "しまって", "みて", "あげて"]
+      }
+    },
+    {
+      "id": "oku_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "パーティーのために、ビールを冷やして__。",
+        "correct": "おきました",
+        "distractors": ["いました", "ありました", "しまいました", "みました", "ありましたでした"]
+      }
+    },
+    {
+      "id": "oku_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "shortened"],
+      "payload": {
+        "sentence": "これ、洗っ__て！",
+        "correct": "とい",
+        "distractors": ["ておい", "てい", "てあ", "てしま"]
+      }
+    },
+    {
+      "id": "oku_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "pop_culture"],
+      "payload": {
+        "sentence": "修行をして__ないと、勝てないぞ！",
+        "correct": "おか",
+        "distractors": ["いか", "あか", "しまか", "なか", "きか"]
+      }
+    },
+    {
+      "id": "oku_006",
+      "type": "WORD_USAGE",
+      "tags": ["te_oku"],
+      "payload": {
+        "word": "〜ておく ",
+        "options": [
+          { "text": "明日会議があるので、資料をコピーしておきます。", "is_correct": true },
+          { "text": "窓を開けておきます。 ", "is_correct": true },
+          { "text": "忘れないように、メモしておきました。", "is_correct": true },
+          { "text": "ご飯を食べておきます。 ", "is_correct": true },
+          { "text": "本を読んでおきます。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "oku_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "後で使いますから、そこに置いて__ください。",
+        "correct": "おいて",
+        "distractors": ["いて", "あって", "しまって", "みて", "あげて"]
+      }
+    },
+    {
+      "id": "oku_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "映画のチケットを予約して__。",
+        "correct": "おきました",
+        "distractors": ["いました", "ありました", "しまいました", "みました", "あげました"]
+      }
+    },
+    {
+      "id": "oku_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_oku"],
+      "payload": {
+        "prefix": "明日までに",
+        "suffix": "おきます。",
+        "blocks": ["レポートを", "書いて"]
+      }
+    },
+    {
+      "id": "oku_010",
+      "type": "PARAPHRASE",
+      "tags": ["te_oku"],
+      "payload": {
+        "base_sentence": "パンを買っておきました。",
+        "correct": "後で食べるために、事前にパンを購入しました。",
+        "distractors": [
+          "パンを買っています。",
+          "パンを買ってしまいました。",
+          "パンを買ってみました。",
+          "パンが買ってあります。"
+        ]
+      }
+    },
+    {
+      "id": "oku_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "暑いですから、エアコンをつけて__ください。",
+        "correct": "おいて",
+        "distractors": ["いて", "あって", "しまって", "みて", "ください"]
+      }
+    },
+    {
+      "id": "oku_012",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "誰かに聞いて__。",
+        "correct": "おきます",
+        "distractors": ["みます", "います", "あります", "しまいます", "あげます"]
+      }
+    },
+    {
+      "id": "oku_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "ハサミを使ったら、元の所に返して__。",
+        "correct": "おいてください",
+        "distractors": ["いてください", "しまってください", "みてください", "あげてください", "ください"]
+      }
+    },
+    {
+      "id": "oku_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "pop_culture"],
+      "payload": {
+        "sentence": "名前を覚えて__。",
+        "correct": "おけ",
+        "distractors": ["いろ", "しろ", "しまえ", "みろ", "おきなさい"]
+      }
+    },
+    {
+      "id": "oku_015",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "荷物を預かって__。",
+        "correct": "おきました",
+        "distractors": ["いました", "ありました", "しまいました", "みました", "もらいました"]
+      }
+    },
+    {
+      "id": "oku_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "美味しい店を調べて__。",
+        "correct": "おきます",
+        "distractors": ["みます", "います", "あります", "しまいます", "あげます"]
+      }
+    },
+    {
+      "id": "oku_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "名前を書いて__。",
+        "correct": "おきました",
+        "distractors": ["いました", "ありました", "しまいました", "みました", "ありましたでした"]
+      }
+    },
+    {
+      "id": "oku_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_oku"],
+      "payload": {
+        "sentence": "「準備」しておきます。",
+        "correct": "じゅんび",
+        "distractors": ["じゅんぴ", "しゅんび", "じゅうび", "じゅんびな"]
+      }
+    },
+    {
+      "id": "oku_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_oku"],
+      "payload": {
+        "prefix": "お酒を",
+        "suffix": "おきました。",
+        "blocks": ["たくさん買って"]
+      }
+    },
+    {
+      "id": "oku_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_oku", "traps"],
+      "payload": {
+        "sentence": "もう一度考えて__。",
+        "correct": "おいてください",
+        "distractors": ["みてください", "いてください", "しまってください", "あげてください", "ください"]
+      }
+    }
+  ]
+}

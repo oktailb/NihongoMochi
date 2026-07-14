@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~限り  - Tant que / Jusqu'à la limite - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "kagiri_001",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "N3"],
+      "payload": {
+        "sentence": "体力が続く__、走り続けます。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_002",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "命がある__、悟空はあきらめない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_003",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "日本にいる__、日本語を使いなさい。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "できる",
+        "suffix": "。",
+        "blocks": ["限りの", "努力を", "するつもりだ"]
+      }
+    },
+    {
+      "id": "kagiri_005",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "悪いことをしない__、警察は来ないよ。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_006",
+      "type": "WORD_USAGE",
+      "tags": ["kagiri"],
+      "payload": {
+        "word": "～限り ",
+        "options": [
+          { "text": "学生である限り、勉強しなければならない。", "is_correct": true },
+          { "text": "雨が降る限り、外へ行かない。", "is_correct": true },
+          { "text": "ご飯を食べる限り。", "is_correct": false },
+          { "text": "生きている限り、夢を持ちたい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kagiri_007",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗っている__、お前はシンジ君じゃない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_008",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "力の__、戦い抜く。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_009",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "この会社にいる__、ルールは守ってもらう。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_010",
+      "type": "PARAPHRASE",
+      "tags": ["kagiri"],
+      "payload": {
+        "base_sentence": "あきらめない限り、チャンスはある。",
+        "correct": "あなたが途中でやめる（あきらめる）という行動を取らないという状態が続いている間は、成功するための機会は常に存在しています。",
+        "distractors": [
+          "あきらめなかったので、チャンスを掴みました。",
+          "あきらめるために、チャンスを待ちました。",
+          "あきらめた後で、新しいチャンスが見つかりました。"
+        ]
+      }
+    },
+    {
+      "id": "kagiri_011",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "明日が休みである__、何をしても自由だ。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "平和である",
+        "suffix": "。",
+        "blocks": ["限りは", "この町は", "安全だ"]
+      }
+    },
+    {
+      "id": "kagiri_013",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "彼が謝らない__、許すことはできない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_014",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "この契約が有効な__、家賃は変わらない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_015",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "健康である__、働き続けたい。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "「力の限り」頑張る。",
+        "correct": "ちからのかぎり",
+        "distractors": ["ちからのだけで", "ちからののみで", "ちからのばかりで", "ちからのこそで"]
+      }
+    },
+    {
+      "id": "kagiri_017",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "嘘をつき続ける__、誰にも信用されないよ。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_018",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "空が青い__、私は希望を捨てない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "時間が",
+        "suffix": "。",
+        "blocks": ["許す", "限り", "話し合いましょう"]
+      }
+    },
+    {
+      "id": "kagiri_020",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "一歩も引かない__、負けることはない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_021",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザが生きている__、宇宙に平和は訪れない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_022",
+      "type": "WORD_USAGE",
+      "tags": ["kagiri"],
+      "payload": {
+        "word": "～を限り ",
+        "options": [
+          { "text": "今日を限り、この店は閉店します。", "is_correct": true },
+          { "text": "声を限りに叫ぶ。", "is_correct": true },
+          { "text": "雨を限り。", "is_correct": false },
+          { "text": "今回を限りに引退する。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kagiri_023",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "彼が心を入れ替えない__、協力はできない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_024",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "自然が残っている__、ここには多くの動物がいるはずだ。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_025",
+      "type": "PARAPHRASE",
+      "tags": ["kagiri"],
+      "payload": {
+        "base_sentence": "自分を信じる限り、道は開ける。",
+        "correct": "あなたが自分自身の可能性を疑わずに信じ続けているという条件の下では、必ず解決策や新しい道が見つかります。",
+        "distractors": [
+          "自分を信じたので、道が開けました。",
+          "自分を信じるために、準備をしています。",
+          "自分を信じても、道が開けるとは限りません。"
+        ]
+      }
+    },
+    {
+      "id": "kagiri_026",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "約束を守る__、私は君を信じるよ。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_027",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "必要とされる__、私はここで働き続ける。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kagiri"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["自分ができる", "限りの", "ことをやった"]
+      }
+    },
+    {
+      "id": "kagiri_029",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "自由がある__、人間は何度でもやり直せる。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    },
+    {
+      "id": "kagiri_030",
+      "type": "FILL_BLANK",
+      "tags": ["kagiri"],
+      "payload": {
+        "sentence": "未来を信じる__、明日への希望は消えない。",
+        "correct": "限り",
+        "distractors": ["だけで", "のみで", "ばかりで", "こそで"]
+      }
+    }
+  ]
+}

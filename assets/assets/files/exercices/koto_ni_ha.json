@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ことには  - À moins que... / Sans... - N2"
+  },
+  "exercises": [
+    {
+      "id": "kotoniwa_001",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa", "N2"],
+      "payload": {
+        "sentence": "やってみ__、わからない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_002",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "悟空がい__、地球を守ることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_003",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "お金が__、新しいパソコンは買えない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "prefix": "本人が",
+        "suffix": "。",
+        "blocks": ["来ないことには", "話が", "進まない"]
+      }
+    },
+    {
+      "id": "kotoniwa_005",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "準備が整わ__、出発できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_006",
+      "type": "WORD_USAGE",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "word": "～ないことには ",
+        "options": [
+          { "text": "食べてみないことには、味はわからない。", "is_correct": true },
+          { "text": "練習しないことには、上手にならない。", "is_correct": true },
+          { "text": "雨が降らないことには、傘を差さない。", "is_correct": true },
+          { "text": "勉強しないことには合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kotoniwa_007",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗ら__、使徒を倒すことは不可能だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_008",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "事実を確認し__、返事はできません。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_009",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "彼が協力してくれ__、成功は難しいだろう。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_010",
+      "type": "PARAPHRASE",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "base_sentence": "実力が伴わないことには、口先だけでは通用しない。",
+        "correct": "本当の能力（実力）をしっかりと身につけていない限り、どんなに言葉でうまく言っても、社会や厳しい場面では役に立ちません。",
+        "distractors": [
+          "実力があるので、口先だけでも通用します。",
+          "実力を身につけるために、口先だけで練習しました。",
+          "実力がなくても、口先だけで何とかなります。"
+        ]
+      }
+    },
+    {
+      "id": "kotoniwa_011",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "天気が回復し__、試合は再開できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "prefix": "信頼を",
+        "suffix": "。",
+        "blocks": ["得られない", "ことには", "協力は得られない"]
+      }
+    },
+    {
+      "id": "kotoniwa_013",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "家賃が下がら__、借りることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_014",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "彼が謝ら__、許すことはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげ de"]
+      }
+    },
+    {
+      "id": "kotoniwa_015",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "許可が得られ__、勝手に始めることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "「やってみないことには」。",
+        "correct": "やってみないことには",
+        "distractors": ["やってみなければ", "やってみないなら", "やってみないとしても", "やってみないうちに"]
+      }
+    },
+    {
+      "id": "kotoniwa_017",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "道がわからない__、迎えに行けない。",
+        "correct": "ことには",
+        "distractors": ["ことにはわ", "ことなれば", "ことなら", "ことで"]
+      }
+    },
+    {
+      "id": "kotoniwa_018",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "静かになら__、集中できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "prefix": "勇気を",
+        "suffix": "。",
+        "blocks": ["持たない", "ことには", "一歩も踏み出せない"]
+      }
+    },
+    {
+      "id": "kotoniwa_020",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "もっと安くなら__、買う気にはなれない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_021",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "里を守る決心ができ__、火影にはなれない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_022",
+      "type": "WORD_USAGE",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "word": "～ないことには ",
+        "options": [
+          { "text": "話を聞かないことには、判断できない。", "is_correct": true },
+          { "text": "実際に会ってみないことには、人柄はわからない。", "is_correct": true },
+          { "text": "雨が降らないことには、虹が出る。", "is_correct": false },
+          { "text": "一度やってみないことには、向き不向きはわからない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kotoniwa_023",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "時間ができ__、旅行の計画も立てられない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_024",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "日本語が話せ__、日本での生活は不便だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_025",
+      "type": "PARAPHRASE",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "base_sentence": "契約書にサインしないことには、何も始まりません。",
+        "correct": "何よりもまず契約書にサインをするという手続きを完了させない限り、その後のいかなる行動 भी 進めることはできません。",
+        "distractors": [
+          "契約書にサインしたので、すべてが終わりました。",
+          "契約書にサインするために、時間をかけました。",
+          "契約書にサインしても、何も始まらないかもしれません。"
+        ]
+      }
+    },
+    {
+      "id": "kotoniwa_026",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "彼が納得し__、この件は解決しない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_027",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "平和になら__、復興は進まない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "prefix": "一歩",
+        "suffix": "。",
+        "blocks": ["踏み出さない", "ことには", "何も変わらない"]
+      }
+    },
+    {
+      "id": "kotoniwa_029",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "お金が貯まら__、家を買うのは夢のまた夢だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "kotoniwa_030",
+      "type": "FILL_BLANK",
+      "tags": ["kotoniwa"],
+      "payload": {
+        "sentence": "自分を信じ__、成功は掴めない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    }
+  ]
+}

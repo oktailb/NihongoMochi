@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～てもしょうがない・仕方がない - L'art de l'acceptation et de l'inutilité. "
+  },
+  "exercises": [
+    {
+      "id": "tsh_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "終わったことを後悔__しょうがない。",
+        "correct": "しても",
+        "distractors": ["しては", "すれば", "するなら", "したばかり"]
+      }
+    },
+    {
+      "id": "tsh_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "文句を__仕方がない、自分でやるしかないんだ。",
+        "correct": "言っても",
+        "distractors": ["言えば", "言うなら", "言っては", "言ったばかり"]
+      }
+    },
+    {
+      "id": "tsh_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "prefix": "今さら",
+        "suffix": "。",
+        "blocks": ["急いでも", "しょうがない"]
+      }
+    },
+    {
+      "id": "tsh_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "そんなに__仕方がないよ。元気出して。",
+        "correct": "泣いても",
+        "distractors": ["泣いたら", "泣けば", "泣くなら"]
+      }
+    },
+    {
+      "id": "tsh_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "word": "てもしょうがない",
+        "options": [
+          { "text": "いくら休んでも、疲れが取れなくてしょうがない。", "is_correct": true },
+          { "text": "一人で悩んでもしょうがないから、相談して。", "is_correct": true },
+          { "text": "雨が降ってもしょうがない、行きましょう。", "is_correct": false },
+          { "text": "勉強してもしようがない、100点を取った。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tsh_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "不満を__仕方がない。これが現実だ。",
+        "correct": "言っても",
+        "distractors": ["言ったばかりに", "言えば", "言わなくては"]
+      }
+    },
+    {
+      "id": "tsh_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "base_sentence": "怒っても何も変わりません。",
+        "correct": "怒ってもしょうがないですよ。",
+        "distractors": [
+          "怒らなければいけません。",
+          "怒ったほうがいいです。",
+          "怒るばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tsh_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "間に合わないなら、__仕方がない。次の電車を待とう。",
+        "correct": "急いでも",
+        "distractors": ["急いだら", "急げば", "急ぐなら"]
+      }
+    },
+    {
+      "id": "tsh_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "いくら__しょうがない。もう時間は戻らない。",
+        "correct": "願っても",
+        "distractors": ["願ったら", "願えば", "願うなら"]
+      }
+    },
+    {
+      "id": "tsh_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "。",
+        "blocks": ["頑張っても", "仕方がない", "時もある"]
+      }
+    },
+    {
+      "id": "tsh_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "安いものを__しょうがない。すぐに壊れてしまう。",
+        "correct": "買っても",
+        "distractors": ["買ったら", "買えば", "買うなら"]
+      }
+    },
+    {
+      "id": "tsh_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "「過去」を振り返っても仕方がない。",
+        "correct": "かこ",
+        "distractors": ["いま", "みらい", "きのう"]
+      }
+    },
+    {
+      "id": "tsh_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "失敗を__しょうがない。次は成功させよう。",
+        "correct": "恐れても",
+        "distractors": ["恐れたら", "恐れれば", "恐れるなら"]
+      }
+    },
+    {
+      "id": "tsh_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "嫌な仕事を__仕方がない。生活のためだ。",
+        "correct": "続けても",
+        "distractors": ["続けたら", "続ければ", "続けるなら"]
+      }
+    },
+    {
+      "id": "tsh_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "word": "ても仕方がない",
+        "options": [
+          { "text": "注意しても聞かないなら、放っておいても仕方がない。", "is_correct": true },
+          { "text": "これ以上待っても仕方がないから、先に行こう。", "is_correct": true },
+          { "text": "毎日勉強しても仕方がない、上手になります。", "is_correct": false },
+          { "text": "雨が降っても仕方がないにしましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tsh_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "説明を__しょうがない。彼は聞く耳を持っていない。",
+        "correct": "してあげても",
+        "distractors": ["したなら", "すれば", "したばかり"]
+      }
+    },
+    {
+      "id": "tsh_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "運命だと__仕方がない。受け入れよう。",
+        "correct": "あきらめても",
+        "distractors": ["あきらめたら", "あきらめれば", "あきらめるなら"]
+      }
+    },
+    {
+      "id": "tsh_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "prefix": "いくら",
+        "suffix": "。",
+        "blocks": ["隠しても", "しょうがない", "よ"]
+      }
+    },
+    {
+      "id": "tsh_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "知らないことを__仕方がない。これから覚えればいい。",
+        "correct": "恥じても",
+        "distractors": ["恥じたら", "恥じれば", "恥じるなら"]
+      }
+    },
+    {
+      "id": "tsh_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "道具を__しょうがない。技術を磨くべきだ。",
+        "correct": "変えても",
+        "distractors": ["変えたら", "変えれば", "変えるなら"]
+      }
+    },
+    {
+      "id": "tsh_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "base_sentence": "心配しても無駄ですよ。",
+        "correct": "心配しても仕方がないですよ。",
+        "distractors": [
+          "心配しなければいけません。",
+          "心配したほうがいいです。",
+          "心配するばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tsh_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "眠いときに__しょうがない。効率が悪いから。",
+        "correct": "勉強しても",
+        "distractors": ["勉強したら", "勉強すれば", "勉強するなら"]
+      }
+    },
+    {
+      "id": "tsh_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "他人と自分を__仕方がない。",
+        "correct": "比べても",
+        "distractors": ["比べたら", "比べれば", "比べるなら"]
+      }
+    },
+    {
+      "id": "tsh_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "「事実」を否定してもしょうがない。",
+        "correct": "じじつ",
+        "distractors": ["しんじつ", "うそ", "ゆめ"]
+      }
+    },
+    {
+      "id": "tsh_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "嘘を__仕方がない。正直に話そう。",
+        "correct": "ついても",
+        "distractors": ["ついたら", "つけば", "つくなら"]
+      }
+    },
+    {
+      "id": "tsh_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "一人で__しょうがない。みんなで協力しよう。",
+        "correct": "抱え込んでも",
+        "distractors": ["抱え込んだら", "抱え込めば", "抱え込むなら"]
+      }
+    },
+    {
+      "id": "tsh_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "prefix": "無駄な",
+        "suffix": "。",
+        "blocks": ["努力を", "しても", "仕方がない"]
+      }
+    },
+    {
+      "id": "tsh_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "君が__しょうがないじゃないか。君の責任だ。",
+        "correct": "怒っても",
+        "distractors": ["怒ったら", "怒れば", "怒るなら"]
+      }
+    },
+    {
+      "id": "tsh_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shikata_ga_nai"],
+      "payload": {
+        "sentence": "過ぎた時間を__仕方がない。",
+        "correct": "惜しんでも",
+        "distractors": ["惜しんだら", "惜しめば", "惜しむなら"]
+      }
+    },
+    {
+      "id": "tsh_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_mo_shoganai"],
+      "payload": {
+        "sentence": "君を__しょうがない。僕の愛は変わらないんだから。",
+        "correct": "嫌いになっても",
+        "distractors": ["嫌いになったら", "嫌いになれば", "嫌いになるなら"]
+      }
+    }
+  ]
+}

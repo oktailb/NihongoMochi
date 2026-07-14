@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de DASU  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "das_001",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "雨が降り__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "das_002",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "急に走り__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "やすく", "にくい"]
+      }
+    },
+    {
+      "id": "das_003",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "赤ちゃんが泣き__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "みる"]
+      }
+    },
+    {
+      "id": "das_004",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "財布を__だしました。",
+        "correct": "取り",
+        "distractors": ["取る", "取って", "取った", "取な", "取れ"]
+      }
+    },
+    {
+      "id": "das_005",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "pop_culture"],
+      "payload": {
+        "sentence": "勇気が湧き__ました！",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "みる"]
+      }
+    },
+    {
+      "id": "das_006",
+      "type": "WORD_USAGE",
+      "tags": ["base_dasu"],
+      "payload": {
+        "word": "〜だす ",
+        "options": [
+          { "text": "急に雨が降り出しました。", "is_correct": true },
+          { "text": "鞄から本を取り出しました。", "is_correct": true },
+          { "text": "彼は笑い出しました。", "is_correct": true },
+          { "text": "死に出しました。 ", "is_correct": false },
+          { "text": "明日出し会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "das_007",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "泥棒が逃げ__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "das_008",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "誰が笑い__ましたか。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "das_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_dasu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "ました。",
+        "blocks": ["怒り出し"]
+      }
+    },
+    {
+      "id": "das_010",
+      "type": "PARAPHRASE",
+      "tags": ["base_dasu"],
+      "payload": {
+        "base_sentence": "雨が降り出しました。",
+        "correct": "雨が予期せず、急に降り始めたことを表しています。",
+        "distractors": [
+          "雨が降り始めました。",
+          "雨が降り終わりました。",
+          "雨が降り続けています。",
+          "雨が降るつもりです。"
+        ]
+      }
+    },
+    {
+      "id": "das_011",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "答えを書き__てください。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "すぎ", "やすい", "にくい"]
+      }
+    },
+    {
+      "id": "das_012",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "名前を__だしてください。",
+        "correct": "申し",
+        "distractors": ["申す", "申して", "申した", "申しな", "申しに"]
+      }
+    },
+    {
+      "id": "das_013",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "音楽が流れ__たら、みんな踊ります。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "das_014",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "pop_culture"],
+      "payload": {
+        "sentence": "巨人が動き__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "das_015",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "家からゴミを__だしました。",
+        "correct": "放り",
+        "distractors": ["放る", "放って", "放った", "放な", "放れる"]
+      }
+    },
+    {
+      "id": "das_016",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "鳥が飛び__ました。",
+        "correct": "だし",
+        "distractors": ["はじめ", "おわり", "つづけ", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "das_017",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "部屋から__だしました。",
+        "correct": "出て",
+        "distractors": ["出", "出だ", "出だし", "出さ", "出な"]
+      }
+    },
+    {
+      "id": "das_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["base_dasu"],
+      "payload": {
+        "sentence": "「突出」し出しました。",
+        "correct": "とっしゅつ",
+        "distractors": ["とうしゅつ", "としゅつ", "どっしゅつ", "とっしゅな"]
+      }
+    },
+    {
+      "id": "das_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_dasu"],
+      "payload": {
+        "prefix": "彼は急に",
+        "suffix": "ました。",
+        "blocks": ["泣き出し"]
+      }
+    },
+    {
+      "id": "das_020",
+      "type": "FILL_BLANK",
+      "tags": ["base_dasu", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えだし", "教えるだし", "教えなな", "教えな"]
+      }
+    }
+  ]
+}

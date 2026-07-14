@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de WAKE DESU  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "wak_001",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "毎日練習していますから、上手な__です。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_002",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "暑いですね。35度も__わけです。",
+        "correct": "ある",
+        "distractors": ["あります", "あるる", "あった", "ない", "あるな"]
+      }
+    },
+    {
+      "id": "wak_003",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "夜12時ですから、暗い__です。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_004",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "adj_na"],
+      "payload": {
+        "sentence": "彼は有名な歌手な__です。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_005",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "pop_culture"],
+      "payload": {
+        "sentence": "修行したから、勝てる__だ！",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_006",
+      "type": "WORD_USAGE",
+      "tags": ["wake_desu"],
+      "payload": {
+        "word": "〜わけだ ",
+        "options": [
+          { "text": "だから、彼は来なかったわけですね。", "is_correct": true },
+          { "text": "美味しいわけです。有名な店ですから。", "is_correct": true },
+          { "text": "寒いわけだ。雪が降っている。", "is_correct": true },
+          { "text": "明日わけだ会いましょう。 ", "is_correct": false },
+          { "text": "本をわけだ読みます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wak_007",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "電気がついていません。誰もいない__ですね。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_008",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "日本に5年も住んでいたから、日本語が__わけです。",
+        "correct": "話せる",
+        "distractors": ["話す", "話して", "話した", "話さ", "話したい"]
+      }
+    },
+    {
+      "id": "wak_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wake_desu"],
+      "payload": {
+        "prefix": "つまり、",
+        "suffix": "わけですね。",
+        "blocks": ["失敗したという"]
+      }
+    },
+    {
+      "id": "wak_010",
+      "type": "PARAPHRASE",
+      "tags": ["wake_desu"],
+      "payload": {
+        "base_sentence": "道理で高いわけです。",
+        "correct": "値段が高い理由が納得できました。",
+        "distractors": [
+          "もっと高いほうがいいです。",
+          "高いはずがありません。",
+          "高いから買いません。",
+          "高くても買います。"
+        ]
+      }
+    },
+    {
+      "id": "wak_011",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "説明を聞いて、やっとわかった__です。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_012",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "薬を飲んだから、__わけだ。",
+        "correct": "良くなった",
+        "distractors": ["良くなる", "良くなって", "良くなり", "良くならな", "良い"]
+      }
+    },
+    {
+      "id": "wak_013",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "安いですから、人気がある__ですね。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_014",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "pop_culture"],
+      "payload": {
+        "sentence": "「お前が犯人だった__か！」",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_015",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "雨が__わけです。",
+        "correct": "降っています",
+        "distractors": ["降るわけです", "降ったわけです", "降っているわけだ", "降るなね"]
+      }
+    },
+    {
+      "id": "wak_016",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "昨日寝ていません。眠い__です。",
+        "correct": "わけ",
+        "distractors": ["はず", "こと", "もの", "つもり", "おそれ"]
+      }
+    },
+    {
+      "id": "wak_017",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "試験に合格した__、お祝いしましょう。",
+        "correct": "ので",
+        "distractors": ["わけ", "はず", "から", "のに"]
+      }
+    },
+    {
+      "id": "wak_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["wake_desu"],
+      "payload": {
+        "sentence": "「納得」のいくわけです。",
+        "correct": "なっとく",
+        "distractors": ["なとく", "なっどく", "なんとく", "なっとくな"]
+      }
+    },
+    {
+      "id": "wak_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wake_desu"],
+      "payload": {
+        "prefix": "道理で",
+        "suffix": "わけだ。",
+        "blocks": ["美味しい"]
+      }
+    },
+    {
+      "id": "wak_020",
+      "type": "FILL_BLANK",
+      "tags": ["wake_desu", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えるわけだ", "教えたわけだ", "教えなな", "教えな"]
+      }
+    }
+  ]
+}

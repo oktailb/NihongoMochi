@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Probabilité  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "des_001",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "明日は雨__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "なか", "だね", "ので"]
+      }
+    },
+    {
+      "id": "des_002",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "plain"],
+      "payload": {
+        "sentence": "あそこにいるのは田中さん__。",
+        "correct": "だろう",
+        "distractors": ["でしょう", "ですね", "だね", "なろう", "のろう"]
+      }
+    },
+    {
+      "id": "des_003",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "北海道は今、寒い__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "なね", "だね", "くね"]
+      }
+    },
+    {
+      "id": "des_004",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "noun"],
+      "payload": {
+        "sentence": "彼は先生__。",
+        "correct": "でしょう",
+        "distractors": ["だでしょう", "なでしょう", "のでしょう", "にでしょう", "をでしょう"]
+      }
+    },
+    {
+      "id": "des_005",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "pop_culture"],
+      "payload": {
+        "sentence": "ベジータの方が強い__。",
+        "correct": "だろう",
+        "distractors": ["だろうな", "でしょう", "ですね", "ですよ", "なろう"]
+      }
+    },
+    {
+      "id": "des_006",
+      "type": "WORD_USAGE",
+      "tags": ["desho_daro"],
+      "payload": {
+        "word": "でしょう ",
+        "options": [
+          { "text": "明日は晴れるでしょう。", "is_correct": true },
+          { "text": "この本は高いでしょう。", "is_correct": true },
+          { "text": "彼は学生でしょう。", "is_correct": true },
+          { "text": "昨日でしょう。 ", "is_correct": false },
+          { "text": "でしょう明日。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "des_007",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "試験は難しかった__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "でしたね", "ました", "だね"]
+      }
+    },
+    {
+      "id": "des_008",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "traps"],
+      "payload": {
+        "sentence": "いい天気です__。",
+        "correct": "ね",
+        "distractors": ["でしょう", "だろう", "よ", "わ"]
+      }
+    },
+    {
+      "id": "des_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["desho_daro"],
+      "payload": {
+        "prefix": "明日は",
+        "suffix": "でしょう。",
+        "blocks": ["暇な"]
+      }
+    },
+    {
+      "id": "des_010",
+      "type": "PARAPHRASE",
+      "tags": ["desho_daro"],
+      "payload": {
+        "base_sentence": "彼はもう寝たでしょう。",
+        "correct": "彼がすでに寝ているということに、かなりの自信を持って推測しています。",
+        "distractors": [
+          "彼は今寝ています。",
+          "彼は寝たいです。",
+          "彼は寝なければなりません。",
+          "彼が寝たかどうか知っています。"
+        ]
+      }
+    },
+    {
+      "id": "des_011",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "駅まで10分__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "ました", "なね", "だね"]
+      }
+    },
+    {
+      "id": "des_012",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "traps"],
+      "payload": {
+        "sentence": "あ、雨が__。",
+        "correct": "降っています",
+        "distractors": ["降るでしょう", "降るだろう", "降っていますでしょう", "降るなね"]
+      }
+    },
+    {
+      "id": "des_013",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "この料理は辛い__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "なね", "だね", "くね"]
+      }
+    },
+    {
+      "id": "des_014",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "pop_culture"],
+      "payload": {
+        "sentence": "「本当__？」「ああ、本当だ。」",
+        "correct": "か",
+        "distractors": ["だろう", "でしょう", "ね", "よ"]
+      }
+    },
+    {
+      "id": "des_015",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "traps"],
+      "payload": {
+        "sentence": "日本料理__美味しいです。",
+        "correct": "は",
+        "distractors": ["でしょう", "だろう", "に", "を"]
+      }
+    },
+    {
+      "id": "des_016",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "会議は終わった__。",
+        "correct": "でしょう",
+        "distractors": ["ですね", "ですよ", "ました", "なね", "だね"]
+      }
+    },
+    {
+      "id": "des_017",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "traps"],
+      "payload": {
+        "sentence": "どこ__行きますか。",
+        "correct": "へ",
+        "distractors": ["でしょう", "だろう", "ね", "よ"]
+      }
+    },
+    {
+      "id": "des_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["desho_daro"],
+      "payload": {
+        "sentence": "「恐らく」そうでしょう。",
+        "correct": "おそらく",
+        "distractors": ["おそらぐ", "そろそろ", "やっと", "たぶん"]
+      }
+    },
+    {
+      "id": "des_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["desho_daro"],
+      "payload": {
+        "prefix": "その映画は",
+        "suffix": "でしょう。",
+        "blocks": ["とても", "面白い"]
+      }
+    },
+    {
+      "id": "des_020",
+      "type": "FILL_BLANK",
+      "tags": ["desho_daro", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えてでしょう", "教えるだろう", "教えてね", "教えなな"]
+      }
+    }
+  ]
+}

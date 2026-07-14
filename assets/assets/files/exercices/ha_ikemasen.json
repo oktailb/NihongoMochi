@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de l'Interdiction  et Confusion  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "ban_001",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "ここで写真を撮って__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に", "でも"]
+      }
+    },
+    {
+      "id": "ban_002",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "荷物を持ち__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てもいいです", "なさい", "てください"]
+      }
+    },
+    {
+      "id": "ban_003",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "危ないですから、中に入って__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に", "でも"]
+      }
+    },
+    {
+      "id": "ban_004",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "permission"],
+      "payload": {
+        "sentence": "お酒を飲んで__いいですか。",
+        "correct": "も",
+        "distractors": ["は", "ましょう", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_005",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "traps"],
+      "payload": {
+        "sentence": "テストの時、隣の人と話して__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_006",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "タクシーを呼び__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "たいです", "なさい"]
+      }
+    },
+    {
+      "id": "ban_007",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "図書館で騒いで__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_008",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "pop_culture"],
+      "payload": {
+        "sentence": "このノートに名前を書いて__いけません！",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "prefix": "ここで",
+        "suffix": "いけません。",
+        "blocks": ["タバコを", "吸っては"]
+      }
+    },
+    {
+      "id": "ban_010",
+      "type": "WORD_USAGE",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "word": "〜てはいけません ",
+        "options": [
+          { "text": "ここで泳いではいけません。", "is_correct": true },
+          { "text": "夜一人で出かけてはいけません。", "is_correct": true },
+          { "text": "嘘をついてはいけません。", "is_correct": true },
+          { "text": "お茶を飲んではいけません。 ", "is_correct": true },
+          { "text": "明日を行ってはいけません。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ban_011",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "芝生に入って__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_012",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "窓を閉め__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_013",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "授業中に寝て__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_014",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "traps"],
+      "payload": {
+        "sentence": "ここを動いて__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_015",
+      "type": "PARAPHRASE",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "base_sentence": "ここで騒いではいけません。",
+        "correct": "ここで静かにしてください。",
+        "distractors": [
+          "ここで騒ぎましょうか。",
+          "ここで騒いでもいいです。",
+          "ここで騒がなければなりません。",
+          "ここで騒ぎたいです。"
+        ]
+      }
+    },
+    {
+      "id": "ban_016",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "お菓子を全部食べて__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_017",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "電気を消し__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "「禁止」されています。",
+        "correct": "きんし",
+        "distractors": ["ぎんし", "きんじ", "きんしな", "しんき"]
+      }
+    },
+    {
+      "id": "ban_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "prefix": "私が",
+        "suffix": "か。",
+        "blocks": ["やりましょう"]
+      }
+    },
+    {
+      "id": "ban_020",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "traps"],
+      "payload": {
+        "sentence": "勝手にさわって__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_021",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "廊下を走って__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_022",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "地図を書き__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_023",
+      "type": "WORD_USAGE",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "word": "〜てはいけません ",
+        "options": [
+          { "text": "お酒を飲んで運転してはいけません。", "is_correct": true },
+          { "text": "ここで火を使ってはいけません。", "is_correct": true },
+          { "text": "勝手に人の日記を読んではいけません。", "is_correct": true },
+          { "text": "明日学校へ行ってはいけません。 ", "is_correct": true },
+          { "text": "水を飲みるてはいけません。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ban_024",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "電車の中で電話して__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_025",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "お茶を淹れ__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_026",
+      "type": "PARAPHRASE",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "base_sentence": "手伝いましょうか。",
+        "correct": "助けが必要かどうか聞いています。",
+        "distractors": [
+          "手伝ってはいけません。",
+          "手伝わなければなりません。",
+          "手伝ってください。",
+          "手伝いたいです。"
+        ]
+      }
+    },
+    {
+      "id": "ban_027",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "夜遅くまで遊んで__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_028",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "駅まで送り__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "「規則」を守りましょう。",
+        "correct": "きそく",
+        "distractors": ["きぞく", "ぎそく", "きそぐ", "しそく"]
+      }
+    },
+    {
+      "id": "ban_030",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "借りた本を汚して__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "prefix": "ここで",
+        "suffix": "いけません。",
+        "blocks": ["泳いでは"]
+      }
+    },
+    {
+      "id": "ban_032",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "塩を取り__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_033",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "秘密を話して__いけませんよ。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_034",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "コーヒーを淹れ__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_035",
+      "type": "WORD_USAGE",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "word": "〜てはいけません ",
+        "options": [
+          { "text": "靴を履いたまま入ってはいけません。", "is_correct": true },
+          { "text": "ここで大声で叫んではいけません。", "is_correct": true },
+          { "text": "無断で欠席してはいけません。", "is_correct": true },
+          { "text": "パンを食べてはいけません。 ", "is_correct": true },
+          { "text": "明日休んではいけません。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ban_036",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "おもちゃを壊して__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_037",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "傘を貸し__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    },
+    {
+      "id": "ban_038",
+      "type": "PARAPHRASE",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "base_sentence": "駅まで送りましょうか。",
+        "correct": "親切な提案です。",
+        "distractors": [
+          "駅まで送ってはいけません。",
+          "駅まで送らなければなりません。",
+          "駅まで送ってください。",
+          "駅まで送りたいです。"
+        ]
+      }
+    },
+    {
+      "id": "ban_039",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen"],
+      "payload": {
+        "sentence": "勝手に人のものを使って__いけません。",
+        "correct": "は",
+        "distractors": ["も", "が", "を", "に"]
+      }
+    },
+    {
+      "id": "ban_040",
+      "type": "FILL_BLANK",
+      "tags": ["ha_ikemasen", "offering"],
+      "payload": {
+        "sentence": "上着を預かり__か。",
+        "correct": "ましょう",
+        "distractors": ["てはいけません", "てください", "ます", "なさい"]
+      }
+    }
+  ]
+}

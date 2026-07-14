@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur le suffixe ~だらけ  - Couvert de / Plein de  - N3"
+  },
+  "exercises": [
+    {
+      "id": "darake_001",
+      "type": "FILL_BLANK",
+      "tags": ["darake", "N3"],
+      "payload": {
+        "sentence": "このレポートは間違い__だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_002",
+      "type": "FILL_BLANK",
+      "tags": ["darake", "pop_culture"],
+      "payload": {
+        "sentence": "激しい戦いの後、彼は傷__になっていた。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_003",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "この部屋はゴミ__で、足の踏み場もない。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["darake"],
+      "payload": {
+        "prefix": "公園で遊んで",
+        "suffix": "帰ってきた。",
+        "blocks": ["泥", "だらけに", "なって"]
+      }
+    },
+    {
+      "id": "darake_005",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "彼の話は嘘__だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_006",
+      "type": "WORD_USAGE",
+      "tags": ["darake"],
+      "payload": {
+        "word": "～だらけ ",
+        "options": [
+          { "text": "埃だらけの本棚を掃除する。", "is_correct": true },
+          { "text": "間違いだらけの答案用紙。", "is_correct": true },
+          { "text": "花だらけの庭。", "is_correct": false },
+          { "text": "笑顔だらけの家族。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "darake_007",
+      "type": "FILL_BLANK",
+      "tags": ["darake", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの部下たちは、傷__で逃げていった。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_008",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "古い家なので、家中埃__だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_009",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "借金__の生活から抜け出したい。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_010",
+      "type": "PARAPHRASE",
+      "tags": ["darake"],
+      "payload": {
+        "base_sentence": "彼の服は泥だらけだ。",
+        "correct": "彼の服の表面が、泥でひどく汚れている状態だ。",
+        "distractors": [
+          "彼の服は少しだけ泥がついている。",
+          "彼の服は泥でできている。",
+          "彼の服は泥を洗っている最中だ。"
+        ]
+      }
+    },
+    {
+      "id": "darake_011",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "この川はゴミ__で、泳ぐことができない。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["darake"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "逃げてきた。",
+        "blocks": ["血", "だらけに", "なって"]
+      }
+    },
+    {
+      "id": "darake_013",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "不満__の顔をして、彼は部屋を出ていった。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_014",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "この本は、古い漢字__で読むのが大変だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_015",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "彼は失敗__の人生を歩んできた。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "「泥だらけ」の子供。",
+        "correct": "どろだらけ",
+        "distractors": ["どろばかり", "どろいっぱい", "どろまみれ", "どろのみ"]
+      }
+    },
+    {
+      "id": "darake_017",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "汗__のTシャツを脱ぎ捨てる。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_018",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "この道は穴__で、車で走るのは危険だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["darake"],
+      "payload": {
+        "prefix": "部屋中が",
+        "suffix": "掃除した。",
+        "blocks": ["埃", "だらけだったので", "一生懸命"]
+      }
+    },
+    {
+      "id": "darake_020",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "しわ__の1000円札が財布に入っていた。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_021",
+      "type": "FILL_BLANK",
+      "tags": ["darake", "pop_culture"],
+      "payload": {
+        "sentence": "ゾンビ映画の街は、死体__で恐ろしかった。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まま", "のみ"]
+      }
+    },
+    {
+      "id": "darake_022",
+      "type": "WORD_USAGE",
+      "tags": ["darake"],
+      "payload": {
+        "word": "～だらけ ",
+        "options": [
+          { "text": "毛だらけの犬が寄ってきた。", "is_correct": true },
+          { "text": "油だらけの手で触らないで。", "is_correct": true },
+          { "text": "友達だらけのパーティー。", "is_correct": false },
+          { "text": "幸せだらけの人生。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "darake_023",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "矛盾__の世論に怒りを感じる。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_024",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "この海岸は流木__で歩きにくい。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_025",
+      "type": "PARAPHRASE",
+      "tags": ["darake"],
+      "payload": {
+        "base_sentence": "彼は傷だらけだ。",
+        "correct": "彼の体中に、たくさんの傷がついている状態だ。",
+        "distractors": [
+          "彼は心に傷を負っている。",
+          "彼は傷一つつかないほど強い。",
+          "彼は傷を治している最中だ。"
+        ]
+      }
+    },
+    {
+      "id": "darake_026",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "カビ__のパンは捨ててください。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_027",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "謎__の事件が起きた。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["darake"],
+      "payload": {
+        "prefix": "彼の",
+        "suffix": "信頼できない。",
+        "blocks": ["嘘", "だらけの", "話は"]
+      }
+    },
+    {
+      "id": "darake_029",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "染み__のシャツを着てパーティーに行くのはやめなさい。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    },
+    {
+      "id": "darake_030",
+      "type": "FILL_BLANK",
+      "tags": ["darake"],
+      "payload": {
+        "sentence": "虫くい__の野菜は無農薬の証拠だ。",
+        "correct": "だらけ",
+        "distractors": ["ばかり", "いっぱい", "まみれ", "のみ"]
+      }
+    }
+  ]
+}

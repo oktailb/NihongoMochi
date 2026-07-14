@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~にこたえて  - En réponse à / Pour satisfaire - N2"
+  },
+  "exercises": [
+    {
+      "id": "nikotaete_001",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete", "N2"],
+      "payload": {
+        "sentence": "客の要望__、営業時間を延長した。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_002",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete", "pop_culture"],
+      "payload": {
+        "sentence": "みんなの期待__、悟空は新しい技を見せた。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_003",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "アンコールの声__、歌手は再びステージに現れた。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikotaete"],
+      "payload": {
+        "prefix": "市民の",
+        "suffix": "。",
+        "blocks": ["要望に", "こたえて", "公園が作られた"]
+      }
+    },
+    {
+      "id": "nikotaete_005",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "学生の質問__、先生は丁寧に説明した。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_006",
+      "type": "WORD_USAGE",
+      "tags": ["nikotaete"],
+      "payload": {
+        "word": "～にこたえて ",
+        "options": [
+          { "text": "ファンの期待にこたえて、映画が公開された。", "is_correct": true },
+          { "text": "厳しい状況にこたえて、頑張る。", "is_correct": false },
+          { "text": "親の希望にこたえて、医者になった。", "is_correct": true },
+          { "text": "質問にこたえて、答える。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nikotaete_007",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete", "pop_culture"],
+      "payload": {
+        "sentence": "里の人々の願い__、火影は立ち上がった。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_008",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "時代の要請__、新しい法律が制定された。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_009",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "社会のニーズ__、新製品を開発する。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_010",
+      "type": "PARAPHRASE",
+      "tags": ["nikotaete"],
+      "payload": {
+        "base_sentence": "彼は、ファンの熱い声援にこたえて、最高のプレーを見せた。",
+        "correct": "彼は、ファンから送られる非常に力強い応援をしっかりと受け止め、その期待を裏切らないように自分ができる最高の力を発揮しました。",
+        "distractors": [
+          "彼は、ファンに応援されたので喜びました。",
+          "彼は、ファンに応援してもらうために準備をしました。",
+          "彼は、ファンに応援されても、良いプレーができませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "nikotaete_011",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "住民の反対__、計画は中止された。",
+        "correct": "にこたえる形で",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikotaete"],
+      "payload": {
+        "prefix": "先生の",
+        "suffix": "。",
+        "blocks": ["励ましに", "こたえて", "一生懸命勉強した"]
+      }
+    },
+    {
+      "id": "nikotaete_013",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "市場の動向__、価格を調整した。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_014",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "期待__、素晴らしい成果を収めた。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_015",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "呼びかけ__、多くの寄付が集まった。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "期待「にこたえて」。",
+        "correct": "にこたえて",
+        "distractors": ["にこたわて", "にこたいて", "にこたって", "にこたなて"]
+      }
+    },
+    {
+      "id": "nikotaete_017",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "希望__、特別に許可を出した。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_018",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "アンケートの回答__、メニューを改善した。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikotaete"],
+      "payload": {
+        "prefix": "周囲の",
+        "suffix": "。",
+        "blocks": ["期待に", "こたえようと", "彼は必死だった"]
+      }
+    },
+    {
+      "id": "nikotaete_020",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "激励の声__、選手たちは走り続けた。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_021",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロットとして, 里の人々の願い__、シンジ君は戦う決心をした。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_022",
+      "type": "WORD_USAGE",
+      "tags": ["nikotaete"],
+      "payload": {
+        "word": "～にこたえる ",
+        "options": [
+          { "text": "今回の失敗は、身にこたえる。", "is_correct": true },
+          { "text": "冬の寒さがこたえる。", "is_correct": true },
+          { "text": "雨にこたえて、傘を差す。", "is_correct": false },
+          { "text": "彼の言葉が胸にこたえた。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nikotaete_023",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "声援__、勝利を手にした。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_024",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "信頼__、誠実に仕事をこなす。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_025",
+      "type": "PARAPHRASE",
+      "tags": ["nikotaete"],
+      "payload": {
+        "base_sentence": "期待にこたえられなくて、申し訳ありません。",
+        "correct": "皆さんから受けていた大きな期待を、何らかの理由で満足させることができず、本当にすまないと思っています。",
+        "distractors": [
+          "期待に応えるために、準備をしています。",
+          "期待に応えることにしました。",
+          "期待に応えたおかげで、褒められました。"
+        ]
+      }
+    },
+    {
+      "id": "nikotaete_026",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "期待__、全力で取り組む。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_027",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "要望__、特別に公開する。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikotaete"],
+      "payload": {
+        "prefix": "人々の",
+        "suffix": "。",
+        "blocks": ["平和への", "願いに", "こたえて立ち上がった"]
+      }
+    },
+    {
+      "id": "nikotaete_029",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "感謝の声__、笑顔で応じる。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nikotaete_030",
+      "type": "FILL_BLANK",
+      "tags": ["nikotaete"],
+      "payload": {
+        "sentence": "信頼__、最後までやり遂げる。",
+        "correct": "にこたえて",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    }
+  ]
+}

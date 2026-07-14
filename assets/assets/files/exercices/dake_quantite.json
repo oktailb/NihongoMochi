@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur だけ  - Quantité / Restriction / Mesure - N5/N4"
+  },
+  "exercises": [
+    {
+      "id": "dake_001",
+      "type": "FILL_BLANK",
+      "tags": ["dake", "N5"],
+      "payload": {
+        "sentence": "リンゴを一つ__食べました。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "しか"]
+      }
+    },
+    {
+      "id": "dake_002",
+      "type": "FILL_BLANK",
+      "tags": ["dake", "pop_culture"],
+      "payload": {
+        "sentence": "肉を好きな__食べていいよ。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_003",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "できる__早く来てください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dake"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。他はいらない。",
+        "blocks": ["ペン", "だけ", "貸して"]
+      }
+    },
+    {
+      "id": "dake_005",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "私__に教えてください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_006",
+      "type": "WORD_USAGE",
+      "tags": ["dake"],
+      "payload": {
+        "word": "だけ ",
+        "options": [
+          { "text": "食べたいだけ食べてください。", "is_correct": true },
+          { "text": "やるだけやってみます。", "is_correct": true },
+          { "text": "彼は10分だけ寝た。", "is_correct": true },
+          { "text": "雨が降るだけだ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "dake_007",
+      "type": "FILL_BLANK",
+      "tags": ["dake", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は戦う__で幸せだ。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_008",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "ここには子供__がいます。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_009",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "必要な__持っていってください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_010",
+      "type": "PARAPHRASE",
+      "tags": ["dake"],
+      "payload": {
+        "base_sentence": "彼は見るだけで、何もしない。",
+        "correct": "彼は見ること以外の行動を全くしない。",
+        "distractors": [
+          "彼は見ながら、何かをしている。",
+          "彼は見ることが好きだ。",
+          "彼は見ることさえできない。"
+        ]
+      }
+    },
+    {
+      "id": "dake_011",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "ちょっと__待ってください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dake"],
+      "payload": {
+        "prefix": "できる",
+        "suffix": "頑張ります。",
+        "blocks": ["だけ", "一生懸命", "私は"]
+      }
+    },
+    {
+      "id": "dake_013",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "彼女に__話しました。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_014",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "寝たい__寝てもいいよ。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_015",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "これ__で十分です。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "「だけ」でいい。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_017",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "嘘__はやめてください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_018",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "彼は自分__のことを考えている。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dake"],
+      "payload": {
+        "prefix": "好きな",
+        "suffix": "いいですよ。",
+        "blocks": ["だけ", "持って行って", "全部"]
+      }
+    },
+    {
+      "id": "dake_020",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "もう一つ__お願いします。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_021",
+      "type": "FILL_BLANK",
+      "tags": ["dake", "pop_culture"],
+      "payload": {
+        "sentence": "サスケは復讐の__ために生きている。",
+        "correct": "ことだけ",
+        "distractors": ["ことばかり", "ことほど", "ことくらい", "ことのみ"]
+      }
+    },
+    {
+      "id": "dake_022",
+      "type": "WORD_USAGE",
+      "tags": ["dake"],
+      "payload": {
+        "word": "だけ ",
+        "options": [
+          { "text": "水だけを飲む。", "is_correct": true },
+          { "text": "彼だけが来た。", "is_correct": true },
+          { "text": "漢字だけを勉強する。", "is_correct": true },
+          { "text": "雨だけが降る。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "dake_023",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "これ__は忘れないで。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_024",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "名前__書いてください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_025",
+      "type": "PARAPHRASE",
+      "tags": ["dake"],
+      "payload": {
+        "base_sentence": "私は水だけ飲みます。",
+        "correct": "私は水以外の飲み物は一切飲みません。",
+        "distractors": [
+          "私は水も飲みます。",
+          "私は水を飲むのが好きです。",
+          "私は水を飲んだことがあります。"
+        ]
+      }
+    },
+    {
+      "id": "dake_026",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "あともう少し__です。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_027",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "彼__が知っている真実。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dake"],
+      "payload": {
+        "prefix": "自分",
+        "suffix": "考えないで。",
+        "blocks": ["のこと", "だけ", "を"]
+      }
+    },
+    {
+      "id": "dake_029",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "一回__チャンスをください。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    },
+    {
+      "id": "dake_030",
+      "type": "FILL_BLANK",
+      "tags": ["dake"],
+      "payload": {
+        "sentence": "好きな__持っていって。",
+        "correct": "だけ",
+        "distractors": ["ばかり", "ほど", "くらい", "のみ"]
+      }
+    }
+  ]
+}

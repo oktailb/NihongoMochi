@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Forme en ~TE IRU  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "iru_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "今、テレビを__。",
+        "correct": "見ています",
+        "distractors": ["見ます", "見ていまする", "見てでした", "見ました", "見てあります"]
+      }
+    },
+    {
+      "id": "iru_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "state"],
+      "payload": {
+        "sentence": "私は結婚__。",
+        "correct": "しています",
+        "distractors": ["します", "してあります", "しました", "しているです", "してでした"]
+      }
+    },
+    {
+      "id": "iru_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "雨が__ね。",
+        "correct": "降っています",
+        "distractors": ["降ります", "降りています", "降っていまする", "降りました", "降っていますよ"]
+      }
+    },
+    {
+      "id": "iru_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "location"],
+      "payload": {
+        "sentence": "田中さんはどこに__か。",
+        "correct": "住んでいます",
+        "distractors": ["住みます", "住みっています", "住んでいまする", "住みました", "住むます"]
+      }
+    },
+    {
+      "id": "iru_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは肉を__。",
+        "correct": "食べている",
+        "distractors": ["食べる", "食べっている", "食べていた", "食べなている", "食べているる"]
+      }
+    },
+    {
+      "id": "iru_006",
+      "type": "WORD_USAGE",
+      "tags": ["te_iru"],
+      "payload": {
+        "word": "〜ている ",
+        "options": [
+          { "text": "今、本を読んでいます。", "is_correct": true },
+          { "text": "私は車を持っています。", "is_correct": true },
+          { "text": "佐藤さんを知っていますか。", "is_correct": true },
+          { "text": "明日、学校へ行っています。", "is_correct": false },
+          { "text": "昨日、お酒を飲んでいます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "iru_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "state"],
+      "payload": {
+        "sentence": "窓が__。",
+        "correct": "開いています",
+        "distractors": ["開けています", "開きます", "開いていまする", "開きました", "開けっています"]
+      }
+    },
+    {
+      "id": "iru_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "あそこに誰か__か。",
+        "correct": "います",
+        "distractors": ["いています", "いっています", "あります", "いまする", "いっています"]
+      }
+    },
+    {
+      "id": "iru_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_iru"],
+      "payload": {
+        "prefix": "お父さんは",
+        "suffix": "ます。",
+        "blocks": ["今", "寝てい"]
+      }
+    },
+    {
+      "id": "iru_010",
+      "type": "PARAPHRASE",
+      "tags": ["te_iru"],
+      "payload": {
+        "base_sentence": "お腹が空いています。",
+        "correct": "今、何か食べたい状態です。",
+        "distractors": [
+          "お腹が空きました。",
+          "お腹が空きませんでした。",
+          "ご飯を食べました。",
+          "ご飯を食べません。"
+        ]
+      }
+    },
+    {
+      "id": "iru_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "毎日、日本語を__。",
+        "correct": "勉強しています",
+        "distractors": ["勉強します", "勉強するっています", "勉強してでした", "勉強しました", "勉強していまする"]
+      }
+    },
+    {
+      "id": "iru_012",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "この漢字の読み方を__か。",
+        "correct": "知っています",
+        "distractors": ["知ります", "知りっています", "知っていまする", "知りました", "知ってでした"]
+      }
+    },
+    {
+      "id": "iru_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "弟は大学で__。",
+        "correct": "勉強しています",
+        "distractors": ["勉強します", "勉強するっています", "勉強してでした", "勉強しました", "勉強していまする"]
+      }
+    },
+    {
+      "id": "iru_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "pop_culture"],
+      "payload": {
+        "sentence": "ピカチュウが__！",
+        "correct": "走っている",
+        "distractors": ["走る", "走りっている", "走っていた", "走らている", "走っているる"]
+      }
+    },
+    {
+      "id": "iru_015",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "昨日、何を__か。",
+        "correct": "していました",
+        "distractors": ["しています", "しました", "していましたでした", "していなでした", "したでした"]
+      }
+    },
+    {
+      "id": "iru_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "子供たちが公園で__。",
+        "correct": "遊んでいます",
+        "distractors": ["遊びます", "遊びっています", "遊んでいまする", "遊んでいました", "遊びなす"]
+      }
+    },
+    {
+      "id": "iru_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "道に財布が__。",
+        "correct": "落ちています",
+        "distractors": ["落ちます", "落ちっています", "落としています", "落ちました", "落ちていまする"]
+      }
+    },
+    {
+      "id": "iru_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "今、新聞を「読んでいる」ところです。",
+        "correct": "よんでいる",
+        "distractors": ["よんでいるな", "よんでる", "よんている", "よみている"]
+      }
+    },
+    {
+      "id": "iru_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_iru"],
+      "payload": {
+        "prefix": "空に",
+        "suffix": "います。",
+        "blocks": ["鳥が", "飛んで"]
+      }
+    },
+    {
+      "id": "iru_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "どこに__か。",
+        "correct": "住んでいます",
+        "distractors": ["住みます", "住んでいまする", "住みっています", "住みました", "住むます"]
+      }
+    },
+    {
+      "id": "iru_021",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "母は今、料理を__。",
+        "correct": "作っています",
+        "distractors": ["作ります", "作りっています", "作っていまする", "作りました", "作なっています"]
+      }
+    },
+    {
+      "id": "iru_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "いいえ、まだ__。",
+        "correct": "食べていません",
+        "distractors": ["食べません", "食べませんでした", "食べていないです", "食べないでいます", "食べないです"]
+      }
+    },
+    {
+      "id": "iru_023",
+      "type": "WORD_USAGE",
+      "tags": ["te_iru"],
+      "payload": {
+        "word": "〜ている ",
+        "options": [
+          { "text": "電気がついています。", "is_correct": true },
+          { "text": "道が混んでいます。", "is_correct": true },
+          { "text": "お腹が空いています。", "is_correct": true },
+          { "text": "本を読んでいます。 ", "is_correct": false },
+          { "text": "明日、行っています。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "iru_024",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "田中さんは青いシャツを__。",
+        "correct": "着ています",
+        "distractors": ["着ます", "着るっています", "着ていまする", "着ました", "着なっています"]
+      }
+    },
+    {
+      "id": "iru_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "名前を__か。",
+        "correct": "書きました",
+        "distractors": ["書いています", "書くっています", "書いていました", "書いてありました", "書なました"]
+      }
+    },
+    {
+      "id": "iru_026",
+      "type": "PARAPHRASE",
+      "tags": ["te_iru"],
+      "payload": {
+        "base_sentence": "駅の前に車が止まっています。",
+        "correct": "車が駅の前に駐車されている状態です。",
+        "distractors": [
+          "車が駅の前で止まります。",
+          "車が駅の前を通りすぎます。",
+          "車が駅の前にありません。",
+          "駅の前に車を止めました。"
+        ]
+      }
+    },
+    {
+      "id": "iru_027",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "誰がピアノを__か。",
+        "correct": "弾いているんです",
+        "distractors": ["弾きますか", "弾くっていますか", "弾いていましたか", "弾なっていますか", "弾いていますか"]
+      }
+    },
+    {
+      "id": "iru_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "まだ宿題を__。",
+        "correct": "していません",
+        "distractors": ["しません", "しませんでした", "していないです", "しないです", "しななです"]
+      }
+    },
+    {
+      "id": "iru_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "あそこに「座っている」人は誰ですか。",
+        "correct": "すわっている",
+        "distractors": ["たっている", "ねている", "まっている", "すわってる"]
+      }
+    },
+    {
+      "id": "iru_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "お茶を__か。",
+        "correct": "飲みませんか",
+        "distractors": ["飲んでいますか", "飲みっていますか", "飲んでいましたか", "飲ななですか", "飲めますか"]
+      }
+    },
+    {
+      "id": "iru_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_iru"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "います。",
+        "blocks": ["眼鏡を", "かけて"]
+      }
+    },
+    {
+      "id": "iru_032",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "窓から海が__。",
+        "correct": "見えています",
+        "distractors": ["見ます", "見っています", "見られています", "見ました", "見ています"]
+      }
+    },
+    {
+      "id": "iru_033",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "昨日、友達と__。",
+        "correct": "食べました",
+        "distractors": ["食べていました", "食べています", "食べなました", "食べるでした", "食べっていました"]
+      }
+    },
+    {
+      "id": "iru_034",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "いいえ、何も__。",
+        "correct": "聴いていません",
+        "distractors": ["聴きません", "聴きませんでした", "聴いていないです", "聴かないです", "きかないです"]
+      }
+    },
+    {
+      "id": "iru_035",
+      "type": "WORD_USAGE",
+      "tags": ["te_iru"],
+      "payload": {
+        "word": "持っています ",
+        "options": [
+          { "text": "私はiPhoneを持っています。", "is_correct": true },
+          { "text": "今、傘を持っていますか。", "is_correct": true },
+          { "text": "重い荷物を持っていますね。", "is_correct": true },
+          { "text": "明日、本を持っています。 ", "is_correct": false },
+          { "text": "毎日、持っています。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "iru_036",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "誰かがドアを__。",
+        "correct": "叩いています",
+        "distractors": ["叩きます", "叩きっています", "叩いていました", "叩なっています", "叩いていまする"]
+      }
+    },
+    {
+      "id": "iru_037",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "会議はもう__か。",
+        "correct": "始まりました",
+        "distractors": ["始まっています", "始まりっています", "始まっていました", "始なりました", "始まっていますか"]
+      }
+    },
+    {
+      "id": "iru_038",
+      "type": "PARAPHRASE",
+      "tags": ["te_iru"],
+      "payload": {
+        "base_sentence": "彼は有名な人を知っています。",
+        "correct": "彼は有名な人についての知識を持っています。",
+        "distractors": [
+          "彼は有名な人に会いたいです。",
+          "彼は有名な人に会いました。",
+          "彼は有名な人になりたいです。",
+          "彼は有名な人を知りません。"
+        ]
+      }
+    },
+    {
+      "id": "iru_039",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru"],
+      "payload": {
+        "sentence": "赤ちゃんがスヤスヤ__。",
+        "correct": "眠っています",
+        "distractors": ["眠ります", "眠りっています", "眠っていました", "眠なっています", "眠っていまする"]
+      }
+    },
+    {
+      "id": "iru_040",
+      "type": "FILL_BLANK",
+      "tags": ["te_iru", "traps"],
+      "payload": {
+        "sentence": "明日、何時に__か。",
+        "correct": "起きます",
+        "distractors": ["起きています", "起きっています", "起きられました", "起ななですか", "起きるです"]
+      }
+    }
+  ]
+}

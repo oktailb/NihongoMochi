@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~一方  - D'un côté... d'un autre côté / Pendant que - N2"
+  },
+  "exercises": [
+    {
+      "id": "ippode_001",
+      "type": "FILL_BLANK",
+      "tags": ["ippode", "N2"],
+      "payload": {
+        "sentence": "彼は会社員である__、週末は小説を書いている。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_002",
+      "type": "FILL_BLANK",
+      "tags": ["ippode", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は戦いを楽しむ__、常に地球の平和を願っている。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_003",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "子供の教育に力を入れる__、自分自身の時間も大切にしたい。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippode"],
+      "payload": {
+        "prefix": "都会は便利である",
+        "suffix": "。",
+        "blocks": ["一方で", "家賃が", "非常に高い"]
+      }
+    },
+    {
+      "id": "ippode_005",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "輸出が好調な__、輸入は減少している。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_006",
+      "type": "WORD_USAGE",
+      "tags": ["ippode"],
+      "payload": {
+        "word": "～一方 ",
+        "options": [
+          { "text": "仕事を頑張る一方で、遊びも全力だ。", "is_correct": true },
+          { "text": "日本は四季がある一方で、梅雨もある。", "is_correct": true },
+          { "text": "雨が降った一方で、涼しくなった。", "is_correct": false },
+          { "text": "彼は厳しい一方で、優しい面もある。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ippode_007",
+      "type": "FILL_BLANK",
+      "tags": ["ippode", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは圧倒的な力を持つ__、常に誰かの裏切りを恐れている。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_008",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼は数学が得意な__、国語は苦手だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_009",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "経済発展を優先する__、環境保護も忘れてはならない。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_010",
+      "type": "PARAPHRASE",
+      "tags": ["ippode"],
+      "payload": {
+        "base_sentence": "彼は医者として働く一方で、ボランティア活動も行っている。",
+        "correct": "彼は医者という本職を持っていますが、それと同時に（あるいは別の面として）ボランティア活動も一生懸命にしています。",
+        "distractors": [
+          "彼は医者になるために、ボランティア活動を始めました。",
+          "彼は医者をやめてから、ボランティア活動に専念しています。",
+          "彼は医者として働くのが嫌いなので、ボランティア活動をしています。"
+        ]
+      }
+    },
+    {
+      "id": "ippode_011",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "ネット社会は便利な__、情報漏洩のリスクも高い。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippode"],
+      "payload": {
+        "prefix": "自由な時間が増えた",
+        "suffix": "。",
+        "blocks": ["一方で", "退屈を", "感じることもある"]
+      }
+    },
+    {
+      "id": "ippode_013",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼は自分に厳しい__、他人には優しい。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_014",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "新しい薬は効果がある__、高価であるのが欠点だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_015",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼女は明るい__、実は繊細な心の持ち主だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "「一方で」は。",
+        "correct": "いっぽうで",
+        "distractors": ["ひとかたで", "いちほうで", "いっぽで", "いちかたで"]
+      }
+    },
+    {
+      "id": "ippode_017",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "都会は刺激が多い__、落ち着かないこともある。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_018",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼は無口な__、心の中では熱い情熱を持っている。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippode"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "。",
+        "blocks": ["計画は", "魅力的である", "一方でリスクも大きい"]
+      }
+    },
+    {
+      "id": "ippode_020",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "都会は刺激が多い__、落ち着かないこともある。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_021",
+      "type": "FILL_BLANK",
+      "tags": ["ippode", "pop_culture"],
+      "payload": {
+        "sentence": "火影は里の人から愛される__、非常に忙しい仕事だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_022",
+      "type": "WORD_USAGE",
+      "tags": ["ippode"],
+      "payload": {
+        "word": "～一方 ",
+        "options": [
+          { "text": "このアパートは駅に近い一方で、家賃が高い。", "is_correct": true },
+          { "text": "彼は正直な一方で、嘘が下手だ。", "is_correct": false },
+          { "text": "勉強は大変な一方で、知識が増える楽しみがある。", "is_correct": true },
+          { "text": "雨が降った一方で、虹が出た。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ippode_023",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "田舎暮らしは自然が豊かな__、生活が不便だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_024",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "この本は面白い__、内容が少し古い。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_025",
+      "type": "PARAPHRASE",
+      "tags": ["ippode"],
+      "payload": {
+        "base_sentence": "彼は才能がある一方で、努力をしない。",
+        "correct": "彼は素晴らしい才能を持っていますが、それとは反対に（あるいは残念なことに）努力を全くしません。",
+        "distractors": [
+          "彼は才能があるので、努力する必要がありません。",
+          "彼は才能がないので、もっと努力するべきです。",
+          "彼は才能があるおかげで、努力しなくても成功しました。"
+        ]
+      }
+    },
+    {
+      "id": "ippode_026",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "新しいビルは綺麗な__、家賃が以前より高い。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_027",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼は大胆な__、細かいことにこだわる性格だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ippode"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["自信家である", "一方で", "他人の評価を気にしている"]
+      }
+    },
+    {
+      "id": "ippode_029",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "SNSは情報が早い__、嘘の情報も多い。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    },
+    {
+      "id": "ippode_030",
+      "type": "FILL_BLANK",
+      "tags": ["ippode"],
+      "payload": {
+        "sentence": "彼は厳格な__、非常に子供思いの父親だ。",
+        "correct": "一方で",
+        "distractors": ["反面", "ながら", "ついでに", "ものの"]
+      }
+    }
+  ]
+}

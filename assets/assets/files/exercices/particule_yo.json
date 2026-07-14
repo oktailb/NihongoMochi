@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule YO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "yo_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "その映画はとても面白いです__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "だ"]
+      }
+    },
+    {
+      "id": "yo_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "今日はいい天気です__。",
+        "correct": "ね",
+        "distractors": ["よ", "か", "わ", "の", "ぞ"]
+      }
+    },
+    {
+      "id": "yo_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "あそこに佐藤さんがいます__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "も", "に"]
+      }
+    },
+    {
+      "id": "yo_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "warning"],
+      "payload": {
+        "sentence": "危ないです__！",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "な"]
+      }
+    },
+    {
+      "id": "yo_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "pop_culture"],
+      "payload": {
+        "sentence": "「ほな、行く__！」",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "ぞ", "な"]
+      }
+    },
+    {
+      "id": "yo_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "soft_command"],
+      "payload": {
+        "sentence": "早く寝なさい__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "な"]
+      }
+    },
+    {
+      "id": "yo_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "私は明日、日本へ行きます__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "に"]
+      }
+    },
+    {
+      "id": "yo_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "これ、美味しいです__。",
+        "correct": "ね",
+        "distractors": ["よ", "か", "わ", "の", "な"]
+      }
+    },
+    {
+      "id": "yo_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_yo"],
+      "payload": {
+        "prefix": "そのテストは",
+        "suffix": "ですよ。",
+        "blocks": ["とても", "難しかった"]
+      }
+    },
+    {
+      "id": "yo_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_yo"],
+      "payload": {
+        "word": "よ ",
+        "options": [
+          { "text": "時間はもう10時ですよ。", "is_correct": true },
+          { "text": "この本は面白いですよ。", "is_correct": true },
+          { "text": "忘れないでくださいよ。", "is_correct": true },
+          { "text": "よ、こんにちは。 ", "is_correct": false },
+          { "text": "明日よ会いましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "yo_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "電車が来ました__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "に"]
+      }
+    },
+    {
+      "id": "yo_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "日本語は難しいです__。",
+        "correct": "ね",
+        "distractors": ["よ", "か", "わ", "の", "な"]
+      }
+    },
+    {
+      "id": "yo_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "塩はそこにあります__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "に"]
+      }
+    },
+    {
+      "id": "yo_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "お名前を教えてください__。",
+        "correct": "か",
+        "distractors": ["よ", "ね", "わ", "の"]
+      }
+    },
+    {
+      "id": "yo_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_yo"],
+      "payload": {
+        "base_sentence": "明日も雨ですよ。",
+        "correct": "相手が知らないかもしれない明日の天気（雨）を伝えています。",
+        "distractors": [
+          "明日も雨ですね。",
+          "明日も雨ですか。",
+          "明日は雨が降りません。",
+          "明日は晴れるでしょう。"
+        ]
+      }
+    },
+    {
+      "id": "yo_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "宿題はもう終わりました__。",
+        "correct": "よ",
+        "distractors": ["ね", "か", "わ", "の", "に"]
+      }
+    },
+    {
+      "id": "yo_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "明日も頑張りましょう__。",
+        "correct": "ね",
+        "distractors": ["よ", "か", "わ", "の", "な"]
+      }
+    },
+    {
+      "id": "yo_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["particule_yo"],
+      "payload": {
+        "sentence": "「本当」ですよ。",
+        "correct": "ほんとう",
+        "distractors": ["ほんと", "ほんとうな", "ほんどう", "ぼんとう"]
+      }
+    },
+    {
+      "id": "yo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_yo"],
+      "payload": {
+        "prefix": "財布が",
+        "suffix": "よ。",
+        "blocks": ["落ちています"]
+      }
+    },
+    {
+      "id": "yo_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yo", "traps"],
+      "payload": {
+        "sentence": "どこ__行きますか。",
+        "correct": "へ",
+        "distractors": ["よ", "ね", "わ", "の"]
+      }
+    }
+  ]
+}

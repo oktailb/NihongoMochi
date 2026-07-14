@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Suggestion  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "sug_001",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "sentence": "少し休ん__どうですか。",
+        "correct": "だら",
+        "distractors": ["だので", "だらば", "だらな", "だに", "だ"]
+      }
+    },
+    {
+      "id": "sug_002",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka", "traps"],
+      "payload": {
+        "sentence": "先生に聞い__どうですか。",
+        "correct": "たら",
+        "distractors": ["たので", "たらば", "たらな", "たに", "た"]
+      }
+    },
+    {
+      "id": "sug_003",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "sentence": "薬を__どうですか。",
+        "correct": "飲んだら",
+        "distractors": ["飲むたら", "飲みたら", "飲んだらな", "飲んで", "飲まない"]
+      }
+    },
+    {
+      "id": "sug_004",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka", "traps"],
+      "payload": {
+        "sentence": "もう一度__どうですか。",
+        "correct": "やってみたら",
+        "distractors": ["やったら", "やってみれば", "やってみて", "やってみなさい", "やるどう"]
+      }
+    },
+    {
+      "id": "sug_005",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka", "pop_culture"],
+      "payload": {
+        "sentence": "もっと修行し__どうだ？",
+        "correct": "たら",
+        "distractors": ["れば", "と", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "sug_006",
+      "type": "WORD_USAGE",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "word": "〜たらどうですか ",
+        "options": [
+          { "text": "早く寝たらどうですか。", "is_correct": true },
+          { "text": "美味しい店を調べたらどうですか。", "is_correct": true },
+          { "text": "傘を持って行ったらどうですか。", "is_correct": true },
+          { "text": "本を読むたらどうですか。 ", "is_correct": false },
+          { "text": "明日たらどうですか会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sug_007",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "sentence": "日本へ__どうですか。",
+        "correct": "行ったら",
+        "distractors": ["行くたら", "行きたら", "行ったらな", "行って", "行かない"]
+      }
+    },
+    {
+      "id": "sug_008",
+      "type": "FILL_BLANK",
+      "tags": ["ta_ra_do_desu_ka", "traps"],
+      "payload": {
+        "sentence": "名前を__どうですか。",
+        "correct": "書いたら",
+        "distractors": ["書くたら", "書きたら", "書いたらな", "書いて", "書か"]
+      }
+    },
+    {
+      "id": "sug_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "prefix": "わからないなら、",
+        "suffix": "か。",
+        "blocks": ["辞書を引いてみたら", "どうです"]
+      }
+    },
+    {
+      "id": "sug_010",
+      "type": "PARAPHRASE",
+      "tags": ["ta_ra_do_desu_ka"],
+      "payload": {
+        "base_sentence": "病院へ行ったらどうですか。",
+        "correct": "あなたの体調が心配なので、受診することをお勧めしています。",
+        "distractors": [
+          "病院へ行きました。",
+          "病院へ行かなければなりません。",
+          "病院へ行きたいです。",
+          "病院へ行ってはいけません。"
+        ]
+      }
+    }
+  ]
+}

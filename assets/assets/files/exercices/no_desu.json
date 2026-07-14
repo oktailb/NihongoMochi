@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de l'Explication  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "expl_001",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "どうして遅れたんですか。バスが来なかった__。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "からです", "のでした", "んですから"]
+      }
+    },
+    {
+      "id": "expl_002",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "adj_na"],
+      "payload": {
+        "sentence": "どうして食べないんですか。嫌い__。",
+        "correct": "なんです",
+        "distractors": ["です", "だんです", "んです", "なです", "なのだ"]
+      }
+    },
+    {
+      "id": "expl_003",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "noun"],
+      "payload": {
+        "sentence": "今日は休み__。",
+        "correct": "なんです",
+        "distractors": ["です", "だんです", "んです", "なです", "なのです"]
+      }
+    },
+    {
+      "id": "expl_004",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "adj_i"],
+      "payload": {
+        "sentence": "顔色が悪いですね。頭が痛い__。",
+        "correct": "んです",
+        "distractors": ["なんです", "です", "だんです", "ので", "から"]
+      }
+    },
+    {
+      "id": "expl_005",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "question"],
+      "payload": {
+        "sentence": "どこへ行く__か。",
+        "correct": "んです",
+        "distractors": ["ます", "のです", "だんです", "なです", "のですか"]
+      }
+    },
+    {
+      "id": "expl_006",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王になりたい__！",
+        "correct": "んです",
+        "distractors": ["です", "ます", "なのだ", "のだ", "んのだ"]
+      }
+    },
+    {
+      "id": "expl_007",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "polite_request"],
+      "payload": {
+        "sentence": "書き方がわからない__が、教えてください。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "ななです", "だんです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_008",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "昨日はとても楽しかっ__。",
+        "correct": "たんです",
+        "distractors": ["たです", "たのです", "たななです", "だんです", "たんですから"]
+      }
+    },
+    {
+      "id": "expl_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["no_desu"],
+      "payload": {
+        "prefix": "お腹が",
+        "suffix": "です。",
+        "blocks": ["空いてい", "るん"]
+      }
+    },
+    {
+      "id": "expl_010",
+      "type": "WORD_USAGE",
+      "tags": ["no_desu"],
+      "payload": {
+        "word": "〜んです ",
+        "options": [
+          { "text": "雨が降っているんです。", "is_correct": true },
+          { "text": "行きたいんです。", "is_correct": true },
+          { "text": "綺麗なんです。", "is_correct": true },
+          { "text": "休みんです。 ", "is_correct": false },
+          { "text": "明日んです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "expl_011",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "どうしたんですか。財布をなくした__。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "だんです", "なです", "のですか"]
+      }
+    },
+    {
+      "id": "expl_012",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "あ、雪が__。",
+        "correct": "降っています",
+        "distractors": ["降っているんです", "降るんです", "降りましたんです", "降るななです"]
+      }
+    },
+    {
+      "id": "expl_013",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "チケットが２枚ある__が、一緒に行きませんか。",
+        "correct": "んです",
+        "distractors": ["のです", "ます", "だんです", "なです", "のんです"]
+      }
+    },
+    {
+      "id": "expl_014",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "明日は暇__。",
+        "correct": "なんです",
+        "distractors": ["です", "だんです", "んです", "なです", "なのです"]
+      }
+    },
+    {
+      "id": "expl_015",
+      "type": "PARAPHRASE",
+      "tags": ["no_desu"],
+      "payload": {
+        "base_sentence": "用事があるんです。",
+        "correct": "何かをする必要があるので、忙しいというニュアンスを含んでいます。",
+        "distractors": [
+          "用事があります。",
+          "用事がありません。",
+          "用事を作ります。",
+          "用事がありますか。"
+        ]
+      }
+    },
+    {
+      "id": "expl_016",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "日本語が上手ですね。どこで習った__か。",
+        "correct": "んです",
+        "distractors": ["のです", "ます", "だんです", "なです", "のですか"]
+      }
+    },
+    {
+      "id": "expl_017",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "この本はとても__。",
+        "correct": "面白いです",
+        "distractors": ["面白いんです", "面白いななです", "面白だんです", "面白いでした"]
+      }
+    },
+    {
+      "id": "expl_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "「のです」の短い形は何ですか。",
+        "correct": "んです",
+        "distractors": ["なです", "だです", "のでした", "のんです"]
+      }
+    },
+    {
+      "id": "expl_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["no_desu"],
+      "payload": {
+        "prefix": "道が",
+        "suffix": "です。",
+        "blocks": ["混んでいたん"]
+      }
+    },
+    {
+      "id": "expl_020",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "お名前は__。",
+        "correct": "何ですか",
+        "distractors": ["何んですか", "何ななですか", "何だんですか", "何のですか"]
+      }
+    },
+    {
+      "id": "expl_021",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "いい鞄ですね。どこで買った__か。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "だんです", "なです", "のんです"]
+      }
+    },
+    {
+      "id": "expl_022",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "気分が悪い__。",
+        "correct": "んです",
+        "distractors": ["です", "なです", "だんです", "なのです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_023",
+      "type": "WORD_USAGE",
+      "tags": ["no_desu"],
+      "payload": {
+        "word": "なんです ",
+        "options": [
+          { "text": "病気なんです。", "is_correct": true },
+          { "text": "暇なんです。", "is_correct": true },
+          { "text": "学生なんです。", "is_correct": true },
+          { "text": "面白いなんです。 ", "is_correct": false },
+          { "text": "行くなんです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "expl_024",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "暑い__、窓を開けてもいいですか。",
+        "correct": "んです",
+        "distractors": ["のです", "ます", "だんです", "なです", "のんです"]
+      }
+    },
+    {
+      "id": "expl_025",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "先生に会いたい__。",
+        "correct": "んです",
+        "distractors": ["です", "だんです", "なです", "のです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_026",
+      "type": "PARAPHRASE",
+      "tags": ["no_desu"],
+      "payload": {
+        "base_sentence": "明日休むんです。",
+        "correct": "明日の休みの理由を説明しています。",
+        "distractors": [
+          "明日休みます。",
+          "明日休みました。",
+          "明日休んでください。",
+          "明日休みましょう。"
+        ]
+      }
+    },
+    {
+      "id": "expl_027",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "どうして昨日来なかった__か。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "だんです", "なです", "のですか"]
+      }
+    },
+    {
+      "id": "expl_028",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "道がわからない__。",
+        "correct": "んです",
+        "distractors": ["です", "だんです", "なです", "のです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "「理由」を説明してください。",
+        "correct": "りゆう",
+        "distractors": ["りゆ", "りょう", "りゅう", "りゆうな"]
+      }
+    },
+    {
+      "id": "expl_030",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "漢字が書けない__。",
+        "correct": "んです",
+        "distractors": ["のです", "ます", "だんです", "なです", "のんです"]
+      }
+    },
+    {
+      "id": "expl_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["no_desu"],
+      "payload": {
+        "prefix": "明日、",
+        "suffix": "です。",
+        "blocks": ["行くつもりな"]
+      }
+    },
+    {
+      "id": "expl_032",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "今日は日曜日__。",
+        "correct": "なんです",
+        "distractors": ["です", "だんです", "んです", "なです", "なのです"]
+      }
+    },
+    {
+      "id": "expl_033",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "お土産を買いたい__が、いい店を教えてください。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "だんです", "なです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_034",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "日本語が難しい__。",
+        "correct": "んです",
+        "distractors": ["です", "だんです", "なです", "のです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_035",
+      "type": "WORD_USAGE",
+      "tags": ["no_desu"],
+      "payload": {
+        "word": "〜たいんです ",
+        "options": [
+          { "text": "日本へ行きたいんです。", "is_correct": true },
+          { "text": "先生に会いたいんです。", "is_correct": true },
+          { "text": "これを食べたいんです。", "is_correct": true },
+          { "text": "本を読みりたいんです。 ", "is_correct": false },
+          { "text": "明日を行きたいんです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "expl_036",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "喉が渇いた__。",
+        "correct": "んです",
+        "distractors": ["のです", "ました", "だんです", "なです", "んのです"]
+      }
+    },
+    {
+      "id": "expl_037",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "雨が__。",
+        "correct": "降っています",
+        "distractors": ["降っているんです", "降るんです", "降りましたんです", "降るななです"]
+      }
+    },
+    {
+      "id": "expl_038",
+      "type": "PARAPHRASE",
+      "tags": ["no_desu"],
+      "payload": {
+        "base_sentence": "頭が痛いんです。",
+        "correct": "体調が良くない理由を説明しています。",
+        "distractors": [
+          "頭が痛いです。",
+          "頭が痛くありません。",
+          "頭が痛くなりたいです。",
+          "頭が痛い時、寝ます。"
+        ]
+      }
+    },
+    {
+      "id": "expl_039",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu"],
+      "payload": {
+        "sentence": "何を探している__か。",
+        "correct": "んです",
+        "distractors": ["のです", "ます", "だんです", "なです", "のですか"]
+      }
+    },
+    {
+      "id": "expl_040",
+      "type": "FILL_BLANK",
+      "tags": ["no_desu", "traps"],
+      "payload": {
+        "sentence": "ここは静か__。",
+        "correct": "なんです",
+        "distractors": ["です", "だんです", "んです", "なです", "なのです"]
+      }
+    }
+  ]
+}

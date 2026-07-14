@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に先立って  - Préalablement à / Avant - N2"
+  },
+  "exercises": [
+    {
+      "id": "nisakidatte_001",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte", "N2"],
+      "payload": {
+        "sentence": "開店__、プレオープンイベントを開催した。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_002",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の修行__、まずは精神を統一する必要があった。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_003",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "新製品の発売__、記者会見が行われた。",
+        "correct": "に先立ち",
+        "distractors": ["に際し", "に当り", "に対し", "に関し"]
+      }
+    },
+    {
+      "id": "nisakidatte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "prefix": "調査を",
+        "suffix": "。",
+        "blocks": ["開始する", "に先立って", "予備調査を行った"]
+      }
+    },
+    {
+      "id": "nisakidatte_005",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "映画の公開__、試写会が開かれた。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_006",
+      "type": "WORD_USAGE",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "word": "～に先立って ",
+        "options": [
+          { "text": "建築に先立って、地鎮祭を行った。", "is_correct": true },
+          { "text": "出発に先立ち、忘れ物を確認した。", "is_correct": true },
+          { "text": "雨に先立って、傘を差した。", "is_correct": false },
+          { "text": "会議に先立って、資料を配布した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisakidatte_007",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの起動__、パイロットの適合テストが行われた。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_008",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "海外への移住__、現地の状況を詳しく調べた。",
+        "correct": "に先立ち",
+        "distractors": ["に際し", "に当り", "に対し", "に関し"]
+      }
+    },
+    {
+      "id": "nisakidatte_009",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "新学期が__に先立って、新しい教科書を買った。",
+        "correct": "始まる",
+        "distractors": ["始まった", "始まって", "始まれば", "始まろう"]
+      }
+    },
+    {
+      "id": "nisakidatte_010",
+      "type": "PARAPHRASE",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "base_sentence": "契約の締結に先立ち、内容の最終確認を行った。",
+        "correct": "契約書に正式に判を押すという手続きを行う前の、非常に重要な準備段階として、書かれている事柄に間違いがないか最後にしっかりと調べました。",
+        "distractors": [
+          "契約を締結した後で、内容を確認しました。",
+          "契約を締結するために、誰かに手伝ってもらいました。",
+          "契約を締結したおかげで、安心しました。"
+        ]
+      }
+    },
+    {
+      "id": "nisakidatte_011",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "今回のプロジェクトの開始__、メンバーの顔合わせが行われた。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "prefix": "試合を",
+        "suffix": "。",
+        "blocks": ["行う", "に先立って", "ルールの確認をした"]
+      }
+    },
+    {
+      "id": "nisakidatte_013",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "建物の取り壊し__、住民への説明会が開かれた。",
+        "correct": "に先立ち",
+        "distractors": ["に際し", "に当り", "に対し", "に関し"]
+      }
+    },
+    {
+      "id": "nisakidatte_014",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "総選挙の実施__、各候補者が演説を行った。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_015",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "新しい事業を__に先立って、資金を調達した。",
+        "correct": "始める",
+        "distractors": ["始めた", "始めて", "始まれば", "始まろう"]
+      }
+    },
+    {
+      "id": "nisakidatte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "「に先立って」準備する。",
+        "correct": "にさきだって",
+        "distractors": ["にさいして", "にあたって", "にたいして", "にそなえて"]
+      }
+    },
+    {
+      "id": "nisakidatte_017",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "帰国の途に__に先立ち、お世話になった方々へ挨拶をした。",
+        "correct": "つく",
+        "distractors": ["ついた", "ついて", "つけば", "つこう"]
+      }
+    },
+    {
+      "id": "nisakidatte_018",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "ダムの建設__、環境への影響調査が行われた。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "prefix": "本日の",
+        "suffix": "。",
+        "blocks": ["会議", "に先立ち", "資料を配布いたします"]
+      }
+    },
+    {
+      "id": "nisakidatte_020",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "引退の決意を__に先立って、親しい友人に相談した。",
+        "correct": "発表する",
+        "distractors": ["発表した", "発表して", "発表すれば", "発表しよう"]
+      }
+    },
+    {
+      "id": "nisakidatte_021",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザとの戦い__、悟空は界王拳の練習を繰り返した。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_022",
+      "type": "WORD_USAGE",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "word": "～に先立ち ",
+        "options": [
+          { "text": "開会に先立ち、国歌斉唱が行われた。", "is_correct": true },
+          { "text": "本日に先立ち、休業いたします。", "is_correct": false },
+          { "text": "演奏に先立ち、曲の紹介をいたします。", "is_correct": true },
+          { "text": "新製品の完成に先立ち、予約を受け付ける。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisakidatte_023",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "契約の更新__、内容の見直しが行われた。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_024",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "手術を__に先立ち、検査が行われた。",
+        "correct": "受ける",
+        "distractors": ["受けた", "受けて", "受ければ", "受けよう"]
+      }
+    },
+    {
+      "id": "nisakidatte_025",
+      "type": "PARAPHRASE",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "base_sentence": "新店舗のオープンに先立って、アルバイトを募集した。",
+        "correct": "新しいお店が正式に営業を開始するより前の段階で、そこで働くためのスタッフ（アルバイト）をあらかじめ集め始めました。",
+        "distractors": [
+          "新店舗がオープンした後で、アルバイトを募集しました。",
+          "新店舗をオープンするために、アルバイトを訓練しました。",
+          "新店舗がオープンしたおかげで、アルバイトが集まりました。"
+        ]
+      }
+    },
+    {
+      "id": "nisakidatte_026",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "海外進出__、現地法人を設立した。",
+        "correct": "に先立って",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisakidatte_027",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "大切な面接を__に先立ち、鏡で身なりを整えた。",
+        "correct": "受ける",
+        "distractors": ["受けた", "受けて", "受ければ", "受けよう"]
+      }
+    },
+    {
+      "id": "nisakidatte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "prefix": "新商品の",
+        "suffix": "。",
+        "blocks": ["発表", "に先立って", "特許を申請した"]
+      }
+    },
+    {
+      "id": "nisakidatte_029",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "旅行に__に先立って、ホテルの予約をした。",
+        "correct": "行く",
+        "distractors": ["行った", "行って", "行けば", "行こう"]
+      }
+    },
+    {
+      "id": "nisakidatte_030",
+      "type": "FILL_BLANK",
+      "tags": ["nisakidatte"],
+      "payload": {
+        "sentence": "お別れ会__、これまでの思い出を動画にまとめた。",
+        "correct": "に先立ち",
+        "distractors": ["に際し", "に当り", "に対し", "に関し"]
+      }
+    }
+  ]
+}

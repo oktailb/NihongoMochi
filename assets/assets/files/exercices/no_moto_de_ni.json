@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~のもとで / ~のもとに  - N2"
+  },
+  "exercises": [
+    {
+      "id": "nomotode_001",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode", "N2"],
+      "payload": {
+        "sentence": "厳しい先生__、毎日修行に励んだ。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_002",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は, 亀仙人__武術の基礎を学んだ。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_003",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "「自由と平等」__、新しい国が作られた。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nomotode"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["優れた指導者", "のもとで", "才能を開花させた"]
+      }
+    },
+    {
+      "id": "nomotode_005",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "青空__、運動会が行われた。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_006",
+      "type": "WORD_USAGE",
+      "tags": ["nomotode"],
+      "payload": {
+        "word": "～のもとで ",
+        "options": [
+          { "text": "両親の愛情のもとで、健やかに育った。", "is_correct": true },
+          { "text": "監督の指導のもとで、チームは強くなった。", "is_correct": true },
+          { "text": "雨のもとで、傘を差す。", "is_correct": false },
+          { "text": "法の支配のもとに、秩序が守られている。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nomotode_007",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの恐怖政治__、多くの惑星が苦しんでいた。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_008",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "新しい憲法__、平和な社会を目指す。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_009",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "専門家の監修__、正しい情報を発信する。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_010",
+      "type": "PARAPHRASE",
+      "tags": ["nomotode"],
+      "payload": {
+        "base_sentence": "彼は、実力主義のもとで鍛えられた。",
+        "correct": "彼は、能力がある者だけが評価されるという厳しい環境（ルール）の中で、一生懸命に自分の力を磨いてきました。",
+        "distractors": [
+          "彼は実力があるので、鍛える必要がありませんでした。",
+          "彼は実力を身につけるために、準備をしています。",
+          "彼は実力があるおかげで、褒められました。"
+        ]
+      }
+    },
+    {
+      "id": "nomotode_011",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "太陽の光__、草木が青々と茂っている。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nomotode"],
+      "payload": {
+        "prefix": "団結の",
+        "suffix": "。",
+        "blocks": ["旗の", "もとに", "多くの若者が集まった"]
+      }
+    },
+    {
+      "id": "nomotode_013",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "相互理解__、良好な関係を築く。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_014",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "信頼関係__、このプロジェクトは進められている。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_015",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "厳格な規律__、規律正しい生活を送る。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "指導「のもとで」。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "のなかで", "のうえで", "のしたで"]
+      }
+    },
+    {
+      "id": "nomotode_017",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "合意__、契約が締結された。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_018",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "温かい家庭__、子供たちは健やかに育っている。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nomotode"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["名医の", "もとで", "インターンとして働いた"]
+      }
+    },
+    {
+      "id": "nomotode_020",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "法の平等__、すべての人は等しく扱われるべきだ。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_021",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode", "pop_culture"],
+      "payload": {
+        "sentence": "火影の指導__、里の若手忍者は急成長を遂げた。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_022",
+      "type": "WORD_USAGE",
+      "tags": ["nomotode"],
+      "payload": {
+        "word": "～のもとに ",
+        "options": [
+          { "text": "許可のもとに、撮影を行う。", "is_correct": true },
+          { "text": "事実のもとに、報告書を書く。", "is_correct": false },
+          { "text": "協力のもとに、成功を収めた。", "is_correct": true },
+          { "text": "合意のもとに、和解した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nomotode_023",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "平穏な日々__、人々は平和を享受していた。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_024",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "共通の目標__、力を合わせて頑張ろう。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_025",
+      "type": "PARAPHRASE",
+      "tags": ["nomotode"],
+      "payload": {
+        "base_sentence": "彼は、厳しい父のもとで育てられた。",
+        "correct": "彼は、非常に厳格な父親の監督や教育という環境の中で、甘やかされることなく成長しました。",
+        "distractors": [
+          "彼は父親と一緒に育てられました。",
+          "彼は父親を育てるために、準備をしました。",
+          "彼は父親のおかげで、有名になりました。"
+        ]
+      }
+    },
+    {
+      "id": "nomotode_026",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "満天の星空__、静かに語り合った。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_027",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "科学の真理__、研究に没頭する。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nomotode"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["厳しい環境の", "もとで", "精神力を鍛えた"]
+      }
+    },
+    {
+      "id": "nomotode_029",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "平和の旗__、団結を強める。",
+        "correct": "のもとに",
+        "distractors": ["のもとで", "に対して", "について", "からして"]
+      }
+    },
+    {
+      "id": "nomotode_030",
+      "type": "FILL_BLANK",
+      "tags": ["nomotode"],
+      "payload": {
+        "sentence": "名監督の指揮__、快進撃を続けている。",
+        "correct": "のもとで",
+        "distractors": ["のもとに", "に対して", "について", "からして"]
+      }
+    }
+  ]
+}

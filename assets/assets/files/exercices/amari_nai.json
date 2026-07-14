@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Modération  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "mod_001",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "お酒は__飲みません。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "いつも"]
+      }
+    },
+    {
+      "id": "mod_002",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "この映画はあまり__。",
+        "correct": "面白くないです",
+        "distractors": ["面白いです", "面白いでした", "面白かったでした", "面白くないでした", "面白だ"]
+      }
+    },
+    {
+      "id": "mod_003",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "今日は__寒くないですね。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "よく"]
+      }
+    },
+    {
+      "id": "mod_004",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "日本語があまり__。",
+        "correct": "わかりません",
+        "distractors": ["わかります", "わかったでした", "わかるです", "わからなです", "わかるます"]
+      }
+    },
+    {
+      "id": "mod_005",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "pop_culture"],
+      "payload": {
+        "sentence": "修行はあまり__。",
+        "correct": "大変じゃないです",
+        "distractors": ["大変です", "大変でした", "大変なでした", "大変くないです", "大変くない"]
+      }
+    },
+    {
+      "id": "mod_006",
+      "type": "WORD_USAGE",
+      "tags": ["amari_nai"],
+      "payload": {
+        "word": "あまり ",
+        "options": [
+          { "text": "あまり好きじゃありません。", "is_correct": true },
+          { "text": "肉をあまり食べません。", "is_correct": true },
+          { "text": "昨日はあまり寒くなかったです。", "is_correct": true },
+          { "text": "あまり美味しいです。 ", "is_correct": false },
+          { "text": "あまり行きます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "mod_007",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "朝ご飯は__食べません。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "よく"]
+      }
+    },
+    {
+      "id": "mod_008",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "昨日のテストはあまり__。",
+        "correct": "難しくなかったです",
+        "distractors": ["難しいでした", "難しかったです", "難しいかったです", "難しかったでした", "難しいだ"]
+      }
+    },
+    {
+      "id": "mod_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari_nai"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "好きじゃありません。",
+        "blocks": ["野菜が", "あまり"]
+      }
+    },
+    {
+      "id": "mod_010",
+      "type": "PARAPHRASE",
+      "tags": ["amari_nai"],
+      "payload": {
+        "base_sentence": "あまりわかりません。",
+        "correct": "少しはわかりますが、十分ではありません。",
+        "distractors": [
+          "全然わかりません。",
+          "よくわかります。",
+          "だいたいわかります。",
+          "わかるはずがありません。"
+        ]
+      }
+    },
+    {
+      "id": "mod_011",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "この本は__面白くないです。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "よく"]
+      }
+    },
+    {
+      "id": "mod_012",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "田中さんはあまり__。",
+        "correct": "来ません",
+        "distractors": ["来ます", "来ったでした", "来るです", "こないです", "きないです"]
+      }
+    },
+    {
+      "id": "mod_013",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "夜は__コーヒーを飲みません。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "よく"]
+      }
+    },
+    {
+      "id": "mod_014",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィはあまり__。",
+        "correct": "考えません",
+        "distractors": ["考えます", "考えるです", "考えなです", "考えななです", "考えまする"]
+      }
+    },
+    {
+      "id": "mod_015",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "この店はあまり__。",
+        "correct": "有名じゃありません",
+        "distractors": ["有名です", "有名でした", "有名なくないです", "有名だんです", "有名ですな"]
+      }
+    },
+    {
+      "id": "mod_016",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "テレビは__見ません。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "ちょっと", "ぜんぜん", "よく"]
+      }
+    },
+    {
+      "id": "mod_017",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "昨日はあまり__。",
+        "correct": "寝られませんでした",
+        "distractors": ["寝ました", "寝るでした", "寝ななでした", "寝たかったです", "寝ませんでした"]
+      }
+    },
+    {
+      "id": "mod_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["amari_nai"],
+      "payload": {
+        "sentence": "「余り」ありません。",
+        "correct": "あまり",
+        "distractors": ["あまりな", "あまりね", "あまりわ", "あわり"]
+      }
+    },
+    {
+      "id": "mod_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari_nai"],
+      "payload": {
+        "prefix": "そのニュースは",
+        "suffix": "ありませんでした。",
+        "blocks": ["あまり", "驚きでは"]
+      }
+    },
+    {
+      "id": "mod_020",
+      "type": "FILL_BLANK",
+      "tags": ["amari_nai", "traps"],
+      "payload": {
+        "sentence": "ここは__静かですね。",
+        "correct": "とても",
+        "distractors": ["あまり", "ぜんぜん", "たくさん", "だんだん"]
+      }
+    }
+  ]
+}

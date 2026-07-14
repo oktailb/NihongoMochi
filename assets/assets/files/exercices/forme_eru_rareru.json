@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Forme Potentielle  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "pot_001",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "私は100メートル__。",
+        "correct": "泳げます",
+        "distractors": ["泳ぎます", "泳ぐことができます", "泳げります", "泳がれます", "泳げす"]
+      }
+    },
+    {
+      "id": "pot_002",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g2"],
+      "payload": {
+        "sentence": "納豆が__。",
+        "correct": "食べられます",
+        "distractors": ["食べれます", "食べます", "食べれるます", "食べられまする", "食べらります"]
+      }
+    },
+    {
+      "id": "pot_003",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g3", "traps"],
+      "payload": {
+        "sentence": "日本語を話すことが__。",
+        "correct": "できます",
+        "distractors": ["あります", "します", "なります", "いけます", "わかります"]
+      }
+    },
+    {
+      "id": "pot_004",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "この漢字が__。",
+        "correct": "読めます",
+        "distractors": ["読みます", "読めるます", "読まれます", "読みられます", "読めす"]
+      }
+    },
+    {
+      "id": "pot_005",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "一人で家へ__。",
+        "correct": "帰れます",
+        "distractors": ["帰ります", "帰れるます", "帰りられます", "帰らわれます", "帰れす"]
+      }
+    },
+    {
+      "id": "pot_006",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "明日、パーティーに__か。",
+        "correct": "来られます",
+        "distractors": ["来れます", "来ます", "来られるます", "こられます", "きられます"]
+      }
+    },
+    {
+      "id": "pot_007",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "大きな声で__。",
+        "correct": "叫べます",
+        "distractors": ["叫びます", "叫べるます", "叫ばれます", "叫びられます", "叫めす"]
+      }
+    },
+    {
+      "id": "pot_008",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "辞書を使わずに本が__。",
+        "correct": "読めます",
+        "distractors": ["読みます", "読めるます", "読まれます", "読みられます", "読めす"]
+      }
+    },
+    {
+      "id": "pot_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["日本語が", "少し", "話せ"]
+      }
+    },
+    {
+      "id": "pot_010",
+      "type": "WORD_USAGE",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "word": "〜（ら）れる ",
+        "options": [
+          { "text": "刺身が食べられます。", "is_correct": true },
+          { "text": "明日行けます。", "is_correct": true },
+          { "text": "漢字が書けます。", "is_correct": true },
+          { "text": "パンを食べれますを。", "is_correct": false },
+          { "text": "水が飲みられます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "pot_011",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1", "pop_culture"],
+      "payload": {
+        "sentence": "空を__。",
+        "correct": "飛べます",
+        "distractors": ["飛びます", "飛べるます", "飛ぼれます", "飛ばれます", "飛めす"]
+      }
+    },
+    {
+      "id": "pot_012",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "自転車に__。",
+        "correct": "乗れます",
+        "distractors": ["乗ります", "乗れるます", "乗りられます", "乗らわれます", "乗れす"]
+      }
+    },
+    {
+      "id": "pot_013",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g2"],
+      "payload": {
+        "sentence": "夜12時まで__。",
+        "correct": "起きられます",
+        "distractors": ["起きれます", "起きます", "起きるます", "起きらります", "起きなす"]
+      }
+    },
+    {
+      "id": "pot_014",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "自分で名前が__。",
+        "correct": "書けます",
+        "distractors": ["書きます", "書けるます", "書かれます", "書きられます", "書めす"]
+      }
+    },
+    {
+      "id": "pot_015",
+      "type": "PARAPHRASE",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "base_sentence": "100メートル泳げます。",
+        "correct": "100メートル泳ぐことができます。",
+        "distractors": [
+          "100メートル泳ぎたいです。",
+          "100メートル泳いでください。",
+          "100メートル泳ぎました。",
+          "100メートル泳ぎましょう。"
+        ]
+      }
+    },
+    {
+      "id": "pot_016",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "友達に__。",
+        "correct": "会えます",
+        "distractors": ["会います", "会えるます", "会われます", "会いられます", "会めす"]
+      }
+    },
+    {
+      "id": "pot_017",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "この水は__。",
+        "correct": "飲めます",
+        "distractors": ["飲みます", "飲むます", "飲まれます", "飲みられます", "飲めす"]
+      }
+    },
+    {
+      "id": "pot_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "sentence": "日本語が「話せる」ようになりたいです。",
+        "correct": "はなせる",
+        "distractors": ["はなれる", "はなしる", "はなせるな", "はななす"]
+      }
+    },
+    {
+      "id": "pot_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "prefix": "納豆が",
+        "suffix": "か。",
+        "blocks": ["食べられ", "ます"]
+      }
+    },
+    {
+      "id": "pot_020",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "traps"],
+      "payload": {
+        "sentence": "ピアノを弾くことが__。",
+        "correct": "あります",
+        "distractors": ["できます", "します", "なります", "いけます"]
+      }
+    },
+    {
+      "id": "pot_021",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "バスを30分__。",
+        "correct": "待てます",
+        "distractors": ["待ちます", "待てるます", "待たれます", "待ちられます", "待めす"]
+      }
+    },
+    {
+      "id": "pot_022",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "好きな音楽が__。",
+        "correct": "聞けます",
+        "distractors": ["聞きます", "聞けるます", "聞かれます", "聞きられます", "聞めす"]
+      }
+    },
+    {
+      "id": "pot_023",
+      "type": "WORD_USAGE",
+      "tags": ["forme_potentiel", "pop_culture"],
+      "payload": {
+        "word": "できる ",
+        "options": [
+          { "text": "テニスができます。", "is_correct": true },
+          { "text": "料理ができます。", "is_correct": true },
+          { "text": "明日、仕事ができますか。", "is_correct": true },
+          { "text": "コーヒーができます。", "is_correct": true },
+          { "text": "本をできます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "pot_024",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "荷物を__。",
+        "correct": "持てます",
+        "distractors": ["持ちます", "持てるます", "持たれます", "持ちられます", "持めす"]
+      }
+    },
+    {
+      "id": "pot_025",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g2"],
+      "payload": {
+        "sentence": "窓を__。",
+        "correct": "あけられます",
+        "distractors": ["あけれます", "あけます", "あけらります", "あけなす", "あけらわれます"]
+      }
+    },
+    {
+      "id": "pot_026",
+      "type": "PARAPHRASE",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "base_sentence": "刺身は食べられません。",
+        "correct": "刺身を食べる能力や機会がありません。",
+        "distractors": [
+          "刺身を食べたくありません。",
+          "刺身を食べないでください。",
+          "刺身を食べましょう。",
+          "刺身を食べました。"
+        ]
+      }
+    },
+    {
+      "id": "pot_027",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g3"],
+      "payload": {
+        "sentence": "明日、学校に__か。",
+        "correct": "来られます",
+        "distractors": ["来れます", "来ます", "こられます", "きられます", "くるられます"]
+      }
+    },
+    {
+      "id": "pot_028",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "階段を__。",
+        "correct": "降りられます",
+        "distractors": ["降ります", "降りれます", "降りるます", "降りらります", "降りなす"]
+      }
+    },
+    {
+      "id": "pot_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "sentence": "漢字が「書ける」のはすごいです。",
+        "correct": "かける",
+        "distractors": ["かきれる", "かかれる", "かきしる", "かきなす"]
+      }
+    },
+    {
+      "id": "pot_030",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "公園で__。",
+        "correct": "遊べます",
+        "distractors": ["遊びます", "遊べるます", "遊ばれます", "遊びられます", "遊めす"]
+      }
+    },
+    {
+      "id": "pot_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "ますか。",
+        "blocks": ["行け"]
+      }
+    },
+    {
+      "id": "pot_032",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "自分の目を__。",
+        "correct": "信じられます",
+        "distractors": ["信じます", "信じれます", "信じらります", "信じなす", "信じられる"]
+      }
+    },
+    {
+      "id": "pot_033",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "大きな声で__。",
+        "correct": "歌えます",
+        "distractors": ["歌います", "歌えるます", "歌われます", "歌いられます", "歌めす"]
+      }
+    },
+    {
+      "id": "pot_034",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "パソコンが__。",
+        "correct": "使えます",
+        "distractors": ["使います", "使えるます", "使われます", "使いられます", "使めす"]
+      }
+    },
+    {
+      "id": "pot_035",
+      "type": "WORD_USAGE",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "word": "読める ",
+        "options": [
+          { "text": "この本は難しくて読めません。", "is_correct": true },
+          { "text": "新聞が読めるようになりました。", "is_correct": true },
+          { "text": "暗いところで本を読めるのは悪いです。", "is_correct": true },
+          { "text": "明日、本を読めるに行きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "pot_036",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "本を__。",
+        "correct": "返せます",
+        "distractors": ["返します", "返せるます", "返されます", "返しられます", "返めす"]
+      }
+    },
+    {
+      "id": "pot_037",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "毎日、8時間__。",
+        "correct": "働けます",
+        "distractors": ["働きます", "働けるます", "働かれます", "働きられます", "働めす"]
+      }
+    },
+    {
+      "id": "pot_038",
+      "type": "PARAPHRASE",
+      "tags": ["forme_potentiel"],
+      "payload": {
+        "base_sentence": "明日来られますか。",
+        "correct": "明日の予定はどうですか。来るチャンスがありますか。",
+        "distractors": [
+          "明日来てください。",
+          "明日来ましたか。",
+          "明日来るつもりですか。",
+          "明日来ましょうか。"
+        ]
+      }
+    },
+    {
+      "id": "pot_039",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "辞書を速く__。",
+        "correct": "引けます",
+        "distractors": ["引きます", "引けるます", "引かれます", "引きられます", "引めす"]
+      }
+    },
+    {
+      "id": "pot_040",
+      "type": "FILL_BLANK",
+      "tags": ["forme_potentiel", "g1"],
+      "payload": {
+        "sentence": "コーヒーを__。",
+        "correct": "淹れられます",
+        "distractors": ["淹れます", "淹れれます", "淹れらります", "淹れなす", "淹れらわれます"]
+      }
+    }
+  ]
+}

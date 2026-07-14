@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule WA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "ha_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha"],
+      "payload": {
+        "sentence": "今日__、いい天気ですね。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "contrast"],
+      "payload": {
+        "sentence": "肉は食べますが、魚__食べません。",
+        "correct": "は",
+        "distractors": ["を", "が", "に", "も"]
+      }
+    },
+    {
+      "id": "ha_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "昔々、ある所におじいさん__いました。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "も"]
+      }
+    },
+    {
+      "id": "ha_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "negative"],
+      "payload": {
+        "sentence": "私は学生で__ありません。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "も"]
+      }
+    },
+    {
+      "id": "ha_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィ__海賊王になる男だ！",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "あ！雨__降ってきた！",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha"],
+      "payload": {
+        "sentence": "お名前__何ですか。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "の"]
+      }
+    },
+    {
+      "id": "ha_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "contrast"],
+      "payload": {
+        "sentence": "テニスは好きですが、野球__あまり好きじゃないです。",
+        "correct": "は",
+        "distractors": ["が", "を", "も", "に"]
+      }
+    },
+    {
+      "id": "ha_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "誰__来ましたか。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "の"]
+      }
+    },
+    {
+      "id": "ha_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ha"],
+      "payload": {
+        "word": "は ",
+        "options": [
+          { "text": "これは私のペンです。", "is_correct": true },
+          { "text": "明日は休みです。", "is_correct": true },
+          { "text": "象は鼻が長いです。", "is_correct": true },
+          { "text": "昨日、学校は行きました。", "is_correct": false },
+          { "text": "パンは食べますを。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ha_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "emphasis"],
+      "payload": {
+        "sentence": "ここ__入ってはいけません。",
+        "correct": "に は",
+        "distractors": ["を", "が", "で", "の"]
+      }
+    },
+    {
+      "id": "ha_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "窓__開いています。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha"],
+      "payload": {
+        "sentence": "この本__とても面白いですよ。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "contrast"],
+      "payload": {
+        "sentence": "今日は忙しいですが、明日__暇です。",
+        "correct": "は",
+        "distractors": ["が", "を", "も", "に"]
+      }
+    },
+    {
+      "id": "ha_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ha"],
+      "payload": {
+        "base_sentence": "私は学生です。",
+        "correct": "私の職業は学生です。",
+        "distractors": [
+          "私が学生です。",
+          "私は学生じゃありません。",
+          "学生は私です。",
+          "学生が私です。"
+        ]
+      }
+    },
+    {
+      "id": "ha_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "机の上に本__あります。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha"],
+      "payload": {
+        "sentence": "日本料理__美味しいですね。",
+        "correct": "は",
+        "distractors": ["が", "を", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "emphasis"],
+      "payload": {
+        "sentence": "テレビ__見ません。",
+        "correct": "は",
+        "distractors": ["を", "が", "に", "で"]
+      }
+    },
+    {
+      "id": "ha_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ha"],
+      "payload": {
+        "prefix": "田中さん",
+        "suffix": "ます。",
+        "blocks": ["は", "どこに", "い"]
+      }
+    },
+    {
+      "id": "ha_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ha", "traps"],
+      "payload": {
+        "sentence": "どこ__一番綺麗ですか。",
+        "correct": "が",
+        "distractors": ["は", "を", "に", "で"]
+      }
+    }
+  ]
+}

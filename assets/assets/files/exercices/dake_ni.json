@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~だけに  - Précisément parce que - N2"
+  },
+  "exercises": [
+    {
+      "id": "dakeni_001",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni", "N2"],
+      "payload": {
+        "sentence": "期待が大きかった__、不合格のショックも大きかった。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_002",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni", "pop_culture"],
+      "payload": {
+        "sentence": "仲間を信じていた__、裏切られた時の悲しみは深かった。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_003",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "雨が降っていた__、客足が遠のいた。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeni"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "合格は確実だろう。",
+        "blocks": ["人一倍", "努力している", "だけに"]
+      }
+    },
+    {
+      "id": "dakeni_005",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "若い__、失敗してもやり直すチャンスがある。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_006",
+      "type": "WORD_USAGE",
+      "tags": ["dakeni"],
+      "payload": {
+        "word": "～だけに ",
+        "options": [
+          { "text": "家が近いだけに、つい遅刻してしまう。", "is_correct": true },
+          { "text": "彼は真面目なだけに、冗談が通じない。", "is_correct": true },
+          { "text": "雨が降っただけに、涼しい。", "is_correct": true },
+          { "text": "宿題を忘れただけに、怒られた。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dakeni_007",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は純粋な__、騙されやすいところがある。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_008",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "久しぶりの再会__、話が弾んだ。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_009",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "高価なもの__、大切に扱わなければならない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_010",
+      "type": "PARAPHRASE",
+      "tags": ["dakeni"],
+      "payload": {
+        "base_sentence": "彼は真面目なだけに、周りからの信頼も厚い。",
+        "correct": "彼は非常に真面目なので、やはり期待通りに周囲から深く信頼されている。",
+        "distractors": [
+          "彼は真面目だから、信頼されるのは当然だ。",
+          "彼は真面目なふりをしているので、信頼されている。",
+          "彼は真面目なおかげで、信頼されるようになった。"
+        ]
+      }
+    },
+    {
+      "id": "dakeni_011",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "一度失敗している__、今度は慎重にならざるを得ない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeni"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "大切にしたい。",
+        "blocks": ["思い出は", "苦労した", "だけに"]
+      }
+    },
+    {
+      "id": "dakeni_013",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "期待していた__、裏切られた時のショックは大きかった。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_014",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "冬の山__、寒さは半端ではない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_015",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "都会__、物価が高いのは仕方がない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "「だけに」さすがだ。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "からには", "ものの"]
+      }
+    },
+    {
+      "id": "dakeni_017",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "初めての挑戦__、不安も大きい。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_018",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "彼女は優しい__、頼まれると断れない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeni"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "ミスは許されない。",
+        "blocks": ["プロ", "な", "だけに"]
+      }
+    },
+    {
+      "id": "dakeni_020",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "不景気__、就職活動は厳しい。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_021",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni", "pop_culture"],
+      "payload": {
+        "sentence": "さすが火影だ。里を愛している__、守る力もすごい。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_022",
+      "type": "WORD_USAGE",
+      "tags": ["dakeni"],
+      "payload": {
+        "word": "～だけに ",
+        "options": [
+          { "text": "本場の味だけに、本当にうまい。", "is_correct": true },
+          { "text": "彼は真面目なだけに、融通が利かない。", "is_correct": true },
+          { "text": "宿題を忘れただけに、怒られた。", "is_correct": false },
+          { "text": "宝くじに当たっただけに、お金持ちだ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "dakeni_023",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "夜道__、一人で歩くのは危ない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_024",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "彼女は器用な__、何でも自分で作ってしまう。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_025",
+      "type": "PARAPHRASE",
+      "tags": ["dakeni"],
+      "payload": {
+        "base_sentence": "彼は努力しただけに、成功は当然だ。",
+        "correct": "彼は人一倍努力したので、やはり期待通りに成功するのは当たり前だ。",
+        "distractors": [
+          "彼は努力したので、成功するのは当たり前だ。",
+          "彼は努力しなかったが、運良く成功した。",
+          "彼は努力したおかげで、誰かに褒められた。"
+        ]
+      }
+    },
+    {
+      "id": "dakeni_026",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "実力がある人__、負けた時のショックは大きかった。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_027",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "彼は潔癖症__、少しの汚れも許せない。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["dakeni"],
+      "payload": {
+        "prefix": "さすが",
+        "suffix": "決断が早い。",
+        "blocks": ["社長", "な", "だけに"]
+      }
+    },
+    {
+      "id": "dakeni_029",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "雨の日__、客が少なくて静かだ。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    },
+    {
+      "id": "dakeni_030",
+      "type": "FILL_BLANK",
+      "tags": ["dakeni"],
+      "payload": {
+        "sentence": "大切にしていた__、壊れた時の悲しみは深かった。",
+        "correct": "だけに",
+        "distractors": ["だけあって", "ばかりに", "おかげで", "せいで"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～をめぐって - L'art de la controverse et de la discussion animée. "
+  },
+  "exercises": [
+    {
+      "id": "wmg_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "その事件__、様々な噂が流れている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "に関して", "をきっかけに", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "親の遺産__、兄弟で争いが起きた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "に関して", "を中心に", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "prefix": "新しいリーダーの",
+        "suffix": "、議論が続いている。",
+        "blocks": ["選出を", "めぐって"]
+      }
+    },
+    {
+      "id": "wmg_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "環境保護の方針__、意見が対立している。",
+        "correct": "をめぐって",
+        "distractors": ["について", "に関して", "をこめて"]
+      }
+    },
+    {
+      "id": "wmg_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "word": "をめぐる",
+        "options": [
+          { "text": "憲法改正をめぐる議論が深まっている。", "is_correct": true },
+          { "text": "土地の所有権をめぐるトラブルが発生した。", "is_correct": true },
+          { "text": "ご飯をめぐる食べました。", "is_correct": false },
+          { "text": "明日をめぐる行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wmg_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "教育制度の改革__、多くの専門家が集まった。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をきっかけに", "を中心として"]
+      }
+    },
+    {
+      "id": "wmg_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "base_sentence": "その予算の使い方について、激しい話し合いがありました。",
+        "correct": "その予算の使い方をめぐって、激しい議論が交わされた。",
+        "distractors": [
+          "その予算の使い方について、激しい議論が交わされた。",
+          "その予算の使い方に関して、激しい議論が交わされた。",
+          "その予算の使い方をきっかけに、激しい議論が交わされた。"
+        ]
+      }
+    },
+    {
+      "id": "wmg_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "消費税の増税__、与野党が対立している。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "犯人の動機__、捜査が続けられている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心に", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "prefix": "ダムの",
+        "suffix": "、住民の間で反対運動が起きた。",
+        "blocks": ["建設を", "めぐって"]
+      }
+    },
+    {
+      "id": "wmg_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "新しい法律の解釈__、弁護士たちの意見が分かれた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "に関して", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "「伝統」の保存をめぐって、市議会で議論が行われた。",
+        "correct": "ほぞん",
+        "distractors": ["まもり", "しんじ", "けいかく"]
+      }
+    },
+    {
+      "id": "wmg_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "新商品の販売戦略__、会議が紛糾した。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をきっかけに", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "原子力発電の再稼働__、国民の意見は二分されている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "word": "をめぐる",
+        "options": [
+          { "text": "国境問題をめぐる交渉が難航している。", "is_correct": true },
+          { "text": "王位継承をめぐる争いが勃発した。", "is_correct": true },
+          { "text": "勉強をめぐる上手になります。", "is_correct": false },
+          { "text": "雨をめぐる傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wmg_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "その小説の映画化__、ファンから期待の声が上がっている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心にして", "をきっかけに"]
+      }
+    },
+    {
+      "id": "wmg_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "働き方改革の導入__、現場では混乱が起きている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "に関わり", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "prefix": "著作権の",
+        "suffix": "、裁判が行われることになった。",
+        "blocks": ["侵害を", "めぐって"]
+      }
+    },
+    {
+      "id": "wmg_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "そのスターの結婚__、マスコミが騒ぎ立てた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を問わず", "を中心として"]
+      }
+    },
+    {
+      "id": "wmg_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "AIの活用と倫理__、国際会議が開かれた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をこめて", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "base_sentence": "その計画の是非について、話し合いが続いています。",
+        "correct": "その計画の是非をめぐって、議論が続いている。",
+        "distractors": [
+          "その計画の是非について、議論が続いている。",
+          "その計画の是非に関して、議論が続いている。",
+          "その計画の是非をきっかけに、議論が続いている。"
+        ]
+      }
+    },
+    {
+      "id": "wmg_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "その遺跡の発見__、考古学者たちが熱心に議論している。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心にして", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "新しい駅の名前__、アンケートが行われた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をきっかけに", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "「利害」をめぐって、企業間の争いが続いている。",
+        "correct": "りがい",
+        "distractors": ["けいかく", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "wmg_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "情報の漏洩__、責任追及が行われている。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心にして", "を問わず"]
+      }
+    },
+    {
+      "id": "wmg_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "そのスターの不倫疑惑__、SNSが炎上した。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を問わず", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "prefix": "日本のアニメの",
+        "suffix": "、世界中で議論が起きている。",
+        "blocks": ["暴力表現を", "めぐって"]
+      }
+    },
+    {
+      "id": "wmg_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "ダムの建設__、自然保護団体が抗議している。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心にして", "をきっかけに"]
+      }
+    },
+    {
+      "id": "wmg_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "その特許の所有権__、長い間裁判が続いていた。",
+        "correct": "をめぐって",
+        "distractors": ["について", "を中心にして", "を通じて"]
+      }
+    },
+    {
+      "id": "wmg_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_megutte"],
+      "payload": {
+        "sentence": "君の愛__、僕は世界中を敵に回しても構わない。",
+        "correct": "をめぐって",
+        "distractors": ["について", "をきっかけに", "を問わず"]
+      }
+    }
+  ]
+}

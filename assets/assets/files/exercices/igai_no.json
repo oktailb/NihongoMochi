@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur 以外  - Sauf / En dehors de - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "igai_001",
+      "type": "FILL_BLANK",
+      "tags": ["igai", "N4"],
+      "payload": {
+        "sentence": "田中さん__、全員来ました。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_002",
+      "type": "FILL_BLANK",
+      "tags": ["igai", "pop_culture"],
+      "payload": {
+        "sentence": "肉__、ルフィは興味がない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_003",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "この本__にも、面白い本はたくさんある。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["igai"],
+      "payload": {
+        "prefix": "日曜日は",
+        "suffix": "。",
+        "blocks": ["仕事", "以外は", "家で休む"]
+      }
+    },
+    {
+      "id": "igai_005",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "彼__に、この計画を知っている人はいない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_006",
+      "type": "WORD_USAGE",
+      "tags": ["igai"],
+      "payload": {
+        "word": "以外 ",
+        "options": [
+          { "text": "日本語以外に、英語も勉強しています。", "is_correct": true },
+          { "text": "これ以外は、全部捨ててください。", "is_correct": true },
+          { "text": "田中さん以外が来た。", "is_correct": true },
+          { "text": "ご飯以外を食べる。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "igai_007",
+      "type": "FILL_BLANK",
+      "tags": ["igai", "pop_culture"],
+      "payload": {
+        "sentence": "サイヤ人__、これほど強い種族はいない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_008",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "勉強__のことは、後で話そう。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_009",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "名前を各__、何か書くことはありますか。",
+        "correct": "以外に",
+        "distractors": ["だけに", "のみに", "しかに", "ばかりに"]
+      }
+    },
+    {
+      "id": "igai_010",
+      "type": "PARAPHRASE",
+      "tags": ["igai"],
+      "payload": {
+        "base_sentence": "彼は、平日は仕事以外のことはしない。",
+        "correct": "彼は平日に、仕事という活動だけを行い、それ以外の活動（趣味など）は全くしません。",
+        "distractors": [
+          "彼は平日に仕事をしませんが、週末だけ仕事をします。",
+          "彼は平日も週末も仕事をするのが嫌いです。",
+          "彼は平日に仕事をするために、他のことをすべてやめました。"
+        ]
+      }
+    },
+    {
+      "id": "igai_011",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "ここ__にも、同じ店がありますよ。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["igai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["サッカー", "以外に", "テニスも得意だ"]
+      }
+    },
+    {
+      "id": "igai_013",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "自分__の人の気持ちを考えることが大切だ。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_014",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "甘いもの__、何でも食べられます。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_015",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "予定__のことが起きて、驚きました。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "「以外」に多い。",
+        "correct": "いがい",
+        "distractors": ["いそと", "いがいわ", "いがいな", "いがいに"]
+      }
+    },
+    {
+      "id": "igai_017",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "家__では、メガネをかけています。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_018",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "彼__には、誰も頼めない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["igai"],
+      "payload": {
+        "prefix": "日本酒",
+        "suffix": "。",
+        "blocks": ["以外", "の酒は", "飲まない"]
+      }
+    },
+    {
+      "id": "igai_020",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "冬__の季節は、キャンプに行きます。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_021",
+      "type": "FILL_BLANK",
+      "tags": ["igai", "pop_culture"],
+      "payload": {
+        "sentence": "復讐__、サスケの頭には何もない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_022",
+      "type": "WORD_USAGE",
+      "tags": ["igai"],
+      "payload": {
+        "word": "以外 ",
+        "options": [
+          { "text": "これ以外の方法は、考えられない。", "is_correct": true },
+          { "text": "仕事以外は、ずっと寝ている。", "is_correct": true },
+          { "text": "雨以外の日に行く。", "is_correct": true },
+          { "text": "漢字以外を勉強する。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "igai_023",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "ここ__で、タバコを吸わないでください。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_024",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "水__、何も飲みたくない。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_025",
+      "type": "PARAPHRASE",
+      "tags": ["igai"],
+      "payload": {
+        "base_sentence": "私は、これ以外に何も持っていません。",
+        "correct": "私は、今持っているこれ一つの他に、何も荷物を持っていません。",
+        "distractors": [
+          "私はこれを持ちたくありません。",
+          "私はこれを誰かにあげました。",
+          "私はこれを持って、外に行きました。"
+        ]
+      }
+    },
+    {
+      "id": "igai_026",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "君__に、誰がそんなことを言うんだ。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_027",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "日本語__の言葉は話せません。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["igai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["勉強", "以外は", "何も興味がない"]
+      }
+    },
+    {
+      "id": "igai_029",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "これ__に、何か質問はありますか。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    },
+    {
+      "id": "igai_030",
+      "type": "FILL_BLANK",
+      "tags": ["igai"],
+      "payload": {
+        "sentence": "予定__の費用がかかってしまった。",
+        "correct": "以外",
+        "distractors": ["だけ", "のみ", "しか", "ばかり"]
+      }
+    }
+  ]
+}

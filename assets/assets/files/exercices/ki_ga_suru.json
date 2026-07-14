@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur 気がする  - Avoir l'impression / Pressentiment - N3"
+  },
+  "exercises": [
+    {
+      "id": "kigasuru_001",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru", "N3"],
+      "payload": {
+        "sentence": "どこかで会ったような__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_002",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru", "pop_culture"],
+      "payload": {
+        "sentence": "悟空なら、まだ隠している力があるような__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_003",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "明日は雨が降る__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kigasuru"],
+      "payload": {
+        "prefix": "彼は嘘を",
+        "suffix": "。",
+        "blocks": ["ついている", "ような", "気がする"]
+      }
+    },
+    {
+      "id": "kigasuru_005",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "この計画は成功する__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_006",
+      "type": "WORD_USAGE",
+      "tags": ["kigasuru"],
+      "payload": {
+        "word": "～気がする ",
+        "options": [
+          { "text": "忘れ物をしたような気がする。", "is_correct": true },
+          { "text": "彼が犯人である気がする。", "is_correct": true },
+          { "text": "雨が降る気がする。", "is_correct": true },
+          { "text": "勉強する気がする。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kigasuru_007",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの笑い声が聞こえたような__。",
+        "correct": "気がした",
+        "distractors": ["ことにした", "つもりだった", "はずだった", "わけだった"]
+      }
+    },
+    {
+      "id": "kigasuru_008",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "この本、前にも読んだ__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_009",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "誰かに見られているような__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_010",
+      "type": "PARAPHRASE",
+      "tags": ["kigasuru"],
+      "payload": {
+        "base_sentence": "彼は来ないような気がします。",
+        "correct": "はっきりとした理由は言えませんが、何となく彼が来ないという予感がします。",
+        "distractors": [
+          "彼は絶対に来ないと私は確信しています。",
+          "彼は来ないという予定になっています。",
+          "彼は来ないほうがいいと私は思います。"
+        ]
+      }
+    },
+    {
+      "id": "kigasuru_011",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "もっと安くなる__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kigasuru"],
+      "payload": {
+        "prefix": "今日は",
+        "suffix": "。",
+        "blocks": ["いいことが", "あるような", "気がする"]
+      }
+    },
+    {
+      "id": "kigasuru_013",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "彼の話し方は、どこか嘘っぽい__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_014",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "ここに来たことがある__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_015",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "彼女は何かを隠している__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "「気がする」。",
+        "correct": "きがする",
+        "distractors": ["けがする", "きわする", "きがなする", "きがするわ"]
+      }
+    },
+    {
+      "id": "kigasuru_017",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "この映画、結末がわかる__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_018",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "明日のテストは簡単__。",
+        "correct": "な気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kigasuru"],
+      "payload": {
+        "prefix": "何かを",
+        "suffix": "。",
+        "blocks": ["忘れている", "ような", "気がする"]
+      }
+    },
+    {
+      "id": "kigasuru_020",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "彼とは以前、どこかで会った__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_021",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの影に、誰かがいるような__。",
+        "correct": "気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_022",
+      "type": "WORD_USAGE",
+      "tags": ["kigasuru"],
+      "payload": {
+        "word": "～気がする ",
+        "options": [
+          { "text": "嫌な予感がするような気がする。", "is_correct": true },
+          { "text": "もっと練習が必要な気がする。", "is_correct": true },
+          { "text": "雨が降るだろう気がする。", "is_correct": true },
+          { "text": "勉強することを気がする。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kigasuru_023",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "この道で合っている__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_024",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "彼は本当に怒っている__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_025",
+      "type": "PARAPHRASE",
+      "tags": ["kigasuru"],
+      "payload": {
+        "base_sentence": "私は、彼が正しいような気がします。",
+        "correct": "確かな証拠はありませんが、何となく彼の意見が正しいのではないかと感じています。",
+        "distractors": [
+          "私は彼が正しいと100%信じています。",
+          "私は彼が正しいという情報を聞きました。",
+          "私は彼が正しいと言うことに決めました。"
+        ]
+      }
+    },
+    {
+      "id": "kigasuru_026",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "もう一度チャンスがある__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_027",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "彼女は私のことが嫌い__。",
+        "correct": "な気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kigasuru"],
+      "payload": {
+        "prefix": "すべては",
+        "suffix": "。",
+        "blocks": ["夢だった", "ような", "気がする"]
+      }
+    },
+    {
+      "id": "kigasuru_029",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "未来は明るい__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    },
+    {
+      "id": "kigasuru_030",
+      "type": "FILL_BLANK",
+      "tags": ["kigasuru"],
+      "payload": {
+        "sentence": "自分の居場所はここではない__。",
+        "correct": "ような気がする",
+        "distractors": ["ことにする", "つもりだ", "はずだ", "わけだ"]
+      }
+    }
+  ]
+}

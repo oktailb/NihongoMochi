@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur 末に・の末（に） - L'aboutissement d'un long chemin. "
+  },
+  "exercises": [
+    {
+      "id": "sne_001",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "悩み抜いた__、会社を辞めることにした。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところで", "ばかりに", "ついでに"]
+      }
+    },
+    {
+      "id": "sne_002",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "激しい議論の__、ようやく結論が出た。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところで", "反面", "に限らず"]
+      }
+    },
+    {
+      "id": "sne_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sue_ni"],
+      "payload": {
+        "prefix": "苦労の",
+        "suffix": "、自分の店を持つことができた。",
+        "blocks": ["末に"]
+      }
+    },
+    {
+      "id": "sne_004",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "10時間に及ぶ手術の__、命は助かった。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところで", "反面"]
+      }
+    },
+    {
+      "id": "sne_005",
+      "type": "WORD_USAGE",
+      "tags": ["sue_ni"],
+      "payload": {
+        "word": "末に",
+        "options": [
+          { "text": "考え抜いた末に、プロポーズした。", "is_correct": true },
+          { "text": "数ヶ月の交渉の末に、契約が成立した。", "is_correct": true },
+          { "text": "朝起きた末に、顔を洗いました。", "is_correct": false },
+          { "text": "ご飯を食べた末に、お腹がいっぱいになりました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sne_006",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "何度も失敗した__、ついに新薬が完成した。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "sne_007",
+      "type": "PARAPHRASE",
+      "tags": ["sue_ni"],
+      "payload": {
+        "base_sentence": "長い間話し合って、やっと和解した。",
+        "correct": "長い話し合いの末に、やっと和解した。",
+        "distractors": [
+          "長い話し合いのうちに、やっと和解した。",
+          "長い話し合いのところで、やっと和解した。",
+          "長い話し合いのばかりに、やっと和解した。"
+        ]
+      }
+    },
+    {
+      "id": "sne_008",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "迷った__、一番高いパソコンを買うことにした。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_009",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "厳しい修行の__、免許皆伝を授かった。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ついでに"]
+      }
+    },
+    {
+      "id": "sne_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sue_ni"],
+      "payload": {
+        "prefix": "犯人は",
+        "suffix": "、ついに逮捕された。",
+        "blocks": ["逃走の", "末に"]
+      }
+    },
+    {
+      "id": "sne_011",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "話し合いの__、離婚することになった。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "「葛藤」の末に、彼は真実を話した。",
+        "correct": "かっとう",
+        "distractors": ["べんきょう", "しっぱい", "れんしゅう"]
+      }
+    },
+    {
+      "id": "sne_013",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "3年間の浪人の__、志望校に合格した。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_014",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "検討を重ねた__、新プロジェクトを始動させた。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_015",
+      "type": "WORD_USAGE",
+      "tags": ["sue_ni"],
+      "payload": {
+        "word": "末に",
+        "options": [
+          { "text": "試行錯誤の末に、独自の製法にたどり着いた。", "is_correct": true },
+          { "text": "大恋愛の末に、二人は結ばれた。", "is_correct": true },
+          { "text": "雨が降った末に、傘をさしました。", "is_correct": false },
+          { "text": "毎日勉強した末に、100点を取った。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "sne_016",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "長年の研究の__、ついに新星を発見した。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "sne_017",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "激戦の__、我がチームが勝利した。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sue_ni"],
+      "payload": {
+        "prefix": "紆余曲折の",
+        "suffix": "、今の幸せがある。",
+        "blocks": ["末に"]
+      }
+    },
+    {
+      "id": "sne_019",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "喧嘩を繰り返した__、二人は親友になった。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_020",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "訓練の__、彼は一流のパイロットになった。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "sne_021",
+      "type": "PARAPHRASE",
+      "tags": ["sue_ni"],
+      "payload": {
+        "base_sentence": "長い間待たされて、やっと店に入れた。",
+        "correct": "長い待ち時間の末に、やっと店に入れた。",
+        "distractors": [
+          "長い待ち時間のうちに、やっと店に入れた。",
+          "長い待ち時間のところで、やっと店に入れた。",
+          "長い待ち時間のばかりに、やっと店に入れた。"
+        ]
+      }
+    },
+    {
+      "id": "sne_022",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "推敲を重ねた__、素晴らしい小説が完成した。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_023",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "説得の__、父は留学を許してくれた。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "「激闘」の末に、勇者は魔王を倒した。",
+        "correct": "げきとう",
+        "distractors": ["せんそう", "しっぱい", "れんしゅう"]
+      }
+    },
+    {
+      "id": "sne_025",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "熟考の__、新しい道を進むことに決めた。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_026",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "準備を重ねた__、ついに打ち上げは成功した。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "sne_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sue_ni"],
+      "payload": {
+        "prefix": "長い裁判の",
+        "suffix": "、無罪が証明された。",
+        "blocks": ["末に"]
+      }
+    },
+    {
+      "id": "sne_028",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "彷徨った__、秘密の入り口を見つけた。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_029",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "再会の__、二人は涙を流した。",
+        "correct": "末に",
+        "distractors": ["うちに", "ところを", "反面"]
+      }
+    },
+    {
+      "id": "sne_030",
+      "type": "FILL_BLANK",
+      "tags": ["sue_ni"],
+      "payload": {
+        "sentence": "努力の__、夢を叶えることができた。",
+        "correct": "末に",
+        "distractors": ["あげくに", "うちに", "ところで"]
+      }
+    }
+  ]
+}

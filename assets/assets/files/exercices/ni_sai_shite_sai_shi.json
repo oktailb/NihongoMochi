@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に際して / ~に際し  - N2"
+  },
+  "exercises": [
+    {
+      "id": "nisaishite_001",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite", "N2"],
+      "payload": {
+        "sentence": "日本への留学__、奨学金を申請した。",
+        "correct": "に際して",
+        "distractors": ["に対して", "について", "に当たって", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_002",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite", "pop_culture"],
+      "payload": {
+        "sentence": "火影就任__、彼は里の平和を誓った。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_003",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "新製品の発売__、大々的なキャンペーンを行った。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisaishite"],
+      "payload": {
+        "prefix": "ご来校",
+        "suffix": "。",
+        "blocks": ["に際しては", "公共交通機関を", "ご利用ください"]
+      }
+    },
+    {
+      "id": "nisaishite_005",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "契約の締結__、慎重に内容を確認した。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_006",
+      "type": "WORD_USAGE",
+      "tags": ["nisaishite"],
+      "payload": {
+        "word": "～に際して ",
+        "options": [
+          { "text": "結婚に際して、親戚が集まった。", "is_correct": true },
+          { "text": "帰国に際し、挨拶回りをした。", "is_correct": true },
+          { "text": "食事に際して、箸を使う。", "is_correct": false },
+          { "text": "開会に際して、一言申し上げます。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisaishite_007",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザとの最終決戦__、悟空は界王拳を使った。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_008",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "出発__、忘れ物がないかもう一度確認しよう。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_009",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "調査の開始__、関係者に協力を求めた。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_010",
+      "type": "PARAPHRASE",
+      "tags": ["nisaishite"],
+      "payload": {
+        "base_sentence": "今回のプロジェクトの完了に際し、感謝の意を表します。",
+        "correct": "このプロジェクトという大きな仕事が無事に終わったという特別な機会にあたり、お世話になった方々へ心からお礼を言いたいと思います。",
+        "distractors": [
+          "プロジェクトが終わる前に、お礼を言いました。",
+          "プロジェクトを完了させるために、誰かに手伝ってもらいました。",
+          "プロジェクトが終わった後で、謝りに行きました。"
+        ]
+      }
+    },
+    {
+      "id": "nisaishite_011",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "マンションの入居__、規約の説明を受けた。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisaishite"],
+      "payload": {
+        "prefix": "冬の",
+        "suffix": "。",
+        "blocks": ["訪れ", "に際し", "暖房器具を準備した"]
+      }
+    },
+    {
+      "id": "nisaishite_013",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "手術を受ける__、同意書に署名した。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_014",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "市長の退任__、花束が贈られた。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_015",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "この資料を__に際しては、許可が必要です。",
+        "correct": "閲覧する",
+        "distractors": ["閲覧した", "閲覧して", "閲覧すれば", "閲覧しよう"]
+      }
+    },
+    {
+      "id": "nisaishite_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "「に際して」注意する。",
+        "correct": "にさいして",
+        "distractors": ["にぎわして", "にあたって", "にたいして", "にかんして"]
+      }
+    },
+    {
+      "id": "nisaishite_017",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "災害の発生__、冷静な行動が求められる。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_018",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "歴史的な瞬間に__、立ち会えたことを光栄に思う。",
+        "correct": "立ち会うに際し",
+        "distractors": ["立ち会うに際しては", "立ち会うに当たって", "立ち会うに対して", "立ち会うについて"]
+      }
+    },
+    {
+      "id": "nisaishite_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisaishite"],
+      "payload": {
+        "prefix": "海外へ",
+        "suffix": "。",
+        "blocks": ["移住する", "に際して", "家財道具をすべて処分した"]
+      }
+    },
+    {
+      "id": "nisaishite_020",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "大学の卒業__、恩師に感謝の言葉を述べた。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_021",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの起動実験__、極秘の安全プロトコルが発動した。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_022",
+      "type": "WORD_USAGE",
+      "tags": ["nisaishite"],
+      "payload": {
+        "word": "～に際して ",
+        "options": [
+          { "text": "転職に際して、これまでのキャリアを振り返った。", "is_correct": true },
+          { "text": "散歩に際して、帽子を被った。", "is_correct": false },
+          { "text": "新事業の立ち上げに際し、市場調査を徹底した。", "is_correct": true },
+          { "text": "契約の更新に際しては、事前の連絡が必要です。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nisaishite_023",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "大会の開催__、関係者の安全確保を第一に考える。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_024",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "裁判の判決__、裁判長から厳しいお言葉があった。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_025",
+      "type": "PARAPHRASE",
+      "tags": ["nisaishite"],
+      "payload": {
+        "base_sentence": "契約の解除に際しては、違約金が発生します。",
+        "correct": "あなたが現在結んでいる契約を正式に解約しようとする場合には、その手続きの一部として、特定の金額を支払う義務が生じます。",
+        "distractors": [
+          "契約を解除した後で、違約金を払いました。",
+          "契約を解除するために、違約金を貯めました。",
+          "契約を解除したおかげで、違約金が安くなりました。"
+        ]
+      }
+    },
+    {
+      "id": "nisaishite_026",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "この本を__に際しては、筆者の許可が必要です。",
+        "correct": "出版する",
+        "distractors": ["出版した", "出版して", "出版すれば", "出版しよう"]
+      }
+    },
+    {
+      "id": "nisaishite_027",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "引退の決意__、彼は感謝の言葉を綴った。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nisaishite_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nisaishite"],
+      "payload": {
+        "prefix": "新しい",
+        "suffix": "。",
+        "blocks": ["門出", "に際して", "お祝いのメッセージを送った"]
+      }
+    },
+    {
+      "id": "nisaishite_029",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "重要事項の決定__、会議を開くことにした。",
+        "correct": "に際して",
+        "distractors": ["に当たって", "に対して", "について", "にそって"]
+      }
+    },
+    {
+      "id": "nisaishite_030",
+      "type": "FILL_BLANK",
+      "tags": ["nisaishite"],
+      "payload": {
+        "sentence": "お別れ__、一言申し上げます。",
+        "correct": "に際し",
+        "distractors": ["に際しては", "に当たって", "に対して", "について"]
+      }
+    }
+  ]
+}

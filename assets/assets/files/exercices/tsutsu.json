@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～つつ - L'art de la simultanéité formelle et du contraste. "
+  },
+  "exercises": [
+    {
+      "id": "tsu_001",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "将来の計画を__つつ、今を精一杯生きています。",
+        "correct": "立て",
+        "distractors": ["立てる", "立てた", "立てて", "立てよう"]
+      }
+    },
+    {
+      "id": "tsu_002",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "悪いと知り__、つい嘘をついてしまった。",
+        "correct": "つつ",
+        "distractors": ["ながら", "うちに", "ついでに", "ばかりに"]
+      }
+    },
+    {
+      "id": "tsu_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsutsu"],
+      "payload": {
+        "prefix": "健康のことを",
+        "suffix": "、タバコがやめられない。",
+        "blocks": ["考え", "つつ"]
+      }
+    },
+    {
+      "id": "tsu_004",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "ボランティア活動を__つつ、大学で勉強しています。",
+        "correct": "し",
+        "distractors": ["する", "した", "して"]
+      }
+    },
+    {
+      "id": "tsu_005",
+      "type": "WORD_USAGE",
+      "tags": ["tsutsu"],
+      "payload": {
+        "word": "つつ",
+        "options": [
+          { "text": "信じつつ、疑ってしまう自分もいる。", "is_correct": true },
+          { "text": "相談しつつ、進めていきましょう。", "is_correct": true },
+          { "text": "ご飯を食べつつ、テレビを見ました。", "is_correct": false },
+          { "text": "勉強しつつ、上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tsu_006",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "期待を__つつ、返事を待っています。",
+        "correct": "抱き",
+        "distractors": ["抱く", "抱いた", "抱いて"]
+      }
+    },
+    {
+      "id": "tsu_007",
+      "type": "PARAPHRASE",
+      "tags": ["tsutsu"],
+      "payload": {
+        "base_sentence": "危ないと思っていましたが、助けに行きました。",
+        "correct": "危ないと思いつつ、助けに行きました。",
+        "distractors": [
+          "危ないと思いながら、助けに行きました。",
+          "危ないと思いうちに、助けに行きました。",
+          "危ないと思いついでに、助けに行きました。"
+        ]
+      }
+    },
+    {
+      "id": "tsu_008",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "失敗を__つつ、成長していくものだ。",
+        "correct": "繰り返し",
+        "distractors": ["繰り返す", "繰り返した", "繰り返して"]
+      }
+    },
+    {
+      "id": "tsu_009",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "昔を__つつ、今の幸せを噛み締めている。",
+        "correct": "懐かしみ",
+        "distractors": ["懐かしむ", "懐かしんだ", "懐かしんで"]
+      }
+    },
+    {
+      "id": "tsu_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsutsu"],
+      "payload": {
+        "prefix": "様子を",
+        "suffix": "、チャンスを待とう。",
+        "blocks": ["見", "つつ"]
+      }
+    },
+    {
+      "id": "tsu_011",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "不満を__つつも、彼は仕事を続けている。",
+        "correct": "言い",
+        "distractors": ["言う", "言った", "言って"]
+      }
+    },
+    {
+      "id": "tsu_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "「伝統」を重んじつつ、革新を求める。",
+        "correct": "おもんじ",
+        "distractors": ["たいせつに", "まもり", "しんじ"]
+      }
+    },
+    {
+      "id": "tsu_013",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "不安を__つつも、新しい一歩を踏み出した。",
+        "correct": "感じ",
+        "distractors": ["感じる", "感じた", "感じて"]
+      }
+    },
+    {
+      "id": "tsu_014",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "現実を__つつ、理想を追い求めたい。",
+        "correct": "見据え",
+        "distractors": ["見据える", "見据えた", "見据えて"]
+      }
+    },
+    {
+      "id": "tsu_015",
+      "type": "WORD_USAGE",
+      "tags": ["tsutsu"],
+      "payload": {
+        "word": "つつある",
+        "options": [
+          { "text": "景気は少しずつ回復しつつある。", "is_correct": true },
+          { "text": "春が近づきつつあるのを感じる。", "is_correct": true },
+          { "text": "ご飯を食べつつある、お腹がいっぱいです。", "is_correct": false },
+          { "text": "勉強をしつつある、上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tsu_016",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "希望を__つつ、最後まで戦い抜こう。",
+        "correct": "捨てず",
+        "distractors": ["捨てない", "捨て", "捨てて"]
+      }
+    },
+    {
+      "id": "tsu_017",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "本音を__つつも、笑顔で接している。",
+        "correct": "隠し",
+        "distractors": ["隠す", "隠した", "隠して"]
+      }
+    },
+    {
+      "id": "tsu_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsutsu"],
+      "payload": {
+        "prefix": "周囲の",
+        "suffix": "、自分の道を進む。",
+        "blocks": ["意見を", "聞き", "つつ"]
+      }
+    },
+    {
+      "id": "tsu_019",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "責任を__つつ、リーダーを務めています。",
+        "correct": "感じ",
+        "distractors": ["感じる", "感じた", "感じて"]
+      }
+    },
+    {
+      "id": "tsu_020",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "感謝の気持ちを__つつ、この手紙を書いています。",
+        "correct": "込め",
+        "distractors": ["込める", "込めた", "込めて"]
+      }
+    },
+    {
+      "id": "tsu_021",
+      "type": "PARAPHRASE",
+      "tags": ["tsutsu"],
+      "payload": {
+        "base_sentence": "彼は「無理だ」と思いながらも、挑戦しました。",
+        "correct": "彼は無理だと思いつつも、挑戦しました。",
+        "distractors": [
+          "彼は無理だと思いながら、挑戦しました。",
+          "彼は無理だと思いうちに、挑戦しました。",
+          "彼は無理だと思いついでに、挑戦しました。"
+        ]
+      }
+    },
+    {
+      "id": "tsu_022",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "現状を__つつ、改善策を練っている。",
+        "correct": "分析し",
+        "distractors": ["分析する", "分析した", "分析して"]
+      }
+    },
+    {
+      "id": "tsu_023",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "迷い__、ついに決断を下した。",
+        "correct": "つつ",
+        "distractors": ["ながら", "うちに", "ついでに"]
+      }
+    },
+    {
+      "id": "tsu_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "「葛藤」しつつ、答えを出した。",
+        "correct": "かっとう",
+        "distractors": ["べんきょう", "しっぱい", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tsu_025",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "時代の流れを__つつ、変わらないものを大切にしたい。",
+        "correct": "読み",
+        "distractors": ["読む", "読んだ", "読んで"]
+      }
+    },
+    {
+      "id": "tsu_026",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "健康を__つつ、仕事に励んでいる。",
+        "correct": "維持し",
+        "distractors": ["維持する", "維持した", "維持して"]
+      }
+    },
+    {
+      "id": "tsu_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tsutsu"],
+      "payload": {
+        "prefix": "勇気を",
+        "suffix": "、一歩前へ出た。",
+        "blocks": ["振り絞り", "つつ"]
+      }
+    },
+    {
+      "id": "tsu_028",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "自分を__つつ、新しいことにも挑戦してみたい。",
+        "correct": "律し",
+        "distractors": ["律する", "律した", "律して"]
+      }
+    },
+    {
+      "id": "tsu_029",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "君の言葉を信じ__、少し不安なんだ。",
+        "correct": "つつ",
+        "distractors": ["ながら", "うちに", "ついでに"]
+      }
+    },
+    {
+      "id": "tsu_030",
+      "type": "FILL_BLANK",
+      "tags": ["tsutsu"],
+      "payload": {
+        "sentence": "君を__つつ、僕は生きる。",
+        "correct": "想い",
+        "distractors": ["想う", "想った", "想って"]
+      }
+    }
+  ]
+}

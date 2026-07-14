@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に加えて  - En plus de / Outre - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "nikuwaete_001",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete", "N3"],
+      "payload": {
+        "sentence": "雨__、風も強くなってきた。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_002",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、圧倒的な力__、強い精神力も持っている。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_003",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "英語__、中国語も勉強しています。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "prefix": "このレストランは、",
+        "suffix": "。",
+        "blocks": ["味の良さ", "に加えて", "サービスも一流だ"]
+      }
+    },
+    {
+      "id": "nikuwaete_005",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "不景気__、物価の上昇も生活を苦しくしている。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_006",
+      "type": "WORD_USAGE",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "word": "～に加えて ",
+        "options": [
+          { "text": "趣味に加えて、実益も兼ねている。", "is_correct": true },
+          { "text": "才能に加えて、努力も惜しまない。", "is_correct": true },
+          { "text": "雨に加えて、傘を差す。", "is_correct": false },
+          { "text": "昨日の失敗に加えて、今日もミスをした。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nikuwaete_007",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの残虐さ__、その狡猾さも恐ろしい。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_008",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "日曜日__、祝日も休みです。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_009",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "仕事の忙しさ__、人間関係でも悩んでいる。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_010",
+      "type": "PARAPHRASE",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "base_sentence": "彼は、知識の豊富さに加えて、行動力もある。",
+        "correct": "彼は、単に物事をよく知っている（知識がある）というだけでなく、それと同じように、実際に物事を実行に移す力も備えています。",
+        "distractors": [
+          "彼は知識があるので、行動する必要がありません。",
+          "彼は知識を増やすために、行動することにしました。",
+          "彼は知識があるおかげで、行動するのが楽になりました。"
+        ]
+      }
+    },
+    {
+      "id": "nikuwaete_011",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "都会の便利さ__、刺激の多さが魅力だ。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["カメラは", "使いやすさ", "に加えてデザインもいい"]
+      }
+    },
+    {
+      "id": "nikuwaete_013",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "野菜の不足__、睡眠不足も健康には良くない。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_014",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "彼女は、美しさ__、内面の優しさも兼ね備えている。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_015",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "冬の寒さ__、雪の多さがこの地方の特徴だ。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "「に加えて」発表する。",
+        "correct": "にくわえて",
+        "distractors": ["にあたって", "に際して", "に対して", "にそなえて"]
+      }
+    },
+    {
+      "id": "nikuwaete_017",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "最新の機能__、安全性能も向上した。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_018",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "昨日の大雨__、今日は強風が吹き荒れている。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["ピアノ", "に加えて", "バイオリンも弾ける"]
+      }
+    },
+    {
+      "id": "nikuwaete_020",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "情報のデジタル化__、スピード感が求められている。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_021",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの操縦技術__、パイロットの精神安定が重要だ。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_022",
+      "type": "WORD_USAGE",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "word": "～に加えて ",
+        "options": [
+          { "text": "多額の借金に加えて、利子も増え続けている。", "is_correct": true },
+          { "text": "毎日の残業に加えて、週末も仕事だ。", "is_correct": true },
+          { "text": "雨に加えて、虹が出た。", "is_correct": false },
+          { "text": "厳しい寒さに加えて、インフルエンザが流行している。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nikuwaete_023",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "公共交通の不便さ__、坂が多いのもこの町の悩みだ。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_024",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "彼の沈黙__、冷ややかな視線が怖かった。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_025",
+      "type": "PARAPHRASE",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "base_sentence": "今回の失敗に加えて、さらに大きな問題が発生した。",
+        "correct": "既に失敗という良くない状況が起きていましたが、その上さらに、もっと深刻なトラブルが重なってしまいました。",
+        "distractors": [
+          "今回の失敗のおかげで、問題が解決しました。",
+          "今回の失敗を解決するために、新しい問題を考えました。",
+          "今回の失敗があった後で、問題を忘れました。"
+        ]
+      }
+    },
+    {
+      "id": "nikuwaete_026",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "このパソコンは、重い__、動作も遅い。",
+        "correct": "のに加えて",
+        "distractors": ["のに対して", "のについて", "のに当たって", "のに際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_027",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "彼は、実力__、運も持っている人だ。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["日本語", "に加えて", "フランス語も話せる"]
+      }
+    },
+    {
+      "id": "nikuwaete_029",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "不適切な発言__、彼の態度は非常に傲慢だった。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nikuwaete_030",
+      "type": "FILL_BLANK",
+      "tags": ["nikuwaete"],
+      "payload": {
+        "sentence": "感謝の言葉__、ささやかな贈り物を添えた。",
+        "correct": "に加えて",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    }
+  ]
+}

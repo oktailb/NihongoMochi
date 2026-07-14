@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~まい  - Intention/Probabilité négative forte - N2"
+  },
+  "exercises": [
+    {
+      "id": "mai_001",
+      "type": "FILL_BLANK",
+      "tags": ["mai", "N2"],
+      "payload": {
+        "sentence": "あんなひどい店には、二度と行く__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_002",
+      "type": "FILL_BLANK",
+      "tags": ["mai", "pop_culture"],
+      "payload": {
+        "sentence": "悟空がいれば、敵に負けることはある__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_003",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "本当のことを言おうか言う__か、一晩中悩んだ。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["もう", "二度と", "嘘はつくまい"]
+      }
+    },
+    {
+      "id": "mai_005",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "あんな失敗は、もう繰り返す__と心に決めた。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_006",
+      "type": "WORD_USAGE",
+      "tags": ["mai"],
+      "payload": {
+        "word": "～まい ",
+        "options": [
+          { "text": "二度とお酒は飲むまい。", "is_correct": true },
+          { "text": "彼は来まい。", "is_correct": true },
+          { "text": "雨が降るまい。", "is_correct": true },
+          { "text": "勉強するまい合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "mai_007",
+      "type": "FILL_BLANK",
+      "tags": ["mai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザ様が、我々を許してくれるはずはある__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_008",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "もう彼には会う__と思っていたのに、また会ってしまった。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_009",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "誰にもこの秘密を漏らす__と誓った。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_010",
+      "type": "PARAPHRASE",
+      "tags": ["mai"],
+      "payload": {
+        "base_sentence": "彼はもう、あきらめるまい。",
+        "correct": "彼は、絶対に途中でやめる（あきらめる）という意志を持っていないと推測されます。",
+        "distractors": [
+          "彼はあきらめることにしました。",
+          "彼はあきらめるために準備をしています。",
+          "彼はあきらめた後で、別のことを始めました。"
+        ]
+      }
+    },
+    {
+      "id": "mai_011",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "こんな屈辱、二度と受ける__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mai"],
+      "payload": {
+        "prefix": "あの時の",
+        "suffix": "。",
+        "blocks": ["苦しみは", "二度と", "味わうまい"]
+      }
+    },
+    {
+      "id": "mai_013",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "行こうか行く__か、まだ迷っている。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_014",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "彼がそんなことをするはずはある__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_015",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "もう二度と嘘は__と心に誓った。",
+        "correct": "つくまい",
+        "distractors": ["つきたい", "つきよう", "つかない", "つくでしょう"]
+      }
+    },
+    {
+      "id": "mai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "「二度と行くまい」。",
+        "correct": "にどといくまい",
+        "distractors": ["にどといくよう", "にどといくない", "にどといきたい", "にどといくため"]
+      }
+    },
+    {
+      "id": "mai_017",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "真実を話そうか隠し通そう__か、葛藤が続く。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_018",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "あの場所には、二度と足を踏み入れる__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mai"],
+      "payload": {
+        "prefix": "失敗を",
+        "suffix": "。",
+        "blocks": ["恐れていては", "何も", "できまい"]
+      }
+    },
+    {
+      "id": "mai_020",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "彼なら決して裏切ることはある__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_021",
+      "type": "FILL_BLANK",
+      "tags": ["mai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの暴走を、もう誰も止められ__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_022",
+      "type": "WORD_USAGE",
+      "tags": ["mai"],
+      "payload": {
+        "word": "～まい ",
+        "options": [
+          { "text": "書くまい。", "is_correct": true },
+          { "text": "読みまい。", "is_correct": false },
+          { "text": "話すまい。", "is_correct": true },
+          { "text": "泳ぐまい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "mai_023",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "どんな困難があろうと、屈する__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_024",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "このチャンスを逃す__と、彼は必死だった。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_025",
+      "type": "PARAPHRASE",
+      "tags": ["mai"],
+      "payload": {
+        "base_sentence": "そんなこと、誰にもわかるまい。",
+        "correct": "そのような事実は、おそらく誰一人として理解することはできないだろうと私は思います。",
+        "distractors": [
+          "誰にでもわかる簡単なことです。",
+          "誰かがわかるように説明しました。",
+          "誰がわかるか、私は知りません。"
+        ]
+      }
+    },
+    {
+      "id": "mai_026",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "もう二度と彼を__まいと決めたのに。",
+        "correct": "許す",
+        "distractors": ["許し", "許して", "許せば", "許そう"]
+      }
+    },
+    {
+      "id": "mai_027",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "あんな苦しい思いは、もう二度と__まい。",
+        "correct": "した",
+        "distractors": ["し", "して", "すれば", "しよう"]
+      }
+    },
+    {
+      "id": "mai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mai"],
+      "payload": {
+        "prefix": "真実は",
+        "suffix": "。",
+        "blocks": ["誰にも", "永遠に", "わかるまい"]
+      }
+    },
+    {
+      "id": "mai_029",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "彼が一人でやり遂げられるはずはある__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    },
+    {
+      "id": "mai_030",
+      "type": "FILL_BLANK",
+      "tags": ["mai"],
+      "payload": {
+        "sentence": "この恩は一生忘れる__。",
+        "correct": "まい",
+        "distractors": ["たい", "よう", "ない", "だろう"]
+      }
+    }
+  ]
+}

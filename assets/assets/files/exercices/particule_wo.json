@@ -1,0 +1,219 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule WO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "wo_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "水を__。",
+        "correct": "飲みます",
+        "distractors": ["飲みますを", "飲むます", "飲みますに", "飲みますで"]
+      }
+    },
+    {
+      "id": "wo_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "日本語__わかりますか。",
+        "correct": "が",
+        "distractors": ["を", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "朝ご飯__食べましたか。",
+        "correct": "を",
+        "distractors": ["は", "が", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "movement"],
+      "payload": {
+        "sentence": "この角__右へ曲がってください。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は"]
+      }
+    },
+    {
+      "id": "wo_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "pop_culture"],
+      "payload": {
+        "sentence": "ピカチュウ、10万ボルト__使え！",
+        "correct": "を",
+        "distractors": ["が", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "毎日、お風呂__入ります。",
+        "correct": "に",
+        "distractors": ["を", "が", "で", "は"]
+      }
+    },
+    {
+      "id": "wo_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "leaving"],
+      "payload": {
+        "sentence": "明日、家__出ます。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は"]
+      }
+    },
+    {
+      "id": "wo_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "あそこに猫__います。",
+        "correct": "が",
+        "distractors": ["を", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "through"],
+      "payload": {
+        "sentence": "公園__散歩します。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は"]
+      }
+    },
+    {
+      "id": "wo_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_wo"],
+      "payload": {
+        "word": "を ",
+        "options": [
+          { "text": "本を読みます。", "is_correct": true },
+          { "text": "音楽を聴きます。", "is_correct": true },
+          { "text": "橋を渡ります。", "is_correct": true },
+          { "text": "山を登ります。", "is_correct": true },
+          { "text": "学校を行きます。", "is_correct": false },
+          { "text": "友達を会います。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wo_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "テレビ__見ないでください。",
+        "correct": "を",
+        "distractors": ["が", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "日本語の先生__会いました。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "wo_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "テニス__しましょう。",
+        "correct": "を",
+        "distractors": ["が", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "新しい車__欲しいです。",
+        "correct": "が",
+        "distractors": ["を", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_wo"],
+      "payload": {
+        "base_sentence": "ご飯を食べました。",
+        "correct": "食事をしました。",
+        "distractors": [
+          "ご飯を食べます。",
+          "ご飯を食べませんでした。",
+          "お酒を飲みました。",
+          "お腹がいっぱいです。"
+        ]
+      }
+    },
+    {
+      "id": "wo_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "靴__脱いでください。",
+        "correct": "を",
+        "distractors": ["が", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "traps"],
+      "payload": {
+        "sentence": "バス__乗ります。",
+        "correct": "に",
+        "distractors": ["を", "が", "は", "で"]
+      }
+    },
+    {
+      "id": "wo_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo"],
+      "payload": {
+        "sentence": "名前__書いてください。",
+        "correct": "を",
+        "distractors": ["が", "は", "に", "で"]
+      }
+    },
+    {
+      "id": "wo_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_wo"],
+      "payload": {
+        "prefix": "毎日、",
+        "suffix": "ます。",
+        "blocks": ["日本語を", "練習し"]
+      }
+    },
+    {
+      "id": "wo_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_wo", "movement"],
+      "payload": {
+        "sentence": "空__飛びたいです。",
+        "correct": "を",
+        "distractors": ["に", "で", "が", "は"]
+      }
+    }
+  ]
+}

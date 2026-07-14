@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~かと思うと / かと思ったら  - N2"
+  },
+  "exercises": [
+    {
+      "id": "katomou_001",
+      "type": "FILL_BLANK",
+      "tags": ["katomou", "N2"],
+      "payload": {
+        "sentence": "赤ちゃんが泣き止んだ__、もう笑っている。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_002",
+      "type": "FILL_BLANK",
+      "tags": ["katomou", "pop_culture"],
+      "payload": {
+        "sentence": "悟空が負けた__、新しい技で立ち上がった。",
+        "correct": "かと思うと",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_003",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "雨が降り出した__、すぐに止んで晴れてきた。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["katomou"],
+      "payload": {
+        "prefix": "彼は家へ帰ってきた",
+        "suffix": "。",
+        "blocks": ["かと思うと", "すぐにまた", "出かけてしまった"]
+      }
+    },
+    {
+      "id": "katomou_005",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "テストが終わった__、もう次のテストの準備だ。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_006",
+      "type": "WORD_USAGE",
+      "tags": ["katomou"],
+      "payload": {
+        "word": "～かと思ったら ",
+        "options": [
+          { "text": "空が暗くなったかと思ったら、雨が降ってきた。", "is_correct": true },
+          { "text": "彼が来たかと思ったら、もういない。", "is_correct": true },
+          { "text": "勉強したかと思ったら合格した。", "is_correct": false },
+          { "text": "怒ったかと思ったら、急に泣き出した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "katomou_007",
+      "type": "FILL_BLANK",
+      "tags": ["katomou", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザが死んだ__、メカになって復活した。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_008",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "やっと仕事が終わった__、また新しい仕事が入ってきた。",
+        "correct": "かと思うと",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_009",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "涼しくなった__、また暑さが戻ってきた。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_010",
+      "type": "PARAPHRASE",
+      "tags": ["katomou"],
+      "payload": {
+        "base_sentence": "彼は起きたかと思うと、すぐまた寝てしまった。",
+        "correct": "彼は一度起きたと思いましたが、その直後に驚くほど早く、再び眠りにつきました。",
+        "distractors": [
+          "彼は起きてから、少しだけ勉強して寝ました。",
+          "彼は起きるために、目覚まし時計を使いました。",
+          "彼は起きている間ずっと、眠そうにしていました。"
+        ]
+      }
+    },
+    {
+      "id": "katomou_011",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "飛行機が着陸した__、もう乗客が降り始めている。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["katomou"],
+      "payload": {
+        "prefix": "バスが来た",
+        "suffix": "。",
+        "blocks": ["かと思うと", "あっという間に", "行ってしまった"]
+      }
+    },
+    {
+      "id": "katomou_013",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "子供が静かになった__、いたずらをしていた。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_014",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "冬が終わった__、もう春の陽気だ。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_015",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "彼は怒っている__、急に笑い出した。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "起きた「かと思ったら」。",
+        "correct": "かとおもったら",
+        "distractors": ["かとおもえば", "かとおもうと", "かとおもい", "かとおもわ"]
+      }
+    },
+    {
+      "id": "katomou_017",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "電気がついた__、また消えた。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_018",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "彼女は泣き出した__、もうケロっとしている。",
+        "correct": "かと思うと",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["katomou"],
+      "payload": {
+        "prefix": "桜が咲いた",
+        "suffix": "。",
+        "blocks": ["かと思ったら", "もう", "散り始めている"]
+      }
+    },
+    {
+      "id": "katomou_020",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "新しいスマホを買った__、もう新モデルが出た。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_021",
+      "type": "FILL_BLANK",
+      "tags": ["katomou", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァが動かなくなった__、暴走を始めた。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_022",
+      "type": "WORD_USAGE",
+      "tags": ["katomou"],
+      "payload": {
+        "word": "～かと思うと ",
+        "options": [
+          { "text": "晴れていたかと思うと、急に大雨になった。", "is_correct": true },
+          { "text": "彼が笑ったかと思うと、真顔になった。", "is_correct": true },
+          { "text": "ご飯を食べたかと思うと、お腹が空いた。", "is_correct": false },
+          { "text": "右に行ったかと思うと、左に曲がった。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "katomou_023",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "やっと理解した__、またわからなくなった。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_024",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "彼は優しい__、時々とても厳しい。",
+        "correct": "かと思うと",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_025",
+      "type": "PARAPHRASE",
+      "tags": ["katomou"],
+      "payload": {
+        "base_sentence": "雨が止んだかと思ったら、また激しく降り出した。",
+        "correct": "雨が一度止んだので安心したのも束の間、すぐに再び激しい雨が降り始めました。",
+        "distractors": [
+          "雨が止んでいる間に、外に出かけました。",
+          "雨が止むのを待ってから、買い物に行きました。",
+          "雨が止まなかったので、一日中家にいました。"
+        ]
+      }
+    },
+    {
+      "id": "katomou_026",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "電車が空いた__、次の駅でまた満員になった。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_027",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "お金が貯まった__、急な出費でなくなった。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["katomou"],
+      "payload": {
+        "prefix": "彼は真面目だ",
+        "suffix": "。",
+        "blocks": ["かと思ったら", "意外と", "遊び好きな面もある"]
+      }
+    },
+    {
+      "id": "katomou_029",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "静かになった__、また子供たちが騒ぎ出した。",
+        "correct": "かと思ったら",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    },
+    {
+      "id": "katomou_030",
+      "type": "FILL_BLANK",
+      "tags": ["katomou"],
+      "payload": {
+        "sentence": "涼しい風が吹いた__、また蒸し暑くなった。",
+        "correct": "かと思うと",
+        "distractors": ["ながら", "ついでに", "うちに", "ところで"]
+      }
+    }
+  ]
+}

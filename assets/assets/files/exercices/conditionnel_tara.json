@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Conditionnel ~TARA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "tara_001",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "安__、買います。",
+        "correct": "かったら",
+        "distractors": ["ければ", "なら", "いと", "かったなら", "いら"]
+      }
+    },
+    {
+      "id": "tara_002",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "明日、雨が__、行きません。",
+        "correct": "降ったら",
+        "distractors": ["降れば", "降ると", "降りたら", "降ったなら", "降ら"]
+      }
+    },
+    {
+      "id": "tara_003",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "noun"],
+      "payload": {
+        "sentence": "休み__、遊びに行きましょう。",
+        "correct": "だったら",
+        "distractors": ["なら", "ければ", "だと", "たなら", "なな"]
+      }
+    },
+    {
+      "id": "tara_004",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "日本に__、教えてください。",
+        "correct": "着いたら",
+        "distractors": ["着けば", "着くと", "着きら", "着いたなら", "着くな"]
+      }
+    },
+    {
+      "id": "tara_005",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "pop_culture"],
+      "payload": {
+        "sentence": "海賊王に__、何がしたい？",
+        "correct": "なったら",
+        "distractors": ["なれば", "なると", "なりたら", "ななな", "なれるなら"]
+      }
+    },
+    {
+      "id": "tara_006",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "word": "〜たら ",
+        "options": [
+          { "text": "時間があったら、手伝ってください。", "is_correct": true },
+          { "text": "冬になったら、スキーをしましょう。", "is_correct": true },
+          { "text": "嫌いだったら、食べなくてもいいですよ。", "is_correct": true },
+          { "text": "飲むたらお腹が痛いです。 ", "is_correct": false },
+          { "text": "明日たら会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tara_007",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "わからなかっ__、聞いてください。",
+        "correct": "たら",
+        "distractors": ["れば", "と", "ら", "なら", "のだ"]
+      }
+    },
+    {
+      "id": "tara_008",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "お酒を__、運転してはいけません。",
+        "correct": "飲んだら",
+        "distractors": ["飲めば", "飲むと", "飲みたら", "飲んだなら", "飲みな"]
+      }
+    },
+    {
+      "id": "tara_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "prefix": "お金が",
+        "suffix": "旅行に行きます。",
+        "blocks": ["あったら"]
+      }
+    },
+    {
+      "id": "tara_010",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "base_sentence": "忙しかったら、明日でいいです。",
+        "correct": "もし時間がないという状況なら、明日に延期しても構いません。",
+        "distractors": [
+          "忙しいから、明日にします。",
+          "忙しくても、今日やります。",
+          "忙しい時に、明日会います。",
+          "忙しいので、明日来てください。"
+        ]
+      }
+    },
+    {
+      "id": "tara_011",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "美味しくなかっ__、残してもいいですよ。",
+        "correct": "たら",
+        "distractors": ["れば", "と", "ら", "なら", "のだ"]
+      }
+    },
+    {
+      "id": "tara_012",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "10時半に__、連絡してください。",
+        "correct": "なったら",
+        "distractors": ["なれば", "なると", "なりたら", "なったなら", "ななな"]
+      }
+    },
+    {
+      "id": "tara_013",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "暇__、手伝ってください。",
+        "correct": "だったら",
+        "distractors": ["なら", "ければ", "だと", "たなら", "なな"]
+      }
+    },
+    {
+      "id": "tara_014",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィに__、何を話しますか。",
+        "correct": "会ったら",
+        "distractors": ["会えば", "会うと", "会いたら", "会ったなら", "会いたいなら"]
+      }
+    },
+    {
+      "id": "tara_015",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "窓を__、涼しくなりました。",
+        "correct": "開けたら",
+        "distractors": ["開ければ", "開けると", "開けたらな", "開けたので", "開けたから"]
+      }
+    },
+    {
+      "id": "tara_016",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "薬を__、すぐ寝てください。",
+        "correct": "飲んだら",
+        "distractors": ["飲めば", "飲むと", "飲みたら", "飲んだなら", "飲め"]
+      }
+    },
+    {
+      "id": "tara_017",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "病気__、学校を休みます。",
+        "correct": "になったら",
+        "distractors": ["なったら", "ならば", "になると", "になれば", "なりたら"]
+      }
+    },
+    {
+      "id": "tara_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "「昨日」だったらよかったです。",
+        "correct": "きのう",
+        "distractors": ["きょう", "あした", "おととい", "さっき"]
+      }
+    },
+    {
+      "id": "tara_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "prefix": "道が",
+        "suffix": "10分で着きます。",
+        "blocks": ["空いていたら"]
+      }
+    },
+    {
+      "id": "tara_020",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えたら", "教えれば", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "tara_021",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "暑__、エアコンをつけてもいいですよ。",
+        "correct": "かったら",
+        "distractors": ["ければ", "なら", "いと", "くて", "かったなら"]
+      }
+    },
+    {
+      "id": "tara_022",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "雨が__、傘を貸します。",
+        "correct": "降ったら",
+        "distractors": ["降れば", "降ると", "降りたら", "降ったなら", "降ら"]
+      }
+    },
+    {
+      "id": "tara_023",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "word": "〜たら ",
+        "options": [
+          { "text": "駅に着いたら、電話します。", "is_correct": true },
+          { "text": "仕事が終わったら、飲みに行きましょう。", "is_correct": true },
+          { "text": "明日になったら、わかります。", "is_correct": true },
+          { "text": "食べていたら美味しいです。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tara_024",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "安物__、すぐ壊れますよ。",
+        "correct": "だったら",
+        "distractors": ["なら", "ければ", "だと", "たなら", "なな"]
+      }
+    },
+    {
+      "id": "tara_025",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "田中さんに__、よろしく伝えてください。",
+        "correct": "会ったら",
+        "distractors": ["会えば", "会うと", "会いたら", "会ったなら", "会い"]
+      }
+    },
+    {
+      "id": "tara_026",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "base_sentence": "雨が降ったら、テニスをしません。",
+        "correct": "降水があるという条件のもとでは、スポーツを中止します。",
+        "distractors": [
+          "雨が降ったので、テニスをしませんでした。",
+          "雨が降る前に、テニスをしました。",
+          "雨が降っても、テニスをします。",
+          "雨が降っている時、テニスをしたいです。"
+        ]
+      }
+    },
+    {
+      "id": "tara_027",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "辞書を__、意味がわかりました。",
+        "correct": "引いたら",
+        "distractors": ["引けば", "引くと", "引きたら", "引いたなら", "引け"]
+      }
+    },
+    {
+      "id": "tara_028",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "昨日、__ら、彼は寝ていました。",
+        "correct": "行ったら",
+        "distractors": ["行けば", "行くと", "行きたい", "行ったなら", "行な"]
+      }
+    },
+    {
+      "id": "tara_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_tara"],
+      "payload": {
+        "sentence": "「便利」だったら買います。",
+        "correct": "べんり",
+        "distractors": ["ふべん", "べんりな", "びんり", "べんりだ"]
+      }
+    },
+    {
+      "id": "tara_030",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_tara", "traps"],
+      "payload": {
+        "sentence": "お風呂に__ら、すぐ寝なさい。",
+        "correct": "入ったら",
+        "distractors": ["入れば", "入ると", "入な", "入りし", "入るの"]
+      }
+    }
+  ]
+}
