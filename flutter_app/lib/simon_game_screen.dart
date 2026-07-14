@@ -1,10 +1,12 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/simon.dart';
 import 'providers/simon_provider.dart';
+import 'providers/settings_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/game_hud.dart';
-import 'providers/settings_provider.dart';
+import 'widgets/game_components.dart';
 
 class SimonGameScreen extends StatelessWidget {
   const SimonGameScreen({super.key});
@@ -12,41 +14,85 @@ class SimonGameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SimonProvider>();
+    final settings = context.watch<SettingsProvider>();
+    final locale = settings.currentLocaleCode;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Simon"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => _showExitDialog(context, provider),
+    final bestScore = provider.scoresHistory.isEmpty
+        ? 0
+        : provider.scoresHistory.map((h) => h.maxSequence).reduce(max);
+
+    final String title = settings.getString("game_simon_title").isNotEmpty
+        ? settings.getString("game_simon_title")
+        : "Simon";
+
+    return PopScope(
+      canPop: provider.gameState == SimonGameState.gameOver,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _showExitDialog(context, provider);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => _showExitDialog(context, provider),
+          ),
         ),
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: SafeArea(
-          child: Column(
+        extendBodyBehindAppBar: true,
+        body: MochiBackground(
+          child: Stack(
             children: [
-              GameHUD(
-                primaryLabel: "SCORE",
-                primaryValue: provider.score.toString(),
-                secondaryLabel: "MEILLEUR",
-                secondaryValue: "0", // TODO: Fetch from history
-                timeSeconds: provider.gameTimeSeconds,
-              ),
-              Expanded(
-                child: Center(
-                  child: AnimatedOpacity(
-                    opacity: provider.isKanjiVisible ? 1.0 : 0.0,
-                    duration: const Duration(milliseconds: 300),
-                    child: _buildQuestionCard(provider.currentPlayable?.character ?? ""),
-                  ),
+              SafeArea(
+                child: Column(
+                  children: [
+                    GameHUD(
+                      primaryLabel: settings.getString("game_simon_score_label").isNotEmpty
+                          ? settings.getString("game_simon_score_label").toUpperCase().replaceAll(" %D", "").replaceAll(" %1\$D", "")
+                          : "SEQUENCE",
+                      primaryValue: provider.score.toString(),
+                      secondaryLabel: settings.getString("game_simon_record_label").isNotEmpty
+                          ? settings.getString("game_simon_record_label").toUpperCase().replaceAll(" %D", "").replaceAll(" %1\$D", "")
+                          : "RECORD",
+                      secondaryValue: bestScore.toString(),
+                      timeSeconds: provider.gameTimeSeconds,
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: AnimatedOpacity(
+                          opacity: provider.isKanjiVisible ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 300),
+                          child: _buildQuestionCard(context, provider.currentPlayable?.character ?? ""),
+                        ),
+                      ),
+                    ),
+                    _buildAnswerButtons(context, provider),
+                  ],
                 ),
               ),
-              _buildAnswerButtons(context, provider),
+
+              // Game result overlay
               if (provider.gameState == SimonGameState.gameOver)
-                _buildGameOverOverlay(context, provider),
+                GameResultOverlay(
+                  isVictory: false,
+                  title: settings.getString("game_over_title").isNotEmpty
+                      ? settings.getString("game_over_title")
+                      : "Game Over",
+                  score: provider.score.toString(),
+                  bestScore: bestScore.toString(),
+                  stats: [
+                    MapEntry(
+                      settings.getString("game_taquin_time_label").isNotEmpty
+                          ? settings.getString("game_taquin_time_label")
+                          : "Temps",
+                      _formatGameTimeHUD(provider.gameTimeSeconds),
+                    ),
+                  ],
+                  onReplayClick: () => provider.startGame(locale),
+                  onMenuClick: () => Navigator.pop(context),
+                ),
             ],
           ),
         ),
@@ -54,29 +100,41 @@ class SimonGameScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuestionCard(String text) {
+  Widget _buildQuestionCard(BuildContext context, String text) {
+    final theme = Theme.of(context);
     return Card(
       elevation: 8,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      color: Colors.white.withValues(alpha: 0.95),
       child: Container(
-        width: 250,
-        height: 250,
+        width: 240,
+        height: 240,
         alignment: Alignment.center,
         child: Text(
           text,
-          style: const TextStyle(fontSize: 120, fontWeight: FontWeight.bold, color: Colors.pink),
+          style: TextStyle(
+            fontSize: 90,
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.primary,
+          ),
         ),
       ),
     );
   }
 
   Widget _buildAnswerButtons(BuildContext context, SimonProvider provider) {
-    if (!provider.isButtonsVisible) return const SizedBox(height: 180);
+    // Keep space when buttons are not visible to avoid layout jump
+    if (!provider.isButtonsVisible) {
+      return const SizedBox(height: 180);
+    }
+
+    final theme = Theme.of(context);
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: GridView.builder(
         shrinkWrap: true,
+        padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -90,14 +148,20 @@ class SimonGameScreen extends StatelessWidget {
           return ElevatedButton(
             onPressed: () => provider.onAnswerClick(entry.key),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black87,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              backgroundColor: Colors.white.withValues(alpha: 0.95),
+              foregroundColor: theme.colorScheme.onSurface,
               elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(color: theme.colorScheme.primary.withValues(alpha: 0.2)),
+              ),
             ),
             child: Text(
               entry.value,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: _calculateFontSize(entry.value),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
           );
@@ -106,74 +170,45 @@ class SimonGameScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildGameOverOverlay(BuildContext context, SimonProvider provider) {
-    return Container(
-      color: Colors.black54,
-      child: Center(
-        child: Card(
-          margin: const EdgeInsets.all(32),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-          child: Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.sentiment_very_dissatisfied, size: 80, color: Colors.red),
-                const SizedBox(height: 16),
-                const Text("Game Over", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 16),
-                Text("Séquence maximale : ${provider.score}", style: const TextStyle(fontSize: 20)),
-                const SizedBox(height: 32),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text("QUITTER"),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        final locale = context.read<SettingsProvider>().currentLocaleCode;
-                        provider.startGame(locale);
-                      },
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.pink, foregroundColor: Colors.white),
-                      child: const Text("RÉESSAYER"),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+  double _calculateFontSize(String text) {
+    if (text.length > 8) return 14;
+    if (text.length > 5) return 18;
+    return 22;
+  }
+
+  String _formatGameTimeHUD(int seconds) {
+    final m = seconds ~/ 60;
+    final s = seconds % 60;
+    return m > 0 ? "${m}m ${s}s" : "${s}s";
   }
 
   void _showExitDialog(BuildContext context, SimonProvider provider) {
-    provider.pauseGame();
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Quitter ?"),
-        content: const Text("Voulez-vous vraiment abandonner la partie ?"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              provider.resumeGame();
-              Navigator.pop(context);
-            },
-            child: const Text("NON"),
-          ),
-          TextButton(
-            onPressed: () {
-              provider.abandonGame();
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-            child: const Text("OUI"),
-          ),
-        ],
-      ),
+      barrierDismissible: false,
+      builder: (dialogContext) {
+        return ExitConfirmationDialog(
+          onConfirm: () {
+            provider.abandonGame();
+            Navigator.pop(dialogContext); // close dialog
+            Navigator.pop(context); // exit screen
+          },
+          onDismiss: () {
+            Navigator.pop(dialogContext); // close dialog
+          },
+          onPause: () {
+            provider.pauseGame();
+          },
+          onResume: () {
+            provider.resumeGame();
+          },
+          onSaveAndExit: () {
+            provider.saveAndExit();
+            Navigator.pop(dialogContext); // close dialog
+            Navigator.pop(context); // exit screen
+          },
+        );
+      },
     );
   }
 }
