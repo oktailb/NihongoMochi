@@ -36,13 +36,12 @@ class _TaquinSetupScreenState extends State<TaquinSetupScreen> {
     final settings = context.watch<SettingsProvider>();
     final theme = Theme.of(context);
 
+    final titleVal = settings.getString("game_taquin_title");
+    final subVal = settings.getString("game_taquin_japanese_title");
+
     return GameSetupTemplate(
-      title: settings.getString("game_taquin_title").isNotEmpty
-          ? settings.getString("game_taquin_title")
-          : "Taquin",
-      subtitle: settings.getString("game_taquin_japanese_title").isNotEmpty
-          ? settings.getString("game_taquin_japanese_title")
-          : "パズル",
+      title: (titleVal.isNotEmpty && titleVal != "game_taquin_title") ? titleVal : "Taquin",
+      subtitle: (subVal.isNotEmpty && subVal != "game_taquin_japanese_title") ? subVal : "パズル",
       onPlayClick: () async {
         await provider.startGame();
         if (context.mounted) {

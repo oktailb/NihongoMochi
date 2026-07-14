@@ -1,15 +1,16 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/memorize.dart';
 import '../models/kana.dart';
-import '../models/quiz_models.dart';
 import '../repositories/dictionary_repository.dart';
 import '../repositories/kana_repository.dart';
 import '../repositories/settings_repository.dart';
 import '../repositories/score_repository.dart';
 import '../services/level_content_provider.dart';
 import '../services/audio_service.dart';
+import '../db/database.dart';
 
 class MemorizeProvider extends ChangeNotifier {
   final DictionaryRepository _dictionaryRepo;
@@ -50,6 +51,8 @@ class MemorizeProvider extends ChangeNotifier {
   bool _isGameFinished = false;
   bool _isProcessing = false;
   bool _isPaused = false;
+  bool _hasSavedGame = false;
+  bool _autoRestoreDone = false;
 
   int? _firstSelectedCardIndex;
   Timer? _timer;
@@ -67,6 +70,7 @@ class MemorizeProvider extends ChangeNotifier {
   bool get isGameFinished => _isGameFinished;
   bool get isProcessing => _isProcessing;
   bool get isPaused => _isPaused;
+  bool get hasSavedGame => _hasSavedGame;
 
   Future<void> _init() async {
     final locale = _settingsRepo.getAppLocale();
@@ -76,16 +80,71 @@ class MemorizeProvider extends ChangeNotifier {
       _selectedMaxStrokes = _maxStrokes;
     }
     updateLevelInfo(locale);
-    loadScoresHistory();
+    _loadScoresHistory();
+    _checkSavedGame();
   }
 
-  void loadScoresHistory() async {
-    // _scoresHistory = await _scoreRepo.getMemorizeHistory();
+  Future<void> _loadScoresHistory() async {
+    try {
+      final List<GameHistory> rows = await _scoreRepo.getGameHistory("MEMORIZE");
+      _scoresHistory = rows.map((r) => MemorizeGameResult(
+        moves: r.moves ?? r.score,
+        totalPairs: r.totalPairs ?? 0,
+        gridSizeLabel: r.metadata ?? "4x4",
+        timeSeconds: r.timeSeconds ?? 0,
+        timestamp: r.timestamp,
+      )).toList();
+      notifyListeners();
+    } catch (e) {
+      _scoresHistory = [];
+      notifyListeners();
+    }
+  }
+
+  void _checkSavedGame() {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_memory");
+    _hasSavedGame = savedJson != null;
     notifyListeners();
   }
 
+  void tryAutoRestore(VoidCallback onRestored) {
+    if (!_autoRestoreDone && _hasSavedGame) {
+      _autoRestoreDone = true;
+      restoreGame(onRestored);
+    }
+  }
+
+  void restoreGame(VoidCallback onRestored) {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_memory");
+    if (savedJson == null) return;
+    try {
+      final map = jsonDecode(savedJson) as Map<String, dynamic>;
+      final List<dynamic> cardsList = map['cards'];
+      _cards = cardsList.map((e) => MemorizeCardState.fromJson(e as Map<String, dynamic>)).toList();
+      _moves = map['moves'] as int;
+      _gameTimeSeconds = map['gameTimeSeconds'] as int;
+      _selectedGridSize = MemorizeGridSize.fromJson(map['selectedGridSize'] as Map<String, dynamic>);
+      _isKanaLevel = map['isKanaLevel'] as bool;
+      _isGameFinished = map['isGameFinished'] as bool;
+      _firstSelectedCardIndex = map['firstSelectedCardIndex'] as int?;
+      _isProcessing = map['isProcessing'] as bool;
+
+      _isPaused = true;
+      _hasSavedGame = false;
+      _autoRestoreDone = true;
+
+      _startTimer();
+      onRestored();
+      notifyListeners();
+    } catch (e) {
+      _settingsRepo.removeGeneric("game_state_memory");
+      _hasSavedGame = false;
+      notifyListeners();
+    }
+  }
+
   void updateLevelInfo(String locale) async {
-    final levelId = _settingsRepo.getMode();
+    final levelId = _settingsRepo.getSelectedLevel();
     final lowerLevel = levelId.toLowerCase();
     _isKanaLevel = lowerLevel.contains("hiragana") || lowerLevel.contains("katakana");
 
@@ -94,7 +153,7 @@ class MemorizeProvider extends ChangeNotifier {
       final type = lowerLevel.contains("hiragana") ? KanaType.hiragana : KanaType.katakana;
       count = (await _kanaRepo.getKanaEntries(type)).length;
     } else {
-      final items = await _contentProvider.getItemsForLevel(levelId, ScoreType.recognition, locale);
+      final items = await _contentProvider.getItemsForLevel(levelId.isEmpty ? "n5" : levelId, ScoreType.recognition, locale);
       final allKanji = await _dictionaryRepo.getFullDictionary(locale);
       final kanjiMap = {for (var k in allKanji) k.character: k};
       count = items.where((char) {
@@ -123,10 +182,13 @@ class MemorizeProvider extends ChangeNotifier {
   }
 
   Future<void> startGame(String locale) async {
+    _settingsRepo.removeGeneric("game_state_memory");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
     _isProcessing = true;
     notifyListeners();
 
-    final levelId = _settingsRepo.getMode();
+    final levelId = _settingsRepo.getSelectedLevel();
     final lowerLevel = levelId.toLowerCase();
 
     List<MemorizePlayable> allPlayables = [];
@@ -136,7 +198,7 @@ class MemorizeProvider extends ChangeNotifier {
       final entries = await _kanaRepo.getKanaEntries(type);
       allPlayables = entries.map((e) => MemorizePlayable(id: e.character, character: e.character)).toList();
     } else {
-      final items = await _contentProvider.getItemsForLevel(levelId, ScoreType.recognition, locale);
+      final items = await _contentProvider.getItemsForLevel(levelId.isEmpty ? "n5" : levelId, ScoreType.recognition, locale);
       final allKanji = await _dictionaryRepo.getFullDictionary(locale);
       final kanjiMap = {for (var k in allKanji) k.character: k};
 
@@ -225,11 +287,14 @@ class MemorizeProvider extends ChangeNotifier {
     if (_cards.every((card) => card.isMatched)) {
       _isGameFinished = true;
       _timer?.cancel();
+      _settingsRepo.removeGeneric("game_state_memory");
+      _hasSavedGame = false;
+      _autoRestoreDone = true;
       _saveFinalScore();
     }
   }
 
-  void _saveFinalScore() {
+  Future<void> _saveFinalScore() async {
     final result = MemorizeGameResult(
       moves: _moves,
       totalPairs: _selectedGridSize.pairsCount,
@@ -237,10 +302,22 @@ class MemorizeProvider extends ChangeNotifier {
       timeSeconds: _gameTimeSeconds,
       timestamp: DateTime.now().millisecondsSinceEpoch,
     );
-    _scoresHistory.insert(0, result);
-    if (_scoresHistory.length > 10) _scoresHistory.removeLast();
-    // _scoreRepo.saveMemorizeResult(result);
+
+    _scoresHistory = [result, ..._scoresHistory].take(10).toList();
     notifyListeners();
+
+    try {
+      await _scoreRepo.saveGameHistory(
+        gameType: "MEMORIZE",
+        score: _moves,
+        moves: _moves,
+        timeSeconds: _gameTimeSeconds,
+        totalPairs: _selectedGridSize.pairsCount,
+        metadata: _selectedGridSize.toString(),
+      );
+    } catch (e) {
+      // Silent catch
+    }
   }
 
   void pauseGame() {
@@ -253,8 +330,33 @@ class MemorizeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void saveAndExit() {
+    final stateMap = {
+      'cards': _cards.map((e) => e.toJson()).toList(),
+      'moves': _moves,
+      'gameTimeSeconds': _gameTimeSeconds,
+      'selectedGridSize': _selectedGridSize.toJson(),
+      'isKanaLevel': _isKanaLevel,
+      'isGameFinished': _isGameFinished,
+      'firstSelectedCardIndex': _firstSelectedCardIndex,
+      'isProcessing': _isProcessing,
+      'isPaused': _isPaused,
+    };
+    _settingsRepo.setStringGeneric("game_state_memory", jsonEncode(stateMap));
+    _hasSavedGame = true;
+    _autoRestoreDone = true;
+    _timer?.cancel();
+    notifyListeners();
+  }
+
   void abandonGame() {
     _timer?.cancel();
+    _settingsRepo.removeGeneric("game_state_memory");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+    if (!_isGameFinished && _cards.isNotEmpty) {
+      _audioService.playSound("assets/files/sounds/game_over.mp3");
+    }
     _cards = [];
     _isGameFinished = false;
     _isProcessing = false;

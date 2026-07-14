@@ -37,12 +37,11 @@ class _SimonSetupScreenState extends State<SimonSetupScreen> {
     final locale = settings.currentLocaleCode;
     final theme = Theme.of(context);
 
-    final title = settings.getString("game_simon_title").isNotEmpty
-        ? settings.getString("game_simon_title")
-        : "Simon";
-    final subtitle = settings.getString("game_simon_japanese_title").isNotEmpty
-        ? settings.getString("game_simon_japanese_title")
-        : "記憶";
+    final titleVal = settings.getString("game_simon_title");
+    final subVal = settings.getString("game_simon_japanese_title");
+
+    final title = (titleVal.isNotEmpty && titleVal != "game_simon_title") ? titleVal : "Simon";
+    final subtitle = (subVal.isNotEmpty && subVal != "game_simon_japanese_title") ? subVal : "記憶";
 
     return GameSetupTemplate(
       title: title,
