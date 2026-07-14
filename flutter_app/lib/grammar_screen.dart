@@ -5,11 +5,13 @@ import 'providers/grammar_provider.dart';
 import 'providers/settings_provider.dart';
 import 'repositories/grammar_repository.dart';
 import 'repositories/score_repository.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'widgets/grammar_painter.dart';
 import 'widgets/grammar_node_item.dart';
-
 import 'widgets/mochi_background.dart';
 import 'grammar_quiz_screen.dart';
+
+const double scale = kIsWeb ? 1.5 : 1.0;
 
 class GrammarScreen extends StatelessWidget {
   final String maxLevelId;
@@ -88,10 +90,11 @@ class _GrammarViewState extends State<GrammarView> {
     final isDark = settings.isDarkMode;
 
     final css = await repo.loadCss(isDark);
-    final htmlContent = await repo.loadLessonHtml(node.rule.id, "fr"); // TODO: i18n locale
+    final htmlContent = await repo.loadLessonHtml(node.rule.id, settings.currentLocaleCode);
 
     if (!context.mounted) return;
 
+    final parsedCss = _parseCss(css);
     final formattedHtml = _applyCommonStyle(htmlContent, css);
 
     showModalBottomSheet(
@@ -113,7 +116,7 @@ class _GrammarViewState extends State<GrammarView> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -132,9 +135,31 @@ class _GrammarViewState extends State<GrammarView> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
                 child: HtmlWidget(
                   formattedHtml,
+                  customStylesBuilder: (element) {
+                    final Map<String, String> styles = {};
+                    
+                    // Style par nom de balise (ex: h1, strong, em, td)
+                    final tag = element.localName?.toLowerCase();
+                    if (tag != null && parsedCss.containsKey(tag)) {
+                      styles.addAll(parsedCss[tag]!);
+                    }
+                    
+                    // Style par classe CSS (ex: .example)
+                    if (element.className.isNotEmpty) {
+                      final classes = element.className.split(' ');
+                      for (final cls in classes) {
+                        final classSelector = '.${cls.trim().toLowerCase()}';
+                        if (parsedCss.containsKey(classSelector)) {
+                          styles.addAll(parsedCss[classSelector]!);
+                        }
+                      }
+                    }
+                    
+                    return styles.isNotEmpty ? styles : null;
+                  },
                   textStyle: TextStyle(color: isDark ? Colors.white : Colors.black87),
                 ),
               ),
@@ -143,6 +168,40 @@ class _GrammarViewState extends State<GrammarView> {
         ),
       ),
     );
+  }
+
+  Map<String, Map<String, String>> _parseCss(String cssContent) {
+    final Map<String, Map<String, String>> rules = {};
+    
+    // Nettoyer les commentaires CSS
+    final cleanCss = cssContent.replaceAll(RegExp(r'\/\*[\s\S]*?\*\/'), '');
+    
+    // Séparer les blocs sélecteurs { propriétés }
+    final regex = RegExp(r'([^{]+)\{([^}]+)\}');
+    final matches = regex.allMatches(cleanCss);
+    
+    for (final match in matches) {
+      final selectorsRaw = match.group(1)!;
+      final declarationsRaw = match.group(2)!;
+      
+      final Map<String, String> declarations = {};
+      final decRegex = RegExp(r'([^:]+):([^;]+);?');
+      for (final decMatch in decRegex.allMatches(declarationsRaw)) {
+        final prop = decMatch.group(1)!.trim().toLowerCase();
+        final val = decMatch.group(2)!.trim();
+        declarations[prop] = val;
+      }
+      
+      final selectors = selectorsRaw.split(',');
+      for (final s in selectors) {
+        final selector = s.trim().toLowerCase();
+        if (selector.isNotEmpty) {
+          rules[selector] = declarations;
+        }
+      }
+    }
+    
+    return rules;
   }
 
   String _applyCommonStyle(String htmlContent, String cssContent) {
@@ -174,7 +233,7 @@ class _GrammarViewState extends State<GrammarView> {
     }
 
     final double canvasWidth = MediaQuery.of(context).size.width;
-    final double canvasHeight = provider.totalLayoutSlots * 70.0 + 200.0;
+    final double canvasHeight = provider.totalLayoutSlots * 70.0 * scale + 200.0 * scale;
 
     // Initial Scroll logic
     if (!_initialScrollDone && provider.separators.isNotEmpty) {
@@ -201,20 +260,7 @@ class _GrammarViewState extends State<GrammarView> {
                 height: canvasHeight,
                 child: Stack(
                   children: [
-                    Positioned.fill(
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: SizedBox(
-                          width: 48,
-                          child: Image.asset(
-                            'assets/drawable/stonepath.webp',
-                            repeat: ImageRepeat.repeatY,
-                            opacity: const AlwaysStoppedAnimation(0.9),
-                          ),
-                        ),
-                      ),
-                    ),
-                    // 2. Custom Painter for Connections
+                    // 1. Custom Painter for Connections (arrière-plan)
                     CustomPaint(
                       size: Size(canvasWidth, canvasHeight),
                       painter: GrammarGraphPainter(
@@ -223,9 +269,21 @@ class _GrammarViewState extends State<GrammarView> {
                         lineColor: isDark ? Colors.white54 : Colors.brown.shade300,
                       ),
                     ),
+                    // 2. Stonepath (au-dessus des lignes, en dessous du Torii)
+                    Positioned(
+                      top: 0,
+                      bottom: 0,
+                      left: (canvasWidth - 48 * scale) / 2,
+                      width: 48 * scale,
+                      child: Image.asset(
+                        'assets/drawable/stonepath.webp',
+                        repeat: ImageRepeat.repeatY,
+                        opacity: const AlwaysStoppedAnimation(0.9),
+                      ),
+                    ),
                     // 3. Torii Separators
                     ...provider.separators.map((sep) => Positioned(
-                      top: (sep.y * canvasHeight) - 150,
+                      top: (sep.y * canvasHeight) - (150 * scale),
                       left: 0,
                       right: 0,
                       child: Column(
@@ -252,11 +310,11 @@ class _GrammarViewState extends State<GrammarView> {
                           const SizedBox(height: 8),
                           Image.asset(
                             'assets/drawable/toori.webp',
-                            height: 280,
+                            height: 280 * scale,
                             fit: BoxFit.contain,
                           ),
                           Transform.translate(
-                            offset: const Offset(0, -100),
+                            offset: Offset(0, -100 * scale),
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                               decoration: BoxDecoration(
@@ -273,8 +331,8 @@ class _GrammarViewState extends State<GrammarView> {
                       ),
                     )),
                     ...provider.nodes.map((node) => Positioned(
-                      left: (node.x * canvasWidth) - 82,
-                      top: (node.y * canvasHeight) - 67,
+                      left: (node.x * canvasWidth) - (82 * scale),
+                      top: (node.y * canvasHeight) - (67 * scale),
                       child: GrammarNodeItem(
                         node: node,
                         isLeft: node.x < 0.5,

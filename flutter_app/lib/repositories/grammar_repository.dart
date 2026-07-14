@@ -106,15 +106,23 @@ class GrammarRepository {
     }
   }
 
-  Future<String> loadLessonHtml(String ruleId, String languageCode) async {
+  Future<String> loadLessonHtml(String ruleId, String localeCode) async {
+    // 1. Essayer de charger la version localisée (ex: assets/files/langs/fr_FR/grammar/adjectifs_i.html)
     try {
       return await _loader.loadString(
-        'grammar/$ruleId.html',
-        locale: languageCode,
-        assetPath: 'assets/files/grammar/lessons/$ruleId.html',
+        'langs/$localeCode/grammar/$ruleId.html',
+        assetPath: 'assets/files/langs/$localeCode/grammar/$ruleId.html',
       );
-    } catch (e) {
-      return "<h3>Lesson non trouvée</h3><p>Impossible de charger le contenu pour : $ruleId</p>";
+    } catch (_) {
+      // 2. Si non trouvé ou erreur, fallback sur la version par défaut (assets/files/grammar/lessons/adjectifs_i.html)
+      try {
+        return await _loader.loadString(
+          'grammar/$ruleId.html',
+          assetPath: 'assets/files/grammar/lessons/$ruleId.html',
+        );
+      } catch (e) {
+        return "<h3>Lesson non trouvée</h3><p>Impossible de charger le contenu pour : $ruleId</p>";
+      }
     }
   }
 }
