@@ -255,7 +255,9 @@ class _ExitConfirmationDialogState extends State<ExitConfirmationDialog> {
   @override
   void initState() {
     super.initState();
-    widget.onPause?.call();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.onPause?.call();
+    });
   }
 
   @override

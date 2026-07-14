@@ -8,6 +8,7 @@ import '../repositories/kana_repository.dart';
 import '../repositories/score_repository.dart';
 import '../repositories/settings_repository.dart';
 import '../services/audio_service.dart';
+import '../db/database.dart';
 
 class TaquinProvider extends ChangeNotifier {
   final KanaRepository _kanaRepo;
@@ -45,14 +46,59 @@ class TaquinProvider extends ChangeNotifier {
   TaquinGameState? get gameState => _gameState;
   bool get isPaused => _isPaused;
 
-  void _loadScoresHistory() {
-    // In a full implementation, fetch from score repo
-    notifyListeners();
+  Future<void> _loadScoresHistory() async {
+    try {
+      final List<GameHistory> rows = await _scoreRepo.getGameHistory("TAQUIN");
+      _scoresHistory = rows.map((r) => TaquinGameResult(
+        mode: TaquinMode.values.firstWhere(
+          (m) => m.toString().split('.').last.toUpperCase() == r.metadata?.toUpperCase(),
+          orElse: () => TaquinMode.hiragana,
+        ),
+        rows: r.rows ?? 3,
+        moves: r.moves ?? 0,
+        timeSeconds: r.timeSeconds ?? 0,
+        timestamp: r.timestamp,
+      )).toList();
+      notifyListeners();
+    } catch (e) {
+      _scoresHistory = [];
+      notifyListeners();
+    }
   }
 
   void _checkSavedGame() {
-    // _hasSavedGame = _settingsRepo.getGameState("game_state_taquin") != null;
+    final savedJson = _settingsRepo.getStringGeneric("game_state_taquin");
+    _hasSavedGame = savedJson != null;
     notifyListeners();
+  }
+
+  void tryAutoRestore(VoidCallback onRestored) {
+    if (!_autoRestoreDone && _hasSavedGame) {
+      _autoRestoreDone = true;
+      restoreGame(onRestored);
+    }
+  }
+
+  void restoreGame(VoidCallback onRestored) {
+    final savedJson = _settingsRepo.getStringGeneric("game_state_taquin");
+    if (savedJson == null) return;
+    try {
+      final restoredMap = jsonDecode(savedJson) as Map<String, dynamic>;
+      final restored = TaquinGameState.fromJson(restoredMap);
+      if (!restored.isSolved) {
+        _gameState = restored;
+        _selectedMode = restored.mode;
+        _selectedRows = restored.rows;
+        _isPaused = true;
+        _startTimer();
+        onRestored();
+        notifyListeners();
+      }
+    } catch (e) {
+      _settingsRepo.removeGeneric("game_state_taquin");
+      _hasSavedGame = false;
+      notifyListeners();
+    }
   }
 
   void onModeSelected(TaquinMode mode) {
@@ -69,6 +115,7 @@ class TaquinProvider extends ChangeNotifier {
   }
 
   Future<void> startGame() async {
+    _settingsRepo.removeGeneric("game_state_taquin");
     _hasSavedGame = false;
     _autoRestoreDone = true;
     final rows = _selectedRows;
@@ -220,13 +267,41 @@ class TaquinProvider extends ChangeNotifier {
     if (isSolved) {
       _gameState = _gameState!.copyWith(isSolved: true);
       _timer?.cancel();
+      _settingsRepo.removeGeneric("game_state_taquin");
+      _hasSavedGame = false;
+      _autoRestoreDone = true;
       _audioService.playSound("assets/files/sounds/correct.mp3");
       _saveResult();
     }
   }
 
-  void _saveResult() {
-    // Logic to save result
+  Future<void> _saveResult() async {
+    final state = _gameState;
+    if (state == null) return;
+
+    final result = TaquinGameResult(
+      mode: _selectedMode,
+      rows: state.rows,
+      moves: state.moves,
+      timeSeconds: state.timeSeconds,
+      timestamp: DateTime.now().millisecondsSinceEpoch,
+    );
+
+    _scoresHistory = [result, ..._scoresHistory].take(10).toList();
+    notifyListeners();
+
+    try {
+      await _scoreRepo.saveGameHistory(
+        gameType: "TAQUIN",
+        score: state.moves,
+        moves: state.moves,
+        timeSeconds: state.timeSeconds,
+        rows: state.rows,
+        metadata: _selectedMode.toString().split('.').last,
+      );
+    } catch (e) {
+      // Silent catch
+    }
   }
 
   void pauseGame() {
@@ -239,8 +314,24 @@ class TaquinProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void saveAndExit() {
+    if (_gameState != null) {
+      final jsonStr = jsonEncode(_gameState!.toJson());
+      _settingsRepo.setStringGeneric("game_state_taquin", jsonStr);
+      _hasSavedGame = true;
+      _autoRestoreDone = true;
+      notifyListeners();
+    }
+  }
+
   void abandonGame() {
     _timer?.cancel();
+    _settingsRepo.removeGeneric("game_state_taquin");
+    _hasSavedGame = false;
+    _autoRestoreDone = true;
+    if (_gameState != null && !_gameState!.isSolved) {
+      _audioService.playSound("assets/files/sounds/game_over.mp3");
+    }
     _gameState = null;
     notifyListeners();
   }

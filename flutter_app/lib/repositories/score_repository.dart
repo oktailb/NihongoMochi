@@ -105,4 +105,42 @@ class ScoreRepository {
         .getSingleOrNull();
     return row != null;
   }
+
+  // --- Gestion de l'historique des jeux (Game Histories) ---
+
+  Future<void> saveGameHistory({
+    required String gameType,
+    required int score,
+    int? moves,
+    int? timeSeconds,
+    int? maxSequence,
+    int? totalPairs,
+    int? rows,
+    int? wordsFound,
+    String? metadata,
+  }) async {
+    final now = DateTime.now().millisecondsSinceEpoch;
+    await db.into(db.gameHistories).insert(
+          GameHistoriesCompanion.insert(
+            gameType: gameType,
+            score: score,
+            moves: Value(moves),
+            timeSeconds: Value(timeSeconds),
+            maxSequence: Value(maxSequence),
+            totalPairs: Value(totalPairs),
+            rows: Value(rows),
+            wordsFound: Value(wordsFound),
+            timestamp: now,
+            metadata: Value(metadata),
+          ),
+        );
+  }
+
+  Future<List<GameHistory>> getGameHistory(String gameType) async {
+    return (db.select(db.gameHistories)
+          ..where((t) => t.gameType.equals(gameType))
+          ..orderBy([(t) => OrderingTerm(expression: t.timestamp, mode: OrderingMode.desc)])
+          ..limit(10))
+        .get();
+  }
 }

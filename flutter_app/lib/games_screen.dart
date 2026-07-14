@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/big_mode_card.dart';
 import 'simon_setup_screen.dart';
-import 'providers/simon_provider.dart';
 import 'memorize_setup_screen.dart';
-import 'providers/memorize_provider.dart';
 import 'taquin_setup_screen.dart';
-import 'providers/taquin_provider.dart';
 import 'kana_link_setup_screen.dart';
-import 'providers/kana_link_provider.dart';
 import 'crossword_setup_screen.dart';
-import 'providers/crossword_provider.dart';
 import 'snake_setup_screen.dart';
-import 'providers/snake_provider.dart';
 import 'shiritori_setup_screen.dart';
-import 'providers/shiritori_provider.dart';
 import 'particle_defender_screen.dart';
-import 'providers/particle_defender_provider.dart';
 
 class GamesScreen extends StatelessWidget {
   const GamesScreen({super.key});
