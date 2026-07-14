@@ -34865,7 +34865,7 @@ this.a=c},
 akT:function akT(){},
 ao5:function ao5(){},
 xF:function xF(a){this.a=a},
-acx:function acx(){this.d="1.0.0"
+acx:function acx(){this.d="0.9.8"
 this.c=this.a=null},
 b0K:function b0K(a,b){this.a=a
 this.b=b},
@@ -127029,7 +127029,7 @@ s=t.p
 r=A.bM(A.c([A.a_("Nihongo\nMochi",n,n,n,A.at(n,n,h,n,n,n,n,n,n,n,n,34,n,n,B.w,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),A.nJ("assets/drawable/nihongomochi.webp",n,n,n,n,B.be,96)],s),B.m,B.bL,B.o,0)
 q=k.L("about_category_informations",n)
 i=i.k3
-q=o.a3K(a,A.c([o.a4x(a,k.L("about_version_label",n),o.d),o.a4x(a,k.L("about_date_label",n),"2024"),B.ai,A.bM(A.c([A.LL(A.az(8),A.nJ("assets/drawable/ebi.webp",new A.b0L(),n,48,n,B.be,48),B.bE),B.dR,A.c4(A.a_(k.L("in_memoriam",n),n,n,n,A.at(n,n,A.af(B.d.aq(178.5),i.q()>>>16&255,i.q()>>>8&255,i.q()&255),n,n,n,n,n,n,n,n,12,B.fC,n,n,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),1)],s),B.m,B.n,B.o,0),B.ai,o.Ca(a,k.L("about_issue_tracker",n),B.a3d,new A.b0M(o)),o.Ca(a,k.L("about_rate_app",n),B.mt,new A.b0N()),o.Ca(a,"Open Source Licenses",B.a3k,new A.b0O(a))],s),B.a3r,q)
+q=o.a3K(a,A.c([o.a4x(a,k.L("about_version_label",n),o.d),o.a4x(a,k.L("about_date_label",n),"2026"),B.ai,A.bM(A.c([A.LL(A.az(8),A.nJ("assets/drawable/ebi.webp",new A.b0L(),n,48,n,B.be,48),B.bE),B.dR,A.c4(A.a_(k.L("in_memoriam",n),n,n,n,A.at(n,n,A.af(B.d.aq(178.5),i.q()>>>16&255,i.q()>>>8&255,i.q()&255),n,n,n,n,n,n,n,n,12,B.fC,n,n,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),1)],s),B.m,B.n,B.o,0),B.ai,o.Ca(a,k.L("about_issue_tracker",n),B.a3d,new A.b0M(o)),o.Ca(a,k.L("about_rate_app",n),B.mt,new A.b0N()),o.Ca(a,"Open Source Licenses",B.a3k,new A.b0O(a))],s),B.a3r,q)
 p=k.L("about_category_credits",n)
 return A.ek(j,n,new A.ei(A.dt(!0,A.j1(A.aK(A.c([r,B.cL,q,B.ai,o.a3K(a,A.c([A.a_(k.L("about_design_dev",n),n,n,n,A.at(n,n,h,n,n,n,n,n,n,n,n,n,n,n,B.w,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),A.a_(k.L("about_author_name",n),n,n,n,A.at(n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),B.ai,o.Ca(a,k.L("about_patreon",n),B.zN,new A.b0P(o)),o.Ca(a,k.L("about_tipeee",n),B.a3J,new A.b0Q(o)),B.ai,A.a_(k.L("about_pedagogical",n),n,n,n,A.at(n,n,h,n,n,n,n,n,n,n,n,n,n,n,B.w,n,n,!0,n,n,n,n,n,n,n,n),n,n,n),A.a_(k.L("about_coming_soon",n),n,n,n,A.at(n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,!0,n,n,n,n,n,n,n,n),n,n,n)],s),B.a3x,p)],s),B.ab,B.n,B.o,n,B.u),n,B.a5,B.a1),B.R,!0),n),!0,n,n)},
 a3K(a,b,c,d){var s,r=null,q=A.Q(a),p=A.az(16),o=q.ax,n=o.k2
