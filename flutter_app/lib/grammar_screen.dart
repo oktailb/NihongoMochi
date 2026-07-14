@@ -226,6 +226,7 @@ class _GrammarViewState extends State<GrammarView> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<GrammarProvider>();
+    final settings = context.watch<SettingsProvider>();
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     if (provider.isLoading) {
@@ -301,7 +302,7 @@ class _GrammarViewState extends State<GrammarView> {
                               });
                             },
                             icon: const Icon(Icons.assignment, size: 18),
-                            label: const Text("Passer l'examen"),
+                            label: Text(settings.getString("grammar_pass_exam")),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.teal,
                               foregroundColor: Colors.white,
@@ -315,11 +316,11 @@ class _GrammarViewState extends State<GrammarView> {
                             fit: BoxFit.contain,
                           ),
                           Transform.translate(
-                            offset: Offset(0, -100 * scale),
+                            offset: const Offset(0, -100 * scale),
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.8),
+                                color: Colors.white.withValues(alpha: 0.8),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(
@@ -364,7 +365,7 @@ class _GrammarViewState extends State<GrammarView> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     decoration: BoxDecoration(
-                      color: Colors.blue.withOpacity(0.9),
+                      color: Colors.blue.withValues(alpha: 0.9),
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 10)],
                     ),

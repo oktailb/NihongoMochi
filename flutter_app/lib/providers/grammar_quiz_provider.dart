@@ -5,7 +5,6 @@ import '../models/quiz_models.dart';
 import '../repositories/exercise_repository.dart';
 import '../repositories/score_repository.dart';
 import '../services/audio_service.dart';
-import '../services/statistics_service.dart';
 
 class GrammarQuizProvider extends ChangeNotifier {
   final ExerciseRepository _exerciseRepo;
@@ -36,6 +35,9 @@ class GrammarQuizProvider extends ChangeNotifier {
   GameState _gameState = GameState.loading;
   int _score = 0;
   int _errorCount = 0;
+  int _currentStarIndex = 0;
+  double _sessionMasteryPercent = 0.0;
+  double _globalMasteryPercent = 0.0;
 
   // Getters
   Exercise? get currentExercise => _currentExercise;
@@ -46,6 +48,10 @@ class GrammarQuizProvider extends ChangeNotifier {
   GameState get gameState => _gameState;
   int get quizScore => _score;
   int get errorCount => _errorCount;
+  int get currentStarIndex => _currentStarIndex;
+  double get sessionMasteryPercent => _sessionMasteryPercent;
+  double get globalMasteryPercent => _globalMasteryPercent;
+
   List<GameStatus> get progressHistory => _currentSet.map((e) => _exercisesStatus[e.id] ?? GameStatus.notAnswered).toList();
 
   Future<void> startQuiz() async {
@@ -64,10 +70,10 @@ class GrammarQuizProvider extends ChangeNotifier {
       if (_startNewSet()) {
         _setupQuestion();
       } else {
-        _gameState = GameState.finished;
+        await _finishGame();
       }
     } else {
-      _gameState = GameState.finished;
+      await _finishGame();
     }
     notifyListeners();
   }
@@ -93,7 +99,7 @@ class GrammarQuizProvider extends ChangeNotifier {
       if (_startNewSet()) {
         _setupQuestion();
       } else {
-        _gameState = GameState.finished;
+        _finishGame();
       }
       return;
     }
@@ -102,6 +108,13 @@ class GrammarQuizProvider extends ChangeNotifier {
     _currentPayload = _exerciseRepo.parsePayload(_currentExercise!);
     _currentOptions = _generateOptions(_currentPayload);
 
+    if (_currentPayload is SentenceOrderPayload) {
+      final blocks = (_currentPayload as SentenceOrderPayload).blocks;
+      _currentStarIndex = blocks.isNotEmpty ? Random().nextInt(blocks.length) : 0;
+    } else {
+      _currentStarIndex = 0;
+    }
+
     _selectedOption = null;
     _isAnswerCorrect = null;
     _gameState = GameState.waitingForAnswer;
@@ -109,6 +122,9 @@ class GrammarQuizProvider extends ChangeNotifier {
 
   List<String> _generateOptions(ExercisePayload? payload) {
     if (payload is FillBlankPayload) {
+      final options = List<String>.from(payload.distractors)..shuffle();
+      return (options.take(3).toList()..add(payload.correct))..shuffle();
+    } else if (payload is UnderlinePayload) {
       final options = List<String>.from(payload.distractors)..shuffle();
       return (options.take(3).toList()..add(payload.correct))..shuffle();
     } else if (payload is SentenceOrderPayload) {
@@ -161,9 +177,46 @@ class GrammarQuizProvider extends ChangeNotifier {
   bool _checkAnswer(String option) {
     final p = _currentPayload;
     if (p is FillBlankPayload) return option == p.correct;
+    if (p is UnderlinePayload) return option == p.correct;
     if (p is WordUsagePayload) return p.options.firstWhere((o) => o.text == option).isCorrect;
-    // Sentence order simplified for multiple choice in this port
-    if (p is SentenceOrderPayload) return option == p.blocks.first;
+    if (p is SentenceOrderPayload) {
+      if (_currentStarIndex < p.blocks.length) {
+        return option == p.blocks[_currentStarIndex];
+      }
+      return false;
+    }
     return false;
+  }
+
+  Future<void> _finishGame() async {
+    await _calculateMastery();
+    _gameState = GameState.finished;
+    notifyListeners();
+  }
+
+  Future<void> _calculateMastery() async {
+    if (grammarTags.isEmpty) {
+      _sessionMasteryPercent = 0.0;
+      _globalMasteryPercent = 0.0;
+      return;
+    }
+
+    double totalPoints = 0.0;
+    for (var tag in grammarTags) {
+      final score = await _scoreRepo.getScore(tag, ScoreType.grammar);
+      if (score != null) {
+        totalPoints += (score.successes - score.failures).clamp(0, 10);
+      }
+    }
+    final double mastery = totalPoints / (grammarTags.length * 10.0);
+    _sessionMasteryPercent = mastery;
+    _globalMasteryPercent = mastery;
+  }
+
+  void replay() {
+    _listPosition = 0;
+    _score = 0;
+    _errorCount = 0;
+    startQuiz();
   }
 }

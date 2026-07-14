@@ -1,6 +1,7 @@
 import 'dart:convert';
 import '../models/grammar_quiz.dart';
 import '../services/resource_loader.dart';
+import 'package:flutter/foundation.dart';
 
 class ExerciseRepository {
   final ResourceLoader _loader;
@@ -22,14 +23,32 @@ class ExerciseRepository {
       final List<dynamic> entries = rawExercises is List ? rawExercises : [rawExercises];
       _allExercises = entries.map((e) => Exercise.fromJson(e)).toList();
     } catch (e) {
-      print("Erreur chargement base exercices: $e");
+      debugPrint("Erreur chargement base exercices: $e");
       _allExercises = [];
     }
   }
 
   Future<List<Exercise>> getExercisesForTag(String tag, {int limit = 10}) async {
+    // 1. Essayer de charger le fichier d'exercice spécifique par règle (nouveau paradigme)
+    try {
+      final jsonString = await _loader.loadString(
+        'grammar/$tag.json', // Vérifie le pack de langue local
+        assetPath: 'assets/files/exercices/$tag.json', // Repli sur l'asset local
+      );
+      final Map<String, dynamic> data = json.decode(jsonString);
+      var rawExercises = data['exercises'] ?? [];
+      final List<dynamic> entries = rawExercises is List ? rawExercises : [rawExercises];
+      final exercises = entries.map((e) => Exercise.fromJson(e)).toList();
+      if (exercises.isNotEmpty) {
+        return (List<Exercise>.from(exercises)..shuffle()).take(limit).toList();
+      }
+    } catch (e) {
+      // Ignorer l'erreur et passer au fallback
+      debugPrint("Infos: Pas de fichier individuel pour le tag $tag, repli sur exercices.json ($e)");
+    }
+
+    // 2. Repli sur le fichier global exercices.json hérité
     await _ensureLoaded();
-    
     final filtered = _allExercises!.where((e) => e.tags.contains(tag)).toList();
     final list = List<Exercise>.from(filtered)..shuffle();
     return list.take(limit).toList();
@@ -71,7 +90,7 @@ class ExerciseRepository {
           return null;
       }
     } catch (e) {
-      print("Erreur parsing payload: $e");
+      debugPrint("Erreur parsing payload: $e");
       return null;
     }
   }

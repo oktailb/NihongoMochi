@@ -48,6 +48,7 @@ flutter:
     - assets/files/grammar/
     - assets/files/grammar/lessons/
     - assets/files/common/
+    - assets/files/exercices/
     - assets/files/langs/ar_SA/
     - assets/files/langs/bn_BD/
     - assets/files/langs/de_DE/

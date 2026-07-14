@@ -3,10 +3,12 @@ import 'package:provider/provider.dart';
 import 'models/grammar_quiz.dart';
 import 'models/quiz_models.dart';
 import 'providers/grammar_quiz_provider.dart';
+import 'providers/settings_provider.dart';
 import 'repositories/exercise_repository.dart';
 import 'repositories/score_repository.dart';
 import 'services/audio_service.dart';
 import 'widgets/mochi_background.dart';
+import 'widgets/game_components.dart';
 
 class GrammarQuizScreen extends StatelessWidget {
   final List<String> grammarTags;
@@ -48,137 +50,196 @@ class GrammarQuizView extends StatelessWidget {
 
     final payload = provider.currentPayload;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Quiz Grammaire"),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _showExitDialog(context, provider);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: GameProgressBar(
+            statuses: provider.progressHistory,
+            maxItems: 10,
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => _showExitDialog(context, provider),
+          ),
+        ),
         backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      extendBodyBehindAppBar: true,
-      body: MochiBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              _buildProgressBar(provider),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (payload != null) _buildQuestionCard(payload),
-                      const SizedBox(height: 32),
-                      _buildOptionsArea(provider),
-                    ],
+        extendBodyBehindAppBar: true,
+        body: MochiBackground(
+          child: SafeArea(
+            child: Column(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (payload != null)
+                            GameQuestionCard(
+                              text: _getQuestionText(payload, provider.currentStarIndex),
+                              fontSize: (payload is WordUsagePayload) ? 18 : 22,
+                            ),
+                          const SizedBox(height: 32),
+                          if (payload != null)
+                            _buildOptionsArea(context, provider, payload),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildProgressBar(GrammarQuizProvider provider) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      child: Row(
-        children: provider.progressHistory.map((status) {
-          Color color = Colors.white.withOpacity(0.3);
-          if (status == GameStatus.correct) color = Colors.green;
-          if (status == GameStatus.incorrect) color = Colors.red;
-
-          return Expanded(
-            child: Container(
-              height: 6,
-              margin: const EdgeInsets.symmetric(horizontal: 2),
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(3),
-              ),
-            ),
-          );
-        }).toList(),
+  void _showExitDialog(BuildContext context, GrammarQuizProvider provider) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) => ExitConfirmationDialog(
+        onConfirm: () {
+          Navigator.pop(dialogContext); // close dialog
+          Navigator.pop(context); // exit quiz
+        },
+        onDismiss: () => Navigator.pop(dialogContext), // resume
       ),
     );
   }
 
-  Widget _buildQuestionCard(ExercisePayload payload) {
-    String text = "";
+  Widget _buildFinishedScreen(BuildContext context, GrammarQuizProvider provider) {
+    final settings = context.read<SettingsProvider>();
+    return GameResultOverlay(
+      isVictory: provider.quizScore >= 8,
+      title: settings.getString("game_result_lot_mastery_grammar"),
+      score: "${(provider.globalMasteryPercent * 100).toInt()}%",
+      stats: [
+        MapEntry(settings.getString("game_result_title_session"), "${(provider.sessionMasteryPercent * 100).toInt()}%"),
+        MapEntry(settings.getString("game_result_title_global"), "${(provider.globalMasteryPercent * 100).toInt()}%"),
+      ],
+      onReplayClick: () => provider.replay(),
+      onMenuClick: () => Navigator.pop(context),
+    );
+  }
+
+  String _getQuestionText(ExercisePayload payload, int starIndex) {
     if (payload is FillBlankPayload) {
-      text = payload.sentence.replaceAll("___", " ____ ");
+      return payload.sentence.replaceAll("__", " ___★___ ");
+    } else if (payload is UnderlinePayload) {
+      return payload.sentence.replaceAll("[", "【").replaceAll("]", "】");
     } else if (payload is WordUsagePayload) {
-      text = "Utilisation correcte de : ${payload.word}";
+      return "「${payload.word}」の使い方が正しいものを選んでください。";
     } else if (payload is SentenceOrderPayload) {
-      text = "${payload.prefix} ... ${payload.suffix}";
+      final holes = List.generate(payload.blocks.length, (i) => i == starIndex ? " ★ " : " ___ ").join("");
+      return "${payload.prefix} $holes ${payload.suffix}";
+    }
+    return "";
+  }
+
+  Widget _buildOptionsArea(BuildContext context, GrammarQuizProvider provider, ExercisePayload payload) {
+    final options = provider.currentOptions;
+    final List<List<String>> chunkedOptions = [];
+    for (int i = 0; i < options.length; i += 2) {
+      chunkedOptions.add(options.sublist(i, i + 2 > options.length ? options.length : i + 2));
     }
 
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildOptionsArea(GrammarQuizProvider provider) {
     return Column(
-      children: provider.currentOptions.map((option) {
-        final isSelected = provider.selectedOption == option;
-        final isCorrect = provider.isAnswerCorrect;
-
-        Color color = Colors.white;
-        if (isSelected) {
-          color = (isCorrect ?? false) ? Colors.green.shade100 : Colors.red.shade100;
-        }
-
+      children: chunkedOptions.map((row) {
         return Padding(
-          padding: const EdgeInsets.only(bottom: 12),
-          child: ElevatedButton(
-            onPressed: provider.selectedOption == null
-                ? () => provider.submitAnswer(option)
-                : null,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: color,
-              minimumSize: const Size(double.infinity, 60),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            ),
-            child: Text(
-              option,
-              style: const TextStyle(fontSize: 18, color: Colors.black87),
-            ),
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Row(
+            children: row.map((option) {
+              final isSelected = provider.selectedOption == option;
+              final isActuallyCorrect = _isOptionCorrect(option, payload);
+              
+              AnswerButtonState buttonState = AnswerButtonState.defaultState;
+              if (isSelected && (provider.isAnswerCorrect ?? false)) {
+                buttonState = AnswerButtonState.correct;
+              } else if (isSelected && !(provider.isAnswerCorrect ?? false)) {
+                buttonState = AnswerButtonState.incorrect;
+              } else if (provider.selectedOption != null && isActuallyCorrect) {
+                buttonState = AnswerButtonState.correct;
+              }
+
+              return Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  child: GameAnswerButton(
+                    text: option,
+                    state: buttonState,
+                    enabled: provider.selectedOption == null,
+                    fontSize: (payload is WordUsagePayload) ? 14 : 18,
+                    onClick: () => provider.submitAnswer(option),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         );
       }).toList(),
     );
   }
 
-  Widget _buildFinishedScreen(BuildContext context, GrammarQuizProvider provider) {
-    return Scaffold(
-      body: MochiBackground(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.auto_awesome, size: 80, color: Colors.orange),
-              const SizedBox(height: 24),
-              const Text("Examen terminé", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              Text("Score : ${provider.quizScore} / 10", style: const TextStyle(fontSize: 20)),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.pink, foregroundColor: Colors.white),
-                child: const Text("CONTINUER"),
-              ),
-            ],
+  bool _isOptionCorrect(String option, ExercisePayload p) {
+    if (p is FillBlankPayload) return option == p.correct;
+    if (p is UnderlinePayload) return option == p.correct;
+    if (p is WordUsagePayload) {
+      final opt = p.options.firstWhere(
+        (o) => o.text == option,
+        orElse: () => UsageOption(text: "", isCorrect: false),
+      );
+      return opt.isCorrect;
+    }
+    if (p is SentenceOrderPayload) return option == p.blocks.first;
+    return false;
+  }
+}
+
+class GameQuestionCard extends StatelessWidget {
+  final String text;
+  final double fontSize;
+
+  const GameQuestionCard({
+    super.key,
+    required this.text,
+    required this.fontSize,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      elevation: 12,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      child: Container(
+        width: 340,
+        height: 240,
+        padding: const EdgeInsets.all(24),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: SingleChildScrollView(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
+            ),
           ),
         ),
       ),
