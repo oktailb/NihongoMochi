@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur に関して・に関する - Cibler le sujet de discussion. "
+  },
+  "exercises": [
+    {
+      "id": "nks_001",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "この問題__、何か意見はありますか。",
+        "correct": "に関して",
+        "distractors": ["に際して", "に伴って", "に従って", "に反して"]
+      }
+    },
+    {
+      "id": "nks_002",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "日本文化__本を読んでいます。",
+        "correct": "に関する",
+        "distractors": ["に関しての", "に関しても", "に関わり", "に関して"]
+      }
+    },
+    {
+      "id": "nks_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "prefix": "新世紀エヴァンゲリオンの",
+        "suffix": "、議論が絶えない。",
+        "blocks": ["結末に", "関して"]
+      }
+    },
+    {
+      "id": "nks_004",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "調査の結果__、報告書をまとめました。",
+        "correct": "に関して",
+        "distractors": ["に沿って", "に際して", "に限定して"]
+      }
+    },
+    {
+      "id": "nks_005",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "word": "に関する",
+        "options": [
+          { "text": "環境保護に関するニュースを聞いた。", "is_correct": true },
+          { "text": "健康に関するアドバイスをお願いします。", "is_correct": true },
+          { "text": "彼は数学に関する、とても詳しい。", "is_correct": false },
+          { "text": "映画を見たに関する、面白かったです。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nks_006",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "昨日の事件__、詳しいことはまだわかっていない。",
+        "correct": "に関して",
+        "distractors": ["に際して", "に従って", "に沿って"]
+      }
+    },
+    {
+      "id": "nks_007",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "base_sentence": "日本の経済について、話し合いました。",
+        "correct": "日本の経済に関して、話し合いました。",
+        "distractors": [
+          "日本の経済に際して、話し合いました。",
+          "日本の経済に従って、話し合いました。",
+          "日本の経済に伴って、話し合いました。"
+        ]
+      }
+    },
+    {
+      "id": "nks_008",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "将来の進路__、両親と相談した。",
+        "correct": "に関して",
+        "distractors": ["に関する", "に関わって", "にかけては"]
+      }
+    },
+    {
+      "id": "nks_009",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "IT技術の進化__、多くの研究が行われている。",
+        "correct": "に関して",
+        "distractors": ["に従って", "に反して", "をこめて"]
+      }
+    },
+    {
+      "id": "nks_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "prefix": "このアニメの",
+        "suffix": "、ファンから質問が殺到した。",
+        "blocks": ["設定に", "関して"]
+      }
+    },
+    {
+      "id": "nks_011",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "個人情報の取扱い__、厳しい規則がある。",
+        "correct": "に関して",
+        "distractors": ["に従って", "に沿って", "に際して"]
+      }
+    },
+    {
+      "id": "nks_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "宇宙「開発」に関するニュースを読みました。",
+        "correct": "かいはつ",
+        "distractors": ["かいぎ", "べんきょう", "けんきゅう"]
+      }
+    },
+    {
+      "id": "nks_013",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "試験のルール__、質問があれば聞いてください。",
+        "correct": "に関して",
+        "distractors": ["に反して", "に限定して", "に従って"]
+      }
+    },
+    {
+      "id": "nks_014",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "日本のアニメ文化__の論文を書いています。",
+        "correct": "に関する",
+        "distractors": ["に関して", "に際する", "に従う"]
+      }
+    },
+    {
+      "id": "nks_015",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "word": "に関して",
+        "options": [
+          { "text": "今回の件に関して、深くお詫び申し上げます。", "is_correct": true },
+          { "text": "歴史に関して興味があります。", "is_correct": true },
+          { "text": "彼はテニスに関して、とても上手です。", "is_correct": false },
+          { "text": "美味しいに関して、この店は一番だ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nks_016",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "新商品の発売日__、まだ決定しておりません。",
+        "correct": "に関して",
+        "distractors": ["に反して", "に従って", "に際して"]
+      }
+    },
+    {
+      "id": "nks_017",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "少子高齢化__社会問題を考えてみよう。",
+        "correct": "に関する",
+        "distractors": ["に関わり", "に関わらず", "に関して"]
+      }
+    },
+    {
+      "id": "nks_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "prefix": "その映画の",
+        "suffix": "、賛否両論がある。",
+        "blocks": ["テーマに", "関して"]
+      }
+    },
+    {
+      "id": "nks_019",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "会社の運営方針__、不満を持っている社員もいる。",
+        "correct": "に関して",
+        "distractors": ["に際して", "に従って", "に沿って"]
+      }
+    },
+    {
+      "id": "nks_020",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "法律__知識が必要な仕事です。",
+        "correct": "に関する",
+        "distractors": ["に関して", "に際する", "に従う"]
+      }
+    },
+    {
+      "id": "nks_021",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "base_sentence": "最近の流行について、知りたいです。",
+        "correct": "最近の流行に関して、知りたいです。",
+        "distractors": [
+          "最近の流行に際して、知りたいです。",
+          "最近の流行に従って、知りたいです。",
+          "最近の流行に沿って、知りたいです。"
+        ]
+      }
+    },
+    {
+      "id": "nks_022",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "地球温暖化__データを集めています。",
+        "correct": "に関する",
+        "distractors": ["に関わり", "に関しての", "に関するの"]
+      }
+    },
+    {
+      "id": "nks_023",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "昨日話した件__、変更があります。",
+        "correct": "に関して",
+        "distractors": ["に際して", "に限定して", "に反して"]
+      }
+    },
+    {
+      "id": "nks_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "「教育」に関する議論が深まっている。",
+        "correct": "きょういく",
+        "distractors": ["きょうしつ", "べんきょう", "けいかく"]
+      }
+    },
+    {
+      "id": "nks_025",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "AIの活用方法__、各社が競い合っている。",
+        "correct": "に関して",
+        "distractors": ["に限定して", "に従って", "に伴って"]
+      }
+    },
+    {
+      "id": "nks_026",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "交通「安全」__啓発活動を行っています。",
+        "correct": "に関する",
+        "distractors": ["に関して", "に関わり", "に関わらず"]
+      }
+    },
+    {
+      "id": "nks_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、非常に詳しい。",
+        "blocks": ["日本の", "歴史に", "関して"]
+      }
+    },
+    {
+      "id": "nks_028",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "そのソフトウェアの不具合__、謝罪文が出された。",
+        "correct": "に関して",
+        "distractors": ["に反して", "に沿って", "に伴って"]
+      }
+    },
+    {
+      "id": "nks_029",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "ペットの飼い方__マニュアルを作りました。",
+        "correct": "に関する",
+        "distractors": ["に関わり", "に関して", "に関するの"]
+      }
+    },
+    {
+      "id": "nks_030",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kan_shite"],
+      "payload": {
+        "sentence": "自分の将来__、不安を感じることもある。",
+        "correct": "に関して",
+        "distractors": ["に反して", "に際して", "に伴って"]
+      }
+    }
+  ]
+}

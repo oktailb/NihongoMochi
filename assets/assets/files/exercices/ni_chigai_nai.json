@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に違いない  - Sans aucun doute - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "nichigainai_001",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai", "N3"],
+      "payload": {
+        "sentence": "犯人は彼__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_002",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai", "pop_culture"],
+      "payload": {
+        "sentence": "悟空なら、きっと勝つ__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_003",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "あんなに勉強したんだから、合格する__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nichigainai"],
+      "payload": {
+        "prefix": "道が濡れているから、",
+        "suffix": "。",
+        "blocks": ["昨夜", "雨が降った", "に違いない"]
+      }
+    },
+    {
+      "id": "nichigainai_005",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "彼女は、本当のことを知っている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_006",
+      "type": "WORD_USAGE",
+      "tags": ["nichigainai"],
+      "payload": {
+        "word": "～に違いない ",
+        "options": [
+          { "text": "明日は晴れるに違いない。", "is_correct": true },
+          { "text": "彼は嘘をついているに違いない。", "is_correct": true },
+          { "text": "雨が降るに違いない。", "is_correct": true },
+          { "text": "勉強するに違いない合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nichigainai_007",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの戦闘力は、100万を超えている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_008",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "この高級なバッグは、本物__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_009",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "彼は、もう家に着いた__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_010",
+      "type": "PARAPHRASE",
+      "tags": ["nichigainai"],
+      "payload": {
+        "base_sentence": "これは夢に違いない。",
+        "correct": "あまりにも信じられない出来事なので、現実ではなく夢であるとしか考えられません。",
+        "distractors": [
+          "これは夢ではありません。",
+          "これは夢かもしれません。",
+          "これは夢を見たことがあります。"
+        ]
+      }
+    },
+    {
+      "id": "nichigainai_011",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "彼女の話し方からして、怒っている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nichigainai"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["レストランは", "有名な", "に違いない。いつも混んでいる"]
+      }
+    },
+    {
+      "id": "nichigainai_013",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "この計画は、成功する__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_014",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "彼なら、もう解決策を見つけている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_015",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "そんなに高価なもの、買う人はいない__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "「に違いない」。",
+        "correct": "にちがいない",
+        "distractors": ["にまちがいない", "にことならない", "にはずがない", "にわけがない"]
+      }
+    },
+    {
+      "id": "nichigainai_017",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "一度会えば、彼の素晴らしさがわかる__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_018",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "この冬は、雪がたくさん降る__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nichigainai"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["私のことを", "忘れてしまった", "に違いない"]
+      }
+    },
+    {
+      "id": "nichigainai_020",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "この本は、ベストセラーになる__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_021",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの影に、恐ろしい真実が隠されている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもり da"]
+      }
+    },
+    {
+      "id": "nichigainai_022",
+      "type": "WORD_USAGE",
+      "tags": ["nichigainai"],
+      "payload": {
+        "word": "～に違いない ",
+        "options": [
+          { "text": "足跡があるから、犯人はここを通ったに違いない。", "is_correct": true },
+          { "text": "電気がついているから、誰かいるに違いない。", "is_correct": true },
+          { "text": "雨が降るに違いない。", "is_correct": true },
+          { "text": "勉強するに違いない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nichigainai_023",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "彼は、もうすべてを悟っている__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_024",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "この味は、お母さんが作った__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_025",
+      "type": "PARAPHRASE",
+      "tags": ["nichigainai"],
+      "payload": {
+        "base_sentence": "彼は、絶対に成功するに違いない。",
+        "correct": "彼のこれまでの努力や実力を考えれば、成功することは100%確実であると私は信じています。",
+        "distractors": [
+          "彼は成功するかもしれません。",
+          "彼は成功するために準備をしています。",
+          "彼は成功しなくても大丈夫です。"
+        ]
+      }
+    },
+    {
+      "id": "nichigainai_026",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "不適切な発言があったから、問題になる__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_027",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "事実が判明した以上、彼は辞任する__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nichigainai"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["建物は", "非常に古い", "に違いない"]
+      }
+    },
+    {
+      "id": "nichigainai_029",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "未来は、もっと便利になる__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    },
+    {
+      "id": "nichigainai_030",
+      "type": "FILL_BLANK",
+      "tags": ["nichigainai"],
+      "payload": {
+        "sentence": "自分を信じれば、道は開ける__。",
+        "correct": "に違いない",
+        "distractors": ["はずがない", "わけがない", "ことにする", "つもりだ"]
+      }
+    }
+  ]
+}

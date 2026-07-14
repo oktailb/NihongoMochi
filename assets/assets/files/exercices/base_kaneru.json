@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~かねる  - Incapacité polie ou psychologique - N2"
+  },
+  "exercises": [
+    {
+      "id": "kaneru_001",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru", "N2"],
+      "payload": {
+        "sentence": "申し訳ございませんが、そのご質問にはお答えいたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "きれません", "得ません"]
+      }
+    },
+    {
+      "id": "kaneru_002",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru", "business"],
+      "payload": {
+        "sentence": "私の一存では決め__ので、上司に相談いたします。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "得ない", "べきでない"]
+      }
+    },
+    {
+      "id": "kaneru_003",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "あまりに悲しいニュースに、見るに__目をそらした。",
+        "correct": "かねて",
+        "distractors": ["かねないで", "がたくて", "きれなくて", "えなくて"]
+      }
+    },
+    {
+      "id": "kaneru_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kaneru"],
+      "payload": {
+        "prefix": "ご希望には",
+        "suffix": "いたしかねます。",
+        "blocks": ["残念ながら", "沿い", "かねます/"]
+      }
+    },
+    {
+      "id": "kaneru_005",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "彼の態度は、承服いたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "得ない", "がたい", "そうにない"]
+      }
+    },
+    {
+      "id": "kaneru_006",
+      "type": "WORD_USAGE",
+      "tags": ["kaneru"],
+      "payload": {
+        "word": "～かねる ",
+        "options": [
+          { "text": "その条件では引き受けかねます。", "is_correct": true },
+          { "text": "英語が話し兼ねます。", "is_correct": false },
+          { "text": "見るに兼ねて、手助けをした。", "is_correct": true },
+          { "text": "お腹が空き兼ねる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kaneru_007",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru", "pop_culture"],
+      "payload": {
+        "sentence": "正義感の強い彼は、悪事を見逃し__た。",
+        "correct": "かね",
+        "distractors": ["かねない", "がたい", "得ない", "しかない"]
+      }
+    },
+    {
+      "id": "kaneru_008",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "今の段階では、賛成いたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "得ない", "まい"]
+      }
+    },
+    {
+      "id": "kaneru_009",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "個人情報については、お教えいたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "得ない", "がたい", "きれません"]
+      }
+    },
+    {
+      "id": "kaneru_010",
+      "type": "PARAPHRASE",
+      "tags": ["kaneru"],
+      "payload": {
+        "base_sentence": "納得いたしかねる点がございます。",
+        "correct": "納得することが難しい点があります。",
+        "distractors": [
+          "納得することができました。",
+          "納得しないようにしています。",
+          "納得してもいいと思っています。"
+        ]
+      }
+    },
+    {
+      "id": "kaneru_011",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "それは受け入れ__提案です。",
+        "correct": "がたい",
+        "distractors": ["かねる", "かねない", "得ない", "べきでない"]
+      }
+    },
+    {
+      "id": "kaneru_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kaneru"],
+      "payload": {
+        "prefix": "弊社としては",
+        "suffix": "かねます。",
+        "blocks": ["その要求には", "応じ", "かねます/"]
+      }
+    },
+    {
+      "id": "kaneru_013",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "あまりの惨状に、正視し__た。",
+        "correct": "かね",
+        "distractors": ["かねない", "がたい", "得ない", "きれ"]
+      }
+    },
+    {
+      "id": "kaneru_014",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "どちらがいいか、決め__います。",
+        "correct": "かねて",
+        "distractors": ["かねないで", "得ないで", "がたくて", "きれなくて"]
+      }
+    },
+    {
+      "id": "kaneru_015",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "誠に勝手ながら、返品はいたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "得ない", "まい"]
+      }
+    },
+    {
+      "id": "kaneru_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "責任を負い「兼ね」ます。",
+        "correct": "かね",
+        "distractors": ["けね", "かねい", "けん", "はね"]
+      }
+    },
+    {
+      "id": "kaneru_017",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "待ち__て、先に帰ってしまった。",
+        "correct": "かね",
+        "distractors": ["かねない", "がたい", "きれ", "え"]
+      }
+    },
+    {
+      "id": "kaneru_018",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "今の計画には、同調いたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "得ない", "べきだ"]
+      }
+    },
+    {
+      "id": "kaneru_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kaneru"],
+      "payload": {
+        "prefix": "見るに",
+        "suffix": "助けた。",
+        "blocks": ["かねて", "つい", "彼は"]
+      }
+    },
+    {
+      "id": "kaneru_020",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "電話では、詳細はお伝えいたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "得ない", "がたい", "まい"]
+      }
+    },
+    {
+      "id": "kaneru_021",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は仲間が傷つくのを黙って見__た。",
+        "correct": "ていられなかっ",
+        "distractors": ["かね", "かねない", "がたい", "得ない"]
+      }
+    },
+    {
+      "id": "kaneru_022",
+      "type": "WORD_USAGE",
+      "tags": ["kaneru"],
+      "payload": {
+        "word": "～かねる ",
+        "options": [
+          { "text": "予約のキャンセルは承りかねます。", "is_correct": true },
+          { "text": "漢字が読み兼ねます。", "is_correct": false },
+          { "text": "彼は信頼し兼ねる人物だ。", "is_correct": true },
+          { "text": "雨が降り兼ねる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "kaneru_023",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "その件については、関与いたし__。",
+        "correct": "かねます",
+        "distractors": ["かねない", "がたい", "得ない", "べきだ"]
+      }
+    },
+    {
+      "id": "kaneru_024",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "苦渋の決断を、下し__いる。",
+        "correct": "かねて",
+        "distractors": ["かねないで", "得ないで", "がたくて", "きれなくて"]
+      }
+    },
+    {
+      "id": "kaneru_025",
+      "type": "PARAPHRASE",
+      "tags": ["kaneru"],
+      "payload": {
+        "base_sentence": "そのご提案は、承服いたしかねます。",
+        "correct": "その提案を受け入れることはできません。",
+        "distractors": [
+          "その提案を喜んで受け入れます。",
+          "その提案を後で検討します。",
+          "その提案は素晴らしいと思います。"
+        ]
+      }
+    },
+    {
+      "id": "kaneru_026",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "安全性が確認できるまでは、使用を__かねる。",
+        "correct": "認め",
+        "distractors": ["認める", "認めた", "認めて", "認めれば"]
+      }
+    },
+    {
+      "id": "kaneru_027",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "彼は、何を言い出すか予断を__。",
+        "correct": "許さない",
+        "distractors": ["許しかねる", "許しかねない", "許しがたい", "許しえない"]
+      }
+    },
+    {
+      "id": "kaneru_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kaneru"],
+      "payload": {
+        "prefix": "この件は",
+        "suffix": "かねます。",
+        "blocks": ["私共では", "判断いたし", "かねます/"]
+      }
+    },
+    {
+      "id": "kaneru_029",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "公表は、現時点では差し控え__。",
+        "correct": "させていただきます",
+        "distractors": ["かねます", "かねない", "がたい", "得ない"]
+      }
+    },
+    {
+      "id": "kaneru_030",
+      "type": "FILL_BLANK",
+      "tags": ["kaneru"],
+      "payload": {
+        "sentence": "待ち__た春がようやくやってきた。",
+        "correct": "わび",
+        "distractors": ["かね", "かねない", "がたい", "得ない"]
+      }
+    }
+  ]
+}

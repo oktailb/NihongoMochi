@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur le suffixe ~中  - Pendant / Partout - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "chuju_001",
+      "type": "FILL_BLANK",
+      "tags": ["chuju", "N4"],
+      "payload": {
+        "sentence": "田中さんは今、会議__です。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_002",
+      "type": "FILL_BLANK",
+      "tags": ["chuju", "N4"],
+      "payload": {
+        "sentence": "昨日は一日__雨が降っていました。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_003",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "世界__で日本のアニメが人気です。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["chuju"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "電話に出られない。",
+        "blocks": ["ただいま", "食事", "中です"]
+      }
+    },
+    {
+      "id": "chuju_005",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "今日__にこの仕事を終わらせなければならない。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_006",
+      "type": "WORD_USAGE",
+      "tags": ["chuju"],
+      "payload": {
+        "word": "～中 ",
+        "options": [
+          { "text": "一年中、暑い国に住みたい。", "is_correct": true },
+          { "text": "体中が痛いです。", "is_correct": true },
+          { "text": "授業中に寝る。", "is_correct": false },
+          { "text": "工事中に付き、通行止め。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "chuju_007",
+      "type": "FILL_BLANK",
+      "tags": ["chuju", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は修行__に、新しい技を覚えた。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_008",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "夜__、赤ちゃんの泣き声が聞こえた。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_009",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "今、工事__ですから、気をつけてください。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_010",
+      "type": "PARAPHRASE",
+      "tags": ["chuju"],
+      "payload": {
+        "base_sentence": "彼は一日中本を読んでいる。",
+        "correct": "彼は朝から晩まで、休みなく本を読んでいる。",
+        "distractors": [
+          "彼は一日のうちに、少しだけ本を読む。",
+          "彼は一日の終わりに本を読む。",
+          "彼は一日の途中で本を読むのをやめた。"
+        ]
+      }
+    },
+    {
+      "id": "chuju_011",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "学校__に噂が広まった。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["chuju"],
+      "payload": {
+        "prefix": "現在",
+        "suffix": "お待ちください。",
+        "blocks": ["準備", "中です", "少々"]
+      }
+    },
+    {
+      "id": "chuju_013",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "放送__にハプニングが起きた。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_014",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "体__泥だらけになって遊んだ。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_015",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "休み__に宿題を全部終わらせた。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "「世界中」を旅したい。",
+        "correct": "せかいじゅう",
+        "distractors": ["せかいちゅう", "せかいあいだ", "せかいなか", "せかいじゅ"]
+      }
+    },
+    {
+      "id": "chuju_017",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "今月__に返事をします。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_018",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "町__がクリスマスのお祝いムードだ。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["chuju"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。邪魔しないで。",
+        "blocks": ["今", "勉強", "ちゅうだ"]
+      }
+    },
+    {
+      "id": "chuju_020",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "寝__に地震があった。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_021",
+      "type": "FILL_BLANK",
+      "tags": ["chuju", "pop_culture"],
+      "payload": {
+        "sentence": "ナメック星__を探したが、ドラゴンボールは見つからなかった。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_022",
+      "type": "WORD_USAGE",
+      "tags": ["chuju"],
+      "payload": {
+        "word": "～中 ",
+        "options": [
+          { "text": "仕事中に電話がかかってきた。", "is_correct": true },
+          { "text": "午前中に出発する。", "is_correct": true },
+          { "text": "体中に発疹が出た。", "is_correct": false },
+          { "text": "日本中を旅行した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "chuju_023",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "試験__は一言も話してはいけません。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_024",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "家__を探したけれど、鍵は見つからなかった。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_025",
+      "type": "PARAPHRASE",
+      "tags": ["chuju"],
+      "payload": {
+        "base_sentence": "彼は午前中に出かけました。",
+        "correct": "彼は朝から昼の12時までの間に、外に行きました。",
+        "distractors": [
+          "彼は一日の終わりに外に行きました。",
+          "彼は午後になってから外に行きました。",
+          "彼は午前中ずっと外にいました。"
+        ]
+      }
+    },
+    {
+      "id": "chuju_026",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "営業__の看板が出ている。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_027",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "一生__のお願いだから、お金を貸して！",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["chuju"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。電話をかけ直そう。",
+        "blocks": ["ただいま", "外出", "ちゅうです"]
+      }
+    },
+    {
+      "id": "chuju_029",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "冬休み__に北海道へ行く予定だ。",
+        "correct": "ちゅう",
+        "distractors": ["じゅう", "あいだ", "うちに", "ながら"]
+      }
+    },
+    {
+      "id": "chuju_030",
+      "type": "FILL_BLANK",
+      "tags": ["chuju"],
+      "payload": {
+        "sentence": "世界__の平和を願っている。",
+        "correct": "じゅう",
+        "distractors": ["ちゅう", "あいだ", "うちに", "ながら"]
+      }
+    }
+  ]
+}

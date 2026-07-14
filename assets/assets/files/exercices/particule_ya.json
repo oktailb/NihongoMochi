@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule YA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "ya_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "机の上に本__ノートなどがあります。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "田中さん__一緒に映画を見ます。",
+        "correct": "と",
+        "distractors": ["や", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "店でパン__卵などを買いました。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "明日、日本__行きます。",
+        "correct": "に",
+        "distractors": ["や", "を", "で", "の"]
+      }
+    },
+    {
+      "id": "ya_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "pop_culture"],
+      "payload": {
+        "sentence": "カバンの中にモンスターボール__図鑑などが入っています。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "10時__寝ます。",
+        "correct": "に",
+        "distractors": ["や", "を", "で", "は"]
+      }
+    },
+    {
+      "id": "ya_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "公園に子供__犬などがいます。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "毎日、日本語__勉強します。",
+        "correct": "を",
+        "distractors": ["や", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "ya_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "箱の中に写真__手紙などがあります。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_ya"],
+      "payload": {
+        "word": "や ",
+        "options": [
+          { "text": "パンや卵を買いました。", "is_correct": true },
+          { "text": "本やノートがあります。", "is_correct": true },
+          { "text": "猫や犬がいます。", "is_correct": true },
+          { "text": "学校や行きます。", "is_correct": false },
+          { "text": "10時や起きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "ya_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "これは私__本です。",
+        "correct": "の",
+        "distractors": ["や", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "ya_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "昨日、何__食べましたか。",
+        "correct": "を",
+        "distractors": ["や", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "ya_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "冷蔵庫の中にビール__ジュースなどがあります。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "お名前__教えてください。",
+        "correct": "を",
+        "distractors": ["や", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "ya_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_ya"],
+      "payload": {
+        "base_sentence": "机の上に本やノートがあります。",
+        "correct": "机の上に本とノート以外にも何かあります。",
+        "distractors": [
+          "机の上に本とノートだけがあります。",
+          "机の上に本とノートがありません。",
+          "机の上に本かノートがあります。",
+          "机の上に本とノートを置きます。"
+        ]
+      }
+    },
+    {
+      "id": "ya_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "動物園にゾウ__キリンなどがいます。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "日本語__わかりますか。",
+        "correct": "が",
+        "distractors": ["や", "を", "は", "に"]
+      }
+    },
+    {
+      "id": "ya_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya"],
+      "payload": {
+        "sentence": "庭に桜__梅の花などが咲いています。",
+        "correct": "や",
+        "distractors": ["と", "に", "を", "が"]
+      }
+    },
+    {
+      "id": "ya_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_ya"],
+      "payload": {
+        "prefix": "スーパーで",
+        "suffix": "ます。",
+        "blocks": ["野菜や", "果物などを", "買い"]
+      }
+    },
+    {
+      "id": "ya_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_ya", "traps"],
+      "payload": {
+        "sentence": "鉛筆__書いてください。",
+        "correct": "で",
+        "distractors": ["や", "を", "に", "が"]
+      }
+    }
+  ]
+}

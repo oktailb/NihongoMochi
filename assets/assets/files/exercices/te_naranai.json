@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～てならない - L'émotion qui nous submerge. "
+  },
+  "exercises": [
+    {
+      "id": "tnr_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "合格できるかどうか、心配で__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "ならないで", "ならないければ", "ならないのに"]
+      }
+    },
+    {
+      "id": "tnr_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "あの人のことが気になって__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "おけない", "しかならない", "ばかりだ"]
+      }
+    },
+    {
+      "id": "tnr_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_naranai"],
+      "payload": {
+        "prefix": "一人で夜道を歩くのは、",
+        "suffix": "。",
+        "blocks": ["怖くて", "ならない"]
+      }
+    },
+    {
+      "id": "tnr_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "田舎の両親のことが思い出されて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "しょうがない"]
+      }
+    },
+    {
+      "id": "tnr_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_naranai"],
+      "payload": {
+        "word": "てならない",
+        "options": [
+          { "text": "喉が渇いてならない。", "is_correct": true },
+          { "text": "不公平なことが許せなくてならない。", "is_correct": true },
+          { "text": "雨が降ってならない、行きましょう。", "is_correct": false },
+          { "text": "勉強をしてならない、100点を取った。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tnr_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "彼の将来が楽しみで__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "きまらない"]
+      }
+    },
+    {
+      "id": "tnr_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_naranai"],
+      "payload": {
+        "base_sentence": "とても残念だと思います。",
+        "correct": "残念でなりません。",
+        "distractors": [
+          "残念でいけません。",
+          "残念でたまります。",
+          "残念でばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tnr_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "あの事件のことが忘れられなくて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "おけない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "何か悪いことが起こるような気がして__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_naranai"],
+      "payload": {
+        "prefix": "彼女に会えるのが、",
+        "suffix": "。",
+        "blocks": ["嬉しくて", "ならない"]
+      }
+    },
+    {
+      "id": "tnr_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "無実の罪で捕まるとは、悔しくて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "「希望」に満ちあふれてならない。",
+        "correct": "きぼう",
+        "distractors": ["ゆめ", "しあわせ", "ふあん"]
+      }
+    },
+    {
+      "id": "tnr_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "宝くじが当たるのではないかと期待して__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "子供の安否が気遣われて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_naranai"],
+      "payload": {
+        "word": "てならない",
+        "options": [
+          { "text": "不思議でならない現象だ。", "is_correct": true },
+          { "text": "腹が立ってならない。", "is_correct": true },
+          { "text": "毎日勉強してならない、上手になります。", "is_correct": false },
+          { "text": "ご飯を作ってならない、食べました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tnr_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "あの時、あんなことを言わなければよかったと悔やまれて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "このままではいけないと焦って__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_naranai"],
+      "payload": {
+        "prefix": "真実を",
+        "suffix": "。",
+        "blocks": ["知りたくて", "ならない"]
+      }
+    },
+    {
+      "id": "tnr_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "彼の無実が信じられて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "君のことが愛しくて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_naranai"],
+      "payload": {
+        "base_sentence": "どうしても気になります。",
+        "correct": "気になってなりません。",
+        "distractors": [
+          "気になっていけません。",
+          "気になってばかりです。",
+          "気になってところです。"
+        ]
+      }
+    },
+    {
+      "id": "tnr_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "不条理な現実に腹が立って__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "何か大きな力が働いているような気がして__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "「孤独」でならない夜もある。",
+        "correct": "こどく",
+        "distractors": ["ふあん", "かなしい", "さびしい"]
+      }
+    },
+    {
+      "id": "tnr_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "彼の成功が誇らしくて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "あの日、君を助けられなかったことが悔やまれて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_naranai"],
+      "payload": {
+        "prefix": "平和を",
+        "suffix": "。",
+        "blocks": ["願って", "ならない"]
+      }
+    },
+    {
+      "id": "tnr_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "新しい生活への不安が募って__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "君の笑顔が見たくて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tnr_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_naranai"],
+      "payload": {
+        "sentence": "君に出会えたことが奇跡のように思われて__。",
+        "correct": "ならない",
+        "distractors": ["いけない", "たまらない", "反面"]
+      }
+    }
+  ]
+}

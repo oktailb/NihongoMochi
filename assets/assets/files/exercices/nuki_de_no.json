@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ぬきで・ぬきに・ぬきには - L'art de l'omission et de l'indispensable. "
+  },
+  "exercises": [
+    {
+      "id": "nkd_001",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "今日は仕事の話は__にして、楽しみましょう。",
+        "correct": "ぬき",
+        "distractors": ["なし", "はずし", "おき", "とばし"]
+      }
+    },
+    {
+      "id": "nkd_002",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "彼の協力__、このプロジェクトの成功はあり得なかった。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの", "ぬきこそ"]
+      }
+    },
+    {
+      "id": "nkd_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "prefix": "お世辞",
+        "suffix": "、君の歌は最高だよ。",
+        "blocks": ["ぬきで"]
+      }
+    },
+    {
+      "id": "nkd_004",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "朝食__、学校へ行くのは体に良くない。",
+        "correct": "ぬきで",
+        "distractors": ["ぬきには", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_005",
+      "type": "WORD_USAGE",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "word": "ぬきには",
+        "options": [
+          { "text": "家族の支えぬきには、今の私はいない。", "is_correct": true },
+          { "text": "努力ぬきには、合格は難しいだろう。", "is_correct": true },
+          { "text": "冗談ぬきには、話しましょう。", "is_correct": false },
+          { "text": "わさびぬきには、お寿司を食べます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkd_006",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "冗談__話しますが、本当に会社を辞めるつもりです。",
+        "correct": "ぬきで",
+        "distractors": ["ぬきには", "ぬきの", "ぬきを"]
+      }
+    },
+    {
+      "id": "nkd_007",
+      "type": "PARAPHRASE",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "base_sentence": "お世辞を言わないで言うと、この料理はまずい。",
+        "correct": "お世辞ぬきで言うと、この料理はまずい。",
+        "distractors": [
+          "お世辞ぬきには言うと、この料理はまずい。",
+          "お世辞ぬきに言うと、この料理はまずい。",
+          "お世辞ぬきの言うと、この料理はまずい。"
+        ]
+      }
+    },
+    {
+      "id": "nkd_008",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "牛丼のネギ__を注文した。",
+        "correct": "ぬき",
+        "distractors": ["なし", "はずし", "とばし"]
+      }
+    },
+    {
+      "id": "nkd_009",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "水__、人間は生きていくことができない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "prefix": "このアニメは、",
+        "suffix": "、語ることはできない。",
+        "blocks": ["音楽", "ぬきには"]
+      }
+    },
+    {
+      "id": "nkd_011",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "わさび__のお寿司をお願いします。",
+        "correct": "ぬき",
+        "distractors": ["ぬきには", "ぬきで", "ぬきに"]
+      }
+    },
+    {
+      "id": "nkd_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "「冗談」ぬきで、彼は天才だと思う。",
+        "correct": "じょうだん",
+        "distractors": ["はなし", "うそ", "ほんとう"]
+      }
+    },
+    {
+      "id": "nkd_013",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "休憩__、5時間も働き続けた。",
+        "correct": "ぬきで",
+        "distractors": ["ぬきには", "ぬきの", "ぬきに"]
+      }
+    },
+    {
+      "id": "nkd_014",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "君の助け__、この課題は終わらなかったよ。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_015",
+      "type": "WORD_USAGE",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "word": "ぬきで",
+        "options": [
+          { "text": "堅苦しい挨拶はぬきで、パーティーを始めましょう。", "is_correct": true },
+          { "text": "今日は車ぬきで、歩いてきました。", "is_correct": true },
+          { "text": "彼は水ぬきで、泳ぐのが得意だ。", "is_correct": false },
+          { "text": "勉強ぬきで、テストに合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkd_016",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "ランチタイムは、サラダ__にすることはできません。",
+        "correct": "ぬき",
+        "distractors": ["ぬきには", "ぬきで", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_017",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "過去の失敗__、今の成功は語れない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "prefix": "前置きは",
+        "suffix": "、本題に入りましょう。",
+        "blocks": ["ぬきにして"]
+      }
+    },
+    {
+      "id": "nkd_019",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "最近の若者言葉__、このドラマは理解できない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_020",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "今回の旅行は、トラブル__無事に終わった。",
+        "correct": "ぬきで",
+        "distractors": ["ぬきには", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_021",
+      "type": "PARAPHRASE",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "base_sentence": "お金がないと、この生活は維持できない。",
+        "correct": "お金ぬきには、この生活は維持できない。",
+        "distractors": [
+          "お金ぬきで、この生活は維持できない。",
+          "お金ぬきの、この生活は維持できない。",
+          "お金ぬきには、この生活は維持できる。"
+        ]
+      }
+    },
+    {
+      "id": "nkd_022",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "彼は昼食__働き続けた。",
+        "correct": "ぬきで",
+        "distractors": ["ぬきには", "ぬきの", "ぬきに"]
+      }
+    },
+    {
+      "id": "nkd_023",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "ネットの環境__、今の生活は考えられない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "「辞書」ぬきには、この本は読めない。",
+        "correct": "じしょ",
+        "distractors": ["ほん", "ノート", "ことば"]
+      }
+    },
+    {
+      "id": "nkd_025",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "お酒は__にして、まずはご飯を食べましょう。",
+        "correct": "ぬき",
+        "distractors": ["ぬきには", "ぬきで", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_026",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "伝統の重み__、この祭りは成立しない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "prefix": "彼はいつも",
+        "suffix": "、真面目な顔をしている。",
+        "blocks": ["冗談", "ぬきで"]
+      }
+    },
+    {
+      "id": "nkd_028",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "肉__のカレーを作ってください。",
+        "correct": "ぬき",
+        "distractors": ["ぬきには", "ぬきで", "ぬきに"]
+      }
+    },
+    {
+      "id": "nkd_029",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "情熱__、素晴らしい作品は生まれない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきの"]
+      }
+    },
+    {
+      "id": "nkd_030",
+      "type": "FILL_BLANK",
+      "tags": ["nuki_de_no"],
+      "payload": {
+        "sentence": "君__、僕の人生は考えられない。",
+        "correct": "ぬきには",
+        "distractors": ["ぬきで", "ぬきに", "ぬきこそ"]
+      }
+    }
+  ]
+}

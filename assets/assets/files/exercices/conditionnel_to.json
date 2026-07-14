@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Conditionnel ~TO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "to_001",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "このボタンを押す__、水が出ます。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_002",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "direction"],
+      "payload": {
+        "sentence": "まっすぐ行く__、右側にありますよ。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_003",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "nature"],
+      "payload": {
+        "sentence": "春になる__、桜が咲きます。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_004",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "ここを右へ__と、郵便局があります。",
+        "correct": "曲がる",
+        "distractors": ["曲がって", "曲がった", "曲がり", "曲がらな", "曲がります"]
+      }
+    },
+    {
+      "id": "to_005",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "pop_culture"],
+      "payload": {
+        "sentence": "修行をサボる__、弱くなるぞ！",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "のだ", "に"]
+      }
+    },
+    {
+      "id": "to_006",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "word": "〜と ",
+        "options": [
+          { "text": "冬になると、雪が降ります。", "is_correct": true },
+          { "text": "食べると太ります。", "is_correct": true },
+          { "text": "まっすぐ行くと駅に着きます。", "is_correct": true },
+          { "text": "先生に聞くといいですよ。 ", "is_correct": false },
+          { "text": "明日と会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "to_007",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "夜になる__、暗くなります。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_008",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "お酒を__と、顔が赤くなります。",
+        "correct": "飲む",
+        "distractors": ["飲んで", "飲んだ", "飲み", "飲ま", "飲みます"]
+      }
+    },
+    {
+      "id": "to_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "prefix": "橋を",
+        "suffix": "公園があります。",
+        "blocks": ["渡ると"]
+      }
+    },
+    {
+      "id": "to_010",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "base_sentence": "食べるとお腹がいっぱいになります。",
+        "correct": "食べるという行為をすれば、自然と満腹になります。",
+        "distractors": [
+          "食べたいから、たくさん食べます。",
+          "食べたので、お腹がいっぱいです。",
+          "食べる前に、お腹がいっぱいになります。",
+          "食べなければなりません。"
+        ]
+      }
+    },
+    {
+      "id": "to_011",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "雨が降る__、道が滑りやすくなります。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_012",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "10時を__と、ニュースが始まります。",
+        "correct": "過ぎる",
+        "distractors": ["過ぎて", "過ぎた", "過ぎ", "過ぎな", "過ぎます"]
+      }
+    },
+    {
+      "id": "to_013",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "窓を__と、涼しい風が入ってきます。",
+        "correct": "開ける",
+        "distractors": ["開けて", "開けた", "開け", "開けな", "開けます"]
+      }
+    },
+    {
+      "id": "to_014",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "pop_culture"],
+      "payload": {
+        "sentence": "月を見る__、大猿になる！",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_015",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "お金が__と、買い物ができません。",
+        "correct": "ない",
+        "distractors": ["なくて", "なかった", "なな", "なし", "ありません"]
+      }
+    },
+    {
+      "id": "to_016",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "朝__と、鳥が鳴きます。",
+        "correct": "になる",
+        "distractors": ["になって", "になった", "になり", "になら", "になります"]
+      }
+    },
+    {
+      "id": "to_017",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "日本語を話さなかっ__、伝わりません。",
+        "correct": "たら",
+        "distractors": ["と", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "「自然」にそうなるはずです。",
+        "correct": "しぜん",
+        "distractors": ["じぜん", "しぜな", "しぜんい", "しぜんじ"]
+      }
+    },
+    {
+      "id": "to_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "prefix": "3を3で",
+        "suffix": "1になります。",
+        "blocks": ["割ると"]
+      }
+    },
+    {
+      "id": "to_020",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えると", "教えれば", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "to_021",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "秋になる__、葉が赤くなります。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_022",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "早く__と、一番バスに乗れます。",
+        "correct": "起きる",
+        "distractors": ["起きて", "起きた", "起き", "起きな", "起きます"]
+      }
+    },
+    {
+      "id": "to_023",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "word": "〜と ",
+        "options": [
+          { "text": "1に1を足すと2になります。", "is_correct": true },
+          { "text": "水を熱くすると沸騰します。", "is_correct": true },
+          { "text": "冬が来ると寒くなります。", "is_correct": true },
+          { "text": "食べると美味しいですよ。 ", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "to_024",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "駅まで歩く__、10分かかります。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_025",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "田中さんに__と、詳しいことがわかります。",
+        "correct": "聞く",
+        "distractors": ["聞いて", "聞いた", "聞き", "聞か", "聞きます"]
+      }
+    },
+    {
+      "id": "to_026",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "base_sentence": "まっすぐ行くと、右にあります。",
+        "correct": "直進した先には、必ず右手にその建物が見えます。",
+        "distractors": [
+          "まっすぐ行きたいです。",
+          "まっすぐ行ったので、右にありました。",
+          "まっすぐ行く前に、右にありました。",
+          "まっすぐ行かなければなりません。"
+        ]
+      }
+    },
+    {
+      "id": "to_027",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "この道を渡る__、大きな公園があります。",
+        "correct": "と",
+        "distractors": ["たら", "れば", "なら", "ので", "から"]
+      }
+    },
+    {
+      "id": "to_028",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "昨日、__と、彼はもう寝ていました。",
+        "correct": "行ったら",
+        "distractors": ["行くと", "行けば", "行き", "行な", "行った"]
+      }
+    },
+    {
+      "id": "to_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_to"],
+      "payload": {
+        "sentence": "「確実」にそうなります。",
+        "correct": "かくじつ",
+        "distractors": ["がくじつ", "かくしつ", "かっじつ", "かくじつな"]
+      }
+    },
+    {
+      "id": "to_030",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_to", "traps"],
+      "payload": {
+        "sentence": "お風呂に__と、気持ちがいいですよ。",
+        "correct": "入る",
+        "distractors": ["入り", "入って", "入った", "入な", "入りし"]
+      }
+    }
+  ]
+}

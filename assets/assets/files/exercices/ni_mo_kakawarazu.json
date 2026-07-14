@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~にも関わらず  - Malgré / En dépit de - N2"
+  },
+  "exercises": [
+    {
+      "id": "nimokakawarazu_001",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu", "N2"],
+      "payload": {
+        "sentence": "大雨__、多くの人が集まった。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_002",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、ひどい怪我を__、立ち上がった。",
+        "correct": "負っているにも関わらず",
+        "distractors": ["負っているに対して", "負っているについて", "負っているに当たって", "負っているに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_003",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "夜遅い__、彼はまだ仕事をしている。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["忙しい", "にも関わらず", "手伝ってくれた"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_005",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "注意された__、彼はまた同じ間違いをした。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_006",
+      "type": "WORD_USAGE",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "word": "～にも関わらず ",
+        "options": [
+          { "text": "不景気にも関わらず、その店は繁盛している。", "is_correct": true },
+          { "text": "体調が悪いにも関わらず、出勤した。", "is_correct": true },
+          { "text": "雨にも関わらず、傘を差す。", "is_correct": true },
+          { "text": "勉強したにも関わらず合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nimokakawarazu_007",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの圧倒的な力__、悟空はあきらめなかった。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_008",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "何度も失敗した__、彼は再び挑戦した。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_009",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "子供__、彼は非常に落ち着いている。",
+        "correct": "であるにも関わらず",
+        "distractors": ["であるに対して", "であるについて", "であるに当たって", "であるに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_010",
+      "type": "PARAPHRASE",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "base_sentence": "彼は、周囲の反対にも関わらず、計画を実行した。",
+        "correct": "周りの人々が強く反対しているという厳しい状況があったにもかかわらず、彼はそれを気にせずに自分の意志で計画を進めました。",
+        "distractors": [
+          "周りの人々が反対したので、計画をやめました。",
+          "周りの人々が反対するために、計画を立てました。",
+          "周りの人々が反対したおかげで、計画が成功しました。"
+        ]
+      }
+    },
+    {
+      "id": "nimokakawarazu_011",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "休日__、彼は会社に行って働いている。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["お金がない", "にも関わらず", "贅沢ばかりしている"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_013",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "事実が判明した__、彼は嘘をつき続けている。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_014",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "彼女は、未経験__、素晴らしい成果を収めた。",
+        "correct": "であるにも関わらず",
+        "distractors": ["であるに対して", "であるについて", "であるに当たって", "であるに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_015",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "冬__、今日はとても暖かい。",
+        "correct": "であるにも関わらず",
+        "distractors": ["であるに対して", "であるについて", "であるに当たって", "であるに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "「にも関わらず」実行する。",
+        "correct": "にもかかわらず",
+        "distractors": ["にもかかわりなく", "にたいして", "にかんして", "にさいして"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_017",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "足が痛い__、彼は最後まで走り抜いた。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_018",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "このパソコンは、古い__、まだ現役で使えている。",
+        "correct": "であるにも関わらず",
+        "distractors": ["であるに対して", "であるについて", "であるに当たって", "であるに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["怒っている", "にも関わらず", "無理に笑っている"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_020",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "静かな場所__、誰かが騒いでいる。",
+        "correct": "であるにも関わらず",
+        "distractors": ["であるに対して", "であるについて", "であるに当たって", "であるに際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_021",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu", "pop_culture"],
+      "payload": {
+        "sentence": "使徒の攻撃が激しい__、シンジは冷静に操縦した。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_022",
+      "type": "WORD_USAGE",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "word": "～にも関わらず ",
+        "options": [
+          { "text": "約束したにも関わらず、来なかった。", "is_correct": true },
+          { "text": "準備したにも関わらず、失敗した。", "is_correct": true },
+          { "text": "雨にも関わらず、傘を差さない。", "is_correct": true },
+          { "text": "勉強したにも関わらず合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nimokakawarazu_023",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "便利になった__、人間は忙しくなるばかりだ。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_024",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "彼女は、疲労__、笑顔で接客を続けている。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_025",
+      "type": "PARAPHRASE",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "base_sentence": "彼は、実力があるにも関わらず、謙虚だ。",
+        "correct": "彼は非常に高い能力（実力）を持っているのだから、自慢してもおかしくない状況ですが、それとは逆に非常に控えめで謙虚な態度を保っています。",
+        "distractors": [
+          "彼は実力があるので、謙虚になろうとしています。",
+          "彼は実力があるおかげで、謙虚になりました。",
+          "彼は実力があると言われましたが、謙虚ではありません。"
+        ]
+      }
+    },
+    {
+      "id": "nimokakawarazu_026",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "情報を公開した__、批判が止まらない。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_027",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "不適切な発言があった__、彼は謝罪しようとしない。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["失敗を", "認めた", "にも関わらず同じ過ちを繰り返した"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_029",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "冬の訪れ__、まだ暖かい日が続いている。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    },
+    {
+      "id": "nimokakawarazu_030",
+      "type": "FILL_BLANK",
+      "tags": ["nimokakawarazu"],
+      "payload": {
+        "sentence": "自分を信じている__、結果が出ないこともある。",
+        "correct": "にも関わらず",
+        "distractors": ["に対して", "について", "に当たって", "に際して"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la forme Causatif-te  - Faire faire / Laisser faire - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "causatifte_001",
+      "type": "FILL_BLANK",
+      "tags": ["causatif", "N4"],
+      "payload": {
+        "sentence": "今日は早く帰ら__てください。",
+        "correct": "せて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_002",
+      "type": "FILL_BLANK",
+      "tags": ["causatif", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は息子に修行を__せた。",
+        "correct": "さ",
+        "distractors": ["れ", "られ", "させられ", "し"]
+      }
+    },
+    {
+      "id": "causatifte_003",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "私にそれをやら__てください。",
+        "correct": "せて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["causatif"],
+      "payload": {
+        "prefix": "子供に",
+        "suffix": "。",
+        "blocks": ["野菜を", "食べ", "させた"]
+      }
+    },
+    {
+      "id": "causatifte_005",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "先生は学生に作文を__せた。",
+        "correct": "書か",
+        "distractors": ["書き", "書かせられ", "書かれ", "書いて"]
+      }
+    },
+    {
+      "id": "causatifte_006",
+      "type": "WORD_USAGE",
+      "tags": ["causatif"],
+      "payload": {
+        "word": "～させて ",
+        "options": [
+          { "text": "ここで待たせてください。", "is_correct": true },
+          { "text": "自己紹介をさせてください。", "is_correct": true },
+          { "text": "彼に本を読ませる。", "is_correct": true },
+          { "text": "雨が降らされて困る。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "causatifte_007",
+      "type": "FILL_BLANK",
+      "tags": ["causatif", "pop_culture"],
+      "payload": {
+        "sentence": "ナメック星人を自由にして__ください。",
+        "correct": "あげて",
+        "distractors": ["させて", "れて", "されて", "もらって"]
+      }
+    },
+    {
+      "id": "causatifte_008",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "母は私にピアノを__せた。",
+        "correct": "習わ",
+        "distractors": ["習い", "習わせられ", "習われ", "習って"]
+      }
+    },
+    {
+      "id": "causatifte_009",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "もう一度、考え__てください。",
+        "correct": "させて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_010",
+      "type": "PARAPHRASE",
+      "tags": ["causatif"],
+      "payload": {
+        "base_sentence": "部長は彼をアメリカへ行かせた。",
+        "correct": "部長は彼に対して、アメリカへ行くように命じた、あるいは許可を出した。",
+        "distractors": [
+          "部長は彼と一緒にアメリカへ行きました。",
+          "部長は彼からアメリカへ行くように頼まれました。",
+          "部長は彼にアメリカへ行くのをやめさせました。"
+        ]
+      }
+    },
+    {
+      "id": "causatifte_011",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "お腹が痛い学生を、保健室へ__せた。",
+        "correct": "行か",
+        "distractors": ["行き", "行かせられ", "行かれ", "行って"]
+      }
+    },
+    {
+      "id": "causatifte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["causatif"],
+      "payload": {
+        "prefix": "私に",
+        "suffix": "ください。",
+        "blocks": ["写真を", "撮ら", "せて"]
+      }
+    },
+    {
+      "id": "causatifte_013",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "面白い話をして、みんなを__せた。",
+        "correct": "笑わ",
+        "distractors": ["笑い", "笑わせられ", "笑われ", "笑って"]
+      }
+    },
+    {
+      "id": "causatifte_014",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "忙しいので、手伝わ__てください。",
+        "correct": "せて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_015",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "彼は私を1時間も__せた。",
+        "correct": "待た",
+        "distractors": ["待ち", "待たせられ", "待たれ", "待って"]
+      }
+    },
+    {
+      "id": "causatifte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "「行かせて」ください。",
+        "correct": "いかせて",
+        "distractors": ["いかれて", "いかされて", "いかしで", "いきせて"]
+      }
+    },
+    {
+      "id": "causatifte_017",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "父は私に英語を__せた。",
+        "correct": "勉強さ",
+        "distractors": ["勉強し", "勉強させられ", "勉強され", "勉強して"]
+      }
+    },
+    {
+      "id": "causatifte_018",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "大切な仕事を任せ__てください。",
+        "correct": "せて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["causatif"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["妹を", "泣か", "せた"]
+      }
+    },
+    {
+      "id": "causatifte_020",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "先生は学生を自由に__せた。",
+        "correct": "遊ば",
+        "distractors": ["遊び", "遊ばせられ", "遊ばれ", "遊んで"]
+      }
+    },
+    {
+      "id": "causatifte_021",
+      "type": "FILL_BLANK",
+      "tags": ["causatif", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザはベジータを絶望__せた。",
+        "correct": "さ",
+        "distractors": ["れ", "られ", "させられ", "し"]
+      }
+    },
+    {
+      "id": "causatifte_022",
+      "type": "WORD_USAGE",
+      "tags": ["causatif"],
+      "payload": {
+        "word": "～させる ",
+        "options": [
+          { "text": "子供に本を読ませる。", "is_correct": true },
+          { "text": "彼に掃除をさせる。", "is_correct": true },
+          { "text": "私に話させてください。", "is_correct": true },
+          { "text": "雨が降らされる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "causatifte_023",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "弟にお使いに__せた。",
+        "correct": "行か",
+        "distractors": ["行き", "行かせられ", "行かれ", "行って"]
+      }
+    },
+    {
+      "id": "causatifte_024",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "この件については、私に説明__てください。",
+        "correct": "させて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_025",
+      "type": "PARAPHRASE",
+      "tags": ["causatif"],
+      "payload": {
+        "base_sentence": "母は私を塾に行かせている。",
+        "correct": "母は私の意向に関わらず、あるいは私のために、塾へ行くように命じている。",
+        "distractors": [
+          "母は私と一緒に塾に行っています。",
+          "母は私から塾へ行くのをやめるように言われました。",
+          "母は私が塾に行くのを応援しています。"
+        ]
+      }
+    },
+    {
+      "id": "causatifte_026",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "彼女に荷物を__せた。",
+        "correct": "持た",
+        "distractors": ["持ち", "持たせられ", "持たれ", "持って"]
+      }
+    },
+    {
+      "id": "causatifte_027",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "私を仲間に入れて__てください。",
+        "correct": "させて",
+        "distractors": ["れて", "されて", "せられて", "して"]
+      }
+    },
+    {
+      "id": "causatifte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["causatif"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["みんなを", "驚か", "せた"]
+      }
+    },
+    {
+      "id": "causatifte_029",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "お腹がいっぱいな子供に、無理やり__せた。",
+        "correct": "食べさ",
+        "distractors": ["食べ", "食べさせられ", "食べられ", "食べて"]
+      }
+    },
+    {
+      "id": "causatifte_030",
+      "type": "FILL_BLANK",
+      "tags": ["causatif"],
+      "payload": {
+        "sentence": "もう一度、チャンスを__てください。",
+        "correct": "与えさせて",
+        "distractors": ["与えられて", "与えされて", "与えせられて", "与えて"]
+      }
+    }
+  ]
+}

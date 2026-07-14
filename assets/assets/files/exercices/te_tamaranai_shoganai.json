@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～てたまらない・しょうがない - L'intensité du ressenti. "
+  },
+  "exercises": [
+    {
+      "id": "tts_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "お腹が空いて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "きまらない", "ばかりだ"]
+      }
+    },
+    {
+      "id": "tts_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "眠くて__、仕事に集中できない。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない", "反面"]
+      }
+    },
+    {
+      "id": "tts_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "prefix": "合格して、",
+        "suffix": "。",
+        "blocks": ["嬉しくて", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "喉が渇いて__、早くビールが飲みたい。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "word": "てたまらない",
+        "options": [
+          { "text": "家族に会いたくてたまらない。", "is_correct": true },
+          { "text": "虫歯が痛くてたまらない。", "is_correct": true },
+          { "text": "雨が降ってたまらない、行きましょう。", "is_correct": false },
+          { "text": "勉強をしてたまらない、上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tts_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "暇で__、一日中テレビを見ていた。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "base_sentence": "とても残念で、我慢できません。",
+        "correct": "残念でたまりません。",
+        "distractors": [
+          "残念でいけません。",
+          "残念でなりません。",
+          "残念でばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tts_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "宝くじが当たるのではないかと期待して__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "暑くて__、冷たいものが飲みたい。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "prefix": "一人でいるのは、",
+        "suffix": "。",
+        "blocks": ["寂しくて", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "彼の将来が楽しみで__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "「後悔」の気持ちが強くてたまらない。",
+        "correct": "こうかい",
+        "distractors": ["しっぱい", "れんしゅう", "じゅんび"]
+      }
+    },
+    {
+      "id": "tts_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "隣の音がうるさくて__。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "この曲を聴くと、切なくて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "word": "てしょうがない",
+        "options": [
+          { "text": "将来のことが不安でしょうがない。", "is_correct": true },
+          { "text": "可愛くてしょうがないペットだ。", "is_correct": true },
+          { "text": "毎日勉強してしょうがない、上手になります。", "is_correct": false },
+          { "text": "ご飯を作ってしょうがない、食べました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tts_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "失敗したことが悔しくて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "蚊に刺されて、痒くて__。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "prefix": "早く",
+        "suffix": "。",
+        "blocks": ["知りたくて", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "あの日、君を助けられなかったことが悔やまれて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "試験の結果が気になって__。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "base_sentence": "どうしても気になります。",
+        "correct": "気になってしょうがありません。",
+        "distractors": [
+          "気になっていけません。",
+          "気になってばかりです。",
+          "気になってところです。"
+        ]
+      }
+    },
+    {
+      "id": "tts_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "このアイス、美味しくて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "足が痛くて__、もう歩けない。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "「孤独」でしょうがない夜もある。",
+        "correct": "こどく",
+        "distractors": ["ふあん", "かなしい", "さびしい"]
+      }
+    },
+    {
+      "id": "tts_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "孫が可愛くて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "寒くて__、ストーブをつけた。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "prefix": "日本に",
+        "suffix": "。",
+        "blocks": ["行きたくて", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "秘密を言いたくて__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    },
+    {
+      "id": "tts_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_shoganai"],
+      "payload": {
+        "sentence": "パソコンが重くて__、イライラする。",
+        "correct": "しょうがない",
+        "distractors": ["いけない", "ならない", "たまらない"]
+      }
+    },
+    {
+      "id": "tts_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_tamaranai"],
+      "payload": {
+        "sentence": "君のことが好きで__。",
+        "correct": "たまらない",
+        "distractors": ["いけない", "ならない", "反面"]
+      }
+    }
+  ]
+}

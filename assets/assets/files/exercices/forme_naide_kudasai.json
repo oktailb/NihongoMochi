@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de l'Impératif Poli  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "inst_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "sentence": "ちょっと待って__。",
+        "correct": "ください",
+        "distractors": ["います", "あります", "から", "ので", "なさい"]
+      }
+    },
+    {
+      "id": "inst_002",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "危ないですから、中に入ら__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_003",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "名前を__ください。",
+        "correct": "書いて",
+        "distractors": ["書きて", "書かて", "書っ", "書いで", "書なで"]
+      }
+    },
+    {
+      "id": "inst_004",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "私の名前を忘ら__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ななで", "ないに", "ないな", "ないを"]
+      }
+    },
+    {
+      "id": "inst_005",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g2"],
+      "payload": {
+        "sentence": "これを__ください。",
+        "correct": "食べて",
+        "distractors": ["食べるて", "食べって", "食べなて", "食べして", "食べで"]
+      }
+    },
+    {
+      "id": "inst_006",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g2"],
+      "payload": {
+        "sentence": "夜10時以降はテレビを見__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ななで", "ないに", "ないな", "ないを"]
+      }
+    },
+    {
+      "id": "inst_007",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g3"],
+      "payload": {
+        "sentence": "明日、私の家へ__ください。",
+        "correct": "来て",
+        "distractors": ["来して", "くるて", "こて", "きって", "きなて"]
+      }
+    },
+    {
+      "id": "inst_008",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g3"],
+      "payload": {
+        "sentence": "無理をし__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "するないで", "しななで", "しないに", "しないな"]
+      }
+    },
+    {
+      "id": "inst_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "prefix": "窓を",
+        "suffix": "ください。",
+        "blocks": ["あけて"]
+      }
+    },
+    {
+      "id": "inst_010",
+      "type": "WORD_USAGE",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "word": "〜てください ",
+        "options": [
+          { "text": "座ってください。", "is_correct": true },
+          { "text": "本を読んでください。", "is_correct": true },
+          { "text": "靴を脱いでください。", "is_correct": true },
+          { "text": "水を飲みるてください。", "is_correct": false },
+          { "text": "学校へ行くてください。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "inst_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "傘を__ください。",
+        "correct": "貸して",
+        "distractors": ["貸いて", "貸って", "貸んで", "貸してな", "貸すて"]
+      }
+    },
+    {
+      "id": "inst_012",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "ここで写真を撮ら__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "辞書を__ください。",
+        "correct": "使って",
+        "distractors": ["使いって", "使いして", "使ってな", "使わて", "使いて"]
+      }
+    },
+    {
+      "id": "inst_014",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "大きな声で叫ば__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_015",
+      "type": "PARAPHRASE",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "base_sentence": "座ってください。",
+        "correct": "座ってほしいです。",
+        "distractors": [
+          "座ってもいいですか。",
+          "座りましょうか。",
+          "座らなければなりません。",
+          "座りませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "inst_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "駅まで__ください。",
+        "correct": "歩いて",
+        "distractors": ["歩ぎて", "歩って", "歩んで", "歩きって", "歩なで"]
+      }
+    },
+    {
+      "id": "inst_017",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "嘘をつか__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "sentence": "日本語で「話して」ください。",
+        "correct": "はなして",
+        "distractors": ["おしえて", "きいて", "よんで", "はななして"]
+      }
+    },
+    {
+      "id": "inst_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naide_kudasai"],
+      "payload": {
+        "prefix": "ここで",
+        "suffix": "ください。",
+        "blocks": ["タバコを", "吸わ", "ないで"]
+      }
+    },
+    {
+      "id": "inst_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "traps"],
+      "payload": {
+        "sentence": "塩を__ください。",
+        "correct": "取って",
+        "distractors": ["取りて", "取んで", "取いて", "取て", "取りなで"]
+      }
+    },
+    {
+      "id": "inst_021",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "sentence": "もっとゆっくり__ください。",
+        "correct": "話して",
+        "distractors": ["話してな", "話すて", "話しって", "話しして", "話なで"]
+      }
+    },
+    {
+      "id": "inst_022",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "秘密を誰にも言わ__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_023",
+      "type": "WORD_USAGE",
+      "tags": ["naide_kudasai"],
+      "payload": {
+        "word": "〜ないでください ",
+        "options": [
+          { "text": "ここで遊ばないでください。", "is_correct": true },
+          { "text": "お酒を飲まないでください。", "is_correct": true },
+          { "text": "無理をしないでください。", "is_correct": true },
+          { "text": "勉強しないでください。", "is_correct": true },
+          { "text": "パンを食べないでくださいを。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "inst_024",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "水を__ください。",
+        "correct": "飲んで",
+        "distractors": ["飲みて", "飲いて", "飲って", "飲んでな", "飲みなで"]
+      }
+    },
+    {
+      "id": "inst_025",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "あそこに荷物を置か__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_026",
+      "type": "PARAPHRASE",
+      "tags": ["naide_kudasai"],
+      "payload": {
+        "base_sentence": "ここで騒がないでください。",
+        "correct": "ここは静かにするべき場所です。",
+        "distractors": [
+          "ここで遊んでください。",
+          "ここで騒いでもいいです。",
+          "ここで騒がなければなりません。",
+          "ここで騒ぎましょう。"
+        ]
+      }
+    },
+    {
+      "id": "inst_027",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "本を__ください。",
+        "correct": "返して",
+        "distractors": ["返いて", "返って", "返んで", "返してな", "返すて"]
+      }
+    },
+    {
+      "id": "inst_028",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "道を渡ら__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["naide_kudasai"],
+      "payload": {
+        "sentence": "何も「言わないで」ください。",
+        "correct": "いわないで",
+        "distractors": ["いりないで", "いわないな", "いなないで", "いうないで"]
+      }
+    },
+    {
+      "id": "inst_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "靴を__ください。",
+        "correct": "脱いで",
+        "distractors": ["脱ぎて", "脱いて", "脱って", "脱んで", "脱ぎなで"]
+      }
+    },
+    {
+      "id": "inst_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "prefix": "お名前を",
+        "suffix": "ください。",
+        "blocks": ["教えて"]
+      }
+    },
+    {
+      "id": "inst_032",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "おもちゃで遊ば__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_033",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "もう一度__ください。",
+        "correct": "言って",
+        "distractors": ["言いって", "言いて", "言なで", "言いてな", "言いして"]
+      }
+    },
+    {
+      "id": "inst_034",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "夜一人で出かけ__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_035",
+      "type": "WORD_USAGE",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "word": "教えてください ",
+        "options": [
+          { "text": "電話番号を教えてください。", "is_correct": true },
+          { "text": "漢字の読み方を教えてください。", "is_correct": true },
+          { "text": "駅への行き方を教えてください。", "is_correct": true },
+          { "text": "英語を教えるてください。", "is_correct": false },
+          { "text": "秘密を教えなでください。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "inst_036",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "タクシーを__ください。",
+        "correct": "呼んで",
+        "distractors": ["呼びて", "呼いて", "呼って", "呼んでな", "呼びなで"]
+      }
+    },
+    {
+      "id": "inst_037",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "勝手にさわら__ください。",
+        "correct": "ない de",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    },
+    {
+      "id": "inst_038",
+      "type": "PARAPHRASE",
+      "tags": ["te_kudasai"],
+      "payload": {
+        "base_sentence": "塩を取ってください。",
+        "correct": "塩が欲しいので、取ってほしいと頼んでいます。",
+        "distractors": [
+          "塩をなげてください。",
+          "塩を捨ててください。",
+          "塩を作りましょう。",
+          "塩はありません。"
+        ]
+      }
+    },
+    {
+      "id": "inst_039",
+      "type": "FILL_BLANK",
+      "tags": ["te_kudasai", "g1"],
+      "payload": {
+        "sentence": "地図を__ください。",
+        "correct": "見て",
+        "distractors": ["見るて", "見なて", "見っ", "見で", "見して"]
+      }
+    },
+    {
+      "id": "inst_040",
+      "type": "FILL_BLANK",
+      "tags": ["naide_kudasai", "g1"],
+      "payload": {
+        "sentence": "お菓子を食べ__ください。",
+        "correct": "ないで",
+        "distractors": ["なくて", "ないな", "ななで", "ないに", "ないを"]
+      }
+    }
+  ]
+}

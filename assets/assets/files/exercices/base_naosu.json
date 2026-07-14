@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur le suffixe ~直す  - Refaire / Corriger - N3"
+  },
+  "exercises": [
+    {
+      "id": "naosu_001",
+      "type": "FILL_BLANK",
+      "tags": ["naosu", "N3"],
+      "payload": {
+        "sentence": "字が汚いので、もう一度書き__てください。",
+        "correct": "直し",
+        "distractors": ["なおし", "なおる", "なおせ", "なおそう"]
+      }
+    },
+    {
+      "id": "naosu_002",
+      "type": "FILL_BLANK",
+      "tags": ["naosu", "pop_culture"],
+      "payload": {
+        "sentence": "アニメの作画が悪かったので、DVDで描き__たらしい。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_003",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "計算が間違っていたので、やり__ました。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naosu"],
+      "payload": {
+        "prefix": "計画を",
+        "suffix": "必要がある。",
+        "blocks": ["一から", "立て", "直す"]
+      }
+    },
+    {
+      "id": "naosu_005",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "もう一度、最初から考え__てみよう。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_006",
+      "type": "WORD_USAGE",
+      "tags": ["naosu"],
+      "payload": {
+        "word": "～直す ",
+        "options": [
+          { "text": "汚れたので服を着直す。", "is_correct": true },
+          { "text": "壊れたおもちゃを修理直す。", "is_correct": false },
+          { "text": "間違えた問題を解き直す。", "is_correct": true },
+          { "text": "病気が治り直す。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "naosu_007",
+      "type": "FILL_BLANK",
+      "tags": ["naosu", "pop_culture"],
+      "payload": {
+        "sentence": "彼は気を取り__て、再び敵に立ち向かった。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_008",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "さっきは言いすぎた。言い__てもいい？",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_009",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "読み__てみると、新しい発見がある。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_010",
+      "type": "PARAPHRASE",
+      "tags": ["naosu"],
+      "payload": {
+        "base_sentence": "彼は計画を立て直した。",
+        "correct": "彼は古い計画を修正して、新しく作り直した。",
+        "distractors": [
+          "彼は計画を途中でやめた。",
+          "彼は計画を誰かに任せた。",
+          "彼は計画を立てるのを忘れた。"
+        ]
+      }
+    },
+    {
+      "id": "naosu_011",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "ボタンが取れそうなので、縫い__た。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naosu"],
+      "payload": {
+        "prefix": "間違えたので",
+        "suffix": "ください。",
+        "blocks": ["もう一度", "書き", "直して"]
+      }
+    },
+    {
+      "id": "naosu_013",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "よく見__てみたら、本物じゃなかった。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_014",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "喧嘩した友達と仲__した。",
+        "correct": "直",
+        "distractors": ["なお", "なおし", "なおせ", "なおそう"]
+      }
+    },
+    {
+      "id": "naosu_015",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "テープが剥がれたので、貼り__た。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "計画を「立て直す」。",
+        "correct": "たてなおす",
+        "distractors": ["たてなおる", "たてなおせ", "たてなおそう", "たてなおし"]
+      }
+    },
+    {
+      "id": "naosu_017",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "冷めたスープを温め__。",
+        "correct": "直す",
+        "distractors": ["おわる", "すぎる", "だす", "きれる"]
+      }
+    },
+    {
+      "id": "naosu_018",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "一度失敗したけれど、やり__チャンスはある。",
+        "correct": "直す",
+        "distractors": ["おわる", "すぎる", "だす", "きれる"]
+      }
+    },
+    {
+      "id": "naosu_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naosu"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "旅に出た。",
+        "blocks": ["自分を", "見つめ", "直して"]
+      }
+    },
+    {
+      "id": "naosu_020",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "ネクタイが曲がっているよ。締め__なさい。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_021",
+      "type": "FILL_BLANK",
+      "tags": ["naosu", "pop_culture"],
+      "payload": {
+        "sentence": "死神代行の仕事を、一から教え__てやる。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_022",
+      "type": "WORD_USAGE",
+      "tags": ["naosu"],
+      "payload": {
+        "word": "～直す ",
+        "options": [
+          { "text": "録画をもう一度見直す。", "is_correct": true },
+          { "text": "忘れたので覚え直す。", "is_correct": true },
+          { "text": "ご飯を食べ直す。", "is_correct": false },
+          { "text": "雨が降り直す。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "naosu_023",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "彼は機嫌を__てくれた。",
+        "correct": "直し",
+        "distractors": ["なおし", "なおる", "なおせ", "なおそう"]
+      }
+    },
+    {
+      "id": "naosu_024",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "部屋が散らかっているので、片付け__なさい。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_025",
+      "type": "PARAPHRASE",
+      "tags": ["naosu"],
+      "payload": {
+        "base_sentence": "彼は自分を見つめ直した。",
+        "correct": "彼は自分の性格や行動を、客観的に新しく考えた。",
+        "distractors": [
+          "彼は鏡で自分の顔を見た。",
+          "彼は自分を嫌いになった。",
+          "彼は自分を褒めた。"
+        ]
+      }
+    },
+    {
+      "id": "naosu_026",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "テストの解答を書き__た。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_027",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "電話をかけ__ます。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naosu"],
+      "payload": {
+        "prefix": "さっきは",
+        "suffix": "ください。",
+        "blocks": ["言い過ぎたので", "言い", "直させて"]
+      }
+    },
+    {
+      "id": "naosu_029",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "お化粧を__てくるね。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    },
+    {
+      "id": "naosu_030",
+      "type": "FILL_BLANK",
+      "tags": ["naosu"],
+      "payload": {
+        "sentence": "壊れた関係を修復し__たい。",
+        "correct": "直し",
+        "distractors": ["おわり", "すぎ", "だし", "きれ"]
+      }
+    }
+  ]
+}

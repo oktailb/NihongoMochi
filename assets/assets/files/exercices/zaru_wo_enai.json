@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～ざるを得ない - L'inéluctabilité des choix imposés."
+  },
+  "exercises": [
+    {
+      "id": "zwe_001",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "嫌な仕事だが、生活のためには__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる", "さざる"]
+      }
+    },
+    {
+      "id": "zwe_002",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "これほど証拠があるなら、彼が犯人だと__を得ない。",
+        "correct": "認めざる",
+        "distractors": ["認めるざる", "認めないざる", "認めたざる", "認めさざる"]
+      }
+    },
+    {
+      "id": "zwe_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "prefix": "台風が来ているので、旅行は",
+        "suffix": "。",
+        "blocks": ["中止せざる", "を得ない"]
+      }
+    },
+    {
+      "id": "zwe_004",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "借金が返せないので、家を__を得ない。",
+        "correct": "売らざる",
+        "distractors": ["売りざる", "売るざる", "売れざる"]
+      }
+    },
+    {
+      "id": "zwe_005",
+      "type": "WORD_USAGE",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "word": "ざるを得ない",
+        "options": [
+          { "text": "今回の失敗は、私の不注意だと言わざるを得ない。", "is_correct": true },
+          { "text": "残念ながら、計画を変更せざるを得ない。", "is_correct": true },
+          { "text": "ご飯をざるを得ない食べました。", "is_correct": false },
+          { "text": "勉強をざるを得ない上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "zwe_006",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "親の反対を押し切ってまで行くなら、勘当も__を得ない。",
+        "correct": "覚悟せざる",
+        "distractors": ["覚悟しざる", "覚悟するざる", "覚悟させざる"]
+      }
+    },
+    {
+      "id": "zwe_007",
+      "type": "PARAPHRASE",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "base_sentence": "どうしてもそうしなければなりません。",
+        "correct": "そうせざるを得ない。",
+        "distractors": [
+          "そうするばかりだ。",
+          "そうするはずだ。",
+          "そうするわけだ。"
+        ]
+      }
+    },
+    {
+      "id": "zwe_008",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "あまりの美味しさに、もう一杯__を得ない。",
+        "correct": "頼まざる",
+        "distractors": ["頼みざる", "頼むざる", "頼めざる"]
+      }
+    },
+    {
+      "id": "zwe_009",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "病状が悪化したため、手術を__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "prefix": "真実を",
+        "suffix": "。",
+        "blocks": ["話さざる", "を得ない", "状況だ"]
+      }
+    },
+    {
+      "id": "zwe_011",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "ここまで言われたら、反論__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "「事実」を認めざるを得ない状況に追い込まれた。",
+        "correct": "みとめざる",
+        "distractors": ["しんじざる", "まもりざる", "つくりざる"]
+      }
+    },
+    {
+      "id": "zwe_013",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "期限が迫っているので、徹夜__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_014",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "彼の熱意に負けて、協力__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_015",
+      "type": "WORD_USAGE",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "word": "せざるを得ない",
+        "options": [
+          { "text": "不本意ながら、彼を解雇せざるを得ない。", "is_correct": true },
+          { "text": "ルールの変更を周知せざるを得ない。", "is_correct": true },
+          { "text": "勉強をせざるを得ない上手になります。", "is_correct": false },
+          { "text": "雨をせざるを得ない傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "zwe_016",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "不祥事が発覚し、社長は辞任__を得なかった。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_017",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "情報の漏洩を防ぐため、アクセスを制限__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "prefix": "期待に",
+        "suffix": "。",
+        "blocks": ["応えざる", "を得ない"]
+      }
+    },
+    {
+      "id": "zwe_019",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "これ以上の損失を避けるため、撤退__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_020",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "あまりの惨状に、目を__を得なかった。",
+        "correct": "背けざる",
+        "distractors": ["背きざる", "背けるざる", "背けさせざる"]
+      }
+    },
+    {
+      "id": "zwe_021",
+      "type": "PARAPHRASE",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "base_sentence": "彼はそれを認めなければならない状況でした。",
+        "correct": "彼はそれを認めざるを得なかった。",
+        "distractors": [
+          "彼はそれを認めるばかりだった。",
+          "彼はそれを認めるはずだった。",
+          "彼はそれを認めるわけだった。"
+        ]
+      }
+    },
+    {
+      "id": "zwe_022",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "環境保護のため、プラスチックの使用を廃止__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_023",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "物価の高騰により、節約__を得ない。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "「伝統」を守るため、厳しい修行に耐えざるを得ない。",
+        "correct": "たえざる",
+        "distractors": ["まもりざる", "しんじざる", "つくりざる"]
+      }
+    },
+    {
+      "id": "zwe_025",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "周囲の期待が大きく、プレッシャーを__を得ない。",
+        "correct": "感じざる",
+        "distractors": ["感じきざる", "感じるざる", "感じさせざる"]
+      }
+    },
+    {
+      "id": "zwe_026",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "嘘がバレて、正直に白状__を得なくなった。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "prefix": "日本のアニメの",
+        "suffix": "。",
+        "blocks": ["素晴らしさを", "認めざる", "を得ない"]
+      }
+    },
+    {
+      "id": "zwe_028",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "交通機関がストップし、徒歩で帰宅__を得なかった。",
+        "correct": "せざる",
+        "distractors": ["しざる", "するざる", "させざる"]
+      }
+    },
+    {
+      "id": "zwe_029",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "あまりの衝撃に、立ち尽く__を得なかった。",
+        "correct": "さざる",
+        "distractors": ["しざる", "すざる", "せざる"]
+      }
+    },
+    {
+      "id": "zwe_030",
+      "type": "FILL_BLANK",
+      "tags": ["zaru_wo_enai"],
+      "payload": {
+        "sentence": "君への想いを、もう__を得ないんだ。",
+        "correct": "断ち切れざる",
+        "distractors": ["断ち切りざる", "断ち切るざる", "断ち切れさせざる"]
+      }
+    }
+  ]
+}

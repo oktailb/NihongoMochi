@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~に反して  - Contrairement à / En opposition avec - N2"
+  },
+  "exercises": [
+    {
+      "id": "nihanshite_001",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite", "N2"],
+      "payload": {
+        "sentence": "予想__、試験はとても簡単だった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_002",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の期待__、ベジータは協力を拒んだ。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_003",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "親の意向__、彼は芸術家への道を選んだ。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nihanshite"],
+      "payload": {
+        "prefix": "法律",
+        "suffix": "。",
+        "blocks": ["に反する", "行為は", "許されない"]
+      }
+    },
+    {
+      "id": "nihanshite_005",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "周囲の期待__、そのチームは初戦で敗退した。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_006",
+      "type": "WORD_USAGE",
+      "tags": ["nihanshite"],
+      "payload": {
+        "word": "～に反して ",
+        "options": [
+          { "text": "予報に反して、雨が降らなかった。", "is_correct": true },
+          { "text": "期待に反して、いい結果が出た。", "is_correct": true },
+          { "text": "ルールに反して、勝手にやった。", "is_correct": true },
+          { "text": "計画に反して、成功した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nihanshite_007",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの命令__、部下たちは逃げ出した。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_008",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "事実に__情報を流してはいけない。",
+        "correct": "反する",
+        "distractors": ["沿う", "従う", "関する", "対する"]
+      }
+    },
+    {
+      "id": "nihanshite_009",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "私の願い__、事態は悪化していった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_010",
+      "type": "PARAPHRASE",
+      "tags": ["nihanshite"],
+      "payload": {
+        "base_sentence": "予想に反して、彼は現れなかった。",
+        "correct": "彼は現れるだろうと誰もが思っていましたが、実際にはその予想とは全く逆の結果になり、彼は来ませんでした。",
+        "distractors": [
+          "彼は予想通りに現れませんでした。",
+          "彼は現れるために準備をしていました。",
+          "彼は現れた後で、すぐに帰りました。"
+        ]
+      }
+    },
+    {
+      "id": "nihanshite_011",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "期待__、新製品の売れ行きは芳しくなかった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nihanshite"],
+      "payload": {
+        "prefix": "道徳",
+        "suffix": "。",
+        "blocks": ["に反する", "行いは", "慎むべきだ"]
+      }
+    },
+    {
+      "id": "nihanshite_013",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "希望__、彼は第一志望の大学に落ちてしまった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_014",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "事前の説明__、実際の作業は非常に複雑だった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_015",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "住民の意向__、道路の建設が進められている。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "予想「に反して」。",
+        "correct": "にはんして",
+        "distractors": ["にそって", "にしたがって", "にたいして", "にかんして"]
+      }
+    },
+    {
+      "id": "nihanshite_017",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "これまでの慣習__、新しいやり方を導入した。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_018",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "彼の実力__、今回の結果は非常に残念だ。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nihanshite"],
+      "payload": {
+        "prefix": "真実",
+        "suffix": "。",
+        "blocks": ["に反する", "証言は", "罪に問われる"]
+      }
+    },
+    {
+      "id": "nihanshite_020",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "穏やかな性格__、彼は非常に大胆な決断をした。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_021",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite", "pop_culture"],
+      "payload": {
+        "sentence": "シンジ君の願い__、エヴァは暴走を始めた。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_022",
+      "type": "WORD_USAGE",
+      "tags": ["nihanshite"],
+      "payload": {
+        "word": "～に反して ",
+        "options": [
+          { "text": "校則に反して、髪を染めた。", "is_correct": true },
+          { "text": "契約に反して、期日を守らなかった。", "is_correct": true },
+          { "text": "雨に反して、傘を差す。", "is_correct": false },
+          { "text": "命令に反して、独断で行動した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "nihanshite_023",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "大方の予想__、彼女が優勝をさらった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_024",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "計画__、大幅な遅れが出ている。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_025",
+      "type": "PARAPHRASE",
+      "tags": ["nihanshite"],
+      "payload": {
+        "base_sentence": "信念に反するようなことは、したくない。",
+        "correct": "自分が心から正しいと信じていること（信念）を曲げるような、矛盾した行動は絶対に取りたくありません。",
+        "distractors": [
+          "信念を持つために、努力することにしました。",
+          "信念に基づいて、正しく行動しました。",
+          "信念があるおかげで、成功しました。"
+        ]
+      }
+    },
+    {
+      "id": "nihanshite_026",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "期待__、映画の内容は平凡だった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_027",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "世論__、新しい法律が可決された。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nihanshite"],
+      "payload": {
+        "prefix": "私の",
+        "suffix": "。",
+        "blocks": ["予想", "に反して", "彼は早く来た"]
+      }
+    },
+    {
+      "id": "nihanshite_029",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "見た目__、その料理はとても辛かった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    },
+    {
+      "id": "nihanshite_030",
+      "type": "FILL_BLANK",
+      "tags": ["nihanshite"],
+      "payload": {
+        "sentence": "当初の目的__、結果的に利益を優先してしまった。",
+        "correct": "に反して",
+        "distractors": ["に沿って", "に従って", "に際して", "において"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ほか（は）ない / 仕方がない  - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "hokanai_001",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai", "N3"],
+      "payload": {
+        "sentence": "傘を忘れたので、濡れて帰る__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_002",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai", "pop_culture"],
+      "payload": {
+        "sentence": "地球を守るためには、戦う__。",
+        "correct": "ほかはない",
+        "distractors": ["はずはない", "わけではない", "ことではない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_003",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "電車が止まってしまった。歩いて行く__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hokanai"],
+      "payload": {
+        "prefix": "バスが来ないので",
+        "suffix": "。",
+        "blocks": ["タクシーに", "乗る", "ほか（は）ない"]
+      }
+    },
+    {
+      "id": "hokanai_005",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "こうなった以上、あきらめる__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_006",
+      "type": "WORD_USAGE",
+      "tags": ["hokanai"],
+      "payload": {
+        "word": "～ほか（は）ない ",
+        "options": [
+          { "text": "お金がないから、働くよりほかない。", "is_correct": true },
+          { "text": "病気だから、休むほか（は）ない。", "is_correct": true },
+          { "text": "雨が降るほか（は）ない。", "is_correct": true },
+          { "text": "勉強するほか（は）ない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "hokanai_007",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗る__、道はないんだ。",
+        "correct": "ほかに",
+        "distractors": ["はずには", "わけには", "ことには", "ところには"]
+      }
+    },
+    {
+      "id": "hokanai_008",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "パソコンが壊れた。新しいのを買う__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_009",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "誰にも頼れない。自分でやる__。",
+        "correct": "ほかはない",
+        "distractors": ["はずはない", "わけではない", "ことではない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_010",
+      "type": "PARAPHRASE",
+      "tags": ["hokanai"],
+      "payload": {
+        "base_sentence": "彼はもう、辞めるよりほか（は）ない状況だ。",
+        "correct": "彼は、辞めるという選択肢以外に、取れる方法がもう一つもありません。",
+        "distractors": [
+          "彼は辞めるのが嫌なので、頑張っています。",
+          "彼は辞めるために準備をしています。",
+          "彼は辞めるつもりでしたが、引き止められました。"
+        ]
+      }
+    },
+    {
+      "id": "hokanai_011",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "雨が強くて、試合は中止する__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hokanai"],
+      "payload": {
+        "prefix": "事実は変えられない。",
+        "suffix": "。",
+        "blocks": ["受け入れる", "ほか（は）", "ない"]
+      }
+    },
+    {
+      "id": "hokanai_013",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "準備不足を後悔しても__。",
+        "correct": "仕方がない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_014",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "そんなに嫌なら、断る__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_015",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "これ以上は待てない。出発する__。",
+        "correct": "ほかはない",
+        "distractors": ["はずはない", "わけではない", "ことではない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "「仕方がない」。",
+        "correct": "しかたがない",
+        "distractors": ["しかたわな", "しかたわい", "しがたがない", "しかだがない"]
+      }
+    },
+    {
+      "id": "hokanai_017",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "こうなったら、運を天に任せる__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_018",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "彼はもういない。諦める__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hokanai"],
+      "payload": {
+        "prefix": "失敗を",
+        "suffix": "。",
+        "blocks": ["今さら", "悔やんでも", "仕方がない"]
+      }
+    },
+    {
+      "id": "hokanai_020",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "締め切りが明日だ。徹夜する__。",
+        "correct": "ほかはない",
+        "distractors": ["はずはない", "わけではない", "ことではない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_021",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの圧倒的な力の前には、逃げる__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_022",
+      "type": "WORD_USAGE",
+      "tags": ["hokanai"],
+      "payload": {
+        "word": "～仕方がない ",
+        "options": [
+          { "text": "終わったことを気にしても仕方がない。", "is_correct": true },
+          { "text": "雨が降るのは仕方がない。", "is_correct": true },
+          { "text": "勉強するのが仕方がない。", "is_correct": false },
+          { "text": "一人で行くのは仕方がない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "hokanai_023",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "証拠がある以上、認める__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_024",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "誰も助けてくれないなら、自分でやる__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_025",
+      "type": "PARAPHRASE",
+      "tags": ["hokanai"],
+      "payload": {
+        "base_sentence": "そんなこと、言っても仕方がないよ。",
+        "correct": "それを言ったとしても、何の解決にもならないし、状況は変わりません。",
+        "distractors": [
+          "それを言うのが正しいと思います。",
+          "それを言うために時間を作ってください。",
+          "それを言うのを忘れないでください。"
+        ]
+      }
+    },
+    {
+      "id": "hokanai_026",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "道に迷った。人に聞く__。",
+        "correct": "ほかはない",
+        "distractors": ["はずはない", "わけではない", "ことではない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_027",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "もう一円も残っていない。歩いて帰る__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["hokanai"],
+      "payload": {
+        "prefix": "こうなったからには",
+        "suffix": "。",
+        "blocks": ["最後まで", "やる", "ほか（は）ない"]
+      }
+    },
+    {
+      "id": "hokanai_029",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "台風で飛行機が欠航だ。延期する__。",
+        "correct": "よりほかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    },
+    {
+      "id": "hokanai_030",
+      "type": "FILL_BLANK",
+      "tags": ["hokanai"],
+      "payload": {
+        "sentence": "そんな高いもの、諦める__。",
+        "correct": "しかない",
+        "distractors": ["はずがない", "わけがない", "ことがない", "ところではない"]
+      }
+    }
+  ]
+}

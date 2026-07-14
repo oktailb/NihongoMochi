@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ばいいのに  - Si seulement / Souhait - N3"
+  },
+  "exercises": [
+    {
+      "id": "ebaiinoni_001",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni", "N3"],
+      "payload": {
+        "sentence": "もっと早く連絡すれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_002",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni", "pop_culture"],
+      "payload": {
+        "sentence": "ドラえもんがいれ__、助けてくれるのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_003",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "明日、晴れれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "prefix": "わからないなら",
+        "suffix": "。",
+        "blocks": ["先生に", "聞けば", "いいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_005",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "彼も来れ__、もっと楽しいのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_006",
+      "type": "WORD_USAGE",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "word": "～ばいいのに ",
+        "options": [
+          { "text": "もっと安ければいいのに。", "is_correct": true },
+          { "text": "彼に相談すればいいのに。", "is_correct": true },
+          { "text": "雨が降ればいい。", "is_correct": false },
+          { "text": "時間が止まればいいのに。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ebaiinoni_007",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni", "pop_culture"],
+      "payload": {
+        "sentence": "もっと修行すれ__、勝てたかもしれないのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_008",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "毎日休みだっ__。",
+        "correct": "たらいのに",
+        "distractors": ["ればいいのに", "ならいいのに", "といいのに", "はいいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_009",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "本当のことを言え__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_010",
+      "type": "PARAPHRASE",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "base_sentence": "もっと勉強すればいいのに。",
+        "correct": "もっと勉強したほうが良いと思いますが、あなたはそれをしていませんね。",
+        "distractors": [
+          "もっと勉強したので、とても良い結果になりました。",
+          "もっと勉強するために、時間を作ってください。",
+          "もっと勉強すれば、合格できるはずです。"
+        ]
+      }
+    },
+    {
+      "id": "ebaiinoni_011",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "お金がたくさんあれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "prefix": "お腹が空いたなら",
+        "suffix": "。",
+        "blocks": ["何か", "食べれば", "いいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_013",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "一緒に来れ__、良かったのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_014",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "もっと静かだっ__。",
+        "correct": "たらいのに",
+        "distractors": ["ればいいのに", "ならいいのに", "といいのに", "はいいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_015",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "魔法が使え__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "「ばいいのに」と呟く。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいいのに", "ならいいのに", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_017",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "もっと優しくすれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_018",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "ずっと夏休みなれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "prefix": "嫌なら",
+        "suffix": "。",
+        "blocks": ["断れば", "いいのに", "はっきりと"]
+      }
+    },
+    {
+      "id": "ebaiinoni_020",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "彼が正直になれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_021",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni", "pop_culture"],
+      "payload": {
+        "sentence": "どこでもドアがあれ__、すぐに着くのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_022",
+      "type": "WORD_USAGE",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "word": "～ばいいのに ",
+        "options": [
+          { "text": "鳥のように空が飛べればいいのに。", "is_correct": true },
+          { "text": "彼が私の気持ちをわかってくれればいいのに。", "is_correct": true },
+          { "text": "勉強すればいい。", "is_correct": false },
+          { "text": "時間が戻ればいいのに。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "ebaiinoni_023",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "もっと広い部屋だっ__。",
+        "correct": "たらいのに",
+        "distractors": ["ればいいのに", "ならいいのに", "といいのに", "はいいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_024",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "早く返事をくれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_025",
+      "type": "PARAPHRASE",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "base_sentence": "もっと早く寝ればいいのに。",
+        "correct": "早く寝ることをおすすめしますが、あなたはいつも遅くまで起きていますね。",
+        "distractors": [
+          "早く寝たので、今日は元気です。",
+          "早く寝るために、仕事を終わらせました。",
+          "早く寝れば、明日早く起きられます。"
+        ]
+      }
+    },
+    {
+      "id": "ebaiinoni_026",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "彼が謝れ__、許してあげるのに。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_027",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "夢の中だけであれ__。",
+        "correct": "ばいいのに",
+        "distractors": ["ばいい", "たらいい", "ならいい", "といいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "prefix": "そんなに",
+        "suffix": "。",
+        "blocks": ["好きなら", "告白すれば", "いいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_029",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "毎日がお祭だっ__。",
+        "correct": "たらいのに",
+        "distractors": ["ればいいのに", "ならいいのに", "といいのに", "はいいのに"]
+      }
+    },
+    {
+      "id": "ebaiinoni_030",
+      "type": "FILL_BLANK",
+      "tags": ["ebaiinoni"],
+      "payload": {
+        "sentence": "彼がもっと真面目だっ__。",
+        "correct": "たらいのに",
+        "distractors": ["ればいいのに", "ならいいのに", "といいのに", "はいいのに"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de HAJIMERU  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "haj_001",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "雨が降り__ました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "haj_002",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "10時から勉強し__ます。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "やすく", "にくい"]
+      }
+    },
+    {
+      "id": "haj_003",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "赤ちゃんがやっと歩き__ました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "みる"]
+      }
+    },
+    {
+      "id": "haj_004",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "ご飯を__はじめました。",
+        "correct": "食べ",
+        "distractors": ["食べる", "食べて", "食べた", "食べな", "食べし"]
+      }
+    },
+    {
+      "id": "haj_005",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "pop_culture"],
+      "payload": {
+        "sentence": "修行を__はじめよう！",
+        "correct": "し",
+        "distractors": ["する", "して", "した", "しな", "しって"]
+      }
+    },
+    {
+      "id": "haj_006",
+      "type": "WORD_USAGE",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "word": "〜はじめる ",
+        "options": [
+          { "text": "三月から日本語を習い始めました。", "is_correct": true },
+          { "text": "さっき雨が降り始めました。", "is_correct": true },
+          { "text": "読み始めた本が面白いです。", "is_correct": true },
+          { "text": "死に始めました。 ", "is_correct": false },
+          { "text": "明日始めましょう会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "haj_007",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "新しい本を読み__ました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "haj_008",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "誰が話し__ましたか。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "haj_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "prefix": "桜が",
+        "suffix": "ましたね。",
+        "blocks": ["咲きはじめ"]
+      }
+    },
+    {
+      "id": "haj_010",
+      "type": "PARAPHRASE",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "base_sentence": "食べ始めました。",
+        "correct": "食事のアクションを開始したところです。",
+        "distractors": [
+          "食べ終わりました。",
+          "食べ続けています。",
+          "食べてばかりいます。",
+          "食べたいです。"
+        ]
+      }
+    },
+    {
+      "id": "haj_011",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "彼は急に走り__ました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "すぎ", "やすい", "にくい"]
+      }
+    },
+    {
+      "id": "haj_012",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "仕事を__はじめましょう。",
+        "correct": "し",
+        "distractors": ["する", "して", "した", "しな", "しに"]
+      }
+    },
+    {
+      "id": "haj_013",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "音楽を聴き__たら、止まりません。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "やすい"]
+      }
+    },
+    {
+      "id": "haj_014",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "pop_culture"],
+      "payload": {
+        "sentence": "物語が動き__ました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "だし", "すぎ", "にくい"]
+      }
+    },
+    {
+      "id": "haj_015",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "名前を__はじめました。",
+        "correct": "書き",
+        "distractors": ["書く", "書いて", "書いた", "書な", "書ける"]
+      }
+    },
+    {
+      "id": "haj_016",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "子供が泣き__て、困りました。",
+        "correct": "はじめ",
+        "distractors": ["おわり", "つづけ", "すぎ", "やすい", "にくい"]
+      }
+    },
+    {
+      "id": "haj_017",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "お風呂に__はじめました。",
+        "correct": "入り",
+        "distractors": ["入る", "入って", "入った", "入な", "入りし"]
+      }
+    },
+    {
+      "id": "haj_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "sentence": "「開始」し始めました。",
+        "correct": "かいし",
+        "distractors": ["がいし", "かいじ", "かんし", "けいし"]
+      }
+    },
+    {
+      "id": "haj_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_hajimeru"],
+      "payload": {
+        "prefix": "日記を",
+        "suffix": "ました。",
+        "blocks": ["つけはじめ"]
+      }
+    },
+    {
+      "id": "haj_020",
+      "type": "FILL_BLANK",
+      "tags": ["base_hajimeru", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えはじめ", "教えるはじめ", "教えなな", "教えな"]
+      }
+    }
+  ]
+}

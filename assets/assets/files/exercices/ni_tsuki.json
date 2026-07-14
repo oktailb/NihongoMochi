@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~につき  - Raison formelle / Par unité - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "nitsuki_001",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki", "N3"],
+      "payload": {
+        "sentence": "ただいま清掃中__、立ち入り禁止です。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_002",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki", "pop_culture"],
+      "payload": {
+        "sentence": "修行中__、面会謝絶だ。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_003",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "この商品は、お一人様1個__とさせていただきます。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitsuki"],
+      "payload": {
+        "prefix": "本日は",
+        "suffix": "。",
+        "blocks": ["雨天", "につき", "試合は中止いたします"]
+      }
+    },
+    {
+      "id": "nitsuki_005",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "1時間__1000円の駐車料金がかかります。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_006",
+      "type": "WORD_USAGE",
+      "tags": ["nitsuki"],
+      "payload": {
+        "word": "～につき ",
+        "options": [
+          { "text": "工事につき、通行止めです。", "is_correct": true },
+          { "text": "祭日につき、休診いたします。", "is_correct": true },
+          { "text": "雨につき、傘を差す。", "is_correct": true },
+          { "text": "勉強につき合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nitsuki_007",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は, 10倍の重力__、体が思うように動かなかった。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_008",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "送料は, 1回__500円です。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_009",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "満員__、入場をお断りしています。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_010",
+      "type": "PARAPHRASE",
+      "tags": ["nitsuki"],
+      "payload": {
+        "base_sentence": "本日は定休日につき、お休みさせていただきます。",
+        "correct": "今日はあらかじめ決められたお店の休みの日（定休日）であるという理由によって、営業を行っておりません。",
+        "distractors": [
+          "今日は休みの日になるために、準備をしています。",
+          "今日は休みの日のおかげで、ゆっくり寝られました。",
+          "今日は休みの日について、何も知りませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "nitsuki_011",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "改装中__、しばらくの間閉店します。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitsuki"],
+      "payload": {
+        "prefix": "3人以上の",
+        "suffix": "。",
+        "blocks": ["グループ", "につき", "1人無料になります"]
+      }
+    },
+    {
+      "id": "nitsuki_013",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "危険__、立ち入りを禁止する。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_014",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "在庫切れ__、販売を終了しました。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_015",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "1世帯__2枚のマスクが配布された。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "「清掃中につき」。",
+        "correct": "せいそうちゅうにつき",
+        "distractors": ["せいそうちゅうに際して", "せいそうちゅうに当たって", "せいそうちゅうに対して", "せいそうちゅうについて"]
+      }
+    },
+    {
+      "id": "nitsuki_017",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "完売__、本日の営業は終了です。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_018",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "故障__、使用できません。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitsuki"],
+      "payload": {
+        "prefix": "1回",
+        "suffix": "。",
+        "blocks": ["につき", "100円の", "手数料がかかります"]
+      }
+    },
+    {
+      "id": "nitsuki_020",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "準備中__、少々お待ちください。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_021",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki", "pop_culture"],
+      "payload": {
+        "sentence": "緊急事態__、エヴァの出撃を許可する。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_022",
+      "type": "WORD_USAGE",
+      "tags": ["nitsuki"],
+      "payload": {
+        "word": "～につき ",
+        "options": [
+          { "text": "リンゴ3個につき、500円です。", "is_correct": true },
+          { "text": "1人につき、1回のチャンスがある。", "is_correct": true },
+          { "text": "雨につき、傘を差す。", "is_correct": true },
+          { "text": "勉強につき合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nitsuki_023",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "不適切な発言__、彼は処分された。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_024",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "1メートル__1000円の布地。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_025",
+      "type": "PARAPHRASE",
+      "tags": ["nitsuki"],
+      "payload": {
+        "base_sentence": "1回につき、10分までとさせていただきます。",
+        "correct": "一度の利用ごとに、使える時間は最大でも10分間という制限を設けています。",
+        "distractors": [
+          "一回だけ10分間使いました。",
+          "一回10分間使うために準備をしています。",
+          "一回10分間使うことを忘れていました。"
+        ]
+      }
+    },
+    {
+      "id": "nitsuki_026",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "品切れ__、入荷待ちの状態です。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_027",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "工事__、騒音にご協力お願いします。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["nitsuki"],
+      "payload": {
+        "prefix": "本日は",
+        "suffix": "。",
+        "blocks": ["台風", "につき", "休業いたします"]
+      }
+    },
+    {
+      "id": "nitsuki_029",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "移転__、住所が変わりました。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "nitsuki_030",
+      "type": "FILL_BLANK",
+      "tags": ["nitsuki"],
+      "payload": {
+        "sentence": "満員御礼__、チケットの販売を終了します。",
+        "correct": "につき",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    }
+  ]
+}

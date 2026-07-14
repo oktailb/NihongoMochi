@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～たびに - La répétition fertile. "
+  },
+  "exercises": [
+    {
+      "id": "tbn_001",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "この写真を見る__、子供の頃を思い出します。",
+        "correct": "たびに",
+        "distractors": ["たびにの", "たびにを", "ついでに", "ばかりに"]
+      }
+    },
+    {
+      "id": "tbn_002",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "会う__、彼は背が伸びている気がする。",
+        "correct": "たびに",
+        "distractors": ["たびにの", "たびにを", "ついでに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "prefix": "旅行に",
+        "suffix": "、お土産をたくさん買ってしまいます。",
+        "blocks": ["行く", "たびに"]
+      }
+    },
+    {
+      "id": "tbn_004",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "テストの__、緊張してお腹が痛くなります。",
+        "correct": "たびに",
+        "distractors": ["たびにの", "ついでに", "ばかりに"]
+      }
+    },
+    {
+      "id": "tbn_005",
+      "type": "WORD_USAGE",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "word": "たびに",
+        "options": [
+          { "text": "新しい靴を履くたびに、靴擦れをしてしまう。", "is_correct": true },
+          { "text": "彼女に会うたびに、元気がもらえる。", "is_correct": true },
+          { "text": "ご飯を食べるたびに、お腹がいっぱいになります。", "is_correct": false },
+          { "text": "毎日勉強するたびに、上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tbn_006",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "雨が降る__、古傷が痛む。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_007",
+      "type": "PARAPHRASE",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "base_sentence": "彼はいつも、私の誕生日になるとプレゼントをくれます。",
+        "correct": "彼は私の誕生日のたびに、プレゼントをくれます。",
+        "distractors": [
+          "彼は私の誕生日のついでに、プレゼントをくれます。",
+          "彼は私の誕生日のばかりに、プレゼントをくれます。",
+          "彼は私の誕生日の反面、プレゼントをくれます。"
+        ]
+      }
+    },
+    {
+      "id": "tbn_008",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "失敗する__、強くなっていく。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_009",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "この曲を聴く__、失恋した時のことを思い出す。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "prefix": "日曜日の",
+        "suffix": "、掃除をすることにしている。",
+        "blocks": ["たびに"]
+      }
+    },
+    {
+      "id": "tbn_011",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "引っ越す__、荷物が増えていく。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "「季節」が変わるたびに、体調を崩しやすい。",
+        "correct": "きせつ",
+        "distractors": ["てんき", "じかん", "ばしょ"]
+      }
+    },
+    {
+      "id": "tbn_013",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "給料日の__、美味しいものを食べに行く。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_014",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "間違いを指摘される__、恥ずかしくなる。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_015",
+      "type": "WORD_USAGE",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "word": "たびに",
+        "options": [
+          { "text": "新しいことを学ぶたびに、視野が広がる。", "is_correct": true },
+          { "text": "鏡を見るたびに、白髪が増えている。", "is_correct": true },
+          { "text": "朝起きるたびに、おはよと言います。", "is_correct": false },
+          { "text": "毎日散歩するたびに、健康になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tbn_016",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "彼と喧嘩する__、絆が深まっていく気がする。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_017",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "映画を見る__、感動して涙を流してしまう。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "prefix": "試合の",
+        "suffix": "、全力で戦うつもりだ。",
+        "blocks": ["たびに"]
+      }
+    },
+    {
+      "id": "tbn_019",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "デパートに行く__、余計なものを買ってしまう。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_020",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "君の笑顔を見る__、勇気が湧いてくる。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_021",
+      "type": "PARAPHRASE",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "base_sentence": "彼はいつも、お酒を飲むと顔が赤くなります。",
+        "correct": "彼はお酒を飲むたびに、顔が赤くなります。",
+        "distractors": [
+          "彼はお酒を飲むついでに、顔が赤くなります。",
+          "彼はお酒を飲むばかりに、顔が赤くなります。",
+          "彼はお酒を飲む反面、顔が赤くなります。"
+        ]
+      }
+    },
+    {
+      "id": "tbn_022",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "スマホを買い換える__、操作に慣れるまで時間がかかる。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_023",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "嘘をつく__、心が痛む。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "「年始」のたびに、新しい目標を立てる。",
+        "correct": "ねんし",
+        "distractors": ["ねんまつ", "きょう", "あした"]
+      }
+    },
+    {
+      "id": "tbn_025",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "褒められる__、もっと頑張ろうと思う。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_026",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "知らない道を通る__、新しい発見がある。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "prefix": "プレゼンの",
+        "suffix": "、足が震えてしまう。",
+        "blocks": ["たびに"]
+      }
+    },
+    {
+      "id": "tbn_028",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "叱られる__、反省はするがすぐに忘れてしまう。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_029",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "約束を破る__、信用を失っていく。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    },
+    {
+      "id": "tbn_030",
+      "type": "FILL_BLANK",
+      "tags": ["tabi_ni"],
+      "payload": {
+        "sentence": "君に会う__、好きになっていく。",
+        "correct": "たびに",
+        "distractors": ["ついでに", "ばかりに", "反面"]
+      }
+    }
+  ]
+}

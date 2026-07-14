@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo des Adverbes  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "adv_001",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "このラーメンは__美味しいです。",
+        "correct": "とても",
+        "distractors": ["たくさん", "あまり", "ちょっと", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "adv_002",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "negative_traps"],
+      "payload": {
+        "sentence": "お酒は__飲みません。",
+        "correct": "あまり",
+        "distractors": ["とても", "たくさん", "いつも", "ちょっと"]
+      }
+    },
+    {
+      "id": "adv_003",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "私は__勉強します。",
+        "correct": "よく",
+        "distractors": ["あまり", "ちょっと", "ぜんぜん", "だんだん"]
+      }
+    },
+    {
+      "id": "adv_004",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "frequency"],
+      "payload": {
+        "sentence": "日曜日は__家で休みます。",
+        "correct": "いつも",
+        "distractors": ["ときどき", "あまり", "ぜんぜん", "さっき"]
+      }
+    },
+    {
+      "id": "adv_005",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "__待ってください。",
+        "correct": "ちょっと",
+        "distractors": ["とても", "ぜんぜん", "だんだん", "やっと"]
+      }
+    },
+    {
+      "id": "adv_006",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "change"],
+      "payload": {
+        "sentence": "日本語が__上手になりました。",
+        "correct": "だんだん",
+        "distractors": ["いつも", "とても", "あまり", "すぐ"]
+      }
+    },
+    {
+      "id": "adv_007",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "negative_traps"],
+      "payload": {
+        "sentence": "漢字が__わかりません。",
+        "correct": "ぜんぜん",
+        "distractors": ["とても", "たくさん", "よく", "だんだん"]
+      }
+    },
+    {
+      "id": "adv_008",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "manner"],
+      "payload": {
+        "sentence": "__話してください。",
+        "correct": "ゆっくり",
+        "distractors": ["はやく", "いつも", "ちょっと", "すぐ"]
+      }
+    },
+    {
+      "id": "adv_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["adverbes"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["ときどき", "映画を", "見"]
+      }
+    },
+    {
+      "id": "adv_010",
+      "type": "WORD_USAGE",
+      "tags": ["adverbes", "negative_traps"],
+      "payload": {
+        "word": "あまり ",
+        "options": [
+          { "text": "あまり好きじゃありません。", "is_correct": true },
+          { "text": "肉をあまり食べません。", "is_correct": true },
+          { "text": "昨日はあまり寒くなかったです。", "is_correct": true },
+          { "text": "あまり美味しいです。", "is_correct": false },
+          { "text": "あまり行きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "adv_011",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "__、新宿駅に到着します。",
+        "correct": "まもなく",
+        "distractors": ["さっき", "やっと", "ずっと", "はじめて"]
+      }
+    },
+    {
+      "id": "adv_012",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "田中さんは__帰りましたよ。",
+        "correct": "さっき",
+        "distractors": ["これから", "いつも", "だんだん", "もっと"]
+      }
+    },
+    {
+      "id": "adv_013",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "__ビールを飲みましょう。",
+        "correct": "もう一杯",
+        "distractors": ["まだ一杯", "ちょっと一杯", "よく一杯", "ずっと一杯"]
+      }
+    },
+    {
+      "id": "adv_014",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "宿題は__終わりましたか。",
+        "correct": "もう",
+        "distractors": ["まだ", "もっと", "ずっと", "すぐ"]
+      }
+    },
+    {
+      "id": "adv_015",
+      "type": "PARAPHRASE",
+      "tags": ["adverbes", "negative_traps"],
+      "payload": {
+        "base_sentence": "全然わかりません。",
+        "correct": "一つもわかりません。",
+        "distractors": [
+          "少しわかります。",
+          "よくわかります。",
+          "だいたいわかります。",
+          "わかるかもしれません。"
+        ]
+      }
+    },
+    {
+      "id": "adv_016",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "degree"],
+      "payload": {
+        "sentence": "__大きいケーキを食べたいです。",
+        "correct": "もっと",
+        "distractors": ["ずっと", "とても", "あまり", "ちょっと"]
+      }
+    },
+    {
+      "id": "adv_017",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "いいえ、__終わっていません。",
+        "correct": "まだ",
+        "distractors": ["もう", "もっと", "ずっと", "すぐ"]
+      }
+    },
+    {
+      "id": "adv_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "「時々」日本料理を作ります。",
+        "correct": "ときどき",
+        "distractors": ["ときどきな", "いつも", "たまに", "ときとき"]
+      }
+    },
+    {
+      "id": "adv_019",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "manner"],
+      "payload": {
+        "sentence": "__来てください。",
+        "correct": "はやく",
+        "distractors": ["ゆっくり", "もっと", "ちょっと", "ずっと"]
+      }
+    },
+    {
+      "id": "adv_020",
+      "type": "SENTENCE_ORDER",
+      "tags": ["adverbes"],
+      "payload": {
+        "prefix": "日本へ",
+        "suffix": "行きたいです。",
+        "blocks": ["一度", "ぜひ"]
+      }
+    },
+    {
+      "id": "adv_021",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "pop_culture"],
+      "payload": {
+        "sentence": "__、海賊王になります！",
+        "correct": "絶対に",
+        "distractors": ["とても", "あまり", "ちょっと", "たぶん"]
+      }
+    },
+    {
+      "id": "adv_022",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "degree"],
+      "payload": {
+        "sentence": "北海道は沖縄より__寒いです。",
+        "correct": "ずっと",
+        "distractors": ["もっと", "ちょっと", "あまり", "だんだん"]
+      }
+    },
+    {
+      "id": "adv_023",
+      "type": "WORD_USAGE",
+      "tags": ["adverbes"],
+      "payload": {
+        "word": "ぜひ ",
+        "options": [
+          { "text": "ぜひ遊びに来てください。", "is_correct": true },
+          { "text": "ぜひ日本へ行きたいです。", "is_correct": true },
+          { "text": "ぜひ食べました。", "is_correct": false },
+          { "text": "ぜひ美味しいです。", "is_correct": false },
+          { "text": "ぜひ飲みません。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "adv_024",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "probability"],
+      "payload": {
+        "sentence": "明日は__雨でしょう。",
+        "correct": "たぶん",
+        "distractors": ["ぜひ", "絶対に", "ちょうど", "きっと"]
+      }
+    },
+    {
+      "id": "adv_025",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "degree"],
+      "payload": {
+        "sentence": "テストは__終わりました。",
+        "correct": "だいたい",
+        "distractors": ["たくさん", "とても", "あまり", "ちょっと"]
+      }
+    },
+    {
+      "id": "adv_026",
+      "type": "PARAPHRASE",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "base_sentence": "すぐに行きます。",
+        "correct": "今からすぐに出発します。",
+        "distractors": [
+          "後で行きます。",
+          "ゆっくり行きます。",
+          "明日行きます。",
+          "行かないかもしれません。"
+        ]
+      }
+    },
+    {
+      "id": "adv_027",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "今、__３時です。",
+        "correct": "ちょうど",
+        "distractors": ["たぶん", "もっと", "ずっと", "もう"]
+      }
+    },
+    {
+      "id": "adv_028",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "first_time"],
+      "payload": {
+        "sentence": "__日本へ来ました。",
+        "correct": "はじめて",
+        "distractors": ["さっき", "すぐ", "やっと", "ずっと"]
+      }
+    },
+    {
+      "id": "adv_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["adverbes"],
+      "payload": {
+        "sentence": "「一番」好きな食べ物は何ですか。",
+        "correct": "いちばん",
+        "distractors": ["いちはん", "いつばん", "いっばん", "ひとばん"]
+      }
+    },
+    {
+      "id": "adv_030",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "relief"],
+      "payload": {
+        "sentence": "__終わりました！",
+        "correct": "やっと",
+        "distractors": ["すぐ", "さっき", "だんだん", "いつも"]
+      }
+    },
+    {
+      "id": "adv_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["adverbes"],
+      "payload": {
+        "prefix": "今日は",
+        "suffix": "疲れました。",
+        "blocks": ["本当に"]
+      }
+    },
+    {
+      "id": "adv_032",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "degree"],
+      "payload": {
+        "sentence": "この本は__面白いですよ。",
+        "correct": "なかなか",
+        "distractors": ["あまり", "ぜんぜん", "もっと", "ずっと"]
+      }
+    },
+    {
+      "id": "adv_033",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "traps"],
+      "payload": {
+        "sentence": "佐藤さんは__親切な人です。",
+        "correct": "とても",
+        "distractors": ["たくさん", "あまり", "ぜんぜん", "だんだん"]
+      }
+    },
+    {
+      "id": "adv_034",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "pop_culture"],
+      "payload": {
+        "sentence": "クリリン、__待っててくれ！",
+        "correct": "ちょっと",
+        "distractors": ["とても", "ずっと", "もっと", "だんだん"]
+      }
+    },
+    {
+      "id": "adv_035",
+      "type": "WORD_USAGE",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "word": "さっき ",
+        "options": [
+          { "text": "さっき田中さんに会いました。", "is_correct": true },
+          { "text": "さっきのニュースで見ました。", "is_correct": true },
+          { "text": "さっき行きます。", "is_correct": false },
+          { "text": "さっき明日会いましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "adv_036",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "reason"],
+      "payload": {
+        "sentence": "__休みます。",
+        "correct": "どうして",
+        "distractors": ["どこで", "だれと", "なにを", "いつ"]
+      }
+    },
+    {
+      "id": "adv_037",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "quantity"],
+      "payload": {
+        "sentence": "宿題が__あります。",
+        "correct": "たくさん",
+        "distractors": ["とても", "ちょっと", "あまり", "ぜんぜん"]
+      }
+    },
+    {
+      "id": "adv_038",
+      "type": "PARAPHRASE",
+      "tags": ["adverbes", "probability"],
+      "payload": {
+        "base_sentence": "きっと明日晴れます。",
+        "correct": "明日は絶対に晴れると思います。",
+        "distractors": [
+          "明日はたぶん晴れるでしょう。",
+          "明日は晴れないかもしれません。",
+          "明日は晴れるとは思いません。",
+          "明日は晴れるのが一番です。"
+        ]
+      }
+    },
+    {
+      "id": "adv_039",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "time"],
+      "payload": {
+        "sentence": "__新宿駅に着きます。",
+        "correct": "すぐ",
+        "distractors": ["さっき", "ずっと", "あまり", "いつも"]
+      }
+    },
+    {
+      "id": "adv_040",
+      "type": "FILL_BLANK",
+      "tags": ["adverbes", "manner"],
+      "payload": {
+        "sentence": "もっと__言ってください。",
+        "correct": "はっきり",
+        "distractors": ["ゆっくり", "はやく", "ちょっと", "ずっと"]
+      }
+    }
+  ]
+}

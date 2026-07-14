@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 5,
+    "description": "Dojo de la Restriction  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "res_001",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "水__飲みます。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "ので"]
+      }
+    },
+    {
+      "id": "res_002",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "水__飲みません。",
+        "correct": "しか",
+        "distractors": ["だけ", "を", "が", "も", "に"]
+      }
+    },
+    {
+      "id": "res_003",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "ひらがな__書くことができます。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "まで"]
+      }
+    },
+    {
+      "id": "res_004",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "財布に100円__ありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "が", "も", "に", "から"]
+      }
+    },
+    {
+      "id": "res_005",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "pop_culture"],
+      "payload": {
+        "sentence": "君__守りたい！",
+        "correct": "だけを",
+        "distractors": ["しか", "だけ", "をも", "に", "では"]
+      }
+    },
+    {
+      "id": "res_006",
+      "type": "WORD_USAGE",
+      "tags": ["restriction"],
+      "payload": {
+        "word": "しか ",
+        "options": [
+          { "text": "一つしかありません。", "is_correct": true },
+          { "text": "日曜日しか休みません。", "is_correct": true },
+          { "text": "彼しか知りません。", "is_correct": true },
+          { "text": "コーヒーしか飲みません。", "is_correct": true },
+          { "text": "本しか読みます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "res_007",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "少し__食べてください。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "の"]
+      }
+    },
+    {
+      "id": "res_008",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "名前__書きました。",
+        "correct": "だけ",
+        "distractors": ["しか", "を", "が", "も", "に"]
+      }
+    },
+    {
+      "id": "res_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["restriction"],
+      "payload": {
+        "prefix": "教室に",
+        "suffix": "いません。",
+        "blocks": ["田中さん", "しか"]
+      }
+    },
+    {
+      "id": "res_010",
+      "type": "PARAPHRASE",
+      "tags": ["restriction"],
+      "payload": {
+        "base_sentence": "日曜日だけ休みます。",
+        "correct": "月曜日から土曜日まで働きます。",
+        "distractors": [
+          "日曜日も休みます。",
+          "日曜日しか休みません。",
+          "日曜日に休みます。",
+          "日曜日は忙しいです。"
+        ]
+      }
+    },
+    {
+      "id": "res_011",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "一度__日本へ行ったことがあります。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "まで"]
+      }
+    },
+    {
+      "id": "res_012",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "田中さん__来ませんでした。",
+        "correct": "しか",
+        "distractors": ["だけ", "が", "は", "も", "に"]
+      }
+    },
+    {
+      "id": "res_013",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "ひらがな__わかります。",
+        "correct": "だけ",
+        "distractors": ["しか", "が", "を", "に", "も"]
+      }
+    },
+    {
+      "id": "res_014",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "10分__待ちました。",
+        "correct": "しか",
+        "distractors": ["だけ", "を", "に", "も", "から"]
+      }
+    },
+    {
+      "id": "res_015",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "pop_culture"],
+      "payload": {
+        "sentence": "ルフィは肉__食べます！",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "や"]
+      }
+    },
+    {
+      "id": "res_016",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "これ__買いたいです。",
+        "correct": "だけ",
+        "distractors": ["しか", "を", "が", "も", "に"]
+      }
+    },
+    {
+      "id": "res_017",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "昨日は3時間__寝ませんでした。",
+        "correct": "しか",
+        "distractors": ["だけ", "を", "に", "も", "から"]
+      }
+    },
+    {
+      "id": "res_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "「半分」だけ食べてください。",
+        "correct": "はんぶん",
+        "distractors": ["ほんぶん", "ぱんぶん", "はんぷん", "はんもん"]
+      }
+    },
+    {
+      "id": "res_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["restriction"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ありません。",
+        "blocks": ["一つ", "しか", "持って"]
+      }
+    },
+    {
+      "id": "res_020",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "誰__来ませんでしたか。",
+        "correct": "も",
+        "distractors": ["しか", "だけ", "が", "は", "に"]
+      }
+    },
+    {
+      "id": "res_021",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "日曜日__休みます。",
+        "correct": "だけ",
+        "distractors": ["しか", "に", "を", "が", "も"]
+      }
+    },
+    {
+      "id": "res_022",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "日本語__話せません。",
+        "correct": "しか",
+        "distractors": ["だけ", "を", "が", "も", "に"]
+      }
+    },
+    {
+      "id": "res_023",
+      "type": "WORD_USAGE",
+      "tags": ["restriction"],
+      "payload": {
+        "word": "だけ ",
+        "options": [
+          { "text": "名前だけ書きました。", "is_correct": true },
+          { "text": "一回だけ日本へ行きました。", "is_correct": true },
+          { "text": "あなただけが好きです。", "is_correct": true },
+          { "text": "昨日だけ来ませんでした。", "is_correct": true },
+          { "text": "水だけ飲みません。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "res_024",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "5分__待ってください。",
+        "correct": "だけ",
+        "distractors": ["しか", "に", "を", "が", "も"]
+      }
+    },
+    {
+      "id": "res_025",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "この店にはパン__ありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "が", "を", "に", "も"]
+      }
+    },
+    {
+      "id": "res_026",
+      "type": "PARAPHRASE",
+      "tags": ["restriction"],
+      "payload": {
+        "base_sentence": "100円しかありません。",
+        "correct": "お金がとても少ないです。",
+        "distractors": [
+          "100円持っています。",
+          "100円もあります。",
+          "100円だけ持っています。",
+          "100円はありません。"
+        ]
+      }
+    },
+    {
+      "id": "res_027",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "あなた__に教えます。",
+        "correct": "だけ",
+        "distractors": ["しか", "を", "が", "も", "から"]
+      }
+    },
+    {
+      "id": "res_028",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "一度__会ったことがありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "も", "を", "に", "まで"]
+      }
+    },
+    {
+      "id": "res_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "「一人」だけ来ました。",
+        "correct": "ひとり",
+        "distractors": ["いちにん", "いちり", "いちひと", "ひとりな"]
+      }
+    },
+    {
+      "id": "res_030",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "猫__いませんか。",
+        "correct": "しか",
+        "distractors": ["だけ", "が", "は", "も", "に"]
+      }
+    },
+    {
+      "id": "res_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["restriction"],
+      "payload": {
+        "prefix": "今日は",
+        "suffix": "食べました。",
+        "blocks": ["パンだけ"]
+      }
+    },
+    {
+      "id": "res_032",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "これ__でいいですか。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "から"]
+      }
+    },
+    {
+      "id": "res_033",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "ひらがな__書けません。",
+        "correct": "しか",
+        "distractors": ["だけ", "を", "が", "も", "に"]
+      }
+    },
+    {
+      "id": "res_034",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "pop_culture"],
+      "payload": {
+        "sentence": "修行__が彼を強くします。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "は"]
+      }
+    },
+    {
+      "id": "res_035",
+      "type": "WORD_USAGE",
+      "tags": ["restriction"],
+      "payload": {
+        "word": "のみ ",
+        "options": [
+          { "text": "学生のみ入場できます。", "is_correct": true },
+          { "text": "本日のみ10%割引です。", "is_correct": true },
+          { "text": "関係者のみ入ってください。", "is_correct": true },
+          { "text": "水のみ食べます。 ", "is_correct": false },
+          { "text": "明日のみ会いましょうか。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "res_036",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "自分__の時間を大切にしてください。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "の"]
+      }
+    },
+    {
+      "id": "res_037",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "1つ__ありません。",
+        "correct": "しか",
+        "distractors": ["だけ", "が", "も", "に", "を"]
+      }
+    },
+    {
+      "id": "res_038",
+      "type": "PARAPHRASE",
+      "tags": ["restriction"],
+      "payload": {
+        "base_sentence": "彼は日本語しか話せません。",
+        "correct": "彼は日本語以外の言語を話すことができません。",
+        "distractors": [
+          "彼は日本語も話せます。",
+          "彼は日本語を話したいです。",
+          "彼は日本語が上手です。",
+          "彼は日本語を話しませ。"
+        ]
+      }
+    },
+    {
+      "id": "res_039",
+      "type": "FILL_BLANK",
+      "tags": ["restriction"],
+      "payload": {
+        "sentence": "好きなもの__食べてはいけません。",
+        "correct": "だけ",
+        "distractors": ["しか", "も", "を", "に", "から"]
+      }
+    },
+    {
+      "id": "res_040",
+      "type": "FILL_BLANK",
+      "tags": ["restriction", "traps"],
+      "payload": {
+        "sentence": "名前を書くのを忘れた__、もう一度書きます。",
+        "correct": "ので",
+        "distractors": ["だけ", "しか", "から", "に", "を"]
+      }
+    }
+  ]
+}

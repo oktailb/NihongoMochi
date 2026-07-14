@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~うる / ~えない  - N2"
+  },
+  "exercises": [
+    {
+      "id": "uru_001",
+      "type": "FILL_BLANK",
+      "tags": ["uru", "N2"],
+      "payload": {
+        "sentence": "そんなことは、あり__ない。",
+        "correct": "え",
+        "distractors": ["うる", "おわり", "すぎ", "だし"]
+      }
+    },
+    {
+      "id": "uru_002",
+      "type": "FILL_BLANK",
+      "tags": ["uru", "pop_culture"],
+      "payload": {
+        "sentence": "人間なら誰でもミスを犯し__。",
+        "correct": "うる",
+        "distractors": ["えない", "おわる", "すぎる", "だし"]
+      }
+    },
+    {
+      "id": "uru_003",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "これは十分に起こり__得る事態だ。",
+        "correct": "うる",
+        "distractors": ["えない", "おわる", "すぎる", "だし"]
+      }
+    },
+    {
+      "id": "uru_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uru"],
+      "payload": {
+        "prefix": "信じ",
+        "suffix": "光景だった。",
+        "blocks": ["がたい", "というか", "得ない"]
+      }
+    },
+    {
+      "id": "uru_005",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "今の科学では解決し__えない問題がある。",
+        "correct": "え",
+        "distractors": ["う", "えれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_006",
+      "type": "WORD_USAGE",
+      "tags": ["uru"],
+      "payload": {
+        "word": "～うる ",
+        "options": [
+          { "text": "考えうる限りの手は尽くした。", "is_correct": true },
+          { "text": "それはありうる話だ。", "is_correct": true },
+          { "text": "漢字が読みうる。", "is_correct": false },
+          { "text": "ご飯を食べうる。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "uru_007",
+      "type": "FILL_BLANK",
+      "tags": ["uru", "pop_culture"],
+      "payload": {
+        "sentence": "サイヤ人の力を超えることは、あり__るのだろうか。",
+        "correct": "う",
+        "distractors": ["え", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_008",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "その情報は決して漏れ__ないはずだ。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_009",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "誰にも__得ない記録を打ち立てた。",
+        "correct": "破り",
+        "distractors": ["破る", "破って", "破れば", "破ろう"]
+      }
+    },
+    {
+      "id": "uru_010",
+      "type": "PARAPHRASE",
+      "tags": ["uru"],
+      "payload": {
+        "base_sentence": "それはあり得ない話ではありません。",
+        "correct": "その話が本当である可能性は、ゼロではありません。",
+        "distractors": [
+          "その話は絶対に嘘です。",
+          "その話は聞いたことがありません。",
+          "その話は誰にでもできます。"
+        ]
+      }
+    },
+    {
+      "id": "uru_011",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "不測の事態は起こり__ものだ。",
+        "correct": "うる",
+        "distractors": ["えない", "おわる", "すぎる", "だし"]
+      }
+    },
+    {
+      "id": "uru_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uru"],
+      "payload": {
+        "prefix": "考え",
+        "suffix": "すべてやった。",
+        "blocks": ["うる", "対策は", "もう"]
+      }
+    },
+    {
+      "id": "uru_013",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "彼の成功は、努力の結果として__得ることだ。",
+        "correct": "あり",
+        "distractors": ["ある", "あって", "あれば", "あろう"]
+      }
+    },
+    {
+      "id": "uru_014",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "どうしても納得し__ない。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_015",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "予測し__ない事態に直面した。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "あり「得る」話だ。",
+        "correct": "うる",
+        "distractors": ["える", "うれる", "えな", "おわる"]
+      }
+    },
+    {
+      "id": "uru_017",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "このままでは、取り返しのつかないことになり__。",
+        "correct": "うる",
+        "distractors": ["えない", "おわる", "すぎる", "だし"]
+      }
+    },
+    {
+      "id": "uru_018",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "信じ__ないほど美しい景色だった。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uru"],
+      "payload": {
+        "prefix": "事故は",
+        "suffix": "起こりうる。",
+        "blocks": ["どこでも", "いつでも", "誰にでも"]
+      }
+    },
+    {
+      "id": "uru_020",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "到底承服し__ない。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_021",
+      "type": "FILL_BLANK",
+      "tags": ["uru", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの暴走は、予測し__たことなのだろうか。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_022",
+      "type": "WORD_USAGE",
+      "tags": ["uru"],
+      "payload": {
+        "word": "～えない ",
+        "options": [
+          { "text": "そんなことは絶対にありえない。", "is_correct": true },
+          { "text": "彼が犯人であることは考ええない。", "is_correct": true },
+          { "text": "ピアノが弾きえない。", "is_correct": false },
+          { "text": "お腹がいっぱいで食べえない。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "uru_023",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "十分に起こり__状況だ。",
+        "correct": "うる",
+        "distractors": ["えない", "おわる", "すぎる", "だし"]
+      }
+    },
+    {
+      "id": "uru_024",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "決して許し__ない行為だ。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_025",
+      "type": "PARAPHRASE",
+      "tags": ["uru"],
+      "payload": {
+        "base_sentence": "彼は考えうる限りの努力をした。",
+        "correct": "彼は自分にできる限りの、すべての努力をした。",
+        "distractors": [
+          "彼は努力するのを途中でやめた。",
+          "彼はあまり考えずに努力した。",
+          "彼は誰かに手伝ってもらって努力した。"
+        ]
+      }
+    },
+    {
+      "id": "uru_026",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "絶対にあり__ないことが起こった。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_027",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "誰にも__得ない成功を収めた。",
+        "correct": "なし",
+        "distractors": ["なす", "なして", "なせば", "なそう"]
+      }
+    },
+    {
+      "id": "uru_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uru"],
+      "payload": {
+        "prefix": "その",
+        "suffix": "得ない。",
+        "blocks": ["計画は", "失敗し", "ようが"]
+      }
+    },
+    {
+      "id": "uru_029",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "予測__る事態ではなかった。",
+        "correct": "う",
+        "distractors": ["え", "うれ", "えな", "えおわ"]
+      }
+    },
+    {
+      "id": "uru_030",
+      "type": "FILL_BLANK",
+      "tags": ["uru"],
+      "payload": {
+        "sentence": "どうしても否定し__ない事実がある。",
+        "correct": "え",
+        "distractors": ["う", "うれ", "えな", "えおわ"]
+      }
+    }
+  ]
+}

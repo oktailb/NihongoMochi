@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～を抜きにして - L'élément indispensable qu'on ne peut ignorer. "
+  },
+  "exercises": [
+    {
+      "id": "wns_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "冗談__話しますが、本当に会社を辞めるつもりです。",
+        "correct": "を抜きにして",
+        "distractors": ["をきっかけに", "を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "彼の協力__、このプロジェクトの成功は語れない。",
+        "correct": "を抜きにしては",
+        "distractors": ["をきっかけにしては", "を中心にしては", "をめぐってしては", "を通じてしては"]
+      }
+    },
+    {
+      "id": "wns_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "prefix": "お世辞",
+        "suffix": "、君の歌は最高だよ。",
+        "blocks": ["を抜きにして"]
+      }
+    },
+    {
+      "id": "wns_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "このアニメは、音楽__語ることはできない。",
+        "correct": "を抜きにしては",
+        "distractors": ["をきっかけに", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wns_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "word": "を抜きにして",
+        "options": [
+          { "text": "前置きを抜きにして、本題に入りましょう。", "is_correct": true },
+          { "text": "堅苦しい挨拶を抜きにして、パーティーを始めよう。", "is_correct": true },
+          { "text": "ご飯を抜きにして食べました。", "is_correct": false },
+          { "text": "明日を抜きにして行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wns_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "日本の文化は、お茶__語れない。",
+        "correct": "を抜きにしては",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "base_sentence": "努力がなければ、成功はあり得ません。",
+        "correct": "努力を抜きにしては、成功はあり得ない。",
+        "distractors": [
+          "努力をきっかけにしては、成功はあり得ない。",
+          "努力をめぐってしては、成功はあり得ない。",
+          "努力を通じてしては、成功はあり得ない。"
+        ]
+      }
+    },
+    {
+      "id": "wns_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "感情__、冷静に判断すべきだ。",
+        "correct": "を抜きにして",
+        "distractors": ["をこめて", "を問わず", "をめぐって"]
+      }
+    },
+    {
+      "id": "wns_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "君の助け__、今の僕はいないよ。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "prefix": "細かい",
+        "suffix": "、ざっくりとした計画を話そう。",
+        "blocks": ["説明を", "抜きにして"]
+      }
+    },
+    {
+      "id": "wns_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "インターネット__、現代の生活は考えられない。",
+        "correct": "を抜きにしては",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "「事実」を抜きにしては、議論は成立しない。",
+        "correct": "じじつ",
+        "distractors": ["しんじつ", "うそ", "ゆめ"]
+      }
+    },
+    {
+      "id": "wns_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "損得__、彼を助けたいと思った。",
+        "correct": "を抜きにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "愛__、人生は虚しいものだ。",
+        "correct": "を抜きにしては",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "word": "を抜きにしては",
+        "options": [
+          { "text": "彼の情熱を抜きにしては、この作品は完成しなかった。", "is_correct": true },
+          { "text": "伝統を抜きにしては、新しいものは生まれない。", "is_correct": true },
+          { "text": "勉強を抜きにしては上手になります。", "is_correct": false },
+          { "text": "雨を抜きにしては傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wns_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "建前__、本音で話し合おう。",
+        "correct": "を抜きにして",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "運__、実力だけで勝つのは難しい。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "prefix": "仕事の",
+        "suffix": "、今日は楽しみましょう。",
+        "blocks": ["話を", "抜きにして"]
+      }
+    },
+    {
+      "id": "wns_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "過去の失敗__、今の成功は語れない。",
+        "correct": "を抜きにしては",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "チームワーク__、この勝利はなかった。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "base_sentence": "お金がなければ、この生活は維持できません。",
+        "correct": "お金を抜きにしては、この生活は維持できない。",
+        "distractors": [
+          "お金を中心にしては、この生活は維持できない。",
+          "お金をめぐってしては, この生活は維持できない。",
+          "お金を通じてしては、この生活は維持できない。"
+        ]
+      }
+    },
+    {
+      "id": "wns_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "プライド__、一からやり直すつもりだ。",
+        "correct": "を抜きにして",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "健康__、幸せは語れない。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "「友情」を抜きにしては、僕の人生は語れない。",
+        "correct": "ゆうじょう",
+        "distractors": ["あいじょう", "きぼう", "ゆめ"]
+      }
+    },
+    {
+      "id": "wns_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "世間体__、自分の好きなように生きたい。",
+        "correct": "を抜きにして",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "勇気__、新しい一歩は踏み出せない。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中で愛されている。",
+        "blocks": ["その独特な世界観を", "抜きにしては", "語れない"]
+      }
+    },
+    {
+      "id": "wns_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite"],
+      "payload": {
+        "sentence": "難しい理屈__、とにかくやってみよう。",
+        "correct": "を抜きにして",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wns_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "信頼__、パートナーシップは成立しない。",
+        "correct": "を抜きにしては",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wns_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_nuki_ni_shite_ha"],
+      "payload": {
+        "sentence": "君の笑顔__、僕の毎日は輝かないんだ。",
+        "correct": "を抜きにしては",
+        "distractors": ["中心に", "きっかけに", "問わず"]
+      }
+    }
+  ]
+}

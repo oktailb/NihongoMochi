@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur こそ  - Précisément / Accentuation - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "koso_001",
+      "type": "FILL_BLANK",
+      "tags": ["koso", "N3"],
+      "payload": {
+        "sentence": "明日__合格してみせる！",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_002",
+      "type": "FILL_BLANK",
+      "tags": ["koso", "pop_culture"],
+      "payload": {
+        "sentence": "彼__が、我々の求めていた勇者だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_003",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "忙しい時__、落ち着いて行動しよう。",
+        "correct": "にこそ",
+        "distractors": ["にさえ", "にだけ", "にのみ", "にばかり"]
+      }
+    },
+    {
+      "id": "koso_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koso"],
+      "payload": {
+        "prefix": "今年",
+        "suffix": "。",
+        "blocks": ["こそ", "日本へ", "行くつもりだ"]
+      }
+    },
+    {
+      "id": "koso_005",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "こちら__、どうぞよろしくお願いいたします。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_006",
+      "type": "WORD_USAGE",
+      "tags": ["koso"],
+      "payload": {
+        "word": "～こそ ",
+        "options": [
+          { "text": "今度こそ、絶対にやる。", "is_correct": true },
+          { "text": "彼こそ、リーダーにふさわしい。", "is_correct": true },
+          { "text": "雨こそ降る。", "is_correct": false },
+          { "text": "努力したからこそ、成功した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "koso_007",
+      "type": "FILL_BLANK",
+      "tags": ["koso", "pop_culture"],
+      "payload": {
+        "sentence": "これ__が、伝説のスーパーサイヤ人だ！",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_008",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "愛している__、離れる決心をしたのだ。",
+        "correct": "からこそ",
+        "distractors": ["からさえ", "からだけ", "からのみ", "からばかり"]
+      }
+    },
+    {
+      "id": "koso_009",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "子供__、国の宝だ。",
+        "correct": "こそが",
+        "distractors": ["さえが", "だけが", "のみが", "ばかりが"]
+      }
+    },
+    {
+      "id": "koso_010",
+      "type": "PARAPHRASE",
+      "tags": ["koso"],
+      "payload": {
+        "base_sentence": "今日こそ、最後までやり遂げるぞ。",
+        "correct": "他の日はどうあれ、今日という日は絶対に、最後までやり通すという強い決意を持っています。",
+        "distractors": [
+          "今日だけ、少しだけやります。",
+          "今日から始めることにしました。",
+          "今日中に終わらないと思います。"
+        ]
+      }
+    },
+    {
+      "id": "koso_011",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "自分を信じること__、成功への第一歩だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koso"],
+      "payload": {
+        "prefix": "信頼して",
+        "suffix": "。",
+        "blocks": ["くれる", "人がいる", "からこそ頑張れるのだ"]
+      }
+    },
+    {
+      "id": "koso_013",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "苦しい時__、笑顔を忘れないで。",
+        "correct": "にこそ",
+        "distractors": ["にさえ", "にだけ", "にのみ", "にばかり"]
+      }
+    },
+    {
+      "id": "koso_014",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "これ__、私がずっと探していたものだ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_015",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "君__、私の親友だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "「今度こそ」やる。",
+        "correct": "こんどこそ",
+        "distractors": ["こんかいこそ", "こんじこそ", "こんかいだけ", "こんどだけ"]
+      }
+    },
+    {
+      "id": "koso_017",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "失敗した__、学べることもある。",
+        "correct": "からこそ",
+        "distractors": ["からさえ", "からだけ", "からのみ", "からばかり"]
+      }
+    },
+    {
+      "id": "koso_018",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "平和__、人類の究極の目標だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koso"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["人", "こそが", "真のリーダーだ"]
+      }
+    },
+    {
+      "id": "koso_020",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "今__、立ち上がる時だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_021",
+      "type": "FILL_BLANK",
+      "tags": ["koso", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗れるのは、シンジ君、君__なんだ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_022",
+      "type": "WORD_USAGE",
+      "tags": ["koso"],
+      "payload": {
+        "word": "～こそ ",
+        "options": [
+          { "text": "「よろしく」 「こちらこそ」。", "is_correct": true },
+          { "text": "「ありがとう」 「こちらこそ」。", "is_correct": true },
+          { "text": "「すみません」 「こちらこそ」。", "is_correct": true },
+          { "text": "「おはよう」 「こちらこそ」。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "koso_023",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "難しい__、挑戦する価値がある。",
+        "correct": "からこそ",
+        "distractors": ["からさえ", "からだけ", "からのみ", "からばかり"]
+      }
+    },
+    {
+      "id": "koso_024",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "伝統を守ること__、未来を創ることにつながる。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_025",
+      "type": "PARAPHRASE",
+      "tags": ["koso"],
+      "payload": {
+        "base_sentence": "彼こそが犯人だ。",
+        "correct": "他の誰でもなく、彼こそが間違いなく犯人であると確信しています。",
+        "distractors": [
+          "彼も犯人の一人かもしれません。",
+          "彼が犯人だと言われましたが、証拠はありません。",
+          "彼は犯人ではありませんが、怪しいです。"
+        ]
+      }
+    },
+    {
+      "id": "koso_026",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "昨日__、彼に言おうと思っていたのに。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_027",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "言葉__、心をつなぐ架け橋だ。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    },
+    {
+      "id": "koso_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["koso"],
+      "payload": {
+        "prefix": "この",
+        "suffix": "。",
+        "blocks": ["経験", "こそが", "君を強くする"]
+      }
+    },
+    {
+      "id": "koso_029",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "若いうち__、色々なことに挑戦すべきだ。",
+        "correct": "にこそ",
+        "distractors": ["にさえ", "にだけ", "にのみ", "にばかり"]
+      }
+    },
+    {
+      "id": "koso_030",
+      "type": "FILL_BLANK",
+      "tags": ["koso"],
+      "payload": {
+        "sentence": "未来の子供たちのために__、この自然を残したい。",
+        "correct": "こそ",
+        "distractors": ["さえ", "だけ", "のみ", "ばかり"]
+      }
+    }
+  ]
+}

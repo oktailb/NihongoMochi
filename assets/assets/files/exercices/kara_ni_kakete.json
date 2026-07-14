@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~から ~にかけて  - De... à...  - N3"
+  },
+  "exercises": [
+    {
+      "id": "karakakete_001",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete", "N3"],
+      "payload": {
+        "sentence": "明日は、関東地方から東北地方__雨が降るでしょう。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_002",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete", "pop_culture"],
+      "payload": {
+        "sentence": "その戦いは、夕方から夜__続いた。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_003",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "日本では、6月から7月__梅雨の時期です。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakakete"],
+      "payload": {
+        "prefix": "この辺りでは、",
+        "suffix": "。",
+        "blocks": ["秋から", "冬にかけて", "霧が発生しやすい"]
+      }
+    },
+    {
+      "id": "karakakete_005",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "彼は、10代から20代__海外で過ごした。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_006",
+      "type": "WORD_USAGE",
+      "tags": ["karakakete"],
+      "payload": {
+        "word": "～から～にかけて ",
+        "options": [
+          { "text": "夜中から明け方にかけて、雪が降った。", "is_correct": true },
+          { "text": "東京から大阪にかけて、新幹線で行く。", "is_correct": false },
+          { "text": "昨夜から今朝にかけて、風が強かった。", "is_correct": true },
+          { "text": "頭から足にかけて、痛む。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karakakete_007",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の修行は、地球からナメック星__の宇宙船内でも行われた。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_008",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "この植物は、春から夏__花を咲かせます。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_009",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "山沿いから平野部__、激しい雨に注意してください。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_010",
+      "type": "PARAPHRASE",
+      "tags": ["karakakete"],
+      "payload": {
+        "base_sentence": "昨夜から今朝にかけて、激しい雨が降った。",
+        "correct": "昨日の夜のある時点から、今日の朝のどこかの時点まで、ずっと、あるいは断続的に強い雨が降り続きました。",
+        "distractors": [
+          "昨日の夜に雨が降り始め、今日の朝に止みました。",
+          "昨日の夜から今日の朝まで、一度も雨が止みませんでした。",
+          "昨日の夜と今日の朝だけ、雨が降りました。"
+        ]
+      }
+    },
+    {
+      "id": "karakakete_011",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "10月から11月__、紅葉が美しい時期だ。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakakete"],
+      "payload": {
+        "prefix": "台風は、",
+        "suffix": "。",
+        "blocks": ["沖縄から", "九州にかけて", "上陸した"]
+      }
+    },
+    {
+      "id": "karakakete_013",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "彼は、小学校から中学校__ずっと野球をしていた。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_014",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "夜の10時から朝の6時__、工事が行われます。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_015",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "背中から腰__、痛みがあります。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "春から夏「にかけて」。",
+        "correct": "にかけて",
+        "distractors": ["にがけて", "によって", "にわたって", "に際して"]
+      }
+    },
+    {
+      "id": "karakakete_017",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "1月から2月__、インフルエンザが流行する。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_018",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "駅から公園__の道には、桜が植えられている。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakakete"],
+      "payload": {
+        "prefix": "明日は、",
+        "suffix": "。",
+        "blocks": ["朝から", "昼にかけて", "気温が上がる"]
+      }
+    },
+    {
+      "id": "karakakete_020",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "彼は、音楽から美術__幅広い知識を持っている。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_021",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの戦闘は、都市の中心部から郊外__広がった。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_022",
+      "type": "WORD_USAGE",
+      "tags": ["karakakete"],
+      "payload": {
+        "word": "～から～にかけて ",
+        "options": [
+          { "text": "肩から腕にかけて、しびれがある。", "is_correct": true },
+          { "text": "玄関から居間にかけて、掃除をした。", "is_correct": true },
+          { "text": "東京から大阪にかけて、飛行機で行く。", "is_correct": false },
+          { "text": "窓から庭にかけて、景色が見える。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "karakakete_023",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "昨日から今日__、ずっと寝ていた。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_024",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "この辺りから隣町__、美味しいパン屋が多い。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_025",
+      "type": "PARAPHRASE",
+      "tags": ["karakakete"],
+      "payload": {
+        "base_sentence": "3月から4月にかけて、進学や就職の時期だ。",
+        "correct": "3月の終わり頃から4月の初め頃までの期間は、多くの人が新しく学校に入ったり、仕事を始めたりする時期です。",
+        "distractors": [
+          "3月と4月の間だけ、休みがあります。",
+          "3月から4月まで、毎日ずっと仕事を探しています。",
+          "3月の前に就職が決まり、4月にはもう働いています。"
+        ]
+      }
+    },
+    {
+      "id": "karakakete_026",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "夕方から夜__、冷え込みが厳しくなる。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_027",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "このドラマは、第一話から最終回__目が離せない。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["karakakete"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["10代から", "20代にかけて", "苦労したようだ"]
+      }
+    },
+    {
+      "id": "karakakete_029",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "北日本から西日本__、広い範囲で雪が降る見込みだ。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    },
+    {
+      "id": "karakakete_030",
+      "type": "FILL_BLANK",
+      "tags": ["karakakete"],
+      "payload": {
+        "sentence": "夜明け前から日の出__、空の色が美しく変化した。",
+        "correct": "にかけて",
+        "distractors": ["まで", "にわたって", "に際して", "において"]
+      }
+    }
+  ]
+}

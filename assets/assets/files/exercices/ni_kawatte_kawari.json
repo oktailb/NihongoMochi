@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur に代わって・に代わり - Le remplacement et la représentation. "
+  },
+  "exercises": [
+    {
+      "id": "nkw_001",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "入院中の社長__、副社長があいさつをした。",
+        "correct": "に代わって",
+        "distractors": ["に関して", "に際して", "に伴って", "に従って"]
+      }
+    },
+    {
+      "id": "nkw_002",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "最近はメール__、SNSで連絡を取る人が増えた。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に代わりて", "に代わりは", "に代わる"]
+      }
+    },
+    {
+      "id": "nkw_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "prefix": "父が忙しいので、",
+        "suffix": "、私がお伺いします。",
+        "blocks": ["父に", "代わって"]
+      }
+    },
+    {
+      "id": "nkw_004",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "怪我をした選手__、補欠の選手が出場した。",
+        "correct": "に代わって",
+        "distractors": ["に沿って", "に反して", "をこめて"]
+      }
+    },
+    {
+      "id": "nkw_005",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "word": "に代わって",
+        "options": [
+          { "text": "病気の先生に代わって、今日は私が授業をします。", "is_correct": true },
+          { "text": "ロボットが人間に代わって、危険な作業を行う。", "is_correct": true },
+          { "text": "お肉に代わって、魚を食べました。", "is_correct": false },
+          { "text": "雨に代わって、雪が降ってきた。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkw_006",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "石炭__、石油が主なエネルギー源になった。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に際して", "に従って"]
+      }
+    },
+    {
+      "id": "nkw_007",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "base_sentence": "田中さんが来られないので、私が代わりに行きます。",
+        "correct": "田中さんに代わって、私が行きます。",
+        "distractors": [
+          "田中さんに際して、私が行きます。",
+          "田中さんに伴って、私が行きます。",
+          "田中さんに従って、私が行きます。"
+        ]
+      }
+    },
+    {
+      "id": "nkw_008",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "妻__、私が家事をこなしています。",
+        "correct": "に代わって",
+        "distractors": ["に代わりて", "に関わって", "にかけては"]
+      }
+    },
+    {
+      "id": "nkw_009",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "固定電話__、スマホが普及した。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に反して", "をこめて"]
+      }
+    },
+    {
+      "id": "nkw_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "prefix": "この作品は、",
+        "suffix": "、私が完成させます。",
+        "blocks": ["亡くなった", "作者に", "代わって"]
+      }
+    },
+    {
+      "id": "nkw_011",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "司会者のAさん__、Bさんが番組を進行した。",
+        "correct": "に代わって",
+        "distractors": ["に沿って", "に際して", "に伴って"]
+      }
+    },
+    {
+      "id": "nkw_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "「本人」に代わって、代理人が出席した。",
+        "correct": "ほんにん",
+        "distractors": ["しゅじん", "こじん", "ぜんいん"]
+      }
+    },
+    {
+      "id": "nkw_013",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "現金__、キャッシュレス決済が主流になりつつある。",
+        "correct": "に代わり",
+        "distractors": ["に限定して", "に際して", "に従って"]
+      }
+    },
+    {
+      "id": "nkw_014",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "引退した英雄__、新しい勇者が立ち上がった。",
+        "correct": "に代わって",
+        "distractors": ["に反して", "に際して", "に沿って"]
+      }
+    },
+    {
+      "id": "nkw_015",
+      "type": "WORD_USAGE",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "word": "に代わり",
+        "options": [
+          { "text": "従来のペンに代わり、デジタルペンシルが使われている。", "is_correct": true },
+          { "text": "アナログ放送に代わり、デジタル放送が始まった。", "is_correct": true },
+          { "text": "彼は勉強に代わり、遊んでばかりいる。", "is_correct": false },
+          { "text": "昨日に代わり、今日は暑い。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "nkw_016",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "海外出張中の父__、母が結婚式に出席した。",
+        "correct": "に代わって",
+        "distractors": ["に沿って", "に従って", "に際して"]
+      }
+    },
+    {
+      "id": "nkw_017",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "古い制度__、新しいルールが導入された。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に関わらず", "に関して"]
+      }
+    },
+    {
+      "id": "nkw_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "prefix": "人間の",
+        "suffix": "、AIが判断を行う場面が増えた。",
+        "blocks": ["判断に", "代わって"]
+      }
+    },
+    {
+      "id": "nkw_019",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "負傷したキャプテン__、副キャプテンがトロフィーを受け取った。",
+        "correct": "に代わって",
+        "distractors": ["に際して", "に従って", "に沿って"]
+      }
+    },
+    {
+      "id": "nkw_020",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "手紙__、メールが普及したことで、情報の伝達が早くなった。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に際する", "に従う"]
+      }
+    },
+    {
+      "id": "nkw_021",
+      "type": "PARAPHRASE",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "base_sentence": "社長の代わりに、秘書が説明します。",
+        "correct": "社長に代わって、秘書が説明します。",
+        "distractors": [
+          "社長に際して、秘書が説明します。",
+          "社長に従って、秘書が説明します。",
+          "社長に沿って、秘書が説明します。"
+        ]
+      }
+    },
+    {
+      "id": "nkw_022",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "従来のモデル__、最新機種が発売された。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に関わり", "に関して"]
+      }
+    },
+    {
+      "id": "nkw_023",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "遅れている同僚__、私がその仕事を終わらせた。",
+        "correct": "に代わって",
+        "distractors": ["に際して", "に限定して", "に反して"]
+      }
+    },
+    {
+      "id": "nkw_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "「世代」に代わって、新しい流行が生まれる。",
+        "correct": "せだい",
+        "distractors": ["じだい", "せかい", "しゃかい"]
+      }
+    },
+    {
+      "id": "nkw_025",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "多忙な作者__、アシスタントがインタビューに答えた。",
+        "correct": "に代わって",
+        "distractors": ["に限定して", "に従って", "に伴って"]
+      }
+    },
+    {
+      "id": "nkw_026",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "ガソリン車__、電気自動車の需要が高まっている。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に関わり", "に関わらず"]
+      }
+    },
+    {
+      "id": "nkw_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、その責任を取った。",
+        "blocks": ["前任者に", "代わって"]
+      }
+    },
+    {
+      "id": "nkw_028",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "病欠のAさん__、Bさんがプレゼンを行った。",
+        "correct": "に代わって",
+        "distractors": ["に反して", "に沿って", "に伴って"]
+      }
+    },
+    {
+      "id": "nkw_029",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawari"],
+      "payload": {
+        "sentence": "かつての英雄__、民衆が主役となる時代が来た。",
+        "correct": "に代わり",
+        "distractors": ["に代わっての", "に関して", "に関する"]
+      }
+    },
+    {
+      "id": "nkw_030",
+      "type": "FILL_BLANK",
+      "tags": ["ni_kawatte"],
+      "payload": {
+        "sentence": "君__、僕がその罪を背負おう。",
+        "correct": "に代わって",
+        "distractors": ["に反して", "に際して", "に伴って"]
+      }
+    }
+  ]
+}

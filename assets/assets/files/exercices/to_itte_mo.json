@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de TO ITTE MO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "itm_001",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "sentence": "日本料理が作れる__、卵焼きだけです。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "といってもな", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_002",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "traps"],
+      "payload": {
+        "sentence": "日本へ行ったことがある__、1日だけですよ。",
+        "correct": "といっても",
+        "distractors": ["といったら", "というのに", "というから", "というばかり"]
+      }
+    },
+    {
+      "id": "itm_003",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "sentence": "忙しい__、昨日ほどではありません。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_004",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "traps"],
+      "payload": {
+        "sentence": "泳げる__、25メートルだけです。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_005",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "pop_culture"],
+      "payload": {
+        "sentence": "強くなった__、まだまだ修行が必要です。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_006",
+      "type": "WORD_USAGE",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "word": "〜といっても ",
+        "options": [
+          { "text": "家を買ったといっても、とても小さい家です。", "is_correct": true },
+          { "text": "日本語が話せるといっても、挨拶だけです。", "is_correct": true },
+          { "text": "冬といっても、今日は暖かいですね。", "is_correct": true },
+          { "text": "明日といっても会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "itm_007",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "sentence": "美味しい__、インスタントラーメンですよ。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_008",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "traps"],
+      "payload": {
+        "sentence": "田中さんは先生__、まだ学生ですよ。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "prefix": "ひらがなが書ける",
+        "suffix": "自分の名前だけです。",
+        "blocks": ["といっても"]
+      }
+    },
+    {
+      "id": "itm_010",
+      "type": "PARAPHRASE",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "base_sentence": "寒いといっても、雪は降りません。",
+        "correct": "「寒い」という言葉は使えますが、雪が降るほどの極寒ではありません。",
+        "distractors": [
+          "寒いから雪が降ります。",
+          "寒くないので雪は降りません。",
+          "寒いのに雪が降っています。",
+          "寒ければ雪が降るでしょう。"
+        ]
+      }
+    },
+    {
+      "id": "itm_011",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "sentence": "酒が飲める__、ビール1杯だけです。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_012",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "traps"],
+      "payload": {
+        "sentence": "昨日会った__、5分だけですよ。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_013",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo"],
+      "payload": {
+        "sentence": "庭がある__、猫の額ほどです。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_014",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "pop_culture"],
+      "payload": {
+        "sentence": "魔法が使える__、火を出すだけだ。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    },
+    {
+      "id": "itm_015",
+      "type": "FILL_BLANK",
+      "tags": ["to_itte_mo", "traps"],
+      "payload": {
+        "sentence": "名前を覚えた__、苗字だけです。",
+        "correct": "といっても",
+        "distractors": ["というより", "といったら", "というから", "というので"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～をはじめ - L'art de citer l'exemple représentatif. "
+  },
+  "exercises": [
+    {
+      "id": "whj_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "日本__として、アジア諸国から多くの観光客が訪れる。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "を中心として", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "富士山__多くの山が日本にはある。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "を中心にする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "prefix": "校長先生",
+        "suffix": "、諸先生方には大変お世話になりました。",
+        "blocks": ["をはじめ"]
+      }
+    },
+    {
+      "id": "whj_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "アニメ__、日本の文化は世界中で人気だ。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "whj_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "word": "をはじめ",
+        "options": [
+          { "text": "社長をはじめ、社員全員が参加した。", "is_correct": true },
+          { "text": "この本は、平仮名をはじめ、読みやすい言葉で書かれている。", "is_correct": true },
+          { "text": "ご飯をはじめ食べました。", "is_correct": false },
+          { "text": "明日をはじめ行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "whj_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "大谷翔平__多くの日本人選手がメジャーリーグで活躍している。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "base_sentence": "代表として社長が最初に来ました。その後に他の人も来ました。",
+        "correct": "社長をはじめ、多くの人が来ました。",
+        "distractors": [
+          "社長をきっかけに、多くの人が来ました。",
+          "社長をめぐって、多くの人が来ました。",
+          "社長を通じて、多くの人が来ました。"
+        ]
+      }
+    },
+    {
+      "id": "whj_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "家族__、親戚や友人たちに感謝したい。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をこめて", "をめぐって"]
+      }
+    },
+    {
+      "id": "whj_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "京都__、日本には古いお寺がたくさんある。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中で愛されている。",
+        "blocks": ["ジブリ作品を", "はじめ"]
+      }
+    },
+    {
+      "id": "whj_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "野菜__、バランスのいい食事を心がけよう。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "「伝統」をはじめ、日本の文化を大切にしたい。",
+        "correct": "でんとう",
+        "distractors": ["れきし", "ぶんか", "げいじゅつ"]
+      }
+    },
+    {
+      "id": "whj_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "IT技術__、科学の進歩は止まらない。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "彼__、チーム全員が勝利を信じていた。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "word": "をはじめとする",
+        "options": [
+          { "text": "東京をはじめとする大都市では、人口が集中している。", "is_correct": true },
+          { "text": "日本をはじめとする先進諸国が協力すべきだ。", "is_correct": true },
+          { "text": "勉強をはじめとする上手になります。", "is_correct": false },
+          { "text": "雨をはじめとする傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "whj_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "リンゴ__、冬の果物を買ってきたよ。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "ピアノ__、多くの楽器を演奏できる。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "prefix": "この街は、",
+        "suffix": "、多くのお祭りがある。",
+        "blocks": ["祇園祭を", "はじめ"]
+      }
+    },
+    {
+      "id": "whj_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "漢字__、日本語の勉強は大変だね。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "SNS__、インターネットのサービスは急速に普及した。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "base_sentence": "このアプリには、単語の勉強はもちろん、他にも機能があります。",
+        "correct": "このアプリには、単語の勉強をはじめとする多くの機能があります。",
+        "distractors": [
+          "このアプリには、単語の勉強をきっかけにする多くの機能があります。",
+          "このアプリには、単語の勉強をめぐってする多くの機能があります。",
+          "このアプリには、単語の勉強を通じてする多くの機能があります。"
+        ]
+      }
+    },
+    {
+      "id": "whj_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "君の笑顔__、みんなが君を応援しているよ。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "ドラえもん__、日本のアニメは子供たちに夢を与えている。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "「年始」をはじめ、多くの行事が行われる。",
+        "correct": "ねんし",
+        "distractors": ["ねんまつ", "きょう", "あした"]
+      }
+    },
+    {
+      "id": "whj_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "このレストランは、カレー__何でも美味しい。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "トヨタ__、日本の自動車メーカーは世界で高い評価を得ている。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "prefix": "日本は、",
+        "suffix": "、ハイテク産業が盛んだ。",
+        "blocks": ["東京を", "はじめ"]
+      }
+    },
+    {
+      "id": "whj_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "彼__、多くのボランティアが復興を支えている。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "whj_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime_to_suru"],
+      "payload": {
+        "sentence": "英語__、外国語を学ぶことは視野を広げる。",
+        "correct": "をはじめとする",
+        "distractors": ["をきっかけにする", "をめぐってする", "を通じてする"]
+      }
+    },
+    {
+      "id": "whj_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_hajime"],
+      "payload": {
+        "sentence": "君__、みんなが幸せになれる世界を作りたい。",
+        "correct": "をはじめ",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    }
+  ]
+}

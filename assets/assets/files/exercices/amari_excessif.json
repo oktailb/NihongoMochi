@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur la structure ~あまり  - L'excès émotionnel - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "amari_001",
+      "type": "FILL_BLANK",
+      "tags": ["amari", "N3"],
+      "payload": {
+        "sentence": "合格のニュースを聞いて、嬉しさの__、飛び上がった。",
+        "correct": "あまり",
+        "distractors": ["ばかり", "ほど", "ために", "せいで"]
+      }
+    },
+    {
+      "id": "amari_002",
+      "type": "FILL_BLANK",
+      "tags": ["amari", "pop_culture"],
+      "payload": {
+        "sentence": "『進撃の巨人』の結末に感動した__、一晩中泣いてしまった。",
+        "correct": "あまり",
+        "distractors": ["がてら", "つつも", "ものの", "ついでに"]
+      }
+    },
+    {
+      "id": "amari_003",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "あまりの__に、声も出なかった。",
+        "correct": "驚き",
+        "distractors": ["驚いた", "驚く", "驚けば", "驚きな"]
+      }
+    },
+    {
+      "id": "amari_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "倒れてしまった。",
+        "blocks": ["忙しさの", "あまり", "ついに"]
+      }
+    },
+    {
+      "id": "amari_005",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "入社試験の結果を心配する__、食欲がなくなった。",
+        "correct": "あまり",
+        "distractors": ["一方で", "反面", "だけに", "からには"]
+      }
+    },
+    {
+      "id": "amari_006",
+      "type": "WORD_USAGE",
+      "tags": ["amari"],
+      "payload": {
+        "word": "あまりの～に ",
+        "options": [
+          { "text": "あまりの寒さに、震えが止まらない。", "is_correct": true },
+          { "text": "あまりの美味しさに、おかわりをした。", "is_correct": true },
+          { "text": "あまりの勉強に、合格した。", "is_correct": false },
+          { "text": "あまりの歩くに、疲れた。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "amari_007",
+      "type": "FILL_BLANK",
+      "tags": ["amari", "pop_culture"],
+      "payload": {
+        "sentence": "ゲームに熱中する__、宿題を完全に忘れていた。",
+        "correct": "あまり",
+        "distractors": ["がてら", "うちに", "最中に", "ばかりに"]
+      }
+    },
+    {
+      "id": "amari_008",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "緊張の__、スピーチの内容を忘れてしまった。",
+        "correct": "あまり",
+        "distractors": ["ばかり", "ほど", "さえ", "こそ"]
+      }
+    },
+    {
+      "id": "amari_009",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "仕事を急ぐ__、ミスをしてしまった。",
+        "correct": "あまり",
+        "distractors": ["ついでに", "がてら", "かたわら", "どころか"]
+      }
+    },
+    {
+      "id": "amari_010",
+      "type": "PARAPHRASE",
+      "tags": ["amari"],
+      "payload": {
+        "base_sentence": "怒りのあまり、彼は机を叩いた。",
+        "correct": "ものすごく怒ったので、彼は机を叩いた。",
+        "distractors": [
+          "怒っている時に、彼は机を叩いた。",
+          "怒ったふりをして、彼は机を叩いた。",
+          "怒ったおかげで、彼は机を叩いた。"
+        ]
+      }
+    },
+    {
+      "id": "amari_011",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "あまりに__、何も言えなかった。",
+        "correct": "悲しくて",
+        "distractors": ["悲しい", "悲し", "悲しむ", "悲しく"]
+      }
+    },
+    {
+      "id": "amari_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "泣き出した。",
+        "blocks": ["感動の", "あまり", "人前で"]
+      }
+    },
+    {
+      "id": "amari_013",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "その景色は、あまりの__に言葉を失うほどだった。",
+        "correct": "美しさ",
+        "distractors": ["美しい", "美しく", "美しさな", "美しいの"]
+      }
+    },
+    {
+      "id": "amari_014",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "勝ちたいと思う__、不正をしてしまった。",
+        "correct": "あまり",
+        "distractors": ["おかげで", "うちに", "ばかりに", "どころか"]
+      }
+    },
+    {
+      "id": "amari_015",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "将来を悲観する__、自暴自棄になってはいけない。",
+        "correct": "あまり",
+        "distractors": ["とともに", "反面", "ついでに", "ながら"]
+      }
+    },
+    {
+      "id": "amari_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "「余り」の空腹に、倒れそうだった。",
+        "correct": "あまり",
+        "distractors": ["あまりり", "よまり", "よまりり", "あま"]
+      }
+    },
+    {
+      "id": "amari_017",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "子供の将来を__あまり、厳しくしすぎてしまった。",
+        "correct": "思う",
+        "distractors": ["思って", "思い", "思えば", "思うの"]
+      }
+    },
+    {
+      "id": "amari_018",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "あまりに__ので、途中で諦めた。",
+        "correct": "大変だったので",
+        "distractors": ["大変な", "大変で", "大変に", "大変だった"]
+      }
+    },
+    {
+      "id": "amari_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari"],
+      "payload": {
+        "prefix": "母は",
+        "suffix": "寝込んでしまった。",
+        "blocks": ["心配の", "あまり", "数日間"]
+      }
+    },
+    {
+      "id": "amari_020",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "彼女に会いたい__、ストーカーのような行動をしてしまった。",
+        "correct": "あまり",
+        "distractors": ["がてら", "うちに", "どころか", "ものなら"]
+      }
+    },
+    {
+      "id": "amari_021",
+      "type": "FILL_BLANK",
+      "tags": ["amari", "pop_culture"],
+      "payload": {
+        "sentence": "ホラー映画の__、夜一人でトイレに行けなくなった。",
+        "correct": "怖さのあまり",
+        "distractors": ["怖いから", "怖いために", "怖いせいで", "怖いわりに"]
+      }
+    },
+    {
+      "id": "amari_022",
+      "type": "WORD_USAGE",
+      "tags": ["amari"],
+      "payload": {
+        "word": "あまり ",
+        "options": [
+          { "text": "お腹が空いたあまり、パンを3つも食べた。", "is_correct": true },
+          { "text": "勉強したあまり、100点を取った。", "is_correct": false },
+          { "text": "驚きのあまり、腰を抜かした。", "is_correct": true },
+          { "text": "日本語を話したあまり、褒められた。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "amari_023",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "彼は自分を信じる__、他人の意見を聞かなくなった。",
+        "correct": "あまり",
+        "distractors": ["一方で", "とともに", "反面", "次第で"]
+      }
+    },
+    {
+      "id": "amari_024",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "あまりの__さに、店を出てしまった。",
+        "correct": "うるさ",
+        "distractors": ["うるさい", "うるさく", "うるさいな", "うるさの"]
+      }
+    },
+    {
+      "id": "amari_025",
+      "type": "PARAPHRASE",
+      "tags": ["amari"],
+      "payload": {
+        "base_sentence": "恥ずかしさのあまり、顔が赤くなった。",
+        "correct": "とても恥ずかしかったので、顔が赤くなった。",
+        "distractors": [
+          "恥ずかしくないのに、顔が赤くなった。",
+          "恥ずかしい時に、顔が赤くなった。",
+          "恥ずかしくても、顔が赤くなった。"
+        ]
+      }
+    },
+    {
+      "id": "amari_026",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "子供を__あまり、甘やかしすぎてはいけない。",
+        "correct": "可愛がる",
+        "distractors": ["可愛がって", "可愛がり", "可愛がれば", "可愛がるの"]
+      }
+    },
+    {
+      "id": "amari_027",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "苦しさの__、彼は呼吸を止めた。",
+        "correct": "あまり",
+        "distractors": ["ばかり", "ほど", "まで", "さえ"]
+      }
+    },
+    {
+      "id": "amari_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["amari"],
+      "payload": {
+        "prefix": "あまりの",
+        "suffix": "動けなかった。",
+        "blocks": ["ショックに", "しばらく", "彼は"]
+      }
+    },
+    {
+      "id": "amari_029",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "急ぎすぎる__、財布を忘れてしまった。",
+        "correct": "あまり",
+        "distractors": ["ついでに", "かたわら", "どころか", "ばかりに"]
+      }
+    },
+    {
+      "id": "amari_030",
+      "type": "FILL_BLANK",
+      "tags": ["amari"],
+      "payload": {
+        "sentence": "懐かしさの__、涙が溢れてきた。",
+        "correct": "あまり",
+        "distractors": ["きり", "まま", "のみ", "すら"]
+      }
+    }
+  ]
+}

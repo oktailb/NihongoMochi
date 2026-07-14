@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la Base Verbale  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "stem_001",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "飲みます。→ __ ",
+        "correct": "飲み",
+        "distractors": ["飲ん", "飲ま", "飲む", "飲みし", "飲みな"]
+      }
+    },
+    {
+      "id": "stem_002",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "g2"],
+      "payload": {
+        "sentence": "食べます。→ __ ",
+        "correct": "食べ",
+        "distractors": ["食べな", "食べっ", "食べる", "食べし", "食べり"]
+      }
+    },
+    {
+      "id": "stem_003",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "g3"],
+      "payload": {
+        "sentence": "します。→ __ ",
+        "correct": "し",
+        "distractors": ["す", "する", "しな", "しっ", "しり"]
+      }
+    },
+    {
+      "id": "stem_004",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "行きます。→ __ ",
+        "correct": "行き",
+        "distractors": ["行っ", "行か", "行く", "行り", "行きし"]
+      }
+    },
+    {
+      "id": "stem_005",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "pop_culture"],
+      "payload": {
+        "sentence": "修行し__たい！",
+        "correct": "し",
+        "distractors": ["する", "しな", "した", "しっ", "しり"]
+      }
+    },
+    {
+      "id": "stem_006",
+      "type": "WORD_USAGE",
+      "tags": ["base_verbale"],
+      "payload": {
+        "word": "Base Verbale ",
+        "options": [
+          { "text": "読みに行きます。", "is_correct": true },
+          { "text": "歌いながら歩きます。", "is_correct": true },
+          { "text": "泳ぎたいです。", "is_correct": true },
+          { "text": "読むながら食べます。 ", "is_correct": false },
+          { "text": "食べに行きたいです。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "stem_007",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "書きます。→ __ ",
+        "correct": "書き",
+        "distractors": ["書か", "書っ", "書く", "書きし", "書きな"]
+      }
+    },
+    {
+      "id": "stem_008",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "遊びます。→ __ ",
+        "correct": "遊び",
+        "distractors": ["遊ん", "遊ば", "遊ぶ", "遊びし", "遊びな"]
+      }
+    },
+    {
+      "id": "stem_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_verbale"],
+      "payload": {
+        "prefix": "本を",
+        "suffix": "ます。",
+        "blocks": ["読み", "に行き"]
+      }
+    },
+    {
+      "id": "stem_010",
+      "type": "PARAPHRASE",
+      "tags": ["base_verbale"],
+      "payload": {
+        "base_sentence": "読みます。",
+        "correct": "この言葉の「読み」がベースになります。",
+        "distractors": [
+          "読みません。",
+          "読みました。",
+          "読みましょう。",
+          "読むことができます。"
+        ]
+      }
+    },
+    {
+      "id": "stem_011",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "泳ぎます。→ __ ",
+        "correct": "泳ぎ",
+        "distractors": ["泳が", "泳っ", "泳ぐ", "泳ぎし", "泳ぎな"]
+      }
+    },
+    {
+      "id": "stem_012",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "待ちます。→ __ ",
+        "correct": "待ち",
+        "distractors": ["待っ", "待た", "待つ", "待ちし", "待ちな"]
+      }
+    },
+    {
+      "id": "stem_013",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "買います。→ __ ",
+        "correct": "買い",
+        "distractors": ["買わ", "買っ", "買う", "買いし", "買いな"]
+      }
+    },
+    {
+      "id": "stem_014",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "pop_culture"],
+      "payload": {
+        "sentence": "海賊に会い__行こう！",
+        "correct": "に",
+        "distractors": ["を", "が", "で", "へ", "の"]
+      }
+    },
+    {
+      "id": "stem_015",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "帰ります。→ __ ",
+        "correct": "帰り",
+        "distractors": ["帰っ", "帰ら", "帰る", "帰りし", "帰りな"]
+      }
+    },
+    {
+      "id": "stem_016",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "聞きます。→ __ ",
+        "correct": "聞き",
+        "distractors": ["聞か", "聞っ", "聞く", "聞きし", "聞きな"]
+      }
+    },
+    {
+      "id": "stem_017",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "呼びます。→ __ ",
+        "correct": "呼び",
+        "distractors": ["呼ん", "呼ば", "呼ぶ", "呼びし", "呼びな"]
+      }
+    },
+    {
+      "id": "stem_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "「読み」方がわかりません。",
+        "correct": "よみ",
+        "distractors": ["かき", "きき", "いい", "よみな"]
+      }
+    },
+    {
+      "id": "stem_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["base_verbale"],
+      "payload": {
+        "prefix": "音楽を",
+        "suffix": "歩きます。",
+        "blocks": ["聴き", "ながら"]
+      }
+    },
+    {
+      "id": "stem_020",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教え", "教える", "教えな", "教えし"]
+      }
+    },
+    {
+      "id": "stem_021",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "話します。→ __ ",
+        "correct": "話し",
+        "distractors": ["話さ", "話っ", "話す", "話しし", "話しな"]
+      }
+    },
+    {
+      "id": "stem_022",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "持ちます。→ __ ",
+        "correct": "持ち",
+        "distractors": ["持っ", "持た", "持つ", "持ちし", "持ちな"]
+      }
+    },
+    {
+      "id": "stem_023",
+      "type": "WORD_USAGE",
+      "tags": ["base_verbale"],
+      "payload": {
+        "word": "〜ながら ",
+        "options": [
+          { "text": "テレビを見ながらご飯を食べます。", "is_correct": true },
+          { "text": "音楽を聴きながら勉強します。", "is_correct": true },
+          { "text": "歩きながら電話をします。", "is_correct": true },
+          { "text": "食べるながら話します。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "stem_024",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "死にます。→ __ ",
+        "correct": "死に",
+        "distractors": ["死ん", "死な", "死ぬ", "死にし", "死にな"]
+      }
+    },
+    {
+      "id": "stem_025",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "見ます。→ __ ",
+        "correct": "見",
+        "distractors": ["見な", "見っ", "見る", "見し", "見り"]
+      }
+    },
+    {
+      "id": "stem_026",
+      "type": "PARAPHRASE",
+      "tags": ["base_verbale"],
+      "payload": {
+        "base_sentence": "働きに行きます。",
+        "correct": "仕事をするという目的を持って出かけます。",
+        "distractors": [
+          "働いてから行きます。",
+          "働いた後で行きます。",
+          "働きながら行きます。",
+          "働く前に行きます。"
+        ]
+      }
+    },
+    {
+      "id": "stem_027",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "貸します。→ __ ",
+        "correct": "貸し",
+        "distractors": ["貸さ", "貸っ", "貸す", "貸しし", "貸しな"]
+      }
+    },
+    {
+      "id": "stem_028",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "借ります。→ __ ",
+        "correct": "借り",
+        "distractors": ["借りっ", "借りら", "借りる", "借りし", "借りな"]
+      }
+    },
+    {
+      "id": "stem_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["base_verbale"],
+      "payload": {
+        "sentence": "日本語の「話し」方は難しいです。",
+        "correct": "はなし",
+        "distractors": ["はなな", "はなそ", "はなせ", "はなす"]
+      }
+    },
+    {
+      "id": "stem_030",
+      "type": "FILL_BLANK",
+      "tags": ["base_verbale", "traps"],
+      "payload": {
+        "sentence": "来ます。→ __ ",
+        "correct": "来",
+        "distractors": ["き", "こ", "くる", "きっ", "きな"]
+      }
+    }
+  ]
+}

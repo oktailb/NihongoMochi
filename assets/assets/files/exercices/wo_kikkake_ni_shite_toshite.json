@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～をきっかけに - L'art du déclencheur personnel et quotidien. "
+  },
+  "exercises": [
+    {
+      "id": "wki_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "日本のアニメを__、日本語の勉強を始めました。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "を問わず", "を通じて", "をめぐって"]
+      }
+    },
+    {
+      "id": "wki_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "引っ越しを__、家具を新しくした。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "を問わずして", "を通じてして", "をめぐってして"]
+      }
+    },
+    {
+      "id": "wki_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "prefix": "病気を",
+        "suffix": "、タバコをやめた。",
+        "blocks": ["きっかけに"]
+      }
+    },
+    {
+      "id": "wki_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "一通のメールを__、二人の交際が始まった。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wki_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "word": "をきっかけに",
+        "options": [
+          { "text": "その映画をきっかけに、彼は俳優を目指した。", "is_correct": true },
+          { "text": "卒業をきっかけに、海外へ行くことにした。", "is_correct": true },
+          { "text": "ご飯をきっかけに食べました。", "is_correct": false },
+          { "text": "明日をきっかけに行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wki_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "偶然の出会いを__、親友になった。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "base_sentence": "旅行したことが理由で、その国が好きになりました。",
+        "correct": "旅行をきっかけに、その国が好きになりました。",
+        "distractors": [
+          "旅行を中心に、その国が好きになりました。",
+          "旅行をめぐって、その国が好きになりました。",
+          "旅行を通じて、その国が好きになりました。"
+        ]
+      }
+    },
+    {
+      "id": "wki_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "ドラマのセリフを__、新しい言葉を覚えた。",
+        "correct": "きっかけに",
+        "distractors": ["をこめて", "を問わず", "をめぐって"]
+      }
+    },
+    {
+      "id": "wki_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "誕生日を__、日記をつけ始めた。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "prefix": "SNSの",
+        "suffix": "、情報が広まった。",
+        "blocks": ["投稿を", "きっかけに"]
+      }
+    },
+    {
+      "id": "wki_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "料理教室に通ったのを__、自炊が楽しくなった。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "「偶然」のきっかけに、大きなチャンスを掴んだ。",
+        "correct": "ぐうぜん",
+        "distractors": ["とうぜん", "ひつぜん", "がくぜん"]
+      }
+    },
+    {
+      "id": "wki_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "新しいスマホを買ったのを__、写真を撮り始めた。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "先生の言葉を__、やる気が出た。",
+        "correct": "きっかけに",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "word": "をきっかけにして",
+        "options": [
+          { "text": "失恋をきっかけにして、自分を磨くことにした。", "is_correct": true },
+          { "text": "再会をきっかけにして、また連絡を取り合うようになった。", "is_correct": true },
+          { "text": "勉強をきっかけにして上手になります。", "is_correct": false },
+          { "text": "雨をきっかけにして傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wki_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "漫画を__、日本の歴史に興味を持った。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "友達の紹介を__、アルバイトを始めた。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "prefix": "挫折を",
+        "suffix": "、一回り大きく成長した。",
+        "blocks": ["きっかけに"]
+      }
+    },
+    {
+      "id": "wki_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "ボランティア活動を__、視野が広がった。",
+        "correct": "きっかけに",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "オリンピックを__、スポーツを始めた子供が多い。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "base_sentence": "彼はその本を読んだことで、人生が変わりました。",
+        "correct": "彼はその本をきっかけにして、人生が変わった。",
+        "distractors": [
+          "彼はその本を中心にして、人生が変わった。",
+          "彼はその本をめぐってして, 人生が変わった。",
+          "彼はその本を通じてして、人生が変わった。"
+        ]
+      }
+    },
+    {
+      "id": "wki_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "一人暮らしを__、親のありがたさがわかった。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "新しい環境を__、自分を変えてみたい。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "「年始」をきっかけに、新しい習い事を始めた。",
+        "correct": "ねんし",
+        "distractors": ["ねんまつ", "きょう", "あした"]
+      }
+    },
+    {
+      "id": "wki_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "偶然の再会を__、また連絡を取り合うようになった。",
+        "correct": "きっかけに",
+        "distractors": ["を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "留学を__、将来の夢が明確になった。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中で愛されている。",
+        "blocks": ["その独特な世界観を", "きっかけに"]
+      }
+    },
+    {
+      "id": "wki_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "不祥事のニュースを__、会社の体制が見直された。",
+        "correct": "きっかけに",
+        "distractors": ["を問わず", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wki_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni_shite"],
+      "payload": {
+        "sentence": "恩師との出会いを__、学問の道に進んだ。",
+        "correct": "きっかけにして",
+        "distractors": ["を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wki_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_kikkake_ni"],
+      "payload": {
+        "sentence": "君の笑顔を__、僕の世界は輝き始めたんだ。",
+        "correct": "きっかけに",
+        "distractors": ["中心に", "問わず", "めぐって"]
+      }
+    }
+  ]
+}

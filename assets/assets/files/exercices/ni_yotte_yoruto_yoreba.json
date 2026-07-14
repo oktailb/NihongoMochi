@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~によって / によると / によれば  - N4/N3"
+  },
+  "exercises": [
+    {
+      "id": "niyotte_001",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte", "N4"],
+      "payload": {
+        "sentence": "人__、考え方が違います。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_002",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte", "pop_culture"],
+      "payload": {
+        "sentence": "天気予報__、明日は晴れるそうです。",
+        "correct": "によると",
+        "distractors": ["によって", "によれば", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_003",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "不注意__、事故が起きてしまった。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niyotte"],
+      "payload": {
+        "prefix": "ニュースに",
+        "suffix": "。",
+        "blocks": ["よれば", "新しいビルが", "建つらしい"]
+      }
+    },
+    {
+      "id": "niyotte_005",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "努力__、夢を叶えることができた。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_006",
+      "type": "WORD_USAGE",
+      "tags": ["niyotte"],
+      "payload": {
+        "word": "～によって ",
+        "options": [
+          { "text": "バスによって、会社へ行く。", "is_correct": false },
+          { "text": "地震によって、家が壊れた。", "is_correct": true },
+          { "text": "人によって、好みが違う。", "is_correct": true },
+          { "text": "研究によって、新薬が開発された。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "niyotte_007",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの部下__、ナメック星は占領された。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_008",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "彼は、話し方__人を判断する。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_009",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "私の経験__、それは正しいと言える。",
+        "correct": "によれば",
+        "distractors": ["によって", "によると", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_010",
+      "type": "PARAPHRASE",
+      "tags": ["niyotte"],
+      "payload": {
+        "base_sentence": "法律によって、それは禁止されています。",
+        "correct": "国や社会が決めた正式なルール（法律）という基準に基づいて、その行為を行うことは認められていません。",
+        "distractors": [
+          "法律があるおかげで、それは禁止されました。",
+          "法律があるせいで、それは禁止されました。",
+          "法律があるために、それは禁止されました。"
+        ]
+      }
+    },
+    {
+      "id": "niyotte_011",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "習慣は、国__さまざまだ。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niyotte"],
+      "payload": {
+        "prefix": "専門家の",
+        "suffix": "。",
+        "blocks": ["意見に", "よると", "この絵は本物だそうだ"]
+      }
+    },
+    {
+      "id": "niyotte_013",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "インターネット__、世界中の情報が手に入る。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_014",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "アンケートの結果__、多くの人が賛成している。",
+        "correct": "によれば",
+        "distractors": ["によって", "によると", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_015",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "不景気__、多くの店が閉店した。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "「によれば」そうだ。",
+        "correct": "によれば",
+        "distractors": ["によって", "によると", "により", "に際して"]
+      }
+    },
+    {
+      "id": "niyotte_017",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "彼の証言__、犯人は二人いたらしい。",
+        "correct": "によると",
+        "distractors": ["によって", "によれば", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_018",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "場所__、気温がかなり違う。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niyotte"],
+      "payload": {
+        "prefix": "調査に",
+        "suffix": "。",
+        "blocks": ["よれば", "半数の人が", "反対している"]
+      }
+    },
+    {
+      "id": "niyotte_020",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "台風__、交通機関が乱れている。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_021",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのシンクロ率__、パイロットの能力がわかる。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_022",
+      "type": "WORD_USAGE",
+      "tags": ["niyotte"],
+      "payload": {
+        "word": "～によると ",
+        "options": [
+          { "text": "彼の話によると、昨日は楽しかったそうだ。", "is_correct": true },
+          { "text": "本によると、歴史は面白い。", "is_correct": true },
+          { "text": "雨によると、傘を差す。", "is_correct": false },
+          { "text": "噂によると、彼は結婚したらしい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "niyotte_023",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "状況__、計画を変更することもあります。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_024",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "昨日のニュース__、新しい法律ができたそうだ。",
+        "correct": "によると",
+        "distractors": ["によって", "によれば", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_025",
+      "type": "PARAPHRASE",
+      "tags": ["niyotte"],
+      "payload": {
+        "base_sentence": "彼は、努力によって成功を掴んだ。",
+        "correct": "彼は、一生懸命に頑張り続けるという「努力」を主な手段として、最終的に成功という結果を手に入れました。",
+        "distractors": [
+          "彼は努力したので、成功するのは当たり前です。",
+          "彼は努力するために、成功を夢見ました。",
+          "彼は努力したおかげで、誰かに褒められました。"
+        ]
+      }
+    },
+    {
+      "id": "niyotte_026",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "この本は、有名な作家__書かれた。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_027",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "最新のデータ__、人口は減少傾向にある。",
+        "correct": "によれば",
+        "distractors": ["によって", "によると", "に際して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["niyotte"],
+      "payload": {
+        "prefix": "人",
+        "suffix": "。",
+        "blocks": ["によって", "好きな食べ物は", "違う"]
+      }
+    },
+    {
+      "id": "niyotte_029",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "不適切な発言__、彼は辞任した。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    },
+    {
+      "id": "niyotte_030",
+      "type": "FILL_BLANK",
+      "tags": ["niyotte"],
+      "payload": {
+        "sentence": "彼の手紙__、彼女はすべてを知った。",
+        "correct": "によって",
+        "distractors": ["に際して", "に当たって", "に対して", "について"]
+      }
+    }
+  ]
+}

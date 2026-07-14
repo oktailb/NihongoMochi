@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de BEKI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "bek_001",
+      "type": "FILL_BLANK",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "学生はもっと勉強する__だ。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_002",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "嘘をつく__ではありません。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "わけ", "はず"]
+      }
+    },
+    {
+      "id": "bek_003",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "verb"],
+      "payload": {
+        "sentence": "約束は守る__です。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_004",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "そんなことを__べきではありません。",
+        "correct": "言う",
+        "distractors": ["言い", "言った", "言わな", "言うな", "言って"]
+      }
+    },
+    {
+      "id": "bek_005",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "pop_culture"],
+      "payload": {
+        "sentence": "ヒーローは人々を助ける__だ！",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_006",
+      "type": "WORD_USAGE",
+      "tags": ["beki"],
+      "payload": {
+        "word": "〜べき ",
+        "options": [
+          { "text": "親を大切にすべきです。", "is_correct": true },
+          { "text": "早く行くべきですよ。", "is_correct": true },
+          { "text": "もっと早く寝るべきでした。", "is_correct": true },
+          { "text": "美味しいべきです。 ", "is_correct": false },
+          { "text": "明日べき会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "bek_007",
+      "type": "FILL_BLANK",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "困っている人を助ける__です。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_008",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "もっと早く__べきでした。",
+        "correct": "起きる",
+        "distractors": ["起き", "起きて", "起きた", "起きな", "起きます"]
+      }
+    },
+    {
+      "id": "bek_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["beki"],
+      "payload": {
+        "prefix": "自分のことは",
+        "suffix": "です。",
+        "blocks": ["自分でやる", "べき"]
+      }
+    },
+    {
+      "id": "bek_010",
+      "type": "PARAPHRASE",
+      "tags": ["beki"],
+      "payload": {
+        "base_sentence": "言うべきではありませんでした。",
+        "correct": "それを言ったことを後悔しており、道徳的にも不適切だったと考えています。",
+        "distractors": [
+          "言わないでくださいと言いました。",
+          "言わなければならないと言いました。",
+          "言うつもりがなかったと言いました。",
+          "言うことができないと言いました。"
+        ]
+      }
+    },
+    {
+      "id": "bek_011",
+      "type": "FILL_BLANK",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "先生の話をよく聞く__です。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_012",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "名前を丁寧に__べきです。",
+        "correct": "書く",
+        "distractors": ["書き", "書いて", "書いた", "書な", "書ける"]
+      }
+    },
+    {
+      "id": "bek_013",
+      "type": "FILL_BLANK",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "健康のためにタバコはやめる__です。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_014",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "pop_culture"],
+      "payload": {
+        "sentence": "正義は勝つ__だ！",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_015",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "あ、雨が__。",
+        "correct": "降っています",
+        "distractors": ["降るべきだ", "降るはずだ", "降るだろう", "降るみたいだ"]
+      }
+    },
+    {
+      "id": "bek_016",
+      "type": "FILL_BLANK",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "ゴミはゴミ箱に捨てる__です。",
+        "correct": "べき",
+        "distractors": ["はず", "もの", "こと", "だろう", "かもしれない"]
+      }
+    },
+    {
+      "id": "bek_017",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "自分の国を__べきです。",
+        "correct": "愛する",
+        "distractors": ["愛し", "愛して", "愛した", "愛な", "愛される"]
+      }
+    },
+    {
+      "id": "bek_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["beki"],
+      "payload": {
+        "sentence": "「当然」すべきことです。",
+        "correct": "とうぜん",
+        "distractors": ["どうぜん", "とうぜな", "とぜん", "とうせん"]
+      }
+    },
+    {
+      "id": "bek_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["beki"],
+      "payload": {
+        "prefix": "もっと早く",
+        "suffix": "でした。",
+        "blocks": ["来る", "べき"]
+      }
+    },
+    {
+      "id": "bek_020",
+      "type": "FILL_BLANK",
+      "tags": ["beki", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えるべきだ", "教えたべきだ", "教えなな", "教えな"]
+      }
+    }
+  ]
+}

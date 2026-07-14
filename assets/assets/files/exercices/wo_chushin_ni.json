@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～を中心に - L'art de cibler le coeur du sujet. "
+  },
+  "exercises": [
+    {
+      "id": "wcn_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "駅__、新しい街が作られている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をこめて", "を問わず", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "若い人__、このアプリが流行っている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をこめて", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "prefix": "地球は",
+        "suffix": "回っている。",
+        "blocks": ["太陽を", "中心に"]
+      }
+    },
+    {
+      "id": "wcn_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "日本のアニメ__、文化祭の企画を立てた。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wcn_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "word": "を中心に",
+        "options": [
+          { "text": "このサークルは、テニスを中心に活動している。", "is_correct": true },
+          { "text": "彼は文法を中心に日本語を勉強している。", "is_correct": true },
+          { "text": "ご飯を中心には食べました。", "is_correct": false },
+          { "text": "明日を中心に行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wcn_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "社長__、新しいプロジェクトチームが結成された。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "base_sentence": "今回の会議では、予算の話をメインにします。",
+        "correct": "今回の会議では、予算を中心にお話しします。",
+        "distractors": [
+          "今回の会議では、予算をきっかけにお話しします。",
+          "今回の会議では、予算をめぐってお話しします。",
+          "今回の会議では、予算を通じてお話しします。"
+        ]
+      }
+    },
+    {
+      "id": "wcn_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "環境問題__、国際的な議論が行われている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をこめて", "をめぐって"]
+      }
+    },
+    {
+      "id": "wcn_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "このドラマは、ある家族__物語が進んでいく。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "prefix": "日本は",
+        "suffix": "、ハイテク産業が盛んだ。",
+        "blocks": ["東京を", "中心に"]
+      }
+    },
+    {
+      "id": "wcn_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "彼は古典__、幅広いジャンルの本を読んでいる。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "「伝統」を中心に据えて、町おこしを計画する。",
+        "correct": "ちゅうしん",
+        "distractors": ["なか", "まんなか", "こうりつ"]
+      }
+    },
+    {
+      "id": "wcn_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "この公園は、大きな池__設計されている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "彼女は、子供の教育__生活を送っている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "word": "を中心とした",
+        "options": [
+          { "text": "若者を中心としたデモが行われた。", "is_correct": true },
+          { "text": "輸出を中心とした経済構造だ。", "is_correct": true },
+          { "text": "勉強を中心とした上手になります。", "is_correct": false },
+          { "text": "雨を中心とした傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wcn_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "この雑誌は、主婦__読まれている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "今回の調査は、アジア諸国__行われた。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、練習に励んでいる。",
+        "blocks": ["苦手の", "克服を", "中心に"]
+      }
+    },
+    {
+      "id": "wcn_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "この会社は、ITサービス__事業を展開している。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "あの地域は、農業__成り立っている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "base_sentence": "彼は自分の趣味をメインに考えて、部屋を借りた。",
+        "correct": "彼は自分の趣味を中心に考えて、部屋を借りた。",
+        "distractors": [
+          "彼は自分の趣味をきっかけに考えて、部屋を借りた。",
+          "彼は自分の趣味をめぐって考えて, 部屋を借りた。",
+          "彼は自分の趣味を通じて考えて、部屋を借りた。"
+        ]
+      }
+    },
+    {
+      "id": "wcn_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "今回の展示は、ピカソの作品__構成されている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "この小説は、ある殺人事件__展開していく。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "「関東」地方を中心に、大雨が降るでしょう。",
+        "correct": "かんとう",
+        "distractors": ["かんさい", "ちゅうぶ", "きゅうしゅう"]
+      }
+    },
+    {
+      "id": "wcn_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "彼は、自分の利益__行動している。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "このアプリは、英単語の暗記__作られている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中で愛されている。",
+        "blocks": ["独特な", "世界観を", "中心に"]
+      }
+    },
+    {
+      "id": "wcn_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "今回の映画は、ある歴史的事件__描かれている。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "このゲームは、キャラクターの育成__楽しむものだ。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wcn_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_chushin_ni"],
+      "payload": {
+        "sentence": "君の笑顔__、僕の世界は回っているんだ。",
+        "correct": "を中心に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    }
+  ]
+}

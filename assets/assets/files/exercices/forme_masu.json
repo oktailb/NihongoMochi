@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur la forme en -MASU  - Le Dojo Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "masu_001",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "毎日、水を__。",
+        "correct": "飲みます",
+        "distractors": ["飲むます", "飲みるます", "飲まます", "飲みす", "飲みした"]
+      }
+    },
+    {
+      "id": "masu_002",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g2"],
+      "payload": {
+        "sentence": "朝、７時に__。",
+        "correct": "起きます",
+        "distractors": ["起きるます", "起きまする", "起きなす", "起きります", "起きる"]
+      }
+    },
+    {
+      "id": "masu_003",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "invitation"],
+      "payload": {
+        "sentence": "一緒にコーヒーを__か。",
+        "correct": "飲みません",
+        "distractors": ["飲みます", "飲むません", "飲みない", "飲まない", "飲むな"]
+      }
+    },
+    {
+      "id": "masu_004",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g3"],
+      "payload": {
+        "sentence": "週末は友達と料理を__。",
+        "correct": "します",
+        "distractors": ["するます", "しります", "せます", "したます", "する"]
+      }
+    },
+    {
+      "id": "masu_005",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "suggestion"],
+      "payload": {
+        "sentence": "ちょっと__ましょう。",
+        "correct": "休み",
+        "distractors": ["休む", "休ん", "休ま", "休みし", "休みり"]
+      }
+    },
+    {
+      "id": "masu_006",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "purpose"],
+      "payload": {
+        "sentence": "デパートへ靴を__に行きます。",
+        "correct": "買い",
+        "distractors": ["買う", "買っ", "買わ", "買いし", "買って"]
+      }
+    },
+    {
+      "id": "masu_007",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1", "traps"],
+      "payload": {
+        "sentence": "明日、どこへ__か。",
+        "correct": "行きます",
+        "distractors": ["行きります", "行くます", "行きまする", "行きします", "行きて"]
+      }
+    },
+    {
+      "id": "masu_008",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "negative"],
+      "payload": {
+        "sentence": "昨日は勉強__。",
+        "correct": "しませんでした",
+        "distractors": ["しません", "しないでした", "しなかったでした", "したありませんでした", "しませんかった"]
+      }
+    },
+    {
+      "id": "masu_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_masu", "invitation"],
+      "payload": {
+        "prefix": "明日、一緒に",
+        "suffix": "か。",
+        "blocks": ["映画を", "見ません"]
+      }
+    },
+    {
+      "id": "masu_010",
+      "type": "WORD_USAGE",
+      "tags": ["forme_masu"],
+      "payload": {
+        "word": "〜ます ",
+        "options": [
+          { "text": "毎日、日本語を勉強します。", "is_correct": true },
+          { "text": "明日、学校へ行きます。", "is_correct": true },
+          { "text": "私はお酒を飲みません。", "is_correct": true },
+          { "text": "昨日、パンを食べます。", "is_correct": false },
+          { "text": "今、テレビを見るます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "masu_011",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "佐藤さんは今、日本語を__。",
+        "correct": "教えています",
+        "distractors": ["教えます", "教えるます", "教えります", "教えします", "教えてます"]
+      }
+    },
+    {
+      "id": "masu_012",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "田中さんに手紙を__。",
+        "correct": "書きます",
+        "distractors": ["書くます", "書きります", "書かます", "書きまする", "書きします"]
+      }
+    },
+    {
+      "id": "masu_013",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g2"],
+      "payload": {
+        "sentence": "毎日、テレビを__。",
+        "correct": "見ます",
+        "distractors": ["見るます", "見ります", "見なす", "見まする", "見てます"]
+      }
+    },
+    {
+      "id": "masu_014",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "駅まで__。",
+        "correct": "歩きます",
+        "distractors": ["歩くます", "歩きります", "歩かます", "歩きまする", "歩きします"]
+      }
+    },
+    {
+      "id": "masu_015",
+      "type": "PARAPHRASE",
+      "tags": ["forme_masu", "invitation"],
+      "payload": {
+        "base_sentence": "お茶を飲みませんか。",
+        "correct": "一緒にお茶を飲みたいです。",
+        "distractors": [
+          "お茶を飲みました。",
+          "お茶を飲んでください。",
+          "お茶を飲みましょう。",
+          "お茶を飲みません。"
+        ]
+      }
+    },
+    {
+      "id": "masu_016",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "友達に__。",
+        "correct": "会います",
+        "distractors": ["会うます", "会いります", "会なす", "会いまする", "会いします"]
+      }
+    },
+    {
+      "id": "masu_017",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "プールで__。",
+        "correct": "泳ぎます",
+        "distractors": ["泳ぐます", "泳ぎります", "泳かます", "泳ぎまする", "泳ぎします"]
+      }
+    },
+    {
+      "id": "masu_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["forme_masu"],
+      "payload": {
+        "sentence": "朝、パンを「食べます」。",
+        "correct": "たべます",
+        "distractors": ["のみます", "かいます", "みます", "たべなす"]
+      }
+    },
+    {
+      "id": "masu_019",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "家へ__。",
+        "correct": "帰ります",
+        "distractors": ["帰るます", "帰りします", "帰なす", "帰りまする", "帰りります"]
+      }
+    },
+    {
+      "id": "masu_020",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_masu", "suggestion"],
+      "payload": {
+        "prefix": "疲れましたから、",
+        "suffix": "ましょう。",
+        "blocks": ["少し", "休み"]
+      }
+    },
+    {
+      "id": "masu_021",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "バスを__。",
+        "correct": "待ちます",
+        "distractors": ["待つます", "待ちります", "待なす", "待ちまする", "待ちします"]
+      }
+    },
+    {
+      "id": "masu_022",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "音楽を__。",
+        "correct": "聞きます",
+        "distractors": ["聞くます", "聞きります", "聞かます", "聞きまする", "聞きします"]
+      }
+    },
+    {
+      "id": "masu_023",
+      "type": "WORD_USAGE",
+      "tags": ["forme_masu", "suggestion"],
+      "payload": {
+        "word": "〜ましょう ",
+        "options": [
+          { "text": "10時に会いましょう。", "is_correct": true },
+          { "text": "一緒に帰りましょう。", "is_correct": true },
+          { "text": "ここで休みましょう。", "is_correct": true },
+          { "text": "毎日勉強しましょう。", "is_correct": false },
+          { "text": "昨日、食べましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "masu_024",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "写真を__。",
+        "correct": "撮ります",
+        "distractors": ["撮るます", "撮りします", "撮なす", "撮りまする", "撮りります"]
+      }
+    },
+    {
+      "id": "masu_025",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g2"],
+      "payload": {
+        "sentence": "夜10時に__。",
+        "correct": "寝ます",
+        "distractors": ["寝るます", "見ます", "寝ります", "寝なす", "寝まする"]
+      }
+    },
+    {
+      "id": "masu_026",
+      "type": "PARAPHRASE",
+      "tags": ["forme_masu", "past"],
+      "payload": {
+        "base_sentence": "昨日、デパートへ行きました。",
+        "correct": "昨日の行動はデパートへ行くことでした。",
+        "distractors": [
+          "毎日、デパートへ行きます。",
+          "明日、デパートへ行きます。",
+          "デパートへ行きたくありません。",
+          "デパートへ行きませんでした。"
+        ]
+      }
+    },
+    {
+      "id": "masu_027",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g3"],
+      "payload": {
+        "sentence": "明日、友達が家に__。",
+        "correct": "来ます",
+        "distractors": ["来るます", "きります", "こます", "きまする", "きします"]
+      }
+    },
+    {
+      "id": "masu_028",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "バスを__。",
+        "correct": "降ります",
+        "distractors": ["降りるます", "降りします", "降なす", "降りまする", "降りります"]
+      }
+    },
+    {
+      "id": "masu_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["forme_masu"],
+      "payload": {
+        "sentence": "日本語で「話します」。",
+        "correct": "はなします",
+        "distractors": ["おしえます", "ききます", "よみます", "はななす"]
+      }
+    },
+    {
+      "id": "masu_030",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "公園で__。",
+        "correct": "遊びます",
+        "distractors": ["遊ぶます", "遊びります", "遊なす", "遊びまする", "遊びします"]
+      }
+    },
+    {
+      "id": "masu_031",
+      "type": "SENTENCE_ORDER",
+      "tags": ["forme_masu", "purpose"],
+      "payload": {
+        "prefix": "図書に",
+        "suffix": "行きます。",
+        "blocks": ["本を", "借りに"]
+      }
+    },
+    {
+      "id": "masu_032",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "自分の目を__！",
+        "correct": "信じ",
+        "distractors": ["信じる", "信じて", "信じな", "信じし", "信じり"]
+      }
+    },
+    {
+      "id": "masu_033",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "大きな声で__。",
+        "correct": "叫びます",
+        "distractors": ["叫ぶます", "叫びります", "叫なす", "叫びまする", "叫びします"]
+      }
+    },
+    {
+      "id": "masu_034",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "ペンを__。",
+        "correct": "使います",
+        "distractors": ["使うます", "使いります", "使なす", "使いまする", "使いします"]
+      }
+    },
+    {
+      "id": "masu_035",
+      "type": "WORD_USAGE",
+      "tags": ["forme_masu", "purpose"],
+      "payload": {
+        "word": "〜に 行きます ",
+        "options": [
+          { "text": "映画を見に行きます。", "is_correct": true },
+          { "text": "日本へ遊びに行きます。", "is_correct": true },
+          { "text": "ご飯を食べに行きませんか。", "is_correct": true },
+          { "text": "本を買うに行きます。", "is_correct": false },
+          { "text": "勉強するに行きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "masu_036",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "本を__。",
+        "correct": "返します",
+        "distractors": ["返すます", "返しります", "返なす", "返しまする", "返しします"]
+      }
+    },
+    {
+      "id": "masu_037",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "毎日、8時間__。",
+        "correct": "働きます",
+        "distractors": ["働くます", "働きります", "働なす", "働きまする", "働きします"]
+      }
+    },
+    {
+      "id": "masu_038",
+      "type": "PARAPHRASE",
+      "tags": ["forme_masu", "negative"],
+      "payload": {
+        "base_sentence": "明日は会社へ行きません。",
+        "correct": "明日は休みです。",
+        "distractors": [
+          "明日は会社へ行きます。",
+          "明日は会社へ行きたいです。",
+          "明日は仕事があります。",
+          "明日は会社へ行きました。"
+        ]
+      }
+    },
+    {
+      "id": "masu_039",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "辞書を__。",
+        "correct": "引きます",
+        "distractors": ["引くます", "引きります", "引なす", "引きまする", "引きします"]
+      }
+    },
+    {
+      "id": "masu_040",
+      "type": "FILL_BLANK",
+      "tags": ["forme_masu", "g1"],
+      "payload": {
+        "sentence": "コーヒーを__。",
+        "correct": "入れます",
+        "distractors": ["入れるます", "入れります", "入れなす", "入れまする", "入れします"]
+      }
+    }
+  ]
+}

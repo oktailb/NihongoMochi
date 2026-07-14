@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur からして - L'exemple révélateur de l'extrême. "
+  },
+  "exercises": [
+    {
+      "id": "skr_001",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "彼の話し方__、自信家であることがわかる。",
+        "correct": "からして",
+        "distractors": ["からには", "から見れば", "からいえば", "からこそ"]
+      }
+    },
+    {
+      "id": "skr_002",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "この映画はタイトル__、怖そうだ。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "から限定で", "のみならず"]
+      }
+    },
+    {
+      "id": "skr_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "prefix": "あの店は、",
+        "suffix": "、料理も期待できそうにない。",
+        "blocks": ["入り口の", "雰囲気", "からして"]
+      }
+    },
+    {
+      "id": "skr_004",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "プロの選手は、歩き方__一般の人とは違う。",
+        "correct": "からして",
+        "distractors": ["からには", "から見れば", "に際して"]
+      }
+    },
+    {
+      "id": "skr_005",
+      "type": "WORD_USAGE",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "word": "からして",
+        "options": [
+          { "text": "今回の計画は、名前からして面白そうだ。", "is_correct": true },
+          { "text": "彼は服装からして、とてもおしゃれだ。", "is_correct": true },
+          { "text": "雨が降ったからして、行きませんでした。", "is_correct": false },
+          { "text": "勉強したからして、合格しました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "skr_006",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "ルフィは、あの麦わら帽子__海賊王の風格がある。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に反して"]
+      }
+    },
+    {
+      "id": "skr_007",
+      "type": "PARAPHRASE",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "base_sentence": "その料理は、見た目がすでに美味しそうだ。",
+        "correct": "その料理は、見た目からして美味しそうだ。",
+        "distractors": [
+          "その料理は、見た目からこそ美味しそうだ。",
+          "その料理は、見た目から見れば美味しそうだ。",
+          "その料理は、見た目からいえば美味しそうだ。"
+        ]
+      }
+    },
+    {
+      "id": "skr_008",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "犯人は、あの不敵な笑み__怪しい。",
+        "correct": "からして",
+        "distractors": ["から限定で", "からこそ", "のみならず"]
+      }
+    },
+    {
+      "id": "skr_009",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "このゲームは、音楽__ワクワクさせる。",
+        "correct": "からして",
+        "distractors": ["からには", "を問わず", "に伴って"]
+      }
+    },
+    {
+      "id": "skr_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "、ただ者ではないことがわかる。",
+        "blocks": ["その眼光", "からして"]
+      }
+    },
+    {
+      "id": "skr_011",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "新入社員のAさんは、挨拶の仕方__礼儀正しい。",
+        "correct": "からして",
+        "distractors": ["から見れば", "からいえば", "に従って"]
+      }
+    },
+    {
+      "id": "skr_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "「態度」からして、彼は怒っているようだ。",
+        "correct": "たいど",
+        "distractors": ["かお", "こえ", "ことば"]
+      }
+    },
+    {
+      "id": "skr_013",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "この本は、表紙__難しそうだ。",
+        "correct": "からして",
+        "distractors": ["からには", "から見れば", "から限定で"]
+      }
+    },
+    {
+      "id": "skr_014",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "一流のシェフは、包丁の持ち方__違う。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に従って"]
+      }
+    },
+    {
+      "id": "skr_015",
+      "type": "WORD_USAGE",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "word": "からして",
+        "options": [
+          { "text": "都会は、空気の匂いからして違う。", "is_correct": true },
+          { "text": "親の反対からして、結婚は難しいだろう。", "is_correct": true },
+          { "text": "毎日勉強するからして、上手になります。", "is_correct": false },
+          { "text": "雨が降るからして、傘を持って行きます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "skr_016",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "日本は、空港のトイレ__清潔で驚いた。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に際して"]
+      }
+    },
+    {
+      "id": "skr_017",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "彼の考え方は、根本__間違っている。",
+        "correct": "からして",
+        "distractors": ["からには", "に従って", "に沿って"]
+      }
+    },
+    {
+      "id": "skr_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "prefix": "あの先生は、",
+        "suffix": "、厳しそうな感じがする。",
+        "blocks": ["その表情", "からして"]
+      }
+    },
+    {
+      "id": "skr_019",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "高級車は、エンジン音__違う。",
+        "correct": "からして",
+        "distractors": ["から見れば", "からこそ", "に従って"]
+      }
+    },
+    {
+      "id": "skr_020",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "このアパートは、外観__古くて不安だ。",
+        "correct": "からして",
+        "distractors": ["からには", "から限定で", "に伴って"]
+      }
+    },
+    {
+      "id": "skr_021",
+      "type": "PARAPHRASE",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "base_sentence": "彼は、顔を見ただけでも頭が良さそうだとわかる。",
+        "correct": "彼は、顔つきからして頭が良さそうだとわかる。",
+        "distractors": [
+          "彼は、顔つきからこそ頭が良さそうだとわかる。",
+          "彼は、顔つきから見れば頭が良さそうだとわかる。",
+          "彼は、顔つきからいえば頭が良さそうだとわかる。"
+        ]
+      }
+    },
+    {
+      "id": "skr_022",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "あの人は、名前の響き__優しそうだ。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に関わり"]
+      }
+    },
+    {
+      "id": "skr_023",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "今回の不祥事は、対応の遅さ__問題がある。",
+        "correct": "からして",
+        "distractors": ["からこそ", "のみならず", "に従って"]
+      }
+    },
+    {
+      "id": "skr_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "「根性」からして鍛え直す必要がある。",
+        "correct": "こんじょう",
+        "distractors": ["せいしん", "たいど", "からだ"]
+      }
+    },
+    {
+      "id": "skr_025",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "都会の子供は、遊び方__違う。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に伴って"]
+      }
+    },
+    {
+      "id": "skr_026",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "最近の若者は、言葉遣い__理解できないことがある。",
+        "correct": "からして",
+        "distractors": ["から見れば", "からこそ", "に従って"]
+      }
+    },
+    {
+      "id": "skr_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "prefix": "この計画は、",
+        "suffix": "、無理がある。",
+        "blocks": ["予算", "からして"]
+      }
+    },
+    {
+      "id": "skr_028",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "彼女は、立ち振る舞い__お嬢様という感じだ。",
+        "correct": "からして",
+        "distractors": ["から見れば", "からいえば", "に従って"]
+      }
+    },
+    {
+      "id": "skr_029",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "このレストランは、食器__高級感が漂っている。",
+        "correct": "からして",
+        "distractors": ["からこそ", "から見れば", "に伴って"]
+      }
+    },
+    {
+      "id": "skr_030",
+      "type": "FILL_BLANK",
+      "tags": ["sae_karashite"],
+      "payload": {
+        "sentence": "君のその態度は、礼儀__欠けているよ。",
+        "correct": "からして",
+        "distractors": ["からには", "からいえば", "に従って"]
+      }
+    }
+  ]
+}

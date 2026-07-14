@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ものなら  - Hypothèse irréelle / Souhait difficile - N2"
+  },
+  "exercises": [
+    {
+      "id": "mononara_001",
+      "type": "FILL_BLANK",
+      "tags": ["mononara", "N2"],
+      "payload": {
+        "sentence": "戻れる__、あの日に戻りたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_002",
+      "type": "FILL_BLANK",
+      "tags": ["mononara", "pop_culture"],
+      "payload": {
+        "sentence": "悟空に勝てる__、勝ってみろ！",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_003",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "一人でできる__、やってみなさい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mononara"],
+      "payload": {
+        "prefix": "あの時の自分に",
+        "suffix": "。",
+        "blocks": ["会える", "ものなら", "注意してやりたい"]
+      }
+    },
+    {
+      "id": "mononara_005",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "病気が治る__、何でもするつもりだ。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_006",
+      "type": "WORD_USAGE",
+      "tags": ["mononara"],
+      "payload": {
+        "word": "～ものなら ",
+        "options": [
+          { "text": "行けるものなら、今すぐ日本へ行きたい。", "is_correct": true },
+          { "text": "やれるものなら、やってみろ！", "is_correct": true },
+          { "text": "雨が降るものなら、傘を差す。", "is_correct": false },
+          { "text": "食べられるものなら、全部食べたい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "mononara_007",
+      "type": "FILL_BLANK",
+      "tags": ["mononara", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザを倒せる__、倒してみるがいい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_008",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "鳥のように空を飛べる__、飛んでみたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_009",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "過去をやり直せる__、もっと勉強しただろう。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_010",
+      "type": "PARAPHRASE",
+      "tags": ["mononara"],
+      "payload": {
+        "base_sentence": "もし会えるものなら、もう一度彼に会いたい。",
+        "correct": "実際には会うことが非常に難しい（あるいは不可能に近い）状況ですが、もし万が一可能なら、もう一度彼に会いたいという強い願いを持っています。",
+        "distractors": [
+          "彼に会うために、準備をしています。",
+          "彼に会うことになったので、嬉しいです。",
+          "彼に会うのが嫌いなので、会いたくありません。"
+        ]
+      }
+    },
+    {
+      "id": "mononara_011",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "この問題を解決できる__、解決してほしい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mononara"],
+      "payload": {
+        "prefix": "一日に",
+        "suffix": "。",
+        "blocks": ["25時間", "ある", "ものならいいのに"]
+      }
+    },
+    {
+      "id": "mononara_013",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "生まれ変われる__、また人間になりたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_014",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "そんなに文句を言うなら、代わる__代わってみなさい。",
+        "correct": "れるものなら",
+        "distractors": ["れることなら", "れるわけなら", "れるはずなら", "れるところなら"]
+      }
+    },
+    {
+      "id": "mononara_015",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "時間を止められる__、止めてしまいたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "「戻れるものなら」。",
+        "correct": "もどれるものなら",
+        "distractors": ["もどれることなら", "もどれるわけなら", "もどれるはずなら", "もどれるところなら"]
+      }
+    },
+    {
+      "id": "mononara_017",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "魔法が使える__、世界を平和にしたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_018",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "明日休みになれる__、今すぐ寝たい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mononara"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "。",
+        "blocks": ["世界を", "変えられる", "ものならやってみろ"]
+      }
+    },
+    {
+      "id": "mononara_020",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "嘘が消える__、この世から消えてほしい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_021",
+      "type": "FILL_BLANK",
+      "tags": ["mononara", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗らなくて済む__、乗りたくないよ。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_022",
+      "type": "WORD_USAGE",
+      "tags": ["mononara"],
+      "payload": {
+        "word": "～ものなら ",
+        "options": [
+          { "text": "できるものなら、一人でやってみなさい。", "is_correct": true },
+          { "text": "勝てるものなら、勝ってみろ！", "is_correct": true },
+          { "text": "雨が降るものなら、困る。", "is_correct": false },
+          { "text": "抜け出せるものなら、この状況から抜け出したい。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "mononara_023",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "どこへでも行ける__、火星へ行ってみたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_024",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "もし彼に会える__、一言謝りたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_025",
+      "type": "PARAPHRASE",
+      "tags": ["mononara"],
+      "payload": {
+        "base_sentence": "やれるものなら、やってみなさい。",
+        "correct": "あなたがそれを実行できる可能性は極めて低いと思いますが、もし自信があるなら挑戦してみたらどうですか、という挑発的な表現です。",
+        "distractors": [
+          "あなたがそれを実行することに決めました。",
+          "あなたがそれを実行するのを手伝います。",
+          "あなたがそれを実行するのをやめてください。"
+        ]
+      }
+    },
+    {
+      "id": "mononara_026",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "すべてを忘れる__、忘れてしまいたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_027",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "空腹を我慢できる__、三日間断食してみたい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["mononara"],
+      "payload": {
+        "prefix": "あの",
+        "suffix": "。",
+        "blocks": ["時代に", "戻れる", "ものなら戻りたい"]
+      }
+    },
+    {
+      "id": "mononara_029",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "この苦しみから逃げられる__、逃げ出したい。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    },
+    {
+      "id": "mononara_030",
+      "type": "FILL_BLANK",
+      "tags": ["mononara"],
+      "payload": {
+        "sentence": "一生遊んで暮らせる__、そうしたいよ。",
+        "correct": "ものなら",
+        "distractors": ["ことなら", "わけなら", "はずなら", "ところなら"]
+      }
+    }
+  ]
+}

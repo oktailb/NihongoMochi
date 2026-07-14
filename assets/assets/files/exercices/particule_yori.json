@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule YORI  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "yori_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori"],
+      "payload": {
+        "sentence": "日本はフランス__広いです。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "yori_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori", "traps"],
+      "payload": {
+        "sentence": "コーヒー__紅茶のほうが好きです。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "で", "から"]
+      }
+    },
+    {
+      "id": "yori_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori"],
+      "payload": {
+        "sentence": "新幹線はバス__ずっと速いです。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "まで", "から"]
+      }
+    },
+    {
+      "id": "yori_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori", "pop_culture"],
+      "payload": {
+        "sentence": "悟空はクリリン__強いです。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "yori_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori", "traps"],
+      "payload": {
+        "sentence": "昨日__今日のほうが暑いですね。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "まで", "から"]
+      }
+    },
+    {
+      "id": "yori_006",
+      "type": "WORD_USAGE",
+      "tags": ["particule_yori"],
+      "payload": {
+        "word": "より ",
+        "options": [
+          { "text": "去年より背が高くなりました。", "is_correct": true },
+          { "text": "漢字よりひらがなのほうが簡単です。", "is_correct": true },
+          { "text": "誰より早く起きます。", "is_correct": true },
+          { "text": "明日より会いましょう。 ", "is_correct": false },
+          { "text": "ご飯より食べます。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "yori_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori"],
+      "payload": {
+        "sentence": "仕事__遊びのほうが大切ですか？",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "yori_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_yori", "traps"],
+      "payload": {
+        "sentence": "これ__あれのほうが重いです。",
+        "correct": "より",
+        "distractors": ["は", "が", "に", "で", "の"]
+      }
+    },
+    {
+      "id": "yori_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_yori"],
+      "payload": {
+        "prefix": "この鞄は",
+        "suffix": "安いです。",
+        "blocks": ["あの鞄より"]
+      }
+    },
+    {
+      "id": "yori_010",
+      "type": "PARAPHRASE",
+      "tags": ["particule_yori"],
+      "payload": {
+        "base_sentence": "彼は私より若いです。",
+        "correct": "私は彼より年上です。",
+        "distractors": [
+          "彼は私と同じ年齢です。",
+          "私は彼より若いです。",
+          "彼は私より年上です。",
+          "私は彼を知りません。"
+        ]
+      }
+    }
+  ]
+}

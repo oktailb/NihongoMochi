@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~っけ  - Confirmation de souvenir - N3"
+  },
+  "exercises": [
+    {
+      "id": "kke_001",
+      "type": "FILL_BLANK",
+      "tags": ["kke", "N3"],
+      "payload": {
+        "sentence": "試験は明日だ__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_002",
+      "type": "FILL_BLANK",
+      "tags": ["kke", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の誕生日はいつだ__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_003",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "昨日、何を食べた__。",
+        "correct": "んだっけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kke"],
+      "payload": {
+        "prefix": "あの人の",
+        "suffix": "。",
+        "blocks": ["名前は", "何だ", "っけ"]
+      }
+    },
+    {
+      "id": "kke_005",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "前にここに来たことあった__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_006",
+      "type": "WORD_USAGE",
+      "tags": ["kke"],
+      "payload": {
+        "word": "～っけ ",
+        "options": [
+          { "text": "宿題、出したっけ？", "is_correct": true },
+          { "text": "明日、休みだっけ？", "is_correct": true },
+          { "text": "今、何時だっけ？", "is_correct": true },
+          { "text": "これから行くっけ？", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kke_007",
+      "type": "FILL_BLANK",
+      "tags": ["kke", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザの最終形態はこれだ__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_008",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "田中さん、結婚した__？",
+        "correct": "んだっけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_009",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "鍵、閉めた__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_010",
+      "type": "PARAPHRASE",
+      "tags": ["kke"],
+      "payload": {
+        "base_sentence": "会議は3時からだっけ？",
+        "correct": "会議が3時から始まるという記憶がありますが、それで間違いないかどうか確認したいです。",
+        "distractors": [
+          "会議は3時に終わりますか。",
+          "会議は3時に始まるという予定を立てましたか。",
+          "会議は3時に始まるはずがないと思います。"
+        ]
+      }
+    },
+    {
+      "id": "kke_011",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "誰が言ったんだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kke"],
+      "payload": {
+        "prefix": "あの映画、",
+        "suffix": "。",
+        "blocks": ["面白かった", "んだ", "っけ"]
+      }
+    },
+    {
+      "id": "kke_013",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "明日、何を持っていくんだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_014",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "彼は先生だ__？",
+        "correct": "ったっけ",
+        "distractors": ["たっけ", "だっけ", "なっけ", "のかっけ"]
+      }
+    },
+    {
+      "id": "kke_015",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "お財布、どこに置いたんだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "「何だっけ」。",
+        "correct": "なんだっけ",
+        "distractors": ["なにか", "なにね", "なによ", "なにわ"]
+      }
+    },
+    {
+      "id": "kke_017",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "昨日、雨降った__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_018",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "この本、いくらだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kke"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["どこに", "住んでいるんだ", "っけ"]
+      }
+    },
+    {
+      "id": "kke_020",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "もう12時だ__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_021",
+      "type": "FILL_BLANK",
+      "tags": ["kke", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァのパイロットはシンジ君だ__？",
+        "correct": "ったっけ",
+        "distractors": ["たっけ", "だっけ", "なっけ", "のかっけ"]
+      }
+    },
+    {
+      "id": "kke_022",
+      "type": "WORD_USAGE",
+      "tags": ["kke"],
+      "payload": {
+        "word": "～っけ ",
+        "options": [
+          { "text": "あれ、どこへ行くんだっけ？", "is_correct": true },
+          { "text": "そうだ、今日は休みだったっけ。", "is_correct": true },
+          { "text": "私は学生だっけ？", "is_correct": true },
+          { "text": "雨が降るっけ？", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kke_023",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "宿題、いつまでだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_024",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "昨日、誰に会ったんだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_025",
+      "type": "PARAPHRASE",
+      "tags": ["kke"],
+      "payload": {
+        "base_sentence": "彼は何て言ったんだっけ？",
+        "correct": "彼が話した内容を忘れてしまったので、もう一度思い出そうとしています（あるいは他人に聞いています）。",
+        "distractors": [
+          "彼は何を言いましたか。",
+          "彼は何も言いませんでしたか。",
+          "彼は何を言うつもりですか。"
+        ]
+      }
+    },
+    {
+      "id": "kke_026",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "この漢字、どう読むんだ__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_027",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "約束、してた__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kke"],
+      "payload": {
+        "prefix": "明日の",
+        "suffix": "。",
+        "blocks": ["持ち物は", "何だ", "っけ"]
+      }
+    },
+    {
+      "id": "kke_029",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "もう、お昼だ__？",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    },
+    {
+      "id": "kke_030",
+      "type": "FILL_BLANK",
+      "tags": ["kke"],
+      "payload": {
+        "sentence": "昨日のテレビ、面白かった__。",
+        "correct": "っけ",
+        "distractors": ["か", "ね", "よ", "な"]
+      }
+    }
+  ]
+}

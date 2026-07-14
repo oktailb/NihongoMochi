@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～といったら - L'emphase sur l'intensité extrême. "
+  },
+  "exercises": [
+    {
+      "id": "tit_001",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "その景色の美しさ__、言葉では表現できないほどだ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というより", "という"]
+      }
+    },
+    {
+      "id": "tit_002",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "彼の驚きよう__、見ていて面白かったよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ", "というより"]
+      }
+    },
+    {
+      "id": "tit_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_ittara"],
+      "payload": {
+        "prefix": "その時の",
+        "suffix": "、今思い出しても腹が立つ。",
+        "blocks": ["悔しさ", "といったら"]
+      }
+    },
+    {
+      "id": "tit_004",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "息子の部屋の汚さ__、足の踏み場もない。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_005",
+      "type": "WORD_USAGE",
+      "tags": ["to_ittara"],
+      "payload": {
+        "word": "といったら",
+        "options": [
+          { "text": "富士山の頂上からの眺めといったら、最高だった。", "is_correct": true },
+          { "text": "彼の足の速さといったら、まるで風のようだ。", "is_correct": true },
+          { "text": "ご飯といったら、食べました。", "is_correct": false },
+          { "text": "明日といったら、行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tit_006",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "彼女の歌声の素晴らしさ__、鳥肌が立ったよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_007",
+      "type": "PARAPHRASE",
+      "tags": ["to_ittara"],
+      "payload": {
+        "base_sentence": "試験に落ちた時のショックは、ものすごかったです。",
+        "correct": "試験に落ちた時のショックといったら、なかったよ。",
+        "distractors": [
+          "試験に落ちた時のショックといえば、なかったよ。",
+          "試験に落ちた時のショックといっても、なかったよ。",
+          "試験に落ちた時のショックというより、なかったよ。"
+        ]
+      }
+    },
+    {
+      "id": "tit_008",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "子供たちの喜びよう__、見ているこちらも嬉しくなった。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_009",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "満員電車の苦しさ__、毎日嫌になるよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_ittara"],
+      "payload": {
+        "prefix": "あの料理の",
+        "suffix": "、一口も食べられなかった。",
+        "blocks": ["辛さ", "といったら"]
+      }
+    },
+    {
+      "id": "tit_011",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "合格発表の時の緊張感__、心臓が止まるかと思った。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "「伝統」の重みといったら、身が引き締まる思いだ。",
+        "correct": "でんとう",
+        "distractors": ["れきし", "ぶんか", "げいじゅつ"]
+      }
+    },
+    {
+      "id": "tit_013",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "真夏の暑さ__、何もやる気が起きない。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_014",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "彼の仕事の速さ__、誰もついていけないよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_015",
+      "type": "WORD_USAGE",
+      "tags": ["to_ittara"],
+      "payload": {
+        "word": "といったらありはしない",
+        "options": [
+          { "text": "彼の態度の悪さといったらありはしない。", "is_correct": true },
+          { "text": "昨日の暑さといったらありはしなかった。", "is_correct": true },
+          { "text": "勉強といったらありはしない、上手になります。", "is_correct": false },
+          { "text": "雨といったらありはしない、傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tit_016",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "夜中の静かさ__、自分の鼓動が聞こえるほどだ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_017",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "このパソコンの重さ__、持ち歩くのが嫌になる。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_ittara"],
+      "payload": {
+        "prefix": "一人で",
+        "suffix": "、涙が出てきた。",
+        "blocks": ["いる時の", "寂しさ", "といったら"]
+      }
+    },
+    {
+      "id": "tit_019",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "優勝した時の感動__、一生忘れられないだろう。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_020",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "彼女の怒りよう__、誰も近寄れなかったよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_021",
+      "type": "PARAPHRASE",
+      "tags": ["to_ittara"],
+      "payload": {
+        "base_sentence": "あの映画の怖さは、ものすごかったです。",
+        "correct": "あの映画の怖さといったら、夜眠れないほどでした。",
+        "distractors": [
+          "あの映画の怖さといえば、夜眠れないほどでした。",
+          "あの映画の怖さといっても、夜眠れないほどでした。",
+          "あの映画の怖さというより、夜眠れないほどでした。"
+        ]
+      }
+    },
+    {
+      "id": "tit_022",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "赤ちゃんの可愛さ__、ずっと見ていても飽きない。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_023",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "借金を抱えた時の不安__、想像を絶するものだ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "「情熱」といったら、彼は誰にも負けない。",
+        "correct": "じょうねつ",
+        "distractors": ["ゆうき", "きぼう", "ゆめ"]
+      }
+    },
+    {
+      "id": "tit_025",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "不公平な扱いを受けた時の怒り__、抑えきれなかった。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_026",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "大自然の迫力__、人間がいかに小さいか思い知らされる。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["to_ittara"],
+      "payload": {
+        "prefix": "宝くじが",
+        "suffix": "、言葉にならなかった。",
+        "blocks": ["当たった時の", "驚き", "といったら"]
+      }
+    },
+    {
+      "id": "tit_028",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "嘘がバレた時の気まずさ__、その場から逃げ出したかったよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_029",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "満天の星空の美しさ__、まるで宝石箱をひっくり返したようだ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    },
+    {
+      "id": "tit_030",
+      "type": "FILL_BLANK",
+      "tags": ["to_ittara"],
+      "payload": {
+        "sentence": "君に出会えた喜び__、一生の宝物だよ。",
+        "correct": "といったら",
+        "distractors": ["といえば", "といっても", "というものだ"]
+      }
+    }
+  ]
+}

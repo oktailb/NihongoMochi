@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～てばかりいる - L'excès et le reproche. "
+  },
+  "exercises": [
+    {
+      "id": "tbi_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "弟は勉強しないで、ゲームを__ばかりいる。",
+        "correct": "して",
+        "distractors": ["した", "する", "したり", "しよう"]
+      }
+    },
+    {
+      "id": "tbi_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "彼は文句を__ばかりいて、自分では何もしない。",
+        "correct": "言って",
+        "distractors": ["言った", "言う", "言ったり", "言おう"]
+      }
+    },
+    {
+      "id": "tbi_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "prefix": "休みの日なのに、",
+        "suffix": "。",
+        "blocks": ["寝て", "ばかり", "います"]
+      }
+    },
+    {
+      "id": "tbi_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "食べて__ばかりいると、太りますよ。",
+        "correct": "て",
+        "distractors": ["た", "る", "い"]
+      }
+    },
+    {
+      "id": "tbi_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "word": "てばかりいる",
+        "options": [
+          { "text": "スマホを見てばかりいると、目が悪くなるよ。", "is_correct": true },
+          { "text": "怒ってばかりいると、嫌われるよ。", "is_correct": true },
+          { "text": "ご飯を食べてばかりいます。", "is_correct": false },
+          { "text": "勉強をしてばかりいます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tbi_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "彼女は鏡を__ばかりいて、なかなか準備が終わらない。",
+        "correct": "見て",
+        "distractors": ["見た", "見る", "見たり"]
+      }
+    },
+    {
+      "id": "tbi_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "base_sentence": "彼はいつも遊んでいます。勉強を全くしません。",
+        "correct": "彼は遊んでばかりいます。",
+        "distractors": [
+          "彼は遊んだばかりです。",
+          "彼は遊ぶところです。",
+          "彼は遊ぶばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tbi_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "泣いて__ばかりいないで、理由を話しなさい。",
+        "correct": "て",
+        "distractors": ["た", "る", "い"]
+      }
+    },
+    {
+      "id": "tbi_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "失敗を__ばかりいては、前には進めない。",
+        "correct": "恐れて",
+        "distractors": ["恐れた", "恐れる", "恐れたり"]
+      }
+    },
+    {
+      "id": "tbi_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、ちっとも働かない。",
+        "blocks": ["お酒を", "飲んで", "ばかり", "いる"]
+      }
+    },
+    {
+      "id": "tbi_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "人の欠点を__ばかりいないで、自分のことも考えなさい。",
+        "correct": "探して",
+        "distractors": ["探した", "探す", "探したり"]
+      }
+    },
+    {
+      "id": "tbi_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "「後悔」してばかりいても、時間は戻らない。",
+        "correct": "こうかい",
+        "distractors": ["しっぱい", "れんしゅう", "じゅんび"]
+      }
+    },
+    {
+      "id": "tbi_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "迷って__ばかりいると、チャンスを逃してしまうよ。",
+        "correct": "て",
+        "distractors": ["た", "る", "い"]
+      }
+    },
+    {
+      "id": "tbi_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "テレビを__ばかりいると、馬鹿になるよと母に言われた。",
+        "correct": "見て",
+        "distractors": ["見た", "見る", "見たり"]
+      }
+    },
+    {
+      "id": "tbi_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "word": "てばかりいる",
+        "options": [
+          { "text": "楽をしてばかりいると、後で苦労するよ。", "is_correct": true },
+          { "text": "嘘をついてばかりいると、誰からも信じてもらえなくなるよ。", "is_correct": true },
+          { "text": "毎日散歩をしてばかりいます。", "is_correct": false },
+          { "text": "ご飯を作ってばかりいます。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tbi_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "外で__ばかりいないで、たまには家でゆっくりしなさい。",
+        "correct": "遊んで",
+        "distractors": ["遊んだ", "遊ぶ", "遊んだり"]
+      }
+    },
+    {
+      "id": "tbi_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "お喋りを__ばかりいて、全然仕事が進んでいない。",
+        "correct": "して",
+        "distractors": ["した", "する", "したり"]
+      }
+    },
+    {
+      "id": "tbi_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "prefix": "彼女は",
+        "suffix": "、ちっとも楽しくなさそうだ。",
+        "blocks": ["ため息を", "ついて", "ばかり", "いる"]
+      }
+    },
+    {
+      "id": "tbi_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "贅沢を__ばかりいると、お金がすぐになくなってしまうよ。",
+        "correct": "して",
+        "distractors": ["した", "する", "したり"]
+      }
+    },
+    {
+      "id": "tbi_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "人の顔色を__ばかりいると、疲れてしまうよ。",
+        "correct": "窺って",
+        "distractors": ["窺った", "窺う", "窺ったり"]
+      }
+    },
+    {
+      "id": "tbi_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "base_sentence": "彼はいつも文句ばかり言っています。",
+        "correct": "彼は文句を言ってばかりいます。",
+        "distractors": [
+          "彼は文句を言ったばかりです。",
+          "彼は文句を言うところです。",
+          "彼は文句を言うばかりです。"
+        ]
+      }
+    },
+    {
+      "id": "tbi_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "甘いものばかり__ばかりいると、虫歯になりますよ。",
+        "correct": "食べて",
+        "distractors": ["食べた", "食べる", "食べたり"]
+      }
+    },
+    {
+      "id": "tbi_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "言い訳を__ばかりいないで、素直に謝りなさい。",
+        "correct": "して",
+        "distractors": ["した", "する", "したり"]
+      }
+    },
+    {
+      "id": "tbi_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "「空想」してばかりいても、現実は変わらない。",
+        "correct": "くうそう",
+        "distractors": ["けいかく", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tbi_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "ボーッとして__ばかりいないで、手伝ってよ。",
+        "correct": "て",
+        "distractors": ["た", "る", "い"]
+      }
+    },
+    {
+      "id": "tbi_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "漫画を__ばかりいないで、宿題をしなさい。",
+        "correct": "読んで",
+        "distractors": ["読んだ", "読む", "読んだり"]
+      }
+    },
+    {
+      "id": "tbi_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "、ちっとも成長しない。",
+        "blocks": ["失敗を", "人の", "せいにして", "ばかり", "いる"]
+      }
+    },
+    {
+      "id": "tbi_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "買い物をして__ばかりいると、部屋が物で溢れてしまうよ。",
+        "correct": "て",
+        "distractors": ["た", "る", "い"]
+      }
+    },
+    {
+      "id": "tbi_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "過去のことを__ばかりいても、仕方がない。",
+        "correct": "悔やんで",
+        "distractors": ["悔やんだ", "悔やむ", "悔やんだり"]
+      }
+    },
+    {
+      "id": "tbi_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_bakari_iru"],
+      "payload": {
+        "sentence": "君はいつも僕を__ばかりいるね。",
+        "correct": "困らせて",
+        "distractors": ["困らせた", "困らせる", "困らせたり"]
+      }
+    }
+  ]
+}

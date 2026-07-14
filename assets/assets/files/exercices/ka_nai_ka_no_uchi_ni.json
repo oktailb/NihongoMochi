@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~か ~ないかのうちに  - Immédiateté / Succession rapide - N2"
+  },
+  "exercises": [
+    {
+      "id": "uchini_001",
+      "type": "FILL_BLANK",
+      "tags": ["uchini", "N2"],
+      "payload": {
+        "sentence": "ベルが鳴ったか__うちに、学生たちは教室を飛び出した。",
+        "correct": "鳴らないかの",
+        "distractors": ["鳴ったかの", "鳴らないの", "鳴ったうちに", "鳴らないうちに"]
+      }
+    },
+    {
+      "id": "uchini_002",
+      "type": "FILL_BLANK",
+      "tags": ["uchini", "pop_culture"],
+      "payload": {
+        "sentence": "悟空が技を放ったか__うちに、敵は姿を消していた。",
+        "correct": "放たないかの",
+        "distractors": ["放ったかの", "放たないの", "放ったうちに", "放たないうちに"]
+      }
+    },
+    {
+      "id": "uchini_003",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "布団に入るか__うちに、眠ってしまった。",
+        "correct": "入らないかの",
+        "distractors": ["入ったかの", "入らないの", "入ったうちに", "入らないうちに"]
+      }
+    },
+    {
+      "id": "uchini_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uchini"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["「さよなら」と", "言ったか", "言わないかのうちに去った"]
+      }
+    },
+    {
+      "id": "uchini_005",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "太陽が昇ったか__うちに、気温が上がり始めた。",
+        "correct": "昇らないかの",
+        "distractors": ["昇ったかの", "昇らないの", "昇ったうちに", "昇らないうちに"]
+      }
+    },
+    {
+      "id": "uchini_006",
+      "type": "WORD_USAGE",
+      "tags": ["uchini"],
+      "payload": {
+        "word": "～か～ないかのうちに ",
+        "options": [
+          { "text": "家に着くか着かないかのうちに、雨が降り出した。", "is_correct": true },
+          { "text": "本を読むか読まないかのうちに、内容を理解した。", "is_correct": true },
+          { "text": "雨が降るか降らないかのうちに、傘を差す。", "is_correct": true },
+          { "text": "勉強するかしないかのうちに合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "uchini_007",
+      "type": "FILL_BLANK",
+      "tags": ["uchini", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザが変身を終えたか__うちに、大地が震え始めた。",
+        "correct": "終えないかの",
+        "distractors": ["終えたかの", "終えないの", "終えたうちに", "終えないうちに"]
+      }
+    },
+    {
+      "id": "uchini_008",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "店が開いたか__うちに、行列が店内に流れ込んだ。",
+        "correct": "開かないかの",
+        "distractors": ["開いたかの", "開かないの", "開いたうちに", "開かないうちに"]
+      }
+    },
+    {
+      "id": "uchini_009",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "飛行機が着陸したか__うちに、携帯電話の電源を入れる人がいた。",
+        "correct": "着陸しないかの",
+        "distractors": ["着陸したかの", "着陸しないの", "着陸したうちに", "着陸しないうちに"]
+      }
+    },
+    {
+      "id": "uchini_010",
+      "type": "PARAPHRASE",
+      "tags": ["uchini"],
+      "payload": {
+        "base_sentence": "彼は、ご飯を食べ終わるか終わらないかのうちに、遊びに行った。",
+        "correct": "彼は、食事が終わった直後の、まだ食器を片付ける暇もないほど驚くべき早さで、外へ遊びに出かけました。",
+        "distractors": [
+          "彼は、ご飯を食べながら遊びに行きました。",
+          "彼は、ご飯を食べるために遊びに行きました。",
+          "彼は、ご飯を食べた後で、ゆっくり準備をして遊びに行きました。"
+        ]
+      }
+    },
+    {
+      "id": "uchini_011",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "赤ちゃんが泣き止んだか__うちに、また泣き出した。",
+        "correct": "止まないかの",
+        "distractors": ["止んだかの", "止まないの", "止んだうちに", "止まないうちに"]
+      }
+    },
+    {
+      "id": "uchini_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uchini"],
+      "payload": {
+        "prefix": "バスが",
+        "suffix": "。",
+        "blocks": ["止まったか", "止まらないかの", "うちにドアが開いた"]
+      }
+    },
+    {
+      "id": "uchini_013",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "涼しい風が吹いたか__うちに、また蒸し暑くなった。",
+        "correct": "吹かないかの",
+        "distractors": ["吹いたかの", "吹かないの", "吹いたうちに", "吹かないうちに"]
+      }
+    },
+    {
+      "id": "uchini_014",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "授業が終わるか__うちに、彼は教室を飛び出した。",
+        "correct": "終わらないかの",
+        "distractors": ["終わったかの", "終わらないの", "終わったうちに", "終わらないうちに"]
+      }
+    },
+    {
+      "id": "uchini_015",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "電気がついたか__うちに、また消えてしまった。",
+        "correct": "つかないかの",
+        "distractors": ["ついたかの", "つかないの", "ついたうちに", "つかないうちに"]
+      }
+    },
+    {
+      "id": "uchini_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "「終わるか終わらないかのうちに」。",
+        "correct": "おわるかおわらないかのうちに",
+        "distractors": ["おわるかおわったかのうちに", "おわるかおわらないうちに", "おわるかおわったうちに", "おわるかおわらないかのとき"]
+      }
+    },
+    {
+      "id": "uchini_017",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "質問が終わったか__うちに、彼は答え始めた。",
+        "correct": "終わらないかの",
+        "distractors": ["終わったかの", "終わらないの", "終わったうちに", "終わらないうちに"]
+      }
+    },
+    {
+      "id": "uchini_018",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "桜が咲いたか__うちに、もう散り始めている。",
+        "correct": "咲かないかの",
+        "distractors": ["咲いたかの", "咲かないの", "咲いたうちに", "咲かないうちに"]
+      }
+    },
+    {
+      "id": "uchini_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uchini"],
+      "payload": {
+        "prefix": "空が",
+        "suffix": "。",
+        "blocks": ["暗くなったか", "暗くならないかの", "うちに雨が降り出した"]
+      }
+    },
+    {
+      "id": "uchini_020",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "駅に着いたか__うちに、迎えの車が来た。",
+        "correct": "着かないかの",
+        "distractors": ["着いたかの", "着かないの", "着いたうちに", "着かないうちに"]
+      }
+    },
+    {
+      "id": "uchini_021",
+      "type": "FILL_BLANK",
+      "tags": ["uchini", "pop_culture"],
+      "payload": {
+        "sentence": "サスケが姿を見せたか__うちに、千鳥が放たれた。",
+        "correct": "見せないかの",
+        "distractors": ["見せたかの", "見せないの", "見せたうちに", "見せないうちに"]
+      }
+    },
+    {
+      "id": "uchini_022",
+      "type": "WORD_USAGE",
+      "tags": ["uchini"],
+      "payload": {
+        "word": "～か～ないかのうちに ",
+        "options": [
+          { "text": "返事を聞くか聞かないかのうちに、彼は電話を切った。", "is_correct": true },
+          { "text": "映画が始まるか始まらないかのうちに、会場が暗くなった。", "is_correct": true },
+          { "text": "雨が降るか降らないかのうちに、虹が出た。", "is_correct": true },
+          { "text": "勉強するかしないかのうちに、寝た。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "uchini_023",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "朝起きたか__うちに、仕事の連絡が入った。",
+        "correct": "起きないかの",
+        "distractors": ["起きたかの", "起きないの", "起きたうちに", "起きないうちに"]
+      }
+    },
+    {
+      "id": "uchini_024",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "信号が変わったか__うちに、前の車が急発進した。",
+        "correct": "変わらないかの",
+        "distractors": ["変わったかの", "変わらないの", "変わったうちに", "変わらないうちに"]
+      }
+    },
+    {
+      "id": "uchini_025",
+      "type": "PARAPHRASE",
+      "tags": ["uchini"],
+      "payload": {
+        "base_sentence": "彼は、私の顔を見るか見ないかのうちに、泣き出した。",
+        "correct": "彼は、私の顔を認めたその瞬間、感情を抑える間もなく、すぐに泣き始めました。",
+        "distractors": [
+          "彼は、私の顔を見ながら泣きました。",
+          "彼は、私の顔を見るために泣きました。",
+          "彼は、私の顔を見た後で、ゆっくり泣き始めました。"
+        ]
+      }
+    },
+    {
+      "id": "uchini_026",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "一歩踏み出したか__うちに、足元が崩れた。",
+        "correct": "踏み出さないかの",
+        "distractors": ["踏み出したかの", "踏み出さないの", "踏み出したうちに", "踏み出さないうちに"]
+      }
+    },
+    {
+      "id": "uchini_027",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "名前を言ったか__うちに、握手を求められた。",
+        "correct": "言わないかの",
+        "distractors": ["言ったかの", "言わないの", "言ったうちに", "言わないうちに"]
+      }
+    },
+    {
+      "id": "uchini_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["uchini"],
+      "payload": {
+        "prefix": "彼は",
+        "suffix": "。",
+        "blocks": ["解決策を", "思いついたか", "思いつかないかのうちに実行した"]
+      }
+    },
+    {
+      "id": "uchini_029",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "夢を見たか__うちに、朝になっていた。",
+        "correct": "見ないかの",
+        "distractors": ["見たかの", "見ないの", "見たうちに", "見ないうちに"]
+      }
+    },
+    {
+      "id": "uchini_030",
+      "type": "FILL_BLANK",
+      "tags": ["uchini"],
+      "payload": {
+        "sentence": "事実が判明したか__うちに、ニュースで報道された。",
+        "correct": "判明しないかの",
+        "distractors": ["判明したかの", "判明しないの", "判明したうちに", "判明しないうちに"]
+      }
+    }
+  ]
+}

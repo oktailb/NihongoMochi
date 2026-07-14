@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～を通じて・～を通して - Le canal de la connaissance et du temps."
+  },
+  "exercises": [
+    {
+      "id": "wtt_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "私はアニメ__日本語を学びました。",
+        "correct": "を通じて",
+        "distractors": ["をきっかけに", "をこめて", "をめぐって", "をぬきにして"]
+      }
+    },
+    {
+      "id": "wtt_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "社長は秘書__、メッセージを伝えた。",
+        "correct": "を通して",
+        "distractors": ["を問わず", "を契機に", "を中心として", "を込めて"]
+      }
+    },
+    {
+      "id": "wtt_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "prefix": "日本は、",
+        "suffix": "雨が多い。",
+        "blocks": ["一年を", "通じて"]
+      }
+    },
+    {
+      "id": "wtt_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "インターネット__、世界中のニュースが手に入る。",
+        "correct": "を通じて",
+        "distractors": ["をめぐって", "を契機に", "を問わず"]
+      }
+    },
+    {
+      "id": "wtt_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "word": "を通して",
+        "options": [
+          { "text": "友人を通して、彼女と知り合いました。", "is_correct": true },
+          { "text": "窓を通して、光が差し込んでいる。", "is_correct": true },
+          { "text": "ご飯を通して食べました。", "is_correct": false },
+          { "text": "勉強を通して上手になります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wtt_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "彼は一生__、平和を訴え続けた。",
+        "correct": "を通じて",
+        "distractors": ["をきっかけに", "を込めて", "を抜きにして"]
+      }
+    },
+    {
+      "id": "wtt_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "base_sentence": "窓口で手続きをしてください。",
+        "correct": "窓口を通して手続きをしてください。",
+        "distractors": [
+          "窓口をきっかけに手続きをしてください。",
+          "窓口を中心に手続きをしてください。",
+          "窓口を問わず手続きをしてください。"
+        ]
+      }
+    },
+    {
+      "id": "wtt_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "このサイト__、多くの人がボランティアに参加している。",
+        "correct": "を通じて",
+        "distractors": ["を込めて", "を問わず", "をめぐって"]
+      }
+    },
+    {
+      "id": "wtt_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "ボランティア活動__、多くのことを学んだ。",
+        "correct": "を通して",
+        "distractors": ["を抜きにして", "を問わず", "を中心にして"]
+      }
+    },
+    {
+      "id": "wtt_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "prefix": "ニュース",
+        "suffix": "、事件の詳細を知った。",
+        "blocks": ["報道を", "通じて"]
+      }
+    },
+    {
+      "id": "wtt_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "あの地域は四季__、観光客が絶えない。",
+        "correct": "を通じて",
+        "distractors": ["をきっかけに", "をめぐって", "を中心に"]
+      }
+    },
+    {
+      "id": "wtt_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "「交流」を通して、相互理解を深める。",
+        "correct": "こうりゅう",
+        "distractors": ["こうかん", "れんしゅう", "べんきょう"]
+      }
+    },
+    {
+      "id": "wtt_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "スポーツ__、友情を育む。",
+        "correct": "を通じて",
+        "distractors": ["を抜きにして", "を契機に", "を問わず"]
+      }
+    },
+    {
+      "id": "wtt_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "レンズ__見る世界は、少し違って見える。",
+        "correct": "を通して",
+        "distractors": ["を込めて", "をきっかけに", "をめぐって"]
+      }
+    },
+    {
+      "id": "wtt_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "word": "を通じて",
+        "options": [
+          { "text": "この町は年間を通じて温暖な気候だ。", "is_correct": true },
+          { "text": "ラジオを通じて、その曲がヒットした。", "is_correct": true },
+          { "text": "勉強を通じて上手になります。", "is_correct": false },
+          { "text": "雨を通じて傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wtt_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "経験__、自分を成長させたい。",
+        "correct": "を通じて",
+        "distractors": ["を契機に", "を中心にして", "を問わず"]
+      }
+    },
+    {
+      "id": "wtt_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "子供時代__、彼とはずっと親友だ。",
+        "correct": "を通して",
+        "distractors": ["を抜きにして", "をめぐって", "をきっかけに"]
+      }
+    },
+    {
+      "id": "wtt_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "、社会に貢献している。",
+        "blocks": ["音楽活動を", "通して"]
+      }
+    },
+    {
+      "id": "wtt_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "読書__、新しい知識を得る。",
+        "correct": "を通じて",
+        "distractors": ["を抜きにして", "をきっかけに", "を込めて"]
+      }
+    },
+    {
+      "id": "wtt_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "仕事__、責任感の重要性を知った。",
+        "correct": "を通して",
+        "distractors": ["を問わず", "を中心にして", "をめぐって"]
+      }
+    },
+    {
+      "id": "wtt_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "base_sentence": "一年の間ずっと、ここは賑やかです。",
+        "correct": "一年を通じて、ここは賑やかです。",
+        "distractors": [
+          "一年をきっかけに、ここは賑やかです。",
+          "一年を中心にして、ここは賑やかです。",
+          "一年を問わず、ここは賑やかです。"
+        ]
+      }
+    },
+    {
+      "id": "wtt_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "SNS__、共通の趣味を持つ仲間に出会えた。",
+        "correct": "を通じて",
+        "distractors": ["をめぐって", "を込めて", "を抜きにして"]
+      }
+    },
+    {
+      "id": "wtt_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "代理人__、契約の内容を確認した。",
+        "correct": "を通して",
+        "distractors": ["を中心にして", "を問わず", "をきっかけに"]
+      }
+    },
+    {
+      "id": "wtt_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "「学問」を通じて、人生を豊かにする。",
+        "correct": "がくもん",
+        "distractors": ["がっこう", "べんきょう", "けいけん"]
+      }
+    },
+    {
+      "id": "wtt_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "彼は友人__、その秘密を知ったらしい。",
+        "correct": "を通じて",
+        "distractors": ["を中心にして", "を問わず", "を込めて"]
+      }
+    },
+    {
+      "id": "wtt_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "歴史の授業__、平和の尊さを学んだ。",
+        "correct": "を通して",
+        "distractors": ["をきっかけに", "をめぐって", "を問わず"]
+      }
+    },
+    {
+      "id": "wtt_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中に広まった。",
+        "blocks": ["口コミを", "通して"]
+      }
+    },
+    {
+      "id": "wtt_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "会社全体__、コスト削減に取り組んでいる。",
+        "correct": "を通じて",
+        "distractors": ["をきっかけに", "をめぐって", "を問わず"]
+      }
+    },
+    {
+      "id": "wtt_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tooshite"],
+      "payload": {
+        "sentence": "実習__、現場の厳しさを知った。",
+        "correct": "を通して",
+        "distractors": ["を中心にして", "を問わず", "を込めて"]
+      }
+    },
+    {
+      "id": "wtt_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_tsujite"],
+      "payload": {
+        "sentence": "君の言葉__、勇気をもらったんだ。",
+        "correct": "を通じて",
+        "distractors": ["をきっかけに", "を問わず", "をめぐって"]
+      }
+    }
+  ]
+}

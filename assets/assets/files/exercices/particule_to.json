@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo de la particule TO  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "to_001",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to"],
+      "payload": {
+        "sentence": "友達__一緒に映画を見ます。",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_002",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "enumeration"],
+      "payload": {
+        "sentence": "パン__卵を食べました。",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_003",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "明日、学校__行きます。",
+        "correct": "に",
+        "distractors": ["と", "を", "で", "の"]
+      }
+    },
+    {
+      "id": "to_004",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "quotation"],
+      "payload": {
+        "sentence": "田中さんは「おはよう」__言いました。",
+        "correct": "と",
+        "distractors": ["を", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "to_005",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "机のうえ__本があります。",
+        "correct": "に",
+        "distractors": ["と", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_006",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "comparison"],
+      "payload": {
+        "sentence": "これ__あれはどちらが重いですか。",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_007",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "pop_culture"],
+      "payload": {
+        "sentence": "悟空__ベジータはライバルです。",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_008",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "毎日、お風呂__入ります。",
+        "correct": "に",
+        "distractors": ["と", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_009",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "thought"],
+      "payload": {
+        "sentence": "明日は雨が降る__思います。",
+        "correct": "と",
+        "distractors": ["を", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "to_010",
+      "type": "WORD_USAGE",
+      "tags": ["particule_to"],
+      "payload": {
+        "word": "と ",
+        "options": [
+          { "text": "母と買い物に行きます。", "is_correct": true },
+          { "text": "リンゴと蜜柑があります。", "is_correct": true },
+          { "text": "行こうと言いました。", "is_correct": true },
+          { "text": "本とを読みます。", "is_correct": false },
+          { "text": "明日と会いましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "to_011",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "pop_culture"],
+      "payload": {
+        "sentence": "君__僕 ",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_012",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "お名前__書いてください。",
+        "correct": "を",
+        "distractors": ["と", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "to_013",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "meeting"],
+      "payload": {
+        "sentence": "昨日、佐藤さん__会いました。",
+        "correct": "に",
+        "distractors": ["と", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_014",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "日本語__わかりますか。",
+        "correct": "が",
+        "distractors": ["と", "を", "は", "に"]
+      }
+    },
+    {
+      "id": "to_015",
+      "type": "PARAPHRASE",
+      "tags": ["particule_to"],
+      "payload": {
+        "base_sentence": "田中さんと話しました。",
+        "correct": "話をした相手は田中さんです。",
+        "distractors": [
+          "田中さんの話をしました。",
+          "田中さんが話しました。",
+          "田中さんに話をさせました。",
+          "田中さんと一緒にいました。"
+        ]
+      }
+    },
+    {
+      "id": "to_016",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "enumeration"],
+      "payload": {
+        "sentence": "ノート__ペンを貸してください。",
+        "correct": "と",
+        "distractors": ["に", "を", "が", "は"]
+      }
+    },
+    {
+      "id": "to_017",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "どこ__出身ですか。",
+        "correct": "の",
+        "distractors": ["と", "は", "が", "を"]
+      }
+    },
+    {
+      "id": "to_018",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "quotation"],
+      "payload": {
+        "sentence": "先生は「頑張ってください」__言いました。",
+        "correct": "と",
+        "distractors": ["を", "に", "が", "は"]
+      }
+    },
+    {
+      "id": "to_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["particule_to"],
+      "payload": {
+        "prefix": "私は",
+        "suffix": "ます。",
+        "blocks": ["友達と", "遊びに", "行き"]
+      }
+    },
+    {
+      "id": "to_020",
+      "type": "FILL_BLANK",
+      "tags": ["particule_to", "traps"],
+      "payload": {
+        "sentence": "鉛筆__書いてください。",
+        "correct": "で",
+        "distractors": ["と", "を", "に", "が"]
+      }
+    }
+  ]
+}

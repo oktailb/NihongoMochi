@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~はもとより / もちろん  - N2"
+  },
+  "exercises": [
+    {
+      "id": "motoyori_001",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori", "N2"],
+      "payload": {
+        "sentence": "この病気は、本人__家族にとっても辛いものだ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_002",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori", "pop_culture"],
+      "payload": {
+        "sentence": "悟空の強さは、地球__宇宙全体に知れ渡っている。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_003",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "このレストランは、味__サービスも一流だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["motoyori"],
+      "payload": {
+        "prefix": "日本のアニメは",
+        "suffix": "世界中で愛されている。",
+        "blocks": ["アジア諸国", "はもとより", "欧米など"]
+      }
+    },
+    {
+      "id": "motoyori_005",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "彼は、英語__中国語も話せる。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_006",
+      "type": "WORD_USAGE",
+      "tags": ["motoyori"],
+      "payload": {
+        "word": "～はもとより ",
+        "options": [
+          { "text": "自分の部屋はもとより、家全体を掃除した。", "is_correct": true },
+          { "text": "漢字はもとより、ひらがなも書けない。", "is_correct": true },
+          { "text": "雨はもとより、風も強い。", "is_correct": true },
+          { "text": "勉強はもとより、遊ぶ。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "motoyori_007",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァの操縦には、技術__強い精神力が必要だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_008",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "地震の被害は、建物__人々の心にも深い傷を残した。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_009",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "この商品は、機能__デザインも優れている。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_010",
+      "type": "PARAPHRASE",
+      "tags": ["motoyori"],
+      "payload": {
+        "base_sentence": "彼は、平日はもとより週末も働いている。",
+        "correct": "彼は平日に働くのは当たり前（当然）ですが、それだけでなく週末も休まずに働いています。",
+        "distractors": [
+          "彼は平日は働きませんが、週末だけ働いています。",
+          "彼は平日も週末も働くのが嫌いです。",
+          "彼は平日に働くために、週末はしっかり休みます。"
+        ]
+      }
+    },
+    {
+      "id": "motoyori_011",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "今回の失敗の原因は、彼__我々全員にある。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["motoyori"],
+      "payload": {
+        "prefix": "スポーツは",
+        "suffix": "楽しむことが大切だ。",
+        "blocks": ["勝つこと", "はもとより", "何よりも"]
+      }
+    },
+    {
+      "id": "motoyori_013",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "この映画は、子供__大人も感動する内容だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_014",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "環境問題は、先進国__途上国にとっても大きな課題だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_015",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "彼女の魅力は、外見__内面の美しさにある。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "「はもとより」当然だ。",
+        "correct": "はもとより",
+        "distractors": ["はもとゆり", "はもともと", "はもとあり", "はもとなり"]
+      }
+    },
+    {
+      "id": "motoyori_017",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "この村には、水道__電気も通っていない。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_018",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "彼は、歌__ダンスもプロ級だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["motoyori"],
+      "payload": {
+        "prefix": "自分のことは",
+        "suffix": "考えてほしい。",
+        "blocks": ["はもとより", "周りの人のことも", "もう少し"]
+      }
+    },
+    {
+      "id": "motoyori_020",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "冬の北海道は、寒さ__雪の量も半端ではない。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_021",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori", "pop_culture"],
+      "payload": {
+        "sentence": "火影になるには、実力__里を愛する心が必要だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_022",
+      "type": "WORD_USAGE",
+      "tags": ["motoyori"],
+      "payload": {
+        "word": "～はもとより ",
+        "options": [
+          { "text": "家族はもとより、近所の人にもお世話になった。", "is_correct": true },
+          { "text": "本はもとより、雑誌もたくさん読んでいる。", "is_correct": true },
+          { "text": "雨はもとより、雪も降ってきた。", "is_correct": true },
+          { "text": "勉強はもとより、寝る。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "motoyori_023",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "今回のプロジェクトの成功は、社長__社員全員の努力の結果だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_024",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "彼女は、料理__裁縫も得意だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_025",
+      "type": "PARAPHRASE",
+      "tags": ["motoyori"],
+      "payload": {
+        "base_sentence": "この本は、内容はもちろん装丁も素晴らしい。",
+        "correct": "この本は内容が良いことは言うまでもありませんが、それだけでなく表紙などのデザインも非常に素晴らしいです。",
+        "distractors": [
+          "この本は内容が良いので、装丁はどうでもいいです。",
+          "この本は内容が良いと言われましたが、装丁は良くありませんでした。",
+          "この本は内容が良いおかげで、装丁も褒められました。"
+        ]
+      }
+    },
+    {
+      "id": "motoyori_026",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "健康管理は、プロの選手__一般の人にとっても大切だ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_027",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "彼は、性格__頭もいい。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["motoyori"],
+      "payload": {
+        "prefix": "日本は",
+        "suffix": "世界的に見ても安全な国だ。",
+        "blocks": ["アジアの中", "はもとより", "では"]
+      }
+    },
+    {
+      "id": "motoyori_029",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "この町は、歴史__自然も豊かだ。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    },
+    {
+      "id": "motoyori_030",
+      "type": "FILL_BLANK",
+      "tags": ["motoyori"],
+      "payload": {
+        "sentence": "未来のことは、本人__誰にもわからない。",
+        "correct": "はもとより",
+        "distractors": ["ばかりか", "どころか", "反面", "ながら"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Dojo du Conditionnel ~EBA  - Nihongo Mochi"
+  },
+  "exercises": [
+    {
+      "id": "eba_001",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "安ければ、__。",
+        "correct": "買います",
+        "distractors": ["買って", "買わない", "買った", "買いした", "買いまする"]
+      }
+    },
+    {
+      "id": "eba_002",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "g1"],
+      "payload": {
+        "sentence": "毎日練習__、上手になりますよ。",
+        "correct": "すれば",
+        "distractors": ["したなら", "すると", "したれば", "すればな", "しれば"]
+      }
+    },
+    {
+      "id": "eba_003",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "adj_i"],
+      "payload": {
+        "sentence": "美味しく__、全部食べてください。",
+        "correct": "ければ",
+        "distractors": ["ければな", "なら", "いと", "かったら", "いら"]
+      }
+    },
+    {
+      "id": "eba_004",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "明日__、一緒に行きましょう。",
+        "correct": "晴れれば",
+        "distractors": ["晴れると", "晴れたら", "晴れればな", "晴れればに", "晴れなら"]
+      }
+    },
+    {
+      "id": "eba_005",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "pop_culture"],
+      "payload": {
+        "sentence": "ドラゴンボールを集め__、願いが叶う。",
+        "correct": "れば",
+        "distractors": ["たら", "と", "なら", "のだ", "に"]
+      }
+    },
+    {
+      "id": "eba_006",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "word": "〜ば いい ",
+        "options": [
+          { "text": "先生に聞けばいいですよ。", "is_correct": true },
+          { "text": "もっと練習すればいいです。", "is_correct": true },
+          { "text": "寝ればいいのに。", "is_correct": true },
+          { "text": "食べてばいい。 ", "is_correct": false },
+          { "text": "明日ばいい会いましょう。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "eba_007",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "時間が__、手伝ってください。",
+        "correct": "あれば",
+        "distractors": ["あったら", "あると", "あればな", "あればに", "ありれば"]
+      }
+    },
+    {
+      "id": "eba_008",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "薬を__、すぐ良くなりますよ。",
+        "correct": "飲めば",
+        "distractors": ["飲んだら", "飲むと", "飲みれば", "飲めばな", "飲みな"]
+      }
+    },
+    {
+      "id": "eba_009",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "prefix": "この本は",
+        "suffix": "わかります。",
+        "blocks": ["読めば"]
+      }
+    },
+    {
+      "id": "eba_010",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "base_sentence": "安ければ買います。",
+        "correct": "価格が低いことが、購入するための必要条件です。",
+        "distractors": [
+          "安いから買いました。",
+          "安くても買いません。",
+          "安かったらよかったです。",
+          "安くなるのを待っています。"
+        ]
+      }
+    },
+    {
+      "id": "eba_011",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "早く__、間に合います。",
+        "correct": "行けば",
+        "distractors": ["行ったら", "行くと", "行きれば", "行けばな", "行け"]
+      }
+    },
+    {
+      "id": "eba_012",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "10時を__、夜ですね。",
+        "correct": "過ぎれば",
+        "distractors": ["過ぎたら", "過ぎると", "過ぎればな", "過ぎればに", "過ぎなな"]
+      }
+    },
+    {
+      "id": "eba_013",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "窓を__、涼しいですよ。",
+        "correct": "開ければ",
+        "distractors": ["開けたら", "開けると", "開ければな", "開ければに", "開けなな"]
+      }
+    },
+    {
+      "id": "eba_014",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "pop_culture"],
+      "payload": {
+        "sentence": "諦めなけ__、道は開ける！",
+        "correct": "れば",
+        "distractors": ["たら", "と", "なら", "のだ", "に"]
+      }
+    },
+    {
+      "id": "eba_015",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "お金が__、困りますよ。",
+        "correct": "なければ",
+        "distractors": ["なかったら", "ないと", "なければな", "なければに", "ないれば"]
+      }
+    },
+    {
+      "id": "eba_016",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "頑張っ__、きっと勝てます。",
+        "correct": "たら",
+        "distractors": ["れば", "と", "ら", "なら", "のだ"]
+      }
+    },
+    {
+      "id": "eba_017",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "日本へ__、美味しい寿司が食べられます。",
+        "correct": "行けば",
+        "distractors": ["行ったら", "行くと", "行きれば", "行けばな", "行け"]
+      }
+    },
+    {
+      "id": "eba_018",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "「好条件」であれば承諾します。",
+        "correct": "こうじょうけん",
+        "distractors": ["こうじょけん", "ごうじょうけん", "こうじょうげん", "こうじょうけな"]
+      }
+    },
+    {
+      "id": "eba_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "prefix": "もっと",
+        "suffix": "よかったです。",
+        "blocks": ["練習すれば"]
+      }
+    },
+    {
+      "id": "eba_020",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "お名前を__ください。",
+        "correct": "教えて",
+        "distractors": ["教えれば", "教えたら", "教えなな", "教えな"]
+      }
+    },
+    {
+      "id": "eba_021",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "天気が__、ピクニックに行きましょう。",
+        "correct": "よければ",
+        "distractors": ["よければな", "なら", "いと", "かったら", "いら"]
+      }
+    },
+    {
+      "id": "eba_022",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "早く__、一番バスに乗れます。",
+        "correct": "起きれば",
+        "distractors": ["起きたら", "起きると", "起きればな", "起きればに", "起きなな"]
+      }
+    },
+    {
+      "id": "eba_023",
+      "type": "WORD_USAGE",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "word": "〜なければ ならない ",
+        "options": [
+          { "text": "毎日勉強しなければなりません。", "is_correct": true },
+          { "text": "時間までに来なければなりません。", "is_correct": true },
+          { "text": "嘘をつかなければなりません。 ", "is_correct": true },
+          { "text": "食べればならない。 ", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "eba_024",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "駅まで歩い__、15分です。",
+        "correct": "たら",
+        "distractors": ["れば", "と", "ら", "なら", "のだ"]
+      }
+    },
+    {
+      "id": "eba_025",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "田中さんに__、わかるでしょう。",
+        "correct": "聞けば",
+        "distractors": ["聞いたら", "聞くと", "聞きれば", "聞けばな", "聞け"]
+      }
+    },
+    {
+      "id": "eba_026",
+      "type": "PARAPHRASE",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "base_sentence": "練習すればするほど上手になります。",
+        "correct": "練習量に比例して、能力が向上していきます。",
+        "distractors": [
+          "練習したので上手になりました。",
+          "練習しなくても上手になります。",
+          "練習する前に上手になりたいです。",
+          "練習するときに上手になります。"
+        ]
+      }
+    },
+    {
+      "id": "eba_027",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "辞書を__、意味がわかりますよ。",
+        "correct": "引けば",
+        "distractors": ["引いたら", "引くと", "引きれば", "引けばな", "引け"]
+      }
+    },
+    {
+      "id": "eba_028",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "昨日、__、よかったです。",
+        "correct": "行けば",
+        "distractors": ["行ったら", "行くと", "行ければ", "行けばな", "行な"]
+      }
+    },
+    {
+      "id": "eba_029",
+      "type": "UNDERLINE_READING",
+      "tags": ["conditionnel_eba"],
+      "payload": {
+        "sentence": "「努力」すれば報われます。",
+        "correct": "どりょく",
+        "distractors": ["とうりょく", "どりょくな", "とりょく", "どきょく"]
+      }
+    },
+    {
+      "id": "eba_030",
+      "type": "FILL_BLANK",
+      "tags": ["conditionnel_eba", "traps"],
+      "payload": {
+        "sentence": "お風呂に__、気持ちいいですよ。",
+        "correct": "入れば",
+        "distractors": ["入ったら", "入ると", "入ればな", "入りれば", "入るの"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ないことには  - À moins que... / Sans... - N3/N2"
+  },
+  "exercises": [
+    {
+      "id": "naikotoniwa_001",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa", "N3"],
+      "payload": {
+        "sentence": "やってみ__、わからない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_002",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "悟空がい__、地球を守ることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_003",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "お金が__、新しいパソコンは買えない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "prefix": "本人が",
+        "suffix": "。",
+        "blocks": ["来ないことには", "話が", "進まない"]
+      }
+    },
+    {
+      "id": "naikotoniwa_005",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "準備が整わ__、出発できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_006",
+      "type": "WORD_USAGE",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "word": "～ないことには ",
+        "options": [
+          { "text": "食べてみないことには、味はわからない。", "is_correct": true },
+          { "text": "練習しないことには、上手にならない。", "is_correct": true },
+          { "text": "雨が降らないことには、傘を差さない。", "is_correct": true },
+          { "text": "勉強しないことには合格した。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "naikotoniwa_007",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "エヴァに乗ら__、使徒を倒すことは不可能だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_008",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "事実を確認し__、返事はできません。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_009",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "彼が協力してくれ__、成功は難しいだろう。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_010",
+      "type": "PARAPHRASE",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "base_sentence": "実力が伴わないことには、口先だけでは通用しない。",
+        "correct": "本当の能力（実力）をしっかりと身につけていない限り、どんなに言葉でうまく言っても、社会や厳しい場面では役に立ちません。",
+        "distractors": [
+          "実力があるので、口先だけでも通用します。",
+          "実力を身につけるために、口先だけで練習しました。",
+          "実力がなくても、口先だけで何とかなります。"
+        ]
+      }
+    },
+    {
+      "id": "naikotoniwa_011",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "天気が回復し__、試合は再開できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "prefix": "信頼を",
+        "suffix": "。",
+        "blocks": ["得られない", "ことには", "協力は得られない"]
+      }
+    },
+    {
+      "id": "naikotoniwa_013",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "家賃が下がら__、借りることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_014",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "彼が謝ら__、許すことはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_015",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "許可が得られ__、勝手に始めることはできない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "「やってみないことには」。",
+        "correct": "やってみないことには",
+        "distractors": ["やってみなければ", "やってみないなら", "やってみないとしても", "やってみないうちに"]
+      }
+    },
+    {
+      "id": "naikotoniwa_017",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "道がわからない__、迎えに行けない。",
+        "correct": "ことには",
+        "distractors": ["ことにはわ", "ことなれば", "ことなら", "ことで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_018",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "静かになら__、集中できない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "prefix": "勇気を",
+        "suffix": "。",
+        "blocks": ["持たない", "ことには", "一歩も踏み出せない"]
+      }
+    },
+    {
+      "id": "naikotoniwa_020",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "もっと安くなら__、買う気にはなれない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_021",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa", "pop_culture"],
+      "payload": {
+        "sentence": "里を守る決心ができ__、火影にはなれない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_022",
+      "type": "WORD_USAGE",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "word": "～ないことには ",
+        "options": [
+          { "text": "話を聞かないことには、判断できない。", "is_correct": true },
+          { "text": "実際に会ってみないことには、人柄はわからない。", "is_correct": true },
+          { "text": "雨が降らないことには、虹が出る。", "is_correct": false },
+          { "text": "一度やってみないことには、向き不向きはわからない。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "naikotoniwa_023",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "時間ができ__、旅行の計画も立てられない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_024",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "日本語が話せ__、日本での生活は不便だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_025",
+      "type": "PARAPHRASE",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "base_sentence": "契約書にサインしないことには、何も始まりません。",
+        "correct": "何よりもまず契約書にサインをするという手続きを完了させない限り、その後のいかなる行動も進めることはできません。",
+        "distractors": [
+          "契約書にサインしたので、すべてが終わりました。",
+          "契約書にサインするために、時間をかけました。",
+          "契約書にサインしても、何も始まらないかもしれません。"
+        ]
+      }
+    },
+    {
+      "id": "naikotoniwa_026",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "彼が納得し__、この件は解決しない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_027",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "平和になら__、復興は進まない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "prefix": "一歩",
+        "suffix": "。",
+        "blocks": ["踏み出さない", "ことには", "何も変わらない"]
+      }
+    },
+    {
+      "id": "naikotoniwa_029",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "お金が貯まら__、家を買うのは夢のまた夢だ。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    },
+    {
+      "id": "naikotoniwa_030",
+      "type": "FILL_BLANK",
+      "tags": ["naikotoniwa"],
+      "payload": {
+        "sentence": "自分を信じ__、成功は掴めない。",
+        "correct": "ないことには",
+        "distractors": ["なければ", "ないなら", "ないとしても", "ないおかげで"]
+      }
+    }
+  ]
+}

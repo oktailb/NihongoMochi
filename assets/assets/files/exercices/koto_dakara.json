@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~ことだから  - Venant de... / Puisque c'est... - N2"
+  },
+  "exercises": [
+    {
+      "id": "kotodakara_001",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara", "N2"],
+      "payload": {
+        "sentence": "真面目な田中さんの__、きっと時間通りに来るでしょう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_002",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara", "pop_culture"],
+      "payload": {
+        "sentence": "楽天的な悟空の__、どんなピンチでも笑っているに違いない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_003",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "子供の__、すぐに忘れて遊び出すよ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotodakara"],
+      "payload": {
+        "prefix": "慎重な",
+        "suffix": "。",
+        "blocks": ["彼のことだから", "しっかり準備して", "いるはずだ"]
+      }
+    },
+    {
+      "id": "kotodakara_005",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "寂しがり屋の彼女の__、一人ではいられないだろう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_006",
+      "type": "WORD_USAGE",
+      "tags": ["kotodakara"],
+      "payload": {
+        "word": "～ことだから ",
+        "options": [
+          { "text": "厳しい先生のことだから、宿題は多いはずだ。", "is_correct": true },
+          { "text": "嘘つきの彼のことだから、信じられない。", "is_correct": true },
+          { "text": "雨のことだから、傘を差す。", "is_correct": false },
+          { "text": "おっちょこちょいの私のことだから、また忘れた。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kotodakara_007",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara", "pop_culture"],
+      "payload": {
+        "sentence": "プライドが高いベジータの__、簡単に負けを認めないだろう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_008",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "お喋りな彼女の__、もうみんなに話してしまったかもしれない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_009",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "頑張り屋の君の__、最後までやり抜くと信じているよ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_010",
+      "type": "PARAPHRASE",
+      "tags": ["kotodakara"],
+      "payload": {
+        "base_sentence": "時間に遅れる彼のことだから、今日も遅刻するだろう。",
+        "correct": "彼はいつも時間に遅れるという性格（習慣）を持っているので、今日もその性格通りに遅刻するに違いない。",
+        "distractors": [
+          "彼は時間に遅れたので、今日も叱られました。",
+          "彼は時間に遅れるために、ゆっくり準備をしました。",
+          "彼は時間に遅れるのが嫌いなので、今日は早く来ました。"
+        ]
+      }
+    },
+    {
+      "id": "kotodakara_011",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "親切な田中さんの__、きっと助けてくれるよ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotodakara"],
+      "payload": {
+        "prefix": "負けず嫌いの",
+        "suffix": "。",
+        "blocks": ["彼のことだから", "次は", "絶対に勝つつもりだろう"]
+      }
+    },
+    {
+      "id": "kotodakara_013",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "倹約家の彼の__、そんな高いものは買わないだろう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_014",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "飽きっぽい弟の__、もうやめてしまったかもしれない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_015",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "きれい好きの母の__、家中ピカピカにしているはずだ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "彼「のことだから」。",
+        "correct": "のことだから",
+        "distractors": ["のことから", "のことでから", "のことなれば", "のことなら"]
+      }
+    },
+    {
+      "id": "kotodakara_017",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "食いしん坊の彼の__、全部食べてしまったに違いない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_018",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "心配性の彼女の__、もう何度も電話をかけてきただろう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotodakara"],
+      "payload": {
+        "prefix": "嘘が下手な",
+        "suffix": "。",
+        "blocks": ["彼のことだから", "すぐに", "顔に出てしまうよ"]
+      }
+    },
+    {
+      "id": "kotodakara_020",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "動物好きの彼の__、きっと犬を飼うに違いない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_021",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara", "pop_culture"],
+      "payload": {
+        "sentence": "冷酷なフリーザの__、約束を守るはずがない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_022",
+      "type": "WORD_USAGE",
+      "tags": ["kotodakara"],
+      "payload": {
+        "word": "～ことだから ",
+        "options": [
+          { "text": "自由な彼のことだから、どこへでも行ってしまうだろう。", "is_correct": true },
+          { "text": "真面目な彼女のことだから、宿題は忘れない。", "is_correct": true },
+          { "text": "冬のことだから、雪が降る。", "is_correct": false },
+          { "text": "不器用な私のことだから、また失敗した。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kotodakara_023",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "勉強嫌いの弟の__、今日も遊んでいるだろう。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_024",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "義理堅い彼の__、必ずお礼に来るはずだ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_025",
+      "type": "PARAPHRASE",
+      "tags": ["kotodakara"],
+      "payload": {
+        "base_sentence": "真面目な彼女のことだから、仕事は完璧にこなすはずだ。",
+        "correct": "彼女は非常に真面目な性格なので、その性格を考えれば、仕事は間違いなく完璧に終わらせるだろうと予想できます。",
+        "distractors": [
+          "彼女は真面目なので、仕事を完璧にこなしました。",
+          "彼女は真面目であるために、仕事を完璧にこなすよう命じられました。",
+          "彼女は真面目であっても、仕事を完璧にこなせるとは限りません。"
+        ]
+      }
+    },
+    {
+      "id": "kotodakara_026",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "好奇心旺盛な子供の__、何でも知りたがるよ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_027",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "慎重な田中さんの__、もう一度確認しているに違いない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kotodakara"],
+      "payload": {
+        "prefix": "楽観的な",
+        "suffix": "。",
+        "blocks": ["彼のことだから", "何とかなると", "思っているだろう"]
+      }
+    },
+    {
+      "id": "kotodakara_029",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "正直な彼女の__、隠し事はできないよ。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    },
+    {
+      "id": "kotodakara_030",
+      "type": "FILL_BLANK",
+      "tags": ["kotodakara"],
+      "payload": {
+        "sentence": "忘れっぽい私の__、また何か忘れているかもしれない。",
+        "correct": "ことだから",
+        "distractors": ["からには", "ばかりに", "おかげで", "ながら"]
+      }
+    }
+  ]
+}

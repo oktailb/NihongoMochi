@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～を契機に - L'art du tournant décisif et formel. "
+  },
+  "exercises": [
+    {
+      "id": "wkk_001",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "東京オリンピック__、街の再開発が進んだ。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "を中心に", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_002",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "定年退職__、新しい趣味を始めた。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "を中心にして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "prefix": "景気の回復",
+        "suffix": "、消費が拡大した。",
+        "blocks": ["を契機に"]
+      }
+    },
+    {
+      "id": "wkk_004",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "病気__、健康の大切さを再認識した。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をこめて", "を問わず"]
+      }
+    },
+    {
+      "id": "wkk_005",
+      "type": "WORD_USAGE",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "word": "を契機に",
+        "options": [
+          { "text": "新製品の発売を契機に、海外進出を図る。", "is_correct": true },
+          { "text": "結婚を契機に、仕事を辞めることにした。", "is_correct": true },
+          { "text": "ご飯を契機に食べました。", "is_correct": false },
+          { "text": "明日を契機に行きましょう。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wkk_006",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "法改正__、社会の仕組みが大きく変わった。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_007",
+      "type": "PARAPHRASE",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "base_sentence": "今回の事件がきっかけとなって、新しいルールができました。",
+        "correct": "今回の事件を契機に、新しいルールが作られた。",
+        "distractors": [
+          "今回の事件をきっかけに、新しいルールが作られた。",
+          "今回の事件をめぐって、新しいルールが作られた。",
+          "今回の事件を通じて、新しいルールが作られた。"
+        ]
+      }
+    },
+    {
+      "id": "wkk_008",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "子供の誕生__、家を建てることに決めた。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をこめて", "をめぐって"]
+      }
+    },
+    {
+      "id": "wkk_009",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "地震の発生__、防災意識が高まった。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "prefix": "日本のアニメが",
+        "suffix": "、日本語を学び始めた。",
+        "blocks": ["ヒットしたことを", "契機に"]
+      }
+    },
+    {
+      "id": "wkk_011",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "IT技術の進化__、働き方が多様化した。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "「伝統」の継承を契機に、若者の関心を集める。",
+        "correct": "けいき",
+        "distractors": ["きっかけ", "ちゅうしん", "こうりつ"]
+      }
+    },
+    {
+      "id": "wkk_013",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "社長の交代__、社風が一新された。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_014",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "海外旅行__、英語の必要性を痛感した。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_015",
+      "type": "WORD_USAGE",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "word": "を契機にして",
+        "options": [
+          { "text": "不況を契機にして、事業の再編を行う。", "is_correct": true },
+          { "text": "その出会いを契機にして、彼の人生は変わった。", "is_correct": true },
+          { "text": "勉強を契機にして上手になります。", "is_correct": false },
+          { "text": "雨を契機にして傘をさしました。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "wkk_016",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "不祥事の発覚__、コンプライアンスが強化された。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_017",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "情報のデジタル化__、生活が便利になった。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "prefix": "卒業",
+        "suffix": "、社会人としての自覚が芽生えた。",
+        "blocks": ["を契機に"]
+      }
+    },
+    {
+      "id": "wkk_019",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "環境問題への関心の高まり__、電気自動車が普及した。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_020",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "オリンピックの開催__、多くの外国人が日本を訪れた。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_021",
+      "type": "PARAPHRASE",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "base_sentence": "景気が悪くなったことを理由に、リストラが行われました。",
+        "correct": "不況を契機にして、リストラが行われた。",
+        "distractors": [
+          "不況をきっかけにして、リストラが行われた。",
+          "不況をめぐってして、リストラが行われた。",
+          "不況を通じてして、リストラが行われた。"
+        ]
+      }
+    },
+    {
+      "id": "wkk_022",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "一人暮らし__、自炊を始めた。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_023",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "SNSの流行__、新しいビジネスが生まれた。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "「年始」を契機に、新しい目標を立てる。",
+        "correct": "ねんし",
+        "distractors": ["ねんまつ", "きょう", "あした"]
+      }
+    },
+    {
+      "id": "wkk_025",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "挫折__、一回り大きく成長した。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_026",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "情報の共有__、信頼関係が深まった。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "prefix": "日本のアニメは、",
+        "suffix": "、世界中に愛されている。",
+        "blocks": ["その独特な世界観を", "契機に"]
+      }
+    },
+    {
+      "id": "wkk_028",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "引退__、指導者の道を歩み始めた。",
+        "correct": "を契機に",
+        "distractors": ["をきっかけに", "をめぐって", "を通じて"]
+      }
+    },
+    {
+      "id": "wkk_029",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni_shite"],
+      "payload": {
+        "sentence": "再会__、二人の絆は再び強くなった。",
+        "correct": "を契機にして",
+        "distractors": ["をきっかけにして", "をめぐってして", "を通じてして"]
+      }
+    },
+    {
+      "id": "wkk_030",
+      "type": "FILL_BLANK",
+      "tags": ["wo_keiki_ni"],
+      "payload": {
+        "sentence": "君に出会えたことを__、僕の人生は輝き始めた。",
+        "correct": "契機に",
+        "distractors": ["きっかけに", "中心に", "問わず"]
+      }
+    }
+  ]
+}

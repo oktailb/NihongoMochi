@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 4,
+    "description": "Exercices sur ～てある - L'état résultant d'une action voulue. "
+  },
+  "exercises": [
+    {
+      "id": "tar_001",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "机の上に本が置いて__。",
+        "correct": "あります",
+        "distractors": ["います", "おきます", "みます", "しまっています"]
+      }
+    },
+    {
+      "id": "tar_002",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "壁にカレンダーが掛けて__。",
+        "correct": "あります",
+        "distractors": ["います", "みます", "おきます", "しまいます"]
+      }
+    },
+    {
+      "id": "tar_003",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_aru"],
+      "payload": {
+        "prefix": "冷蔵庫に",
+        "suffix": "。",
+        "blocks": ["ビールが", "冷やして", "あります"]
+      }
+    },
+    {
+      "id": "tar_004",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "窓が閉めて__のに、どうして寒いんだろう。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_005",
+      "type": "WORD_USAGE",
+      "tags": ["te_aru"],
+      "payload": {
+        "word": "てある",
+        "options": [
+          { "text": "部屋が掃除してあります。", "is_correct": true },
+          { "text": "予約がしてあります。", "is_correct": true },
+          { "text": "雨が降ってあります。", "is_correct": false },
+          { "text": "花が咲いてあります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tar_006",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "名前が書いて__袋が置いてある。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_007",
+      "type": "PARAPHRASE",
+      "tags": ["te_aru"],
+      "payload": {
+        "base_sentence": "誰かが予約をしました。予約が残っています。",
+        "correct": "予約がしてあります。",
+        "distractors": [
+          "予約をしています。",
+          "予約をしておきます。",
+          "予約をしてしまいます。"
+        ]
+      }
+    },
+    {
+      "id": "tar_008",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "料理が作って__から、すぐ食べられますよ。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_009",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "電気がつけて__のは、誰かいるからかな。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_010",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_aru"],
+      "payload": {
+        "prefix": "この切符は",
+        "suffix": "。",
+        "blocks": ["もう", "買って", "あります"]
+      }
+    },
+    {
+      "id": "tar_011",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "準備がして__ので、心配しないでください。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_012",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "「予定」が書いてある手帳をなくした。",
+        "correct": "よてい",
+        "distractors": ["じゅんび", "けいかく", "しごと"]
+      }
+    },
+    {
+      "id": "tar_013",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "パスポートがしまって__場所を忘れてしまった。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_014",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "看板が立てて__から、場所はすぐわかるはずだ。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_015",
+      "type": "WORD_USAGE",
+      "tags": ["te_aru"],
+      "payload": {
+        "word": "てある",
+        "options": [
+          { "text": "引き出しに鍵が入れてあります。", "is_correct": true },
+          { "text": "玄関に靴が並べてあります。", "is_correct": true },
+          { "text": "空が晴れてあります。", "is_correct": false },
+          { "text": "風が吹いてあります。", "is_correct": false }
+        ]
+      }
+    },
+    {
+      "id": "tar_016",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "お風呂が沸かして__ので、すぐ入れます。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_017",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "資料がまとめて__ので、読んでおいてください。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_018",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_aru"],
+      "payload": {
+        "prefix": "パーティーの",
+        "suffix": "。",
+        "blocks": ["飲み物は", "用意して", "あります"]
+      }
+    },
+    {
+      "id": "tar_019",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "地図に印がつけて__ので、迷わないと思います。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_020",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "注意書きが書いて__のを読みましたか。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_021",
+      "type": "PARAPHRASE",
+      "tags": ["te_aru"],
+      "payload": {
+        "base_sentence": "誰かが窓を開けました。窓は今も開いています。",
+        "correct": "窓が開けてあります。",
+        "distractors": [
+          "窓が開いています。",
+          "窓が開けておきます。",
+          "窓が開けてみます。"
+        ]
+      }
+    },
+    {
+      "id": "tar_022",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "プレゼントが包んで__から、渡すだけだ。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_023",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "予定が組んで__ので、変更は難しい。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_024",
+      "type": "UNDERLINE_READING",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "「許可」が取ってあるので、撮影可能です。",
+        "correct": "きょか",
+        "distractors": ["かいぎ", "じゅんび", "れんしゅう"]
+      }
+    },
+    {
+      "id": "tar_025",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "道具が揃えて__ので、すぐ始められます。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_026",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "タクシーが呼んで__から、すぐ乗りましょう。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_027",
+      "type": "SENTENCE_ORDER",
+      "tags": ["te_aru"],
+      "payload": {
+        "prefix": "鍵が",
+        "suffix": "。",
+        "blocks": ["掛けて", "あります"]
+      }
+    },
+    {
+      "id": "tar_028",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "お釣りは置いて__ので、取ってください。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_029",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "ご飯が炊いて__ので、食べてください。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    },
+    {
+      "id": "tar_030",
+      "type": "FILL_BLANK",
+      "tags": ["te_aru"],
+      "payload": {
+        "sentence": "君の分も取って__よ。",
+        "correct": "ある",
+        "distractors": ["いる", "みる", "おく"]
+      }
+    }
+  ]
+}

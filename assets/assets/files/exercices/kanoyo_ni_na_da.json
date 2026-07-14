@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "version": 1,
+    "description": "Exercices sur ~かのように  - Comme si / Tel que - N2"
+  },
+  "exercises": [
+    {
+      "id": "kanoyoni_001",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni", "N2"],
+      "payload": {
+        "sentence": "彼は、すべてを知っている__話した。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_002",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni", "pop_culture"],
+      "payload": {
+        "sentence": "悟空は、まるで空を飛んでいる__速さで走った。",
+        "correct": "かのような",
+        "distractors": ["ような", "みたいな", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_003",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "そのニュースは、まるで自分のこと__喜んでいた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_004",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "prefix": "彼女は、",
+        "suffix": "。",
+        "blocks": ["昨日あった", "かのように", "その話を詳しくした"]
+      }
+    },
+    {
+      "id": "kanoyoni_005",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、何もなかった__平気な顔をしていた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_006",
+      "type": "WORD_USAGE",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "word": "～かのように ",
+        "options": [
+          { "text": "死んだかのように眠っている。", "is_correct": true },
+          { "text": "宝くじに当たったかのように喜ぶ。", "is_correct": true },
+          { "text": "雨が降るかのように傘を差す。", "is_correct": false },
+          { "text": "夢を見ているかのような心地だ。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kanoyoni_007",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni", "pop_culture"],
+      "payload": {
+        "sentence": "フリーザは、自分が神である__振る舞っていた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_008",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "その景色は、まるで絵画__美しかった。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_009",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、一度も失敗したことがない__自信に満ちていた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_010",
+      "type": "PARAPHRASE",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "base_sentence": "彼は、まるで王様であるかのように命令する。",
+        "correct": "彼は実際には王様ではありませんが、あたかも王様であるかのような非常に偉そうな態度で、他人に命令をします。",
+        "distractors": [
+          "彼は王様なので、命令するのは当然です。",
+          "彼は王様になるために、一生懸命に命令の練習をしています。",
+          "彼は王様が嫌いなので、命令されるのを嫌がっています。"
+        ]
+      }
+    },
+    {
+      "id": "kanoyoni_011",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "時間は、飛ぶ__過ぎていった。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_012",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["幽霊を", "見た", "かのような顔色をしていた"]
+      }
+    },
+    {
+      "id": "kanoyoni_013",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "二人は、昔からの親友__仲良く話していた。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_014",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、自分の家__くつろいでいた。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_015",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "その機械は、生きている__動いていた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_016",
+      "type": "UNDERLINE_READING",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "「かのように」振る舞う。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "かのごとくに", "かのやうに"]
+      }
+    },
+    {
+      "id": "kanoyoni_017",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、雷が落ちた__驚いた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_018",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "空は、今にも泣き出しそう__暗かった。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_019",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["未来を", "予言できる", "かのように語った"]
+      }
+    },
+    {
+      "id": "kanoyoni_020",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "その噂は、瞬く間__広がった。",
+        "correct": "にかのように",
+        "distractors": ["にように", "にみたいに", "にながら", "についでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_021",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni", "pop_culture"],
+      "payload": {
+        "sentence": "サスケは、復讐だけが生きがい__生きている。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_022",
+      "type": "WORD_USAGE",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "word": "～かのような ",
+        "options": [
+          { "text": "魔法にかかったかのような体験。", "is_correct": true },
+          { "text": "嵐の前の静けさであるかのような空気。", "is_correct": true },
+          { "text": "雨が降るかのような傘。", "is_correct": false },
+          { "text": "夢のような時間。", "is_correct": true }
+        ]
+      }
+    },
+    {
+      "id": "kanoyoni_023",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、すべてを忘れた__振る舞っている。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_024",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "その音は、地獄からの叫び__聞こえた。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_025",
+      "type": "PARAPHRASE",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "base_sentence": "彼は、まるで自分のミスではないかのように笑っている。",
+        "correct": "彼は実際には自分のミスであることを知っているはずですが、それとは無関係であるかのように、平気な態度で笑っています。",
+        "distractors": [
+          "彼は自分のミスだと言って、謝りながら笑っています。",
+          "彼は自分のミスを隠すために、必死になって笑っています。",
+          "彼は自分のミスではないので、当然の権利として笑っています。"
+        ]
+      }
+    },
+    {
+      "id": "kanoyoni_026",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、勝利を確信した__不敵な笑みを浮かべた。",
+        "correct": "かのように",
+        "distractors": ["ように", "みたいに", "ながら", "ついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_027",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "その光景は、別世界__幻想的だった。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_028",
+      "type": "SENTENCE_ORDER",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "prefix": "彼は、",
+        "suffix": "。",
+        "blocks": ["すべてを見通している", "かのように", "答えた"]
+      }
+    },
+    {
+      "id": "kanoyoni_029",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼女は、子供__純粋な瞳をしていた。",
+        "correct": "であるかのような",
+        "distractors": ["であるような", "であるみたいな", "でありながら", "でありついでに"]
+      }
+    },
+    {
+      "id": "kanoyoni_030",
+      "type": "FILL_BLANK",
+      "tags": ["kanoyoni"],
+      "payload": {
+        "sentence": "彼は、最後の別れ__深く頭を下げた。",
+        "correct": "であるかのように",
+        "distractors": ["であるように", "であるみたいに", "でありながら", "でありついでに"]
+      }
+    }
+  ]
+}
