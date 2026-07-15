@@ -67,9 +67,23 @@ flutter:
     - assets/files/langs/ua_UA/
     - assets/files/langs/vi_VN/
     - assets/files/langs/zh_CN/
+    - assets/files/langs/ar_SA/grammar/
+    - assets/files/langs/bn_BD/grammar/
+    - assets/files/langs/de_DE/grammar/
     - assets/files/langs/en_GB/grammar/
+    - assets/files/langs/en_US/grammar/
+    - assets/files/langs/es_ES/grammar/
     - assets/files/langs/fr_FR/grammar/
+    - assets/files/langs/in_ID/grammar/
+    - assets/files/langs/it_IT/grammar/
+    - assets/files/langs/ja_JP/grammar/
     - assets/files/langs/ko_KR/grammar/
+    - assets/files/langs/mn_MN/grammar/
+    - assets/files/langs/pt_BR/grammar/
+    - assets/files/langs/ru_RU/grammar/
+    - assets/files/langs/th_TH/grammar/
+    - assets/files/langs/ua_UA/grammar/
+    - assets/files/langs/vi_VN/grammar/
     - assets/files/langs/zh_CN/grammar/
     - assets/files/meanings/
     - assets/files/sounds/
