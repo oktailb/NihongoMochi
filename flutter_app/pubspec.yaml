@@ -1,6 +1,6 @@
 name: nihongo_mochi_flutter
-description: A new Flutter project for Nihongo Mochi.
-version: 1.0.0+1
+description: Learn Japanese with NihongoMochi.
+version: 0.9.8+1
 
 environment:
   sdk: '^3.8.0'
