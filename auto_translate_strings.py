@@ -131,5 +131,13 @@ def main():
         else:
             print("  -> Aucune modification.")
 
+    # Synchroniser les fichiers ARB Flutter après traduction
+    try:
+        import convert_xml_to_arb
+        convert_xml_to_arb.main()
+    except Exception as e:
+        print(f"Erreur lors de la mise à jour des ARB: {e}")
+
 if __name__ == "__main__":
     main()
+

@@ -95,5 +95,14 @@ def main():
         target_file = os.path.join(target_dir, 'strings.xml')
         update_file(target_file, base_keys)
 
+    # 3. Synchroniser les fichiers ARB Flutter
+    try:
+        import convert_xml_to_arb
+        convert_xml_to_arb.main()
+    except Exception as e:
+        print(f"Erreur lors de la mise à jour des ARB: {e}")
+
+
 if __name__ == "__main__":
     main()
+

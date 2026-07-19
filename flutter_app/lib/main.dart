@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:nihongo_mochi_flutter/l10n/gen/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 import 'package:nihongo_mochi_flutter/db/database.dart';
 import 'package:nihongo_mochi_flutter/repositories/score_repository.dart';
@@ -207,6 +210,12 @@ class NihongoMochiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final settings = context.watch<SettingsProvider>();
 
+    // Resolve locale from currentLocaleCode (e.g. "fr_FR" -> Locale('fr', 'FR') or Locale('fr'))
+    final localeParts = settings.currentLocaleCode.split('_');
+    final locale = localeParts.isNotEmpty
+        ? Locale(localeParts[0], localeParts.length > 1 ? localeParts[1] : null)
+        : const Locale('en');
+
     return MaterialApp(
       title: 'Nihongo Mochi',
       debugShowCheckedModeBanner: false,
@@ -214,7 +223,16 @@ class NihongoMochiApp extends StatelessWidget {
       theme: MochiTheme.lightTheme,
       darkTheme: MochiTheme.darkTheme,
       themeMode: settings.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      locale: locale,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const HomeScreen(),
     );
   }
+
 }

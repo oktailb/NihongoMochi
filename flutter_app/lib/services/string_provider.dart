@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:xml/xml.dart';
 
@@ -6,25 +7,56 @@ class StringProvider {
 
   Future<void> loadStrings(String locale) async {
     _localizedStrings.clear();
-    // 1. Load default strings first to ensure fallbacks for missing keys
+
+    // 1. Try loading from generated ARB / JSON asset first
+    bool loadedFromArb = false;
+    final arbLocale = _mapLocaleToArb(locale);
+
     try {
-      await _loadFromPath('assets/values/strings.xml');
+      final arbPath = 'lib/l10n/app_$arbLocale.arb';
+      final jsonString = await rootBundle.loadString(arbPath);
+      final Map<String, dynamic> jsonMap = json.decode(jsonString);
+      jsonMap.forEach((key, value) {
+        if (!key.startsWith('@') && value is String) {
+          _localizedStrings[key] = value;
+        }
+      });
+      loadedFromArb = true;
     } catch (e) {
-      print("Could not load default strings: $e");
+      // Fallback to XML
     }
 
-    // 2. Load localized strings on top of default ones
-    if (locale != 'values' && locale.isNotEmpty) {
-      final path = 'assets/values-$locale/strings.xml';
+    // 2. Fallback to XML if ARB was not loaded from rootBundle
+    if (!loadedFromArb) {
       try {
-        await _loadFromPath(path);
+        await _loadFromXmlPath('assets/values/strings.xml');
       } catch (e) {
-        // Keep default fallbacks if localized file fails or is missing
+        // Ignored
+      }
+
+      if (locale != 'values' && locale.isNotEmpty) {
+        final path = 'assets/values-$locale/strings.xml';
+        try {
+          await _loadFromXmlPath(path);
+        } catch (e) {
+          // Ignored
+        }
       }
     }
   }
 
-  Future<void> _loadFromPath(String path) async {
+  String _mapLocaleToArb(String locale) {
+    String clean = locale;
+    if (clean.startsWith('values-')) {
+      clean = clean.replaceFirst('values-', '');
+    }
+    clean = clean.replaceAll('-r', '-').replaceAll('_', '-');
+    final parts = clean.split('-');
+    return parts.isNotEmpty ? parts[0].toLowerCase() : 'en';
+  }
+
+
+  Future<void> _loadFromXmlPath(String path) async {
     final xmlString = await rootBundle.loadString(path);
     final document = XmlDocument.parse(xmlString);
     final resources = document.findAllElements('string');
@@ -43,13 +75,19 @@ class StringProvider {
       return value;
     }
 
-    // Replace indexed placeholders first, e.g. %1$d, %1$s, %2$d, etc.
+    // Replace ARB placeholders {param1}, {param2}... or {0}, {1}...
+    for (int i = 0; i < args.length; i++) {
+      value = value.replaceAll('{param${i + 1}}', args[i].toString());
+      value = value.replaceAll('{$i}', args[i].toString());
+    }
+
+    // Replace indexed Android placeholders e.g. %1$d, %1$s
     for (int i = 0; i < args.length; i++) {
       final indexPlaceholderRegExp = RegExp('%${i + 1}\\\$[ds]');
       value = value.replaceAll(indexPlaceholderRegExp, args[i].toString());
     }
 
-    // Replace unindexed placeholders, e.g. %d, %s sequentially
+    // Replace unindexed placeholders e.g. %d, %s
     for (var arg in args) {
       final firstUnindexedRegExp = RegExp('%[ds]');
       if (firstUnindexedRegExp.hasMatch(value)) {
@@ -57,9 +95,10 @@ class StringProvider {
       }
     }
 
-    // Replace %% with % (standard escaping in format strings)
+    // Replace %% with %
     value = value.replaceAll('%%', '%');
 
     return value;
   }
 }
+

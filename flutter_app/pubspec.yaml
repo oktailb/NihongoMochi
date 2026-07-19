@@ -8,6 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
   cupertino_icons: ^1.0.2
   flutter_tts: ^4.2.5
   google_mlkit_digital_ink_recognition: ^0.12.1
@@ -38,9 +42,12 @@ dev_dependencies:
   json_serializable: ^6.8.0
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
+    - lib/l10n/
     - assets/files/
+
     - assets/files/kana/
     - assets/files/kanji/
     - assets/files/words/
@@ -76,8 +83,8 @@ flutter:
     - assets/files/langs/fr_FR/grammar/
     - assets/files/langs/in_ID/grammar/
     - assets/files/langs/it_IT/grammar/
-    - assets/files/langs/ja_JP/grammar/
     - assets/files/langs/ko_KR/grammar/
+
     - assets/files/langs/mn_MN/grammar/
     - assets/files/langs/pt_BR/grammar/
     - assets/files/langs/ru_RU/grammar/
