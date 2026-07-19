@@ -18,12 +18,10 @@ class MochiTheme {
         onTertiaryContainer: Color(0xFF0D47A1),
         error: Color(0xFFB00020),
         onError: Color(0xFFFFFFFF),
-        background: Color(0xFFE0F7FA),
-        onBackground: Color(0xFF263238),
         surface: Color(0xFFFFFFFF),
         onSurface: Color(0xFF000000),
         outline: Color(0xFF79747E),
-        surfaceVariant: Color(0xFFE0E2EC),
+        surfaceContainerHighest: Color(0xFFE0E2EC),
         onSurfaceVariant: Color(0xFF44474F),
       );
 
@@ -43,12 +41,10 @@ class MochiTheme {
         onTertiaryContainer: Color(0xFFBBDEFB),
         error: Color(0xFFCF6679),
         onError: Color(0xFF601410),
-        background: Color(0xFF011627),
-        onBackground: Color(0xFFD6D6D6),
         surface: Color(0xFF1E2A38),
         onSurface: Color(0xFFD6D6D6),
         outline: Color(0xFF938F99),
-        surfaceVariant: Color(0xFF44474F),
+        surfaceContainerHighest: Color(0xFF44474F),
         onSurfaceVariant: Color(0xFFC4C7D0),
       );
 

@@ -60,7 +60,7 @@ class PaginationControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final onBackground = Theme.of(context).colorScheme.onBackground;
+    final onBackground = Theme.of(context).colorScheme.onSurface;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -112,13 +112,13 @@ class ModeSelector<T> extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 4.0),
             child: Text(
               title!,
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: theme.colorScheme.onBackground.withOpacity(0.7)),
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
             ),
           ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceVariant.withOpacity(0.8),
+            color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.8),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
@@ -132,7 +132,7 @@ class ModeSelector<T> extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: isSelected
                         ? BoxDecoration(
-                            color: theme.colorScheme.primary.withOpacity(0.2),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(color: theme.colorScheme.primary, width: 2),
                           )
@@ -190,8 +190,8 @@ class PlayAndReviewButtons extends StatelessWidget {
             onPressed: isReviewEnabled ? onReviewClick : null,
             backgroundColor: theme.colorScheme.primary,
             foregroundColor: theme.colorScheme.onPrimary,
-            disabledBackgroundColor: theme.colorScheme.secondary.withOpacity(0.3),
-            disabledForegroundColor: theme.colorScheme.onSecondary.withOpacity(0.3),
+            disabledBackgroundColor: theme.colorScheme.secondary.withValues(alpha: 0.3),
+            disabledForegroundColor: theme.colorScheme.onSecondary.withValues(alpha: 0.3),
           ),
         ),
       ],
@@ -250,8 +250,8 @@ class _BigButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
-        disabledBackgroundColor: disabledBackgroundColor ?? backgroundColor.withOpacity(0.3),
-        disabledForegroundColor: disabledForegroundColor ?? foregroundColor.withOpacity(0.3),
+        disabledBackgroundColor: disabledBackgroundColor ?? backgroundColor.withValues(alpha: 0.3),
+        disabledForegroundColor: disabledForegroundColor ?? foregroundColor.withValues(alpha: 0.3),
         minimumSize: const Size.fromHeight(120),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         elevation: 16,

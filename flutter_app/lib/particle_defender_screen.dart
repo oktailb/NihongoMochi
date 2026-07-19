@@ -113,7 +113,7 @@ class ParticleDefenderScreen extends StatelessWidget {
           gradient: RadialGradient(
             colors: [Colors.blue.shade300, Colors.blue.shade700],
           ),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 4)],
+          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.2), blurRadius: 4)],
         ),
         alignment: Alignment.center,
         child: Text(
@@ -134,7 +134,7 @@ class ParticleDefenderScreen extends StatelessWidget {
         width: 64,
         height: 64,
         decoration: BoxDecoration(
-          color: Colors.blueGrey.withOpacity(0.9),
+          color: Colors.blueGrey.withValues(alpha: 0.9),
           shape: BoxShape.circle,
         ),
         alignment: Alignment.center,

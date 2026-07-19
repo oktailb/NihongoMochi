@@ -48,6 +48,7 @@ class KanaLinkCell {
     String? char,
     String? id,
     int? row,
+    int? col,
   }) {
     return KanaLinkCell(
       id: id ?? this.id,
@@ -58,6 +59,7 @@ class KanaLinkCell {
       isMatched: isMatched ?? this.isMatched,
     );
   }
+
 
   factory KanaLinkCell.fromJson(Map<String, dynamic> json) => _$KanaLinkCellFromJson(json);
   Map<String, dynamic> toJson() => _$KanaLinkCellToJson(this);

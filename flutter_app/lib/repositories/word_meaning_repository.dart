@@ -56,14 +56,5 @@ class WordMeaningRepository {
       return {};
     }
   }
-
-  String _getFileName(String locale) {
-    // Normalisation du nom de fichier pour correspondre à la structure Kotlin
-    // Exemple: fr_FR -> meanings/word_meanings_fr_rFR.json
-    final parts = locale.split('_');
-    if (parts.length == 2 && parts[1].length == 2) {
-      return 'words/meanings/word_meanings_${parts[0]}_r${parts[1]}.json';
-    }
-    return 'words/meanings/word_meanings_$locale.json';
-  }
 }
+

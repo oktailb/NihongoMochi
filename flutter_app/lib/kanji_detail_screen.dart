@@ -52,7 +52,7 @@ class KanjiDetailView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -119,7 +119,7 @@ class KanjiDetailView extends StatelessWidget {
   Widget _buildKanjiCard(BuildContext context, KanjiDetailProvider provider, ThemeData theme) {
     return Card(
       elevation: 16,
-      shadowColor: Colors.black.withOpacity(0.3),
+      shadowColor: Colors.black.withValues(alpha: 0.3),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: theme.colorScheme.surface,
       child: Container(
@@ -164,7 +164,7 @@ class KanjiDetailView extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: theme.colorScheme.onBackground,
+            color: theme.colorScheme.onSurface,
             letterSpacing: 1.2,
           ),
         ),
@@ -177,7 +177,7 @@ class KanjiDetailView extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: theme.colorScheme.outline),
       ),
@@ -193,7 +193,7 @@ class KanjiDetailView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: theme.colorScheme.outline),
       ),
@@ -232,7 +232,7 @@ class KanjiDetailView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: theme.colorScheme.outline),
       ),
@@ -267,7 +267,7 @@ class KanjiDetailView extends StatelessWidget {
       height: 380,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: theme.colorScheme.outline),
       ),
@@ -295,7 +295,7 @@ class KanjiDetailView extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: theme.colorScheme.outline),
       ),
@@ -363,9 +363,9 @@ class KanjiDetailView extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: theme.colorScheme.outlineVariant.withOpacity(0.5)),
+        side: BorderSide(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
       ),
-      color: theme.colorScheme.surface.withOpacity(0.7),
+      color: theme.colorScheme.surface.withValues(alpha: 0.7),
       child: ListTile(
         title: Text(
           item.character,
@@ -554,7 +554,7 @@ class _KanjiGraphWidgetState extends State<KanjiGraphWidget> {
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface.withOpacity(0.3),
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
                     ),
                   ),
                 ),
@@ -585,7 +585,7 @@ class _KanjiGraphWidgetState extends State<KanjiGraphWidget> {
                     nodeColorSub: theme.colorScheme.primary,
                     textColor: Colors.white,
                     edgeColor: theme.colorScheme.onSurface,
-                    labelBgColor: theme.colorScheme.surfaceVariant,
+                    labelBgColor: theme.colorScheme.surfaceContainerHighest,
                     labelTextColor: theme.colorScheme.onSurfaceVariant,
                     linkIndicatorColor: theme.colorScheme.secondary,
                     offsetX: max(320.0, graphWidth) / 2.0,
@@ -630,7 +630,7 @@ class KanjiGraphPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final edgePaint = Paint()
-      ..color = edgeColor.withOpacity(0.8)
+      ..color = edgeColor.withValues(alpha: 0.8)
       ..style = PaintingStyle.stroke;
 
     // 1. Draw Edges
@@ -673,7 +673,7 @@ class KanjiGraphPainter extends CustomPainter {
         ..close();
 
       final arrowPaint = Paint()
-        ..color = edgeColor.withOpacity(0.8)
+        ..color = edgeColor.withValues(alpha: 0.8)
         ..style = PaintingStyle.fill;
       canvas.drawPath(arrowPath, arrowPaint);
 

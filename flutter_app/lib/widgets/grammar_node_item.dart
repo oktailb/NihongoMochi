@@ -57,9 +57,9 @@ class GrammarNodeItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8 * scale),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                       blurRadius: 8 * scale,
-                      offset: Offset(0, 4 * scale),
+                      offset: const Offset(0, 4 * scale),
                     ),
                   ],
                   image: DecorationImage(
@@ -70,9 +70,9 @@ class GrammarNodeItem extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8 * scale),
-                    color: backgroundColor.withOpacity(isDark ? 0.2 : 0.3),
+                    color: backgroundColor.withValues(alpha: isDark ? 0.2 : 0.3),
                   ),
-                  padding: EdgeInsets.all(8 * scale),
+                  padding: const EdgeInsets.all(8 * scale),
                   alignment: Alignment.center,
                   child: Text(
                     description,
@@ -100,9 +100,9 @@ class GrammarNodeItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withValues(alpha: 0.3),
                         blurRadius: 8 * scale,
-                        offset: Offset(0, 4 * scale),
+                        offset: const Offset(0, 4 * scale),
                       ),
                     ],
                   ),

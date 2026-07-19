@@ -25,7 +25,7 @@ class BigModeCard extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: enabled ? 2 : 0,
-      color: theme.colorScheme.surface.withOpacity(enabled ? 0.9 : 0.5),
+      color: theme.colorScheme.surface.withValues(alpha: enabled ? 0.9 : 0.5),
       child: InkWell(
         onTap: enabled ? onClick : null,
         borderRadius: BorderRadius.circular(16),
@@ -43,7 +43,7 @@ class BigModeCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface.withOpacity(alpha),
+                        color: theme.colorScheme.onSurface.withValues(alpha: alpha),
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -51,7 +51,7 @@ class BigModeCard extends StatelessWidget {
                       subtitle,
                       style: TextStyle(
                         fontSize: 11,
-                        color: theme.colorScheme.onSurface.withOpacity(alpha * 0.6),
+                        color: theme.colorScheme.onSurface.withValues(alpha: alpha * 0.6),
                       ),
                     ),
                   ],
@@ -63,7 +63,7 @@ class BigModeCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary.withOpacity(alpha),
+                  color: theme.colorScheme.primary.withValues(alpha: alpha),
                 ),
               ),
             ],

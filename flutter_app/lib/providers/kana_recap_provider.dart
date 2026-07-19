@@ -67,7 +67,7 @@ class KanaRecapProvider extends ChangeNotifier {
           successes: entity?.successes ?? 0,
           failures: entity?.failures ?? 0,
         );
-        colorMap[kana.character] = ScorePresentationUtils.getScoreColor(score, Colors.white.withOpacity(0.9));
+        colorMap[kana.character] = ScorePresentationUtils.getScoreColor(score, Colors.white.withValues(alpha: 0.9));
       }
     }
     _kanaColors = colorMap;

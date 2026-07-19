@@ -59,14 +59,13 @@ class WordQuizView extends StatefulWidget {
 }
 
 class _WordQuizViewState extends State<WordQuizView> {
-  late WordQuizProvider _provider;
   bool _canPop = false;
 
   @override
   void initState() {
     super.initState();
-    _provider = context.read<WordQuizProvider>();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +232,7 @@ class _WordQuizViewState extends State<WordQuizView> {
                         style: TextStyle(
                           fontSize: 14,
                           fontStyle: FontStyle.italic,
-                          color: theme.colorScheme.onSurface.withOpacity(0.65),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -257,7 +256,7 @@ class _WordQuizViewState extends State<WordQuizView> {
           final answer = provider.currentAnswers[index];
           final state = provider.buttonStates[index];
 
-          Color bgColor = theme.colorScheme.surface.withOpacity(0.85);
+          Color bgColor = theme.colorScheme.surface.withValues(alpha: 0.85);
           Color textColor = theme.colorScheme.onSurface;
 
           if (state == AnswerButtonState.correct) {
@@ -281,7 +280,7 @@ class _WordQuizViewState extends State<WordQuizView> {
                 foregroundColor: textColor,
                 disabledForegroundColor: textColor,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                side: BorderSide(color: theme.colorScheme.onSurface.withOpacity(0.08)),
+                side: BorderSide(color: theme.colorScheme.onSurface.withValues(alpha: 0.08)),
                 elevation: 4,
               ),
               child: Text(

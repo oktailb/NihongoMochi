@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nihongo_mochi_flutter/l10n/gen/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -52,7 +51,7 @@ void main() async {
         // Services
         Provider<LanguagePackManager>(create: (_) => LanguagePackManager()),
         ProxyProvider<LanguagePackManager, ResourceLoader>(
-          update: (_, lp, __) => ResourceLoader(lp),
+          update: (_, lp, _) => ResourceLoader(lp),
         ),
 
         // Repositories (Singletons)
@@ -61,36 +60,36 @@ void main() async {
           update: (_, settings, previous) => previous ?? (TtsService(settings)..init()),
         ),
         ProxyProvider<SettingsRepository, ScoreRepository>(
-          update: (_, settings, __) => ScoreRepository(database, settings),
+          update: (_, settings, _) => ScoreRepository(database, settings),
         ),
         ProxyProvider<ResourceLoader, DictionaryRepository>(
-          update: (_, loader, __) => DictionaryRepository(loader),
+          update: (_, loader, _) => DictionaryRepository(loader),
         ),
         ProxyProvider<ResourceLoader, WordRepository>(
-          update: (_, loader, __) => WordRepository(loader),
+          update: (_, loader, _) => WordRepository(loader),
         ),
         ProxyProvider<ResourceLoader, WordMeaningRepository>(
-          update: (_, loader, __) => WordMeaningRepository(loader),
+          update: (_, loader, _) => WordMeaningRepository(loader),
         ),
         ProxyProvider<ResourceLoader, GrammarRepository>(
-          update: (_, loader, __) => GrammarRepository(loader),
+          update: (_, loader, _) => GrammarRepository(loader),
         ),
         ProxyProvider<ResourceLoader, KanaRepository>(
-          update: (_, loader, __) => KanaRepository(loader),
+          update: (_, loader, _) => KanaRepository(loader),
         ),
         Provider<KanjiRepository>(create: (_) => KanjiRepository()),
         ProxyProvider<ResourceLoader, ExerciseRepository>(
-          update: (_, loader, __) => ExerciseRepository(loader),
+          update: (_, loader, _) => ExerciseRepository(loader),
         ),
         ProxyProvider<ResourceLoader, LevelRepository>(
-          update: (_, loader, __) => LevelRepository(loader),
+          update: (_, loader, _) => LevelRepository(loader),
         ),
         ProxyProvider<SettingsRepository, AudioService>(
-          update: (_, settings, __) => AudioService(settings),
+          update: (_, settings, _) => AudioService(settings),
           dispose: (_, audio) => audio.dispose(),
         ),
         ProxyProvider4<KanaRepository, DictionaryRepository, WordRepository, ScoreRepository, LevelContentProvider>(
-          update: (_, kana, dict, word, score, __) => LevelContentProvider(
+          update: (_, kana, dict, word, score, _) => LevelContentProvider(
             kanaRepo: kana,
             dictionaryRepo: dict,
             wordRepo: word,
@@ -98,11 +97,12 @@ void main() async {
           ),
         ),
         ProxyProvider2<LevelContentProvider, ScoreRepository, StatisticsService>(
-          update: (_, content, score, __) => StatisticsService(
+          update: (_, content, score, _) => StatisticsService(
             levelContentProvider: content,
             scoreRepo: score,
           ),
         ),
+
 
         // Global Providers (State)
         ChangeNotifierProvider(
@@ -191,10 +191,10 @@ void main() async {
             context.read<WordMeaningRepository>(),
             context.read<ScoreRepository>(),
             context.read<SettingsRepository>(),
-            context.read<KanaRepository>(),
             context.read<AudioService>(),
           ),
         ),
+
       ],
       child: const NihongoMochiApp(),
     ),

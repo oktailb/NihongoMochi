@@ -7,8 +7,8 @@ import '../repositories/word_repository.dart';
 import '../repositories/word_meaning_repository.dart';
 import '../repositories/score_repository.dart';
 import '../repositories/settings_repository.dart';
-import '../repositories/kana_repository.dart';
 import '../services/audio_service.dart';
+
 import '../utils/kana_utils.dart';
 import '../utils/romaji_to_kana.dart';
 
@@ -25,7 +25,6 @@ class ShiritoriProvider extends ChangeNotifier {
   final WordMeaningRepository _meaningRepo;
   final ScoreRepository _scoreRepo;
   final SettingsRepository _settingsRepo;
-  final KanaRepository _kanaRepo;
   final AudioService _audioService;
 
   ShiritoriProvider(
@@ -33,9 +32,9 @@ class ShiritoriProvider extends ChangeNotifier {
     this._meaningRepo,
     this._scoreRepo,
     this._settingsRepo,
-    this._kanaRepo,
     this._audioService,
   ) {
+
     _loadHistory();
     _checkSavedGame();
   }

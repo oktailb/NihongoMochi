@@ -114,7 +114,11 @@ class QuizEngine {
 
     if (isCorrect) {
       final progress = kanaProgress[currentQuestion.kana]!;
-      if (isNormal) progress.normalSolved = true; else progress.reverseSolved = true;
+      if (isNormal) {
+        progress.normalSolved = true;
+      } else {
+        progress.reverseSolved = true;
+      }
 
       if (progress.normalSolved && progress.reverseSolved) {
         kanaStatus[currentQuestion.kana] = GameStatus.correct;

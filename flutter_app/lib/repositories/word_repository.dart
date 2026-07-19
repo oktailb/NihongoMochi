@@ -1,5 +1,4 @@
 import 'dart:convert';
-import '../models/dictionary.dart';
 import '../services/resource_loader.dart';
 
 class WordEntry {

@@ -31,7 +31,7 @@ class _SnakeGameScreenState extends State<SnakeGameScreen> {
     final settings = context.watch<SettingsProvider>();
     final locale = settings.currentLocaleCode;
     final state = provider.gameState;
-    final theme = Theme.of(context);
+
 
     final String title = settings.getString("game_snake_title").isNotEmpty
         ? settings.getString("game_snake_title")

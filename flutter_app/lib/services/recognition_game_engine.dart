@@ -209,8 +209,11 @@ class RecognitionGameEngine {
 
     final progress = kanjiProgress[kanji.character]!;
     if (isCorrect) {
-      if (currentDirection == QuestionDirection.normal) progress.normalSolved = true;
-      else progress.reverseSolved = true;
+      if (currentDirection == QuestionDirection.normal) {
+        progress.normalSolved = true;
+      } else {
+        progress.reverseSolved = true;
+      }
 
       if (progress.normalSolved && progress.reverseSolved) {
         kanjiStatus[kanji.character] = GameStatus.correct;

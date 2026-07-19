@@ -18,7 +18,7 @@ class GrammarGraphPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = lineColor.withOpacity(0.4)
+      ..color = lineColor.withValues(alpha: 0.4)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0 * scale
       ..strokeCap = StrokeCap.round;

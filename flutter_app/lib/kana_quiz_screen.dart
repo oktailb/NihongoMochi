@@ -81,12 +81,12 @@ class _KanaQuizViewState extends State<KanaQuizView> {
         appBar: AppBar(
           title: Text(
             provider.title,
-            style: TextStyle(color: theme.colorScheme.onBackground),
+            style: TextStyle(color: theme.colorScheme.onSurface),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+            icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
             onPressed: () async {
               if (isFinished) {
                 Navigator.of(context).pop();
@@ -175,7 +175,7 @@ class _KanaQuizViewState extends State<KanaQuizView> {
           isNormal 
               ? (isFr ? "Quel est ce kana ?" : "What is this kana?")
               : (isFr ? "Trouvez le kana pour :" : "Find the kana for:"),
-          style: TextStyle(fontSize: 18, color: theme.colorScheme.onBackground.withOpacity(0.7)),
+          style: TextStyle(fontSize: 18, color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
         ),
         const SizedBox(height: 20),
         Card(

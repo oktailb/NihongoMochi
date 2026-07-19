@@ -23,7 +23,6 @@ class RecognitionQuizProvider extends ChangeNotifier {
   int _globalMastery = 0;
   LearningScore? _currentKanjiScore;
 
-  List<String>? _customKanjiList;
 
   RecognitionQuizProvider(
     this._dictionaryRepo,
@@ -48,10 +47,11 @@ class RecognitionQuizProvider extends ChangeNotifier {
     required String locale,
     List<String>? customKanjiList,
   }) async {
+
     _levelId = levelId;
     _gameMode = gameMode;
     _locale = locale;
-    _customKanjiList = customKanjiList;
+
     _sessionMastery = 0;
     _globalMastery = 0;
     _currentKanjiScore = null;

@@ -148,7 +148,7 @@ class DictionaryRepository {
           id: id,
           character: item['character'] ?? '',
           strokeCount: int.tryParse(item['strokes']?.toString() ?? '0') ?? 0,
-          readings: readingsList.where((r) => r is Map).map((r) => ReadingInfo(
+          readings: readingsList.whereType<Map>().map((r) => ReadingInfo(
             text: r['#text'] ?? '',
             type: r['type'] ?? 'on',
           )).toList(),
@@ -157,7 +157,7 @@ class DictionaryRepository {
           levelIds: item['level'] is List ? List<String>.from(item['level']) : (item['level'] != null ? [item['level'].toString()] : []),
           displayLabelKeys: item['level'] is List ? List<String>.from(item['level']) : (item['level'] != null ? [item['level'].toString()] : []),
           structure: componentsData is Map ? componentsData['structure']?.toString() : null,
-          components: componentsList.where((c) => c is Map).map((c) => ComponentEntry(
+          components: componentsList.whereType<Map>().map((c) => ComponentEntry(
             kanjiRef: c['kanji_ref']?.toString() ?? c['@kanji_ref']?.toString(),
             text: c['#text']?.toString(),
           )).toList(),

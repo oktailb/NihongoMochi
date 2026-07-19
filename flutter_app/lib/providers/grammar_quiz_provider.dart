@@ -24,7 +24,7 @@ class GrammarQuizProvider extends ChangeNotifier {
   List<Exercise> _allExercises = [];
   List<Exercise> _currentSet = [];
   List<Exercise> _revisionList = [];
-  Map<String, GameStatus> _exercisesStatus = {};
+  final Map<String, GameStatus> _exercisesStatus = {};
   int _listPosition = 0;
 
   Exercise? _currentExercise;

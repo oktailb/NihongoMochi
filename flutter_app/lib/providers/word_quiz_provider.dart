@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../models/quiz_models.dart';
-import '../models/dictionary.dart';
 import '../repositories/word_repository.dart';
 import '../repositories/score_repository.dart';
 import '../repositories/word_meaning_repository.dart';
@@ -28,7 +27,6 @@ class WordQuizProvider extends ChangeNotifier {
 
   String? _levelId;
   String? _locale;
-  List<String>? _customWordList;
 
   int _sessionMastery = 0;
   int _globalMastery = 0;
@@ -64,8 +62,8 @@ class WordQuizProvider extends ChangeNotifier {
     _errorCount = 0;
     _levelId = levelId;
     _locale = locale;
-    _customWordList = customWordList;
     _engine.reset();
+
     notifyListeners();
 
     List<WordEntry> filtered;

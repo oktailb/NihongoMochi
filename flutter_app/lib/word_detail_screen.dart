@@ -50,7 +50,7 @@ class WordDetailView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onBackground),
+          icon: Icon(Icons.arrow_back, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -88,7 +88,7 @@ class WordDetailView extends StatelessWidget {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.colorScheme.surface.withOpacity(0.9),
+      color: theme.colorScheme.surface.withValues(alpha: 0.9),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(24),
@@ -99,7 +99,7 @@ class WordDetailView extends StatelessWidget {
               child: IconButton(
                 icon: Icon(
                   provider.isInRevisionList ? Icons.star : Icons.star_border,
-                  color: provider.isInRevisionList ? theme.colorScheme.primary : theme.colorScheme.onSurface.withOpacity(0.5),
+                  color: provider.isInRevisionList ? theme.colorScheme.primary : theme.colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
                 onPressed: () => provider.toggleRevisionList(),
               ),
@@ -153,7 +153,7 @@ class WordDetailView extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
+            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
             letterSpacing: 1.2,
           ),
         ),
@@ -167,9 +167,9 @@ class WordDetailView extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.7),
+        color: theme.colorScheme.surface.withValues(alpha: 0.7),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
+        border: Border.all(color: theme.colorScheme.outline.withValues(alpha: 0.2)),
       ),
       child: Text(
         meaning,

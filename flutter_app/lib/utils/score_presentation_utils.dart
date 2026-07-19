@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/quiz_models.dart';
-import '../repositories/score_repository.dart';
 
 class ScorePresentationUtils {
   static const Color colorGreen = Color(0xFF4CAF50);

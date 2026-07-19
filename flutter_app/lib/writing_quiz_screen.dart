@@ -273,9 +273,9 @@ class _WritingQuizViewState extends State<WritingQuizView> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.85),
+        color: theme.colorScheme.surface.withValues(alpha: 0.85),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-        border: Border(top: BorderSide(color: theme.colorScheme.onSurface.withOpacity(0.08))),
+        border: Border(top: BorderSide(color: theme.colorScheme.onSurface.withValues(alpha: 0.08))),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -283,7 +283,7 @@ class _WritingQuizViewState extends State<WritingQuizView> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceVariant.withOpacity(0.8),
+              color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.8),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -309,7 +309,7 @@ class _WritingQuizViewState extends State<WritingQuizView> {
               hintText: provider.currentQuestionType == QuestionType.reading ? "romaji -> kana" : settings.getString("your_answer"),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               filled: true,
-              fillColor: theme.colorScheme.surface.withOpacity(0.5),
+              fillColor: theme.colorScheme.surface.withValues(alpha: 0.5),
             ),
             enabled: !isProcessing,
             onChanged: (val) {
@@ -340,9 +340,9 @@ class _WritingQuizViewState extends State<WritingQuizView> {
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, 52),
               backgroundColor: theme.colorScheme.secondary,
-              disabledBackgroundColor: provider.state == GameState.showingResult ? buttonColor : theme.colorScheme.onSurface.withOpacity(0.12),
+              disabledBackgroundColor: provider.state == GameState.showingResult ? buttonColor : theme.colorScheme.onSurface.withValues(alpha: 0.12),
               foregroundColor: theme.colorScheme.onSecondary,
-              disabledForegroundColor: provider.state == GameState.showingResult ? Colors.white : theme.colorScheme.onSurface.withOpacity(0.38),
+              disabledForegroundColor: provider.state == GameState.showingResult ? Colors.white : theme.colorScheme.onSurface.withValues(alpha: 0.38),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               elevation: 4,
             ),

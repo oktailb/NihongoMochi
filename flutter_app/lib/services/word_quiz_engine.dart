@@ -1,8 +1,7 @@
-import 'dart:math';
 import '../models/quiz_models.dart';
 
 class WordQuizEngine {
-  final Random _random = Random();
+
 
   bool isGameInitialized = false;
   List<WordQuizItem> allWords = [];

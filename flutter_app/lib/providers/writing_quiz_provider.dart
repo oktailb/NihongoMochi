@@ -28,7 +28,7 @@ class WritingQuizProvider extends ChangeNotifier {
   List<DictionaryItem> _allKanji = [];
   List<DictionaryItem> _currentSet = [];
   List<DictionaryItem> _revisionList = [];
-  Map<String, KanjiProgress> _progressMap = {};
+  final Map<String, KanjiProgress> _progressMap = {};
   final Map<String, GameStatus> _kanjiStatus = {};
 
   DictionaryItem? _currentKanji;
@@ -42,9 +42,6 @@ class WritingQuizProvider extends ChangeNotifier {
 
   String? _levelId;
   String? _locale;
-  List<String>? _customKanjiList;
-  KanjiSortOrder _sortOrder = KanjiSortOrder.defaultOrder;
-  int _quizSize = 80;
 
   int _sessionMastery = 0;
   int _globalMastery = 0;
@@ -79,13 +76,10 @@ class WritingQuizProvider extends ChangeNotifier {
     KanjiSortOrder sortOrder = KanjiSortOrder.defaultOrder,
     int quizSize = 80,
   }) async {
-    _levelId = levelId;
     _locale = locale;
-    _customKanjiList = customKanjiList;
-    _sortOrder = sortOrder;
-    _quizSize = quizSize;
 
     _state = GameState.loading;
+
     notifyListeners();
 
     // 1. Get kanjis for level
@@ -231,7 +225,11 @@ class WritingQuizProvider extends ChangeNotifier {
     if (isCorrect) {
       _audioService.playSound("assets/files/sounds/correct.mp3");
       final p = _progressMap[_currentKanji!.id]!;
-      if (_currentQuestionType == QuestionType.meaning) p.meaningSolved = true; else p.readingSolved = true;
+      if (_currentQuestionType == QuestionType.meaning) {
+        p.meaningSolved = true;
+      } else {
+        p.readingSolved = true;
+      }
 
       if (p.meaningSolved && p.readingSolved) {
         _kanjiStatus[_currentKanji!.id] = GameStatus.correct;

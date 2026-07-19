@@ -51,7 +51,7 @@ class MemorizeGridSize {
   int get pairsCount => totalCards ~/ 2;
 
   @override
-  String toString() => '${cols}x${rows}';
+  String toString() => '${cols}x$rows';
 
   factory MemorizeGridSize.fromJson(Map<String, dynamic> json) => _$MemorizeGridSizeFromJson(json);
   Map<String, dynamic> toJson() => _$MemorizeGridSizeToJson(this);

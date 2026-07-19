@@ -36,7 +36,7 @@ class _TutorialOverlayState extends State<TutorialOverlay> {
             child: GestureDetector(
               onTap: _nextStep,
               child: Container(
-                color: Colors.black.withOpacity(0.4),
+                color: Colors.black.withValues(alpha: 0.4),
               ),
             ),
           ),

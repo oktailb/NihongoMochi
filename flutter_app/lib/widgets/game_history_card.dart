@@ -16,7 +16,7 @@ class GameHistoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: Colors.white.withOpacity(0.9),
+      color: Colors.white.withValues(alpha: 0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:xml/xml.dart';
 
 class StringProvider {
-  Map<String, String> _localizedStrings = {};
+  final Map<String, String> _localizedStrings = {};
 
   Future<void> loadStrings(String locale) async {
     _localizedStrings.clear();

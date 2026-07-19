@@ -373,7 +373,7 @@ class SnakeProvider extends ChangeNotifier {
     final stateMap = {
       'gameState': _gameState.toJson(),
       'itemSequence': _itemSequence,
-      'currentWord': _currentWord != null ? _currentWord.toJson() : null,
+      'currentWord': _currentWord?.toJson(),
     };
     _settingsRepo.setStringGeneric("game_state_snake", jsonEncode(stateMap));
     _hasSavedGame = true;

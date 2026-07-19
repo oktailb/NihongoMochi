@@ -7,7 +7,6 @@ import 'repositories/score_repository.dart';
 import 'repositories/word_meaning_repository.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/recap_components.dart';
-import 'widgets/game_components.dart';
 import 'word_detail_screen.dart';
 import 'word_quiz_screen.dart';
 import 'main.dart'; // To access routeObserver
@@ -133,9 +132,9 @@ class _WordListViewState extends State<WordListView> with RouteAware {
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: theme.colorScheme.surface.withOpacity(0.8),
+        color: theme.colorScheme.surface.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: theme.colorScheme.onSurface.withOpacity(0.08)),
+        border: Border.all(color: theme.colorScheme.onSurface.withValues(alpha: 0.08)),
       ),
       child: Column(
         children: [
@@ -165,9 +164,9 @@ class _WordListViewState extends State<WordListView> with RouteAware {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: theme.colorScheme.surface.withOpacity(0.5),
+              color: theme.colorScheme.surface.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: theme.colorScheme.onSurface.withOpacity(0.12)),
+              border: Border.all(color: theme.colorScheme.onSurface.withValues(alpha: 0.12)),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
@@ -217,9 +216,12 @@ class _WordListViewState extends State<WordListView> with RouteAware {
                 builder: (context) => WordDetailScreen(wordText: item.word.text),
               ),
             ).then((_) {
-              final locale = context.read<SettingsProvider>().currentLocaleCode;
-              provider.loadList(widget.levelId, locale);
+              if (context.mounted) {
+                final locale = context.read<SettingsProvider>().currentLocaleCode;
+                provider.loadList(widget.levelId, locale);
+              }
             });
+
           },
         );
       }).toList(),
@@ -301,7 +303,7 @@ class WordChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -324,7 +326,7 @@ class WordChip extends StatelessWidget {
                 meaning!,
                 style: TextStyle(
                   fontSize: 11,
-                  color: theme.colorScheme.onSurface.withOpacity(0.7),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,

@@ -32,11 +32,11 @@ class _AboutScreenState extends State<AboutScreen> {
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       if (mounted) {
-        final settings = context.read<SettingsProvider>();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Impossible d\'ouvrir : $url')),
         );
       }
+
     }
   }
 
@@ -49,11 +49,11 @@ class _AboutScreenState extends State<AboutScreen> {
       appBar: AppBar(
         title: Text(
           settings.getString("menu_about"),
-          style: TextStyle(color: theme.colorScheme.onBackground),
+          style: TextStyle(color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
+        iconTheme: IconThemeData(color: theme.colorScheme.onSurface),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -90,7 +90,8 @@ class _AboutScreenState extends State<AboutScreen> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.asset('assets/drawable/ebi.webp', width: 48, height: 48, errorBuilder: (_, __, ___) => const Icon(Icons.pets, size: 48)),
+                          child: Image.asset('assets/drawable/ebi.webp', width: 48, height: 48, errorBuilder: (_, _, _) => const Icon(Icons.pets, size: 48)),
+
                         ),
                         const SizedBox(width: 12),
                         Expanded(
@@ -98,7 +99,7 @@ class _AboutScreenState extends State<AboutScreen> {
                             settings.getString("in_memoriam"),
                             style: TextStyle(
                               fontSize: 12,
-                              color: theme.colorScheme.onSurface.withOpacity(0.7),
+                              color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                               fontStyle: FontStyle.italic,
                             ),
                           ),
@@ -151,7 +152,7 @@ class _AboutScreenState extends State<AboutScreen> {
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.colorScheme.surface.withOpacity(0.9),
+      color: theme.colorScheme.surface.withValues(alpha: 0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),

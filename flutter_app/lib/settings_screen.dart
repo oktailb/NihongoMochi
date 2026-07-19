@@ -45,10 +45,10 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(settings.getString("settings_title"), style: TextStyle(color: Theme.of(context).colorScheme.onBackground)),
+        title: Text(settings.getString("settings_title"), style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onBackground),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
       ),
       extendBodyBehindAppBar: true,
       body: MochiBackground(
@@ -228,7 +228,7 @@ class SettingsScreen extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      color: theme.colorScheme.surface.withOpacity(0.9),
+      color: theme.colorScheme.surface.withValues(alpha: 0.9),
       elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(16.0),

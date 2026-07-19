@@ -165,7 +165,11 @@ class GrammarProvider extends ChangeNotifier {
 
           final side = preferredSide ?? (leftCount <= rightCount ? 0.3 : 0.7);
           assignedSides[rule.id] = side;
-          if (side < 0.5) leftCount++; else rightCount++;
+          if (side < 0.5) {
+            leftCount++;
+          } else {
+            rightCount++;
+          }
 
           // Score & HasLesson
           final scoreEntity = await _scoreRepo.getScore(rule.id, ScoreType.grammar);

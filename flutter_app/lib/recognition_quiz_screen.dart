@@ -132,12 +132,12 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
         appBar: AppBar(
           title: Text(
             settings.getString(engine.gameMode == "meaning" ? "game_recap_meaning" : "game_recap_reading"),
-            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onBackground),
+            icon: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onSurface),
             onPressed: () async {
               if (isFinished) {
                 Navigator.of(context).pop();
@@ -181,7 +181,7 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.06),
+                            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.06),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
@@ -245,8 +245,8 @@ class _RecognitionQuizViewState extends State<RecognitionQuizView> {
   }
 
   Widget _buildAnswerArea(BuildContext context, RecognitionQuizProvider provider) {
-    final engine = provider.engine;
     return Padding(
+
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [

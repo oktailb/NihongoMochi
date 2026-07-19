@@ -19,7 +19,7 @@ class GameProgressBar extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-      color: theme.colorScheme.surface.withOpacity(0.5),
+      color: theme.colorScheme.surface.withValues(alpha: 0.5),
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       child: Padding(
@@ -47,7 +47,7 @@ class GameProgressBar extends StatelessWidget {
                 break;
               default:
                 icon = Icons.radio_button_unchecked;
-                color = theme.colorScheme.onSurface.withOpacity(0.4);
+                color = theme.colorScheme.onSurface.withValues(alpha: 0.4);
             }
 
             return Expanded(
@@ -198,7 +198,7 @@ class _FlippableQuestionCardState extends State<FlippableQuestionCard> with Sing
             if (!isBack)
               Align(
                 alignment: Alignment.topRight,
-                child: Icon(Icons.rotate_right, color: theme.colorScheme.onSurface.withOpacity(0.3), size: 32),
+                child: Icon(Icons.rotate_right, color: theme.colorScheme.onSurface.withValues(alpha: 0.3), size: 32),
               ),
             Center(
               child: isBack
@@ -353,7 +353,7 @@ class GameResultOverlay extends StatelessWidget {
     final settings = context.read<SettingsProvider>();
     
     return Container(
-      color: Colors.black.withOpacity(0.7),
+      color: Colors.black.withValues(alpha: 0.7),
       padding: const EdgeInsets.all(24),
       alignment: Alignment.center,
       child: Card(
