@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'mochi_background.dart';
 import 'play_button.dart';
+import 'mochi_back_button.dart';
 
 class GameSetupTemplate extends StatelessWidget {
   final String title;
@@ -19,6 +20,12 @@ class GameSetupTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const MochiBackButton(),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      extendBodyBehindAppBar: true,
       body: MochiBackground(
         child: SafeArea(
           child: Column(
@@ -46,6 +53,7 @@ class GameSetupTemplate extends StatelessWidget {
                   ],
                 ),
               ),
+
               // Content
               Expanded(
                 child: ListView.separated(

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'models/saga.dart';
 import 'providers/saga_provider.dart';
 import 'widgets/mochi_background.dart';
+import 'widgets/mochi_back_button.dart';
 import 'widgets/saga_node_item.dart';
 import 'widgets/billboard_item.dart';
 import 'widgets/saga_path_painter.dart';
@@ -30,6 +31,7 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SagaProvider>();
+    final canPop = Navigator.of(context).canPop();
 
     return Scaffold(
       body: MochiBackground(
@@ -39,6 +41,29 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
               const Center(child: CircularProgressIndicator())
             else
               const SagaMapContent(),
+
+            // Top-left floating back button
+            if (canPop)
+              Positioned(
+                top: 12,
+                left: 12,
+                child: SafeArea(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.85),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.1),
+                          blurRadius: 8,
+                        ),
+                      ],
+                    ),
+                    child: const MochiBackButton(),
+                  ),
+                ),
+              ),
+
 
             // Bottom controls overlay
             Positioned(
