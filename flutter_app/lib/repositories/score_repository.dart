@@ -106,7 +106,39 @@ class ScoreRepository {
     return row != null;
   }
 
+  /// Applies decay to scores that haven't been reviewed for a while (1+ weeks).
+  /// Reduces successes by 10% per unreviewed week (max 50% reduction).
+  /// Returns true if any score was decayed/updated, false otherwise.
+  Future<bool> decayScores() async {
+    bool anyDecayed = false;
+    final now = DateTime.now().millisecondsSinceEpoch;
+    const oneWeekMs = 7 * 24 * 60 * 60 * 1000;
+
+    final allScores = await db.select(db.learningScoreEntities).get();
+    for (final entity in allScores) {
+      if (entity.lastReviewDate <= 0) continue;
+      final weeksPassed = (now - entity.lastReviewDate) ~/ oneWeekMs;
+      if (weeksPassed >= 1 && entity.successes > 0) {
+        final decayPercent = (weeksPassed * 0.10).clamp(0.0, 0.50);
+        final newSuccesses = (entity.successes * (1.0 - decayPercent)).round();
+
+        await db.into(db.learningScoreEntities).insertOnConflictUpdate(
+          LearningScoreEntity(
+            key: entity.key,
+            type: entity.type,
+            successes: newSuccesses,
+            failures: entity.failures,
+            lastReviewDate: now,
+          ),
+        );
+        anyDecayed = true;
+      }
+    }
+    return anyDecayed;
+  }
+
   // --- Gestion de l'historique des jeux (Game Histories) ---
+
 
   Future<void> saveGameHistory({
     required String gameType,

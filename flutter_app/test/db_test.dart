@@ -92,4 +92,28 @@ void main() {
     revisionList = await scoreRepo.getListItems('Recognition_List');
     expect(revisionList, isNot(contains('字')));
   });
+
+  test('Test decayScores reduces successes for items unreviewed for >= 1 week', () async {
+    final twoWeeksAgo = DateTime.now().subtract(const Duration(days: 14)).millisecondsSinceEpoch;
+
+    // Insert score reviewed 2 weeks ago with 10 successes
+    await db.into(db.learningScoreEntities).insert(
+      LearningScoreEntity(
+        key: '木',
+        type: 'RECOGNITION',
+        successes: 10,
+        failures: 0,
+        lastReviewDate: twoWeeksAgo,
+      ),
+    );
+
+    // Run decay (2 weeks passed = 20% decay => 10 * 0.8 = 8 successes)
+    final decayed = await scoreRepo.decayScores();
+    expect(decayed, isTrue);
+
+    final score = await scoreRepo.getScore('木', ScoreType.recognition);
+    expect(score, isNotNull);
+    expect(score!.successes, equals(8));
+  });
 }
+

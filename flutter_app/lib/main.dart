@@ -41,6 +41,11 @@ void main() async {
 
   final database = MochiDatabase();
   final prefs = await SharedPreferences.getInstance();
+  final settingsRepo = SettingsRepository(prefs);
+  final scoreRepo = ScoreRepository(database, settingsRepo);
+
+  // Trigger score decay in background on application launch
+  scoreRepo.decayScores();
 
   runApp(
     MultiProvider(
@@ -55,13 +60,12 @@ void main() async {
         ),
 
         // Repositories (Singletons)
-        Provider<SettingsRepository>(create: (_) => SettingsRepository(prefs)),
+        Provider<SettingsRepository>.value(value: settingsRepo),
+        Provider<ScoreRepository>.value(value: scoreRepo),
         ProxyProvider<SettingsRepository, TtsService>(
           update: (_, settings, previous) => previous ?? (TtsService(settings)..init()),
         ),
-        ProxyProvider<SettingsRepository, ScoreRepository>(
-          update: (_, settings, _) => ScoreRepository(database, settings),
-        ),
+
         ProxyProvider<ResourceLoader, DictionaryRepository>(
           update: (_, loader, _) => DictionaryRepository(loader),
         ),
