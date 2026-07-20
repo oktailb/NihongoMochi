@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'providers/settings_provider.dart';
 import 'widgets/mochi_background.dart';
 import 'widgets/big_mode_card.dart';
 import 'simon_setup_screen.dart';
@@ -13,11 +15,21 @@ import 'particle_defender_screen.dart';
 class GamesScreen extends StatelessWidget {
   const GamesScreen({super.key});
 
+  String _str(SettingsProvider settings, String key, String fallback) {
+    final val = settings.getString(key);
+    return (val.isNotEmpty && val != key) ? val : fallback;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final settings = context.watch<SettingsProvider>();
+
+    final screenTitle = _str(settings, "games_title", "Games");
+    final sectionTitle = _str(settings, "section_challenges", "CHALLENGES").toUpperCase();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Jeux"),
+        title: Text(screenTitle),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -29,9 +41,9 @@ class GamesScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "DÉFIS LUDIQUES",
-                  style: TextStyle(
+                Text(
+                  sectionTitle,
+                  style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Colors.black54,
@@ -40,8 +52,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 BigModeCard(
-                  title: "Taquin",
-                  subtitle: "Reconstituez l'image ou l'ordre des kanas",
+                  title: _str(settings, "game_taquin_title", "Taquin"),
+                  subtitle: _str(settings, "game_taquin_subtitle", "Put the characters in order"),
                   kanjiTitle: "パズル",
                   onClick: () {
                     Navigator.push(
@@ -54,8 +66,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Simon",
-                  subtitle: "Mémorisez et répétez la séquence",
+                  title: _str(settings, "game_simon_title", "Simon"),
+                  subtitle: _str(settings, "game_simon_subtitle", "Memorize and repeat the sequence"),
                   kanjiTitle: "記憶",
                   onClick: () {
                     Navigator.push(
@@ -68,8 +80,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Memorize",
-                  subtitle: "Trouvez les paires correspondantes",
+                  title: _str(settings, "game_memorize_title", "Memorize"),
+                  subtitle: _str(settings, "game_memorize_subtitle", "Find pairs of cards"),
                   kanjiTitle: "神経衰弱",
                   onClick: () {
                     Navigator.push(
@@ -82,8 +94,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Kana Link",
-                  subtitle: "Reliez les kanas pour vider la grille",
+                  title: _str(settings, "game_kana_link_title", "Kana Link"),
+                  subtitle: _str(settings, "game_kana_link_subtitle", "Link Kanas to form words and clear blocks"),
                   kanjiTitle: "リンク",
                   onClick: () {
                     Navigator.push(
@@ -96,8 +108,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Mots Croisés",
-                  subtitle: "Complétez la grille de vocabulaire",
+                  title: _str(settings, "game_crosswords_title", "Crosswords"),
+                  subtitle: _str(settings, "game_crosswords_subtitle", "Thematic crosswords by JLPT level"),
                   kanjiTitle: "十字語",
                   onClick: () {
                     Navigator.push(
@@ -110,8 +122,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Snake",
-                  subtitle: "Mangez les bons kanas dans l'ordre",
+                  title: _str(settings, "game_snake_title", "Snake"),
+                  subtitle: _str(settings, "game_snake_subtitle", "Learn characters by eating them in order"),
                   kanjiTitle: "ヘビ",
                   onClick: () {
                     Navigator.push(
@@ -124,8 +136,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Shiritori",
-                  subtitle: "Le jeu du dernier mot",
+                  title: _str(settings, "game_shiritori_title", "Shiritori"),
+                  subtitle: _str(settings, "game_shiritori_subtitle", "Japanese word chain game"),
                   kanjiTitle: "しりとり",
                   onClick: () {
                     Navigator.push(
@@ -138,8 +150,8 @@ class GamesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 BigModeCard(
-                  title: "Particules",
-                  subtitle: "Défendez votre base avec les bonnes particules",
+                  title: _str(settings, "game_particles_title", "Particle Defender"),
+                  subtitle: _str(settings, "game_particles_subtitle", "Find the right particle"),
                   kanjiTitle: "助詞",
                   onClick: () {
                     Navigator.push(
@@ -159,3 +171,4 @@ class GamesScreen extends StatelessWidget {
     );
   }
 }
+
