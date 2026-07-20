@@ -10,6 +10,9 @@ import 'widgets/billboard_item.dart';
 import 'widgets/saga_path_painter.dart';
 import 'game_recap_screen.dart';
 import 'providers/settings_provider.dart';
+import 'repositories/score_repository.dart';
+import 'repositories/settings_repository.dart';
+
 
 class SagaMapScreen extends StatefulWidget {
   const SagaMapScreen({super.key});
@@ -294,10 +297,17 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
           border: Border.all(color: isSelected ? Colors.pink : Colors.transparent, width: 2),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Image.asset(asset, width: 44, height: 44, fit: BoxFit.contain),
+        child: Image.asset(
+          asset,
+          width: 44,
+          height: 44,
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => const Icon(Icons.pets, size: 44),
+        ),
       ),
     );
   }
+
 
   void _showLoadingAndSignIn(BuildContext context, SagaProvider provider, String type) {
     final navigator = Navigator.of(context);
@@ -434,21 +444,28 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
   void _showBackupDialog(BuildContext context, SagaProvider provider) {
     showDialog(
       context: context,
-      builder: (context) {
+      builder: (dialogContext) {
         return AlertDialog(
-          title: const Text("Sauvegarde Cloud"),
-          content: const Text("Voulez-vous sauvegarder votre progression actuelle dans le stockage local persistant simulé ?"),
+          title: const Text("Sauvegarde de Progression"),
+          content: const Text("Voulez-vous sauvegarder votre progression actuelle (scores, listes de révision et historique) ?"),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.pop(dialogContext),
               child: const Text("Annuler"),
             ),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Sauvegarde effectuée avec succès !")),
-                );
+              onPressed: () async {
+                Navigator.pop(dialogContext);
+                final scoreRepo = context.read<ScoreRepository>();
+                final settingsRepo = context.read<SettingsRepository>();
+                final jsonStr = await scoreRepo.exportDataJson();
+                await settingsRepo.setStringGeneric("cloud_backup_data", jsonStr);
+
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Sauvegarde effectuée avec succès !")),
+                  );
+                }
               },
               child: const Text("Sauvegarder"),
             ),
@@ -461,21 +478,42 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
   void _showRestoreDialog(BuildContext context, SagaProvider provider) {
     showDialog(
       context: context,
-      builder: (context) {
+      builder: (dialogContext) {
         return AlertDialog(
-          title: const Text("Restauration Cloud"),
-          content: const Text("Voulez-vous restaurer la progression de votre compte ? Cela écrasera les données locales actuelles."),
+          title: const Text("Restauration de Progression"),
+          content: const Text("Voulez-vous restaurer votre progression sauvegardée ? Cela réintégrera vos scores et listes de révision."),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.pop(dialogContext),
               child: const Text("Annuler"),
             ),
             ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Restauration effectuée avec succès !")),
-                );
+              onPressed: () async {
+                Navigator.pop(dialogContext);
+                final scoreRepo = context.read<ScoreRepository>();
+                final settingsRepo = context.read<SettingsRepository>();
+                final backupStr = settingsRepo.getStringGeneric("cloud_backup_data");
+
+                if (backupStr != null && backupStr.isNotEmpty) {
+                  final success = await scoreRepo.importDataJson(backupStr);
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(success
+                            ? "Restauration effectuée avec succès !"
+                            : "Erreur lors de la restauration des données."),
+                      ),
+                    );
+                    final locale = context.read<SettingsProvider>().currentLocaleCode;
+                    provider.loadSaga(provider.currentTab, locale);
+                  }
+                } else {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Aucune sauvegarde trouvée.")),
+                    );
+                  }
+                }
               },
               child: const Text("Restaurer"),
             ),
@@ -484,6 +522,7 @@ class _SagaMapScreenState extends State<SagaMapScreen> {
       },
     );
   }
+
 }
 
 class _ActionButton extends StatelessWidget {
@@ -914,8 +953,13 @@ class _PlayerAvatarWidget extends StatelessWidget {
             ],
           ),
           child: ClipOval(
-            child: Image.asset(avatarAsset, fit: BoxFit.contain),
+            child: Image.asset(
+              avatarAsset,
+              fit: BoxFit.contain,
+              errorBuilder: (_, _, _) => const Icon(Icons.person, size: 32),
+            ),
           ),
+
         ),
         const SizedBox(height: 4),
         Container(

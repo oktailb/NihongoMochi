@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:drift/drift.dart';
 import '../db/database.dart';
 import 'settings_repository.dart';
@@ -14,6 +15,75 @@ class ScoreRepository {
   String _typeToString(ScoreType type) {
     return type.name.toUpperCase();
   }
+
+  /// Exports all user scores and list items to a JSON string for backup.
+  Future<String> exportDataJson() async {
+    final allScores = await db.select(db.learningScoreEntities).get();
+    final allLists = await db.select(db.userLists).get();
+
+    final scoresData = allScores
+        .map((s) => {
+              'key': s.key,
+              'type': s.type,
+              'successes': s.successes,
+              'failures': s.failures,
+              'lastReviewDate': s.lastReviewDate,
+            })
+        .toList();
+
+    final listsData = allLists
+        .map((l) => {
+              'listName': l.listName,
+              'itemKey': l.itemKey,
+            })
+        .toList();
+
+    return jsonEncode({
+      'version': 1,
+      'exportedAt': DateTime.now().millisecondsSinceEpoch,
+      'scores': scoresData,
+      'userLists': listsData,
+    });
+  }
+
+  /// Restores user scores and list items from a JSON backup string.
+  Future<bool> importDataJson(String jsonStr) async {
+    try {
+      final data = jsonDecode(jsonStr) as Map<String, dynamic>;
+      final scores = data['scores'] as List<dynamic>?;
+      if (scores != null) {
+        for (final item in scores) {
+          final m = item as Map<String, dynamic>;
+          await db.into(db.learningScoreEntities).insertOnConflictUpdate(
+                LearningScoreEntity(
+                  key: m['key'] as String,
+                  type: m['type'] as String,
+                  successes: (m['successes'] as num).toInt(),
+                  failures: (m['failures'] as num).toInt(),
+                  lastReviewDate: (m['lastReviewDate'] as num).toInt(),
+                ),
+              );
+        }
+      }
+
+      final lists = data['userLists'] as List<dynamic>?;
+      if (lists != null) {
+        for (final item in lists) {
+          final m = item as Map<String, dynamic>;
+          await db.into(db.userLists).insertOnConflictUpdate(
+                UserList(
+                  listName: m['listName'] as String,
+                  itemKey: m['itemKey'] as String,
+                ),
+              );
+        }
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
 
   Future<void> saveScore({
     required String key,

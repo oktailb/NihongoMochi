@@ -39,14 +39,15 @@ class SagaProvider extends ChangeNotifier {
     _accountType = type;
     if (type == "Google") {
       _displayName = "Chrome Explorer";
-      _avatarAsset = "assets/drawable/mascot_chrome.webp";
+      _avatarAsset = "assets/drawable/nihongomochi.webp";
     } else if (type == "Firefox") {
       _displayName = "Firefox Fox";
-      _avatarAsset = "assets/drawable/mascot_firefox.webp";
+      _avatarAsset = "assets/drawable/toori.webp";
     } else {
       _displayName = (customName == null || customName.isEmpty) ? "Mochi Student" : customName;
       _avatarAsset = customAvatar ?? "assets/drawable/nihongomochi.webp";
     }
+
 
     await _settingsRepo.setBool("auth_authenticated", true);
     await _settingsRepo.setStringGeneric("auth_display_name", _displayName!);
