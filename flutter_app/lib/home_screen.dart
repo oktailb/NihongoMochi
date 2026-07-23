@@ -30,6 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   bool _isLoading = true;
 
+  String? _currentLevelId;
+  Future<Map<String, bool>>? _activitiesStatusFuture;
+
   @override
   void initState() {
     super.initState();
@@ -61,16 +64,34 @@ class _HomeScreenState extends State<HomeScreen> {
       if (idx != -1) {
         setState(() {
           _selectedIndex = idx;
+          _currentLevelId = levels[idx].id;
+          _activitiesStatusFuture = _getActivitiesStatus(levels[idx]);
         });
       }
     }
   }
 
   void _onLevelChanged(int index, List<LevelDefinition> levels) {
-    setState(() => _selectedIndex = index);
+    setState(() {
+      _selectedIndex = index;
+      if (index >= 0 && index < levels.length) {
+        _currentLevelId = levels[index].id;
+        _activitiesStatusFuture = _getActivitiesStatus(levels[index]);
+      }
+    });
     if (index >= 0 && index < levels.length) {
       context.read<SettingsRepository>().setSelectedLevel(levels[index].id);
     }
+  }
+
+  Map<String, bool> _getSyncActivitiesStatus(LevelDefinition? level) {
+    if (level == null) return {};
+    return {
+      'RECOGNITION': level.activities['RECOGNITION']?.enabled == true,
+      'READING': level.activities['READING']?.enabled == true,
+      'WRITING': level.activities['WRITING']?.enabled == true,
+      'GRAMMAR': level.activities['GRAMMAR']?.enabled == true,
+    };
   }
 
   Future<Map<String, bool>> _getActivitiesStatus(LevelDefinition level) async {
@@ -114,18 +135,19 @@ class _HomeScreenState extends State<HomeScreen> {
     int displayIndex = _selectedIndex.clamp(0, (filteredLevels.length - 1).clamp(0, 999));
     final currentLevel = filteredLevels.isNotEmpty ? filteredLevels[displayIndex] : null;
 
+    if (currentLevel != null && (currentLevel.id != _currentLevelId || _activitiesStatusFuture == null)) {
+      _currentLevelId = currentLevel.id;
+      _activitiesStatusFuture = _getActivitiesStatus(currentLevel);
+    }
+
     return Scaffold(
       body: MochiBackground(
         child: SafeArea(
           child: FutureBuilder<Map<String, bool>>(
-            future: currentLevel != null ? _getActivitiesStatus(currentLevel) : Future.value({}),
+            future: _activitiesStatusFuture,
+            initialData: _getSyncActivitiesStatus(currentLevel),
             builder: (context, snapshot) {
-              final status = snapshot.data ?? {
-                'RECOGNITION': false,
-                'READING': false,
-                'WRITING': false,
-                'GRAMMAR': false,
-              };
+              final status = snapshot.data ?? _getSyncActivitiesStatus(currentLevel);
 
               final isRecEnabled = status['RECOGNITION'] ?? false;
               final isReadEnabled = status['READING'] ?? false;

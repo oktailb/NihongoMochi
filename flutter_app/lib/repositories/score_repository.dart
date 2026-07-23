@@ -148,6 +148,16 @@ class ScoreRepository {
         .get();
   }
 
+  /// Fetches all scores from database in a single query, grouped by score type.
+  Future<Map<String, Map<String, LearningScoreEntity>>> getAllScoresGroupedByType() async {
+    final rows = await db.select(db.learningScoreEntities).get();
+    final Map<String, Map<String, LearningScoreEntity>> map = {};
+    for (var row in rows) {
+      map.putIfAbsent(row.type, () => {})[row.key] = row;
+    }
+    return map;
+  }
+
   // --- Gestion des listes (Revision Lists) ---
 
   Future<void> addItemToList(String listName, String itemKey) async {

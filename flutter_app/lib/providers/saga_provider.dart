@@ -147,7 +147,14 @@ class SagaProvider extends ChangeNotifier {
 
     final sortedDepths = levelsByDepth.keys.toList()..sort();
 
-    // 3. Construire les SagaNodes et calculer la progression
+    // 3. Charger TOUS les scores en 1 seule requête SQL avant la boucle
+    final scoresGrouped = await _statsService.scoreRepo.getAllScoresGroupedByType();
+    final recogScores = scoresGrouped["RECOGNITION"] ?? {};
+    final readScores = scoresGrouped["READING"] ?? {};
+    final writingScores = scoresGrouped["WRITING"] ?? {};
+    final grammarScores = scoresGrouped["GRAMMAR"] ?? {};
+
+    // 4. Construire les SagaNodes et calculer la progression en mémoire
     _steps = [];
     _nodeProgress = {};
 
@@ -167,23 +174,27 @@ class SagaProvider extends ChangeNotifier {
           title: level.name,
           recognitionId: level.activities["RECOGNITION"]?.dataFile == "kanji_details" ? level.id : level.activities["RECOGNITION"]?.dataFile,
           readingId: level.activities["READING"]?.dataFile == "kanji_details" ? level.id : level.activities["READING"]?.dataFile,
+          writingId: level.activities["WRITING"]?.dataFile == "kanji_details" ? level.id : level.activities["WRITING"]?.dataFile,
           grammarId: level.activities["GRAMMAR"]?.dataFile,
           mainType: mainType,
         );
         nodes.add(sagaNode);
 
-        // Calculer la progression réelle pour ce nœud
-        final recogP = sagaNode.recognitionId != null ? await _statsService.getPercentageForLevel(sagaNode.recognitionId!, ScoreType.recognition, locale) : 0;
-        final readP = sagaNode.readingId != null ? await _statsService.getPercentageForLevel(sagaNode.readingId!, ScoreType.reading, locale) : 0;
-        final grammarP = sagaNode.grammarId != null ? await _statsService.getPercentageForLevel(sagaNode.grammarId!, ScoreType.grammar, locale) : 0;
+        // Calculer la progression réelle pour ce nœud à partir du cache en mémoire
+        final recogP = sagaNode.recognitionId != null ? await _statsService.getPercentageForLevel(sagaNode.recognitionId!, ScoreType.recognition, locale, recogScores) : 0;
+        final readP = sagaNode.readingId != null ? await _statsService.getPercentageForLevel(sagaNode.readingId!, ScoreType.reading, locale, readScores) : 0;
+        final writingP = sagaNode.writingId != null ? await _statsService.getPercentageForLevel(sagaNode.writingId!, ScoreType.writing, locale, writingScores) : 0;
+        final grammarP = sagaNode.grammarId != null ? await _statsService.getPercentageForLevel(sagaNode.grammarId!, ScoreType.grammar, locale, grammarScores) : 0;
 
         _nodeProgress[level.id] = UserSagaProgress(
           recognitionIndex: recogP,
           readingIndex: readP,
+          writingIndex: writingP,
           grammarIndex: grammarP,
           nodeProgress: {
             if (sagaNode.recognitionId != null) sagaNode.recognitionId!: recogP,
             if (sagaNode.readingId != null) sagaNode.readingId!: readP,
+            if (sagaNode.writingId != null) sagaNode.writingId!: writingP,
             if (sagaNode.grammarId != null) sagaNode.grammarId!: grammarP,
           }
         );

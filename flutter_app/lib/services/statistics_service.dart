@@ -1,3 +1,4 @@
+import '../db/database.dart';
 import '../repositories/score_repository.dart';
 import '../services/level_content_provider.dart';
 
@@ -12,13 +13,20 @@ class StatisticsService {
 
   /// Calcule le pourcentage de maîtrise (0-100) pour un niveau donné.
   /// Basé sur la règle métier Kotlin : chaque item maîtrisé vaut 10 points.
-  Future<int> getPercentageForLevel(String levelId, ScoreType type, String locale) async {
+  Future<int> getPercentageForLevel(
+    String levelId, 
+    ScoreType type, 
+    String locale, 
+    [Map<String, LearningScoreEntity>? preloadedScores]
+  ) async {
     final items = await levelContentProvider.getItemsForLevel(levelId, type, locale);
     if (items.isEmpty) return 0;
 
     double totalPoints = 0;
     for (var item in items) {
-      final score = await scoreRepo.getScore(item, type);
+      final score = preloadedScores != null 
+          ? preloadedScores[item] 
+          : await scoreRepo.getScore(item, type);
       if (score != null) {
         // Balance succès - échecs, plafonnée entre 0 et 10
         final balance = score.successes - score.failures;

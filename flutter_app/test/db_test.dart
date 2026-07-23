@@ -115,5 +115,16 @@ void main() {
     expect(score, isNotNull);
     expect(score!.successes, equals(8));
   });
+
+  test('Test getAllScoresGroupedByType returns batch map of scores', () async {
+    await scoreRepo.saveScore(key: '日', wasCorrect: true, type: ScoreType.recognition);
+    await scoreRepo.saveScore(key: '月', wasCorrect: true, type: ScoreType.reading);
+
+    final map = await scoreRepo.getAllScoresGroupedByType();
+    expect(map.containsKey('RECOGNITION'), isTrue);
+    expect(map['RECOGNITION']?.containsKey('日'), isTrue);
+    expect(map.containsKey('READING'), isTrue);
+    expect(map['READING']?.containsKey('月'), isTrue);
+  });
 }
 
