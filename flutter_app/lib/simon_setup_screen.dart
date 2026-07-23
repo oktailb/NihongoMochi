@@ -196,14 +196,13 @@ class _SimonSetupScreenState extends State<SimonSetupScreen> {
   }
 
   String _formatString(SettingsProvider settings, String key, String fallback, String value) {
-    final raw = settings.getString(key);
-    final text = raw.isNotEmpty ? raw : fallback;
-    if (text.contains("%")) {
-      return text
-          .replaceAll("%1\$d", value)
-          .replaceAll("%1%d", value)
-          .replaceAll("%d", value);
+    final result = settings.getString(key, [value]);
+    if (result != key && !result.contains('{param1}')) {
+      return result;
     }
-    return "$text $value";
+    if (fallback.contains('%d')) {
+      return fallback.replaceAll('%d', value);
+    }
+    return "$fallback $value";
   }
 }

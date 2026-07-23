@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../models/simon.dart';
 import '../models/kana.dart';
-import '../repositories/kanji_repository.dart';
 import '../repositories/kana_repository.dart';
 import '../repositories/dictionary_repository.dart';
 import '../repositories/settings_repository.dart';
@@ -22,7 +21,6 @@ class SimonProvider extends ChangeNotifier {
   final AudioService _audioService;
 
   SimonProvider(
-    KanjiRepository kanjiRepo,
     this._kanaRepo,
     this._dictionaryRepo,
     this._settingsRepo,

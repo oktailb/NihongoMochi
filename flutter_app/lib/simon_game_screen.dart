@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'models/quiz_models.dart';
 import 'models/simon.dart';
 import 'providers/simon_provider.dart';
 import 'providers/settings_provider.dart';
@@ -33,11 +34,11 @@ class SimonGameScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(title, style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back, color: Theme.of(context).colorScheme.onSurface),
             onPressed: () => _showExitDialog(context, provider),
           ),
         ),
@@ -59,16 +60,15 @@ class SimonGameScreen extends StatelessWidget {
                       secondaryValue: bestScore.toString(),
                       timeSeconds: provider.gameTimeSeconds,
                     ),
-                    Expanded(
-                      child: Center(
-                        child: AnimatedOpacity(
-                          opacity: provider.isKanjiVisible ? 1.0 : 0.0,
-                          duration: const Duration(milliseconds: 300),
-                          child: _buildQuestionCard(context, provider.currentPlayable?.character ?? ""),
-                        ),
-                      ),
+                    const Spacer(),
+                    AnimatedOpacity(
+                      opacity: provider.isKanjiVisible ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 300),
+                      child: _buildQuestionCard(context, provider.currentPlayable?.character ?? ""),
                     ),
+                    const Spacer(),
                     _buildAnswerButtons(context, provider),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
@@ -102,20 +102,29 @@ class SimonGameScreen extends StatelessWidget {
 
   Widget _buildQuestionCard(BuildContext context, String text) {
     final theme = Theme.of(context);
+    final double cardSize = (MediaQuery.of(context).size.shortestSide * 0.55).clamp(160.0, 240.0);
+    final double fontSize = text.length <= 2 ? 80.0 : (text.length <= 6 ? 40.0 : 24.0);
+
     return Card(
-      elevation: 8,
+      elevation: 12,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      color: Colors.white.withValues(alpha: 0.95),
       child: Container(
-        width: 240,
-        height: 240,
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 90,
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.primary,
+        width: cardSize,
+        height: cardSize,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
+            ),
           ),
         ),
       ),
@@ -123,57 +132,56 @@ class SimonGameScreen extends StatelessWidget {
   }
 
   Widget _buildAnswerButtons(BuildContext context, SimonProvider provider) {
-    // Keep space when buttons are not visible to avoid layout jump
     if (!provider.isButtonsVisible) {
-      return const SizedBox(height: 180);
+      return const SizedBox(height: 140);
     }
 
-    final theme = Theme.of(context);
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: GridView.builder(
-        shrinkWrap: true,
-        padding: EdgeInsets.zero,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 2.2,
-        ),
-        itemCount: provider.answers.length,
-        itemBuilder: (context, index) {
-          final entry = provider.answers[index];
-          return ElevatedButton(
-            onPressed: () => provider.onAnswerClick(entry.key),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white.withValues(alpha: 0.95),
-              foregroundColor: theme.colorScheme.onSurface,
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-                side: BorderSide(color: theme.colorScheme.primary.withValues(alpha: 0.2)),
-              ),
-            ),
-            child: Text(
-              entry.value,
-              style: TextStyle(
-                fontSize: _calculateFontSize(entry.value),
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          );
-        },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              _buildButton(0, provider),
+              const SizedBox(width: 12),
+              _buildButton(1, provider),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              _buildButton(2, provider),
+              const SizedBox(width: 12),
+              _buildButton(3, provider),
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  double _calculateFontSize(String text) {
-    if (text.length > 8) return 14;
-    if (text.length > 5) return 18;
-    return 22;
+  Widget _buildButton(int index, SimonProvider provider) {
+    if (index >= provider.answers.length) return const Expanded(child: SizedBox.shrink());
+
+    final entry = provider.answers[index];
+
+    return Expanded(
+      child: GameAnswerButton(
+        text: entry.value,
+        state: AnswerButtonState.defaultState,
+        enabled: provider.gameState == SimonGameState.awaitingInput,
+        fontSize: _calculateButtonFontSize(entry.value),
+        onClick: () => provider.onAnswerClick(entry.key),
+      ),
+    );
+  }
+
+  double _calculateButtonFontSize(String text) {
+    if (text.length <= 2) return 28.0;
+    if (text.length <= 6) return 20.0;
+    if (text.length <= 15) return 15.0;
+    if (text.length <= 30) return 12.0;
+    return 10.0;
   }
 
   String _formatGameTimeHUD(int seconds) {
@@ -212,3 +220,4 @@ class SimonGameScreen extends StatelessWidget {
     );
   }
 }
+

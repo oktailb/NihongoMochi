@@ -161,7 +161,6 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => SimonProvider(
-            context.read<KanjiRepository>(),
             context.read<KanaRepository>(),
             context.read<DictionaryRepository>(),
             context.read<SettingsRepository>(),
