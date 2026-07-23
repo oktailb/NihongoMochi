@@ -97,24 +97,6 @@ flutter:
     - assets/files/meanings/
     - assets/files/sounds/
     - assets/drawable/
-    - assets/values/
-    - assets/values-ar-rSA/
-    - assets/values-bn-rBD/
-    - assets/values-de-rDE/
-    - assets/values-en-rGB/
-    - assets/values-es-rES/
-    - assets/values-fr-rFR/
-    - assets/values-in-rID/
-    - assets/values-it-rIT/
-    - assets/values-ja-rJP/
-    - assets/values-ko-rKR/
-    - assets/values-mn-rMN/
-    - assets/values-pt-rBR/
-    - assets/values-ru-rRU/
-    - assets/values-th-rTH/
-    - assets/values-ua-rUA/
-    - assets/values-vi-rVN/
-    - assets/values-zh-rCN/
     - assets/font/
 
   fonts:

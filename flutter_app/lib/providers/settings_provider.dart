@@ -40,8 +40,7 @@ class SettingsProvider extends ChangeNotifier {
   String getString(String key, [List<dynamic>? args]) => stringProvider.getString(key, args);
 
   Future<void> _loadStringsForLocale(String localeCode) async {
-    String folderLocale = localeCode.replaceAll('_', '-r');
-    await stringProvider.loadStrings(folderLocale);
+    await stringProvider.loadStrings(localeCode);
   }
 
   void _loadSettings() {
