@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'build_info.g.dart';
 import 'widgets/mochi_background.dart';
 import 'providers/settings_provider.dart';
 
@@ -14,6 +15,7 @@ class AboutScreen extends StatefulWidget {
 
 class _AboutScreenState extends State<AboutScreen> {
   String _version = "0.9.8";
+  String _buildDate = "";
 
   @override
   void initState() {
@@ -23,9 +25,17 @@ class _AboutScreenState extends State<AboutScreen> {
 
   Future<void> _loadPackageInfo() async {
     final info = await PackageInfo.fromPlatform();
-    setState(() {
-      _version = info.version;
-    });
+    
+    final year = kBuildTimestamp.year;
+    final month = kBuildTimestamp.month.toString().padLeft(2, '0');
+    final day = kBuildTimestamp.day.toString().padLeft(2, '0');
+
+    if (mounted) {
+      setState(() {
+        _version = info.version;
+        _buildDate = "$year-$month-$day";
+      });
+    }
   }
 
   Future<void> _launchUrl(String url) async {
@@ -84,7 +94,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   icon: Icons.info_outline,
                   children: [
                     _buildInfoRow(context, settings.getString("about_version_label"), _version),
-                    _buildInfoRow(context, settings.getString("about_date_label"), "2026"),
+                    _buildInfoRow(context, settings.getString("about_date_label"), _buildDate),
                     const SizedBox(height: 16),
                     Row(
                       children: [
