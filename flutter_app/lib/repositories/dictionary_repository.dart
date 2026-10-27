@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../models/dictionary.dart';
 import '../services/resource_loader.dart';
 
@@ -74,7 +75,7 @@ class DictionaryRepository {
           }
         }
       } catch (e) {
-        print("Meanings for $effectiveLocale not found, fallback to en_GB: $e");
+        debugPrint("Meanings for $effectiveLocale not found, fallback to en_GB: $e");
         try {
            final String meaningsJsonStr = await _loader.loadString('meanings.json', locale: 'en_GB');
            final decoded = json.decode(meaningsJsonStr);
@@ -167,7 +168,7 @@ class DictionaryRepository {
 
       return _cachedAllKanji!;
     } catch (e) {
-      print("Error loading dictionary: $e");
+      debugPrint("Error loading dictionary: $e");
       return [];
     }
   }

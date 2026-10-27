@@ -199,7 +199,7 @@ class _WordListViewState extends State<WordListView> with RouteAware {
 
   Widget _buildWordList(BuildContext context, WordListProvider provider) {
     if (provider.displayedWords.isEmpty) {
-      return const Center(child: Text("Aucun mot trouvé."));
+      return Center(child: Text(context.read<SettingsProvider>().getString("no_words_found")));
     }
     return Wrap(
       spacing: 8,

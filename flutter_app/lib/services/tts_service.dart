@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../repositories/settings_repository.dart';
 
@@ -36,7 +38,7 @@ class TtsService {
         _availableVoices = highQualityGoogle.isNotEmpty ? highQualityGoogle : jaVoices;
       }
     } catch (e) {
-      print("Error loading TTS voices: $e");
+      debugPrint("Error loading TTS voices: $e");
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:just_audio/just_audio.dart';
+import 'package:flutter/foundation.dart';
 import '../repositories/settings_repository.dart';
 
 class AudioService {
@@ -27,7 +28,7 @@ class AudioService {
         }
       });
     } catch (e) {
-      print("Erreur AudioService (playSound): $e");
+      debugPrint("Erreur AudioService (playSound): $e");
     }
   }
 

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/snake.dart';
+import '../models/dictionary.dart';
 import '../repositories/score_repository.dart';
 import '../repositories/word_repository.dart';
 import '../repositories/settings_repository.dart';
@@ -45,7 +46,7 @@ class SnakeProvider extends ChangeNotifier {
   Timer? _gameTimer;
   Timer? _tickTimer;
   List<String> _itemSequence = [];
-  dynamic _currentWord; // WordEntry but dynamic for now
+  WordEntry? _currentWord;
 
   Future<void> _loadHistory() async {
     try {

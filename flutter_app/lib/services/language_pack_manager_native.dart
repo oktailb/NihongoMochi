@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:archive/archive.dart';
 import 'package:crypto/crypto.dart';
@@ -91,7 +92,7 @@ class NativeLanguagePackManager implements LanguagePackManager {
       _statusController.add(_statusMap);
       return true;
     } catch (e) {
-      print("Download error: $e");
+      debugPrint("Download error: $e");
       _statusMap[locale] = DownloadStatus.error;
       _statusController.add(_statusMap);
       return false;

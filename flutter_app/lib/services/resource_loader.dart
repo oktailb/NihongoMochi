@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'language_pack_manager.dart';
 
@@ -17,7 +18,7 @@ class ResourceLoader {
       if (downloaded != null) return downloaded;
     } catch (e) {
       // Log error but continue to fallback
-      print("ResourceLoader: Error loading $fileName from local storage: $e");
+      debugPrint("ResourceLoader: Error loading $fileName from local storage: $e");
     }
 
     // 2. Try assets

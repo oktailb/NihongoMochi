@@ -753,5 +753,16 @@
   "tutorial_home_vocabulary": "Practice Kanji recognition, reading, and writing here.",
   "tutorial_home_grammar": "Learn Japanese grammar rules and verb conjugations.",
   "tutorial_home_utilities": "Access games, dictionary, and your learning results here.",
-  "settings_audio_volume": "Audio effects volume"
+  "settings_audio_volume": "Audio effects volume",
+  "kanji_meanings": "Meanings",
+  "kanji_readings": "Readings",
+  "readings_on": "ON (Chinese)",
+  "readings_kun": "KUN (Japanese)",
+  "section_decomposition": "Decomposition",
+  "section_examples": "Examples",
+  "kanji_not_found": "Kanji not found",
+  "no_examples_found": "No examples available",
+  "no_items_found_level": "No items found for this level.",
+  "no_words_found": "No words found.",
+  "word_not_found": "Word not found"
 }

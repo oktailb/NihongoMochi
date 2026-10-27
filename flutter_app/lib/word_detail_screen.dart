@@ -59,7 +59,7 @@ class WordDetailView extends StatelessWidget {
           child: provider.isLoading
               ? const Center(child: CircularProgressIndicator())
               : provider.word == null
-                  ? const Center(child: Text("Mot non trouvé"))
+                  ? Center(child: Text(settings.getString("word_not_found")))
                   : SingleChildScrollView(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(

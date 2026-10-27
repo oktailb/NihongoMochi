@@ -199,7 +199,7 @@ class _WritingRecapViewState extends State<WritingRecapView> with RouteAware {
 
   Widget _buildKanjiGrid(WritingRecapProvider provider) {
     if (provider.kanjiListWithColors.isEmpty) {
-      return const Center(child: Text("Aucun item trouvé pour ce niveau."));
+      return Center(child: Text(context.read<SettingsProvider>().getString("no_items_found_level")));
     }
     return GridView.builder(
       padding: const EdgeInsets.all(12),

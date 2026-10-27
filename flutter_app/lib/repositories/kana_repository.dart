@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../models/kana.dart';
 import '../services/resource_loader.dart';
 
@@ -29,7 +30,7 @@ class KanaRepository {
 
       return result;
     } catch (e) {
-      print("Error loading kana data: $e");
+      debugPrint("Error loading kana data: $e");
       return [];
     }
   }
@@ -40,7 +41,7 @@ class KanaRepository {
       final Map<String, dynamic> jsonData = json.decode(jsonString);
       return NumberData.fromJson(jsonData).numbers;
     } catch (e) {
-      print("Error loading numbers: $e");
+      debugPrint("Error loading numbers: $e");
       return [];
     }
   }

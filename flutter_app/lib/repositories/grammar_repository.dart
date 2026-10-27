@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../models/grammar.dart';
 import '../services/resource_loader.dart';
 
@@ -28,7 +29,7 @@ class GrammarRepository {
 
       return _definition!;
     } catch (e) {
-      print("Error loading grammar: $e");
+      debugPrint("Error loading grammar: $e");
       return GrammarDefinition(
         version: "0",
         metadata: GrammarMetadata(levels: [], categories: []),

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'language_pack_manager.dart';
 
@@ -36,7 +37,7 @@ class WebLanguagePackManager implements LanguagePackManager {
         return response.body;
       }
     } catch (e) {
-      print("WebLanguagePackManager: error fetching $fileName: $e");
+      debugPrint("WebLanguagePackManager: error fetching $fileName: $e");
     }
     return null;
   }

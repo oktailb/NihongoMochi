@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../services/resource_loader.dart';
 
 class WordMeaningRepository {
@@ -48,7 +49,7 @@ class WordMeaningRepository {
       _cachedMeanings[locale] = meaningsMap;
       return meaningsMap;
     } catch (e) {
-      print("Error loading word meanings for $locale: $e");
+      debugPrint("Error loading word meanings for $locale: $e");
       // Fallback vers l'anglais si ce n'est pas déjà la langue demandée
       if (locale != 'en' && locale != 'en_GB') {
         return getWordMeanings('en');

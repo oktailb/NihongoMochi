@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../services/resource_loader.dart';
 
 class WordEntry {
@@ -52,7 +53,7 @@ class WordRepository {
       _allWordsCache = wordsData.map((w) => WordEntry.fromJson(w)).toList();
       return _allWordsCache!;
     } catch (e) {
-      print("Error loading words: $e");
+      debugPrint("Error loading words: $e");
       return [];
     }
   }

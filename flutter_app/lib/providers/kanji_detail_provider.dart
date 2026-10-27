@@ -83,7 +83,7 @@ class KanjiDetailProvider extends ChangeNotifier {
           );
         }).take(10).toList();
       } catch (e) {
-        print("Error loading examples in detail provider: $e");
+        debugPrint("Error loading examples in detail provider: $e");
         _examples = [];
       }
     }

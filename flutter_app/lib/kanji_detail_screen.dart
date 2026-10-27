@@ -62,7 +62,7 @@ class KanjiDetailView extends StatelessWidget {
           child: provider.isLoading
               ? const Center(child: CircularProgressIndicator())
               : provider.kanji == null
-                  ? const Center(child: Text("Kanji non trouvé"))
+                  ? Center(child: Text(settings.getString("kanji_not_found")))
                   : SingleChildScrollView(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
@@ -78,7 +78,7 @@ class KanjiDetailView extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: _buildReadingColumn(
-                                  "ON (Chinese)",
+                                  settings.getString("readings_on"),
                                   provider.kanji!.readings.where((r) => r.type == 'on').toList(),
                                   true,
                                   theme,
@@ -87,7 +87,7 @@ class KanjiDetailView extends StatelessWidget {
                               const SizedBox(width: 16),
                               Expanded(
                                 child: _buildReadingColumn(
-                                  "KUN (Japanese)",
+                                  settings.getString("readings_kun"),
                                   provider.kanji!.readings.where((r) => r.type == 'kun').toList(),
                                   false,
                                   theme,
@@ -106,7 +106,7 @@ class KanjiDetailView extends StatelessWidget {
                             _buildComponentsSection(context, provider, theme),
                           ],
                           const SizedBox(height: 24),
-                          _buildSectionHeader("EXAMPLES", theme),
+                          _buildSectionHeader(settings.getString("section_examples").toUpperCase(), theme),
                           _buildExamplesList(context, provider.examples, theme),
                         ],
                       ),
@@ -349,7 +349,7 @@ class KanjiDetailView extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         alignment: Alignment.center,
-        child: const Text("Aucun exemple disponible", style: TextStyle(color: Colors.grey)),
+        child: Text(context.read<SettingsProvider>().getString("no_examples_found"), style: const TextStyle(color: Colors.grey)),
       );
     }
     return Column(

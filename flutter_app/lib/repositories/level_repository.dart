@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import '../models/level.dart';
 import '../services/resource_loader.dart';
 
@@ -17,7 +18,7 @@ class LevelRepository {
       _definitions = LevelDefinitions.fromJson(jsonData);
       return _definitions!;
     } catch (e) {
-      print("Error loading levels: $e");
+      debugPrint("Error loading levels: $e");
       return LevelDefinitions(version: "0", sections: {}, activityTypes: {});
     }
   }
